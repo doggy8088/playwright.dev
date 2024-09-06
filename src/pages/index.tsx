@@ -1,32 +1,32 @@
-import React from "react";
-import clsx from "clsx";
-import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import clsx from "clsx";
+import React from "react";
 import GitHubStarButton from '../components/GitHubStarButton';
 import styles from "./styles.module.css";
 
 const features = [
   {
-    title: "Any browser \u2022 Any platform \u2022 One API",
+    title: "任何瀏覽器 \u2022 任何平台 \u2022 一個 API",
     description: <>
       <p>
-        <b>Cross-browser.</b> Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox.
+        <b>跨瀏覽器。</b> Playwright 支援所有現代渲染引擎，包括 Chromium、WebKit 和 Firefox。
       </p>
       <p>
-        <b>Cross-platform.</b> Test on Windows, Linux, and macOS, locally or on CI, headless or headed.
+        <b>跨平台。</b> 在 Windows、Linux 和 macOS 上進行測試，本地或在 CI 上，無頭或有頭。
       </p>
       <p>
-        <b>Cross-language.</b> Use the Playwright API in <a
-        href="https://playwright.dev/docs/intro">TypeScript</a>, <a
-        href="https://playwright.dev/docs/intro">JavaScript</a>, <a
-        href="https://playwright.dev/python/docs/intro">Python</a>, <a
-        href="https://playwright.dev/dotnet/docs/intro">.NET</a>, <a
-        href="https://playwright.dev/java/docs/intro">Java</a>.
+        <b>跨語言。</b> 使用 Playwright API 在 <a
+        href="https://playwright.dev/docs/intro">TypeScript</a>、<a
+        href="https://playwright.dev/docs/intro">JavaScript</a>、<a
+        href="https://playwright.dev/python/docs/intro">Python</a>、<a
+        href="https://playwright.dev/dotnet/docs/intro">.NET</a>、<a
+        href="https://playwright.dev/java/docs/intro">Java</a> 中。
       </p>
       <p>
-        <b>Test Mobile Web.</b> Native mobile emulation of Google Chrome for Android and Mobile Safari. The same rendering engine works on your Desktop and in the Cloud.
+        <b>測試行動網頁。</b> Google Chrome for Android 和 Mobile Safari 的原生行動模擬。相同的渲染引擎在您的桌面和雲端中運行。
       </p>
     </>,
   },
@@ -35,45 +35,36 @@ const features = [
   {
   },
   {
-    title: "Resilient \u2022 No flaky tests",
+    title: "可靠 \u2022 無不穩定測試",
     description: (
       <>
         <p>
-          <b>Auto-wait.</b> Playwright waits for elements to be actionable prior to performing
-          actions. It also has a rich set of introspection events. The combination of the two
-          eliminates the need for artificial timeouts - the primary cause of flaky tests.
+          <b>自動等待。</b> Playwright 在執行操作之前等待元素可操作。它還有一套豐富的內省事件。兩者的結合消除了人工超時的需要 - 這是導致不穩定測試的主要原因。
         </p>
         <p>
-          <b>Web-first assertions.</b> Playwright assertions are created specifically for the
-          dynamic web. Checks are automatically retried until the necessary conditions are met.
+          <b>以網頁為主的斷言。</b> Playwright 斷言專為動態網頁設計。檢查會自動重試，直到滿足必要條件。
         </p>
         <p>
-          <b>Tracing.</b> Configure test retry strategy, capture execution trace, videos, screenshots
-          to eliminate flakes.
+          <b>追蹤。</b> 配置測試重試策略，捕獲執行追蹤、影片、截圖以消除不穩定性。
         </p>
       </>
     ),
   },
   {
-    title: "No trade-offs \u2022 No limits",
+    title: "無妥協 \u2022 無限制",
     description: (
       <>
         <p>
-          Browsers run web content belonging to different origins in different processes.
-          Playwright is aligned with the modern browsers architecture and runs tests out-of-process.
-          This makes Playwright free of the typical in-process test runner limitations.
+          瀏覽器在不同進程中運行屬於不同來源的網頁內容。Playwright 與現代瀏覽器架構保持一致，並在進程外運行測試。這使得 Playwright 擺脫了典型的進程內測試運行器限制。
         </p>
         <p>
-          <b>Multiple everything.</b> Test scenarios that span multiple <b>tabs</b>, multiple <b>origins</b> and multiple <b>users</b>.
-          Create scenarios with different contexts for different users and run them against your server, all in one test.
+          <b>多重一切。</b> 測試場景涵蓋多個 <b>標籤頁</b>、多個 <b>來源</b> 和多個 <b>用戶</b>。為不同用戶創建不同上下文的場景，並在一個測試中對您的服務器進行測試。
         </p>
         <p>
-          <b>Trusted events.</b> Hover elements, interact with dynamic controls, produce trusted events.
-          Playwright uses real browser input pipeline indistinguishable from the real user.
+          <b>可信事件。</b> 懸停元素，與動態控件交互，生成可信事件。Playwright 使用真實的瀏覽器輸入管道，與真實用戶無法區分。
         </p>
         <p>
-          <b>Test frames, pierce Shadow DOM.</b> Playwright selectors pierce shadow DOM and
-          allow entering frames seamlessly.
+          <b>測試框架，穿透 Shadow DOM。</b> Playwright 選擇器穿透 Shadow DOM，並允許無縫進入框架。
         </p>
       </>
     ),
@@ -83,34 +74,30 @@ const features = [
   {
   },
   {
-    title: "Full isolation \u2022 Fast execution",
+    title: "完全隔離 \u2022 快速執行",
     description: (
       <>
         <p>
-          <b>Browser contexts.</b> Playwright creates a browser context for each test. Browser
-          context is equivalent to a brand new browser profile. This delivers full test isolation
-          with zero overhead. Creating a new browser context only takes a handful of milliseconds.
+          <b>瀏覽器上下文。</b> Playwright 為每個測試創建一個瀏覽器上下文。瀏覽器上下文相當於一個全新的瀏覽器配置文件。這提供了完全的測試隔離，且沒有任何開銷。創建一個新的瀏覽器上下文只需幾毫秒。
         </p>
         <p>
-          <b>Log in once.</b> Save the authentication state of the context and reuse it in all the tests.
-          This bypasses repetitive log-in operations in each test, yet delivers full isolation of independent tests.
+          <b>一次登錄。</b> 保存上下文的身份驗證狀態，並在所有測試中重用它。這繞過了每個測試中的重複登錄操作，但仍提供了獨立測試的完全隔離。
         </p>
       </>
     ),
   },
   {
-    title: "Powerful Tooling",
+    title: "強大的工具",
     description: (
       <>
         <p>
-          <b><a href="docs/codegen">Codegen.</a></b> Generate tests by recording your actions. Save them into any language.
+          <b><a href="docs/codegen">代碼生成器。</a></b> 通過記錄您的操作生成測試。將它們保存到任何語言中。
         </p>
         <p>
-          <b><a href="docs/debug#playwright-inspector">Playwright inspector.</a></b> Inspect page, generate selectors, step through the test execution, see click points, explore execution logs.
+          <b><a href="docs/debug#playwright-inspector">Playwright 檢查器。</a></b> 檢查頁面，生成選擇器，逐步執行測試，查看點擊點，探索執行日誌。
         </p>
         <p>
-          <b><a href="docs/trace-viewer-intro">Trace Viewer.</a></b> Capture all the information to investigate the test failure. Playwright trace
-          contains test execution screencast, live DOM snapshots, action explorer, test source, and many more.
+          <b><a href="docs/trace-viewer-intro">追蹤查看器。</a></b> 捕獲所有信息以調查測試失敗。Playwright 追蹤包含測試執行截屏、實時 DOM 快照、操作探索器、測試源代碼等。
         </p>
       </>
     ),
@@ -156,7 +143,7 @@ const FeatureRow: React.FC<FeatureRowProps> = ({ title, description, videoUrl, i
     <div className={"col col--7"}>
       <video muted controls loop>
         <source src={videoUrl} type="video/mp4" />
-        Your browser does not support the video tag.
+        您的瀏覽器不支援影片標籤。
       </video>
     </div>
   );
@@ -214,20 +201,19 @@ const Home: React.FC = () => {
   return (
     <Layout
       title={siteConfig.tagline}
-      description="Cross-browser end-to-end testing for modern web apps"
+      description="現代網頁應用的跨瀏覽器端到端測試"
     >
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className={clsx("hero__title", styles.heroTitle)}>
-            <span className={styles.highlight}>Playwright</span> enables
-            reliable end-to-end testing for modern web apps.
+            <span className={styles.highlight}>Playwright</span> 使現代網頁應用的端到端測試變得可靠。
           </h1>
           <div className={styles.buttons}>
             <Link
               className={styles.getStarted}
               to={useBaseUrl("docs/intro")}
             >
-              Get started
+              開始使用
             </Link>
             <GitHubStarButton owner="microsoft" repo={siteConfig.customFields.repositoryName as string}/>
           </div>
@@ -238,7 +224,7 @@ const Home: React.FC = () => {
         <br></br>
         <br></br>
         <div style={{textAlign: 'center'}}>
-          <img src="img/logos/Browsers.png" width="40%" alt="Browsers (Chromium, Firefox, WebKit)" />
+          <img src="img/logos/Browsers.png" width="40%" alt="瀏覽器 (Chromium, Firefox, WebKit)" />
         </div>
         <section className={styles.features}>
           <div className="container">
@@ -254,7 +240,7 @@ const Home: React.FC = () => {
           <div className="container">
             <div className="row">
               <div className={clsx("col col--12", styles.logosColumn)}>
-                <h2>Chosen by companies and open source projects</h2>
+                <h2>被公司和開源專案選擇</h2>
                 <ul className={styles.logosList}>
                   {logos.map(({ imageUrl, href, alt }, idx) => (
                     <li key={idx}>
