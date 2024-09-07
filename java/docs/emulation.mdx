@@ -1,0 +1,226 @@
+---
+id: emulation
+title: "Emulation"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import HTMLCard from '@site/src/components/HTMLCard';
+
+## Introduction
+
+With Playwright you can test your app on any browser as well as emulate a real device such as a mobile phone or tablet. Simply configure the devices you would like to emulate and Playwright will simulate the browser behavior such as `"userAgent"`, `"screenSize"`, `"viewport"` and if it `"hasTouch"` enabled. You can also emulate the `"geolocation"`, `"locale"` and `"timezone"` for all tests or for a specific test as well as set the `"permissions"` to show notifications or change the `"colorScheme"`.
+
+## Devices
+
+Playwright can emulate various devices by specifying `setDeviceScaleFactor`, `setHasTouch`, `setIsMobile`, `setScreenSize`, `setUserAgent` and `setViewportSize` options when creating a context with [Browser.newContext()](/api/class-browser.mdx#browser-new-context).
+
+## Viewport
+
+The viewport is included in the device but you can override it for some tests with [Page.setViewportSize()](/api/class-page.mdx#page-set-viewport-size).
+
+Test file:
+
+The same works inside a test file.
+
+```java
+// Create context with given viewport
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+  .setViewportSize(1280, 1024));
+
+// Resize viewport for individual page
+page.setViewportSize(1600, 1200);
+
+// Emulate high-DPI
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+  .setViewportSize(2560, 1440)
+  .setDeviceScaleFactor(2);
+```
+
+## isMobile
+
+Whether the meta viewport tag is taken into account and touch events are enabled.
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+  .isMobile(false));
+```
+
+## Locale & Timezone
+
+Emulate the user Locale and Timezone which can be set globally for all tests in the config and then overridden for particular tests.
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+  .setLocale("de-DE")
+  .setTimezoneId("Europe/Berlin"));
+```
+
+<img width="1394" alt="Bing in german lang and timezone" src="https://user-images.githubusercontent.com/13063165/220416571-ccc96ab1-44bb-4579-8430-64502fc24a15.png" />
+
+## Permissions
+
+Allow app to show system notifications.
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+  .setPermissions(Arrays.asList("notifications"));
+```
+
+Allow notifications for a specific domain.
+
+```java
+context.grantPermissions(Arrays.asList("notifications"),
+  new BrowserContext.GrantPermissionsOptions().setOrigin("https://skype.com"));
+```
+
+Revoke all permissions with [BrowserContext.clearPermissions()](/api/class-browsercontext.mdx#browser-context-clear-permissions).
+
+```java
+context.clearPermissions();
+```
+
+## Geolocation
+
+Grant `"geolocation"` permissions and set geolocation to a specific area.
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+  .setGeolocation(41.890221, 12.492348)
+  .setPermissions(Arrays.asList("geolocation")));
+```
+
+<img width="1394" alt="geolocation for italy on bing maps" src="https://user-images.githubusercontent.com/13063165/220417670-bb22d815-f5cd-47c4-8562-0b88165eac27.png" />
+
+Change the location later:
+
+```java
+context.setGeolocation(new Geolocation(48.858455, 2.294474));
+```
+
+**Note** you can only change geolocation for all pages in the context.
+
+## Color Scheme and Media
+
+Emulate the users `"colorScheme"`. Supported values are 'light', 'dark', 'no-preference'. You can also emulate the media type with [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
+
+```java
+// Create context with dark mode
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+  .setColorScheme(ColorScheme.DARK)); // or "light"
+
+// Create page with dark mode
+Page page = browser.newPage(new Browser.NewPageOptions()
+  .setColorScheme(ColorScheme.DARK)); // or "light"
+
+// Change color scheme for the page
+page.emulateMedia(new Page.EmulateMediaOptions().setColorScheme(ColorScheme.DARK));
+
+// Change media for page
+page.emulateMedia(new Page.EmulateMediaOptions().setMedia(Media.PRINT));
+```
+
+<img width="1394" alt="playwright web in dark mode" src="https://user-images.githubusercontent.com/13063165/220411638-55d2b051-4678-4da7-9f0b-ed22f5a3c47c.png" />
+
+## User Agent
+
+The User Agent is included in the device and therefore you  will rarely need to change it however if you do need to test a different user agent you can override it with the `userAgent` property.
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+  .setUserAgent("My user agent"));
+```
+
+## Offline
+
+Emulate the network being offline.
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+  .setOffline(true));
+```
+
+## JavaScript Enabled
+
+Emulate a user scenario where JavaScript is disabled.
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+  .javaScriptEnabled(false));
+```
+
+
+[APIRequest]: /api/class-apirequest.mdx "APIRequest"
+[APIRequestContext]: /api/class-apirequestcontext.mdx "APIRequestContext"
+[APIResponse]: /api/class-apiresponse.mdx "APIResponse"
+[APIResponseAssertions]: /api/class-apiresponseassertions.mdx "APIResponseAssertions"
+[Browser]: /api/class-browser.mdx "Browser"
+[BrowserContext]: /api/class-browsercontext.mdx "BrowserContext"
+[BrowserType]: /api/class-browsertype.mdx "BrowserType"
+[CDPSession]: /api/class-cdpsession.mdx "CDPSession"
+[Clock]: /api/class-clock.mdx "Clock"
+[ConsoleMessage]: /api/class-consolemessage.mdx "ConsoleMessage"
+[Dialog]: /api/class-dialog.mdx "Dialog"
+[Download]: /api/class-download.mdx "Download"
+[ElementHandle]: /api/class-elementhandle.mdx "ElementHandle"
+[FileChooser]: /api/class-filechooser.mdx "FileChooser"
+[FormData]: /api/class-formdata.mdx "FormData"
+[Frame]: /api/class-frame.mdx "Frame"
+[FrameLocator]: /api/class-framelocator.mdx "FrameLocator"
+[JSHandle]: /api/class-jshandle.mdx "JSHandle"
+[Keyboard]: /api/class-keyboard.mdx "Keyboard"
+[Locator]: /api/class-locator.mdx "Locator"
+[LocatorAssertions]: /api/class-locatorassertions.mdx "LocatorAssertions"
+[Mouse]: /api/class-mouse.mdx "Mouse"
+[Page]: /api/class-page.mdx "Page"
+[PageAssertions]: /api/class-pageassertions.mdx "PageAssertions"
+[Playwright]: /api/class-playwright.mdx "Playwright"
+[PlaywrightAssertions]: /api/class-playwrightassertions.mdx "PlaywrightAssertions"
+[PlaywrightException]: /api/class-playwrightexception.mdx "PlaywrightException"
+[Request]: /api/class-request.mdx "Request"
+[RequestOptions]: /api/class-requestoptions.mdx "RequestOptions"
+[Response]: /api/class-response.mdx "Response"
+[Route]: /api/class-route.mdx "Route"
+[Selectors]: /api/class-selectors.mdx "Selectors"
+[TimeoutError]: /api/class-timeouterror.mdx "TimeoutError"
+[Touchscreen]: /api/class-touchscreen.mdx "Touchscreen"
+[Tracing]: /api/class-tracing.mdx "Tracing"
+[Video]: /api/class-video.mdx "Video"
+[WebError]: /api/class-weberror.mdx "WebError"
+[WebSocket]: /api/class-websocket.mdx "WebSocket"
+[WebSocketFrame]: /api/class-websocketframe.mdx "WebSocketFrame"
+[Worker]: /api/class-worker.mdx "Worker"
+[Element]: https://developer.mozilla.org/en-US/docs/Web/API/element "Element"
+[EvaluationArgument]: /evaluating.mdx#evaluation-argument "EvaluationArgument"
+[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise "Promise"
+[iterator]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols "Iterator"
+[origin]: https://developer.mozilla.org/en-US/docs/Glossary/Origin "Origin"
+[selector]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors "selector"
+[Serializable]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#Description "Serializable"
+[UIEvent.detail]: https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail "UIEvent.detail"
+[UnixTime]: https://en.wikipedia.org/wiki/Unix_time "Unix Time"
+[xpath]: https://developer.mozilla.org/en-US/docs/Web/XPath "xpath"
+
+[boolean]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "boolean"
+[byte&#91;&#93;]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "byte[]"
+[Consumer]: https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html "Consumer"
+[Date]: https://docs.oracle.com/javase/8/docs/api/java/util/Date.html "Date"
+[double]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "double"
+[InputStream]: https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html "InputStream"
+[int]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "int"
+[long]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "long"
+[JsonObject]: https://www.javadoc.io/doc/com.google.code.gson/gson/latest/com.google.gson/com/google/gson/JsonObject.html "JsonObject"
+[List]: https://docs.oracle.com/javase/8/docs/api/java/util/List.html "List"
+[Map]: https://docs.oracle.com/javase/8/docs/api/java/util/Map.html "Map"
+[null]: https://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.10.7 "null"
+[Object]: https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html "Object"
+[Path]: https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html "Path"
+[Pattern]: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html "Pattern"
+[Predicate]: https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html "Predicate"
+[void]: https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html "void"
+[Runnable]: https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html "Runnable"
+[RuntimeException]: https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html "RuntimeException"
+[String]: https://docs.oracle.com/javase/8/docs/api/java/lang/String.html "String"
+
+[all available image tags]: https://mcr.microsoft.com/en-us/product/playwright/java/about "all available image tags"
+[Microsoft Artifact Registry]: https://mcr.microsoft.com/en-us/product/playwright/java/about "Microsoft Artifact Registry"
+[Dockerfile.jammy]: https://github.com/microsoft/playwright-java/blob/main/utils/docker/Dockerfile.jammy "Dockerfile.jammy"

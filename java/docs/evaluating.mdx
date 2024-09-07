@@ -1,0 +1,202 @@
+---
+id: evaluating
+title: "Evaluating JavaScript"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import HTMLCard from '@site/src/components/HTMLCard';
+
+## Introduction
+
+Playwright scripts run in your Playwright environment. Your page scripts run in the browser page environment. Those environments don't intersect, they are running in different virtual machines in different processes and even potentially on different computers.
+
+The [Page.evaluate()](/api/class-page.mdx#page-evaluate) API can run a JavaScript function in the context of the web page and bring results back to the Playwright environment. Browser globals like `window` and `document` can be used in `evaluate`.
+
+```java
+String href = (String) page.evaluate("document.location.href");
+```
+
+If the result is a Promise or if the function is asynchronous evaluate will automatically wait until it's resolved:
+
+```java
+int status = (int) page.evaluate("async () => {\n" +
+  "  const response = await fetch(location.href);\n" +
+  "  return response.status;\n" +
+  "}");
+```
+
+## Different environments
+
+Evaluated scripts run in the browser environment, while your test runs in a testing environments. This means you cannot use variables from your test in the page and vice versa. Instead, you should pass them explicitly as an argument.
+
+The following snippet is **WRONG** because it uses the variable directly:
+
+```java
+String data = "some data";
+Object result = page.evaluate("() => {\n" +
+  "  // WRONG: there is no 'data' in the web page.\n" +
+  "  window.myApp.use(data);\n" +
+  "}");
+```
+
+The following snippet is **CORRECT** because it passes the value explicitly as an argument:
+
+```java
+String data = "some data";
+// Pass |data| as a parameter.
+Object result = page.evaluate("data => {\n" +
+  "  window.myApp.use(data);\n" +
+  "}", data);
+```
+
+## Evaluation Argument
+
+Playwright evaluation methods like [Page.evaluate()](/api/class-page.mdx#page-evaluate) take a single optional argument. This argument can be a mix of [Serializable] values and [JSHandle] instances. Handles are automatically converted to the value they represent.
+
+```java
+// A primitive value.
+page.evaluate("num => num", 42);
+
+// An array.
+page.evaluate("array => array.length", Arrays.asList(1, 2, 3));
+
+// An object.
+Map<String, Object> obj = new HashMap<>();
+obj.put("foo", "bar");
+page.evaluate("object => object.foo", obj);
+
+// A single handle.
+ElementHandle button = page.evaluateHandle("window.button");
+page.evaluate("button => button.textContent", button);
+
+// Alternative notation using JSHandle.evaluate.
+button.evaluate("(button, from) => button.textContent.substring(from)", 5);
+
+// Object with multiple handles.
+ElementHandle button1 = page.evaluateHandle("window.button1");
+ElementHandle button2 = page.evaluateHandle("window.button2");
+Map<String, ElementHandle> arg = new HashMap<>();
+arg.put("button1", button1);
+arg.put("button2", button2);
+page.evaluate("o => o.button1.textContent + o.button2.textContent", arg);
+
+// Object destructuring works. Note that property names must match
+// between the destructured object and the argument.
+// Also note the required parenthesis.
+Map<String, ElementHandle> arg = new HashMap<>();
+arg.put("button1", button1);
+arg.put("button2", button2);
+page.evaluate("({ button1, button2 }) => button1.textContent + button2.textContent", arg);
+
+// Array works as well. Arbitrary names can be used for destructuring.
+// Note the required parenthesis.
+page.evaluate(
+  "([b1, b2]) => b1.textContent + b2.textContent",
+  Arrays.asList(button1, button2));
+
+// Any mix of serializables and handles works.
+Map<String, Object> arg = new HashMap<>();
+arg.put("button1", button1);
+arg.put("list", Arrays.asList(button2));
+arg.put("foo", 0);
+page.evaluate(
+  "x => x.button1.textContent + x.list[0].textContent + String(x.foo)",
+  arg);
+```
+
+## Init scripts
+
+Sometimes it is convenient to evaluate something in the page before it starts loading. For example, you might want to setup some mocks or test data.
+
+In this case, use [Page.addInitScript()](/api/class-page.mdx#page-add-init-script) or [BrowserContext.addInitScript()](/api/class-browsercontext.mdx#browser-context-add-init-script). In the example below, we will replace `Math.random()` with a constant value.
+
+First, create a `preload.js` file that contains the mock.
+
+```js
+// preload.js
+Math.random = () => 42;
+```
+
+Next, add init script to the page.
+
+```java
+// In your test, assuming the "preload.js" file is in the "mocks" directory.
+page.addInitScript(Paths.get("mocks/preload.js"));
+```
+
+
+[APIRequest]: /api/class-apirequest.mdx "APIRequest"
+[APIRequestContext]: /api/class-apirequestcontext.mdx "APIRequestContext"
+[APIResponse]: /api/class-apiresponse.mdx "APIResponse"
+[APIResponseAssertions]: /api/class-apiresponseassertions.mdx "APIResponseAssertions"
+[Browser]: /api/class-browser.mdx "Browser"
+[BrowserContext]: /api/class-browsercontext.mdx "BrowserContext"
+[BrowserType]: /api/class-browsertype.mdx "BrowserType"
+[CDPSession]: /api/class-cdpsession.mdx "CDPSession"
+[Clock]: /api/class-clock.mdx "Clock"
+[ConsoleMessage]: /api/class-consolemessage.mdx "ConsoleMessage"
+[Dialog]: /api/class-dialog.mdx "Dialog"
+[Download]: /api/class-download.mdx "Download"
+[ElementHandle]: /api/class-elementhandle.mdx "ElementHandle"
+[FileChooser]: /api/class-filechooser.mdx "FileChooser"
+[FormData]: /api/class-formdata.mdx "FormData"
+[Frame]: /api/class-frame.mdx "Frame"
+[FrameLocator]: /api/class-framelocator.mdx "FrameLocator"
+[JSHandle]: /api/class-jshandle.mdx "JSHandle"
+[Keyboard]: /api/class-keyboard.mdx "Keyboard"
+[Locator]: /api/class-locator.mdx "Locator"
+[LocatorAssertions]: /api/class-locatorassertions.mdx "LocatorAssertions"
+[Mouse]: /api/class-mouse.mdx "Mouse"
+[Page]: /api/class-page.mdx "Page"
+[PageAssertions]: /api/class-pageassertions.mdx "PageAssertions"
+[Playwright]: /api/class-playwright.mdx "Playwright"
+[PlaywrightAssertions]: /api/class-playwrightassertions.mdx "PlaywrightAssertions"
+[PlaywrightException]: /api/class-playwrightexception.mdx "PlaywrightException"
+[Request]: /api/class-request.mdx "Request"
+[RequestOptions]: /api/class-requestoptions.mdx "RequestOptions"
+[Response]: /api/class-response.mdx "Response"
+[Route]: /api/class-route.mdx "Route"
+[Selectors]: /api/class-selectors.mdx "Selectors"
+[TimeoutError]: /api/class-timeouterror.mdx "TimeoutError"
+[Touchscreen]: /api/class-touchscreen.mdx "Touchscreen"
+[Tracing]: /api/class-tracing.mdx "Tracing"
+[Video]: /api/class-video.mdx "Video"
+[WebError]: /api/class-weberror.mdx "WebError"
+[WebSocket]: /api/class-websocket.mdx "WebSocket"
+[WebSocketFrame]: /api/class-websocketframe.mdx "WebSocketFrame"
+[Worker]: /api/class-worker.mdx "Worker"
+[Element]: https://developer.mozilla.org/en-US/docs/Web/API/element "Element"
+[EvaluationArgument]: /evaluating.mdx#evaluation-argument "EvaluationArgument"
+[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise "Promise"
+[iterator]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols "Iterator"
+[origin]: https://developer.mozilla.org/en-US/docs/Glossary/Origin "Origin"
+[selector]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors "selector"
+[Serializable]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#Description "Serializable"
+[UIEvent.detail]: https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail "UIEvent.detail"
+[UnixTime]: https://en.wikipedia.org/wiki/Unix_time "Unix Time"
+[xpath]: https://developer.mozilla.org/en-US/docs/Web/XPath "xpath"
+
+[boolean]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "boolean"
+[byte&#91;&#93;]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "byte[]"
+[Consumer]: https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html "Consumer"
+[Date]: https://docs.oracle.com/javase/8/docs/api/java/util/Date.html "Date"
+[double]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "double"
+[InputStream]: https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html "InputStream"
+[int]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "int"
+[long]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "long"
+[JsonObject]: https://www.javadoc.io/doc/com.google.code.gson/gson/latest/com.google.gson/com/google/gson/JsonObject.html "JsonObject"
+[List]: https://docs.oracle.com/javase/8/docs/api/java/util/List.html "List"
+[Map]: https://docs.oracle.com/javase/8/docs/api/java/util/Map.html "Map"
+[null]: https://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.10.7 "null"
+[Object]: https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html "Object"
+[Path]: https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html "Path"
+[Pattern]: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html "Pattern"
+[Predicate]: https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html "Predicate"
+[void]: https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html "void"
+[Runnable]: https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html "Runnable"
+[RuntimeException]: https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html "RuntimeException"
+[String]: https://docs.oracle.com/javase/8/docs/api/java/lang/String.html "String"
+
+[all available image tags]: https://mcr.microsoft.com/en-us/product/playwright/java/about "all available image tags"
+[Microsoft Artifact Registry]: https://mcr.microsoft.com/en-us/product/playwright/java/about "Microsoft Artifact Registry"
+[Dockerfile.jammy]: https://github.com/microsoft/playwright-java/blob/main/utils/docker/Dockerfile.jammy "Dockerfile.jammy"
