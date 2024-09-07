@@ -4,31 +4,31 @@ module.exports = {
     'ambassadors',
     {
       type: 'category',
-      label: 'Videos',
+      label: '影片',
       items: [
         {
           type: 'link',
-          label: 'Conference Videos',
+          label: '會議影片',
           href: '/community/conference-videos'
         },
         {
           type: 'link',
-          label: 'Release Videos',
+          label: '發行影片',
           href: '/community/release-videos'
         },
         {
           type: 'link',
-          label: 'Live Streams',
+          label: '直播影片',
           href: '/community/live-streams'
         },
         {
           type: 'link',
-          label: 'Feature Videos',
+          label: '精選影片',
           href: '/community/feature-videos'
         },
         {
           type: 'link',
-          label: 'Learn Videos',
+          label: '教學影片',
           href: '/community/learn-videos'
         }
       ],
@@ -36,12 +36,12 @@ module.exports = {
     },
     {
       type: 'link',
-      label: "Blog",
+      label: "部落格",
       href: "https://dev.to/playwright",
     },
     {
       type: 'link',
-      label: 'Join our Community Discord',
+      label: '加入我們的 Discord 社群',
       href: 'https://aka.ms/playwright/discord'
     }
   ]

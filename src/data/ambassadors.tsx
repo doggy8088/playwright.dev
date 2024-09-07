@@ -94,7 +94,7 @@ const ambassadors = [
     imageUrl: 'tally-barak.jpeg'
   },
   {
-    name: 'Are you the next Ambassador?',
+    name: '你是下一位技術傳教士嗎？',
     city: '',
     country: '',
     imageUrl: 'playwright-logo.svg'

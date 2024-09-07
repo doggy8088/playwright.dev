@@ -19,24 +19,24 @@ const Version: React.FC = () => {
 
   return (
     <Layout
-      title="Versions"
-      description="Docusaurus 2 Versions page listing all documented site versions">
+      title="版本"
+      description="Docusaurus 2 版本頁面列出所有文件站點版本">
       <main className="container margin-vert--lg">
-        <h1>Versions</h1>
+        <h1>版本</h1>
 
         {stableVersion && (
           <div className="margin-bottom--lg">
-            <h3 id="next">Latest version</h3>
+            <h3 id="next">最新版本</h3>
             <table>
               <tbody>
                 <tr>
                   <th>{stableVersion.name}</th>
                   <td>
-                    <Link to={stableVersion.path + '/api/class-playwright'}>Documentation</Link>
+                    <Link to={stableVersion.path + '/api/class-playwright'}>文件</Link>
                   </td>
                   <td>
                     <a href={`${repoUrl}/releases/tag/v${stableVersion.name}.0`}>
-                      Release Notes
+                      發行說明
                     </a>
                   </td>
                 </tr>
@@ -47,16 +47,16 @@ const Version: React.FC = () => {
 
         {currentVersion !== latestVersion && (
           <div className="margin-bottom--lg">
-            <h3 id="next">Next version (Unreleased)</h3>
+            <h3 id="next">下一版本 (未發佈)</h3>
             <table>
               <tbody>
                 <tr>
                   <th>Next</th>
                   <td>
-                    <Link to={currentVersion.path + '/api/class-playwright'}>Documentation</Link>
+                    <Link to={currentVersion.path + '/api/class-playwright'}>文件</Link>
                   </td>
                   <td>
-                    <a href={repoUrl}>Source Code</a>
+                    <a href={repoUrl}>原始碼</a>
                   </td>
                 </tr>
               </tbody>
@@ -65,18 +65,18 @@ const Version: React.FC = () => {
         )}
         {pastVersions.length > 0 && (
           <div className="margin-bottom--lg">
-            <h3 id="archive">Past versions</h3>
+            <h3 id="archive">過去版本</h3>
             <table>
               <tbody>
                 {pastVersions.map((version) => (
                   <tr key={version.name}>
                     <th>{version.label}</th>
                     <td>
-                      <Link to={version.path + '/api/class-playwright'}>Documentation</Link>
+                      <Link to={version.path + '/api/class-playwright'}>文件</Link>
                     </td>
                     <td>
                       <a href={`${repoUrl}/releases/tag/v${version.name}.0`}>
-                        Release Notes
+                        發行說明
                       </a>
                     </td>
                   </tr>
