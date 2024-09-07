@@ -1,33 +1,35 @@
----
+﻿---
 id: writing-tests
-title: "Writing tests"
+title: "撰寫測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright tests are simple, they
-- **perform actions**, and
-- **assert the state** against expectations.
+Playwright 測試很簡單，他們
 
-There is no need to wait for anything prior to performing an action: Playwright automatically waits for the wide range of [actionability](./actionability.mdx) checks to pass prior to performing each action.
+- **執行動作**, 和
+- **根據預期斷言狀態**。
 
-There is also no need to deal with the race conditions when performing the checks - Playwright assertions are designed in a way that they describe the expectations that need to be eventually met.
+在執行動作之前無需等待任何事情: Playwright 會在執行每個動作之前自動等待各種[可操作性](./actionability.mdx)檢查通過。
 
-That's it! These design choices allow Playwright users to forget about flaky timeouts and racy checks in their tests altogether.
+也不需要在執行檢查時處理競爭條件 - Playwright 斷言的設計方式是描述最終需要滿足的期望。
 
-**You will learn**
-- [How to write the first test](/writing-tests.mdx#first-test)
-- [How to perform actions](/writing-tests.mdx#actions)
-- [How to use assertions](/writing-tests.mdx#assertions)
-- [How tests run in isolation](/writing-tests.mdx#test-isolation)
-- [How to use test hooks](/writing-tests.mdx#using-test-hooks)
+就是這樣！這些設計選擇使 Playwright 用戶可以完全忘記測試中的不穩定超時和競速檢查。
 
-## First test
+**你將學到**
 
-Take a look at the following example to see how to write a test.
+- [如何撰寫第一個測試](/writing-tests.mdx#first-test)
+- [如何執行操作](/writing-tests.mdx#actions)
+- [如何使用斷言](/writing-tests.mdx#assertions)
+- [測試如何獨立執行](/writing-tests.mdx#test-isolation)
+- [如何使用測試鉤子](/writing-tests.mdx#using-test-hooks)
+
+## 第一個測試
+
+請看以下範例來了解如何撰寫測試。
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, ] }>
 
@@ -114,19 +116,19 @@ public class ExampleTest : PageTest
 
 ## Actions
 
-### Navigation
+### 導覽
 
-Most of the tests will start by navigating the page to a URL. After that, the test will be able to interact with the page elements.
+大多數測試將從導航頁面到 URL 開始。之後，測試將能夠與頁面元素互動。
 
 ```csharp
 await Page.GotoAsync("https://playwright.dev");
 ```
 
-Playwright will wait for the page to reach the load state prior to moving forward. Learn more about the [Page.GotoAsync()](/api/class-page.mdx#page-goto) options.
+Playwright 會等待頁面達到載入狀態後再繼續前進。了解更多關於 [Page.GotoAsync()](/api/class-page.mdx#page-goto) 選項。
 
-### Interactions
+### 互動
 
-Performing actions starts with locating the elements. Playwright uses [Locators API](./locators.mdx) for that. Locators represent a way to find element(s) on the page at any moment, learn more about the [different types](./locators.mdx) of locators available. Playwright will wait for the element to be [actionable](./actionability.mdx) prior to performing the action, so there is no need to wait for it to become available.
+執行操作從定位元素開始。Playwright 使用 [Locators API](./locators.mdx) 來實現這一點。Locators 代表了一種在任何時刻在頁面上找到元素的方法，了解更多關於可用的 [不同類型](./locators.mdx) 的 locators。Playwright 會在執行操作之前等待元素變得 [可操作](./actionability.mdx)，因此無需等待它變得可用。
 
 ```csharp
 // Create a locator.
@@ -136,54 +138,54 @@ var getStarted = Page.GetByRole(AriaRole.Link, new() { Name = "Get started" });
 await getStarted.ClickAsync();
 ```
 
-In most cases, it'll be written in one line:
+在大多數情況下，它將寫在一行中:
 
 ```csharp
 await Page.GetByRole(AriaRole.Link, new() { Name = "Get started" }).ClickAsync();
 ```
 
-### Basic actions
+### 基本操作
 
-This is the list of the most popular Playwright actions. Note that there are many more, so make sure to check the [Locator API](./api/class-locator.mdx) section to learn more about them.
+這是最受歡迎的 Playwright 操作清單。請注意，還有更多操作，因此請務必查看 [Locator API](./api/class-locator.mdx) 部分以了解更多資訊。
 
 | Action | Description |
 | :- | :- |
-| [Locator.CheckAsync()](/api/class-locator.mdx#locator-check) | Check the input checkbox |
-| [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) | Click the element |
-| [Locator.UncheckAsync()](/api/class-locator.mdx#locator-uncheck) | Uncheck the input checkbox |
-| [Locator.HoverAsync()](/api/class-locator.mdx#locator-hover) | Hover mouse over the element |
-| [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) | Fill the form field, input text |
-| [Locator.FocusAsync()](/api/class-locator.mdx#locator-focus) | Focus the element |
-| [Locator.PressAsync()](/api/class-locator.mdx#locator-press) | Press single key |
-| [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) | Pick files to upload |
-| [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-option) | Select option in the drop down |
+| [Locator.CheckAsync()](https://ollama.com/api/class-locator.mdx#locator-check) | 勾選輸入的複選框 |
+| [Locator.ClickAsync()](https://ollama.com/api/class-locator.mdx#locator-click) | 點擊元素 |
+| [Locator.UncheckAsync()](https://ollama.com/api/class-locator.mdx#locator-uncheck) | 取消勾選輸入的複選框 |
+| [Locator.HoverAsync()](https://ollama.com/api/class-locator.mdx#locator-hover) | 將滑鼠懸停在元素上 |
+| [Locator.FillAsync()](https://ollama.com/api/class-locator.mdx#locator-fill) | 填寫表單欄位，輸入文字 |
+| [Locator.FocusAsync()](https://ollama.com/api/class-locator.mdx#locator-focus) | 聚焦元素 |
+| [Locator.PressAsync()](https://ollama.com/api/class-locator.mdx#locator-press) | 按下單一鍵 |
+| [Locator.SetInputFilesAsync()](https://ollama.com/api/class-locator.mdx#locator-set-input-files) | 選擇要上傳的檔案 |
+| [Locator.SelectOptionAsync()](https://ollama.com/api/class-locator.mdx#locator-select-option) | 在下拉選單中選擇選項 |
 
-## Assertions
+## 斷言
 
-Playwright provides an async function called [Expect](./test-assertions) to assert and wait until the expected condition is met.
+Playwright 提供了一個名為 [Expect](./test-assertions) 的非同步函式，用於斷言並等待直到預期條件被滿足。
 
 ```csharp
 await Expect(Page).ToHaveTitleAsync(new Regex("Playwright"));
 ```
 
-Here is the list of the most popular async assertions. Note that there are [many more](./test-assertions.mdx) to get familiar with:
+以下是最受歡迎的非同步斷言清單。請注意，還有[更多](./test-assertions.mdx)可以熟悉：
 
 | Assertion | Description |
 | :- | :- |
-| [Expect(Locator).ToBeCheckedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox is checked |
-| [Expect(Locator).ToBeEnabledAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | Control is enabled |
-| [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | Element is visible |
-| [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | Element contains text |
-| [Expect(Locator).ToHaveAttributeAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | Element has attribute |
-| [Expect(Locator).ToHaveCountAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | List of elements has given length |
-| [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | Element matches text |
-| [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | Input element has value |
-| [Expect(Page).ToHaveTitleAsync()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | Page has title |
-| [Expect(Page).ToHaveURLAsync()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | Page has URL |
+| [Expect(Locator).ToBeCheckedAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox 已勾選 |
+| [Expect(Locator).ToBeEnabledAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 控制項已啟用 |
+| [Expect(Locator).ToBeVisibleAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
+| [Expect(Locator).ToContainTextAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
+| [Expect(Locator).ToHaveAttributeAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有屬性 |
+| [Expect(Locator).ToHaveCountAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 元素列表具有給定的長度 |
+| [Expect(Locator).ToHaveTextAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素匹配文字 |
+| [Expect(Locator).ToHaveValueAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入元素具有值 |
+| [Expect(Page).ToHaveTitleAsync()](https://api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
+| [Expect(Page).ToHaveURLAsync()](https://api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
 
-## Test Isolation
+## 測試隔離
 
-The Playwright NUnit and MSTest test framework base classes will isolate each test from each other by providing a separate `Page` instance. Pages are isolated between tests due to the Browser Context, which is equivalent to a brand new browser profile, where every test gets a fresh environment, even when multiple tests run in a single Browser.
+Playwright NUnit 和 MSTest 測試框架基類將通過提供單獨的 `Page` 實例來隔離每個測試。由於瀏覽器上下文，頁面在測試之間是隔離的，這相當於一個全新的瀏覽器配置檔案，每個測試都會獲得一個全新的環境，即使多個測試在單個瀏覽器中執行。
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, ] }>
 
@@ -234,9 +236,9 @@ public class ExampleTest : PageTest
 
 </Tabs>
 
-## Using Test Hooks
+## 使用測試掛鉤
 
-You can use `SetUp`/`TearDown` in NUnit or `TestInitialize`/`TestCleanup` in MSTest to prepare and clean up your test environment:
+您可以在 NUnit 中使用 `SetUp`/`TearDown` 或在 MSTest 中使用 `TestInitialize`/`TestCleanup` 來準備和清理您的測試環境:
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, ] }>
 
@@ -301,12 +303,15 @@ public class ExampleTest : PageTest
 
 </Tabs>
 
-## What's Next
-- [Run single test, multiple tests, headed mode](./running-tests.mdx)
-- [Generate tests with Codegen](./codegen-intro.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
-- [Run tests on CI](./ci-intro.mdx)
-- [Learn more about the MSTest and NUnit base classes](./test-runners.mdx)
+## 接下來是什麼
+
+- [執行單一測試、多個測試、有頭模式](./running-tests.mdx)
+- [使用程式碼產生器生成測試](./codegen-intro.mdx)
+- [查看測試的追蹤](./trace-viewer-intro.mdx)
+- [在 CI 上執行測試](./ci-intro.mdx)
+- [了解更多關於 MSTest 和 NUnit 基類](./test-runners.mdx)
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

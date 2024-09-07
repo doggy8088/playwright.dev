@@ -1,20 +1,20 @@
----
+﻿---
 id: intro
-title: "Installation"
+title: "安裝"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation.
+Playwright 是專為滿足端到端測試需求而建立的。Playwright 支援所有現代渲染引擎，包括 Chromium、WebKit 和 Firefox。在 Windows、Linux 和 macOS 上進行測試，可以是本地或 CI 上，無頭或有頭，並具有原生行動模擬功能。
 
-Playwright is distributed as a set of [Maven](https://maven.apache.org/what-is-maven.html) modules. The easiest way to use it is to add one dependency to your project's `pom.xml` as described below. If you're not familiar with Maven please refer to its [documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+Playwright 是作為一組 [Maven](https://maven.apache.org/what-is-maven.html) 模組分發的。最簡單的使用方式是按照下面描述的將一個相依套件添加到你的專案的 `pom.xml` 中。如果你不熟悉 Maven，請參考它的 [文件](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 
-## Usage
+## 使用方式
 
-Get started by installing Playwright and running the example file to see it in action.
+開始安裝 Playwright 並執行範例檔案以查看其效果。
 
 <Tabs defaultValue="java" values={[ {label: 'App.java', value: 'java'}, {label: 'pom.xml', value: 'pom'} ] }>
 
@@ -40,6 +40,7 @@ public class App {
 </TabItem>
 
 <TabItem value="pom">
+
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -82,17 +83,17 @@ public class App {
 
 </Tabs>
 
-With the Example.java and pom.xml above, compile and execute your new program as follows:
+使用上面的 Example.java 和 pom.xml，編譯並執行您的新程式如下:
 
 ```bash
 mvn compile exec:java -D exec.mainClass="org.example.App"
 ```
 
-Running it downloads the Playwright package and installs browser binaries for Chromium, Firefox and WebKit. To modify this behavior see [installation parameters](./browsers.mdx#install-browsers).
+執行它會下載 Playwright 套件並安裝 Chromium、Firefox 和 WebKit 的瀏覽器二進位檔。要修改此行為，請參見[安裝參數](./browsers.mdx#install-browsers)。
 
-## First script
+## 第一個腳本
 
-In our first script, we will navigate to `playwright.dev` and take a screenshot in WebKit.
+在我們的第一個程式碼中，我們將導航到 `playwright.dev` 並在 WebKit 中截取螢幕截圖。
 
 ```java
 package org.example;
@@ -112,31 +113,35 @@ public class App {
 }
 ```
 
-By default, Playwright runs the browsers in headless mode. To see the browser UI, pass the `setHeadless(false)` flag while launching the browser. You can also use `slowMo` to slow down execution. Learn more in the debugging tools [section](./debug.mdx).
+默認情況下，Playwright 以無頭模式執行瀏覽器。要查看瀏覽器 UI，啟動瀏覽器時傳遞 `setHeadless(false)` 標誌。你也可以使用 `slowMo` 來減慢執行速度。了解更多在調試工具[部分](./debug.mdx)。
 
 ```java
 playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
 ```
 
-## Running the Example script
+## 執行範例程式碼
 
 ```bash
 mvn compile exec:java -D exec.mainClass="org.example.App"
 ```
 
-By default browsers launched with Playwright run headless, meaning no browser UI will open up when running the script. To change that you can pass `new BrowserType.LaunchOptions().setHeadless(false)` when launching the browser.
+默認情況下，使用 Playwright 啟動的瀏覽器是無頭模式，這意味著在執行程式碼時不會打開瀏覽器 UI。要更改這一點，您可以在啟動瀏覽器時傳遞 `new BrowserType.LaunchOptions().setHeadless(false)`。
 
-## System requirements
-- Java 8 or higher.
-- Windows 10+, Windows Server 2016+ or Windows Subsystem for Linux (WSL).
-- macOS 13 Ventura, or macOS 14 Sonoma.
-- Debian 11, Debian 12, Ubuntu 20.04 or Ubuntu 22.04, Ubuntu 24.04, on x86-64 and arm64 architecture.
+## 系統需求
 
-## What's next
-- [Write tests using web first assertions, page fixtures and locators](./writing-tests.mdx)
-- [Run single test, multiple tests, headed mode](./running-tests.mdx)
-- [Generate tests with Codegen](./codegen.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
+- Java 8 或更高版本。
+- Windows 10+、Windows Server 2016+ 或 Windows Subsystem for Linux (WSL)。
+- macOS 13 Ventura 或 macOS 14 Sonoma。
+- Debian 11、Debian 12、Ubuntu 20.04 或 Ubuntu 22.04、Ubuntu 24.04，在 x86-64 和 arm64 架構上。
+
+## 接下來是什麼
+
+- [使用 web first assertions、page fixtures 和 locators 撰寫測試](./writing-tests.mdx)
+- [執行單一測試、多個測試、headed 模式](./running-tests.mdx)
+- [使用 Codegen 產生測試](./codegen.mdx)
+- [查看測試的 trace](./trace-viewer-intro.mdx)
+
+
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

@@ -1,6 +1,6 @@
----
+﻿---
 id: test-ui-mode
-title: "UI Mode"
+title: "UI 模式"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,127 +8,129 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Introduction
+## 簡介
 
-UI Mode lets you explore, run and debug tests with a time travel experience complete with watch mode. All test files are loaded into the testing sidebar where you can expand each file and describe block to individually run, view, watch and debug each test. Filter tests by **text** or **@tag** or by **passed**, **failed** and **skipped** tests as well as by [**projects**](./test-projects) as set in your `playwright.config` file. See a full trace of your tests and hover back and forward over each action to see what was happening during each step and pop out the DOM snapshot to a separate window for a better debugging experience.
+UI 模式讓你以時間旅行的體驗來探索、執行和偵錯測試，並且完整配備觀察模式。所有測試檔案都會載入到測試側邊欄中，你可以展開每個檔案和描述區塊來個別執行、查看、觀察和偵錯每個測試。可以依據 **text** 或 **@tag** 或 **passed** 、 **failed** 和 **skipped** 的測試以及 [**projects**](./test-projects) 來篩選測試，這些設定在你的 `playwright.config` 檔案中。查看測試的完整追蹤，並在每個動作上來回懸停以查看每一步驟中發生的事情，並將 DOM 快照彈出到單獨的視窗中，以獲得更好的偵錯體驗。
 
 <LiteYouTube id="d0u6XhXknzU" title="Playwrights UI Mode" />
 
-## Opening UI Mode
+## 開啟 UI 模式
 
-To open UI mode, run the following command in your terminal:
+要開啟 UI 模式，請在終端機中執行以下命令:
 
 ```bash
 npx playwright test --ui
 ```
 
-## Running your tests
+## 執行你的測試
 
-Once you launch UI Mode you will see a list of all your test files. You can run all your tests by clicking the triangle icon in the sidebar. You can also run a single test file, a block of tests or a single test by hovering over the name and clicking on the triangle next to it. 
+一旦你啟動 UI 模式，你將會看到所有測試檔案的列表。你可以點擊側邊欄的三角形圖標來執行所有測試。你也可以通過懸停在名稱上並點擊旁邊的三角形來執行單個測試檔案、一組測試或單個測試。
 
-![running tests in ui mode](https://github.com/microsoft/playwright/assets/13063165/6b87712f-64a5-4d73-a91d-6562b864712c)
+![執行測試在 ui 模式](https://github.com/microsoft/playwright/assets/13063165/6b87712f-64a5-4d73-a91d-6562b864712c)
 
-## Filtering tests
+## 過濾測試
 
-Filter tests by text or `@tag` or by passed, failed or skipped tests. You can also filter by [projects](./test-projects) as set in your `playwright.config` file. If you are using project dependencies make sure to run your setup tests first before running the tests that depend on them. The UI mode will not take into consideration the setup tests and therefore you will have to manually run them first.
+篩選測試依據文字或 `@tag` 或通過、失敗或跳過的測試。你也可以依據 [projects](./test-projects) 篩選，這些設定在你的 `playwright.config` 檔案中。如果你正在使用專案相依性，請確保先執行你的設定測試，再執行依賴它們的測試。UI 模式不會考慮設定測試，因此你必須手動先執行它們。
 
-![filtering tests in ui mode](https://github.com/microsoft/playwright/assets/13063165/6f05e589-036d-45d5-9078-38134e1261e4)
+![篩選測試在 ui 模式](https://github.com/microsoft/playwright/assets/13063165/6f05e589-036d-45d5-9078-38134e1261e4)
 
-## Timeline view
+## 時間軸檢視
 
-At the top of the trace you can see a timeline view of your test with different colors to highlight navigation and actions. Hover back and forth to see an image snapshot for each action. Double click on an action to see the time range for that action. You can use the slider in the timeline to increase the actions selected and these will be shown in the Actions tab and all console logs and network logs will be filtered to only show the logs for the actions selected.
+在追蹤的頂部，你可以看到測試的時間軸視圖，不同顏色突出顯示導航和操作。來回懸停以查看每個操作的圖像快照。雙擊某個操作以查看該操作的時間範圍。你可以使用時間軸中的滑塊來增加選擇的操作，這些操作將顯示在操作標籤中，所有控制台日誌和網路日誌將過濾為僅顯示選擇操作的日誌。
 
-![timeline view in ui mode](https://github.com/microsoft/playwright/assets/13063165/811a9985-32aa-4a3e-9869-de32053cf468)
+![時間軸檢視在 ui 模式](https://github.com/microsoft/playwright/assets/13063165/811a9985-32aa-4a3e-9869-de32053cf468)
 
 ## Actions
 
-In the Actions tab you can see what locator was used for every action and how long each one took to run. Hover over each action of your test and visually see the change in the DOM snapshot. Go back and forward in time and click an action to inspect and debug. Use the Before and After tabs to visually see what happened before and after the action.  ![use before and after actions in ui mode](https://github.com/microsoft/playwright/assets/13063165/7b22fab5-7346-4b98-8fdd-a78ed280647f)
+在 Actions 標籤中，你可以看到每個動作使用了什麼定位器以及每個動作執行了多長時間。將滑鼠懸停在測試的每個動作上，並直觀地查看 DOM 快照中的變化。回到過去和未來，點擊一個動作來檢查和除錯。使用 Before 和 After 標籤直觀地查看動作前後發生了什麼。 ![use before and after actions in ui mode](https://github.com/microsoft/playwright/assets/13063165/7b22fab5-7346-4b98-8fdd-a78ed280647f)
 
-## Pop out and inspect the DOM
+## 彈出並檢查 DOM
 
-Pop out the DOM snapshot into its own window for a better debugging experience by clicking on the pop out icon above the DOM snapshot. From there you can open the browser DevTools and inspect the HTML, CSS, Console etc. Go back to UI Mode and click on another action and pop that one out to easily compare the two side by side or debug each individually.
+將 DOM 快照彈出到自己的窗口中，以獲得更好的調試體驗，方法是點擊 DOM 快照上方的彈出圖標。從那裡，您可以打開瀏覽器的 DevTools 並檢查 HTML、CSS、Console 等。返回 UI 模式，點擊另一個操作並將其彈出，以便輕鬆地並排比較兩者或單獨調試每個操作。
 
 ![pop out dom snapshot in ui mode](https://github.com/microsoft/playwright/assets/13063165/f9f43a0c-78d7-4574-9a58-c69d2ec53c8f)
 
-## Pick locator
+## 選擇定位器
 
-Click on the pick locator button and hover over the DOM snapshot to see the locator for each element highlighted as you hover. Click on an element to add the locator playground. You can modify the locator in the playground and see if your modified locator matches any locators in the DOM snapshot. Once you are satisfied with the locator you can use the copy button to copy the locator and paste it into your test.
+點擊 pick locator 按鈕並懸停在 DOM 快照上，以查看每個元素的定位器在懸停時突出顯示。點擊一個元素以添加定位器 playground。您可以在 playground 中修改定位器，並查看修改後的定位器是否匹配 DOM 快照中的任何定位器。一旦您對定位器感到滿意，您可以使用複製按鈕來複製定位器並將其粘貼到您的測試中。
 
 ![pick locator in ui mode](https://github.com/microsoft/playwright/assets/13063165/9e7eeb84-bd26-4010-8614-75e24b56c716)
 
-## Source
+## 來源
 
-As you hover over each action of your test the line of code for that action is highlighted in the source panel.
+當您將滑鼠懸停在測試的每個動作上時，該動作的程式碼行會在源面板中突出顯示。
 
-![showing source code of tests in ui mode](https://github.com/microsoft/playwright/assets/13063165/49b9fa2a-8a57-4044-acaa-0a2ea4784c5c)
+![顯示測試的來源程式碼在 ui 模式](https://github.com/microsoft/playwright/assets/13063165/49b9fa2a-8a57-4044-acaa-0a2ea4784c5c)
 
-## Call
+## 呼叫
 
-The call tab shows you information about the action such as the time it took, what locator was used, if in strict mode and what key was used.
+呼叫標籤顯示有關動作的資訊，例如所花費的時間、使用的定位器、是否處於嚴格模式以及使用了什麼鍵。
 
-![showing call tab in ui mode](https://github.com/microsoft/playwright/assets/13063165/442314c3-0b16-4400-bf25-c198f8654849)
+![顯示呼叫標籤在 ui 模式](https://github.com/microsoft/playwright/assets/13063165/442314c3-0b16-4400-bf25-c198f8654849)
 
-## Log
+## 日誌
 
-See a full log of your test to better understand what Playwright is doing behind the scenes such as scrolling into view, waiting for element to be visible, enabled and stable and performing actions such as click, fill, press etc.
+查看完整的測試日誌，以更好地了解 Playwright 在幕後執行的操作，例如滾動到視圖中、等待元素可見、啟用和穩定，以及執行點擊、填寫、按壓等操作。
 
-![showing log of tests in ui mode](https://github.com/microsoft/playwright/assets/13063165/1d214ee5-2c07-414d-a342-f88d0864ac89)
+![顯示測試日誌在 ui 模式](https://github.com/microsoft/playwright/assets/13063165/1d214ee5-2c07-414d-a342-f88d0864ac89)
 
-## Errors
+## 錯誤
 
-If your test fails you will see the error messages for each test in the Errors tab. The timeline will also show a red line highlighting where the error occurred. You can also click on the source tab to see on which line of the source code the error is.
+如果您的測試失敗，您將在錯誤標籤中看到每個測試的錯誤訊息。時間軸還會顯示一條紅線，突出顯示錯誤發生的位置。您也可以點擊來源標籤，查看錯誤發生在來源程式碼的哪一行。
 
-![showing errors in ui mode](https://github.com/microsoft/playwright/assets/13063165/ffca2fd1-5349-41fb-ade9-ace143bb2c58)
+![顯示錯誤在 ui 模式](https://github.com/microsoft/playwright/assets/13063165/ffca2fd1-5349-41fb-ade9-ace143bb2c58)
 
-## Console
+## 控制台
 
-See console logs from the browser as well as from your test. Different icons are displayed to show you if the console log came from the browser or from the test file.
+請查看來自瀏覽器以及測試的控制台日誌。不同的圖示會顯示控制台日誌是來自瀏覽器還是測試檔案。
 
-![showing console logs from tests in ui mode](https://github.com/microsoft/playwright/assets/13063165/b6a44763-da04-4152-bbac-3369ca4a60ac)
+![顯示來自測試的控制台日誌在 UI 模式中](https://github.com/microsoft/playwright/assets/13063165/b6a44763-da04-4152-bbac-3369ca4a60ac)
 
-## Network
+## 網路
 
-The Network tab shows you all the network requests that were made during your test. You can sort by different types of requests, status code, method, request, content type, duration and size. Click on a request to see more information about it such as the request headers, response headers, request body and response body.
+Network 標籤顯示了測試期間所做的所有網路請求。你可以按不同類型的請求、狀態碼、方法、請求、內容類型、持續時間和大小進行排序。點擊一個請求以查看更多關於它的資訊，例如請求標頭、回應標頭、請求主體和回應主體。
 
-![showing network requests from tests in ui mode](https://github.com/microsoft/playwright/assets/13063165/946c2722-447a-4005-9518-b4e9b73a8240)
+![顯示來自測試的網路請求於 UI 模式](https://github.com/microsoft/playwright/assets/13063165/946c2722-447a-4005-9518-b4e9b73a8240)
 
-## Attachments
+## 附件
 
-The "Attachments" tab allows you to explore attachments. If you're doing [visual regression testing](./test-snapshots.mdx), you'll be able to compare screenshots by examining the image diff, the actual image and the expected image. When you click on the expected image you can use the slider to slide one image over the other so you can easily see the differences in your screenshots.
+"Attachments" 標籤允許你探索附件。如果你正在進行[視覺回歸測試](./test-snapshots.mdx)，你將能夠通過檢查圖像差異、實際圖像和預期圖像來比較截圖。當你點擊預期圖像時，你可以使用滑桿將一個圖像滑動到另一個圖像上，以便輕鬆看到截圖中的差異。
 
 ![ui mode with attachments](https://github.com/microsoft/playwright/assets/13063165/bb83b406-84ed-4380-a96c-0e62d1388093)
 
 ## Metadata
 
-Next to the Actions tab you will find the Metadata tab which will show you more information on your test such as the Browser, viewport size, test duration and more.
+在 Actions 分頁旁邊，你會找到 Metadata 分頁，該分頁會顯示更多有關測試的資訊，例如瀏覽器、視口大小、測試持續時間等。
 
-![metadata tab in ui mode](https://github.com/microsoft/playwright/assets/13063165/befff46e-381a-41c2-8259-e47442add425)
+![Metadata tab in ui mode](https://github.com/microsoft/playwright/assets/13063165/befff46e-381a-41c2-8259-e47442add425)
 
-## Watch mode
+## 觀看模式
 
-Next to the name of each test in the sidebar you will find an eye icon. Clicking on the icon will activate watch mode which will re-run the test when you make changes to it. You can watch a number of tests at the same time be clicking the eye icon next to each one or all tests by clicking the eye icon at the top of the sidebar. If you are using VS Code then you can easily open your test by clicking on the file icon next to the eye icon. This will open your test in VS Code right at the line of code that you clicked on.
+在側邊欄中每個測試名稱旁邊，你會看到一個眼睛圖標。點擊該圖標將啟用監視模式，當你對測試進行更改時，它將重新執行測試。你可以通過點擊每個測試旁邊的眼睛圖標來同時監視多個測試，或通過點擊側邊欄頂部的眼睛圖標來監視所有測試。如果你使用 VS Code，那麼你可以輕鬆地通過點擊眼睛圖標旁邊的文件圖標來打開你的測試。這將在 VS Code 中直接在你點擊的程式碼行打開你的測試。
 
 ![watch mode in ui mode](https://github.com/microsoft/playwright/assets/13063165/20d7d44c-b52d-43ff-8871-8b828671f3da)
 
 ## Docker & GitHub Codespaces
 
-For Docker and GitHub Codespaces environments, you can run UI mode in the browser. In order for an endpoint to be accessible outside of the container, it needs to be bound to the `0.0.0.0` interface:
+對於 Docker 和 GitHub Codespaces 環境，你可以在瀏覽器中執行 UI 模式。為了使端點能夠在容器外部訪問，需要將其綁定到 `0.0.0.0` 介面:
 
 ```bash
 npx playwright test --ui-host=0.0.0.0
 ```
 
-In the case of GitHub Codespaces, the port gets [forwarded automatically](https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#about-forwarded-ports), so you can open UI mode in the browser by clicking on the link in the terminal.
+在 GitHub Codespaces 的情況下，該埠會[自動轉發](https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#about-forwarded-ports)，因此您可以通過點擊終端中的連結在瀏覽器中開啟 UI 模式。
 
-To have a static port, you can pass the `--ui-port` flag:
+要有一個靜態端口，你可以傳遞 `--ui-port` 標誌:
 
 ```bash
 npx playwright test --ui-port=8080 --ui-host=0.0.0.0
 ```
 
 :::note
-Be aware that when specifying the `--ui-host=0.0.0.0` flag, UI Mode with your traces, the passwords and secrets is accessible from other machines inside your network. In the case of GitHub Codespaces, the ports are only accessible from your account by default.
+請注意，當指定 `--ui-host=0.0.0.0` 標誌時，UI 模式與您的追蹤、密碼和秘密可以從您網路內的其他機器存取。在 GitHub Codespaces 的情況下，這些埠預設僅能從您的帳戶存取。
 :::
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

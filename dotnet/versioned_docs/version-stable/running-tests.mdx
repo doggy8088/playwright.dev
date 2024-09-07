@@ -1,32 +1,33 @@
----
+﻿---
 id: running-tests
-title: "Running and debugging tests"
+title: "執行和偵錯測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-You can run a single test, a set of tests or all tests. Tests can be run on different browsers. By default, tests are run in a headless manner, meaning no browser window will be opened while running the tests and results will be seen in the terminal. If you prefer, you can run your tests in headed mode by using the `headless` test run parameter.
+您可以執行單一測試、一組測試或所有測試。測試可以在不同的瀏覽器上執行。預設情況下，測試以無頭方式執行，這意味著在執行測試時不會打開瀏覽器視窗，結果將顯示在終端機中。如果您願意，可以使用 `headless` 測試執行參數以有頭模式執行測試。
 
-**You will learn**
-- [How to run tests](#running-tests)
-- [How to debug tests](#debugging-tests)
+**你將學到**
 
-## Running tests
+- [如何執行測試](#running-tests)
+- [如何除錯測試](#debugging-tests)
 
-### Run all tests
+## 執行測試
 
-Use the following command to run all tests.
+### 執行所有測試
+
+使用以下指令來執行所有測試。
 
 ```bash
 dotnet test
 ```
 
-### Run tests in headed mode
+### 在有頭模式下執行測試
 
-Use the following command to run your tests in headed mode opening a browser window for each test.
+使用以下命令在有頭模式下執行您的測試，為每個測試打開一個瀏覽器窗口。
 
 <Tabs
   groupId="bash-flavor"
@@ -52,7 +53,7 @@ dotnet test
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 set HEADED=1
@@ -62,9 +63,9 @@ dotnet test
 </TabItem>
 </Tabs>
 
-### Run tests on different browsers: Browser env
+### 在不同瀏覽器上執行測試: 瀏覽器環境
 
-Specify which browser you would like to run your tests on via the `BROWSER` environment variable.
+指定您想要在 `BROWSER` 環境變數中執行測試的瀏覽器。
 
 <Tabs
   groupId="bash-flavor"
@@ -90,7 +91,7 @@ dotnet test
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 set BROWSER=webkit
@@ -100,15 +101,15 @@ dotnet test
 </TabItem>
 </Tabs>
 
-### Run tests on different browsers: launch configuration
+### 在不同瀏覽器上執行測試: 啟動設定
 
-Specify which browser you would like to run your tests on by adjusting the launch configuration options:
+指定您想要在其上執行測試的瀏覽器，方法是調整啟動配置選項:
 
 ```bash
 dotnet test -- Playwright.BrowserName=webkit
 ```
 
-To run your test on multiple browsers or configurations, you need to invoke the `dotnet test` command multiple times. There you can then either specify the `BROWSER` environment variable or set the `Playwright.BrowserName` via the runsettings file:
+要在多個瀏覽器或配置上執行你的測試，你需要多次呼叫 `dotnet test` 命令。然後你可以指定 `BROWSER` 環境變數或通過 runsettings 文件設置 `Playwright.BrowserName`:
 
 ```bash
 dotnet test --settings:chromium.runsettings
@@ -125,29 +126,29 @@ dotnet test --settings:webkit.runsettings
   </RunSettings>
 ```
 
-For more information see [selective unit tests](https://docs.microsoft.com/en-us/dotnet/core/testing/selective-unit-tests?pivots=mstest) in the Microsoft docs.
+如需更多資訊，請參閱 [selective unit tests](https://docs.microsoft.com/en-us/dotnet/core/testing/selective-unit-tests?pivots=mstest) in the Microsoft docs。
 
-### Run specific tests
+### 執行特定測試
 
-To run a single test file, use the filter flag followed by the class name of the test you want to run.
+要執行單個測試文件，請使用過濾標誌，後接您要執行的測試類別名稱。
 
 ```bash
 dotnet test --filter "ExampleTest"
 ```
 
-To run a set of test files, use the filter flag followed by the class names of the tests you want to run.
+要執行一組測試文件，請使用 filter 標誌，後跟您要執行的測試類別名稱。
 
 ```bash
 dotnet test --filter "ExampleTest1|ExampleTest2"
 ```
 
-To run a test with a specific title use the filter flag followed by *Name~* and the title of the test.
+要使用篩選標誌並跟隨 *Name~* 和測試標題來執行具有特定標題的測試。
 
 ```bash
 dotnet test --filter "Name~GetStartedLink"
 ```
 
-### Run tests with multiple workers:
+### 執行測試與多個工作者:
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, ] }>
 
@@ -169,9 +170,9 @@ dotnet test -- MSTest.Parallelize.Workers=5
 
 </Tabs>
 
-## Debugging Tests
+## 偵錯測試
 
-Since Playwright runs in .NET, you can debug it with your debugger of choice in e.g. Visual Studio Code or Visual Studio. Playwright comes with the Playwright Inspector which allows you to step through Playwright API calls, see their debug logs and explore [locators](./locators.mdx).
+由於 Playwright 在 .NET 中執行，你可以使用你選擇的除錯器來除錯，例如 Visual Studio Code 或 Visual Studio。Playwright 附帶了 Playwright Inspector，允許你逐步執行 Playwright API 呼叫，查看它們的除錯日誌並探索 [locators](./locators.mdx)。
 
 <Tabs
   groupId="bash-flavor"
@@ -197,7 +198,7 @@ dotnet test
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 set PWDEBUG=1
@@ -207,15 +208,18 @@ dotnet test
 </TabItem>
 </Tabs>
 
-![debugging tests with playwright inspector](https://github.com/microsoft/playwright/assets/13063165/a1e758d3-d379-414f-be0b-7339f12bb635)
+![調試測試與 Playwright 檢查器](https://github.com/microsoft/playwright/assets/13063165/a1e758d3-d379-414f-be0b-7339f12bb635)
 
-Check out our [debugging guide](./debug.mdx) to learn more about the [Playwright Inspector](./debug.mdx#playwright-inspector) as well as debugging with [Browser Developer tools](./debug.mdx#browser-developer-tools).
+請查看我們的[調試指南](./debug.mdx)以了解更多關於[Playwright Inspector](./debug.mdx#playwright-inspector)以及使用[瀏覽器開發者工具](./debug.mdx#browser-developer-tools)進行調試的資訊。
 
-## What's Next
-- [Generate tests with Codegen](./codegen-intro.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
-- [Run tests on CI](./ci-intro.mdx)
-- [Learn more about the MSTest and NUnit base classes](./test-runners.mdx)
+## 接下來是什麼
+
+- [使用 程式碼產生器 生成測試](./codegen-intro.mdx)
+- [查看測試的追蹤](./trace-viewer-intro.mdx)
+- [在 CI 上 執行 測試](./ci-intro.mdx)
+- [了解更多關於 MSTest 和 NUnit 基礎類別](./test-runners.mdx)
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

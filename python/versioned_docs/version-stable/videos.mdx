@@ -1,18 +1,18 @@
----
+﻿---
 id: videos
-title: "Videos"
+title: "影片"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-With Playwright you can record videos for your tests.
+使用 Playwright，你可以錄製測試的影片。
 
-## Record video
+## 錄製影片
 
-Videos are saved upon [browser context](./browser-contexts.mdx) closure at the end of a test. If you create a browser context manually, make sure to await [browser_context.close()](/api/class-browsercontext.mdx#browser-context-close).
+影片會在測試結束時於[瀏覽器上下文](./browser-contexts.mdx)關閉時保存。如果你手動建立瀏覽器上下文，請確保等待[browser_context.close()](https://api/class-browsercontext.mdx#browser-context-close)。
 
 <Tabs
   groupId="python-flavor"
@@ -42,7 +42,7 @@ await context.close()
 </TabItem>
 </Tabs>
 
-You can also specify video size. The video size defaults to the viewport size scaled down to fit 800x800. The video of the viewport is placed in the top-left corner of the output video, scaled down to fit if necessary. You may need to set the viewport size to match your desired video size.
+您也可以指定影片大小。影片大小預設為縮小以適應 800x800 的視口大小。視口的影片放置在輸出影片的左上角，必要時縮小以適應。您可能需要設定視口大小以匹配所需的影片大小。
 
 <Tabs
   groupId="python-flavor"
@@ -74,7 +74,7 @@ context = await browser.new_context(
 </TabItem>
 </Tabs>
 
-Saved video files will appear in the specified folder. They all have generated unique names. For the multi-page scenarios, you can access the video file associated with the page via the [page.video](/api/class-page.mdx#page-video).
+儲存的 影片 檔案將出現在指定的資料夾中。它們都有產生的唯一名稱。對於多頁面場景，您可以通過 [page.video](/api/class-page.mdx#page-video) 訪問與頁面相關的 影片 檔案。
 
 <Tabs
   groupId="python-flavor"
@@ -101,8 +101,10 @@ path = await page.video.path()
 </Tabs>
 
 :::note
-Note that the video is only available after the page or browser context is closed.
+請注意，影片僅在頁面或瀏覽器上下文關閉後可用。
 :::
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

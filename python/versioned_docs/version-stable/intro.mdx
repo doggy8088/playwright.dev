@@ -1,34 +1,35 @@
----
+﻿---
 id: intro
-title: "Installation"
+title: "安裝"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation.
+Playwright 是專為滿足端到端測試需求而建立的。Playwright 支援所有現代渲染引擎，包括 Chromium、WebKit 和 Firefox。在 Windows、Linux 和 macOS 上進行測試，可以是本地或 CI 上，無頭或有頭，並具有原生行動模擬功能。
 
-The [Playwright library](./library.mdx) can be used as a general purpose browser automation tool, providing a powerful set of APIs to automate web applications, for both sync and async Python.
+[Playwright 函式庫](./library.mdx) 可以用作通用的瀏覽器自動化工具，提供一套強大的 API 來自動化網頁應用程式，適用於同步和非同步的 Python。
 
-This introduction describes the Playwright Pytest plugin, which is the recommended way to write end-to-end tests.
+這個介紹描述了 Playwright Pytest 插件，這是撰寫端到端測試的推薦方式。
 
-**You will learn**
-- [How to install Playwright Pytest](/intro.mdx#installing-playwright-pytest)
-- [How to run the example test](/intro.mdx#running-the-example-test)
+**你將學到**
 
-## Installing Playwright Pytest
+- [如何安裝 Playwright Pytest](/intro.mdx#installing-playwright-pytest)
+- [如何執行範例測試](/intro.mdx#running-the-example-test)
 
-Playwright recommends using the official [Playwright Pytest plugin](./test-runners.mdx) to write end-to-end tests. It provides context isolation, running it on multiple browser configurations out of the box.
+## 安裝 Playwright Pytest
 
-Get started by installing Playwright and running the example test to see it in action.
+Playwright 建議使用官方的 [Playwright Pytest plugin](./test-runners.mdx) 來撰寫端到端測試。它提供上下文隔離，並在多個瀏覽器配置上開箱即用地執行。
 
-<Tabs groupId="package-managers" defaultValue="pypi" values={[ {label: 'PyPI', value: 'pypi'}, {label: 'Anaconda', value: 'anaconda'} ] }>
+開始安裝 Playwright 並執行範例測試以查看其效果。
+
+<Tabs groupId="套件-managers" defaultValue="pypi" values={[ {label: 'PyPI', value: 'pypi'}, {label: 'Anaconda', value: 'anaconda'} ] }>
 
 <TabItem value="pypi">
 
-Install the [Pytest plugin](https://pypi.org/project/pytest-playwright/):
+安裝 [Pytest plugin](https://pypi.org/project/pytest-playwright/)：
 
 ```bash
 pip install pytest-playwright
@@ -38,7 +39,7 @@ pip install pytest-playwright
 
 <TabItem value="anaconda">
 
-Install the [Pytest plugin](https://anaconda.org/Microsoft/pytest-playwright):
+安裝 [Pytest plugin](https://anaconda.org/Microsoft/pytest-playwright)：
 
 ```bash
 conda config --add channels conda-forge
@@ -50,15 +51,15 @@ conda install pytest-playwright
 
 </Tabs>
 
-Install the required browsers:
+安裝所需的瀏覽器:
 
 ```bash
 playwright install
 ```
 
-## Add Example Test
+## 新增範例測試
 
-Create a file that follows the `test_` prefix convention, such as `test_example.py`, inside the current working directory or in a sub-directory with the code below. Make sure your test name also follows the `test_` prefix convention.
+建立一個遵循 `test_` 前綴約定的檔案，例如 `test_example.py`，在當前工作目錄或包含以下程式碼的子目錄中。確保你的測試名稱也遵循 `test_` 前綴約定。
 
 ```py title="test_example.py"
 import re
@@ -80,33 +81,37 @@ def test_get_started_link(page: Page):
     expect(page.get_by_role("heading", name="Installation")).to_be_visible()
 ```
 
-## Running the Example Test
+## 執行這個範例測試
 
-By default tests will be run on chromium. This can be configured via the [CLI options](./running-tests.mdx). Tests are run in headless mode meaning no browser UI will open up when running the tests. Results of the tests and test logs will be shown in the terminal.
+預設情況下，測試將在 chromium 上執行。這可以通過 [CLI options](./running-tests.mdx) 進行配置。測試在無頭模式下執行，這意味著在執行測試時不會打開瀏覽器 UI。測試結果和測試日誌將顯示在終端中。
 
 ```bash
 pytest
 ```
 
-## Updating Playwright
+## 更新 Playwright
 
-To update Playwright to the latest version run the following command:
+要更新 Playwright 到最新版本，執行以下命令:
 
 ```bash
 pip install pytest-playwright playwright -U
 ```
 
-## System requirements
-- Python 3.8 or higher.
-- Windows 10+, Windows Server 2016+ or Windows Subsystem for Linux (WSL).
-- macOS 13 Ventura, or macOS 14 Sonoma.
-- Debian 11, Debian 12, Ubuntu 20.04 or Ubuntu 22.04, Ubuntu 24.04, on x86-64 and arm64 architecture.
+## 系統需求
 
-## What's next
-- [Write tests using web first assertions, page fixtures and locators](./writing-tests.mdx)
-- [Run single test, multiple tests, headed mode](./running-tests.mdx)
-- [Generate tests with Codegen](./codegen.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
+- Python 3.8 或更高版本。
+- Windows 10+、Windows Server 2016+ 或 Windows Subsystem for Linux (WSL)。
+- macOS 13 Ventura 或 macOS 14 Sonoma。
+- Debian 11、Debian 12、Ubuntu 20.04 或 Ubuntu 22.04、Ubuntu 24.04，適用於 x86-64 和 arm64 架構。
+
+## 接下來是什麼
+
+- [使用 web first assertions、page fixtures 和 locators 撰寫測試](./writing-tests.mdx)
+- [執行單一測試、多個測試、headed 模式](./running-tests.mdx)
+- [使用 Codegen 產生測試](./codegen.mdx)
+- [查看測試的 trace](./trace-viewer-intro.mdx)
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

@@ -1,18 +1,18 @@
----
+﻿---
 id: dialogs
-title: "Dialogs"
+title: "對話框"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright can interact with the web page dialogs such as [`alert`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert), [`confirm`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm), [`prompt`](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt) as well as [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) confirmation. For print dialogs, see [Print](#print-dialogs).
+Playwright 可以與網頁對話框互動，例如 [`alert`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)、[`confirm`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm)、[`prompt`](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt) 以及 [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) 確認。關於列印對話框，請參見 [Print](#print-dialogs)。
 
-## alert(), confirm(), prompt() dialogs
+## alert(), confirm(), prompt() 對話框
 
-By default, dialogs are auto-dismissed by Playwright, so you don't have to handle them. However, you can register a dialog handler before the action that triggers the dialog to either [dialog.accept()](/api/class-dialog.mdx#dialog-accept) or [dialog.dismiss()](/api/class-dialog.mdx#dialog-dismiss) it.
+根據預設，對話框會被 Playwright 自動關閉，所以你不需要處理它們。然而，你可以在觸發對話框的動作之前註冊一個對話框處理器，以便[dialog.accept()](https://ollama.com/api/class-dialog.mdx#dialog-accept)或[dialog.dismiss()](https://ollama.com/api/class-dialog.mdx#dialog-dismiss)它。
 
 ```js
 page.on('dialog', dialog => dialog.accept());
@@ -20,13 +20,13 @@ await page.getByRole('button').click();
 ```
 
 :::note
-[page.on('dialog')](/api/class-page.mdx#page-event-dialog) listener **must handle** the dialog. Otherwise your action will stall, be it [locator.click()](/api/class-locator.mdx#locator-click) or something else. That's because dialogs in Web are modals and therefore block further page execution until they are handled.
+[page.on('dialog')](https://ollama.com/library) 監聽器**必須處理**對話框。否則你的操作將會停滯，不論是 [locator.click()](https://ollama.com/library) 還是其他操作。這是因為 Web 中的對話框是模態的，因此會阻止頁面進一步執行，直到它們被處理。
 :::
 
-As a result, the following snippet will never resolve:
+由此可見，以下程式碼片段將永遠無法解析:
 
 :::warning
-WRONG!
+錯誤！
 :::
 
 ```js
@@ -35,14 +35,14 @@ await page.getByRole('button').click(); // Will hang here
 ```
 
 :::note
-If there is no listener for [page.on('dialog')](/api/class-page.mdx#page-event-dialog), all dialogs are automatically dismissed.
+如果沒有 [page.on('dialog')](/api/class-page.mdx#page-event-dialog) 的監聽器，所有對話框將自動關閉。
 :::
 
-## beforeunload dialog
+## beforeunload 對話框
 
-When [page.close()](/api/class-page.mdx#page-close) is invoked with the truthy `runBeforeUnload` value, the page runs its unload handlers. This is the only case when [page.close()](/api/class-page.mdx#page-close) does not wait for the page to actually close, because it might be that the page stays open in the end of the operation.
+當 [page.close()](/api/class-page.mdx#page-close) 被呼叫且 `runBeforeUnload` 值為真時，頁面會執行其卸載處理程序。這是唯一的情況，[page.close()](/api/class-page.mdx#page-close) 不會等待頁面實際關閉，因為在操作結束時頁面可能會保持開啟。
 
-You can register a dialog handler to handle the `beforeunload` dialog yourself:
+您可以註冊一個對話框處理器來自行處理 `beforeunload` 對話框:
 
 ```js
 page.on('dialog', async dialog => {
@@ -52,9 +52,9 @@ page.on('dialog', async dialog => {
 await page.close({ runBeforeUnload: true });
 ```
 
-## Print dialogs
+## 列印對話框
 
-In order to assert that a print dialog via [`window.print`](https://developer.mozilla.org/en-US/docs/Web/API/Window/print) was triggered, you can use the following snippet:
+為了確認透過 [`window.print`](https://developer.mozilla.org/en-US/docs/Web/API/Window/print) 觸發的列印對話框，你可以使用以下程式碼片段:
 
 ```js
 await page.goto('<url>');
@@ -65,7 +65,9 @@ await page.getByText('Print it!').click();
 await page.waitForFunction('window.waitForPrintDialog');
 ```
 
-This will wait for the print dialog to be opened after the button is clicked. Make sure to evaluate the script before clicking the button / after the page is loaded.
+這將在按鈕被點擊後等待列印對話框被打開。確保在點擊按鈕之前/頁面載入後評估腳本。
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

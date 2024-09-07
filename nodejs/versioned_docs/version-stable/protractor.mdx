@@ -1,16 +1,17 @@
----
+﻿---
 id: protractor
-title: "Migrating from Protractor"
+title: "從 Protractor 遷移"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Migration Principles
-- No need for "webdriver-manager" / Selenium.
-- Protractor’s [ElementFinder] ⇄ [Playwright Test Locator](./api/class-locator)
-- Protractor’s [`waitForAngular`] ⇄ Playwright Test [auto-waiting](./actionability.mdx)
-- Don’t forget to await in Playwright Test
+## 遷移原則
+
+- 不需要 "webdriver-manager" / Selenium。
+- Protractor 的 [ElementFinder] ⇄ [Playwright Test Locator](./api/class-locator)
+- Protractor 的 [`waitForAngular`] ⇄ Playwright Test [auto-waiting](./actionability.mdx)
+- 不要忘記在 Playwright Test 中使用 await
 
 ## Cheat Sheet
 
@@ -27,7 +28,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 | `browser.get(url)`                                | `await page.goto(url)`                  |
 | `browser.getCurrentUrl()`                         | `page.url()`                            |
 
-## Example
+## 範例
 
 Protractor:
 
@@ -51,7 +52,7 @@ describe('angularjs homepage todo list', function() {
 });
 ```
 
-Line-by-line migration to Playwright Test:
+逐行遷移到 Playwright Test:
 
 ```js
 const { test, expect } = require('@playwright/test'); // 1
@@ -77,19 +78,21 @@ test.describe('angularjs homepage todo list', () => {
 });
 ```
 
-Migration highlights (see inline comments in the Playwright Test code snippet):
-1. Each Playwright Test file has explicit import of the `test` and `expect` functions
-1. Test function is marked with `async`
-1. Playwright Test is given a `page` as one of its parameters. This is one of the many [useful fixtures](./api/class-fixtures) in Playwright Test.
-1. Almost all Playwright calls are prefixed with `await`
-1. Locator creation with [page.locator()](/api/class-page.mdx#page-locator) is one of the few methods that is sync.
+遷移重點 (請參閱 Playwright Test 程式碼片段中的內嵌註解):
+
+1. 每個 Playwright 測試文件都有明確的 `test` 和 `expect` 函式匯入
+1. 測試函式標記為 `async`
+1. Playwright 測試給定一個 `page` 作為其參數之一。這是 Playwright 測試中許多[有用的 fixtures](./api/class-fixtures)之一。
+1. 幾乎所有的 Playwright 呼叫都以 `await` 為前綴
+1. 使用 [page.locator()](/api/class-page.mdx#page-locator) 建立定位器是少數同步的方法之一。
 
 ## Polyfilling `waitForAngular`
 
-Playwright Test has built-in [auto-waiting](./actionability.mdx) that makes protractor's [`waitForAngular`] unneeded in general case.
+Playwright Test 有內建的[自動等待](./actionability.mdx)，這使得 protractor 的[`waitForAngular`]在一般情況下不再需要。
 
-However, it might come handy in some edge cases. Here's how to polyfill `waitForAngular` function in Playwright Test:
-1. Make sure you have protractor installed in your package.json
+然而，它可能在某些邊緣情況下派上用場。以下是如何在 Playwright Test 中填補 `waitForAngular` 函式:
+
+1. 確保你在 package.json 中安裝了 protractor
 1. Polyfill function
    
    ```js
@@ -114,7 +117,7 @@ However, it might come handy in some edge cases. Here's how to polyfill `waitFor
    }
    ```
    
-   If you don't want to keep a version protractor around, you can also use this simpler approach using this function (only works for Angular 2+):
+   如果你不想保留一個版本的 protractor，你也可以使用這個更簡單的方法（僅適用於 Angular 2+）:
    
    ```js
    async function waitForAngular(page) {
@@ -139,29 +142,35 @@ However, it might come handy in some edge cases. Here's how to polyfill `waitFor
    await page.goto('https://example.org');
    await waitForAngular(page);
    ```
-   
-## Playwright Test Super Powers
 
-Once you're on Playwright Test, you get a lot!
-- Full zero-configuration TypeScript support
-- Run tests across **all web engines** (Chrome, Firefox, Safari) on **any popular operating system** (Windows, macOS, Ubuntu)
-- Full support for multiple origins, [(i)frames](./api/class-frame), [tabs and contexts](./pages)
-- Run tests in parallel across multiple browsers
-- Built-in test [artifact collection](./test-use-options.mdx#recording-options)
+## Playwright Test 超能力
 
-You also get all these ✨ awesome tools ✨ that come bundled with Playwright Test:
+一旦你使用 Playwright 測試，你會獲得很多！
+
+- 完整的零配置 TypeScript 支援
+- 在**所有網頁引擎**（Chrome、Firefox、Safari）上，於**任何流行的作業系統**（Windows、macOS、Ubuntu）上執行測試
+- 完整支援多個來源，[(i)frames](./api/class-frame)、[標籤頁和上下文](./pages)
+- 在多個瀏覽器中平行執行測試
+- 內建測試[artifact collection](./test-use-options.mdx#recording-options)
+
+你還會獲得所有這些 ✨ 很棒的工具 ✨，這些工具與 Playwright Test 一起捆綁提供:
+
 - [Playwright Inspector](./debug.mdx)
-- [Playwright Test Code generation](./codegen-intro.mdx)
+- [Playwright Test 程式碼產生器](./codegen-intro.mdx)
 - [Playwright Tracing](./trace-viewer.mdx) for post-mortem debugging
 
-## Further Reading
+## 延伸閱讀
 
-Learn more about Playwright Test runner:
-- [Getting Started](./intro)
-- [Fixtures](./test-fixtures)
-- [Locators](./locators)
-- [Assertions](./test-assertions)
-- [Auto-waiting](./actionability)
+了解更多關於 Playwright 測試執行器:
+
+- [入門](./intro)
+- [固定裝置](./test-fixtures)
+- [定位器](./locators)
+- [斷言](./test-assertions)
+- [自動等待](./actionability)
+
+
+
 
 [ElementFinder]: https://www.protractortest.org/#/api?view=ElementFinder
 [`waitForAngular`]: https://www.protractortest.org/#/api?view=ProtractorBrowser.prototype.waitForAngular

@@ -1,39 +1,40 @@
----
+﻿---
 id: test-parallel
-title: "Parallelism"
+title: "平行處理"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright Test runs tests in parallel. In order to achieve that, it runs several worker processes that run at the same time. By default, **test files** are run in parallel. Tests in a single file are run in order, in the same worker process.
-- You can configure tests using [`test.describe.configure`](#parallelize-tests-in-a-single-file) to run **tests in a single file** in parallel.
-- You can configure **entire project** to have all tests in all files to run in parallel using [testProject.fullyParallel](/api/class-testproject.mdx#test-project-fully-parallel) or [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel).
-- To **disable** parallelism limit the number of [workers to one](#disable-parallelism).
+Playwright Test 平行執行測試。為了達到這一點，它會執行多個同時運行的工作程序。預設情況下，**測試檔案**是平行執行的。單個檔案中的測試會按順序在同一個工作程序中執行。
 
-You can control the number of [parallel worker processes](#limit-workers) and [limit the number of failures](#limit-failures-and-fail-fast) in the whole test suite for efficiency.
+- 你可以使用 [`test.describe.configure`](#parallelize-tests-in-a-single-file) 配置測試以平行執行**單個檔案中的測試**。
+- 你可以配置**整個專案**，使用 [testProject.fullyParallel](/api/class-testproject.mdx#test-project-fully-parallel) 或 [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) 使所有檔案中的所有測試平行執行。
+- 要**禁用**平行處理，將 [workers 的數量限制為一](#disable-parallelism)。
+
+你可以控制[平行工作程序](#limit-workers)的數量和[限制失敗次數](#limit-failures-and-fail-fast)以提高整個測試套件的效率。
 
 ## Worker processes
 
-All tests run in worker processes. These processes are OS processes, running independently, orchestrated by the test runner. All workers have identical environments and each starts its own browser.
+所有測試在工作者程序中執行。這些程序是作業系統程序，獨立執行，由測試執行器協調。所有工作者有相同的環境，每個都啟動自己的瀏覽器。
 
-You can't communicate between the workers. Playwright Test reuses a single worker as much as it can to make testing faster, so multiple test files are usually run in a single worker one after another.
+你無法在工作者之間進行通訊。Playwright Test 會盡可能重複使用單一工作者以加快測試速度，因此多個測試檔案通常會在單一工作者中一個接一個地執行。
 
-Workers are always shutdown after a [test failure](./test-retries.mdx#failures) to guarantee pristine environment for following tests.
+工作者在[測試失敗](./test-retries.mdx#failures)後總是會關閉，以保證後續測試的乾淨環境。
 
-## Limit workers
+## 限制工作者
 
-You can control the maximum number of parallel worker processes via [command line](./test-cli.mdx) or in the [configuration file](./test-configuration.mdx).
+您可以通過 [command line](./test-cli.mdx) 或在 [configuration file](./test-configuration.mdx) 中控制最大平行工作程序數量。
 
-From the command line:
+從命令列:
 
 ```bash
 npx playwright test --workers 4
 ```
 
-In the configuration file:
+在設定檔中:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -44,19 +45,19 @@ export default defineConfig({
 });
 ```
 
-## Disable parallelism
+## 停用平行處理
 
-You can disable any parallelism by allowing just a single worker at any time. Either set `workers: 1` option in the configuration file or pass `--workers=1` to the command line.
+您可以通過僅允許一次只有一個工作者來禁用任何平行處理。可以在配置文件中設置 `workers: 1` 選項，或在命令行中傳遞 `--workers=1`。
 
 ```bash
 npx playwright test --workers=1
 ```
 
-## Parallelize tests in a single file
+## 平行處理單個文件中的測試
 
-By default, tests in a single file are run in order. If you have many independent tests in a single file, you might want to run them in parallel with [test.describe.configure()](/api/class-test.mdx#test-describe-configure).
+預設情況下，單個文件中的測試會按順序執行。如果你在單個文件中有許多獨立的測試，你可能會想要使用 [test.describe.configure()](/api/class-test.mdx#test-describe-configure) 平行執行它們。
 
-Note that parallel tests are executed in separate worker processes and cannot share any state or global variables. Each test executes all relevant hooks just for itself, including `beforeAll` and `afterAll`.
+請注意，平行測試在不同的工作程序中執行，不能共享任何狀態或全域變數。每個測試都只為自己執行所有相關的鉤子，包括 `beforeAll` 和 `afterAll`。
 
 ```js
 import { test } from '@playwright/test';
@@ -67,7 +68,7 @@ test('runs in parallel 1', async ({ page }) => { /* ... */ });
 test('runs in parallel 2', async ({ page }) => { /* ... */ });
 ```
 
-Alternatively, you can opt-in all tests into this fully-parallel mode in the configuration file:
+或者，您可以在配置文件中選擇將所有測試加入此完全平行模式:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -77,7 +78,7 @@ export default defineConfig({
 });
 ```
 
-You can also opt in for fully-parallel mode for just a few projects:
+您也可以選擇為幾個專案啟用完全平行模式:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -94,12 +95,12 @@ export default defineConfig({
 });
 ```
 
-## Serial mode
+## 序列模式
 
-You can annotate inter-dependent tests as serial. If one of the serial tests fails, all subsequent tests are skipped. All tests in a group are retried together.
+你可以將相互依賴的測試標註為串行。如果其中一個串行測試失敗，所有後續測試將被跳過。一組中的所有測試將一起重試。
 
 :::note
-Using serial is not recommended. It is usually better to make your tests isolated, so they can be run independently.
+不建議使用串行。通常最好使您的測試獨立，以便它們可以獨立執行。
 :::
 
 ```js
@@ -127,27 +128,27 @@ test('runs second', async () => {
 });
 ```
 
-## Shard tests between multiple machines
+## 在多台機器之間分片測試
 
-Playwright Test can shard a test suite, so that it can be executed on multiple machines. See [sharding guide](./test-sharding.mdx) for more details.
+Playwright Test 可以分片測試套件，以便在多台機器上執行。詳情請參閱[分片指南](./test-sharding.mdx)。
 
 ```bash
 npx playwright test --shard=2/3
 ```
 
-## Limit failures and fail fast
+## 限制失敗並快速失敗
 
-You can limit the number of failed tests in the whole test suite by setting `maxFailures` config option or passing `--max-failures` command line flag.
+您可以透過設定 `maxFailures` 配置選項或傳遞 `--max-failures` 命令列標誌來限制整個測試套件中的失敗測試數量。
 
-When running with "max failures" set, Playwright Test will stop after reaching this number of failed tests and skip any tests that were not executed yet. This is useful to avoid wasting resources on broken test suites.
+當設定 "max failures" 時，Playwright Test 會在達到此數量的失敗測試後停止，並跳過任何尚未執行的測試。這對於避免在損壞的測試套件上浪費資源非常有用。
 
-Passing command line option:
+傳遞命令列選項:
 
 ```bash
 npx playwright test --max-failures=10
 ```
 
-Setting in the configuration file:
+設定在配置檔案中:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -158,17 +159,17 @@ export default defineConfig({
 });
 ```
 
-## Worker index and parallel index
+## Worker 索引和平行索引
 
-Each worker process is assigned two ids: a unique worker index that starts with 1, and a parallel index that is between `0` and `workers - 1`. When a worker is restarted, for example after a failure, the new worker process has the same `parallelIndex` and a new `workerIndex`.
+每個 worker 程序被分配兩個 id: 從 1 開始的唯一 worker 索引和介於 `0` 和 `workers - 1` 之間的平行索引。當一個 worker 重新啟動時，例如在故障後，新 worker 程序具有相同的 `parallelIndex` 和新的 `workerIndex`。
 
-You can read an index from environment variables `process.env.TEST_WORKER_INDEX` and `process.env.TEST_PARALLEL_INDEX`, or access them through [testInfo.workerIndex](/api/class-testinfo.mdx#test-info-worker-index) and [testInfo.parallelIndex](/api/class-testinfo.mdx#test-info-parallel-index).
+你可以從環境變數 `process.env.TEST_WORKER_INDEX` 和 `process.env.TEST_PARALLEL_INDEX` 讀取索引，或通過 [testInfo.workerIndex](/api/class-testinfo.mdx#test-info-worker-index) 和 [testInfo.parallelIndex](/api/class-testinfo.mdx#test-info-parallel-index) 訪問它們。
 
-### Isolate test data between parallel workers
+### 隔離平行工作者之間的測試資料
 
-You can leverage `process.env.TEST_WORKER_INDEX` or [testInfo.workerIndex](/api/class-testinfo.mdx#test-info-worker-index) mentioned above to isolate user data in the database between tests running on different workers. All tests run by the worker reuse the same user.
+你可以利用 `process.env.TEST_WORKER_INDEX` 或 [testInfo.workerIndex](/api/class-testinfo.mdx#test-info-worker-index) 提到的來隔離資料庫中不同工作者執行測試之間的使用者資料。所有由工作者執行的測試都會重複使用相同的使用者。
 
-Create `playwright/fixtures.ts` file that will [create `dbUserName` fixture](./test-fixtures#creating-a-fixture) and initialize a new user in the test database. Use [testInfo.workerIndex](/api/class-testinfo.mdx#test-info-worker-index) to differentiate between workers.
+建立 `playwright/fixtures.ts` 文件來[建立 `dbUserName` fixture](./test-fixtures#creating-a-fixture) 並在測試資料庫中初始化一個新使用者。使用 [testInfo.workerIndex](/api/class-testinfo.mdx#test-info-worker-index) 來區分不同的工作者。
 
 ```js title="playwright/fixtures.ts"
 import { test as baseTest, expect } from '@playwright/test';
@@ -190,7 +191,7 @@ export const test = baseTest.extend<{}, { dbUserName: string }>({
 });
 ```
 
-Now, each test file should import `test` from our fixtures file instead of `@playwright/test`.
+現在，每個測試文件應該從我們的 fixtures 文件中匯入 `test`，而不是從 `@playwright/test`。
 
 ```js title="tests/example.spec.ts"
 // Important: import our fixtures.
@@ -201,23 +202,23 @@ test('test', async ({ dbUserName }) => {
 });
 ```
 
-## Control test order
+## 控制測試順序
 
-Playwright Test runs tests from a single file in the order of declaration, unless you [parallelize tests in a single file](#parallelize-tests-in-a-single-file).
+Playwright Test 會依照宣告的順序從單一檔案執行測試，除非你[在單一檔案中平行化測試](#parallelize-tests-in-a-single-file)。
 
-There is no guarantee about the order of test execution across the files, because Playwright Test runs test files in parallel by default. However, if you [disable parallelism](#disable-parallelism), you can control test order by either naming your files in alphabetical order or using a "test list" file.
+測試檔案的執行順序無法保證，因為 Playwright Test 預設會平行執行測試檔案。然而，如果你[禁用平行處理](#disable-parallelism)，你可以通過按字母順序命名檔案或使用“測試列表”檔案來控制測試順序。
 
-### Sort test files alphabetically
+### 將測試檔案按字母順序排序
 
-When you **disable parallel test execution**, Playwright Test runs test files in alphabetical order. You can use some naming convention to control the test order, for example `001-user-signin-flow.spec.ts`, `002-create-new-document.spec.ts` and so on.
+當你**禁用平行測試執行**時，Playwright Test 會按字母順序執行測試檔案。你可以使用一些命名規則來控制測試順序，例如 `001-user-signin-flow.spec.ts`、`002-create-new-document.spec.ts` 等等。
 
-### Use a "test list" file
+### 使用 "測試清單" 文件
 
 :::warning
-Tests lists are discouraged and supported as a best-effort only. Some features such as VS Code Extension and tracing may not work properly with test lists.
+不建議使用測試清單，並且僅提供盡力而為的支持。一些功能如 VS Code Extension 和追蹤可能無法與測試清單正常運作。
 :::
 
-You can put your tests in helper functions in multiple files. Consider the following example where tests are not defined directly in the file, but rather in a wrapper function.
+你可以將你的測試放在多個檔案中的輔助函式中。考慮以下範例，其中測試並未直接定義在檔案中，而是在包裝函式中。
 
 ```js title="feature-a.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -242,7 +243,7 @@ export default function createTests() {
 }
 ```
 
-You can create a test list file that will control the order of tests - first run `feature-b` tests, then `feature-a` tests. Note how each test file is wrapped in a `test.describe()` block that calls the function where tests are defined. This way `test.use()` calls only affect tests from a single file.
+您可以建立一個測試清單文件來控制測試的順序 - 首先執行 `feature-b` 測試，然後執行 `feature-a` 測試。注意每個測試文件如何包裹在一個 `test.describe()` 區塊中，該區塊呼叫定義測試的函式。這樣 `test.use()` 呼叫只會影響單個文件中的測試。
 
 ```js title="test.list.ts"
 import { test } from '@playwright/test';
@@ -253,7 +254,7 @@ test.describe(featureBTests);
 test.describe(featureATests);
 ```
 
-Now **disable parallel execution** by setting workers to one, and specify your test list file.
+現在通過將 workers 設定為 1 來**禁用平行執行**，並指定你的測試清單檔案。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -265,8 +266,10 @@ export default defineConfig({
 ```
 
 :::note
-Do not define your tests directly in a helper file. This could lead to unexpected results because your tests are now dependent on the order of `import`/`require` statements. Instead, wrap tests in a function that will be explicitly called by a test list file, as in the example above.
+不要直接在輔助檔案中定義你的測試。這可能會導致意外結果，因為你的測試現在依賴於 `import`/`require` 語句的順序。相反，將測試包裝在一個函式中，該函式將由測試列表檔案顯式呼叫，如上面的範例所示。
 :::
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

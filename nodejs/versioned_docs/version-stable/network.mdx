@@ -1,25 +1,26 @@
----
+﻿---
 id: network
-title: "Network"
+title: "網路"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright provides APIs to **monitor** and **modify** browser network traffic, both HTTP and HTTPS. Any requests that a page does, including [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) requests, can be tracked, modified and handled.
+Playwright 提供 API 來**監控**和**修改**瀏覽器網路流量，包括 HTTP 和 HTTPS。頁面所做的任何請求，包括 [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) 和 [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 請求，都可以被追蹤、修改和處理。
 
-## Mock APIs
+## 模擬 API
 
-Check out our [API mocking guide](./mock.mdx) to learn more on how to 
-- mock API requests and never hit the API
-- perform the API request and modify the response
-- use HAR files to mock network requests.
+查看我們的 [API mocking 指南](./mock.mdx) 以了解更多資訊。
 
-## Network mocking
+- 模擬 API 請求並且不會觸發 API
+- 執行 API 請求並修改回應
+- 使用 HAR 檔案來模擬網路請求。
 
-You don't have to configure anything to mock network requests. Just define a custom [Route] that mocks network for a browser context.
+## 網路模擬
+
+你不需要配置任何東西來模擬網路請求。只需定義一個自訂的 [Route]，為瀏覽器上下文模擬網路。
 
 ```js title="example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -35,7 +36,7 @@ test('loads page without css', async ({ page }) => {
 });
 ```
 
-Alternatively, you can use [page.route()](/api/class-page.mdx#page-route) to mock network in a single page.
+或者，你可以使用 [page.route()](https://api/class-page.mdx#page-route) 來模擬單一頁面的網路。
 
 ```js title="example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -49,9 +50,9 @@ test('loads page without images', async ({ page }) => {
 });
 ```
 
-## HTTP Authentication
+## HTTP 認證
 
-Perform HTTP Authentication.
+執行 HTTP 認證。
 
 <Tabs
   groupId="js-flavor"
@@ -76,7 +77,7 @@ export default defineConfig({
 ```
 
 </TabItem>
-<TabItem value="library">
+<TabItem value="函式庫">
 
 ```js
 const context = await browser.newContext({
@@ -94,11 +95,11 @@ await page.goto('https://example.com');
 
 ## HTTP Proxy
 
-You can configure pages to load over the HTTP(S) proxy or SOCKSv5. Proxy can be either set globally for the entire browser, or for each browser context individually.
+您可以配置頁面通過 HTTP(S) 代理或 SOCKSv5 加載。代理可以為整個瀏覽器全域設置，也可以為每個瀏覽器上下文單獨設置。
 
-You can optionally specify username and password for HTTP(S) proxy, you can also specify hosts to bypass proxy for.
+您可以選擇性地指定 HTTP(S) 代理的使用者名稱和密碼，您也可以指定要繞過代理的主機。
 
-Here is an example of a global proxy:
+這裡是一個全域代理的範例:
 
 <Tabs
   groupId="js-flavor"
@@ -124,7 +125,7 @@ export default defineConfig({
 ```
 
 </TabItem>
-<TabItem value="library">
+<TabItem value="函式庫">
 
 ```js
 const browser = await chromium.launch({
@@ -139,7 +140,7 @@ const browser = await chromium.launch({
 </TabItem>
 </Tabs>
 
-Its also possible to specify it per context:
+也可以根據上下文指定它:
 
 <Tabs
   groupId="js-flavor"
@@ -167,7 +168,7 @@ test('should use custom proxy on a new context', async ({ browser }) => {
 ```
 
 </TabItem>
-<TabItem value="library">
+<TabItem value="函式庫">
 
 ```js
 const browser = await chromium.launch();
@@ -179,9 +180,9 @@ const context = await browser.newContext({
 </TabItem>
 </Tabs>
 
-## Network events
+## 網路事件
 
-You can monitor all the [Request]s and [Response]s:
+你可以監控所有的 [Request] 和 [Response]:
 
 ```js
 // Subscribe to 'request' and 'response' events.
@@ -191,7 +192,7 @@ page.on('response', response => console.log('<<', response.status(), response.ur
 await page.goto('https://example.com');
 ```
 
-Or wait for a network response after the button click with [page.waitForResponse()](/api/class-page.mdx#page-wait-for-response):
+或者在按鈕點擊後等待網路回應，使用 [page.waitForResponse()](https://api/class-page.mdx#page-wait-for-response)：
 
 ```js
 // Use a glob URL pattern. Note no await.
@@ -200,9 +201,9 @@ await page.getByText('Update').click();
 const response = await responsePromise;
 ```
 
-#### Variations
+#### 變體
 
-Wait for [Response]s with [page.waitForResponse()](/api/class-page.mdx#page-wait-for-response)
+等待 [Response]s with [page.waitForResponse()](/api/class-page.mdx#page-wait-for-response)。
 
 ```js
 // Use a RegExp. Note no await.
@@ -216,7 +217,7 @@ await page.getByText('Update').click();
 const response = await responsePromise;
 ```
 
-## Handle requests
+## 處理請求
 
 ```js
 await page.route('**/api/fetch_data', route => route.fulfill({
@@ -226,11 +227,11 @@ await page.route('**/api/fetch_data', route => route.fulfill({
 await page.goto('https://example.com');
 ```
 
-You can mock API endpoints via handling the network requests in your Playwright script.
+您可以通過在您的 Playwright 腳本中處理網路請求來模擬 API 端點。
 
-#### Variations
+#### 變體
 
-Set up route on the entire browser context with [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) or page with [page.route()](/api/class-page.mdx#page-route). It will apply to popup windows and opened links.
+設定整個瀏覽器上下文的路由，使用 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 或頁面使用 [page.route()](/api/class-page.mdx#page-route)。它將適用於彈出視窗和打開的連結。
 
 ```js
 await browserContext.route('**/api/login', route => route.fulfill({
@@ -240,7 +241,7 @@ await browserContext.route('**/api/login', route => route.fulfill({
 await page.goto('https://example.com');
 ```
 
-## Modify requests
+## 修改請求
 
 ```js
 // Delete header
@@ -254,11 +255,11 @@ await page.route('**/*', async route => {
 await page.route('**/*', route => route.continue({ method: 'POST' }));
 ```
 
-You can continue requests with modifications. Example above removes an HTTP header from the outgoing requests.
+你可以繼續請求並進行修改。上面的範例從傳出的請求中移除了 HTTP 標頭。
 
-## Abort requests
+## 中止請求
 
-You can abort requests using [page.route()](/api/class-page.mdx#page-route) and [route.abort()](/api/class-route.mdx#route-abort).
+你可以使用 [page.route()](https://api/class-page.mdx#page-route) 和 [route.abort()](https://api/class-route.mdx#route-abort) 來中止請求。
 
 ```js
 await page.route('**/*.{png,jpg,jpeg}', route => route.abort());
@@ -269,9 +270,9 @@ await page.route('**/*', route => {
 });
 ```
 
-## Modify responses
+## 修改回應
 
-To modify a response use [APIRequestContext] to get the original response and then pass the response to [route.fulfill()](/api/class-route.mdx#route-fulfill). You can override individual fields on the response via options:
+要修改回應，使用 [APIRequestContext] 取得原始回應，然後將回應傳遞給 [route.fulfill()](/api/class-route.mdx#route-fulfill)。你可以通過選項覆蓋回應的個別欄位:
 
 ```js
 await page.route('**/title.html', async route => {
@@ -296,7 +297,7 @@ await page.route('**/title.html', async route => {
 
 ## WebSockets
 
-Playwright supports [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) inspection out of the box. Every time a WebSocket is created, the [page.on('websocket')](/api/class-page.mdx#page-event-web-socket) event is fired. This event contains the [WebSocket] instance for further web socket frames inspection:
+Playwright 支援 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) 檢查。每次建立 WebSocket 時，會觸發 [page.on('websocket')](https://api/class-page.mdx#page-event-web-socket) 事件。此事件包含 [WebSocket] 實例以進一步檢查 web socket 幀:
 
 ```js
 page.on('websocket', ws => {
@@ -307,12 +308,15 @@ page.on('websocket', ws => {
 });
 ```
 
-## Missing Network Events and Service Workers
+## 缺少網路事件和服務工作者
 
-Playwright's built-in [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [page.route()](/api/class-page.mdx#page-route) allow your tests to natively route requests and perform mocking and interception.
-1. If you're using Playwright's native [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [page.route()](/api/class-page.mdx#page-route), and it appears network events are missing, disable Service Workers by setting `Browser.newContext.serviceWorkers` to `'block'`.
-1. It might be that you are using a mock tool such as Mock Service Worker (MSW). While this tool works out of the box for mocking responses, it adds its own Service Worker that takes over the network requests, hence making them invisible to [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [page.route()](/api/class-page.mdx#page-route). If you are interested in both network testing and mocking, consider using built-in [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [page.route()](/api/class-page.mdx#page-route) for [response mocking](#handle-requests).
-1. If you're interested in not solely using Service Workers for testing and network mocking, but in routing and listening for requests made by Service Workers themselves, please see [this experimental feature](https://github.com/microsoft/playwright/issues/15684).
+Playwright 的內建 [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](https://api/class-page.mdx#page-route) 允許你的測試原生地路由請求並執行模擬和攔截。
+
+1. 如果你正在使用 Playwright 的原生 [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](https://api/class-page.mdx#page-route)，並且出現網路事件遺失的情況，請通過將 `Browser.newContext.serviceWorkers` 設定為 `'block'` 來禁用 Service Workers。
+1. 可能是因為你正在使用像 Mock Service Worker (MSW) 這樣的模擬工具。雖然這個工具可以開箱即用地模擬回應，但它會添加自己的 Service Worker 來接管網路請求，從而使它們對 [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](https://api/class-page.mdx#page-route) 不可見。如果你對網路測試和模擬都感興趣，請考慮使用內建的 [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](https://api/class-page.mdx#page-route) 來進行[回應模擬](#handle-requests)。
+1. 如果你不僅僅對使用 Service Workers 進行測試和網路模擬感興趣，還對路由和監聽由 Service Workers 自己發出的請求感興趣，請參閱[這個實驗性功能](https://github.com/microsoft/playwright/issues/15684)。
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

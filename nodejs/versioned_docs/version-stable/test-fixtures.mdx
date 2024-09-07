@@ -1,18 +1,18 @@
----
+﻿---
 id: test-fixtures
-title: "Fixtures"
+title: "固定裝置"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright Test is based on the concept of test fixtures. Test fixtures are used to establish the environment for each test, giving the test everything it needs and nothing else. Test fixtures are isolated between tests. With fixtures, you can group tests based on their meaning, instead of their common setup.
+Playwright Test 是基於測試夾具的概念。測試夾具用於建立每個測試的環境，提供測試所需的一切，而不多餘。測試夾具在測試之間是隔離的。使用夾具，你可以根據測試的意義來分組，而不是根據它們的共同設定。
 
-### Built-in fixtures
+### 內建夾具
 
-You have already used test fixtures in your first test.
+你已經在你的第一個測試中使用了測試夾具。
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -24,27 +24,29 @@ test('basic test', async ({ page }) => {
 });
 ```
 
-The `{ page }` argument tells Playwright Test to setup the `page` fixture and provide it to your test function.
+`{ page }` 參數告訴 Playwright Test 設定 `page` 固定裝置並將其提供給你的測試函式。
 
-Here is a list of the pre-defined fixtures that you are likely to use most of the time:
+以下是您大部分時間可能會使用的預定義裝置列表:
 
 |Fixture    |Type               |Description                      |
 |:----------|:------------------|:--------------------------------|
-|page       |[Page]             |Isolated page for this test run. |
-|context    |[BrowserContext]   |Isolated context for this test run. The `page` fixture belongs to this context as well. Learn how to [configure context](./test-configuration.mdx). |
-|browser    |[Browser]          |Browsers are shared across tests to optimize resources. Learn how to [configure browser](./test-configuration.mdx). |
-|browserName|[string]           |The name of the browser currently running the test. Either `chromium`, `firefox` or `webkit`.|
-|request    |[APIRequestContext]|Isolated [APIRequestContext](./api/class-apirequestcontext.mdx) instance for this test run.|
+|page       |[Page]             |此測試執行的獨立頁面。 |
+|context    |[BrowserContext]   |此測試執行的獨立上下文。`page` 物件也屬於此上下文。了解如何[配置上下文](./test-configuration.mdx)。 |
+|browser    |[Browser]          |瀏覽器在測試間共享以優化資源。了解如何[配置瀏覽器](./test-configuration.mdx)。 |
+|browserName|[string]           |當前執行測試的瀏覽器名稱。可以是 `chromium`、`firefox` 或 `webkit`。|
+|request    |[APIRequestContext]|此測試執行的獨立 [APIRequestContext](./api/class-apirequestcontext.mdx) 實例。
 
 ### Without fixtures
 
-Here is how typical test environment setup differs between traditional test style and the fixture-based one.
+這是典型測試環境設定在傳統測試風格和基於夾具的風格之間的不同之處。
 
-`TodoPage` is a class that helps interacting with a "todo list" page of the web app, following the [Page Object Model](./pom.mdx) pattern. It uses Playwright's `page` internally.
+`TodoPage` 是一個幫助與網頁應用程式的 "todo list" 頁面互動的類別，遵循 [Page Object Model](./pom.mdx) 模式。它內部使用 Playwright 的 `page`。
 
 <details>
 
-<summary>Click to expand the code for the <code>TodoPage</code></summary>
+
+
+<summary>點擊展開 <code>TodoPage</code> 的程式碼</summary>
 
 <div>
 
@@ -118,19 +120,22 @@ test.describe('todo tests', () => {
 });
 ```
 
-### With fixtures
+### 使用 fixtures
 
-Fixtures have a number of advantages over before/after hooks:
-- Fixtures **encapsulate** setup and teardown in the same place so it is easier to write.
-- Fixtures are **reusable** between test files - you can define them once and use in all your tests. That's how Playwright's built-in `page` fixture works.
-- Fixtures are **on-demand** - you can define as many fixtures as you'd like, and Playwright Test will setup only the ones needed by your test and nothing else.
-- Fixtures are **composable** - they can depend on each other to provide complex behaviors.
-- Fixtures are **flexible**. Tests can use any combinations of the fixtures to tailor precise environment they need, without affecting other tests.
-- Fixtures simplify **grouping**. You no longer need to wrap tests in `describe`s that set up environment, and are free to group your tests by their meaning instead.
+裝置比 before/after 鉤子有許多優點:
+
+- Fixtures **封裝** 設定和拆卸在同一個地方，因此更容易編寫。
+- Fixtures 是 **可重用** 的，可以在測試文件之間重用 - 你可以定義一次，然後在所有測試中使用。這就是 Playwright 內建的 `page` fixture 的工作方式。
+- Fixtures 是 **按需** 的 - 你可以定義任意多的 fixtures，Playwright Test 只會設定測試所需的那些，其他的不會設定。
+- Fixtures 是 **可組合** 的 - 它們可以相互依賴以提供複雜的行為。
+- Fixtures 是 **靈活** 的。測試可以使用任意組合的 fixtures 來定制所需的精確環境，而不影響其他測試。
+- Fixtures 簡化了 **分組**。你不再需要在 `describe` 中包裝測試來設定環境，可以自由地按測試的意義來分組。
 
 <details>
 
-<summary>Click to expand the code for the <code>TodoPage</code></summary>
+
+
+<summary>點擊展開 <code>TodoPage</code> 的程式碼</summary>
 
 <div>
 
@@ -201,15 +206,17 @@ test('should remove an item', async ({ todoPage }) => {
 });
 ```
 
-## Creating a fixture
+## 建立一個 fixture
 
-To create your own fixture, use [test.extend()](/api/class-test.mdx#test-extend) to create a new `test` object that will include it.
+要建立您自己的夾具，使用 [test.extend()](/api/class-test.mdx#test-extend) 建立一個新的 `test` 物件來包含它。
 
-Below we create two fixtures `todoPage` and `settingsPage` that follow the [Page Object Model](./pom.mdx) pattern.
+以下我們建立兩個 fixtures `todoPage` 和 `settingsPage`，它們遵循 [Page Object Model](./pom.mdx) 模式。
 
 <details>
 
-<summary>Click to expand the code for the <code>TodoPage</code> and <code>SettingsPage</code></summary>
+
+
+<summary>點擊展開 <code>TodoPage</code> 和 <code>SettingsPage</code> 的程式碼</summary>
 
 <div>
 
@@ -249,7 +256,7 @@ export class TodoPage {
 }
 ```
 
-SettingsPage is similar:
+SettingsPage 類似:
 
 ```js title="settings-page.ts"
 import type { Page } from '@playwright/test';
@@ -304,14 +311,14 @@ export { expect } from '@playwright/test';
 ```
 
 :::note
-Custom fixture names should start with a letter or underscore, and can contain only letters, numbers, underscores.
+自訂夾具名稱應以字母或底線開頭，且只能包含字母、數字、底線。
 :::
 
-## Using a fixture
+## 使用一個 fixture
 
-Just mention fixture in your test function argument, and test runner will take care of it. Fixtures are also available in hooks and other fixtures. If you use TypeScript, fixtures will have the right type.
+只需在測試函式參數中提及 fixture，測試執行器會處理它。Fixtures 也可以在 hooks 和其他 fixtures 中使用。如果你使用 TypeScript，fixtures 會有正確的類型。
 
-Below we use the `todoPage` and `settingsPage` fixtures defined above.
+以下我們使用上面定義的 `todoPage` 和 `settingsPage` 固定裝置。
 
 ```js
 import { test, expect } from './my-test';
@@ -326,9 +333,9 @@ test('basic test', async ({ todoPage, page }) => {
 });
 ```
 
-## Overriding fixtures
+## 覆蓋 fixtures
 
-In addition to creating your own fixtures, you can also override existing fixtures to fit your needs. Consider the following example which overrides the `page` fixture by automatically navigating to some `baseURL`:
+除了建立您自己的固定裝置之外，您還可以覆寫現有的固定裝置以符合您的需求。考慮以下範例，它透過自動導航到某個 `baseURL` 來覆寫 `page` 固定裝置:
 
 ```js
 import { test as base } from '@playwright/test';
@@ -341,14 +348,14 @@ export const test = base.extend({
 });
 ```
 
-Notice that in this example, the `page` fixture is able to depend on other built-in fixtures such as [testOptions.baseURL](/api/class-testoptions.mdx#test-options-base-url). We can now configure `baseURL` in the configuration file, or locally in the test file with [test.use()](/api/class-test.mdx#test-use).
+注意，在此範例中，`page` 固定裝置能夠依賴其他內建固定裝置，例如 [testOptions.baseURL](/api/class-testoptions.mdx#test-options-base-url)。我們現在可以在配置文件中配置 `baseURL`，或者在測試文件中本地配置 [test.use()](/api/class-test.mdx#test-use)。
 
 ```js title="example.spec.ts"
 
 test.use({ baseURL: 'https://playwright.dev' });
 ```
 
-Fixtures can also be overridden where the base fixture is completely replaced with something different. For example, we could override the [testOptions.storageState](/api/class-testoptions.mdx#test-options-storage-state) fixture to provide our own data.
+固定裝置也可以被覆蓋，其中基礎固定裝置被完全替換為不同的東西。例如，我們可以覆蓋 [testOptions.storageState](/api/class-testoptions.mdx#test-options-storage-state) 固定裝置來提供我們自己的資料。
 
 ```js
 import { test as base } from '@playwright/test';
@@ -363,9 +370,9 @@ export const test = base.extend({
 
 ## Worker-scoped fixtures
 
-Playwright Test uses [worker processes](./test-parallel.mdx) to run test files. Similarly to how test fixtures are set up for individual test runs, worker fixtures are set up for each worker process. That's where you can set up services, run servers, etc. Playwright Test will reuse the worker process for as many test files as it can, provided their worker fixtures match and hence environments are identical.
+Playwright Test 使用 [worker processes](./test-parallel.mdx) 執行測試檔案。類似於如何為個別測試執行設定測試夾具，worker 夾具是為每個 worker process 設定的。這就是你可以設定服務、執行伺服器等的地方。只要它們的 worker 夾具匹配，並且環境相同，Playwright Test 將會重用 worker process 來執行儘可能多的測試檔案。
 
-Below we'll create an `account` fixture that will be shared by all tests in the same worker, and override the `page` fixture to login into this account for each test. To generate unique accounts, we'll use the [workerInfo.workerIndex](/api/class-workerinfo.mdx#worker-info-worker-index) that is available to any test or fixture. Note the tuple-like syntax for the worker fixture - we have to pass `{scope: 'worker'}` so that test runner sets up this fixture once per worker.
+接下來我們將建立一個 `account` 固定裝置，該固定裝置將由同一個工作者中的所有測試共享，並覆蓋 `page` 固定裝置以便每個測試都能登錄到此帳戶。為了生成唯一的帳戶，我們將使用 [workerInfo.workerIndex](/api/class-workerinfo.mdx#worker-info-worker-index)，它可供任何測試或固定裝置使用。請注意工作者固定裝置的類元組語法 - 我們必須傳遞 `{scope: 'worker'}` 以便測試執行器為每個工作者設定此固定裝置一次。
 
 ```js title="my-test.ts"
 import { test as base } from '@playwright/test';
@@ -413,11 +420,11 @@ export const test = base.extend<{}, { account: Account }>({
 export { expect } from '@playwright/test';
 ```
 
-## Automatic fixtures
+## 自動夾具
 
-Automatic fixtures are set up for each test/worker, even when the test does not list them directly. To create an automatic fixture, use the tuple syntax and pass `{ auto: true }`.
+自動夾具會為每個測試/工作者設定，即使測試沒有直接列出它們。要建立自動夾具，請使用元組語法並傳遞 `{ auto: true }`。
 
-Here is an example fixture that automatically attaches debug logs when the test fails, so we can later review the logs in the reporter. Note how it uses [TestInfo] object that is available in each test/fixture to retrieve metadata about the test being run.
+這裡是一個範例裝置，當測試失敗時會自動附加除錯日誌，因此我們可以稍後在報告中查看日誌。請注意它如何使用 [TestInfo] 物件來檢索有關正在執行測試的 Metadata。
 
 ```js title="my-test.ts"
 import * as debug from 'debug';
@@ -445,9 +452,9 @@ export const test = base.extend<{ saveLogs: void }>({
 export { expect } from '@playwright/test';
 ```
 
-## Fixture timeout
+## 固定裝置超時
 
-By default, fixture shares timeout with the test. However, for slow fixtures, especially [worker-scoped](#worker-scoped-fixtures) ones, it is convenient to have a separate timeout. This way you can keep the overall test timeout small, and give the slow fixture more time.
+根據預設，fixture 與測試共用超時時間。然而，對於速度較慢的 fixtures，特別是[worker-scoped](#worker-scoped-fixtures) ones，擁有單獨的超時時間會更方便。這樣你可以保持整體測試的超時時間較短，並給予速度較慢的 fixture 更多時間。
 
 ```js
 import { test as base, expect } from '@playwright/test';
@@ -466,13 +473,15 @@ test('example test', async ({ slowFixture }) => {
 
 ## Fixtures-options
 
-Playwright Test supports running multiple test projects that can be separately configured. You can use "option" fixtures to make your configuration options declarative and type-checked. Learn more about [parametrizing tests](./test-parameterize.mdx).
+Playwright Test 支援執行多個測試專案，這些專案可以分別配置。你可以使用 "option" 固定裝置使你的配置選項聲明式並進行型別檢查。了解更多關於[參數化測試](./test-parameterize.mdx)。
 
-Below we'll create a `defaultItem` option in addition to the `todoPage` fixture from other examples. This option will be set in configuration file. Note the tuple syntax and `{ option: true }` argument.
+接下來我們將建立一個 `defaultItem` 選項，除了其他範例中的 `todoPage` 固定裝置外。此選項將在配置文件中設定。請注意元組語法和 `{ option: true }` 參數。
 
 <details>
 
-<summary>Click to expand the code for the <code>TodoPage</code></summary>
+
+
+<summary>點擊展開 <code>TodoPage</code> 的程式碼</summary>
 
 <div>
 
@@ -546,7 +555,7 @@ export const test = base.extend<MyOptions & MyFixtures>({
 export { expect } from '@playwright/test';
 ```
 
-We can now use `todoPage` fixture as usual, and set the `defaultItem` option in the config file.
+我們現在可以像往常一樣使用 `todoPage` 固件，並在配置文件中設置 `defaultItem` 選項。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -566,9 +575,9 @@ export default defineConfig<MyOptions>({
 });
 ```
 
-**Array as an option value**
+**陣列作為選項值**
 
-If the value of your option is an array, for example `[{ name: 'Alice' }, { name: 'Bob' }]`, you'll need to wrap it into an extra array when providing the value. This is best illustrated with an example.
+如果你的選項值是一個陣列，例如 `[{ name: 'Alice' }, { name: 'Bob' }]`，你需要在提供值時將其包裝成一個額外的陣列。這最好用一個範例來說明。
 
 ```js
 type Person = { name: string };
@@ -590,16 +599,17 @@ test.use({
 });
 ```
 
-## Execution order
+## 執行順序
 
-Each fixture has a setup and teardown phase separated by the `await use()` call in the fixture. Setup is executed before the fixture is used by the test/hook, and teardown is executed when the fixture will not be used by the test/hook anymore.
+每個裝置都有一個設定和拆卸階段，這兩個階段由裝置中的 `await use()` 呼叫分隔。設定在測試/掛鉤使用裝置之前執行，拆卸在測試/掛鉤不再使用裝置時執行。
 
-Fixtures follow these rules to determine the execution order:
-* When fixture A depends on fixture B: B is always set up before A and torn down after A.
-* Non-automatic fixtures are executed lazily, only when the test/hook needs them.
-* Test-scoped fixtures are torn down after each test, while worker-scoped fixtures are only torn down when the worker process executing tests is shutdown.
+Fixtures 遵循以下規則來確定執行順序:
 
-Consider the following example:
+* 當 fixture A 依賴 fixture B 時: B 總是在 A 之前設定，並在 A 之後拆除。
+* 非自動 fixture 是懶執行的，只有在測試/鉤子需要它們時才執行。
+* 測試範圍的 fixture 在每次測試後拆除，而工作者範圍的 fixture 只有在執行測試的工作者進程關閉時才拆除。
+
+考慮以下範例:
 
 ```js
 import { test as base } from '@playwright/test';
@@ -651,46 +661,48 @@ test.afterEach(async () => { /* ... */ });
 test.afterAll(async () => { /* ... */ });
 ```
 
-Normally, if all tests pass and no errors are thrown, the order of execution is as following.
-* worker setup and `beforeAll` section:
-  * `browser` setup because it is required by `autoWorkerFixture`.
-  * `autoWorkerFixture` setup because automatic worker fixtures are always set up before anything else.
-  * `beforeAll` runs.
-* `first test` section:
-  * `autoTestFixture` setup because automatic test fixtures are always set up before test and `beforeEach` hooks.
-  * `page` setup because it is required in `beforeEach` hook.
-  * `beforeEach` runs.
-  * `first test` runs.
-  * `afterEach` runs.
-  * `page` teardown because it is a test-scoped fixture and should be torn down after the test finishes.
-  * `autoTestFixture` teardown because it is a test-scoped fixture and should be torn down after the test finishes.
-* `second test` section:
-  * `autoTestFixture` setup because automatic test fixtures are always set up before test and `beforeEach` hooks.
-  * `page` setup because it is required in `beforeEach` hook.
-  * `beforeEach` runs.
-  * `workerFixture` setup because it is required by `testFixture` that is required by the `second test`.
-  * `testFixture` setup because it is required by the `second test`.
-  * `second test` runs.
-  * `afterEach` runs.
-  * `testFixture` teardown because it is a test-scoped fixture and should be torn down after the test finishes.
-  * `page` teardown because it is a test-scoped fixture and should be torn down after the test finishes.
-  * `autoTestFixture` teardown because it is a test-scoped fixture and should be torn down after the test finishes.
-* `afterAll` and worker teardown section:
-  * `afterAll` runs.
-  * `workerFixture` teardown because it is a workers-scoped fixture and should be torn down once at the end.
-  * `autoWorkerFixture` teardown because it is a workers-scoped fixture and should be torn down once at the end.
-  * `browser` teardown because it is a workers-scoped fixture and should be torn down once at the end.
+通常，如果所有測試都通過且沒有錯誤拋出，執行順序如下。
 
-A few observations:
-* `page` and `autoTestFixture` are set up and torn down for each test, as test-scoped fixtures.
-* `unusedFixture` is never set up because it is not used by any tests/hooks.
-* `testFixture` depends on `workerFixture` and triggers its setup.
-* `workerFixture` is lazily set up before the second test, but torn down once during worker shutdown, as a worker-scoped fixture.
-* `autoWorkerFixture` is set up for `beforeAll` hook, but `autoTestFixture` is not.
+* worker setup 和 `beforeAll` 部分:
+  * `browser` 設定因為它是 `autoWorkerFixture` 所需的。
+  * `autoWorkerFixture` 設定因為自動 worker fixtures 總是在其他任何東西之前設定。
+  * `beforeAll` 執行。
+* `first test` 部分:
+  * `autoTestFixture` 設定因為自動 test fixtures 總是在測試和 `beforeEach` 鉤子之前設定。
+  * `page` 設定因為它在 `beforeEach` 鉤子中需要。
+  * `beforeEach` 執行。
+  * `first test` 執行。
+  * `afterEach` 執行。
+  * `page` 拆卸因為它是測試範圍的 fixture，應該在測試完成後拆卸。
+  * `autoTestFixture` 拆卸因為它是測試範圍的 fixture，應該在測試完成後拆卸。
+* `second test` 部分:
+  * `autoTestFixture` 設定因為自動 test fixtures 總是在測試和 `beforeEach` 鉤子之前設定。
+  * `page` 設定因為它在 `beforeEach` 鉤子中需要。
+  * `beforeEach` 執行。
+  * `workerFixture` 設定因為它是 `testFixture` 所需的，而 `testFixture` 是 `second test` 所需的。
+  * `testFixture` 設定因為它是 `second test` 所需的。
+  * `second test` 執行。
+  * `afterEach` 執行。
+  * `testFixture` 拆卸因為它是測試範圍的 fixture，應該在測試完成後拆卸。
+  * `page` 拆卸因為它是測試範圍的 fixture，應該在測試完成後拆卸。
+  * `autoTestFixture` 拆卸因為它是測試範圍的 fixture，應該在測試完成後拆卸。
+* `afterAll` 和 worker 拆卸部分:
+  * `afterAll` 執行。
+  * `workerFixture` 拆卸因為它是 worker 範圍的 fixture，應該在最後一次拆卸。
+  * `autoWorkerFixture` 拆卸因為它是 worker 範圍的 fixture，應該在最後一次拆卸。
+  * `browser` 拆卸因為它是 worker 範圍的 fixture，應該在最後一次拆卸。
 
-## Combine custom fixtures from multiple modules
+一些觀察:
 
-You can merge test fixtures from multiple files or modules:
+* `page` 和 `autoTestFixture` 會在每個測試中設定和拆除，作為測試範圍的裝置。
+* `unusedFixture` 從未被設定，因為它沒有被任何測試/鉤子使用。
+* `testFixture` 依賴於 `workerFixture` 並觸發其設定。
+* `workerFixture` 在第二個測試之前懶惰地設定，但在工作者關閉期間被拆除一次，作為工作者範圍的裝置。
+* `autoWorkerFixture` 為 `beforeAll` 鉤子設定，但 `autoTestFixture` 則不會。
+
+## 結合來自多個模組的自訂夾具
+
+你可以合併來自多個文件或模組的測試夾具:
 
 ```js title="fixtures.ts"
 import { mergeTests } from '@playwright/test';
@@ -710,7 +722,7 @@ test('passes', async ({ database, page, a11y }) => {
 
 ## Box fixtures
 
-Usually, custom fixtures are reported as separate steps in in the UI mode, Trace Viewer and various test reports. They also appear in error messages from the test runner. For frequently-used fixtures, this can mean lots of noise. You can stop the fixtures steps from being shown in the UI by "boxing" it.
+通常，自訂的固定裝置會在 UI 模式、Trace Viewer 和各種測試報告中作為單獨的步驟報告。它們也會出現在測試執行器的錯誤訊息中。對於經常使用的固定裝置，這可能意味著大量的噪音。您可以通過“框選”來停止在 UI 中顯示固定裝置的步驟。
 
 ```js
 import { test as base } from '@playwright/test';
@@ -722,11 +734,11 @@ export const test = base.extend({
 });
 ```
 
-This is useful for non-interesting helper fixtures. For example, an [automatic](./test-fixtures.mdx#automatic-fixtures) fixture that sets up some common data can be safely hidden from a test report.
+這對於不太有趣的輔助裝置很有用。例如，一個[automatic](./test-fixtures.mdx#automatic-fixtures) 裝置設定了一些常見的資料，可以安全地從測試報告中隱藏。
 
-## Custom fixture title
+## 自訂固定裝置標題
 
-Instead of the usual fixture name, you can give fixtures a custom title that will be shown in test reports and error messages.
+取代通常的固定名稱，你可以給固定物件一個自訂標題，這將顯示在測試報告和錯誤訊息中。
 
 ```js
 import { test as base } from '@playwright/test';
@@ -738,9 +750,9 @@ export const test = base.extend({
 });
 ```
 
-## Adding global beforeEach/afterEach hooks
+## 添加全域 beforeEach/afterEach 鉤子
 
-[test.beforeEach()](/api/class-test.mdx#test-before-each) and [test.afterEach()](/api/class-test.mdx#test-after-each) hooks run before/after each test declared in the same file and same [test.describe()](/api/class-test.mdx#test-describe) block (if any). If you want to declare hooks that run before/after each test globally, you can declare them as auto fixtures like this:
+[test.beforeEach()](/api/class-test.mdx#test-before-each) 和 [test.afterEach()](/api/class-test.mdx#test-after-each) 鉤子在同一個文件和同一個 [test.describe()](/api/class-test.mdx#test-describe) 區塊中宣告的每個測試之前/之後執行。如果你想要宣告在每個測試之前/之後全域執行的鉤子，你可以將它們宣告為自動夾具，如下所示:
 
 ```ts title="fixtures.ts"
 import { test as base } from '@playwright/test';
@@ -756,7 +768,7 @@ export const test = base.extend<{ forEachTest: void }>({
 });
 ```
 
-And then import the fixtures in all your tests:
+然後在所有測試中匯入這些 fixtures:
 
 ```ts title="mytest.spec.ts"
 import { test } from './fixtures';
@@ -768,9 +780,9 @@ test('basic', async ({ page }) => {
 });
 ```
 
-## Adding global beforeAll/afterAll hooks
+## 添加全域 beforeAll/afterAll 鉤子
 
-[test.beforeAll()](/api/class-test.mdx#test-before-all) and [test.afterAll()](/api/class-test.mdx#test-after-all) hooks run before/after all tests declared in the same file and same [test.describe()](/api/class-test.mdx#test-describe) block (if any), once per worker process. If you want to declare hooks that run before/after all tests in every file, you can declare them as auto fixtures with `scope: 'worker'` as follows:
+[test.beforeAll()](/api/class-test.mdx#test-before-all) 和 [test.afterAll()](/api/class-test.mdx#test-after-all) 鉤子在同一個檔案和同一個 [test.describe()](/api/class-test.mdx#test-describe) 區塊（如果有的話）中宣告的所有測試之前/之後執行，每個 worker process 執行一次。如果你想宣告在每個檔案中的所有測試之前/之後執行的鉤子，你可以將它們宣告為 `scope: 'worker'` 的自動 fixtures，如下所示：
 
 ```ts title="fixtures.ts"
 import { test as base } from '@playwright/test';
@@ -786,7 +798,7 @@ export const test = base.extend<{}, { forEachWorker: void }>({
 });
 ```
 
-And then import the fixtures in all your tests:
+然後在所有測試中匯入這些 fixtures:
 
 ```ts title="mytest.spec.ts"
 import { test } from './fixtures';
@@ -797,7 +809,9 @@ test('basic', async ({ }) => {
 });
 ```
 
-Note that the fixtures will still run once per [worker process](./test-parallel.mdx#worker-processes), but you don't need to redeclare them in every file.
+請注意，這些固定裝置仍然會在每個[worker process](./test-parallel.mdx#worker-processes) 執行一次，但你不需要在每個檔案中重新宣告它們。
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

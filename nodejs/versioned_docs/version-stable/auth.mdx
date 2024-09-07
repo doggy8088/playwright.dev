@@ -1,20 +1,20 @@
----
+﻿---
 id: auth
-title: "Authentication"
+title: "身份驗證"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright executes tests in isolated environments called [browser contexts](./browser-contexts.mdx). This isolation model improves reproducibility and prevents cascading test failures. Tests can load existing authenticated state. This eliminates the need to authenticate in every test and speeds up test execution.
+Playwright 在稱為[瀏覽器上下文](./browser-contexts.mdx)的隔離環境中執行測試。這種隔離模型提高了可重現性並防止連鎖測試失敗。測試可以加載現有的已驗證狀態。這消除了在每個測試中進行身份驗證的需要，並加快了測試執行速度。
 
-## Core concepts
+## 核心概念
 
-Regardless of the authentication strategy you choose, you are likely to store authenticated browser state on the file system.
+無論您選擇哪種驗證策略，您可能會將已驗證的瀏覽器狀態存儲在檔案系統上。
 
-We recommend to create `playwright/.auth` directory and add it to your `.gitignore`. Your authentication routine will produce authenticated browser state and save it to a file in this `playwright/.auth` directory. Later on, tests will reuse this state and start already authenticated.
+我們建議建立 `playwright/.auth` 目錄並將其添加到 `.gitignore` 中。您的身份驗證程序將生成已驗證的瀏覽器狀態並將其保存到此 `playwright/.auth` 目錄中的檔案。稍後，測試將重用此狀態並以已驗證的方式開始。
 
 <Tabs
   groupId="bash-flavor"
@@ -41,7 +41,7 @@ Add-Content -path .gitignore "`r`nplaywright/.auth"
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 md playwright\.auth
@@ -52,20 +52,22 @@ echo "playwright/.auth" >> .gitignore
 </TabItem>
 </Tabs>
 
-## Basic: shared account in all tests
+## 基本: 所有測試中的共用帳戶
 
-This is the **recommended** approach for tests **without server-side state**. Authenticate once in the **setup project**, save the authentication state, and then reuse it to bootstrap each test already authenticated.
+這是**推薦的**方法，用於**沒有伺服器端狀態**的測試。在**設定專案**中進行一次身份驗證，保存身份驗證狀態，然後重複使用它來啟動每個已經驗證的測試。
 
-**When to use**
-- When you can imagine all your tests running at the same time with the same account, without affecting each other.
+**何時使用**
 
-**When not to use**
-- Your tests modify server-side state. For example, one test checks the rendering of the settings page, while the other test is changing the setting, and you run tests in parallel. In this case, tests must use different accounts.
-- Your authentication is browser-specific.
+- 當你可以想像所有的測試同時使用相同的帳戶執行，而不會互相影響時。
 
-**Details**
+**何時不使用**
 
-Create `tests/auth.setup.ts` that will prepare authenticated browser state for all other tests.
+- 你的測試會修改伺服器端的狀態。例如，一個測試檢查設定頁面的渲染，而另一個測試正在更改設定，並且你平行執行測試。在這種情況下，測試必須使用不同的帳戶。
+- 你的身份驗證是特定於瀏覽器的。
+
+**細節**
+
+建立 `tests/auth.setup.ts` 來為所有其他測試準備已驗證的瀏覽器狀態。
 
 ```js title="tests/auth.setup.ts"
 import { test as setup, expect } from '@playwright/test';
@@ -93,7 +95,7 @@ setup('authenticate', async ({ page }) => {
 });
 ```
 
-Create a new `setup` project in the config and declare it as a [dependency](./test-projects.mdx#dependencies) for all your testing projects. This project will always run and authenticate before all the tests. All testing projects should use the authenticated state as `storageState`.
+建立一個新的 `setup` 專案在 config 中，並將其宣告為所有測試專案的[相依套件](./test-projects.mdx#dependencies)。此專案將在所有測試之前執行並進行驗證。所有測試專案應使用驗證過的狀態作為 `storageState`。
 
 ```js title="playwright.config.ts"
 import { defineConfig, devices } from '@playwright/test';
@@ -126,7 +128,7 @@ export default defineConfig({
 });
 ```
 
-Tests start already authenticated because we specified `storageState` in the config.
+測試開始時已經過身份驗證，因為我們在配置中指定了 `storageState`。
 
 ```js title="tests/example.spec.ts"
 import { test } from '@playwright/test';
@@ -136,29 +138,31 @@ test('test', async ({ page }) => {
 });
 ```
 
-Note that you need to delete the stored state when it expires. If you don't need to keep the state between test runs, write the browser state under [testProject.outputDir](/api/class-testproject.mdx#test-project-output-dir), which is automatically cleaned up before every test run.
+注意，你需要在狀態過期時刪除儲存的狀態。如果你不需要在測試執行之間保留狀態，請將瀏覽器狀態寫入 [testProject.outputDir](https://ollama.com/api/class-testproject.mdx#test-project-output-dir)，這會在每次測試執行前自動清理。
 
-### Authenticating in UI mode
+### 在 UI 模式中驗證
 
-UI mode will not run the `setup` project by default to improve testing speed. We recommend to authenticate by manually running the `auth.setup.ts` from time to time, whenever existing authentication expires.
+UI mode 將不會預設執行 `setup` 專案以提高測試速度。我們建議在現有身份驗證過期時，偶爾手動執行 `auth.setup.ts` 來進行身份驗證。
 
-First [enable the `setup` project in the filters](./test-ui-mode#filtering-tests), then click the triangle button next to `auth.setup.ts` file, and then disable the `setup` project in the filters again.
+首先[在篩選器中啟用 `setup` 專案](./test-ui-mode#filtering-tests)，然後點擊 `auth.setup.ts` 文件旁邊的三角形按鈕，然後再次在篩選器中禁用 `setup` 專案。
 
-## Moderate: one account per parallel worker
+## Moderate: 每個平行工作者一個帳戶
 
-This is the **recommended** approach for tests that **modify server-side state**. In Playwright, worker processes run in parallel. In this approach, each parallel worker is authenticated once. All tests ran by worker are reusing the same authentication state. We will need multiple testing accounts, one per each parallel worker.
+這是**推薦**的測試方法，用於**修改伺服器端狀態**。在 Playwright 中，工作程序平行執行。在這種方法中，每個平行工作程序只需認證一次。所有由工作程序執行的測試都會重用相同的認證狀態。我們將需要多個測試帳戶，每個平行工作程序一個。
 
-**When to use**
-- Your tests modify shared server-side state. For example, one test checks the rendering of the settings page, while the other test is changing the setting.
+**何時使用**
 
-**When not to use**
-- Your tests do not modify any shared server-side state. In this case, all tests can use a single shared account.
+- 您的測試會修改共享的伺服器端狀態。例如，一個測試檢查設定頁面的渲染，而另一個測試則在更改設定。
 
-**Details**
+**何時不使用**
 
-We will authenticate once per [worker process](./test-parallel.mdx#worker-processes), each with a unique account.
+- 您的測試不會修改任何共享的伺服器端狀態。在這種情況下，所有測試都可以使用單一共享帳戶。
 
-Create `playwright/fixtures.ts` file that will [override `storageState` fixture](./test-fixtures.mdx#overriding-fixtures) to authenticate once per worker. Use [testInfo.parallelIndex](/api/class-testinfo.mdx#test-info-parallel-index) to differentiate between workers.
+**細節**
+
+我們將在每個[worker process](./test-parallel.mdx#worker-processes)中進行一次身份驗證，每個都有一個唯一的帳戶。
+
+建立 `playwright/fixtures.ts` 檔案來[覆寫 `storageState` fixture](./test-fixtures.mdx#overriding-fixtures)以每個 worker 認證一次。使用 [testInfo.parallelIndex](/api/class-testinfo.mdx#test-info-parallel-index) 來區分 worker。
 
 ```js title="playwright/fixtures.ts"
 import { test as baseTest, expect } from '@playwright/test';
@@ -213,7 +217,7 @@ export const test = baseTest.extend<{}, { workerStorageState: string }>({
 });
 ```
 
-Now, each test file should import `test` from our fixtures file instead of `@playwright/test`. No changes are needed in the config.
+現在，每個測試文件應該從我們的 fixtures 文件中匯入 `test`，而不是從 `@playwright/test`。配置中不需要進行任何更改。
 
 ```js title="tests/example.spec.ts"
 // Important: import our fixtures.
@@ -224,18 +228,19 @@ test('test', async ({ page }) => {
 });
 ```
 
-## Advanced scenarios
+## 進階情境
 
-### Authenticate with API request
+### 使用 API 請求進行身份驗證
 
-**When to use**
-- Your web application supports authenticating via API that is easier/faster than interacting with the app UI.
+**何時使用**
 
-**Details**
+- 您的 web 應用程式支援通過 API 驗證，這比與應用程式 UI 互動更簡單/更快。
 
-We will send the API request with [APIRequestContext] and then save authenticated state as usual.
+**細節**
 
-In the [setup project](#basic-shared-account-in-all-tests):
+我們將使用 [APIRequestContext] 發送 API 請求，然後像往常一樣保存已驗證的狀態。
+
+在 [設定專案](#basic-shared-account-in-all-tests) 中:
 
 ```js title="tests/auth.setup.ts"
 import { test as setup } from '@playwright/test';
@@ -254,7 +259,7 @@ setup('authenticate', async ({ request }) => {
 });
 ```
 
-Alternatively, in a [worker fixture](#moderate-one-account-per-parallel-worker):
+或者，在[worker fixture](#moderate-one-account-per-parallel-worker)中:
 
 ```js title="playwright/fixtures.ts"
 import { test as baseTest, request } from '@playwright/test';
@@ -302,14 +307,15 @@ export const test = baseTest.extend<{}, { workerStorageState: string }>({
 });
 ```
 
-### Multiple signed in roles
+### 多個已登入角色
 
-**When to use**
-- You have more than one role in your end to end tests, but you can reuse accounts across all tests.
+**何時使用**
 
-**Details**
+- 在端到端測試中，你有多個角色，但你可以在所有測試中重複使用帳戶。
 
-We will authenticate multiple times in the setup project.
+**細節**
+
+我們將在設定專案中多次進行身份驗證。
 
 ```js title="tests/auth.setup.ts"
 import { test as setup, expect } from '@playwright/test';
@@ -357,7 +363,7 @@ setup('authenticate as user', async ({ page }) => {
 });
 ```
 
-After that, specify `storageState` for each test file or test group, **instead of** setting it in the config.
+之後，為每個測試文件或測試組指定 `storageState`，**而不是**在配置中設定它。
 
 ```js title="tests/example.spec.ts"
 import { test } from '@playwright/test';
@@ -377,16 +383,17 @@ test.describe(() => {
 });
 ```
 
-See also about [authenticating in the UI mode](#authenticating-in-ui-mode).
+另請參閱[在 UI 模式中進行身份驗證](#authenticating-in-ui-mode)。
 
-### Testing multiple roles together
+### 測試多個角色一起
 
-**When to use**
-- You need to test how multiple authenticated roles interact together, in a single test.
+**何時使用**
 
-**Details**
+- 你需要測試多個已驗證角色如何在單一測試中互動。
 
-Use multiple [BrowserContext]s and [Page]s with different storage states in the same test.
+**細節**
+
+在同一個測試中使用多個 [BrowserContext] 和 [Page]，並具有不同的存儲狀態。
 
 ```js title="tests/example.spec.ts"
 import { test } from '@playwright/test';
@@ -407,16 +414,17 @@ test('admin and user', async ({ browser }) => {
 });
 ```
 
-### Testing multiple roles with POM fixtures
+### 測試多個角色與 POM 固定裝置
 
-**When to use**
-- You need to test how multiple authenticated roles interact together, in a single test.
+**何時使用**
 
-**Details**
+- 你需要測試多個已驗證角色如何在單一測試中互動。
 
-You can introduce fixtures that will provide a page authenticated as each role.
+**細節**
 
-Below is an example that [creates fixtures](./test-fixtures.mdx#creating-a-fixture) for two [Page Object Models](./pom.mdx) - admin POM and user POM. It assumes `adminStorageState.json` and `userStorageState.json` files were created in the global setup.
+你可以引入將提供作為每個角色驗證的頁面的 fixtures。
+
+以下是一個[建立測試夾具](./test-fixtures.mdx#creating-a-fixture)的範例，適用於兩個[頁面物件模型](./pom.mdx) - admin POM 和 user POM。它假設 `adminStorageState.json` 和 `userStorageState.json` 檔案已在全域設定中建立。
 
 ```js title="playwright/fixtures.ts"
 import { test as base, type Page, type Locator } from '@playwright/test';
@@ -489,7 +497,7 @@ test('admin and user', async ({ adminPage, userPage }) => {
 
 ### Session storage
 
-Reusing authenticated state covers [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) and [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage) based authentication. Rarely, [session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is used for storing information associated with the signed-in state. Session storage is specific to a particular domain and is not persisted across page loads. Playwright does not provide API to persist session storage, but the following snippet can be used to save/load session storage.
+重複使用已驗證的狀態涵蓋了[ cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) 和[ local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage) 基於驗證。很少使用[ session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 來存儲與已登入狀態相關的資訊。Session storage 特定於某個特定的域，並且不會在頁面加載之間持續存在。Playwright 不提供持久化 session storage 的 API，但可以使用以下程式碼片段來保存/加載 session storage。
 
 ```js
 // Get session storage and store as env variable
@@ -506,9 +514,9 @@ await context.addInitScript(storage => {
 }, sessionStorage);
 ```
 
-### Avoid authentication in some tests
+### 避免在某些測試中進行身份驗證
 
-You can reset storage state in a test file to avoid authentication that was set up for the whole project.
+您可以在測試文件中重新整理儲存狀態，以避免為整個專案設定的身份驗證。
 
 ```js title="not-signed-in.spec.ts"
 import { test } from '@playwright/test';
@@ -520,6 +528,8 @@ test('not signed in test', async ({ page }) => {
   // ...
 });
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

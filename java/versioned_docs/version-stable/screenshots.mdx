@@ -1,25 +1,25 @@
----
+﻿---
 id: screenshots
-title: "Screenshots"
+title: "截圖"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Here is a quick way to capture a screenshot and save it into a file:
+這裡有一個快速捕捉螢幕截圖並將其保存到文件中的方法:
 
 ```java
 page.screenshot(new Page.ScreenshotOptions()
       .setPath(Paths.get("screenshot.png")))
 ```
 
-[Screenshots API](./api/class-page#page-screenshot) accepts many parameters for image format, clip area, quality, etc. Make sure to check them out.
+[Screenshots API](./api/class-page#page-screenshot) 接受許多參數來設定影像格式、裁剪區域、品質等。請務必查看。
 
-## Full page screenshots
+## 全頁截圖
 
-Full page screenshot is a screenshot of a full scrollable page, as if you had a very tall screen and the page could fit it entirely.
+整頁截圖是一個完整可滾動頁面的截圖，就像你有一個非常高的螢幕，頁面可以完全適應它。
 
 ```java
 page.screenshot(new Page.ScreenshotOptions()
@@ -27,22 +27,24 @@ page.screenshot(new Page.ScreenshotOptions()
   .setFullPage(true));
 ```
 
-## Capture into buffer
+## 捕捉到緩衝區
 
-Rather than writing into a file, you can get a buffer with the image and post-process it or pass it to a third party pixel diff facility.
+與其寫入檔案，你可以獲取圖像的緩衝區並進行後處理或將其傳遞給第三方像素差異設施。
 
 ```java
 byte[] buffer = page.screenshot();
 System.out.println(Base64.getEncoder().encodeToString(buffer));
 ```
 
-## Element screenshot
+## 元素截圖
 
-Sometimes it is useful to take a screenshot of a single element.
+有時候將單一元素截圖是有用的。
 
 ```java
 page.locator(".header").screenshot(new Locator.ScreenshotOptions().setPath(Paths.get("screenshot.png")));
 ```
+
+
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

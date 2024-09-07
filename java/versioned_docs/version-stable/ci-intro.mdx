@@ -1,23 +1,24 @@
----
+﻿---
 id: ci-intro
-title: "Setting up CI"
+title: "設定 CI"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright tests can be ran on any CI provider. In this section we will cover running tests on GitHub using GitHub actions. If you would like to see how to configure other CI providers check out our detailed doc on Continuous Integration.
+Playwright 測試可以在任意 CI 提供者上執行。在本節中，我們將介紹如何使用 GitHub actions 在 GitHub 上執行測試。如果您想了解如何配置其他 CI 提供者，請查看我們關於持續整合的詳細文件。
 
-#### You will learn
-- [How to set up GitHub Actions](/ci-intro.mdx#setting-up-github-actions)
-- [How to view test logs](/ci-intro.mdx#viewing-test-logs)
-- [How to view the trace](/ci-intro.mdx#viewing-the-trace)
+#### 你將學到
 
-## Setting up GitHub Actions
+- [如何設定 GitHub Actions](/ci-intro.mdx#setting-up-github-actions)
+- [如何查看測試日誌](/ci-intro.mdx#viewing-test-logs)
+- [如何查看追蹤](/ci-intro.mdx#viewing-the-trace)
 
-To add a [GitHub Actions](https://docs.github.com/en/actions) file first create `.github/workflows` folder and inside it add a `playwright.yml` file containing the example code below so that your tests will run on each push and pull request for the main/master branch.
+## 設定 GitHub Actions
+
+要新增 [GitHub Actions](https://docs.github.com/en/actions) 文件，首先建立 `.github/workflows` 資料夾，並在其中新增一個 `playwright.yml` 文件，包含以下範例程式碼，以便您的測試在每次推送和針對 main/master 分支的拉取請求時執行。
 
 ```yml title=".github/workflows/playwright.yml"
 name: Playwright Tests
@@ -44,45 +45,52 @@ jobs:
       run: mvn test
 ```
 
-To learn more about this, see ["Understanding GitHub Actions"](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
+要了解更多資訊，請參閱["了解 GitHub Actions"](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)。
 
-Looking at the list of steps in `jobs.test.steps`, you can see that the workflow performs these steps:
-1. Clone your repository 2. Install language dependencies 3. Install project dependencies and build 4. Install Playwright Browsers 5. Run tests
+查看 `jobs.test.steps` 中的步驟列表，你可以看到工作流程執行了這些步驟:
 
-## Create a Repo and Push to GitHub
+1. 複製你的儲存庫 2. 安裝語言相依套件 3. 安裝專案相依套件並建構 4. 安裝 Playwright 瀏覽器 5. 執行測試
 
-Once you have your [GitHub actions workflow](#setting-up-github-actions) setup then all you need to do is [Create a repo on GitHub](https://docs.github.com/en/get-started/quickstart/create-a-repo) or push your code to an existing repository. Follow the instructions on GitHub and don't forget to [initialize a git repository](https://github.com/git-guides/git-init) using the `git init` command so you can [add](https://github.com/git-guides/git-add), [commit](https://github.com/git-guides/git-commit) and [push](https://github.com/git-guides/git-push) your code.
+## 建立一個 Repo 並推送到 GitHub
 
-###### 
-<img width="861" alt="Create a Repo and Push to GitHub" src="https://user-images.githubusercontent.com/13063165/183423254-d2735278-a2ab-4d63-bb99-48d8e5e447bc.png"/>
-
-## Opening the Workflows
-
-Click on the **Actions** tab to see the workflows. Here you will see if your tests have passed or failed.
+一旦你設定好你的 [GitHub actions workflow](#setting-up-github-actions) 後，你所需要做的就是 [在 GitHub 上建立一個 repo](https://docs.github.com/en/get-started/quickstart/create-a-repo) 或將你的程式碼推送到現有的儲存庫。按照 GitHub 上的指示操作，並且不要忘記使用 `git init` 命令 [初始化一個 git 儲存庫](https://github.com/git-guides/git-init)，這樣你就可以 [add](https://github.com/git-guides/git-add)、[commit](https://github.com/git-guides/git-commit) 和 [push](https://github.com/git-guides/git-push) 你的程式碼。
 
 ###### 
-![opening the workflow](https://user-images.githubusercontent.com/13063165/183423783-58bf2008-514e-4f96-9c12-c9a55703960c.png)
 
-## Viewing Test Logs
+<img width="861" alt="建立一個 Repo 並推送到 GitHub" src="https://user-images.githubusercontent.com/13063165/183423254-d2735278-a2ab-4d63-bb99-48d8e5e447bc.png"/>
 
-Clicking on the workflow run will show you the all the actions that GitHub performed and clicking on **Run Playwright tests** will show the error messages, what was expected and what was received as well as the call log.
+## 開啟工作流程
+
+點擊 **Actions** 標籤以查看工作流程。在這裡你將看到你的測試是否通過或失敗。
 
 ###### 
-![Viewing Test Logs](https://user-images.githubusercontent.com/13063165/183423783-58bf2008-514e-4f96-9c12-c9a55703960c.png)
 
-## Viewing the Trace
+![開啟工作流程](https://user-images.githubusercontent.com/13063165/183423783-58bf2008-514e-4f96-9c12-c9a55703960c.png)
 
-[trace.playwright.dev](https://trace.playwright.dev) is a statically hosted variant of the Trace Viewer. You can upload trace files using drag and drop.
+## 檢視測試日誌
+
+點擊工作流程執行將顯示 GitHub 執行的所有操作，點擊 **Run Playwright tests** 將顯示錯誤訊息、預期結果和實際接收到的結果以及呼叫日誌。
+
+###### 
+
+![查看測試日誌](https://user-images.githubusercontent.com/13063165/183423783-58bf2008-514e-4f96-9c12-c9a55703960c.png)
+
+## 檢視追蹤
+
+[trace.playwright.dev](https://trace.playwright.dev) 是 Trace Viewer 的靜態託管變體。你可以使用拖放上傳 trace 檔案。
 
 ![playwright trace viewer](https://github.com/microsoft/playwright/assets/13063165/6d5885dc-d511-4c20-b728-040a7ef6cea4)
 
-## What's Next
-- [Learn how to use Locators](./locators.mdx)
-- [Learn how to perform Actions](./input.mdx)
-- [Learn how to write Assertions](./test-assertions.mdx)
-- [Learn more about the Trace Viewer](/trace-viewer.mdx)
-- [Learn more ways of running tests on GitHub Actions](/ci.mdx)
-- [Learn more about running tests on other CI providers](/ci.mdx#github-actions) // TODO: is this link correct?
+## 接下來是什麼
+
+- [學習如何使用 Locators](./locators.mdx)
+- [學習如何執行 Actions](./input.mdx)
+- [學習如何撰寫 Assertions](./test-assertions.mdx)
+- [了解更多關於 Trace Viewer](./trace-viewer.mdx)
+- [了解更多在 GitHub Actions 上執行測試的方法](./ci.mdx)
+- [了解更多在其他 CI 提供者上執行測試](./ci.mdx#github-actions) // TODO: is this link correct?
+
+
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

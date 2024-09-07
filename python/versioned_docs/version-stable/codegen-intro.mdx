@@ -1,66 +1,75 @@
----
+﻿---
 id: codegen-intro
-title: "Generating tests"
+title: "生成測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright comes with the ability to generate tests out of the box and is a great way to quickly get started with testing. It will open two windows, a browser window where you interact with the website you wish to test and the Playwright Inspector window where you can record your tests, copy the tests, clear your tests as well as change the language of your tests.
+Playwright 內建了生成測試的功能，是快速開始測試的好方法。它會打開兩個視窗，一個是與你希望測試的網站互動的瀏覽器視窗，另一個是 Playwright Inspector 視窗，你可以在其中記錄你的測試、複製測試、清除測試以及更改測試的語言。
 
-**You will learn**
-- [How to record a test](/codegen.mdx#recording-a-test)
-- [How to generate locators](/codegen.mdx#generating-locators)
+**你將學到**
 
-## Running Codegen
+- [如何記錄一個測試](/codegen.mdx#recording-a-test)
+- [如何產生定位器](/codegen.mdx#generating-locators)
 
-Use the `codegen` command to run the test generator followed by the URL of the website you want to generate tests for. The URL is optional and you can always run the command without it and then add the URL directly into the browser window instead.
+## 執行程式碼產生器
+
+使用 `codegen` 命令來執行測試產生器，後面跟著你想要生成測試的網站 URL。URL 是可選的，你可以隨時在沒有它的情況下執行命令，然後直接將 URL 添加到瀏覽器窗口中。
 
 ```bash
 playwright codegen demo.playwright.dev/todomvc
 ```
 
-### Recording a test
+### 錄製測試
 
-Run `codegen` and perform actions in the browser. Playwright will generate the code for the user interactions. `Codegen` will look at the rendered page and figure out the recommended locator, prioritizing role, text and test id locators. If the generator identifies multiple elements matching the locator, it will improve the locator to make it resilient and uniquely identify the target element, therefore eliminating and reducing test(s) failing and flaking due to locators.
+執行 `codegen` 並在瀏覽器中執行操作。Playwright 會為使用者互動生成程式碼。`Codegen` 會查看渲染的頁面並找出推薦的定位器，優先考慮角色、文本和測試 ID 定位器。如果生成器識別出多個匹配定位器的元素，它會改進定位器，使其具有彈性並唯一識別目標元素，從而消除和減少由於定位器導致的測試失敗和不穩定。
 
-With the test generator you can record:
-* Actions like click or fill by simply interacting with the page
-* Assertions by clicking on one of the icons in the toolbar and then clicking on an element on the page to assert against. You can choose:
-  * `'assert visibility'` to assert that an element is visible
-  * `'assert text'` to assert that an element contains specific text
-  * `'assert value'` to assert that an element has a specific value
+使用測試產生器，你可以記錄:
 
-###### 
-![recording a test](https://github.com/microsoft/playwright/assets/13063165/9751b609-6e4c-486b-a961-f86f177b1d58)
+* 像點擊或填寫這樣的操作，只需與頁面互動
+* 透過點擊工具列上的其中一個圖標，然後點擊頁面上的一個元素來進行斷言。你可以選擇:
+  * `'assert visibility'` 來斷言一個元素是可見的
+  * `'assert text'` 來斷言一個元素包含特定的文本
+  * `'assert value'` 來斷言一個元素具有特定的值
 
 ###### 
-When you have finished interacting with the page, press the `'record'` button to stop the recording and use the `'copy'` button to copy the generated code to your editor.
 
-Use the `'clear'` button to clear the code to start recording again. Once finished close the Playwright inspector window or stop the terminal command.
-
-To learn more about generating tests check out or detailed guide on [Codegen](./codegen.mdx).
-
-### Generating locators
-
-You can generate [locators](/locators.mdx) with the test generator.
-* Press the `'Record'` button to stop the recording and the `'Pick Locator'` button will appear.
-* Click on the `'Pick Locator'` button and then hover over elements in the browser window to see the locator highlighted underneath each element.
-* To choose a locator click on the element you would like to locate and the code for that locator will appear in the locator playground next to the Pick Locator button.
-* You can then edit the locator in the locator playground to fine tune it and see the matching element highlighted in the browser window. 
-* Use the copy button to copy the locator and paste it into your code.
+![錄製測試](https://github.com/microsoft/playwright/assets/13063165/9751b609-6e4c-486b-a961-f86f177b1d58)
 
 ###### 
-![picking a locator](https://github.com/microsoft/playwright/assets/13063165/95d11f48-96a4-46b9-9c2a-63c3aa4fdce7)
 
-### Emulation
+當你完成與頁面互動時，按下`'record'`按鈕以停止錄製，並使用`'copy'`按鈕將產生的程式碼複製到你的編輯器。
 
-You can also generate tests using emulation so as to generate a test for a specific viewport, device, color scheme, as well as emulate the geolocation, language or timezone. The test generator can also generate a test while preserving authenticated state. Check out the [Test Generator](./codegen.mdx#emulation) guide to learn more.
+使用 `'clear'` 按鈕來清除程式碼以重新開始錄製。完成後關閉 Playwright 檢查器視窗或停止終端機命令。
 
-## What's Next
-- [See a trace of your tests](./trace-viewer-intro.mdx)
+要了解更多有關生成測試的資訊，請查看我們的[程式碼產生器](./codegen.mdx)詳細指南。
+
+### 產生定位器
+
+你可以使用測試產生器生成 [locators](https://locators.mdx)。
+
+* 按下 `'Record'` 按鈕停止錄製，然後會出現 `'Pick Locator'` 按鈕。
+* 點擊 `'Pick Locator'` 按鈕，然後將滑鼠懸停在瀏覽器視窗中的元素上，以查看每個元素下方突出顯示的定位器。
+* 要選擇定位器，請點擊您想要定位的元素，該定位器的程式碼將出現在 Pick Locator 按鈕旁邊的定位器操作區中。
+* 然後，您可以在定位器操作區中編輯定位器以進行微調，並在瀏覽器視窗中查看匹配的元素突出顯示。
+* 使用複製按鈕複製定位器並將其貼到您的程式碼中。
+
+###### 
+
+![選擇一個定位器](https://github.com/microsoft/playwright/assets/13063165/95d11f48-96a4-46b9-9c2a-63c3aa4fdce7)
+
+### 模擬
+
+您還可以使用模擬來生成測試，以便為特定的視口、設備、配色方案生成測試，並模擬地理位置、語言或時區。測試生成器還可以在保留身份驗證狀態的同時生成測試。查看 [Test Generator](./codegen.mdx#emulation) 指南以了解更多資訊。
+
+## 接下來是什麼
+
+- [查看你的測試追蹤](./trace-viewer-intro.mdx)
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

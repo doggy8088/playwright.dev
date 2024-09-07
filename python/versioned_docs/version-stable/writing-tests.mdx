@@ -1,33 +1,35 @@
----
+﻿---
 id: writing-tests
-title: "Writing tests"
+title: "撰寫測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright tests are simple, they
-- **perform actions**, and
-- **assert the state** against expectations.
+Playwright 測試很簡單，他們
 
-There is no need to wait for anything prior to performing an action: Playwright automatically waits for the wide range of [actionability](./actionability.mdx) checks to pass prior to performing each action.
+- **執行動作**, 和
+- **根據預期斷言狀態**。
 
-There is also no need to deal with the race conditions when performing the checks - Playwright assertions are designed in a way that they describe the expectations that need to be eventually met.
+在執行動作之前無需等待任何事情: Playwright 會在執行每個動作之前自動等待各種[可操作性](./actionability.mdx)檢查通過。
 
-That's it! These design choices allow Playwright users to forget about flaky timeouts and racy checks in their tests altogether.
+也不需要在執行檢查時處理競爭條件 - Playwright 斷言的設計方式是描述最終需要滿足的期望。
 
-**You will learn**
-- [How to write the first test](/writing-tests.mdx#first-test)
-- [How to perform actions](/writing-tests.mdx#actions)
-- [How to use assertions](/writing-tests.mdx#assertions)
-- [How tests run in isolation](/writing-tests.mdx#test-isolation)
-- [How to use test hooks](/writing-tests.mdx#using-fixtures)
+就是這樣！這些設計選擇使 Playwright 用戶可以完全忘記測試中的不穩定超時和競速檢查。
 
-## First test
+**你將學到**
 
-Take a look at the following example to see how to write a test. Note how the file name follows the `test_` prefix convention as well as each test name.
+- [如何撰寫第一個測試](/writing-tests.mdx#first-test)
+- [如何執行操作](/writing-tests.mdx#actions)
+- [如何使用斷言](/writing-tests.mdx#assertions)
+- [測試如何獨立運行](/writing-tests.mdx#test-isolation)
+- [如何使用測試掛鉤](/writing-tests.mdx#using-fixtures)
+
+## 第一個測試
+
+看看以下範例，了解如何撰寫測試。請注意檔案名稱如何遵循 `test_` 前綴約定以及每個測試名稱。
 
 ```python title="test_example.py"
 import re
@@ -51,19 +53,19 @@ def test_get_started_link(page: Page):
 
 ## Actions
 
-### Navigation
+### 導覽
 
-Most of the tests will start with navigating page to the URL. After that, test will be able to interact with the page elements.
+大多數測試將從導航頁面到 URL 開始。之後，測試將能夠與頁面元素互動。
 
 ```python
 page.goto("https://playwright.dev/")
 ```
 
-Playwright will wait for page to reach the load state prior to moving forward. Learn more about the [page.goto()](/api/class-page.mdx#page-goto) options.
+Playwright 會等待頁面達到載入狀態後再繼續前進。了解更多關於 [page.goto()](/api/class-page.mdx#page-goto) 選項。
 
-### Interactions
+### 互動
 
-Performing actions starts with locating the elements. Playwright uses [Locators API](./locators.mdx) for that. Locators represent a way to find element(s) on the page at any moment, learn more about the [different types](./locators.mdx) of locators available. Playwright will wait for the element to be [actionable](./actionability.mdx) prior to performing the action, so there is no need to wait for it to become available.
+執行操作從定位元素開始。Playwright 使用 [Locators API](./locators.mdx) 來實現這一點。Locators 代表了一種在任何時刻在頁面上找到元素的方法，了解更多關於可用的 [不同類型](./locators.mdx) 的 locators。Playwright 會在執行操作之前等待元素變得 [可操作](./actionability.mdx)，因此無需等待它變得可用。
 
 ```python
 # Create a locator.
@@ -73,31 +75,31 @@ get_started = page.get_by_role("link", name="Get started")
 get_started.click()
 ```
 
-In most cases, it'll be written in one line:
+在大多數情況下，它將寫在一行中:
 
 ```python
 page.get_by_role("link", name="Get started").click()
 ```
 
-### Basic actions
+### 基本操作
 
-This is the list of the most popular Playwright actions. Note that there are many more, so make sure to check the [Locator API](./api/class-locator.mdx) section to learn more about them.
+這是最受歡迎的 Playwright 操作清單。請注意，還有更多操作，因此請務必查看 [Locator API](./api/class-locator.mdx) 部分以了解更多資訊。
 
 | Action | Description |
 | :- | :- |
-| [locator.check()](/api/class-locator.mdx#locator-check) | Check the input checkbox |
-| [locator.click()](/api/class-locator.mdx#locator-click) | Click the element |
-| [locator.uncheck()](/api/class-locator.mdx#locator-uncheck) | Uncheck the input checkbox |
-| [locator.hover()](/api/class-locator.mdx#locator-hover) | Hover mouse over the element |
-| [locator.fill()](/api/class-locator.mdx#locator-fill) | Fill the form field, input text |
-| [locator.focus()](/api/class-locator.mdx#locator-focus) | Focus the element |
-| [locator.press()](/api/class-locator.mdx#locator-press) | Press single key |
-| [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) | Pick files to upload |
-| [locator.select_option()](/api/class-locator.mdx#locator-select-option) | Select option in the drop down |
+| [locator.check()](/api/class-locator.mdx#locator-check) | 勾選輸入的核取方塊 |
+| [locator.click()](/api/class-locator.mdx#locator-click) | 點擊元素 |
+| [locator.uncheck()](/api/class-locator.mdx#locator-uncheck) | 取消勾選輸入的核取方塊 |
+| [locator.hover()](/api/class-locator.mdx#locator-hover) | 將滑鼠懸停在元素上 |
+| [locator.fill()](/api/class-locator.mdx#locator-fill) | 填寫表單欄位，輸入文字 |
+| [locator.focus()](/api/class-locator.mdx#locator-focus) | 聚焦元素 |
+| [locator.press()](/api/class-locator.mdx#locator-press) | 按下單個鍵 |
+| [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) | 選擇要上傳的檔案 |
+| [locator.select_option()](/api/class-locator.mdx#locator-select-option) | 在下拉選單中選擇選項 |
 
-## Assertions
+## 斷言
 
-Playwright includes [assertions](./test-assertions.mdx) that will wait until the expected condition is met. Using these assertions allows making the tests non-flaky and resilient. For example, this code will wait until the page gets the title containing "Playwright":
+Playwright 包含[斷言](./test-assertions.mdx)，這些斷言將等待直到預期條件滿足。使用這些斷言可以使測試不易失敗且具有彈性。例如，這段程式碼將等待直到頁面獲得包含 "Playwright" 的標題:
 
 ```python
 import re
@@ -106,24 +108,24 @@ from playwright.sync_api import expect
 expect(page).to_have_title(re.compile("Playwright"))
 ```
 
-Here is the list of the most popular async assertions. Note that there are [many more](./test-assertions.mdx) to get familiar with:
+以下是最受歡迎的非同步斷言清單。請注意，還有[更多](./test-assertions.mdx)可以熟悉：
 
 | Assertion | Description |
 | :- | :- |
-| [expect(locator).to_be_checked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox is checked |
-| [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | Control is enabled |
-| [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | Element is visible |
-| [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | Element contains text |
-| [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | Element has attribute |
-| [expect(locator).to_have_count()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | List of elements has given length |
-| [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | Element matches text |
-| [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | Input element has value |
-| [expect(page).to_have_title()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | Page has title |
-| [expect(page).to_have_url()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | Page has URL |
+| [expect(locator).to_be_checked](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 勾選框已勾選 |
+| [expect(locator).to_be_enabled](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 控制項已啟用 |
+| [expect(locator).to_be_visible](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
+| [expect(locator).to_contain_text](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
+| [expect(locator).to_have_attribute](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有屬性 |
+| [expect(locator).to_have_count](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 元素列表具有給定的長度 |
+| [expect(locator).to_have_text](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素符合文字 |
+| [expect(locator).to_have_value](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入元素具有值 |
+| [expect(page).to_have_title](/api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
+| [expect(page).to_have_url](/api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
 
-### Test isolation
+### 測試隔離
 
-The Playwright Pytest plugin is based on the concept of test fixtures such as the [built in page fixture](./test-runners.mdx), which is passed into your test. Pages are [isolated between tests due to the Browser Context](./browser-contexts), which is equivalent to a brand new browser profile, where every test gets a fresh environment, even when multiple tests run in a single Browser.
+Playwright Pytest 插件是基於測試固定裝置的概念，例如[內建 page 固定裝置](./test-runners.mdx)，它會傳遞到你的測試中。由於[瀏覽器上下文](./browser-contexts)的原因，頁面在測試之間是隔離的，這相當於一個全新的瀏覽器配置檔案，每個測試都會獲得一個全新的環境，即使多個測試在單個瀏覽器中執行。
 
 ```python title="test_example.py"
 from playwright.sync_api import Page
@@ -137,9 +139,9 @@ def test_another_test(page: Page):
   # "page" in this second test is completely isolated from the first test.
 ```
 
-### Using fixtures
+### 使用 fixtures
 
-You can use various [fixtures](https://docs.pytest.org/en/6.2.x/fixture.html#autouse-fixtures-fixtures-you-don-t-have-to-request) to execute code before or after your tests and to share objects between them. A `function` scoped fixture e.g. with autouse behaves like a beforeEach/afterEach. And a `module` scoped fixture with autouse behaves like a beforeAll/afterAll which runs before all and after all the tests.
+你可以使用各種 [fixtures](https://docs.pytest.org/en/6.2.x/fixture.html#autouse-fixtures-fixtures-you-don-t-have-to-request) 在測試之前或之後執行程式碼，並在它們之間共享物件。一個 `function` 範圍的 fixture，例如使用 autouse，行為類似於 beforeEach/afterEach。而一個 `module` 範圍的 fixture 使用 autouse，行為類似於 beforeAll/afterAll，會在所有測試之前和之後執行。
 
 ```python title="test_example.py"
 import pytest
@@ -147,13 +149,13 @@ from playwright.sync_api import Page, expect
 
 @pytest.fixture(scope="function", autouse=True)
 def before_each_after_each(page: Page):
-    
+
     print("before the test runs")
 
     # Go to the starting url before each test.
     page.goto("https://playwright.dev/")
     yield
-    
+
     print("after the test runs")
 
 def test_main_navigation(page: Page):
@@ -161,11 +163,14 @@ def test_main_navigation(page: Page):
     expect(page).to_have_url("https://playwright.dev/")
 ```
 
-## What's next
-- [Run single test, multiple tests, headed mode](./running-tests.mdx)
-- [Generate tests with Codegen](./codegen-intro.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
-- [Run tests on CI with GitHub Actions](./ci-intro.mdx)
+## 接下來是什麼
+
+- [執行單一測試、多個測試、headed 模式](./running-tests.mdx)
+- [使用程式碼產生器生成測試](./codegen-intro.mdx)
+- [查看測試的追蹤](./trace-viewer-intro.mdx)
+- [使用 GitHub Actions 在 CI 上執行測試](./ci-intro.mdx)
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

@@ -1,18 +1,18 @@
----
+﻿---
 id: test-configuration
-title: "Test configuration"
+title: "測試設定"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright has many options to configure how your tests are run. You can specify these options in the configuration file. Note that test runner options are **top-level**, do not put them into the `use` section.
+Playwright 有許多選項可以配置你的測試如何執行。你可以在配置文件中指定這些選項。注意，測試執行器選項是**頂層**的，不要將它們放入 `use` 部分。
 
-## Basic Configuration
+## 基本配置
 
-Here are some of the most common configuration options.
+以下是一些最常見的配置選項。
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
@@ -61,19 +61,19 @@ export default defineConfig({
 
 | Option | Description |
 | :- | :- |
-| [testConfig.forbidOnly](/api/class-testconfig.mdx#test-config-forbid-only) | Whether to exit with an error if any tests are marked as `test.only`. Useful on CI.|
-| [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) | have all tests in all files to run in parallel. See [Parallelism](./test-parallel) and [Sharding](./test-sharding) for more details. |
-| [testConfig.projects](/api/class-testconfig.mdx#test-config-projects) | Run tests in multiple configurations or on multiple browsers |
-| [testConfig.reporter](/api/class-testconfig.mdx#test-config-reporter) | Reporter to use. See [Test Reporters](/test-reporters.mdx) to learn more about which reporters are available. |
-| [testConfig.retries](/api/class-testconfig.mdx#test-config-retries) | The maximum number of retry attempts per test. See [Test Retries](/test-retries.mdx) to learn more about retries.|
-| [testConfig.testDir](/api/class-testconfig.mdx#test-config-test-dir) | Directory with the test files. |
-| [testConfig.use](/api/class-testconfig.mdx#test-config-use)  | Options with `use{}` |
-| [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) | To launch a server during the tests, use the `webServer` option |
-| [testConfig.workers](/api/class-testconfig.mdx#test-config-workers) | The maximum number of concurrent worker processes to use for parallelizing tests. Can also be set as percentage of logical CPU cores, e.g. `'50%'.`. See [Parallelism](./test-parallel) and [Sharding](./test-sharding) for more details. |
+| [testConfig.forbidOnly](/api/class-testconfig.mdx#test-config-forbid-only) | 如果任何測試標記為 `test.only`，是否以錯誤退出。對 CI 有用。|
+| [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) | 讓所有檔案中的所有測試平行執行。查看 [Parallelism](./test-parallel) 和 [Sharding](./test-sharding) 以了解更多詳情。 |
+| [testConfig.projects](/api/class-testconfig.mdx#test-config-projects) | 在多個配置或多個瀏覽器上執行測試 |
+| [testConfig.reporter](/api/class-testconfig.mdx#test-config-reporter) | 使用的報告器。查看 [Test Reporters](/test-reporters.mdx) 以了解更多可用的報告器。 |
+| [testConfig.retries](/api/class-testconfig.mdx#test-config-retries) | 每個測試的最大重試次數。查看 [Test Retries](/test-retries.mdx) 以了解更多關於重試的資訊。|
+| [testConfig.testDir](/api/class-testconfig.mdx#test-config-test-dir) | 測試檔案所在的目錄。 |
+| [testConfig.use](/api/class-testconfig.mdx#test-config-use)  | 帶有 `use{}` 的選項 |
+| [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) | 要在測試期間啟動伺服器，請使用 `webServer` 選項 |
+| [testConfig.workers](/api/class-testconfig.mdx#test-config-workers) | 用於平行化測試的最大並行工作進程數。也可以設置為邏輯 CPU 核心的百分比，例如 `'50%'`。查看 [Parallelism](./test-parallel) 和 [Sharding](./test-sharding) 以了解更多詳情。
 
-## Filtering Tests
+## 過濾測試
 
-Filter tests by glob patterns or regular expressions.
+篩選測試依據 glob 模式或正則表達式。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -89,10 +89,10 @@ export default defineConfig({
 
 | Option | Description |
 | :- | :- |
-| [testConfig.testIgnore](/api/class-testconfig.mdx#test-config-test-ignore) | Glob patterns or regular expressions that should be ignored when looking for the test files. For example, `'*test-assets'` |
-| [testConfig.testMatch](/api/class-testconfig.mdx#test-config-test-match) | Glob patterns or regular expressions that match test files. For example, `'*todo-tests/*.spec.ts'`. By default, Playwright runs <code>.*(test&#124;spec)\.(js&#124;ts&#124;mjs)</code> files. |
+| [testConfig.testIgnore](/api/class-testconfig.mdx#test-config-test-ignore) | 應該在尋找測試檔案時忽略的 Glob 模式或正則表達式。例如，`'*test-assets'` |
+| [testConfig.testMatch](/api/class-testconfig.mdx#test-config-test-match) | 匹配測試檔案的 Glob 模式或正則表達式。例如，`'*todo-tests/*.spec.ts'`。預設情況下，Playwright 執行 <code>.*(test&#124;spec)\.(js&#124;ts&#124;mjs)</code> 檔案。
 
-## Advanced Configuration
+## 進階設定
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -115,14 +115,14 @@ export default defineConfig({
 
 | Option | Description |
 | :- | :- |
-| [testConfig.globalSetup](/api/class-testconfig.mdx#test-config-global-setup) | Path to the global setup file. This file will be required and run before all the tests. It must export a single function. |
-| [testConfig.globalTeardown](/api/class-testconfig.mdx#test-config-global-teardown) |Path to the global teardown file. This file will be required and run after all the tests. It must export a single function. |
-| [testConfig.outputDir](/api/class-testconfig.mdx#test-config-output-dir) | Folder for test artifacts such as screenshots, videos, traces, etc. |
-| [testConfig.timeout](/api/class-testconfig.mdx#test-config-timeout) | Playwright enforces a [timeout](./test-timeouts.mdx) for each test, 30 seconds by default. Time spent by the test function, fixtures, beforeEach and afterEach hooks is included in the test timeout. |
+| [testConfig.globalSetup](/api/class-testconfig.mdx#test-config-global-setup) | 全域設定檔案的路徑。此檔案將在所有測試之前被要求並執行。它必須匯出一個函式。 |
+| [testConfig.globalTeardown](/api/class-testconfig.mdx#test-config-global-teardown) |全域拆卸檔案的路徑。此檔案將在所有測試之後被要求並執行。它必須匯出一個函式。 |
+| [testConfig.outputDir](/api/class-testconfig.mdx#test-config-output-dir) | 測試工件的資料夾，例如截圖、影片、追蹤等。 |
+| [testConfig.timeout](/api/class-testconfig.mdx#test-config-timeout) | Playwright 為每個測試強制執行一個[超時](./test-timeouts.mdx)，預設為30秒。測試函式、fixtures、beforeEach 和 afterEach hooks 所花費的時間都包含在測試超時內。 |
 
-## Expect Options
+## 預期選項
 
-Configuration for the expect assertion library.
+配置 expect 斷言函式庫。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -149,9 +149,11 @@ export default defineConfig({
 
 | Option | Description |
 | :- | :- |
-| [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) | [Web first assertions](./test-assertions.mdx) like `expect(locator).toHaveText()` have a separate timeout of 5 seconds by default. This is the maximum time the `expect()` should wait for the condition to be met. Learn more about [test and expect timeouts](./test-timeouts.mdx) and how to set them for a single test. |
-| [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) | Configuration for the `expect(locator).toHaveScreenshot()` method. |
-| [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1)| Configuration for the `expect(locator).toMatchSnapshot()` method.|
+| [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) | [Web first assertions](./test-assertions.mdx) like `expect(locator).toHaveText()` 有一個預設為 5 秒的單獨超時時間。這是 `expect()` 應等待條件滿足的最長時間。了解更多關於 [test and expect timeouts](./test-timeouts.mdx) 以及如何為單個測試設置它們。 |
+| [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) | `expect(locator).toHaveScreenshot()` 方法的配置。 |
+| [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1)| `expect(locator).toMatchSnapshot()` 方法的配置。|
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

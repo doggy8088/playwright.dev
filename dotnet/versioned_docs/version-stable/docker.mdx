@@ -1,4 +1,4 @@
----
+﻿---
 id: docker
 title: "Docker"
 ---
@@ -6,45 +6,45 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-[Dockerfile.jammy] can be used to run Playwright scripts in Docker environment. This image includes the [Playwright browsers](./browsers.mdx#install-browsers) and [browser system dependencies](./browsers.mdx#install-system-dependencies). The Playwright package/dependency is not included in the image and should be installed separately.
+[Dockerfile.jammy] 可以用於在 Docker 環境中執行 Playwright 程式碼。此映像包含 [Playwright 瀏覽器](./browsers.mdx#install-browsers) 和 [瀏覽器系統相依性](./browsers.mdx#install-system-dependencies)。Playwright 套件/相依套件不包含在映像中，應該單獨安裝。
 
-## Usage
+## 使用方式
 
-This Docker image is published to [Microsoft Artifact Registry].
+此 Docker 映像檔已發佈至 [Microsoft Artifact Registry]。
 
 :::info
-This Docker image is intended to be used for testing and development purposes only. It is not recommended to use this Docker image to visit untrusted websites.
+此 Docker 映像僅供測試和開發用途。建議不要使用此 Docker 映像訪問不受信任的網站。
 :::
 
-### Pull the image
+### 拉取映像檔
 
 ```bash
 docker pull mcr.microsoft.com/playwright/dotnet:v1.46.0-noble
 ```
 
-### Run the image
+### 執行該映像檔
 
-By default, the Docker image will use the `root` user to run the browsers. This will disable the Chromium sandbox which is not available with root. If you run trusted code (e.g. End-to-end tests) and want to avoid the hassle of managing separate user then the root user may be fine. For web scraping or crawling, we recommend to create a separate user inside the Docker container and use the seccomp profile.
+預設情況下，Docker 映像將使用 `root` 用戶來執行瀏覽器。這將禁用 Chromium 沙盒，因為 root 無法使用沙盒。如果你執行受信任的程式碼（例如，端到端測試）並且想避免管理單獨用戶的麻煩，那麼 root 用戶可能沒問題。對於網頁抓取或爬行，我們建議在 Docker 容器內建立一個單獨的用戶並使用 seccomp 配置檔。
 
-#### End-to-end tests
+#### 端到端測試
 
-On trusted websites, you can avoid creating a separate user and use root for it since you trust the code which will run on the browsers.
+在受信任的網站上，你可以避免建立一個單獨的使用者並使用 root，因為你信任將在瀏覽器上執行的程式碼。
 
 ```bash
 docker run -it --rm --ipc=host mcr.microsoft.com/playwright/dotnet:v1.46.0-noble /bin/bash
 ```
 
-#### Crawling and scraping
+#### 爬取和抓取
 
-On untrusted websites, it's recommended to use a separate user for launching the browsers in combination with the seccomp profile. Inside the container or if you are using the Docker image as a base image you have to use `adduser` for it.
+在不受信任的網站上，建議使用單獨的使用者來啟動瀏覽器，並結合 seccomp 配置檔。在容器內或如果您使用 Docker 映像作為基礎映像，您必須使用 `adduser` 來實現。
 
 ```bash
 docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json mcr.microsoft.com/playwright/dotnet:v1.46.0-noble /bin/bash
 ```
 
-[`seccomp_profile.json`](https://github.com/microsoft/playwright/blob/main/utils/docker/seccomp_profile.json) is needed to run Chromium with sandbox. This is a [default Docker seccomp profile](https://github.com/docker/engine/blob/d0d99b04cf6e00ed3fc27e81fc3d94e7eda70af3/profiles/seccomp/default.json) with extra user namespace cloning permissions:
+[`seccomp_profile.json`](https://github.com/microsoft/playwright/blob/main/utils/docker/seccomp_profile.json) 是在沙盒中執行 Chromium 所需的。這是一個[預設 Docker seccomp profile](https://github.com/docker/engine/blob/d0d99b04cf6e00ed3fc27e81fc3d94e7eda70af3/profiles/seccomp/default.json) 並具有額外的使用者名稱空間複製權限:
 
 ```json
 {
@@ -62,45 +62,49 @@ docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_prof
 ```
 
 :::note
-Using `--ipc=host` is recommended when using Chrome ([Docker docs](https://docs.docker.com/engine/reference/run/#ipc-settings---ipc)). Chrome can run out of memory without this flag.
+建議在使用 Chrome 時使用 `--ipc=host`（[Docker docs](https://docs.docker.com/engine/reference/run/#ipc-settings---ipc)）。沒有這個標誌，Chrome 可能會耗盡記憶體。
 :::
 
-### Using on CI
+### 在 CI 上使用
 
-See our [Continuous Integration guides](./ci.mdx) for sample configs.
+請參閱我們的 [持續整合指南](./ci.mdx) 以獲取範例配置。
 
-## Image tags
+## 圖片標籤
 
-See [all available image tags].
+請參見[所有可用的映像標籤]。
 
-We currently publish images with the following tags:
-- `:v1.46.0` - Playwright v1.46.0 release docker image based on Ubuntu 24.04 LTS (Noble Numbat).
-- `:v1.46.0-noble` - Playwright v1.46.0 release docker image based on Ubuntu 24.04 LTS (Noble Numbat).
-- `:v1.46.0-jammy` - Playwright v1.46.0 release docker image based on Ubuntu 22.04 LTS (Jammy Jellyfish).
-- `:v1.46.0-focal` - Playwright v1.46.0 release docker image based on Ubuntu 20.04 LTS (Focal Fossa).
+我們目前發布帶有以下標籤的圖片:
+
+- `:v1.46.0` - Playwright v1.46.0 發佈基於 Ubuntu 24.04 LTS (Noble Numbat) 的 docker 映像。
+- `:v1.46.0-noble` - Playwright v1.46.0 發佈基於 Ubuntu 24.04 LTS (Noble Numbat) 的 docker 映像。
+- `:v1.46.0-jammy` - Playwright v1.46.0 發佈基於 Ubuntu 22.04 LTS (Jammy Jellyfish) 的 docker 映像。
+- `:v1.46.0-focal` - Playwright v1.46.0 發佈基於 Ubuntu 20.04 LTS (Focal Fossa) 的 docker 映像。
 
 :::note
-It is recommended to always pin your Docker image to a specific version if possible. If the Playwright version in your Docker image does not match the version in your project/tests, Playwright will be unable to locate browser executables.
+建議盡可能將 Docker 映像檔固定到特定版本。如果 Docker 映像檔中的 Playwright 版本與專案/測試中的版本不匹配，Playwright 將無法找到瀏覽器可執行檔。
 :::
 
-### Base images
+### 基礎映像檔
 
-We currently publish images based on the following [Ubuntu](https://hub.docker.com/_/ubuntu) versions:
+我們目前根據以下 [Ubuntu](https://hub.docker.com/_/ubuntu) 版本發布映像:
+
 - **Ubuntu 24.04 LTS** (Noble Numbat), image tags include `noble`
 - **Ubuntu 22.04 LTS** (Jammy Jellyfish), image tags include `jammy`
 - **Ubuntu 20.04 LTS** (Focal Fossa), image tags include `focal`
 
 #### Alpine
 
-Browser builds for Firefox and WebKit are built for the [glibc](https://en.wikipedia.org/wiki/Glibc) library. Alpine Linux and other distributions that are based on the [musl](https://en.wikipedia.org/wiki/Musl) standard library are not supported.
+Firefox 和 WebKit 的瀏覽器建構是為 [glibc](https://en.wikipedia.org/wiki/Glibc) 函式庫建構的。不支援基於 [musl](https://en.wikipedia.org/wiki/Musl) 標準函式庫的 Alpine Linux 和其他發行版。
 
-## Using a different .NET version
+## 使用不同的 .NET 版本
 
-You can use the [.NET install script](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script) in order to install different SDK versions:
+您可以使用 [.NET install script](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-install-script) 來安裝不同的 SDK 版本:
 
 ```bash
 curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --install-dir /usr/share/dotnet --channel 6.0
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

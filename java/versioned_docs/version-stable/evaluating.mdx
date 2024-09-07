@@ -1,22 +1,22 @@
----
+﻿---
 id: evaluating
-title: "Evaluating JavaScript"
+title: "評估 JavaScript"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright scripts run in your Playwright environment. Your page scripts run in the browser page environment. Those environments don't intersect, they are running in different virtual machines in different processes and even potentially on different computers.
+Playwright 程式碼在你的 Playwright 環境中執行。你的頁面程式碼在瀏覽器頁面環境中執行。這些環境不會交叉，它們在不同的虛擬機器中執行，在不同的程序中，甚至可能在不同的電腦上。
 
-The [Page.evaluate()](/api/class-page.mdx#page-evaluate) API can run a JavaScript function in the context of the web page and bring results back to the Playwright environment. Browser globals like `window` and `document` can be used in `evaluate`.
+[Page.evaluate()](/api/class-page.mdx#page-evaluate) API 可以在網頁的上下文中執行 JavaScript 函式並將結果帶回 Playwright 環境。像 `window` 和 `document` 這樣的瀏覽器全域變數可以在 `evaluate` 中使用。
 
 ```java
 String href = (String) page.evaluate("document.location.href");
 ```
 
-If the result is a Promise or if the function is asynchronous evaluate will automatically wait until it's resolved:
+如果結果是 Promise 或如果函式是非同步的，evaluate 將自動等待直到它被解析:
 
 ```java
 int status = (int) page.evaluate("async () => {\n" +
@@ -25,11 +25,11 @@ int status = (int) page.evaluate("async () => {\n" +
   "}");
 ```
 
-## Different environments
+## 不同的環境
 
-Evaluated scripts run in the browser environment, while your test runs in a testing environments. This means you cannot use variables from your test in the page and vice versa. Instead, you should pass them explicitly as an argument.
+在瀏覽器環境中執行的腳本會被評估，而您的測試則在測試環境中執行。這意味著您無法在頁面中使用來自測試的變數，反之亦然。相反，您應該將它們明確地作為參數傳遞。
 
-The following snippet is **WRONG** because it uses the variable directly:
+以下的程式碼片段是**錯誤的**，因為它直接使用了變數:
 
 ```java
 String data = "some data";
@@ -39,7 +39,7 @@ Object result = page.evaluate("() => {\n" +
   "}");
 ```
 
-The following snippet is **CORRECT** because it passes the value explicitly as an argument:
+以下程式碼片段是**正確的**，因為它明確地將值作為參數傳遞:
 
 ```java
 String data = "some data";
@@ -49,9 +49,9 @@ Object result = page.evaluate("data => {\n" +
   "}", data);
 ```
 
-## Evaluation Argument
+## 評估參數
 
-Playwright evaluation methods like [Page.evaluate()](/api/class-page.mdx#page-evaluate) take a single optional argument. This argument can be a mix of [Serializable] values and [JSHandle] instances. Handles are automatically converted to the value they represent.
+Playwright 評估方法如 [Page.evaluate()](/api/class-page.mdx#page-evaluate) 接受一個可選參數。此參數可以是 [Serializable] 值和 [JSHandle] 實例的混合。句柄會自動轉換為它們所代表的值。
 
 ```java
 // A primitive value.
@@ -104,25 +104,27 @@ page.evaluate(
   arg);
 ```
 
-## Init scripts
+## 初始化腳本
 
-Sometimes it is convenient to evaluate something in the page before it starts loading. For example, you might want to setup some mocks or test data.
+有時在頁面開始載入之前評估一些內容是很方便的。例如，你可能想要設定一些模擬或測試資料。
 
-In this case, use [Page.addInitScript()](/api/class-page.mdx#page-add-init-script) or [BrowserContext.addInitScript()](/api/class-browsercontext.mdx#browser-context-add-init-script). In the example below, we will replace `Math.random()` with a constant value.
+在這種情況下，使用 [Page.addInitScript()](/api/class-page.mdx#page-add-init-script) 或 [BrowserContext.addInitScript()](/api/class-browsercontext.mdx#browser-context-add-init-script)。在下面的範例中，我們將用一個常數值取代 `Math.random()`。
 
-First, create a `preload.js` file that contains the mock.
+首先，建立一個 `preload.js` 檔案，其中包含模擬。
 
 ```js
 // preload.js
 Math.random = () => 42;
 ```
 
-Next, add init script to the page.
+接下來，將初始化腳本添加到頁面。
 
 ```java
 // In your test, assuming the "preload.js" file is in the "mocks" directory.
 page.addInitScript(Paths.get("mocks/preload.js"));
 ```
+
+
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

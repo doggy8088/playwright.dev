@@ -1,26 +1,28 @@
----
+﻿---
 id: handles
-title: "Handles"
+title: "控制代碼"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright can create handles to the page DOM elements or any other objects inside the page. These handles live in the Playwright process, whereas the actual objects live in the browser. There are two types of handles:
-- [JSHandle] to reference any JavaScript objects in the page
-- [ElementHandle] to reference DOM elements in the page, it has extra methods that allow performing actions on the elements and asserting their properties.
+Playwright 可以建立指向頁面 DOM 元素或頁面內任意其他物件的控制代碼。這些控制代碼存在於 Playwright 程序中，而實際物件存在於瀏覽器中。有兩種類型的控制代碼:
 
-Since any DOM element in the page is also a JavaScript object, any [ElementHandle] is a [JSHandle] as well.
+- [JSHandle] 參考頁面中的任意 JavaScript 物件
+- [ElementHandle] 參考頁面中的 DOM 元素，它有額外的方法允許對元素執行操作並斷言它們的屬性。
 
-Handles are used to perform operations on those actual objects in the page. You can evaluate on a handle, get handle properties, pass handle as an evaluation parameter, serialize page object into JSON etc. See the [JSHandle] class API for these and methods.
+由於頁面中的任何 DOM 元素也是 JavaScript 物件，因此任何 [ElementHandle] 也是 [JSHandle]。
 
-### API reference
+操作柄用於對頁面中的那些實際物件進行操作。你可以在操作柄上進行評估，獲取操作柄屬性，將操作柄作為評估參數傳遞，將頁面物件序列化為 JSON 等等。請參閱 [JSHandle](https://example.com) 類別 API 以了解這些和方法。
+
+### API 參考
+
 - [JSHandle]
 - [ElementHandle]
 
-Here is the easiest way to obtain a [JSHandle].
+這是獲取 [JSHandle] 的最簡單方法。
 
 <Tabs
   groupId="python-flavor"
@@ -48,13 +50,13 @@ js_handle = await page.evaluate_handle('window')
 </TabItem>
 </Tabs>
 
-## Element Handles
+## 元素處理器
 
-:::warning[Discouraged]
-The use of [ElementHandle] is discouraged, use [Locator] objects and web-first assertions instead.
+:::warning[不建議]
+不建議使用 [ElementHandle]，請改用 [Locator] 物件和 web-first 斷言。
 :::
 
-When [ElementHandle] is required, it is recommended to fetch it with the [page.wait_for_selector()](/api/class-page.mdx#page-wait-for-selector) or [frame.wait_for_selector()](/api/class-frame.mdx#frame-wait-for-selector) methods. These APIs wait for the element to be attached and visible.
+當需要 [ElementHandle] 時，建議使用 [page.wait_for_selector()](https://playwright.dev/python/docs/api/class-page#page-wait-for-selector) 或 [frame.wait_for_selector()](https://playwright.dev/python/docs/api/class-frame#frame-wait-for-selector) 方法來獲取。這些 API 會等待元素附加並可見。
 
 <Tabs
   groupId="python-flavor"
@@ -100,7 +102,7 @@ assert 'highlighted' in class_names
 
 ## Handles as parameters
 
-Handles can be passed into the [page.evaluate()](/api/class-page.mdx#page-evaluate) and similar methods. The following snippet creates a new array in the page, initializes it with data and returns a handle to this array into Playwright. It then uses the handle in subsequent evaluations:
+句柄可以傳遞到 [page.evaluate()](/api/class-page.mdx#page-evaluate) 和類似的方法中。以下程式碼片段在頁面中建立一個新陣列，使用資料初始化它，並將此陣列的句柄返回到 Playwright。然後在後續的評估中使用該句柄:
 
 <Tabs
   groupId="python-flavor"
@@ -160,30 +162,32 @@ await my_array_handle.dispose()
 
 ## Handle Lifecycle
 
-Handles can be acquired using the page methods such as [page.evaluate_handle()](/api/class-page.mdx#page-evaluate-handle), [page.query_selector()](/api/class-page.mdx#page-query-selector) or [page.query_selector_all()](/api/class-page.mdx#page-query-selector-all) or their frame counterparts [frame.evaluate_handle()](/api/class-frame.mdx#frame-evaluate-handle), [frame.query_selector()](/api/class-frame.mdx#frame-query-selector) or [frame.query_selector_all()](/api/class-frame.mdx#frame-query-selector-all). Once created, handles will retain object from [garbage collection](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management) unless page navigates or the handle is manually disposed via the [js_handle.dispose()](/api/class-jshandle.mdx#js-handle-dispose) method.
+句柄可以使用頁面方法獲取，例如 [page.evaluate_handle()](https://api/class-page.mdx#page-evaluate-handle)、[page.query_selector()](https://api/class-page.mdx#page-query-selector) 或 [page.query_selector_all()](https://api/class-page.mdx#page-query-selector-all) 或其框架對應方法 [frame.evaluate_handle()](https://api/class-frame.mdx#frame-evaluate-handle)、[frame.query_selector()](https://api/class-frame.mdx#frame-query-selector) 或 [frame.query_selector_all()](https://api/class-frame.mdx#frame-query-selector-all)。一旦建立，句柄將保留物件免於 [垃圾回收](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)，除非頁面導航或通過 [js_handle.dispose()](https://api/class-jshandle.mdx#js-handle-dispose) 方法手動處置句柄。
 
-### API reference
+### API 參考
+
 - [JSHandle]
 - [ElementHandle]
-- [element_handle.bounding_box()](/api/class-elementhandle.mdx#element-handle-bounding-box)
-- [element_handle.get_attribute()](/api/class-elementhandle.mdx#element-handle-get-attribute)
-- [element_handle.inner_text()](/api/class-elementhandle.mdx#element-handle-inner-text)
-- [element_handle.inner_html()](/api/class-elementhandle.mdx#element-handle-inner-html)
-- [element_handle.text_content()](/api/class-elementhandle.mdx#element-handle-text-content)
-- [js_handle.evaluate()](/api/class-jshandle.mdx#js-handle-evaluate)
-- [page.evaluate_handle()](/api/class-page.mdx#page-evaluate-handle)
-- [page.query_selector()](/api/class-page.mdx#page-query-selector)
-- [page.query_selector_all()](/api/class-page.mdx#page-query-selector-all)
+- [element_handle.bounding_box()](https://api/class-elementhandle.mdx#element-handle-bounding-box)。
+- [element_handle.get_attribute()](https://api/class-elementhandle.mdx#element-handle-get-attribute)。
+- [element_handle.inner_text()](https://api/class-elementhandle.mdx#element-handle-inner-text)。
+- [element_handle.inner_html()](https://api/class-elementhandle.mdx#element-handle-inner-html)。
+- [element_handle.text_content()](https://api/class-elementhandle.mdx#element-handle-text-content)。
+- [js_handle.evaluate()](https://api/class-jshandle.mdx#js-handle-evaluate)。
+- [page.evaluate_handle()](https://api/class-page.mdx#page-evaluate-handle)。
+- [page.query_selector()](https://api/class-page.mdx#page-query-selector)。
+- [page.query_selector_all()](https://api/class-page.mdx#page-query-selector-all)。
 
-## Locator vs ElementHandle
+
+## 定位器 vs ElementHandle
 
 :::caution
-We only recommend using [ElementHandle] in the rare cases when you need to perform extensive DOM traversal on a static page. For all user actions and assertions use locator instead.
+我們只建議在需要對靜態頁面進行大量 DOM 遍歷的罕見情況下使用 [ElementHandle]。對於所有使用者操作和斷言，請改用定位器。
 :::
 
-The difference between the [Locator] and [ElementHandle] is that the latter points to a particular element, while Locator captures the logic of how to retrieve that element.
+[Locator] 和 [ElementHandle] 之間的區別在於後者指向特定元素，而 Locator 捕捉如何檢索該元素的邏輯。
 
-In the example below, handle points to a particular DOM element on page. If that element changes text or is used by React to render an entirely different component, handle is still pointing to that very stale DOM element. This can lead to unexpected behaviors.
+在以下範例中，handle 指向頁面上的特定 DOM 元素。如果該元素更改了文本或被 React 用於渲染完全不同的組件，handle 仍然指向那個非常過時的 DOM 元素。這可能會導致意外的行為。
 
 <Tabs
   groupId="python-flavor"
@@ -213,7 +217,7 @@ await handle.click()
 </TabItem>
 </Tabs>
 
-With the locator, every time the locator is used, up-to-date DOM element is located in the page using the selector. So in the snippet below, underlying DOM element is going to be located twice.
+使用定位器時，每次使用定位器時，會使用選擇器在頁面中定位最新的 DOM 元素。因此，在下面的程式碼片段中，基礎 DOM 元素將被定位兩次。
 
 <Tabs
   groupId="python-flavor"
@@ -242,6 +246,8 @@ await locator.click()
 
 </TabItem>
 </Tabs>
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

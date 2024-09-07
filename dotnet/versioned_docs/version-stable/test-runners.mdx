@@ -1,34 +1,34 @@
----
+﻿---
 id: test-runners
-title: "Test Runners"
+title: "測試執行器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-While Playwright for .NET isn't tied to a particular test runner or testing framework, in our experience the easiest way of getting started is by using the base classes we provide for [MSTest](#mstest) and [NUnit](#nunit). These classes support running tests on multiple browser engines, adjusting launch/context options and getting a [Page]/[BrowserContext] instance per test out of the box. 
+雖然 Playwright for .NET 並不依賴於特定的測試執行器或測試框架，但根據我們的經驗，最簡單的入門方法是使用我們為 [MSTest](#mstest) 和 [NUnit](#nunit) 提供的基礎類別。這些類別支援在多個瀏覽器引擎上執行測試，調整啟動/上下文選項，並在每個測試中獲取 [Page]/[BrowserContext] 物件。
 
-Playwright and Browser instances will be reused between tests for better performance. We recommend running each test case in a new BrowserContext, this way browser state will be isolated between the tests.
+Playwright 和 Browser 實例將在測試之間重複使用，以獲得更好的效能。我們建議在新的 BrowserContext 中執行每個測試案例，這樣瀏覽器狀態將在測試之間隔離。
 
 ## MSTest
 
-Playwright provides base classes to write tests with MSTest via the [`Microsoft.Playwright.MSTest`](https://www.nuget.org/packages/Microsoft.Playwright.MSTest) package.
+Playwright 提供基礎類別來使用 MSTest 撰寫測試，透過 [`Microsoft.Playwright.MSTest`](https://www.nuget.org/packages/Microsoft.Playwright.MSTest) 套件。
 
-Check out the [installation guide](./intro.mdx) to get started.
+請查看[安裝指南](./intro.mdx)以開始使用。
 
-### Running MSTest tests in Parallel
+### 執行 MSTest 測試並行
 
-By default MSTest will run all classes in parallel, while running tests inside each class sequentially (`ExecutionScope.ClassLevel`). It will create as many processes as there are cores on the host system. You can adjust this behavior by using the following CLI parameter or using a `.runsettings` file, see below. Running tests in parallel at the method level (`ExecutionScope.MethodLevel`) is not supported.
+預設情況下，MSTest 會平行處理所有類別，同時在每個類別內部依序執行測試（`ExecutionScope.ClassLevel`）。它會建立與主機系統上的核心數量相同的進程。您可以使用以下 CLI 參數或使用 `.runsettings` 文件來調整此行為，請參見下文。在方法層級（`ExecutionScope.MethodLevel`）平行處理測試是不支援的。
 
 ```bash
 dotnet test --settings:.runsettings -- MSTest.Parallelize.Workers=4
 ```
 
-### Customizing [BrowserContext] options
+### 自訂 [BrowserContext] 選項
 
-To customize context options, you can override the `ContextOptions` method of your test class derived from `Microsoft.Playwright.MSTest.PageTest` or `Microsoft.Playwright.MSTest.ContextTest`. See the following example:
+要自訂上下文選項，您可以覆寫從 `Microsoft.Playwright.MSTest.PageTest` 或 `Microsoft.Playwright.MSTest.ContextTest` 派生的測試類別的 `ContextOptions` 方法。請參閱以下範例:
 
 ```csharp
 using System.Threading.Tasks;
@@ -65,9 +65,9 @@ public class ExampleTest : PageTest
 
 ```
 
-### Customizing [Browser]/launch options
+### 自訂 [Browser]/launch options
 
-[Browser]/launch options can be overridden either using a run settings file or by setting the run settings options directly via the CLI. See the following example:
+[Browser]/launch options 可以透過使用執行設定檔案或直接透過 CLI 設定執行設定選項來覆蓋。請參閱以下範例:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -86,15 +86,15 @@ public class ExampleTest : PageTest
 dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=false Playwright.LaunchOptions.Channel=msedge
 ```
 
-### Using Verbose API Logs
+### 使用詳細 API 日誌
 
-When you have enabled the [verbose API log](./debug.mdx#verbose-api-logs), via the `DEBUG` environment variable, you will see the messages in the standard error stream. In MSTest, within Visual Studio, that will be the `Tests` pane of the `Output` window. It will also be displayed in the `Test Log` for each test.
+當你啟用了 [verbose API log](./debug.mdx#verbose-api-logs), 通過 `DEBUG` 環境變數，你將在標準錯誤流中看到這些訊息。在 MSTest 中，在 Visual Studio 內，這些訊息將顯示在 `Output` 視窗的 `Tests` 窗格中。它也會顯示在每個測試的 `Test Log` 中。
 
-### Using the .runsettings file
+### 使用 .runsettings 檔案
 
-When running tests from Visual Studio, you can take advantage of the `.runsettings` file. The following shows a reference of the supported values.
+當從 Visual Studio 執行測試時，你可以利用 `.runsettings` 檔案。以下顯示支援值的參考。
 
-For example, to specify the number of workers, you can use `MSTest.Parallelize.Workers`. You can also enable `DEBUG` logs using `RunConfiguration.EnvironmentVariables`.
+例如，要指定工作者的數量，你可以使用 `MSTest.Parallelize.Workers`。你也可以使用 `RunConfiguration.EnvironmentVariables` 啟用 `DEBUG` 日誌。
 
 ```xml
 <RunSettings>
@@ -124,36 +124,36 @@ For example, to specify the number of workers, you can use `MSTest.Parallelize.W
 </RunSettings>
 ```
 
-### Base MSTest classes for Playwright
+### Playwright 的基礎 MSTest 類別
 
-There are a few base classes available to you in `Microsoft.Playwright.MSTest` namespace:
+在 `Microsoft.Playwright.MSTest` 命名空間中，有一些可用的基礎類別:
 
-|Test          |Description|
-|--------------|-----------|
-|PageTest      |Each test gets a fresh copy of a web [Page] created in its own unique [BrowserContext]. Extending this class is the simplest way of writing a fully-functional Playwright test.<br></br><br></br>Note: You can override the `ContextOptions` method in each test file to control context options, the ones typically passed into the [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) method. That way you can specify all kinds of emulation options for your test file individually.|
-|ContextTest   |Each test will get a fresh copy of a [BrowserContext]. You can create as many pages in this context as you'd like. Using this test is the easiest way to test multi-page scenarios where you need more than one tab.<br></br><br></br>Note: You can override the `ContextOptions` method in each test file to control context options, the ones typically passed into the [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) method. That way you can specify all kinds of emulation options for your test file individually.|
-|BrowserTest   |Each test will get a browser and can create as many contexts as it likes. Each test is responsible for cleaning up all the contexts it created.|
-|PlaywrightTest|This gives each test a Playwright object so that the test could start and stop as many browsers as it likes.|
+| Test          | Description |
+| -------------- | ----------- |
+| PageTest      | Each test gets a fresh copy of a web [Page] 建立 in its own unique [BrowserContext]. Extending this 類別 is the simplest way of writing a fully-functional Playwright test。<br></br><br></br>Note: You can override the `ContextOptions` method in each test file to control context options, the ones typically passed into the [Browser.NewContextAsync](/api/class-browser.mdx#browser-new-context) method。That way you can specify all kinds of emulation options for your test file individually。|
+| ContextTest   | Each test will get a fresh copy of a [BrowserContext]. You can 建立 as many pages in this context as you'd like。Using this test is the easiest way to test multi-page scenarios where you need more than one tab。<br></br><br></br>Note: You can override the `ContextOptions` method in each test file to control context options, the ones typically passed into the [Browser.NewContextAsync](/api/class-browser.mdx#browser-new-context) method。That way you can specify all kinds of emulation options for your test file individually。|
+| BrowserTest   | Each test will get a browser and can 建立 as many contexts as it likes。Each test is responsible for cleaning up all the contexts it 建立。|
+| PlaywrightTest | This gives each test a Playwright 物件 so that the test could start and stop as many browsers as it likes。|
 
 ## NUnit
 
-Playwright provides base classes to write tests with NUnit via the [`Microsoft.Playwright.NUnit`](https://www.nuget.org/packages/Microsoft.Playwright.NUnit) package.
+Playwright 提供基礎類別來使用 NUnit 撰寫測試，透過 [`Microsoft.Playwright.NUnit`](https://www.nuget.org/packages/Microsoft.Playwright.NUnit) 套件。
 
-Check out the [installation guide](./intro.mdx) to get started.
+請查看[安裝指南](./intro.mdx)以開始使用。
 
-### Running NUnit tests in Parallel
+### 執行 NUnit 測試在平行處理
 
-By default NUnit will run all test files in parallel, while running tests inside each file sequentially (`ParallelScope.Self`). It will create as many processes as there are cores on the host system. You can adjust this behavior using the NUnit.NumberOfTestWorkers parameter. Only `ParallelScope.Self` is supported.
+根據預設，NUnit 會平行執行所有測試檔案，同時在每個檔案內部順序執行測試（`ParallelScope.Self`）。它會建立與主機系統上核心數量相同的進程。您可以使用 NUnit.NumberOfTestWorkers 參數來調整此行為。僅支援 `ParallelScope.Self`。
 
-For CPU-bound tests, we recommend using as many workers as there are cores on your system, divided by 2. For IO-bound tests you can use as many workers as you have cores.
+對於 CPU 密集型測試，我們建議使用與系統核心數量相同的工作者數量，除以 2。對於 IO 密集型測試，您可以使用與核心數量相同的工作者數量。
 
 ```bash
 dotnet test -- NUnit.NumberOfTestWorkers=5
 ```
 
-### Customizing [BrowserContext] options
+### 自訂 [BrowserContext] 選項
 
-To customize context options, you can override the `ContextOptions` method of your test class derived from `Microsoft.Playwright.MSTest.PageTest` or `Microsoft.Playwright.MSTest.ContextTest`. See the following example:
+要自訂上下文選項，您可以覆寫從 `Microsoft.Playwright.MSTest.PageTest` 或 `Microsoft.Playwright.MSTest.ContextTest` 派生的測試類別的 `ContextOptions` 方法。請參閱以下範例:
 
 ```csharp
 using Microsoft.Playwright.NUnit;
@@ -187,9 +187,9 @@ public class MyTest : PageTest
 }
 ```
 
-### Customizing [Browser]/launch options
+### 自訂 [Browser]/launch options
 
-[Browser]/launch options can be overridden either using a run settings file or by setting the run settings options directly via the CLI. See the following example:
+[Browser]/launch options 可以透過使用執行設定檔案或直接透過 CLI 設定執行設定選項來覆蓋。請參閱以下範例:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -208,15 +208,15 @@ public class MyTest : PageTest
 dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=false Playwright.LaunchOptions.Channel=msedge
 ```
 
-### Using Verbose API Logs
+### 使用詳細 API 日誌
 
-When you have enabled the [verbose API log](./debug.mdx#verbose-api-logs), via the `DEBUG` environment variable, you will see the messages in the standard error stream. In NUnit, within Visual Studio, that will be the `Tests` pane of the `Output` window. It will also be displayed in the `Test Log` for each test.
+當你啟用[詳細 API 日誌](./debug.mdx#verbose-api-logs)時，通過 `DEBUG` 環境變數，你將在標準錯誤流中看到這些訊息。在 NUnit 中，在 Visual Studio 內，這些訊息將顯示在 `Output` 視窗的 `Tests` 窗格中。它也會顯示在每個測試的 `Test Log` 中。
 
-### Using the .runsettings file
+### 使用 .runsettings 檔案
 
-When running tests from Visual Studio, you can take advantage of the `.runsettings` file. The following shows a reference of the supported values.
+當從 Visual Studio 執行測試時，你可以利用 `.runsettings` 檔案。以下顯示支援值的參考。
 
-For example, to specify the amount of workers you can use `NUnit.NumberOfTestWorkers` or to enable `DEBUG` logs `RunConfiguration.EnvironmentVariables`.
+例如，要指定工作人員的數量，你可以使用 `NUnit.NumberOfTestWorkers` 或啟用 `DEBUG` 日誌 `RunConfiguration.EnvironmentVariables`。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -244,20 +244,22 @@ For example, to specify the amount of workers you can use `NUnit.NumberOfTestWor
 </RunSettings>
 ```
 
-### Base NUnit classes for Playwright
+### Playwright 的基本 NUnit 類別
 
-There are a few base classes available to you in `Microsoft.Playwright.NUnit` namespace:
+在 `Microsoft.Playwright.NUnit` 命名空間中，有一些可用的基礎類別:
 
-|Test          |Description|
-|--------------|-----------|
-|PageTest      |Each test gets a fresh copy of a web [Page] created in its own unique [BrowserContext]. Extending this class is the simplest way of writing a fully-functional Playwright test.<br></br><br></br>Note: You can override the `ContextOptions` method in each test file to control context options, the ones typically passed into the [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) method. That way you can specify all kinds of emulation options for your test file individually.|
-|ContextTest   |Each test will get a fresh copy of a [BrowserContext]. You can create as many pages in this context as you'd like. Using this test is the easiest way to test multi-page scenarios where you need more than one tab.<br></br><br></br>Note: You can override the `ContextOptions` method in each test file to control context options, the ones typically passed into the [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) method. That way you can specify all kinds of emulation options for your test file individually.|
-|BrowserTest   |Each test will get a browser and can create as many contexts as it likes. Each test is responsible for cleaning up all the contexts it created.|
-|PlaywrightTest|This gives each test a Playwright object so that the test could start and stop as many browsers as it likes.|
+| Test          | Description |
+| -------------- | ----------- |
+| PageTest      | Each test gets a fresh copy of a web [Page] 建立 in its own unique [BrowserContext]. Extending this 類別 is the simplest way of writing a fully-functional Playwright test。<br></br><br></br>Note: You can override the `ContextOptions` method in each test file to control context options, the ones typically passed into the [Browser.NewContextAsync](/api/class-browser.mdx#browser-new-context) method。That way you can specify all kinds of emulation options for your test file individually。|
+| ContextTest   | Each test will get a fresh copy of a [BrowserContext]. You can 建立 as many pages in this context as you'd like。Using this test is the easiest way to test multi-page scenarios where you need more than one tab。<br></br><br></br>Note: You can override the `ContextOptions` method in each test file to control context options, the ones typically passed into the [Browser.NewContextAsync](/api/class-browser.mdx#browser-new-context) method。That way you can specify all kinds of emulation options for your test file individually。|
+| BrowserTest   | Each test will get a browser and can 建立 as many contexts as it likes。Each test is responsible for cleaning up all the contexts it 建立。|
+| PlaywrightTest | This gives each test a Playwright 物件 so that the test could start and stop as many browsers as it likes。|
 
-## xUnit support
+## xUnit 支援
 
-While using xUnit is also supported, we do not support running parallel tests. This is a well known problem/design limitation outlined by the maintainers across [several](https://github.com/xunit/xunit/issues/2003) [issues](https://github.com/xunit/xunit/issues/2111#issuecomment-650004247).
+使用 xUnit 也是支援的，但我們不支援平行執行測試。這是一個眾所周知的問題/設計限制，由維護者在[幾個](https://github.com/xunit/xunit/issues/2003) [問題](https://github.com/xunit/xunit/issues/2111#issuecomment-650004247)中概述。
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

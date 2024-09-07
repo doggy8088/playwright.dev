@@ -1,18 +1,18 @@
----
+﻿---
 id: emulation
-title: "Emulation"
+title: "模擬"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-With Playwright you can test your app on any browser as well as emulate a real device such as a mobile phone or tablet. Simply configure the devices you would like to emulate and Playwright will simulate the browser behavior such as `"userAgent"`, `"screenSize"`, `"viewport"` and if it `"hasTouch"` enabled. You can also emulate the `"geolocation"`, `"locale"` and `"timezone"` for all tests or for a specific test as well as set the `"permissions"` to show notifications or change the `"colorScheme"`.
+使用 Playwright，你可以在任何瀏覽器上測試你的應用程式，並模擬真實設備，例如手機或平板電腦。只需配置你想要模擬的設備，Playwright 就會模擬瀏覽器行為，例如 `"userAgent"`、`"screenSize"`、`"viewport"` 以及是否啟用 `"hasTouch"`。你還可以模擬 `"geolocation"`、`"locale"` 和 `"timezone"`，對所有測試或特定測試進行設定，並設置 `"permissions"` 來顯示通知或更改 `"colorScheme"`。
 
-## Devices
+## 裝置
 
-Playwright comes with a [registry of device parameters](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) using [Playwright.Devices](/api/class-playwright.mdx#playwright-devices) for selected desktop, tablet and mobile devices. It can be used to simulate browser behavior for a specific device such as user agent, screen size, viewport and if it has touch enabled. All tests will run with the specified device parameters.
+Playwright 附帶一個[設備參數註冊表](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json)，使用 [Playwright.Devices](/api/class-playwright.mdx#playwright-devices) 來選擇桌面、平板和移動設備。它可以用來模擬特定設備的瀏覽器行為，例如使用者代理、螢幕大小、視窗大小以及是否啟用了觸控。所有測試都將使用指定的設備參數執行。
 
 ```csharp
 using Microsoft.Playwright;
@@ -29,13 +29,13 @@ await using var context = await browser.NewContextAsync(iphone13);
 
 <img width="458" alt="playwright.dev website emulated for iPhone 13" src="https://user-images.githubusercontent.com/13063165/220411073-76fe59f9-9a2d-463d-8e30-c19a7deca133.png" />
 
-## Viewport
+## 視口
 
-The viewport is included in the device but you can override it for some tests with [Page.SetViewportSizeAsync()](/api/class-page.mdx#page-set-viewport-size).
+視口包含在設備中，但您可以在某些測試中覆蓋它，使用 [Page.SetViewportSizeAsync()](/api/class-page.mdx#page-set-viewport-size)。
 
-Test file:
+測試檔案:
 
-The same works inside a test file.
+在測試文件內部也是一樣的。
 
 ```csharp
 // Create context with given viewport
@@ -57,7 +57,7 @@ await using var context = await browser.NewContextAsync(new()
 
 ## isMobile
 
-Whether the meta viewport tag is taken into account and touch events are enabled.
+無論是否考慮 meta viewport 標籤並啟用觸控事件。
 
 ```csharp
 await using var context = await browser.NewContextAsync(new()
@@ -68,7 +68,7 @@ await using var context = await browser.NewContextAsync(new()
 
 ## Locale & Timezone
 
-Emulate the user Locale and Timezone which can be set globally for all tests in the config and then overridden for particular tests.
+模擬使用者的區域和時區，可以在配置中全域設定所有測試，然後為特定測試覆蓋設定。
 
 ```csharp
 await using var context = await browser.NewContextAsync(new()
@@ -80,25 +80,25 @@ await using var context = await browser.NewContextAsync(new()
 
 <img width="1394" alt="Bing in german lang and timezone" src="https://user-images.githubusercontent.com/13063165/220416571-ccc96ab1-44bb-4579-8430-64502fc24a15.png" />
 
-## Permissions
+## 權限
 
-Allow app to show system notifications.
+允許應用程式顯示系統通知。
 
-Allow notifications for a specific domain.
+允許特定域的通知。
 
 ```csharp
 await context.GrantPermissionsAsync(new[] { "notifications" }, origin: "https://skype.com");
 ```
 
-Revoke all permissions with [BrowserContext.ClearPermissionsAsync()](/api/class-browsercontext.mdx#browser-context-clear-permissions).
+撤銷所有權限，請使用 [BrowserContext.ClearPermissionsAsync()](/api/class-browsercontext.mdx#browser-context-clear-permissions)。
 
 ```csharp
 await context.ClearPermissionsAsync();
 ```
 
-## Geolocation
+## 地理位置
 
-Grant `"geolocation"` permissions and set geolocation to a specific area.
+授予 "geolocation" 權限並將 geolocation 設定到特定區域。
 
 ```csharp
 await using var context = await browser.NewContextAsync(new()
@@ -108,19 +108,19 @@ await using var context = await browser.NewContextAsync(new()
 });
 ```
 
-<img width="1394" alt="geolocation for italy on bing maps" src="https://user-images.githubusercontent.com/13063165/220417670-bb22d815-f5cd-47c4-8562-0b88165eac27.png" />
+<img width="1394" alt="義大利在 Bing 地圖上的地理位置" src="https://user-images.githubusercontent.com/13063165/220417670-bb22d815-f5cd-47c4-8562-0b88165eac27.png" />
 
-Change the location later:
+稍後更改位置:
 
 ```csharp
 await context.SetGeolocationAsync(new Geolocation() { Longitude = 48.858455, Latitude = 2.294474 });
 ```
 
-**Note** you can only change geolocation for all pages in the context.
+**注意** 您只能更改所有頁面的地理位置。
 
-## Color Scheme and Media
+## 色彩方案和媒體
 
-Emulate the users `"colorScheme"`. Supported values are 'light', 'dark', 'no-preference'. You can also emulate the media type with [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media).
+模擬用戶的`"colorScheme"`。支援的值有 'light'、'dark'、'no-preference'。你也可以使用 [Page.EmulateMediaAsync()](https://ollama.com/library) 模擬媒體類型。
 
 ```csharp
 // Create context with dark mode
@@ -148,31 +148,33 @@ await page.EmulateMediaAsync(new()
 });
 ```
 
-<img width="1394" alt="playwright web in dark mode" src="https://user-images.githubusercontent.com/13063165/220411638-55d2b051-4678-4da7-9f0b-ed22f5a3c47c.png" />
 
-## User Agent
 
-The User Agent is included in the device and therefore you  will rarely need to change it however if you do need to test a different user agent you can override it with the `userAgent` property.
+## 使用者代理
+
+使用者代理包含在裝置中，因此您很少需要更改它。但是，如果您需要測試不同的使用者代理，您可以使用 `userAgent` 屬性來覆寫它。
 
 ```csharp
 var context = await browser.NewContextAsync(new() { UserAgent = "My User Agent" });
 ```
 
-## Offline
+## 離線
 
-Emulate the network being offline.
+模擬網路離線。
 
 ```csharp
 var context = await browser.NewContextAsync(new() { Offline = true });
 ```
 
-## JavaScript Enabled
+## 啟用 JavaScript
 
-Emulate a user scenario where JavaScript is disabled.
+模擬使用者在 JavaScript 被禁用的情境。
 
 ```csharp
 var context = await browser.NewContextAsync(new() { JavaScriptEnabled = false });
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

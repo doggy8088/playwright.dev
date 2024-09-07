@@ -1,36 +1,36 @@
----
+﻿---
 id: service-workers-experimental
-title: "(Experimental) Service Worker Network Events"
+title: "(實驗性) Service Worker 網路事件"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
 :::warning
-If you're looking to do general network mocking, routing, and interception, please see the [Network Guide](./network.mdx) first. Playwright provides built-in APIs for this use case that don't require the information below. However, if you're interested in requests made by Service Workers themselves, please read below.
+如果你正在尋找一般的網路模擬、路由和攔截，請先參閱 [Network Guide](./network.mdx)。Playwright 提供內建的 API 用於此用途，不需要下面的資訊。然而，如果你對 Service Workers 自身發出的請求感興趣，請繼續閱讀。
 :::
 
-[Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) provide a browser-native method of handling requests made by a page with the native [Fetch API (`fetch`)](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) along with other network-requested assets (like scripts, css, and images).
+[Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) 提供了一種瀏覽器原生的方法來處理頁面使用原生 [Fetch API (`fetch`)](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 所發出的請求以及其他網路請求的資產（如腳本、css 和圖片）。
 
-They can act as a **network proxy** between the page and the external network to perform caching logic or can provide users with an offline experience if the Service Worker adds a [FetchEvent](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent#examples) listener.
+他們可以作為頁面和外部網路之間的**網路代理**來執行快取邏輯，或者如果 Service Worker 添加 [FetchEvent](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent#examples) 監聽器，則可以為用戶提供離線體驗。
 
-Many sites that use Service Workers simply use them as a transparent optimization technique. While users might notice a faster experience, the app's implementation is unaware of their existence. Running the app with or without Service Workers enabled appears functionally equivalent.
+許多使用 Service Workers 的網站僅將其用作透明的最佳化技術。雖然用戶可能會注意到更快的體驗，但應用程式的實現並不知道它們的存在。啟用或未啟用 Service Workers 執行應用程式在功能上看起來是等效的。
 
-## How to Enable
+## 如何啟用
 
-Playwright's inspection and routing of requests made by Service Workers are **experimental** and disabled by default.
+Playwright 的 Service Workers 所發出的請求檢查和路由是**實驗性**的，默認情況下是禁用的。
 
-Set the `PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS` environment variable to `1` (or any other value) to enable the feature. Only Chrome/Chromium are currently supported.
+將 `PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS` 環境變數設置為 `1`（或任何其他值）以啟用此功能。目前僅支援 Chrome/Chromium。
 
-If you're using (or are interested in using this feature), please comment on [this issue](https://github.com/microsoft/playwright/issues/15684) letting us know your use case.
+如果你正在使用（或有興趣使用此功能），請在[此問題](https://github.com/microsoft/playwright/issues/15684)上留言讓我們知道你的使用案例。
 
-## Service Worker Fetch
+## 服務工作者抓取
 
-### Accessing Service Workers and Waiting for Activation
+### 存取 Service Workers 和等待啟動
 
-You can use [browserContext.serviceWorkers()](/api/class-browsercontext.mdx#browser-context-service-workers) to list the Service [Worker]s, or specifically watch for the Service [Worker] if you anticipate a page will trigger its [registration](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register):
+你可以使用 [browserContext.serviceWorkers()](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) 來列出 Service [Worker]，或者如果你預期頁面會觸發其[註冊](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register)，可以特別監看 Service [Worker]：
 
 ```js
 const serviceWorkerPromise = context.waitForEvent('serviceworker');
@@ -38,9 +38,9 @@ await page.goto('/example-with-a-service-worker.html');
 const serviceworker = await serviceWorkerPromise;
 ```
 
-[browserContext.on('serviceworker')](/api/class-browsercontext.mdx#browser-context-event-service-worker) is fired ***before*** the Service Worker's main script has been evaluated, so ***before*** calling service[worker.evaluate()](/api/class-worker.mdx#worker-evaluate) you should wait on its activation.
+[browserContext.on('serviceworker')](https://api/class-browsercontext.mdx#browser-context-event-service-worker) 是在 Service Worker 的主腳本被評估***之前***觸發的，所以在呼叫 service[worker.evaluate()](https://api/class-worker.mdx#worker-evaluate) 之前，你應該等待它的啟動。
 
-There are more idiomatic methods of waiting for a Service Worker to be activated, but the following is an implementation agnostic method:
+等待 Service Worker 被啟動有更多慣用的方法，但以下是一種與實作無關的方法:
 
 ```js
 await page.evaluate(async () => {
@@ -53,22 +53,24 @@ await page.evaluate(async () => {
 });
 ```
 
-### Network Events and Routing
+### 網路事件和路由
 
-Any network request made by the **Service Worker** will have:
-* [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) and its corresponding events ([browserContext.on('requestfinished')](/api/class-browsercontext.mdx#browser-context-event-request-finished) and [browserContext.on('response')](/api/class-browsercontext.mdx#browser-context-event-response), or [browserContext.on('requestfailed')](/api/class-browsercontext.mdx#browser-context-event-request-failed))
-* [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) will see the request
-* [request.serviceWorker()](/api/class-request.mdx#request-service-worker) will be set to the Service [Worker] instance, and [request.frame()](/api/class-request.mdx#request-frame) will **throw**
-* [response.fromServiceWorker()](/api/class-response.mdx#response-from-service-worker) will return `false`
+任何網路請求由 **Service Worker** 發出將會有:
 
-Additionally, any network request made by the **Page** (including its sub-[Frame]s) will have:
-* [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) and its corresponding events ([browserContext.on('requestfinished')](/api/class-browsercontext.mdx#browser-context-event-request-finished) and [browserContext.on('response')](/api/class-browsercontext.mdx#browser-context-event-response), or [browserContext.on('requestfailed')](/api/class-browsercontext.mdx#browser-context-event-request-failed))
-* [page.on('request')](/api/class-page.mdx#page-event-request) and its corresponding events ([page.on('requestfinished')](/api/class-page.mdx#page-event-request-finished) and [page.on('response')](/api/class-page.mdx#page-event-response), or [page.on('requestfailed')](/api/class-page.mdx#page-event-request-failed))
-* [page.route()](/api/class-page.mdx#page-route) and [page.route()](/api/class-page.mdx#page-route) will **not** see the request (if a Service Worker's fetch handler was registered)
-* [request.serviceWorker()](/api/class-request.mdx#request-service-worker) will be set to `null`, and [request.frame()](/api/class-request.mdx#request-frame) will return the [Frame]
-* [response.fromServiceWorker()](/api/class-response.mdx#response-from-service-worker) will return `true` (if a Service Worker's fetch handler was registered)
+* [browserContext.on('request')](https://api/class-browsercontext.mdx#browser-context-event-request) 和其對應的事件([browserContext.on('requestfinished')](https://api/class-browsercontext.mdx#browser-context-event-request-finished) 和 [browserContext.on('response')](https://api/class-browsercontext.mdx#browser-context-event-response), 或 [browserContext.on('requestfailed')](https://api/class-browsercontext.mdx#browser-context-event-request-failed))
+* [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 會看到該請求
+* [request.serviceWorker()](https://api/class-request.mdx#request-service-worker) 將被設置為 Service [Worker] 實例, 並且 [request.frame()](https://api/class-request.mdx#request-frame) 將**拋出**
+* [response.fromServiceWorker()](https://api/class-response.mdx#response-from-service-worker) 將返回 `false`
 
-Many Service Worker implementations simply execute the request from the page (possibly with some custom caching/offline logic omitted for simplicity):
+此外，任何由 **Page**（包括其子 [Frame]）發出的網路請求將會有:
+
+* [browserContext.on('request')](https://api/class-browsercontext.mdx#browser-context-event-request) 和其對應的事件([browserContext.on('requestfinished')](https://api/class-browsercontext.mdx#browser-context-event-request-finished) 和 [browserContext.on('response')](https://api/class-browsercontext.mdx#browser-context-event-response), 或 [browserContext.on('requestfailed')](https://api/class-browsercontext.mdx#browser-context-event-request-failed))
+* [page.on('request')](https://api/class-page.mdx#page-event-request) 和其對應的事件([page.on('requestfinished')](https://api/class-page.mdx#page-event-request-finished) 和 [page.on('response')](https://api/class-page.mdx#page-event-response), 或 [page.on('requestfailed')](https://api/class-page.mdx#page-event-request-failed))
+* [page.route()](https://api/class-page.mdx#page-route) 和 [page.route()](https://api/class-page.mdx#page-route) 將**不會**看到請求(如果已註冊了 Service Worker 的 fetch 處理器)
+* [request.serviceWorker()](https://api/class-request.mdx#request-service-worker) 將被設置為 `null`, 而 [request.frame()](https://api/class-request.mdx#request-frame) 將返回 [Frame]
+* [response.fromServiceWorker()](https://api/class-response.mdx#response-from-service-worker) 將返回 `true`(如果已註冊了 Service Worker 的 fetch 處理器)
+
+許多 Service Worker 實作只是簡單地執行來自頁面的請求（可能為了簡單起見省略了一些自訂的快取/離線邏輯）:
 
 ```js title="transparent-service-worker.js"
 self.addEventListener('fetch', event => {
@@ -83,7 +85,7 @@ self.addEventListener('activate', event => {
 });
 ```
 
-If a page registers the above Service Worker:
+如果一個頁面註冊了上述的 Service Worker:
 
 ```html
 <!-- filename: index.html -->
@@ -92,30 +94,31 @@ If a page registers the above Service Worker:
 </script>
 ```
 
-On the first visit to the page via [page.goto()](/api/class-page.mdx#page-goto), the following Request/Response events would be emitted (along with the corresponding network lifecycle events):
+在第一次通過 [page.goto()](/api/class-page.mdx#page-goto) 訪問頁面時，將會發出以下請求/回應事件（以及相應的網路生命週期事件）：
 
-| Event                             | Owner            | URL                            | Routed | [response.fromServiceWorker()](/api/class-response.mdx#response-from-service-worker) |
+| 事件                             | 擁有者            | URL                            | 路由   | [response.fromServiceWorker](/api/class-response.mdx#response-from-service-worker) |
 | -                                 | -                | -                              | -      | -                                      |
-| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | index.html                     | Yes    |                                        |
-| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | index.html                     | Yes    |                                        |
-| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | transparent-service-worker.js  | Yes    |                                        |
-| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | data.json                      | Yes    |                                        |
-| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | data.json                      |        | Yes                                    |
-| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | data.json                      |        | Yes                                    |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | index.html                     | 是    |                                        |
+| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | index.html                     | 是    |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | transparent-service-worker.js  | 是    |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | data.json                      | 是    |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | data.json                      |        | 是                                    |
+| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | data.json                      |        | 是                                    |
 
-Since the example Service Worker just acts a basic transparent "proxy":
-* There's 2 [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) events for `data.json`; one [Frame]-owned, the other Service [Worker]-owned.
-* Only the Service [Worker]-owned request for the resource was routable via [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route); the [Frame]-owned events for `data.json` are not routeable, as they would not have even had the possibility to hit the external network since the Service Worker has a fetch handler registered.
+由於範例 Service Worker 只是作為基本透明的 "代理":
+
+* 有兩個 [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) 事件針對 `data.json`; 一個是 [Frame] 擁有的，另一個是 Service [Worker] 擁有的。
+* 只有 Service [Worker] 擁有的資源請求可以通過 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 進行路由; 針對 `data.json` 的 [Frame] 擁有事件是無法路由的，因為它們甚至沒有可能訪問外部網絡，因為 Service Worker 已經註冊了一個 fetch 處理器。
 
 :::caution
-It's important to note: calling [request.frame()](/api/class-request.mdx#request-frame) or [response.frame()](/api/class-response.mdx#response-frame) will **throw** an exception, if called on a [Request]/[Response] that has a non-null [request.serviceWorker()](/api/class-request.mdx#request-service-worker).
+重要的是要注意: 呼叫 [request.frame()](https://ollama.com/api/class-request.mdx#request-frame) 或 [response.frame()](https://ollama.com/api/class-response.mdx#response-frame) 將會 **拋出** 一個例外，如果在一個具有非空 [request.serviceWorker()](https://ollama.com/api/class-request.mdx#request-service-worker) 的 [Request]/[Response] 上呼叫。
 :::
 
-#### Advanced Example
+#### 高級範例
 
-When a Service Worker handles a page's request, the Service Worker can make 0 to n requests to the external network. The Service Worker might respond directly from a cache, generate a response in memory, rewrite the request, make two requests and then combine into 1, etc.
+當 Service Worker 處理頁面的請求時，Service Worker 可以向外部網路發出 0 到 n 個請求。Service Worker 可能直接從快取回應、在記憶體中生成回應、重寫請求、發出兩個請求然後合併成一個等。
 
-Consider the code snippets below to understand Playwright's view into the Request/Responses and how it impacts routing in some of these cases.
+考慮以下的程式碼片段來了解 Playwright 對 Request/Responses 的看法，以及它如何影響這些情況下的路由。
 
 ```js title="complex-service-worker.js"
 self.addEventListener('install', function(event) {
@@ -159,7 +162,7 @@ self.addEventListener('activate', event => {
 });
 ```
 
-And a page that simply registers the Service Worker:
+而且一個簡單註冊 Service Worker 的頁面:
 
 ```html
 <!-- filename: index.html -->
@@ -168,18 +171,18 @@ And a page that simply registers the Service Worker:
 </script>
 ```
 
-On the first visit to the page via [page.goto()](/api/class-page.mdx#page-goto), the following Request/Response events would be emitted:
+在第一次通過 [page.goto()](/api/class-page.mdx#page-goto) 訪問頁面時，將會發出以下的請求/回應事件：
 
-| Event                             | Owner            | URL                            | Routed | [response.fromServiceWorker()](/api/class-response.mdx#response-from-service-worker) |
+| 事件                             | 擁有者            | URL                            | 路由   | [response.fromServiceWorker](/api/class-response.mdx#response-from-service-worker) |
 | -                                 | -                | -                              | -      | -                                      |
-| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | index.html                     | Yes    |                                        |
-| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | index.html                     | Yes    |                                        |
-| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | complex-service-worker.js      | Yes    |                                        |
-| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | addressbook.json               | Yes    |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | index.html                     | 是     |                                        |
+| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | index.html                     | 是     |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | complex-service-worker.js      | 是     |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | addressbook.json               | 是     |                                        |
 
-It's important to note that [`cache.add`](https://developer.mozilla.org/en-US/docs/Web/API/Cache/add) caused the Service Worker to make a request (Service [Worker]-owned), even before `addressbook.json` was asked for in the page.
+需要注意的是 [`cache.add`](https://developer.mozilla.org/en-US/docs/Web/API/Cache/add) 使得 Service Worker 發出請求(Service [Worker]-owned)，即使在頁面中請求 `addressbook.json` 之前。
 
-Once the Service Worker is activated and handling FetchEvents, if the page makes the following requests:
+一旦 Service Worker 被啟用並處理 FetchEvents，如果頁面發出以下請求:
 
 ```js
 await page.evaluate(() => fetch('/addressbook.json'));
@@ -188,9 +191,9 @@ await page.evaluate(() => fetch('/tracker.js'));
 await page.evaluate(() => fetch('/fallthrough.txt'));
 ```
 
-The following Request/Response events would be emitted:
+以下的請求/回應事件將會被觸發:
 
-| Event                             | Owner            | URL                            | Routed | [response.fromServiceWorker()](/api/class-response.mdx#response-from-service-worker) |
+| Event                             | Owner            | URL                            | Routed | [response.fromServiceWorker](/api/class-response.mdx#response-from-service-worker) |
 | -                                 | -                | -                              | -      | -                                      |
 | [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | addressbook.json               |        | Yes                                    |
 | [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | addressbook.json               |        | Yes                                    |
@@ -203,11 +206,12 @@ The following Request/Response events would be emitted:
 | [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | fallthrough.txt                |        | Yes                                    |
 | [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | fallthrough.txt                |        | Yes                                    |
 
-It's important to note:
-* The page requested `/foo`, but the Service Worker requested `/bar`, so there are only [Frame]-owned events for `/foo`, but not `/bar`.
-* Likewise, the Service Worker never hit the network for `tracker.js`, so only [Frame]-owned events were emitted for that request.
+請注意:
 
-## Routing Service Worker Requests Only
+* 該頁面請求了 `/foo`, 但服務工作者請求了 `/bar`, 因此只有 [Frame]-擁有的事件是針對 `/foo`, 而不是 `/bar`。
+* 同樣地, 服務工作者從未訪問過 `tracker.js` 的網絡, 因此只有 [Frame]-擁有的事件是針對該請求發出的。
+
+## 僅路由服務工作者請求
 
 ```js
 await context.route('**', async route => {
@@ -224,9 +228,11 @@ await context.route('**', async route => {
 });
 ```
 
-## Known Limitations
+## 已知限制
 
-Requests for updated Service Worker main script code currently cannot be routed (https://github.com/microsoft/playwright/issues/14711).
+目前無法路由更新的 Service Worker 主腳本程式碼的請求 (https://github.com/microsoft/playwright/issues/14711)。
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

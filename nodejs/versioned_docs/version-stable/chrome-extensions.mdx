@@ -1,18 +1,18 @@
----
+﻿---
 id: chrome-extensions
-title: "Chrome extensions"
+title: "Chrome 擴充功能"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
 :::note
-Extensions only work in Chrome / Chromium launched with a persistent context. Use custom browser args at your own risk, as some of them may break Playwright functionality.
+擴充功能僅在使用持久性上下文啟動的 Chrome / Chromium 中工作。使用自訂瀏覽器參數需自行承擔風險，因為其中一些可能會破壞 Playwright 功能。
 :::
 
-The following is code for getting a handle to the [background page](https://developer.chrome.com/extensions/background_pages) of a [Manifest v2](https://developer.chrome.com/docs/extensions/mv2/) extension whose source is located in `./my-extension`:
+以下是取得 [background page](https://developer.chrome.com/extensions/background_pages) 的程式碼，這個 [Manifest v2](https://developer.chrome.com/docs/extensions/mv2/) 擴充套件的來源位於 `./my-extension`：
 
 ```js
 const { chromium } = require('playwright');
@@ -36,11 +36,11 @@ const { chromium } = require('playwright');
 })();
 ```
 
-## Testing
+## 測試
 
-To have the extension loaded when running tests you can use a test fixture to set the context. You can also dynamically retrieve the extension id and use it to load and test the popup page for example.
+為了在執行測試時載入擴充功能，您可以使用測試裝置來設定上下文。您也可以動態檢索擴充功能 ID，並使用它來載入和測試彈出頁面範例。
 
-First, add fixtures that will load the extension:
+首先，新增將載入擴充功能的固定裝置:
 
 ```js title="fixtures.ts"
 import { test as base, chromium, type BrowserContext } from '@playwright/test';
@@ -82,7 +82,7 @@ export const test = base.extend<{
 export const expect = test.expect;
 ```
 
-Then use these fixtures in a test:
+然後在測試中使用這些裝置:
 
 ```js
 import { test, expect } from './fixtures';
@@ -98,13 +98,13 @@ test('popup page', async ({ page, extensionId }) => {
 });
 ```
 
-## Headless mode
+## 無頭模式
 
 :::danger
-`headless=new` mode is not officially supported by Playwright and might result in unexpected behavior.
+`headless=new` 模式不受 Playwright 官方支持，可能會導致意外行為。
 :::
 
-By default, Chrome's headless mode in Playwright does not support Chrome extensions. To overcome this limitation, you can run Chrome's persistent context with a new headless mode by using the following code:
+默認情況下，Chrome 在 Playwright 中的無頭模式不支援 Chrome 擴充功能。為了克服這一限制，你可以使用以下程式碼在新的無頭模式下執行 Chrome 的持久性上下文:
 
 ```js title="fixtures.ts"
 // ...
@@ -120,6 +120,8 @@ const context = await chromium.launchPersistentContext('', {
 });
 // ...
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

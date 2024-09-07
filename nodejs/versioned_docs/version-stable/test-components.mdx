@@ -1,6 +1,6 @@
----
+﻿---
 id: test-components
-title: "Components (experimental)"
+title: "元件 (實驗性)"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,15 +8,15 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Introduction
+## 簡介
 
-Playwright Test can now test your components.
+Playwright Test 現在可以測試你的元件。
 
-<LiteYouTube id="y3YxX4sFJbM" title="Component testing" />
+<LiteYouTube id="y3YxX4sFJbM" title="元件測試" />
 
-## Example
+## 範例
 
-Here is what a typical component test looks like:
+以下是一個典型元件測試的樣子:
 
 ```js
 test('event should work', async ({ mount }) => {
@@ -38,15 +38,16 @@ test('event should work', async ({ mount }) => {
 });
 ```
 
-## How to get started
+## 如何開始
 
-Adding Playwright Test to an existing project is easy. Below are the steps to enable Playwright Test for a React, Vue, Svelte or Solid project.
+將 Playwright Test 添加到現有專案很容易。以下是為 React、Vue、Svelte 或 Solid 專案啟用 Playwright Test 的步驟。
 
-### Step 1: Install Playwright Test for components for your respective framework
+### 第一步: 為您的相應框架安裝 Playwright Test 來測試元件
 
 <Tabs defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'}, ] }>
 
 <TabItem value="npm">
+
 
 ```bash
 npm init playwright@latest -- --ct
@@ -72,7 +73,7 @@ pnpm create playwright --ct
 
 </Tabs>
 
-This step creates several files in your workspace:
+這個步驟會在你的工作區域中建立幾個文件:
 
 ```html title="playwright/index.html"
 <html lang="en">
@@ -83,15 +84,15 @@ This step creates several files in your workspace:
 </html>
 ```
 
-This file defines an html file that will be used to render components during testing. It must contain element with `id="root"`, that's where components are mounted. It must also link the script called `playwright/index.{js,ts,jsx,tsx}`.
+此文件定義了一個 html 文件，將用於測試期間渲染元件。它必須包含 `id="root"` 的元素，這是元件掛載的地方。它還必須鏈接名為 `playwright/index.{js,ts,jsx,tsx}` 的腳本。
 
-You can include stylesheets, apply theme and inject code into the page where component is mounted using this script. It can be either a `.js`, `.ts`, `.jsx` or `.tsx` file.
+你可以包含樣式表、應用主題並將程式碼注入到元件安裝的頁面中使用此腳本。它可以是 `.js`、`.ts`、`.jsx` 或 `.tsx` 檔案。
 
 ```js title="playwright/index.ts"
 // Apply theme here, add anything your component needs at runtime here.
 ```
 
-### Step 2. Create a test file `src/App.spec.{ts,tsx}`
+### 步驟 2. 建立一個測試文件 `src/App.spec.{ts,tsx}`
 
 <Tabs defaultValue="react" values={[ {label: 'React', value: 'react'}, {label: 'Solid', value: 'solid'}, {label: 'Svelte', value: 'svelte'}, {label: 'Vue', value: 'vue'}, ] }>
 
@@ -125,7 +126,7 @@ test('should work', async ({ mount }) => {
 });
 ```
 
-If using TypeScript and Vue make sure to add a `vue.d.ts` file to your project:
+如果使用 TypeScript 和 Vue，請確保將 `vue.d.ts` 檔案添加到您的專案中:
 
 ```js
 declare module '*.vue';
@@ -167,24 +168,25 @@ test('should work', async ({ mount }) => {
 
 </Tabs>
 
-### Step 3. Run the tests
+### Step 3. 執行測試
 
-You can run tests using the [VS Code extension](./getting-started-vscode.mdx) or the command line.
+您可以使用 [VS Code extension](./getting-started-vscode.mdx) 或命令列來執行測試。
 
 ```sh
 npm run test-ct
 ```
 
-### Further reading: configure reporting, browsers, tracing
+### 進一步閱讀: 設定報告、瀏覽器、追蹤
 
-Refer to [Playwright config](./test-configuration.mdx) for configuring your project.
+請參考 [Playwright config](./test-configuration.mdx) 設定你的專案。
 
-## Test stories
+## 測試故事
 
-When Playwright Test is used to test web components, tests run in Node.js, while components run in the real browser. This brings together the best of both worlds: components run in the real browser environment, real clicks are triggered, real layout is executed, visual regression is possible. At the same time, test can use all the powers of Node.js as well as all the Playwright Test features. As a result, the same parallel, parametrized tests with the same post-mortem Tracing story are available during component testing.
+當 Playwright Test 用於測試 web 元件時，測試在 Node.js 中執行，而元件在真實的瀏覽器中執行。這結合了兩者的優點：元件在真實的瀏覽器環境中執行，觸發真實的點擊，執行真實的佈局，視覺回歸是可能的。同時，測試可以使用 Node.js 的所有功能以及所有 Playwright Test 的功能。因此，在元件測試期間，相同的平行、參數化測試與相同的事後追蹤故事是可用的。
 
-This however, is introducing a number of limitations:
-- You can't pass complex live objects to your component. Only plain JavaScript objects and built-in types like strings, numbers, dates etc. can be passed.
+然而，這引入了許多限制:
+
+- 你不能將複雜的即時物件傳遞給你的元件。只能傳遞純 JavaScript 物件和內建類型，如字串、數字、日期等。
 
 ```js
 test('this will work', async ({ mount }) => {
@@ -197,7 +199,7 @@ test('this will not work', async ({ mount }) => {
 });
 ```
 
-- You can't pass data to your component synchronously in a callback:
+- 你不能在回呼中同步傳遞資料給你的元件:
 
 ```js
 test('this will not work', async ({ mount }) => {
@@ -208,9 +210,9 @@ test('this will not work', async ({ mount }) => {
 });
 ```
 
-Working around these and other limitations is quick and elegant: for every use case of the tested component, create a wrapper of this component designed specifically for test. Not only it will mitigate the limitations, but it will also offer powerful abstractions for testing where you would be able to define environment, theme and other aspects of your component rendering.
+克服這些和其他限制的方法既快速又優雅: 對於被測試元件的每個使用案例，建立一個專門為測試設計的該元件的包裝器。這不僅能減輕限制，還能為測試提供強大的抽象，讓你能夠定義環境、主題和元件渲染的其他方面。
 
-Let's say you'd like to test following component:
+假設你想測試以下元件:
 
 ```js title="input-media.tsx"
 import React from 'react';
@@ -225,7 +227,7 @@ export function InputMedia(props: InputMediaProps) {
 }
 ```
 
-Create a story file for your component:
+為你的元件建立一個故事文件:
 
 ```js title="input-media.story.tsx"
 import React from 'react';
@@ -242,7 +244,7 @@ export function InputMediaForTest(props: InputMediaForTestProps) {
 // Export more stories here.
 ```
 
-Then test the component via testing the story:
+然後透過測試故事來測試元件:
 
 ```js title="input-media.test.spec.tsx"
 test('changes the image', async ({ mount }) => {
@@ -264,23 +266,24 @@ test('changes the image', async ({ mount }) => {
 });
 ```
 
-As a result, for every component you'll have a story file that exports all the stories that are actually tested. These stories live in the browser and "convert" complex object into the simple objects that can be accessed in the test.
+因此，對於每個元件，你將擁有一個故事檔案，該檔案會匯出所有實際測試的故事。這些故事存在於瀏覽器中，並將複雜的物件“轉換”成可以在測試中訪問的簡單物件。
 
-## Under the hood
+## 引擎內部
 
-Here is how component testing works:
-- Once the tests are executed, Playwright creates a list of components that the tests need.
-- It then compiles a bundle that includes these components and serves it using a local static web server.
-- Upon the `mount` call within the test, Playwright navigates to the facade page `/playwright/index.html` of this bundle and tells it to render the component.
-- Events are marshalled back to the Node.js environment to allow verification.
+以下是元件測試的工作原理:
 
-Playwright is using [Vite](https://vitejs.dev/) to create the components bundle and serve it.
+- 一旦測試被執行，Playwright 會建立測試所需的元件清單。
+- 然後它會編譯一個包含這些元件的捆綁包，並使用本地靜態網頁伺服器提供服務。
+- 在測試中的 `mount` 呼叫時，Playwright 會導航到此捆綁包的外觀頁面 `/playwright/index.html` 並告訴它渲染元件。
+- 事件會被傳回到 Node.js 環境以允許驗證。
 
-## API reference
+Playwright 是使用 [Vite](https://vitejs.dev/) 來建立元件包並提供服務。
+
+## API 參考
 
 ### props
 
-Provide props to a component when mounted.
+在掛載時向元件提供道具。
 
 <Tabs defaultValue="react" values={[ {label: 'React', value: 'react'}, {label: 'Solid', value: 'solid'}, {label: 'Svelte', value: 'svelte'}, {label: 'Vue', value: 'vue'}, ] }>
 
@@ -328,7 +331,7 @@ test('props', async ({ mount }) => {
 
 ### callbacks / events
 
-Provide callbacks/events to a component when mounted.
+在元件掛載時提供回呼/事件。
 
 <Tabs defaultValue="react" values={[ {label: 'React', value: 'react'}, {label: 'Solid', value: 'solid'}, {label: 'Svelte', value: 'svelte'}, {label: 'Vue', value: 'vue'}, ] }>
 
@@ -374,9 +377,9 @@ test('event', async ({ mount }) => {
 
 </Tabs>
 
-### children / slots
+### 子項 / 插槽
 
-Provide children/slots to a component when mounted.
+提供子項/插槽給元件當掛載時。
 
 <Tabs defaultValue="react" values={[ {label: 'React', value: 'react'}, {label: 'Solid', value: 'solid'}, {label: 'Svelte', value: 'svelte'}, {label: 'Vue', value: 'vue'}, ] }>
 
@@ -424,7 +427,7 @@ test('slot', async ({ mount }) => {
 
 ### hooks
 
-You can use `beforeMount` and `afterMount` hooks to configure your app. This lets you set up things like your app router, fake server etc. giving you the flexibility you need. You can also pass custom configuration from the `mount` call from a test, which is accessible from the `hooksConfig` fixture. This includes any config that needs to be run before or after mounting the component. An example of configuring a router is provided below:
+你可以使用 `beforeMount` 和 `afterMount` hooks 來配置你的應用程式。這讓你可以設定像是應用程式路由、假伺服器等，給予你所需的彈性。你也可以從測試中的 `mount` 呼叫傳遞自訂配置，這些配置可以從 `hooksConfig` fixture 訪問。這包括任何需要在掛載元件之前或之後執行的配置。以下提供了一個配置路由的範例:
 
 <Tabs defaultValue="react" values={[ {label: 'React', value: 'react'}, {label: 'Solid', value: 'solid'}, {label: 'Vue3', value: 'vue3'}, {label: 'Vue2', value: 'vue2'}, ] }>
 
@@ -557,9 +560,9 @@ test('configure routing through hooks config', async ({ page, mount }) => {
 
 </Tabs>
 
-### unmount
+### 卸載
 
-Unmount the mounted component from the DOM. This is useful for testing the component's behavior upon unmounting. Use cases include testing an "Are you sure you want to leave?" modal or ensuring proper cleanup of event handlers to prevent memory leaks.
+將已掛載的元件從 DOM 中卸載。這對於測試元件在卸載時的行為非常有用。使用案例包括測試 "您確定要離開嗎？" 模態框或確保正確清理事件處理器以防止記憶體洩漏。
 
 <Tabs defaultValue="react" values={[ {label: 'React', value: 'react'}, {label: 'Solid', value: 'solid'}, {label: 'Svelte', value: 'svelte'}, {label: 'Vue', value: 'vue'}, ] }>
 
@@ -609,9 +612,9 @@ test('unmount', async ({ mount }) => {
 
 </Tabs>
 
-### update
+### 更新
 
-Update props, slots/children, and/or events/callbacks of a mounted component. These component inputs can change at any time and are typically provided by the parent component, but sometimes it is necessary to ensure that your components behave appropriately to new inputs.
+更新已掛載元件的 props、slots/children 和/或 events/callbacks。這些元件輸入可以隨時變更，通常由父元件提供，但有時需要確保您的元件對新輸入的行為適當。
 
 <Tabs defaultValue="react" values={[ {label: 'React', value: 'react'}, {label: 'Solid', value: 'solid'}, {label: 'Svelte', value: 'svelte'}, {label: 'Vue', value: 'vue'}, ] }>
 
@@ -673,13 +676,14 @@ test('update', async ({ mount }) => {
 
 </Tabs>
 
-### Handling network requests
+### 處理網路請求
 
-Playwright provides an **experimental** `router` fixture to intercept and handle network requests. There are two ways to use the `router` fixture:
-* Call `router.route(url, handler)` that behaves similarly to [page.route()](/api/class-page.mdx#page-route). See the [network mocking guide](./mock.mdx) for more details.
-* Call `router.use(handlers)` and pass [MSW library](https://mswjs.io/) request handlers to it.
+Playwright 提供一個**實驗性**的 `router` 固定裝置來攔截和處理網路請求。有兩種方式使用 `router` 固定裝置:
 
-Here is an example of reusing your existing MSW handlers in the test.
+* 呼叫 `router.route(url, handler)`，其行為類似於 [page.route()](/api/class-page.mdx#page-route)。詳情請參見[網路模擬指南](./mock.mdx)。
+* 呼叫 `router.use(handlers)` 並傳遞 [MSW 函式庫](https://mswjs.io/) 的請求處理器給它。
+
+這裡是一個在測試中重複使用現有 MSW 處理器的範例。
 
 ```ts
 import { handlers } from '@src/mocks/handlers';
@@ -695,7 +699,7 @@ test('example test', async ({ mount }) => {
 });
 ```
 
-You can also introduce a one-off handler for a specific test.
+你也可以為特定測試引入一次性處理程式。
 
 ```ts
 import { http, HttpResponse } from 'msw';
@@ -710,9 +714,9 @@ test('example test', async ({ mount, router }) => {
 });
 ```
 
-## Frequently asked questions
+## 常見問題
 
-### What's the difference between `@playwright/test` and `@playwright/experimental-ct-{react,svelte,vue,solid}`?
+### `@playwright/test` 和 `@playwright/experimental-ct-{react,svelte,vue,solid}` 之間有什麼區別?
 
 ```js
 test('…', async ({ mount, page, context }) => {
@@ -720,7 +724,7 @@ test('…', async ({ mount, page, context }) => {
 });
 ```
 
-`@playwright/experimental-ct-{react,svelte,vue,solid}` wrap `@playwright/test` to provide an additional built-in component-testing specific fixture called `mount`:
+`@playwright/experimental-ct-{react,svelte,vue,solid}` 包裝 `@playwright/test` 以提供一個額外的內建元件測試專用的固定裝置，稱為 `mount`:
 
 <Tabs defaultValue="react" values={[ {label: 'React', value: 'react'}, {label: 'Solid', value: 'solid'}, {label: 'Svelte', value: 'svelte'}, {label: 'Vue', value: 'vue'}, ] }>
 
@@ -798,13 +802,13 @@ test('should work', async ({ mount }) => {
 
 </Tabs>
 
-Additionally, it adds some config options you can use in your `playwright-ct.config.{ts,js}`.
+此外，它增加了一些可以在 `playwright-ct.config.{ts,js}` 中使用的配置選項。
 
-Finally, under the hood, each test re-uses the `context` and `page` fixture as a speed optimization for Component Testing. It resets them in between each test so it should be functionally equivalent to `@playwright/test`'s guarantee that you get a new, isolated `context` and `page` fixture per-test.
+最後，在底層，每個測試都會重新使用 `context` 和 `page` 固件作為元件測試的速度最佳化。它會在每個測試之間重置它們，因此應該在功能上等同於 `@playwright/test` 保證每個測試都會獲得一個新的、隔離的 `context` 和 `page` 固件。
 
-### I have a project that already uses Vite. Can I reuse the config?
+### 我有一個已經使用 Vite 的專案。我可以重複使用這個配置嗎？
 
-At this point, Playwright is bundler-agnostic, so it is not reusing your existing Vite config. Your config might have a lot of things we won't be able to reuse. So for now, you would copy your path mappings and other high level settings into the `ctViteConfig` property of Playwright config.
+此時，Playwright 是與打包工具無關的，因此它不會重用你現有的 Vite 配置。你的配置可能包含很多我們無法重用的東西。所以現在，你需要將路徑映射和其他高級設定複製到 Playwright 配置的 `ctViteConfig` 屬性中。
 
 ```js
 import { defineConfig } from '@playwright/experimental-ct-react';
@@ -818,7 +822,7 @@ export default defineConfig({
 });
 ```
 
-You can specify plugins via Vite config for testing settings. Note that once you start specifying plugins, you are responsible for specifying the framework plugin as well, `vue()` in this case:
+你可以透過 Vite 配置來指定插件以測試設定。請注意，一旦你開始指定插件，你也需要負責指定框架插件，在這個例子中是 `vue()`：
 
 ```js
 import { defineConfig, devices } from '@playwright/experimental-ct-vue';
@@ -865,9 +869,9 @@ export default defineConfig({
 });
 ```
 
-### How can I test components that uses Pinia?
+### 我如何測試使用 Pinia 的元件？
 
-Pinia needs to be initialized in `playwright/index.{js,ts,jsx,tsx}`. If you do this inside a `beforeMount` hook, the `initialState` can be overwritten on a per-test basis:
+Pinia 需要在 `playwright/index.{js,ts,jsx,tsx}` 中初始化。如果你在 `beforeMount` 鉤子內執行此操作，`initialState` 可以在每次測試時被覆寫:
 
 ```js title="playwright/index.ts"
 import { beforeMount, afterMount } from '@playwright/experimental-ct-vue/hooks';
@@ -910,9 +914,11 @@ test('override initialState ', async ({ mount }) => {
 });
 ```
 
-### How do I access the component's methods or its instance?
+### 我如何存取元件的方法或其實例？
 
-Accessing a component's internal methods or its instance within test code is neither recommended nor supported. Instead, focus on observing and interacting with the component from a user's perspective, typically by clicking or verifying if something is visible on the page. Tests become less fragile and more valuable when they avoid interacting with internal implementation details, such as the component instance or its methods. Keep in mind that if a test fails when run from a user’s perspective, it likely means the automated test has uncovered a genuine bug in your code.
+在測試程式碼中存取元件的內部方法或其實例既不建議也不支援。相反地，應專注於從使用者的角度觀察和互動元件，通常是通過點擊或驗證頁面上是否有東西可見。當測試避免與內部實作細節（如元件實例或其方法）互動時，測試會變得不那麼脆弱且更有價值。請記住，如果從使用者的角度執行測試失敗，這很可能意味著自動化測試已經發現了程式碼中的真正錯誤。
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

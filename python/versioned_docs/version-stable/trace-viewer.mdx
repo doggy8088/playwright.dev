@@ -1,6 +1,6 @@
----
+﻿---
 id: trace-viewer
-title: "Trace viewer"
+title: "追蹤檢視器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,117 +8,121 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Introduction
+## 簡介
 
-Playwright Trace Viewer is a GUI tool that helps you explore recorded Playwright traces after the script has run. Traces are a great way for debugging your tests when they fail on CI. You can open traces [locally](#opening-the-trace) or in your browser on [trace.playwright.dev](https://trace.playwright.dev).
+Playwright Trace Viewer 是一個 GUI 工具，可以幫助你在腳本執行後探索記錄的 Playwright traces。Traces 是在 CI 上測試失敗時進行除錯的好方法。你可以在 [本地](#opening-the-trace) 或在瀏覽器上 [trace.playwright.dev](https://trace.playwright.dev) 打開 traces。
 
 ## Trace Viewer features
 
 ### Actions
 
-In the Actions tab you can see what locator was used for every action and how long each one took to run. Hover over each action of your test and visually see the change in the DOM snapshot. Go back and forward in time and click an action to inspect and debug. Use the Before and After tabs to visually see what happened before and after the action.
+在 Actions 標籤中，你可以看到每個動作使用了什麼定位器以及每個動作執行了多長時間。將滑鼠懸停在測試的每個動作上，可以直觀地看到 DOM 快照中的變化。可以在時間上前後移動，並點擊一個動作來檢查和調試。使用 Before 和 After 標籤，可以直觀地看到動作前後發生了什麼。
 
 ![actions tab in trace viewer](https://github.com/microsoft/playwright/assets/13063165/948b65cd-f0fd-4c7f-8e53-2c632b5a07f1)
 
-**Selecting each action reveals:**
-- action snapshots
-- action log
-- source code location
+**選擇每個動作會顯示:**
 
-### Screenshots
+- 動作快照
+- 動作日誌
+- 原始程式碼位置
 
-When tracing with the `screenshots` option turned on (default), each trace records a screencast and renders it as a film strip. You can hover over the film strip to see a magnified image of for each action and state which helps you easily find the action you want to inspect.
+### 螢幕截圖
 
-Double click on an action to see the time range for that action. You can use the slider in the timeline to increase the actions selected and these will be shown in the Actions tab and all console logs and network logs will be filtered to only show the logs for the actions selected.
+當啟用 `screenshots` 選項（預設）進行追蹤時，每個追蹤記錄會錄製螢幕錄影並將其呈現為影片條。你可以將滑鼠懸停在影片條上，以查看每個動作和狀態的放大圖像，這有助於你輕鬆找到你想要檢查的動作。
 
-![timeline view in trace viewer](https://github.com/microsoft/playwright/assets/13063165/b04a7d75-54bb-4ab2-9e30-e76f6f74a2c8)
+雙擊一個動作以查看該動作的時間範圍。你可以使用時間軸中的滑塊來增加選擇的動作，這些動作將顯示在 Actions 標籤中，所有控制台日誌和網路日誌將被過濾以僅顯示選擇的動作的日誌。
 
-### Snapshots
+![時間軸檢視在 trace viewer 中](https://github.com/microsoft/playwright/assets/13063165/b04a7d75-54bb-4ab2-9e30-e76f6f74a2c8)
 
-When tracing with the `snapshots` option turned on (default), Playwright captures a set of complete DOM snapshots for each action. Depending on the type of the action, it will capture:
+### 快照
+
+當開啟 `snapshots` 選項（預設）進行追蹤時，Playwright 會為每個動作捕捉一組完整的 DOM 快照。根據動作的類型，它將捕捉:
 
 | Type | Description |
 |------|-------------|
-|Before|A snapshot at the time action is called.|
-|Action|A snapshot at the moment of the performed input. This type of snapshot is especially useful when exploring where exactly Playwright clicked.|
-|After|A snapshot after the action.|
+|Before|呼叫時的快照。|
+|Action|執行輸入時的快照。這種類型的快照在探索 Playwright 點擊的確切位置時特別有用。|
+|After|動作之後的快照。
 
 <br/>
 
-Here is what the typical Action snapshot looks like:
+這是典型的 Action 快照的樣子:
 
-![action tab in trace viewer](https://github.com/microsoft/playwright/assets/13063165/7168d549-eb0a-4964-9c93-483f03711fa9)
+![動作標籤在追蹤檢視器中](https://github.com/microsoft/playwright/assets/13063165/7168d549-eb0a-4964-9c93-483f03711fa9)
 
-Notice how it highlights both, the DOM Node as well as the exact click position.
+注意它如何同時突出顯示 DOM 節點以及精確的點擊位置。
 
-### Source
+### 來源
 
-When you click on an action in the sidebar, the line of code for that action is highlighted in the source panel.
+當你點擊側邊欄中的某個動作時，該動作的程式碼行會在源面板中突出顯示。
 
-![showing source code tab in trace viewer](https://github.com/microsoft/playwright/assets/13063165/daa8845d-c250-4923-aa7a-5d040da9adc5)
+![顯示程式碼標籤在追蹤檢視器中](https://github.com/microsoft/playwright/assets/13063165/daa8845d-c250-4923-aa7a-5d040da9adc5)
 
-### Call
+### 呼叫
 
-The call tab shows you information about the action such as the time it took, what locator was used, if in strict mode and what key was used.
+呼叫標籤顯示有關動作的資訊，例如所花費的時間、使用的定位器、是否處於嚴格模式以及使用了什麼鍵。
 
-![showing call tab in trace viewer](https://github.com/microsoft/playwright/assets/13063165/95498580-f9dd-4932-a123-c37fe7cfc3c2)
+![顯示在追蹤檢視器中的呼叫標籤](https://github.com/microsoft/playwright/assets/13063165/95498580-f9dd-4932-a123-c37fe7cfc3c2)
 
-### Log
+### 日誌
 
-See a full log of your test to better understand what Playwright is doing behind the scenes such as scrolling into view, waiting for element to be visible, enabled and stable and performing actions such as click, fill, press etc.
+查看完整的測試日誌，以更好地了解 Playwright 在幕後執行的操作，例如滾動到視圖中、等待元素可見、啟用和穩定，以及執行點擊、填寫、按壓等操作。
 
-![showing log of tests in trace viewer](https://github.com/microsoft/playwright/assets/13063165/de621461-3bab-4140-b39d-9f02d6672dbf)
+![顯示測試日誌於 trace viewer](https://github.com/microsoft/playwright/assets/13063165/de621461-3bab-4140-b39d-9f02d6672dbf)
 
-### Errors
+### 錯誤
 
-If your test fails you will see the error messages for each test in the Errors tab. The timeline will also show a red line highlighting where the error occurred. You can also click on the source tab to see on which line of the source code the error is.
+如果您的測試失敗，您將在錯誤標籤中看到每個測試的錯誤訊息。時間軸還會顯示一條紅線，突出顯示錯誤發生的位置。您也可以點擊來源標籤，查看錯誤發生在來源程式碼的哪一行。
 
-![showing errors in trace viewer](https://github.com/microsoft/playwright/assets/13063165/e9ef77b3-05d1-4df2-852c-981023723d34)
+![顯示錯誤在 trace viewer](https://github.com/microsoft/playwright/assets/13063165/e9ef77b3-05d1-4df2-852c-981023723d34)
 
-### Console
+### 控制台
 
-See console logs from the browser as well as from your test. Different icons are displayed to show you if the console log came from the browser or from the test file.
+請查看來自瀏覽器以及測試的控制台日誌。不同的圖示會顯示控制台日誌是來自瀏覽器還是測試檔案。
 
-![showing log of tests in trace viewer](https://github.com/microsoft/playwright/assets/13063165/4107c08d-1eaf-421c-bdd4-9dd2aa641d4a)
+![顯示測試日誌於追蹤檢視器中](https://github.com/microsoft/playwright/assets/13063165/4107c08d-1eaf-421c-bdd4-9dd2aa641d4a)
 
-Double click on an action from your test in the actions sidebar. This will filter the console to only show the logs that were made during that action. Click the *Show all* button to see all console logs again.
+雙擊操作側邊欄中測試中的一個操作。這將過濾控制台，只顯示在該操作期間生成的日誌。點擊*顯示全部*按鈕以再次查看所有控制台日誌。
 
-Use the timeline to filter actions, by clicking a start point and dragging to an ending point. The console tab will also be filtered to only show the logs that were made during the actions selected.
+使用時間軸來篩選動作，點擊一個起點並拖動到一個終點。控制台標籤也將被篩選，只顯示在選定動作期間生成的日誌。
 
-### Network
+### 網路
 
-The Network tab shows you all the network requests that were made during your test. You can sort by different types of requests, status code, method, request, content type, duration and size. Click on a request to see more information about it such as the request headers, response headers, request body and response body.
+Network 標籤顯示了測試期間所做的所有網路請求。你可以按不同類型的請求、狀態碼、方法、請求、內容類型、持續時間和大小進行排序。點擊一個請求以查看更多關於它的資訊，例如請求標頭、回應標頭、請求主體和回應主體。
 
 ![network requests tab in trace viewer](https://github.com/microsoft/playwright/assets/13063165/0a3d1671-8ccd-4f7a-a844-35f5eb37f236)
 
-Double click on an action from your test in the actions sidebar. This will filter the network requests to only show the requests that were made during that action. Click the *Show all* button to see all network requests again.
+雙擊在操作側邊欄中的測試操作。這將過濾網路請求，只顯示在該操作期間發出的請求。點擊*顯示全部*按鈕以再次查看所有網路請求。
 
-Use the timeline to filter actions, by clicking a start point and dragging to an ending point. The network tab will also be filtered to only show the network requests that were made during the actions selected.
+使用時間軸來篩選動作，點擊一個起點並拖動到一個終點。網路標籤也將被篩選，只顯示在所選動作期間發出的網路請求。
 
 ### Metadata
 
-Next to the Actions tab you will find the Metadata tab which will show you more information on your test such as the Browser, viewport size, test duration and more.
+在 Actions 分頁旁邊，你會找到 Metadata 分頁，該分頁會顯示更多有關測試的資訊，例如瀏覽器、視口大小、測試持續時間等。
 
-![meta data in trace viewer](https://github.com/microsoft/playwright/assets/13063165/82ab3d33-1ec9-4b8a-9cf2-30a6e2d59091)
+![Metadata in trace viewer](https://github.com/microsoft/playwright/assets/13063165/82ab3d33-1ec9-4b8a-9cf2-30a6e2d59091)
 
-## Recording a trace
+## 錄製追蹤
 
-Traces can be recorded by running your tests with the `--tracing` flag.
+執行測試並使用 `--tracing` 標誌可以記錄追蹤。
 
 ```bash
 pytest --tracing on
 ```
 
-Options for tracing are:
-- `on`: Record trace for each test
-- `off`: Do not record trace. (default)
-- `retain-on-failure`: Record trace for each test, but remove all traces from successful test runs.
+選項用於追蹤是:
 
-This will record the trace and place it into the file named `trace.zip` in your `test-results` directory.
+- `on`: 記錄每個測試的追蹤
+- `off`: 不記錄追蹤。(預設)
+- `retain-on-failure`: 記錄每個測試的追蹤，但移除所有成功測試執行的追蹤。
+
+這將記錄追蹤並將其放入名為 `trace.zip` 的檔案中，位於你的 `test-results` 目錄。
 
 <details>
 
-<summary>If you are not using Pytest, click here to learn how to record traces.</summary>
+
+
+<summary>如果你沒有使用 Pytest，點擊這裡學習如何記錄追蹤。</summary>
 
 <Tabs
   groupId="python-flavor"
@@ -166,33 +170,35 @@ await context.tracing.stop(path = "trace.zip")
 
 </details>
 
-## Opening the trace
+## 開啟追蹤
 
-You can open the saved trace using the Playwright CLI or in your browser on [`trace.playwright.dev`](https://trace.playwright.dev). Make sure to add the full path to where your `trace.zip` file is located.
+您可以使用 Playwright CLI 或在您的瀏覽器中打開已保存的追蹤，網址為 [`trace.playwright.dev`](https://trace.playwright.dev)。請確保添加 `trace.zip` 文件所在的完整路徑。
 
 ```bash
 playwright show-trace trace.zip
 ```
 
-## Using [trace.playwright.dev](https://trace.playwright.dev)
+## 使用 [trace.playwright.dev](https://trace.playwright.dev)
 
-[trace.playwright.dev](https://trace.playwright.dev) is a statically hosted variant of the Trace Viewer. You can upload trace files using drag and drop.
+[trace.playwright.dev](https://trace.playwright.dev) 是 Trace Viewer 的靜態託管變體。你可以使用拖放上傳 trace 檔案。
 
-<img width="1119" alt="Drop Playwright Trace to load" src="https://user-images.githubusercontent.com/13063165/194577918-b4d45726-2692-4093-8a28-9e73552617ef.png" />
+<img width="1119" alt="拖放 Playwright Trace 以載入" src="https://user-images.githubusercontent.com/13063165/194577918-b4d45726-2692-4093-8a28-9e73552617ef.png" />
 
 ## Viewing remote traces
 
-You can open remote traces using its URL. They could be generated on a CI run which makes it easy to view the remote trace without having to manually download the file.
+您可以使用其 URL 開啟遠端追蹤。它們可以在 CI 執行時生成，這使得查看遠端追蹤變得容易，無需手動下載文件。
 
 ```bash
 playwright show-trace https://example.com/trace.zip
 ```
 
-You can also pass the URL of your uploaded trace (e.g. inside your CI) from some accessible storage as a parameter. CORS (Cross-Origin Resource Sharing) rules might apply.
+你也可以將上傳的 trace 的 URL（例如在你的 CI 中）從某些可存取的儲存空間作為參數傳遞。CORS (Cross-Origin Resource Sharing) 規則可能適用。
 
 ```txt
 https://trace.playwright.dev/?trace=https://demo.playwright.dev/reports/todomvc/data/cb0fa77ebd9487a5c899f3ae65a7ffdbac681182.zip
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

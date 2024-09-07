@@ -1,22 +1,23 @@
----
+﻿---
 id: trace-viewer-intro
-title: "Trace viewer"
+title: "追蹤檢視器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright Trace Viewer is a GUI tool that lets you explore recorded Playwright traces of your tests meaning you can go back and forward though each action of your test and visually see what was happening during each action.
+Playwright Trace Viewer 是一個 GUI 工具，讓你探索已記錄的 Playwright traces 測試，這意味著你可以在測試的每個動作中前後移動，並直觀地看到每個動作期間發生的情況。
 
-**You will learn**
-- How to record a trace
-- How to open the trace viewer
+**你將學到**
 
-## Recording a trace
+- 如何記錄追蹤
+- 如何打開追蹤檢視器
 
-Traces can be recorded using the [BrowserContext.Tracing](/api/class-browsercontext.mdx#browser-context-tracing) API as follows:
+## 錄製追蹤
+
+追蹤可以使用 [BrowserContext.Tracing](/api/class-browsercontext.mdx#browser-context-tracing) API 如下記錄:
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, ] }>
 
@@ -113,11 +114,11 @@ public class ExampleTest : PageTest
 
 </Tabs>
 
-This will record a zip file for each test, e.g. `PlaywrightTests.ExampleTest.GetStartedLink.zip` and place it into the `bin/Debug/net8.0/playwright-traces/` directory.
+這將為每個測試記錄一個 zip 檔案，例如 `PlaywrightTests.ExampleTest.GetStartedLink.zip` 並將其放置在 `bin/Debug/net8.0/playwright-traces/` 目錄中。
 
-## Opening the trace
+## 開啟追蹤
 
-You can open the saved trace using the Playwright CLI or in your browser on [`trace.playwright.dev`](https://trace.playwright.dev). Make sure to add the full path to where your trace's zip file is located. Once opened you can click on each action or use the timeline to see the state of the page before and after each action. You can also inspect the log, source and network during each step of the test. The trace viewer creates a DOM snapshot so you can fully interact with it, open devtools etc.
+你可以使用 Playwright CLI 或在瀏覽器中打開保存的追蹤檔案（[`trace.playwright.dev`](https://trace.playwright.dev)）。確保添加追蹤 zip 檔案所在的完整路徑。打開後，你可以點擊每個操作或使用時間軸來查看每個操作前後的頁面狀態。你還可以在測試的每一步中檢查日誌、來源和網路。追蹤檢視器會建立一個 DOM 快照，這樣你可以完全互動，打開開發者工具等。
 
 ```bash
 pwsh bin/Debug/net8.0/playwright.ps1 show-trace bin/Debug/net8.0/playwright-traces/PlaywrightTests.ExampleTest.GetStartedLink.zip
@@ -125,11 +126,14 @@ pwsh bin/Debug/net8.0/playwright.ps1 show-trace bin/Debug/net8.0/playwright-trac
 
 ![playwright trace viewer dotnet](https://github.com/microsoft/playwright/assets/13063165/4372d661-5bfa-4e1f-be65-0d2fe165a75c)
 
-Check out our detailed guide on [Trace Viewer](/trace-viewer.mdx) to learn more about the trace viewer and how to setup your tests to record a trace only when the test fails.
+請查看我們的詳細指南 [Trace Viewer](/trace-viewer.mdx) 以了解更多關於 trace viewer 的資訊，以及如何設定你的測試，使其僅在測試失敗時記錄 trace。
 
-## What's next
-- [Run tests on CI with GitHub Actions](/ci-intro.mdx)
-- [Learn more about the MSTest and NUnit base classes](./test-runners.mdx)
+## 接下來是什麼
+
+- [在 CI 上使用 GitHub Actions 執行測試](/ci-intro.mdx)
+- [了解更多關於 MSTest 和 NUnit 基類的資訊](./test-runners.mdx)
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

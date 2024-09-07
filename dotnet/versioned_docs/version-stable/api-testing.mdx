@@ -1,36 +1,38 @@
----
+﻿---
 id: api-testing
-title: "API testing"
+title: "API 測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright can be used to get access to the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API of your application.
+Playwright 可以用來存取你的應用程式的 [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API。
 
-Sometimes you may want to send requests to the server directly from .NET without loading a page and running js code in it. A few examples where it may come in handy:
-- Test your server API.
-- Prepare server side state before visiting the web application in a test.
-- Validate server side post-conditions after running some actions in the browser.
+有時你可能想直接從 .NET 發送請求到伺服器，而不需要載入頁面並在其中執行 js 程式碼。以下是一些可能會派上用場的範例:
 
-All of that could be achieved via [APIRequestContext] methods.
+- 測試你的伺服器 API。
+- 在測試中訪問 web 應用程式之前準備伺服器端狀態。
+- 在瀏覽器中執行一些操作後驗證伺服器端後置條件。
 
-The following examples rely on the [`Microsoft.Playwright.MSTest`](./test-runners.mdx) package which creates a Playwright and Page instance for each test.
+所有這些都可以通過 [APIRequestContext] 方法實現。
 
-## Writing API Test
+以下範例依賴 [`Microsoft.Playwright.MSTest`](./test-runners.mdx) 套件，它為每個測試建立一個 Playwright 和 Page 實例。
 
-[APIRequestContext] can send all kinds of HTTP(S) requests over network.
+## 撰寫 API 測試
 
-The following example demonstrates how to use Playwright to test issues creation via [GitHub API](https://docs.github.com/en/rest). The test suite will do the following:
-- Create a new repository before running tests.
-- Create a few issues and validate server state.
-- Delete the repository after running tests.
+[APIRequestContext] 可以透過網路發送各種 HTTP(S) 請求。
 
-### Configure
+以下範例展示如何使用 Playwright 測試通過 [GitHub API](https://docs.github.com/en/rest) 建立問題。測試套件將執行以下操作：
 
-GitHub API requires authorization, so we'll configure the token once for all tests. While at it, we'll also set the `baseURL` to simplify the tests.
+- 建立一個新的儲存庫後執行測試。
+- 建立一些問題並驗證伺服器狀態。
+- 執行測試後刪除儲存庫。
+
+### 設定
+
+GitHub API 需要授權，所以我們將為所有測試設定一次 token。在此同時，我們也會設定 `baseURL` 來簡化測試。
 
 ```csharp
 using Microsoft.Playwright;
@@ -75,9 +77,9 @@ public class TestGitHubAPI : PlaywrightTest
 }
 ```
 
-### Write tests
+### 撰寫測試
 
-Now that we initialized request object we can add a few tests that will create new issues in the repository.
+現在我們已經初始化了請求物件，我們可以新增一些測試，這些測試將在存放庫中建立新的問題。
 
 ```csharp
 using System.Text.Json;
@@ -158,9 +160,9 @@ public class TestGitHubAPI : PlaywrightTest
 }
 ```
 
-### Setup and teardown
+### 設定和拆卸
 
-These tests assume that repository exists. You probably want to create a new one before running tests and delete it afterwards. Use `[SetUp]` and `[TearDown]` hooks for that.
+這些測試假設資源庫已存在。您可能需要在執行測試之前建立一個新的，並在之後刪除它。為此，請使用`[SetUp]`和`[TearDown]`鉤子。
 
 ```csharp
 using System.Text.Json;
@@ -207,9 +209,9 @@ public class TestGitHubAPI : PlaywrightTest
 }
 ```
 
-### Complete test example
+### 完整測試範例
 
-Here is the complete example of an API test:
+以下是一個 API 測試的完整範例:
 
 ```csharp
 using System.Text.Json;
@@ -339,9 +341,9 @@ public class TestGitHubAPI : PlaywrightTest
 }
 ```
 
-## Prepare server state via API calls
+## 通過 API 呼叫準備伺服器狀態
 
-The following test creates a new issue via API and then navigates to the list of all issues in the project to check that it appears at the top of the list. The check is performed using [LocatorAssertions].
+以下測試通過 API 建立一個新問題，然後導航到專案中所有問題的列表，以檢查它是否出現在列表的頂部。檢查是使用 [LocatorAssertions](/api/class-locatorassertions.mdx) 進行的。
 
 ```csharp
 class TestGitHubAPI : PageTest
@@ -366,9 +368,9 @@ class TestGitHubAPI : PageTest
 }
 ```
 
-## Check the server state after running user actions
+## 執行用戶操作後檢查伺服器狀態
 
-The following test creates a new issue via user interface in the browser and then checks via API if it was created:
+以下測試通過瀏覽器中的使用者介面建立一個新問題，然後通過 API 檢查是否已建立:
 
 ```csharp
 // Make sure to extend from PageTest if you want to use the Page class.
@@ -391,11 +393,11 @@ class GitHubTests : PageTest
 }
 ```
 
-## Reuse authentication state
+## 重用身份驗證狀態
 
-Web apps use cookie-based or token-based authentication, where authenticated state is stored as [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). Playwright provides [ApiRequestContext.StorageStateAsync()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) method that can be used to retrieve storage state from an authenticated context and then create new contexts with that state.
+Web apps 使用基於 cookie 或基於 token 的身份驗證，已驗證的狀態會儲存為 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)。Playwright 提供 [ApiRequestContext.StorageStateAsync()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) 方法，可用於從已驗證的 context 中檢索儲存狀態，然後使用該狀態建立新的 context。
 
-Storage state is interchangeable between [BrowserContext] and [APIRequestContext]. You can use it to log in via API calls and then create a new context with cookies already there. The following code snippet retrieves state from an authenticated [APIRequestContext] and creates a new [BrowserContext] with that state.
+儲存狀態在 [BrowserContext] 和 [APIRequestContext] 之間是可互換的。你可以使用它通過 API 呼叫登入，然後建立一個已經包含 cookies 的新 context。以下程式碼片段從已驗證的 [APIRequestContext] 中檢索狀態，並使用該狀態建立一個新的 [BrowserContext]。
 
 ```csharp
 var requestContext = await Playwright.APIRequest.NewContextAsync(new()
@@ -413,6 +415,8 @@ var state = await requestContext.StorageStateAsync();
 // Create a new context with the saved storage state.
 var context = await Browser.NewContextAsync(new() { StorageState = state });
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

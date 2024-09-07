@@ -1,18 +1,18 @@
----
+﻿---
 id: test-webserver
-title: "Web server"
+title: "網頁伺服器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright comes with a `webserver` option in the config file which gives you the ability to launch a local dev server before running your tests. This is ideal for when writing your tests during development and when you don't have a staging or production url to test against.
+Playwright 附帶一個 `webserver` 選項在設定檔中，這讓你能夠在執行測試之前啟動本地開發伺服器。這在開發過程中撰寫測試以及沒有測試用的預備或生產 url 時非常理想。
 
-## Configuring a web server
+## 設定一個 web 伺服器
 
-Use the `webserver` property in your Playwright config to launch a development web server during the tests.
+在你的 Playwright 配置中使用 `webserver` 屬性來在測試期間啟動開發網頁伺服器。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -31,19 +31,19 @@ export default defineConfig({
 
 | Property | Description |
 | :- | :- |
-| [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) | Launch a development web server (or multiple) during the tests. |
-| `command`| Shell command to start the local dev server of your app. |
-| `url`| URL of your http server that is expected to return a 2xx, 3xx, 400, 401, 402, or 403 status code when the server is ready to accept connections. |
-| `reuseExistingServer`| If `true`, it will re-use an existing server on the url when available. If no server is running on that url, it will run the command to start a new server. If `false`, it will throw if an existing process is listening on the url. To see the stdout, you can set the `DEBUG=pw:webserver` environment variable. |
-| `ignoreHTTPSErrors` | Whether to ignore HTTPS errors when fetching the `url`. Defaults to `false`. |
-| `cwd` | Current working directory of the spawned process, defaults to the directory of the configuration file. |
-| `stdout` | If `"pipe"`, it will pipe the stdout of the command to the process stdout. If `"ignore"`, it will ignore the stdout of the command. Default to `"ignore"`. |
-| `stderr` | Whether to pipe the stderr of the command to the process stderr or ignore it. Defaults to `"pipe"`. |
-| `timeout` | `How long to wait for the process to start up and be available in milliseconds. Defaults to 60000. |
+| [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) | 在測試期間啟動一個開發 web 伺服器（或多個）。 |
+| `command`| 啟動應用程式本地開發伺服器的 Shell 指令。 |
+| `url`| 當伺服器準備接受連接時，預期返回 2xx、3xx、400、401、402 或 403 狀態碼的 http 伺服器 URL。 |
+| `reuseExistingServer`| 如果為 `true`，則在可用時重新使用該 url 上的現有伺服器。如果該 url 上沒有伺服器在執行，則會執行指令啟動新伺服器。如果為 `false`，則如果有現有進程在該 url 上監聽，則會拋出錯誤。要查看 stdout，可以設置 `DEBUG=pw:webserver` 環境變數。 |
+| `ignoreHTTPSErrors` | 在獲取 `url` 時是否忽略 HTTPS 錯誤。預設為 `false`。 |
+| `cwd` | 啟動進程的當前工作目錄，預設為配置文件的目錄。 |
+| `stdout` | 如果為 `"pipe"`，則會將指令的 stdout 管道到進程 stdout。如果為 `"ignore"`，則會忽略指令的 stdout。預設為 `"ignore"`。 |
+| `stderr` | 是否將指令的 stderr 管道到進程 stderr 或忽略它。預設為 `"pipe"`。 |
+| `timeout` | 等待進程啟動並可用的時間（以毫秒為單位）。預設為 60000。 |
 
-## Adding a server timeout
+## 添加伺服器超時設定
 
-Webservers can sometimes take longer to boot up. In this case, you can increase the timeout to wait for the server to start.
+Webservers 有時可能需要更長的時間來啟動。在這種情況下，你可以增加等待伺服器啟動的超時時間。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -61,11 +61,11 @@ export default defineConfig({
 });
 ```
 
-## Adding a baseURL
+## 添加 baseURL
 
-It is also recommended to specify the `baseURL` in the `use: {}` section of your config, so that tests can use relative urls and you don't have to specify the full URL over and over again. 
+建議在配置的 `use: {}` 部分指定 `baseURL`, 這樣測試可以使用相對網址, 而不必一遍又一遍地指定完整的 URL。
 
-When using [page.goto()](/api/class-page.mdx#page-goto), [page.route()](/api/class-page.mdx#page-route), [page.waitForURL()](/api/class-page.mdx#page-wait-for-url), [page.waitForRequest()](/api/class-page.mdx#page-wait-for-request), or [page.waitForResponse()](/api/class-page.mdx#page-wait-for-response) it takes the base URL in consideration by using the [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor for building the corresponding URL. For Example, by setting the baseURL to `http://127.0.0.1:3000` and navigating to `/login` in your tests, Playwright will run the test using `http://127.0.0.1:3000/login`.
+當使用 [page.goto()](/api/class-page.mdx#page-goto), [page.route()](/api/class-page.mdx#page-route), [page.waitForURL()](/api/class-page.mdx#page-wait-for-url), [page.waitForRequest()](/api/class-page.mdx#page-wait-for-request), 或 [page.waitForResponse()](/api/class-page.mdx#page-wait-for-response) 時，它會透過使用 [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 建構函式來考慮基礎 URL 以建構相應的 URL。例如，通過將 baseURL 設定為 `http://127.0.0.1:3000` 並在你的測試中導航到 `/login`，Playwright 將使用 `http://127.0.0.1:3000/login` 執行測試。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -85,7 +85,7 @@ export default defineConfig({
 });
 ```
 
-Now you can use a relative path when navigating the page:
+現在你可以在瀏覽頁面時使用相對路徑:
 
 ```js title="test.spec.ts"
 import { test } from '@playwright/test';
@@ -96,9 +96,9 @@ test('test', async ({ page }) => {
 });
 ```
 
-## Multiple web servers
+## 多個網頁伺服器
 
-Multiple web servers (or background processes) can be launched simultaneously by providing an array of `webServer` configurations. See [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) for more info.
+多個網頁伺服器（或背景程序）可以通過提供 `webServer` 配置陣列同時啟動。查看 [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) 以獲取更多資訊。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -123,6 +123,8 @@ export default defineConfig({
   },
 });
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

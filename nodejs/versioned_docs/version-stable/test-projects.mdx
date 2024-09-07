@@ -1,20 +1,20 @@
----
+﻿---
 id: test-projects
-title: "Projects"
+title: "專案"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-A project is logical group of tests running with the same configuration. We use projects so we can run tests on different browsers and devices. Projects are configured in the `playwright.config.ts` file and once configured you can then run your tests on all projects or only on a specific project. You can also use projects to run the same tests in different configurations. For example, you can run the same tests in a logged-in and logged-out state.
+一個專案是具有相同配置的測試的邏輯組合。我們使用專案來在不同的瀏覽器和設備上執行測試。專案在 `playwright.config.ts` 文件中配置，一旦配置完成，你可以在所有專案或僅在特定專案上執行測試。你也可以使用專案在不同的配置中執行相同的測試。例如，你可以在登入和登出狀態下執行相同的測試。
 
-By setting up projects you can also run a group of tests with different timeouts or retries or a group of tests against different environments such as staging and production, splitting tests per package/functionality and more.
+通過設定專案，您還可以執行一組具有不同超時或重試次數的測試，或針對不同環境（如預備和生產環境）執行一組測試，按套件/功能劃分測試等。
 
-## Configure projects for multiple browsers
+## 設定專案以支援多個瀏覽器
 
-By using **projects** you can run your tests in multiple browsers such as chromium, webkit and firefox as well as branded browsers such as Google Chrome and Microsoft Edge. Playwright can also run on emulated tablet and mobile devices. See the [registry of device parameters](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) for a complete list of selected desktop, tablet and mobile devices.
+使用 **projects**，您可以在多個瀏覽器中執行您的測試，例如 chromium、webkit 和 firefox，以及品牌瀏覽器如 Google Chrome 和 Microsoft Edge。Playwright 也可以在模擬的平板電腦和行動裝置上執行。請參閱[裝置參數註冊表](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json)，以獲取選定桌面、平板電腦和行動裝置的完整列表。
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
@@ -65,9 +65,9 @@ export default defineConfig({
 });
 ```
 
-## Run projects
+## 執行專案
 
-Playwright will run all projects by default.
+Playwright 會預設執行所有專案。
 
 ```bash
 npx playwright test
@@ -83,7 +83,7 @@ Running 7 tests using 5 workers
   ✓ [Google Chrome] › example.spec.ts:3:1 › basic test (2s)
 ```
 
-Use the `--project` command line option to run a single project.
+使用 `--project` 命令列選項來執行單個專案。
 
 ```bash
 npx playwright test --project=firefox
@@ -93,17 +93,17 @@ Running 1 test using 1 worker
   ✓ [firefox] › example.spec.ts:3:1 › basic test (2s)
 ```
 
-The VS Code test runner runs your tests on the default browser of Chrome. To run on other/multiple browsers click the play button's dropdown from the testing sidebar and choose another profile or modify the default profile by clicking **Select Default Profile** and select the browsers you wish to run your tests on.
+VS Code 測試執行器在 Chrome 的預設瀏覽器上執行您的測試。要在其他/多個瀏覽器上執行，請從測試側邊欄中點擊播放按鈕的下拉選單並選擇另一個配置檔，或點擊 **Select Default Profile** 修改預設配置檔，然後選擇您希望執行測試的瀏覽器。
 
-<img width="1464" alt="selecting browsers" src="https://user-images.githubusercontent.com/13063165/221136731-9d4bc18f-38a4-4adb-997b-5b98c98aec7f.png" />
 
-Choose a specific profile, various profiles or all profiles to run tests on.
+
+選擇特定的設定檔、各種設定檔或所有設定檔來執行測試。
 
 <img width="1536" alt="choosing default profiles" src="https://user-images.githubusercontent.com/13063165/221669537-e5df8672-f50d-4ff1-96f9-141cd67e12f8.png" />
 
-## Configure projects for multiple environments
+## 為多個環境設定專案
 
-By setting up projects we can also run a group of tests with different timeouts or retries or run a group of tests against different environments. For example we can run our tests against a staging environment with 2 retries as well as against a production environment with 0 retries.
+通過設定專案，我們也可以執行一組具有不同超時或重試次數的測試，或針對不同環境執行一組測試。例如，我們可以在預備環境中執行測試，重試 2 次，以及在生產環境中執行測試，重試 0 次。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -129,11 +129,11 @@ export default defineConfig({
 });
 ```
 
-## Splitting tests into projects
+## 將測試拆分為專案
 
-We can split tests into projects and use filters to run a subset of tests. For example, we can create a project that runs tests using a filter matching all tests with a specific file name. We can then have another group of tests that ignore specific test files.
+我們可以將測試分成專案，並使用篩選器來執行部分測試。例如，我們可以建立一個專案，使用篩選器來執行所有符合特定檔案名稱的測試。然後，我們可以有另一組測試，忽略特定的測試檔案。
 
-Here is an example that defines a common timeout and two projects. The "Smoke" project runs a small subset of tests without retries, and "Default" project runs all other tests with retries.
+這裡是一個定義了常見超時和兩個專案的範例。 "Smoke" 專案執行一小部分測試而不重試，"Default" 專案執行所有其他測試並重試。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -155,11 +155,11 @@ export default defineConfig({
 });
 ```
 
-## Dependencies
+## 相依套件
 
-Dependencies are a list of projects that need to run before the tests in another project run. They can be useful for configuring the global setup actions so that one project depends on this running first. When using project dependencies, [test reporters](./test-reporters.mdx) will show the setup tests and the [trace viewer](/trace-viewer.mdx) will record traces of the setup. You can use the inspector to inspect the DOM snapshot of the trace of your setup tests and you can also use [fixtures](./test-fixtures.mdx) inside your setup.
+依賴項是一個需要在另一個專案的測試執行之前執行的專案列表。它們可以用於配置全域設定動作，以便一個專案依賴於這個先執行。使用專案依賴項時，[測試報告器](./test-reporters.mdx)將顯示設定測試，[trace viewer](/trace-viewer.mdx)將記錄設定的追蹤。您可以使用檢查器來檢查設定測試的追蹤的 DOM 快照，您也可以在設定中使用[fixtures](./test-fixtures.mdx)。
 
-In this example the chromium, firefox and webkit projects depend on the setup project.
+在此範例中，chromium、firefox 和 webkit 專案依賴於 setup 專案。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -189,40 +189,44 @@ export default defineConfig({
 });
 ```
 
-### Running Sequence
+### 執行順序
 
-When working with tests that have a dependency, the dependency will always run first and once all tests from this project have passed, then the other projects will run in parallel.
+當處理具有相依性的測試時，相依性將始終先執行，一旦此專案的所有測試都通過，其他專案將平行執行。
 
-Running order:
-1. Tests in the 'setup' project run. Once all tests from this project have passed, then the tests from the dependent projects will start running.
+執行順序:
 
-2. Tests in the 'chromium', 'webkit' and 'firefox' projects run together. By default, these projects will [run in parallel](./test-parallel.mdx), subject to the maximum workers limit.
+1. 'setup' 專案中的測試執行。一旦此專案中的所有測試通過，則相依專案中的測試將開始執行。
 
-<img width="70%" style={{display: 'flex', margin: 'auto'}} alt="chromium, webkit and firefox projects depend on setup project" loading="lazy" src="https://user-images.githubusercontent.com/13063165/225937080-327b1e63-431f-40e0-90d7-35f21d7a92cb.jpg" />
+2. 'chromium'、'webkit' 和 'firefox' 專案中的測試一起執行。預設情況下，這些專案將[平行執行](./test-parallel.mdx)，受最大工作者數量限制。
 
-If there are more than one dependency then these project dependencies will be run first and in parallel. If the tests from a dependency fails then the tests that rely on this project will not be run.
+<img width="70%" style={{display: 'flex', margin: 'auto'}} alt="chromium, webkit 和 firefox 專案依賴 setup 專案" loading="lazy" src="https://user-images.githubusercontent.com/13063165/225937080-327b1e63-431f-40e0-90d7-35f21d7a92cb.jpg" />
 
-Running order:
-1. Tests in the 'Browser Login' and 'DataBase' projects run in parallel:
-   - 'Browser Login' passes
-   - ❌ 'DataBase' fails!
-1. The 'e2e tests' project is not run!
+如果有多個相依性，那麼這些專案相依性將首先並行執行。如果來自相依性的測試失敗，那麼依賴此專案的測試將不會執行。
 
-<img width="70%" style={{display: 'flex', margin: 'auto'}} alt="Browser login project is blue, database is red and e2e tests relies on both" loading="lazy" src="https://user-images.githubusercontent.com/13063165/225938262-33c1b78f-f092-4762-a478-7f8cbc1e3b21.jpg" />
+執行順序:
 
-### Teardown
+1. 'Browser Login' 和 'DataBase' 專案中的測試平行執行:
+   - 'Browser Login' 通過
+   - ❌ 'DataBase' 失敗！
+1. 'e2e tests' 專案未執行！
 
-You can also teardown your setup by adding a [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) property to your setup project. Teardown will run after all dependent projects have run. See the [teardown guide](./test-global-setup-teardown.mdx#teardown) for more information.
+<img width="70%" style={{display: 'flex', margin: 'auto'}} alt="瀏覽器登入專案是藍色，資料庫是紅色，端到端測試依賴於兩者" loading="lazy" src="https://user-images.githubusercontent.com/13063165/225938262-33c1b78f-f092-4762-a478-7f8cbc1e3b21.jpg" />
 
-<img style={{display: 'flex', margin: 'auto'}} alt="global setup and teardown" loading="lazy" src="https://github.com/microsoft/playwright/assets/13063165/dfcf10a9-f601-4d0c-bd8d-9490e6efbf7a" />
+### 拆解
 
-### Test filtering
+您也可以通過在您的設定專案中新增一個 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) 屬性來拆除您的設定。拆除將在所有相依專案執行後進行。請參閱 [拆除指南](./test-global-setup-teardown.mdx#teardown) 以獲取更多資訊。
 
-If `--grep/--grep-invert` or `--shard` [option](./test-cli.mdx#reference) is used, test file name filter is specified in [command line](./test-cli.mdx) or [test.only()](./api/class-test.mdx#test-only) is used, it will only apply to the tests from the deepest projects in the project dependency chain. In other words, if a matching test belongs to a project that has project dependencies, Playwright will run all the tests from the project dependencies ignoring the filters.
+<img style={{display: 'flex', margin: 'auto'}} alt="全域設定和拆卸" loading="lazy" src="https://github.com/microsoft/playwright/assets/13063165/dfcf10a9-f601-4d0c-bd8d-9490e6efbf7a" />
 
-## Custom project parameters
+### 測試過濾
 
-Projects can be also used to parametrize tests with your custom configuration - take a look at [this separate guide](./test-parameterize.mdx#parameterized-projects).
+如果使用 `--grep/--grep-invert` 或 `--shard` [option](./test-cli.mdx#reference)，在[命令列](./test-cli.mdx)中指定測試檔案名稱篩選器，或使用 [test.only()](./api/class-test.mdx#test-only)，它將僅適用於專案相依鏈中最深層專案的測試。換句話說，如果匹配的測試屬於具有專案相依性的專案，Playwright 將執行專案相依性中的所有測試，忽略篩選器。
+
+## 自訂專案參數
+
+專案也可以用來使用自訂配置參數化測試 - 請參閱[這個單獨的指南](./test-parameterize.mdx#parameterized-projects)。
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

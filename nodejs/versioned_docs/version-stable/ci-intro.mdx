@@ -1,25 +1,26 @@
----
+﻿---
 id: ci-intro
-title: "Setting up CI"
+title: "設定 CI"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright tests can be run on any CI provider. This guide covers one way of running tests on GitHub using GitHub actions. If you would like to learn more, or how to configure other CI providers, check out our detailed [doc on Continuous Integration](./ci.mdx).
+Playwright 測試可以在任意 CI 提供者上執行。本指南涵蓋了一種使用 GitHub actions 在 GitHub 上執行測試的方法。如果您想了解更多，或如何配置其他 CI 提供者，請查看我們詳細的[Continuous Integration 文件](./ci.mdx)。
 
-#### You will learn
-- [How to set up GitHub Actions](/ci-intro.mdx#setting-up-github-actions)
-- [How to view test logs](/ci-intro.mdx#viewing-test-logs)
-- [How to view the HTML report](/ci-intro.mdx#viewing-the-html-report)
-- [How to view the trace](/ci-intro.mdx#viewing-the-trace)
-- [How to publish report on the web](/ci-intro.mdx#publishing-report-on-the-web)
+#### 你將學到
 
-## Setting up GitHub Actions
+- [如何設定 GitHub Actions](/ci-intro.mdx#setting-up-github-actions)
+- [如何查看測試日誌](/ci-intro.mdx#viewing-test-logs)
+- [如何查看 HTML 報告](/ci-intro.mdx#viewing-the-html-report)
+- [如何查看追蹤](/ci-intro.mdx#viewing-the-trace)
+- [如何在網上發布報告](/ci-intro.mdx#publishing-report-on-the-web)
 
-When [installing Playwright](./intro.mdx) using the [VS Code extension](./getting-started-vscode.mdx) or with `npm init playwright@latest` you are given the option to add a [GitHub Actions](https://docs.github.com/en/actions) workflow. This creates a `playwright.yml` file inside a `.github/workflows` folder containing everything you need so that your tests run on each push and pull request into the main/master branch. Here's how that file looks:
+## 設定 GitHub Actions
+
+當使用 [VS Code 擴充功能](./getting-started-vscode.mdx) 或 `npm init playwright@latest` [安裝 Playwright](./intro.mdx) 時，你可以選擇添加一個 [GitHub Actions](https://docs.github.com/en/actions) 工作流程。這會在 `.github/workflows` 資料夾內建立一個 `playwright.yml` 檔案，包含所有你需要的內容，以便你的測試在每次推送和拉取請求到 main/master 分支時執行。這是該檔案的樣子：
 
 ```yml title=".github/workflows/playwright.yml"
 name: Playwright Tests
@@ -51,45 +52,49 @@ jobs:
         retention-days: 30
 ```
 
-The workflow performs these steps:
-1. Clone your repository 2. Install Node.js 3. Install NPM Dependencies 4. Install Playwright Browsers 5. Run Playwright tests 6. Upload HTML report to the GitHub UI
+工作流程執行以下步驟:
 
-To learn more about this, see ["Understanding GitHub Actions"](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
+1. 複製你的 repository 2. 安裝 Node.js 3. 安裝 NPM 相依套件 4. 安裝 Playwright 瀏覽器 5. 執行 Playwright 測試 6. 上傳 HTML 報告到 GitHub UI
 
-## Create a Repo and Push to GitHub
+要了解更多資訊，請參閱["了解 GitHub Actions"](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)。
 
-Once you have your [GitHub actions workflow](#setting-up-github-actions) setup then all you need to do is [Create a repo on GitHub](https://docs.github.com/en/get-started/quickstart/create-a-repo) or push your code to an existing repository. Follow the instructions on GitHub and don't forget to [initialize a git repository](https://github.com/git-guides/git-init) using the `git init` command so you can [add](https://github.com/git-guides/git-add), [commit](https://github.com/git-guides/git-commit) and [push](https://github.com/git-guides/git-push) your code.
+## 建立一個 Repo 並推送到 GitHub
 
-###### 
-<img width="861" alt="Create a Repo and Push to GitHub" src="https://user-images.githubusercontent.com/13063165/183423254-d2735278-a2ab-4d63-bb99-48d8e5e447bc.png"/>
-
-## Opening the Workflows
-
-Click on the **Actions** tab to see the workflows. Here you will see if your tests have passed or failed.
+一旦你設定好你的 [GitHub actions workflow](#setting-up-github-actions) 後，你所需要做的就是 [在 GitHub 上建立一個 repo](https://docs.github.com/en/get-started/quickstart/create-a-repo) 或將你的程式碼推送到現有的儲存庫。按照 GitHub 上的指示操作，並且不要忘記使用 `git init` 命令 [初始化一個 git 儲存庫](https://github.com/git-guides/git-init)，這樣你就可以 [add](https://github.com/git-guides/git-add)、[commit](https://github.com/git-guides/git-commit) 和 [push](https://github.com/git-guides/git-push) 你的程式碼。
 
 ###### 
-![opening the workflow](https://user-images.githubusercontent.com/13063165/183423783-58bf2008-514e-4f96-9c12-c9a55703960c.png)
 
-## Viewing Test Logs
+<img width="861" alt="建立一個 Repo 並推送到 GitHub" src="https://user-images.githubusercontent.com/13063165/183423254-d2735278-a2ab-4d63-bb99-48d8e5e447bc.png"/>
 
-Clicking on the workflow run will show you the all the actions that GitHub performed and clicking on **Run Playwright tests** will show the error messages, what was expected and what was received as well as the call log.
+## 開啟工作流程
+
+點擊 **Actions** 標籤以查看工作流程。在這裡你將看到你的測試是否通過或失敗。
 
 ###### 
-![Viewing Test Logs](https://user-images.githubusercontent.com/13063165/183423783-58bf2008-514e-4f96-9c12-c9a55703960c.png)
 
-## HTML Report
+![開啟工作流程](https://user-images.githubusercontent.com/13063165/183423783-58bf2008-514e-4f96-9c12-c9a55703960c.png)
 
-The HTML Report shows you a full report of your tests. You can filter the report by browsers, passed tests, failed tests, skipped tests and flaky tests.
+## 檢視測試日誌
 
-### Downloading the HTML Report
+點擊工作流程執行將顯示 GitHub 執行的所有操作，點擊 **Run Playwright tests** 將顯示錯誤訊息、預期結果和實際接收到的結果以及呼叫日誌。
 
-In the Artifacts section click on the **playwright-report** to download your report in the format of a zip file.
+###### 
 
-<img width="972" alt="Downloading the HTML Report" src="https://user-images.githubusercontent.com/13063165/183437023-524f1803-84e4-4862-9ce3-1d55af0e023e.png" />
+![查看測試日誌](https://user-images.githubusercontent.com/13063165/183423783-58bf2008-514e-4f96-9c12-c9a55703960c.png)
 
-### Viewing the HTML Report
+## HTML 報告
 
-Locally opening the report will not work as expected as you need a web server in order for everything to work correctly. First, extract the zip, preferably in a folder that already has Playwright installed. Using the command line change into the directory where the report is and use `npx playwright show-report` followed by the name of the extracted folder. This will serve up the report and enable you to view it in your browser.
+HTML Report 顯示了測試的完整報告。你可以根據瀏覽器、通過的測試、失敗的測試、跳過的測試和不穩定的測試來篩選報告。
+
+### 下載 HTML 報告
+
+在 Artifacts 部分點擊 **playwright-report** 以 zip 檔案格式下載您的報告。
+
+<img width="972" alt="下載 HTML 報告" src="https://user-images.githubusercontent.com/13063165/183437023-524f1803-84e4-4862-9ce3-1d55af0e023e.png" />
+
+### 查看 HTML 報告
+
+本地開啟報告將無法如預期般運作，因為你需要一個網頁伺服器來確保一切正常運作。首先，解壓縮 zip 檔案，最好是在已經安裝了 Playwright 的資料夾中。使用命令列切換到報告所在的目錄，並使用 `npx playwright show-report`，後接解壓縮資料夾的名稱。這將提供報告並使你能在瀏覽器中查看。
 
 ```bash
 npx playwright show-report name-of-my-extracted-playwright-report
@@ -97,32 +102,33 @@ npx playwright show-report name-of-my-extracted-playwright-report
 
 ![viewing the HTML report](https://github.com/microsoft/playwright/assets/13063165/c5f60e56-fb75-4a2d-a4b6-054b8c5d69c1)
 
-To learn more about reports check out our detailed guide on [HTML Reporter](/test-reporters.mdx#html-reporter)
+要了解更多有關報告的資訊，請查看我們的詳細指南 [HTML Reporter](https://ollama.com/test-reporters.mdx#html-reporter)。
 
-## Viewing the Trace
+## 檢視追蹤
 
-Once you have served the report using `npx playwright show-report`, click on the trace icon next to the test's file name as seen in the image above. You can then view the trace of your tests and inspect each action to try to find out why the tests are failing.
+一旦你使用 `npx playwright show-report` 提供報告後，點擊測試檔案名稱旁邊的追蹤圖示，如上圖所示。然後你可以查看測試的追蹤並檢查每個動作，以嘗試找出測試失敗的原因。
 
 ![playwright trace viewer](https://github.com/microsoft/playwright/assets/13063165/10fe3585-8401-4051-b1c2-b2e92ac4c274)
 
-## Publishing report on the web
+## 在網頁上發布報告
 
-Downloading the HTML report as a zip file is not very convenient. However, we can utilize Azure Storage's static websites hosting capabilities to easily and efficiently serve HTML reports on the Internet, requiring minimal configuration.
-1. Create an [Azure Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create).
-1. Enable [Static website hosting](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-how-to#enable-static-website-hosting) for the storage account.
-1. Create a Service Principal in Azure and grant it access to Azure Blob storage. Upon successful execution, the command will display the credentials which will be used in the next step.
+下載 HTML 報告為 zip 檔案並不方便。然而，我們可以利用 Azure Storage 的靜態網站託管功能，輕鬆且高效地在互聯網上提供 HTML 報告，所需配置最少。
+
+1. 建立一個 [Azure Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create)。
+1. 為該 storage account 啟用 [Static website hosting](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-how-to#enable-static-website-hosting)。
+1. 在 Azure 中建立一個 Service Principal 並授予其 Azure Blob storage 的訪問權限。成功執行後，命令將顯示在下一步中使用的憑證。
    
    ```bash
    az ad sp create-for-rbac --name "github-actions" --role "Storage Blob Data Contributor" --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>
    ```
    
-1. Use the credentials from the previous step to set up encrypted secrets in your GitHub repository. Go to your repository's settings, under [GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository), and add the following secrets:
+1. 使用上一步中的憑證在你的 GitHub repository 中設定加密的 secrets。前往你的 repository 的設定，在 [GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) 下，添加以下 secrets：
    - `AZCOPY_SPA_APPLICATION_ID`
    - `AZCOPY_SPA_CLIENT_SECRET`
    - `AZCOPY_TENANT_ID`
    
-   For a detailed guide on how to authorize a service principal using a client secret, refer to [this Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-authorize-azure-active-directory#authorize-a-service-principal-by-using-a-client-secret-1).
-1. Add a step that uploads the HTML report to Azure Storage.
+   有關如何使用 client secret 授權 service principal 的詳細指南，請參閱[此 Microsoft 文件](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-authorize-azure-active-directory#authorize-a-service-principal-by-using-a-client-secret-1)。
+1. 添加一個步驟，將 HTML 報告上傳到 Azure Storage。
    
    ```yaml title=".github/workflows/playwright.yml"
    ...
@@ -138,20 +144,23 @@ Downloading the HTML report as a zip file is not very convenient. However, we ca
            AZCOPY_SPA_CLIENT_SECRET: '${{ secrets.AZCOPY_SPA_CLIENT_SECRET }}'
            AZCOPY_TENANT_ID: '${{ secrets.AZCOPY_TENANT_ID }}'
    ```
-   
-The contents of the `$web` storage container can be accessed from a browser by using the [public URL](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal#portal-find-url) of the website.
+
+`$web` 儲存容器的內容可以通過瀏覽器使用網站的[公共 URL](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-how-to?tabs=azure-portal#portal-find-url)來訪問。
 
 :::note
-This step will not work for pull requests created from a forked repository because such workflow [doesn't have access to the secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow).
+這個步驟不適用於從分叉的儲存庫建立的拉取請求，因為這樣的工作流程[無法存取機密資訊](https://docs.github.com/en/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow)。
 :::
 
-## What's Next
-- [Learn how to use Locators](./locators.mdx)
-- [Learn how to perform Actions](./input.mdx)
-- [Learn how to write Assertions](./test-assertions.mdx)
-- [Learn more about the Trace Viewer](/trace-viewer.mdx)
-- [Learn more ways of running tests on GitHub Actions](/ci.mdx)
-- [Learn more about running tests on other CI providers](/ci.mdx#github-actions) // TODO: is this link correct?
+## 接下來是什麼
+
+- [學習如何使用 Locators](./locators.mdx)
+- [學習如何執行 Actions](./input.mdx)
+- [學習如何撰寫 Assertions](./test-assertions.mdx)
+- [了解更多關於 Trace Viewer](./trace-viewer.mdx)
+- [了解更多在 GitHub Actions 上執行測試的方法](./ci.mdx)
+- [了解更多在其他 CI 提供者上執行測試](./ci.mdx#github-actions) // TODO: is this link correct?
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

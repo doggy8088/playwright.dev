@@ -1,25 +1,26 @@
----
+﻿---
 id: network
-title: "Network"
+title: "網路"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright provides APIs to **monitor** and **modify** browser network traffic, both HTTP and HTTPS. Any requests that a page does, including [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) requests, can be tracked, modified and handled.
+Playwright 提供 API 來**監控**和**修改**瀏覽器網路流量，包括 HTTP 和 HTTPS。頁面所做的任何請求，包括 [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) 和 [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 請求，都可以被追蹤、修改和處理。
 
-## Mock APIs
+## 模擬 API
 
-Check out our [API mocking guide](./mock.mdx) to learn more on how to 
-- mock API requests and never hit the API
-- perform the API request and modify the response
-- use HAR files to mock network requests.
+查看我們的 [API mocking 指南](./mock.mdx) 以了解更多資訊。
 
-## HTTP Authentication
+- 模擬 API 請求並且不會觸發 API
+- 執行 API 請求並修改回應
+- 使用 HAR 檔案來模擬網路請求。
 
-Perform HTTP Authentication.
+## HTTP 認證
+
+執行 HTTP 認證。
 
 ```java
 BrowserContext context = browser.newContext(new Browser.NewContextOptions()
@@ -30,11 +31,11 @@ page.navigate("https://example.com");
 
 ## HTTP Proxy
 
-You can configure pages to load over the HTTP(S) proxy or SOCKSv5. Proxy can be either set globally for the entire browser, or for each browser context individually.
+您可以配置頁面通過 HTTP(S) 代理或 SOCKSv5 加載。代理可以為整個瀏覽器全域設置，也可以為每個瀏覽器上下文單獨設置。
 
-You can optionally specify username and password for HTTP(S) proxy, you can also specify hosts to bypass proxy for.
+您可以選擇性地指定 HTTP(S) 代理的使用者名稱和密碼，您也可以指定要繞過代理的主機。
 
-Here is an example of a global proxy:
+這裡是一個全域代理的範例:
 
 ```java
 Browser browser = chromium.launch(new BrowserType.LaunchOptions()
@@ -43,7 +44,7 @@ Browser browser = chromium.launch(new BrowserType.LaunchOptions()
   .setPassword('pwd')));
 ```
 
-Its also possible to specify it per context:
+也可以根據上下文指定它:
 
 ```java
 Browser browser = chromium.launch();
@@ -51,9 +52,9 @@ BrowserContext context = browser.newContext(new Browser.NewContextOptions()
   .setProxy(new Proxy("http://myproxy.com:3128")));
 ```
 
-## Network events
+## 網路事件
 
-You can monitor all the [Request]s and [Response]s:
+你可以監控所有的 [Request] 和 [Response]:
 
 ```java
 import com.microsoft.playwright.*;
@@ -73,7 +74,7 @@ public class Example {
 }
 ```
 
-Or wait for a network response after the button click with [Page.waitForResponse()](/api/class-page.mdx#page-wait-for-response):
+或者在按鈕點擊後等待網路回應 [Page.waitForResponse()](/api/class-page.mdx#page-wait-for-response)：
 
 ```java
 // Use a glob URL pattern
@@ -82,9 +83,9 @@ Response response = page.waitForResponse("**/api/fetch_data", () -> {
 });
 ```
 
-#### Variations
+#### 變體
 
-Wait for [Response]s with [Page.waitForResponse()](/api/class-page.mdx#page-wait-for-response)
+等待 [Response]s 與 [Page.waitForResponse()](https://api/class-page.mdx#page-wait-for-response)
 
 ```java
 // Use a RegExp
@@ -98,7 +99,7 @@ Response response = page.waitForResponse(r -> r.url().contains(token), () -> {
 });
 ```
 
-## Handle requests
+## 處理請求
 
 ```java
 page.route("**/api/fetch_data", route -> route.fulfill(new Route.FulfillOptions()
@@ -107,11 +108,11 @@ page.route("**/api/fetch_data", route -> route.fulfill(new Route.FulfillOptions(
 page.navigate("https://example.com");
 ```
 
-You can mock API endpoints via handling the network requests in your Playwright script.
+您可以通過在您的 Playwright 腳本中處理網路請求來模擬 API 端點。
 
-#### Variations
+#### 變體
 
-Set up route on the entire browser context with [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) or page with [Page.route()](/api/class-page.mdx#page-route). It will apply to popup windows and opened links.
+在整個瀏覽器上下文中設定路由，使用 [BrowserContext.route()](https://ollama.com/api/class-browsercontext.mdx#browser-context-route) 或頁面使用 [Page.route()](https://ollama.com/api/class-page.mdx#page-route)。它將適用於彈出視窗和打開的連結。
 
 ```java
 browserContext.route("**/api/login", route -> route.fulfill(new Route.FulfillOptions()
@@ -120,7 +121,7 @@ browserContext.route("**/api/login", route -> route.fulfill(new Route.FulfillOpt
 page.navigate("https://example.com");
 ```
 
-## Modify requests
+## 修改請求
 
 ```java
 // Delete header
@@ -134,11 +135,11 @@ page.route("**/*", route -> {
 page.route("**/*", route -> route.resume(new Route.ResumeOptions().setMethod("POST")));
 ```
 
-You can continue requests with modifications. Example above removes an HTTP header from the outgoing requests.
+你可以繼續請求並進行修改。上面的範例從傳出的請求中移除了 HTTP 標頭。
 
-## Abort requests
+## 中止請求
 
-You can abort requests using [Page.route()](/api/class-page.mdx#page-route) and [Route.abort()](/api/class-route.mdx#route-abort).
+你可以使用 [Page.route()](/api/class-page.mdx#page-route) 和 [Route.abort()](/api/class-route.mdx#route-abort) 來中止請求。
 
 ```java
 page.route("**/*.{png,jpg,jpeg}", route -> route.abort());
@@ -152,9 +153,9 @@ page.route("**/*", route -> {
 });
 ```
 
-## Modify responses
+## 修改回應
 
-To modify a response use [APIRequestContext] to get the original response and then pass the response to [Route.fulfill()](/api/class-route.mdx#route-fulfill). You can override individual fields on the response via options:
+要修改回應，使用 [APIRequestContext] 獲取原始回應，然後將回應傳遞給 [Route.fulfill()](/api/class-route.mdx#route-fulfill)。您可以通過選項覆蓋回應的各個欄位:
 
 ```java
 page.route("**/title.html", route -> {
@@ -177,7 +178,7 @@ page.route("**/title.html", route -> {
 
 ## WebSockets
 
-Playwright supports [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) inspection out of the box. Every time a WebSocket is created, the [Page.onWebSocket(handler)](/api/class-page.mdx#page-event-web-socket) event is fired. This event contains the [WebSocket] instance for further web socket frames inspection:
+Playwright 支援 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) 檢查。每次建立 WebSocket 時，會觸發 [Page.onWebSocket(handler)](/api/class-page.mdx#page-event-web-socket) 事件。此事件包含 [WebSocket] 物件以供進一步的 web socket frames 檢查:
 
 ```java
 page.onWebSocket(ws -> {
@@ -188,12 +189,15 @@ page.onWebSocket(ws -> {
 });
 ```
 
-## Missing Network Events and Service Workers
+## 缺少網路事件和服務工作者
 
-Playwright's built-in [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [Page.route()](/api/class-page.mdx#page-route) allow your tests to natively route requests and perform mocking and interception.
-1. If you're using Playwright's native [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [Page.route()](/api/class-page.mdx#page-route), and it appears network events are missing, disable Service Workers by setting `Browser.newContext.serviceWorkers` to `'block'`.
-1. It might be that you are using a mock tool such as Mock Service Worker (MSW). While this tool works out of the box for mocking responses, it adds its own Service Worker that takes over the network requests, hence making them invisible to [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [Page.route()](/api/class-page.mdx#page-route). If you are interested in both network testing and mocking, consider using built-in [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [Page.route()](/api/class-page.mdx#page-route) for [response mocking](#handle-requests).
-1. If you're interested in not solely using Service Workers for testing and network mocking, but in routing and listening for requests made by Service Workers themselves, please see [this experimental feature](https://github.com/microsoft/playwright/issues/15684).
+Playwright 的內建 [BrowserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 和 [Page.route()](https://api/class-page.mdx#page-route) 允許你的測試原生地路由請求並執行模擬和攔截。
+
+1. 如果你正在使用 Playwright 的原生 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.route()](/api/class-page.mdx#page-route)，並且似乎缺少網路事件，請通過將 `Browser.newContext.serviceWorkers` 設置為 `'block'` 來禁用 Service Workers。
+1. 可能是你正在使用像 Mock Service Worker (MSW) 這樣的模擬工具。雖然這個工具可以開箱即用地模擬回應，但它會添加自己的 Service Worker 來接管網路請求，因此使它們對 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.route()](/api/class-page.mdx#page-route) 不可見。如果你對網路測試和模擬都感興趣，請考慮使用內建的 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.route()](/api/class-page.mdx#page-route) 來進行[回應模擬](#handle-requests)。
+1. 如果你不僅僅是想使用 Service Workers 進行測試和網路模擬，而是想路由和監聽由 Service Workers 自己發出的請求，請參見[這個實驗性功能](https://github.com/microsoft/playwright/issues/15684)。
+
+
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

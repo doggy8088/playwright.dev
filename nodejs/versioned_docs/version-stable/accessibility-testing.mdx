@@ -1,40 +1,42 @@
----
+﻿---
 id: accessibility-testing
-title: "Accessibility testing"
+title: "無障礙測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright can be used to test your application for many types of accessibility issues.
+Playwright 可以用來測試應用程式的多種類型的無障礙問題。
 
-A few examples of problems this can catch include:
-- Text that would be hard to read for users with vision impairments due to poor color contrast with the background behind it
-- UI controls and form elements without labels that a screen reader could identify
-- Interactive elements with duplicate IDs which can confuse assistive technologies
+一些此方法可以捕捉到的問題範例如下:
 
-The following examples rely on the [`@axe-core/playwright`](https://npmjs.org/@axe-core/playwright) package which adds support for running the [axe accessibility testing engine](https://www.deque.com/axe/) as part of your Playwright tests.
+- 由於與背景的顏色對比差，視障用戶難以閱讀的文字
+- 屏幕閱讀器無法識別的無標籤 UI 控件和表單元素
+- 具有重複 ID 的互動元素，這會混淆輔助技術
 
-:::note[Disclaimer]
-Automated accessibility tests can detect some common accessibility problems such as missing or invalid properties. But many accessibility problems can only be discovered through manual testing. We recommend using a combination of automated testing, manual accessibility assessments, and inclusive user testing.  For manual assessments, we recommend [Accessibility Insights for Web](https://accessibilityinsights.io/docs/web/overview/?referrer=playwright-accessibility-testing-js), a free and open source dev tool that walks you through assessing a website for [WCAG 2.1 AA](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize&levels=aaa) coverage.
+以下範例依賴 [`@axe-core/playwright`](https://npmjs.org/@axe-core/playwright) 套件，該套件增加了在 Playwright 測試中執行 [axe 無障礙測試引擎](https://www.deque.com/axe/) 的支援。
+
+:::note[免責聲明]
+自動化無障礙測試可以檢測一些常見的無障礙問題，例如缺失或無效的屬性。但許多無障礙問題只能通過手動測試發現。我們建議結合自動化測試、手動無障礙評估和包容性用戶測試。對於手動評估，我們推薦 [Accessibility Insights for Web](https://accessibilityinsights.io/docs/web/overview/?referrer=playwright-accessibility-testing-js)，這是一個免費且開放原始碼的開發工具，能引導你評估網站的 [WCAG 2.1 AA](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize&levels=aaa) 覆蓋範圍。
 :::
 
-## Example accessibility tests
+## 範例無障礙測試
 
-Accessibility tests work just like any other Playwright test. You can either create separate test cases for them, or integrate accessibility scans and assertions into your existing test cases.
+無障礙測試的工作方式與其他 Playwright 測試相同。你可以為它們建立單獨的測試案例，或者將無障礙掃描和斷言整合到你現有的測試案例中。
 
-The following examples demonstrate a few basic accessibility testing scenarios.
+以下範例展示了一些基本的無障礙測試情境。
 
-### Scanning an entire page
+### 掃描整個頁面
 
-This example demonstrates how to test an entire page for automatically detectable accessibility violations. The test:
-1. Imports the `@axe-core/playwright` package
-1. Uses normal Playwright Test syntax to define a test case
-1. Uses normal Playwright syntax to navigate to the page under test
-1. Awaits `AxeBuilder.analyze()` to run the accessibility scan against the page
-1. Uses normal Playwright Test [assertions](./test-assertions) to verify that there are no violations in the returned scan results
+此範例展示如何測試整個頁面以自動檢測可存取性違規。測試:
+
+1. 匯入 `@axe-core/playwright` 套件
+1. 使用一般的 Playwright Test 語法來定義測試案例
+1. 使用一般的 Playwright 語法來導航至測試頁面
+1. 等待 `AxeBuilder.analyze()` 執行無障礙掃描以檢查頁面
+1. 使用一般的 Playwright Test [assertions](./test-assertions) 來驗證返回的掃描結果中沒有違規
 
 <Tabs
   groupId="js-flavor"
@@ -82,13 +84,13 @@ test.describe('homepage', () => { // 2
 </TabItem>
 </Tabs>
 
-### Configuring axe to scan a specific part of a page
+### 設定 axe 掃描頁面的特定部分
 
-`@axe-core/playwright` supports many configuration options for axe. You can specify these options by using a Builder pattern with the `AxeBuilder` class.
+`@axe-core/playwright` 支援許多 axe 的配置選項。你可以使用 `AxeBuilder` 類別的 Builder 模式來指定這些選項。
 
-For example, you can use [`AxeBuilder.include()`](https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/README.md#axebuilderincludeselector-string--string) to constrain an accessibility scan to only run against one specific part of a page.
+例如，你可以使用 [`AxeBuilder.include()`](https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/README.md#axebuilderincludeselector-string--string) 將無障礙掃描限制為僅針對頁面的特定部分執行。
 
-`AxeBuilder.analyze()` will scan the page *in its current state* when you call it. To scan parts of a page that are revealed based on UI interactions, use [Locators](./locators.mdx) to interact with the page before invoking `analyze()`:
+`AxeBuilder.analyze()` 將在您呼叫它時掃描頁面*當前的狀態*。要掃描基於 UI 互動顯示的頁面部分，請在呼叫 `analyze()` 之前使用 [Locators](./locators.mdx) 與頁面互動:
 
 ```js
 test('navigation menu should not have automatically detectable accessibility violations', async ({
@@ -111,13 +113,13 @@ test('navigation menu should not have automatically detectable accessibility vio
 });
 ```
 
-### Scanning for WCAG violations
+### 掃描 WCAG 違規
 
-By default, axe checks against a wide variety of accessibility rules. Some of these rules correspond to specific success criteria from the [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/TR/WCAG21/), and others are "best practice" rules that are not specifically required by any WCAG criterion.
+預設情況下，axe 會檢查各種無障礙規則。其中一些規則對應於[Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/TR/WCAG21/)中的特定成功標準，其他則是未被任何 WCAG 標準特別要求的“最佳實踐”規則。
 
-You can constrain an accessibility scan to only run those rules which are "tagged" as corresponding to specific WCAG success criteria by using [`AxeBuilder.withTags()`](https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/README.md#axebuilderwithtagstags-stringarray). For example, [Accessibility Insights for Web's Automated Checks](https://accessibilityinsights.io/docs/web/getstarted/fastpass/?referrer=playwright-accessibility-testing-js) only include axe rules that test for violations of WCAG A and AA success criteria; to match that behavior, you would use the tags `wcag2a`, `wcag2aa`, `wcag21a`, and `wcag21aa`.
+你可以使用 [`AxeBuilder.withTags()`](https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/README.md#axebuilderwithtagstags-stringarray) 將無障礙掃描限制為僅執行那些被“標記”為對應特定 WCAG 成功標準的規則。例如，[Accessibility Insights for Web's Automated Checks](https://accessibilityinsights.io/docs/web/getstarted/fastpass/?referrer=playwright-accessibility-testing-js) 僅包括測試 WCAG A 和 AA 成功標準違規的 axe 規則；為了匹配這種行為，你可以使用標籤 `wcag2a`、`wcag2aa`、`wcag21a` 和 `wcag21aa`。
 
-Note that automated testing cannot detect all types of WCAG violations.
+請注意，自動化測試無法檢測所有類型的 WCAG 違規情況。
 
 ```js
 test('should not have any automatically detectable WCAG A or AA violations', async ({ page }) => {
@@ -131,21 +133,22 @@ test('should not have any automatically detectable WCAG A or AA violations', asy
 });
 ```
 
-You can find a complete listing of the rule tags axe-core supports in [the "Axe-core Tags" section of the axe API documentation](https://www.deque.com/axe/core-documentation/api-documentation/#axe-core-tags).
+您可以在 [axe API 文件的 "Axe-core Tags" 部分](https://www.deque.com/axe/core-documentation/api-documentation/#axe-core-tags) 找到 axe-core 支援的規則標籤的完整列表。
 
-## Handling known issues
+## 處理已知問題
 
-A common question when adding accessibility tests to an application is "how do I suppress known violations?" The following examples demonstrate a few techniques you can use.
+在將無障礙測試添加到應用程式時，一個常見的問題是“如何抑制已知的違規？”以下範例展示了一些您可以使用的技術。
 
-### Excluding individual elements from a scan
+### 排除單個元素從掃描中
 
-If your application contains a few specific elements with known issues, you can use [`AxeBuilder.exclude()`](https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/README.md#axebuilderexcludeselector-string--string) to exclude them from being scanned until you're able to fix the issues.
+如果你的應用程式包含一些已知問題的特定元素，你可以使用 [`AxeBuilder.exclude()`](https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/README.md#axebuilderexcludeselector-string--string) 將它們從掃描中排除，直到你能夠修復這些問題。
 
-This is usually the simplest option, but it has some important downsides:
-* `exclude()` will exclude the specified elements *and all of their descendants*. Avoid using it with components that contain many children.
-* `exclude()` will prevent *all* rules from running against the specified elements, not just the rules corresponding to known issues.
+這通常是最簡單的選項，但它有一些重要的缺點:
 
-Here is an example of excluding one element from being scanned in one specific test:
+* `exclude()` 將排除指定的元素 *及其所有後代*。避免將其用於包含許多子元素的元件。
+* `exclude()` 將防止 *所有* 規則針對指定的元素執行，而不僅僅是針對已知問題的規則。
+
+這裡是一個在特定測試中排除一個元素不被掃描的範例:
 
 ```js
 test('should not have any accessibility violations outside of elements with known issues', async ({
@@ -161,13 +164,13 @@ test('should not have any accessibility violations outside of elements with know
 });
 ```
 
-If the element in question is used repeatedly in many pages, consider [using a test fixture](#using-a-test-fixture-for-common-axe-configuration) to reuse the same `AxeBuilder` configuration across multiple tests.
+如果相關元素在許多頁面中重複使用，考慮[使用測試裝置](#using-a-test-fixture-for-common-axe-configuration)來在多個測試中重用相同的 `AxeBuilder` 配置。
 
-### Disabling individual scan rules
+### 停用個別掃描規則
 
-If your application contains many different preexisting violations of a specific rule, you can use [`AxeBuilder.disableRules()`](https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/README.md#axebuilderdisablerulesrules-stringarray) to temporarily disable individual rules until you're able to fix the issues.
+如果你的應用程式包含許多不同的特定規則的現有違規行為，你可以使用[`AxeBuilder.disableRules()`](https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/README.md#axebuilderdisablerulesrules-stringarray)來暫時禁用個別規則，直到你能夠解決這些問題。
 
-You can find the rule IDs to pass to `disableRules()` in the `id` property of the violations you want to suppress. A [complete list of axe's rules](https://github.com/dequelabs/axe-core/blob/master/doc/rule-descriptions.md) can be found in `axe-core`'s documentation.
+您可以在您想要抑制的違規項的 `id` 屬性中找到要傳遞給 `disableRules()` 的規則 ID。`axe-core` 的文件中可以找到 [axe 的完整規則列表](https://github.com/dequelabs/axe-core/blob/master/doc/rule-descriptions.md)。
 
 ```js
 test('should not have any accessibility violations outside of rules with known issues', async ({
@@ -183,18 +186,18 @@ test('should not have any accessibility violations outside of rules with known i
 });
 ```
 
-### Using snapshots to allow specific known issues
+### 使用快照允許特定已知問題
 
-If you would like to allow for a more granular set of known issues, you can use [Snapshots](./test-snapshots.mdx) to verify that a set of preexisting violations has not changed. This approach avoids the downsides of using `AxeBuilder.exclude()` at the cost of slightly more complexity and fragility.
+如果你希望允許更細緻的一組已知問題，你可以使用 [Snapshots](./test-snapshots.mdx) 來驗證一組預先存在的違規行為是否未改變。這種方法避免了使用 `AxeBuilder.exclude()` 的缺點，但代價是稍微增加了複雜性和脆弱性。
 
-Do not use a snapshot of the entire `accessibilityScanResults.violations` array. It contains implementation details of the elements in question, such as a snippet of their rendered HTML; if you include these in your snapshots, it will make your tests prone to breaking every time one of the components in question changes for an unrelated reason:
+不要使用整個 `accessibilityScanResults.violations` 陣列的快照。它包含相關元素的實作細節，例如它們所呈現的 HTML 片段；如果你將這些包含在你的快照中，則每當其中一個元件因無關的原因而改變時，這將使你的測試容易中斷:
 
 ```js
 // Don't do this! This is fragile.
 expect(accessibilityScanResults.violations).toMatchSnapshot();
 ```
 
-Instead, create a *fingerprint* of the violation(s) in question that contains only enough information to uniquely identify the issue, and use a snapshot of the fingerprint:
+相反地，建立一個*指紋*來標識問題中的違規行為，該指紋僅包含足夠的資訊以唯一識別該問題，並使用指紋的快照:
 
 ```js
 // This is less fragile than snapshotting the entire violations array.
@@ -213,13 +216,13 @@ function violationFingerprints(accessibilityScanResults) {
 }
 ```
 
-## Exporting scan results as a test attachment
+## 將掃描結果匯出為測試附件
 
-Most accessibility tests are primarily concerned with the `violations` property of the axe scan results. However, the scan results contain more than just `violations`. For example, the results also contain information about rules which passed and about elements which axe found to have inconclusive results for some rules. This information can be useful for debugging tests that aren't detecting all the violations you expect them to.
+大多數的無障礙測試主要關注的是 axe 掃描結果的 `violations` 屬性。然而，掃描結果不僅僅包含 `violations`。例如，結果還包含有關通過規則的資訊，以及 axe 發現某些規則結果不確定的元素的資訊。這些資訊對於調試未檢測到所有預期違規的測試可能是有用的。
 
-To include *all* of the scan results as part of your test results for debugging purposes, you can add the scan results as a test attachment with [`testInfo.attach()`](./api/class-testinfo#test-info-attach). [Reporters](./test-reporters) can then embed or link the full results as part of your test output.
+為了包含*所有*的掃描結果作為除錯用途的測試結果的一部分，你可以使用 [`testInfo.attach()`](./api/class-testinfo#test-info-attach) 將掃描結果添加為測試附件。[報告器](./test-reporters) 然後可以將完整結果嵌入或鏈接作為測試輸出的一部分。
 
-The following example demonstrates attaching scan results to a test:
+以下範例展示了將掃描結果附加到測試中:
 
 ```js
 test('example with attachment', async ({ page }, testInfo) => {
@@ -236,18 +239,19 @@ test('example with attachment', async ({ page }, testInfo) => {
 });
 ```
 
-## Using a test fixture for common axe configuration
+## 使用測試夾具進行常見的 axe 配置
 
-[Test fixtures](./test-fixtures) are a good way to share common `AxeBuilder` configuration across many tests. Some scenarios where this might be useful include:
-* Using a common set of rules among all of your tests
-* Suppressing a known violation in a common element which appears in many different pages
-* Attaching standalone accessibility reports consistently for many scans
+[Test fixtures](./test-fixtures) 是在多個測試中共享常見 `AxeBuilder` 配置的一種好方法。一些可能有用的情境包括:
 
-The following example demonstrates creating and using a test fixture that covers each of those scenarios.
+* 在所有測試中使用一組通用規則
+* 抑制在許多不同頁面中出現的常見元素中的已知違規
+* 一致地附加獨立的無障礙報告以進行多次掃描
 
-### Creating a fixture
+以下範例展示了建立和使用涵蓋每個這些情境的測試裝置。
 
-This example fixture creates an `AxeBuilder` object which is pre-configured with shared `withTags()` and `exclude()` configuration.
+### 建立一個 fixture
+
+此範例裝置建立一個 `AxeBuilder` 物件，該物件預先配置了共享的 `withTags()` 和 `exclude()` 配置。
 
 <Tabs
   groupId="js-flavor"
@@ -310,9 +314,9 @@ exports.expect = base.expect;
 </TabItem>
 </Tabs>
 
-### Using a fixture
+### 使用固定裝置
 
-To use the fixture, replace the earlier examples' `new AxeBuilder({ page })` with the newly defined `makeAxeBuilder` fixture:
+要使用這個 fixture，將之前範例中的 `new AxeBuilder({ page })` 替換為新定義的 `makeAxeBuilder` fixture:
 
 ```js
 const { test, expect } = require('./axe-test');
@@ -329,6 +333,8 @@ test('example using custom fixture', async ({ page, makeAxeBuilder }) => {
   expect(accessibilityScanResults.violations).toEqual([]);
 });
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

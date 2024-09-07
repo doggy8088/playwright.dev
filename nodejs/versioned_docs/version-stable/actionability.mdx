@@ -1,23 +1,24 @@
----
+﻿---
 id: actionability
-title: "Auto-waiting"
+title: "自動等待"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright performs a range of actionability checks on the elements before making actions to ensure these actions behave as expected. It auto-waits for all the relevant checks to pass and only then performs the requested action. If the required checks do not pass within the given `timeout`, action fails with the `TimeoutError`.
+Playwright 在執行操作之前會對元素進行一系列的可操作性檢查，以確保這些操作按預期進行。它會自動等待所有相關檢查通過，然後才執行請求的操作。如果在給定的 `timeout` 內未通過所需的檢查，操作將因 `TimeoutError` 而失敗。
 
-For example, for [locator.click()](/api/class-locator.mdx#locator-click), Playwright will ensure that:
-- locator resolves to exactly one element
-- element is [Visible]
-- element is [Stable], as in not animating or completed animation
-- element [Receives Events], as in not obscured by other elements
-- element is [Enabled]
+例如，對於 [locator.click()](/api/class-locator.mdx#locator-click)，Playwright 將確保：
 
-Here is the complete list of actionability checks performed for each action:
+- 定位器解析為確切的一個元素
+- 元素是 [可見的]
+- 元素是 [穩定的]，即不在動畫中或動畫已完成
+- 元素 [接收事件]，即不被其他元素遮擋
+- 元素是 [啟用的]
+
+以下是為每個動作執行的完整可操作性檢查清單:
 
 | Action | [Visible] | [Stable] | [Receives Events] | [Enabled] | [Editable] |
 | :- | :-: | :-: | :-: | :-: | :-: |
@@ -42,70 +43,75 @@ Here is the complete list of actionability checks performed for each action:
 | [locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially) | - | - | - | - | - |
 | [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) | - | - | - | - | - |
 
-## Forcing actions
 
-Some actions like [locator.click()](/api/class-locator.mdx#locator-click) support `force` option that disables non-essential actionability checks, for example passing truthy `force` to [locator.click()](/api/class-locator.mdx#locator-click) method will not check that the target element actually receives click events.
 
-## Assertions
+有些操作如 [locator.click()](/api/class-locator.mdx#locator-click) 支援 `force` 選項，該選項會禁用非必要的可操作性檢查，例如傳遞真值 `force` 給 [locator.click()](/api/class-locator.mdx#locator-click) 方法將不會檢查目標元素是否實際接收到點擊事件。
 
-Playwright includes auto-retrying assertions that remove flakiness by waiting until the condition is met, similarly to auto-waiting before actions.
+## 斷言
+
+Playwright 包含自動重試的斷言，通過等待條件滿足來消除不穩定性，類似於在操作前自動等待。
 
 | Assertion | Description |
 | :- | :- |
-| [expect(locator).toBeAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | Element is attached |
-| [expect(locator).toBeChecked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox is checked |
-| [expect(locator).toBeDisabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | Element is disabled |
-| [expect(locator).toBeEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | Element is editable |
-| [expect(locator).toBeEmpty()](/api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | Container is empty |
-| [expect(locator).toBeEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | Element is enabled |
-| [expect(locator).toBeFocused()](/api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | Element is focused |
-| [expect(locator).toBeHidden()](/api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | Element is not visible |
-| [expect(locator).toBeInViewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | Element intersects viewport |
-| [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | Element is visible |
-| [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | Element contains text |
-| [expect(locator).toHaveAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | Element has a DOM attribute |
-| [expect(locator).toHaveClass()](/api/class-locatorassertions.mdx#locator-assertions-to-have-class) | Element has a class property |
-| [expect(locator).toHaveCount()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | List has exact number of children |
-| [expect(locator).toHaveCSS()](/api/class-locatorassertions.mdx#locator-assertions-to-have-css) | Element has CSS property |
-| [expect(locator).toHaveId()](/api/class-locatorassertions.mdx#locator-assertions-to-have-id) | Element has an ID |
-| [expect(locator).toHaveJSProperty()](/api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | Element has a JavaScript property |
-| [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | Element matches text |
-| [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | Input has a value |
-| [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) | Select has options selected |
-| [expect(page).toHaveTitle()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | Page has a title |
-| [expect(page).toHaveURL()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | Page has a URL |
-| [expect(response).toBeOK()](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | Response has an OK status |
+| [expect(locator).toBeAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | 元素已附加 |
+| [expect(locator).toBeChecked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 核取方塊已勾選 |
+| [expect(locator).toBeDisabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已禁用 |
+| [expect(locator).toBeEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | 元素可編輯 |
+| [expect(locator).toBeEmpty()](/api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | 容器為空 |
+| [expect(locator).toBeEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 元素已啟用 |
+| [expect(locator).toBeFocused()](/api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | 元素已聚焦 |
+| [expect(locator).toBeHidden()](/api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | 元素不可見 |
+| [expect(locator).toBeInViewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | 元素與視窗相交 |
+| [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
+| [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
+| [expect(locator).toHaveAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有 DOM 屬性 |
+| [expect(locator).toHaveClass()](/api/class-locatorassertions.mdx#locator-assertions-to-have-class) | 元素具有類別屬性 |
+| [expect(locator).toHaveCount()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 清單具有確切數量的子項目 |
+| [expect(locator).toHaveCSS()](/api/class-locatorassertions.mdx#locator-assertions-to-have-css) | 元素具有 CSS 屬性 |
+| [expect(locator).toHaveId()](/api/class-locatorassertions.mdx#locator-assertions-to-have-id) | 元素具有 ID |
+| [expect(locator).toHaveJSProperty()](/api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | 元素具有 JavaScript 屬性 |
+| [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素匹配文字 |
+| [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入具有值 |
+| [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) | 選擇具有選定的選項 |
+| [expect(page).toHaveTitle()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
+| [expect(page).toHaveURL()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
+| [expect(response).toBeOK()](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | 回應狀態為 OK |
 
-Learn more in the [assertions guide](./test-assertions.mdx).
+了解更多在 [assertions 指南](./test-assertions.mdx)。
 
-## Visible
+## 可見
 
-Element is considered visible when it has non-empty bounding box and does not have `visibility:hidden` computed style.
+元素在具有非空的邊界框且未計算出 `visibility:hidden` 樣式時被認為是可見的。
 
-Note that according to this definition:
-* Elements of zero size **are not** considered visible.
-* Elements with `display:none` **are not** considered visible.
-* Elements with `opacity:0` **are** considered visible.
+請注意，根據此定義:
 
-## Stable
+* 零大小的元素**不會**被認為是可見的。
+* `display:none` 的元素**不會**被認為是可見的。
+* `opacity:0` 的元素**會**被認為是可見的。
 
-Element is considered stable when it has maintained the same bounding box for at least two consecutive animation frames.
+## 穩定
 
-## Enabled
+當元素在至少兩個連續的動畫幀中保持相同的邊界框時，則認為該元素是穩定的。
 
-Element is considered enabled unless it is a `<button>`, `<select>`, `<input>` or `<textarea>` with a `disabled` property.
+## 啟用
 
-## Editable
+Element 被認為是啟用的，除非它是具有 `disabled` 屬性的 `<button>`、`<select>`、`<input>` 或 `<textarea>`。
 
-Element is considered editable when it is [enabled] and does not have `readonly` property set.
+## 可編輯
 
-## Receives Events
+元素在 [enabled] 且未設置 `readonly` 屬性時被視為可編輯。
 
-Element is considered receiving pointer events when it is the hit target of the pointer event at the action point. For example, when clicking at the point `(10;10)`, Playwright checks whether some other element (usually an overlay) will instead capture the click at `(10;10)`.
+## 接收事件
 
-For example, consider a scenario where Playwright will click `Sign Up` button regardless of when the [locator.click()](/api/class-locator.mdx#locator-click) call was made:
-- page is checking that user name is unique and `Sign Up` button is disabled;
-- after checking with the server, the disabled `Sign Up` button is replaced with another one that is now enabled.
+元素被認為正在接收指標事件，當它是在操作點的指標事件的命中目標時。例如，當點擊點在 `(10;10)` 時，Playwright 會檢查是否有其他元素（通常是覆蓋層）會捕捉到 `(10;10)` 的點擊。
+
+例如，考慮一個場景，無論何時進行 [locator.click](/api/class-locator.mdx#locator-click) 呼叫，Playwright 都會點擊 `Sign Up` 按鈕：
+
+- 頁面正在檢查用戶名是否唯一且`Sign Up`按鈕被禁用;
+- 與伺服器檢查後，被禁用的`Sign Up`按鈕被替換為另一個現在啟用的按鈕。
+
+
+
 
 [Visible]: #visible "Visible"
 [Stable]: #stable "Stable"

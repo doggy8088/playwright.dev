@@ -1,28 +1,29 @@
----
+﻿---
 id: test-annotations
-title: "Annotations"
+title: "註釋"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright supports tags and annotations that are displayed in the test report.
+Playwright 支援在測試報告中顯示標籤和註解。
 
-You can add your own tags and annotations at any moment, but Playwright comes with a few built-in ones:
-- [test.skip()](/api/class-test.mdx#test-skip) marks the test as irrelevant. Playwright does not run such a test. Use this annotation when the test is not applicable in some configuration.
-- [test.fail()](/api/class-test.mdx#test-fail) marks the test as failing. Playwright will run this test and ensure it does indeed fail. If the test does not fail, Playwright will complain.
-- [test.fixme()](/api/class-test.mdx#test-fixme) marks the test as failing. Playwright will not run this test, as opposed to the `fail` annotation. Use `fixme` when running the test is slow or crashes.
-- [test.slow()](/api/class-test.mdx#test-slow) marks the test as slow and triples the test timeout.
+你可以隨時添加你自己的標籤和註釋，但 Playwright 附帶了一些內建的標籤:
 
-Annotations can be added to a single test or a group of tests.
+- [test.skip()](https://ollama.com/api/class-test.mdx#test-skip) 將測試標記為不相關。Playwright 不會執行此測試。在某些配置中測試不適用時使用此註釋。
+- [test.fail()](https://ollama.com/api/class-test.mdx#test-fail) 將測試標記為失敗。Playwright 會執行此測試並確保它確實失敗。如果測試沒有失敗，Playwright 會抱怨。
+- [test.fixme()](https://ollama.com/api/class-test.mdx#test-fixme) 將測試標記為失敗。與 `fail` 註釋相反，Playwright 不會執行此測試。當測試執行緩慢或崩潰時使用 `fixme`。
+- [test.slow()](https://ollama.com/api/class-test.mdx#test-slow) 將測試標記為緩慢並將測試超時時間增加三倍。
 
-Built-in annotations can be conditional, in which case they apply when the condition is truthy, and may depend on test fixtures. There could be multiple annotations on the same test, possibly in different configurations.
+可以將註解新增到單一測試或一組測試。
 
-## Focus a test
+內建註解可以是有條件的，在這種情況下，它們在條件為真時適用，並且可能依賴於測試夾具。同一測試上可能有多個註解，可能在不同的配置中。
 
-You can focus some tests. When there are focused tests, only these tests run.
+## 聚焦測試
+
+你可以聚焦一些測試。當有聚焦的測試時，只有這些測試執行。
 
 ```js
 test.only('focus this test', async ({ page }) => {
@@ -30,9 +31,9 @@ test.only('focus this test', async ({ page }) => {
 });
 ```
 
-## Skip a test
+## 跳過測試
 
-Mark a test as skipped.
+將測試標記為跳過。
 
 ```js
 test.skip('skip this test', async ({ page }) => {
@@ -40,9 +41,9 @@ test.skip('skip this test', async ({ page }) => {
 });
 ```
 
-## Conditionally skip a test
+## 有條件地跳過測試
 
-You can skip certain test based on the condition.
+您可以根據條件跳過某些測試。
 
 ```js
 test('skip this test', async ({ page, browserName }) => {
@@ -50,9 +51,9 @@ test('skip this test', async ({ page, browserName }) => {
 });
 ```
 
-## Group tests
+## 群組測試
 
-You can group tests to give them a logical name or to scope before/after hooks to the group.
+你可以將測試分組，以給它們一個邏輯名稱或在群組之前/之後範圍內的鉤子。
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -68,11 +69,11 @@ test.describe('two tests', () => {
 });
 ```
 
-## Tag tests
+## 標籤測試
 
-Sometimes you want to tag your tests as `@fast` or `@slow`, and then filter by tag in the test report. Or you might want to only run tests that have a certain tag.
+有時候你會想要將測試標記為 `@fast` 或 `@slow`，然後在測試報告中按標記過濾。或者你可能只想執行具有特定標記的測試。
 
-To tag a test, either provide an additional details object when declaring a test, or add `@`-token to the test title. Note that tags must start with `@` symbol.
+要標記測試，可以在宣告測試時提供額外的詳細資訊物件，或在測試標題中添加 `@` 符號。請注意，標籤必須以 `@` 符號開頭。
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -88,7 +89,7 @@ test('test full report @slow', async ({ page }) => {
 });
 ```
 
-You can also tag all tests in a group or provide multiple tags:
+您也可以標記一組中的所有測試或提供多個標籤:
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -108,7 +109,7 @@ test.describe('group', {
 });
 ```
 
-You can now run tests that have a particular tag with [`--grep`](./test-cli.mdx#reference) command line option.
+你現在可以使用 [`--grep`](./test-cli.mdx#reference) 命令列選項來執行具有特定標籤的測試。
 
 <Tabs
   groupId="bash-flavor"
@@ -133,7 +134,7 @@ npx playwright test --grep "@fast"
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 npx playwright test --grep @fast
@@ -142,7 +143,7 @@ npx playwright test --grep @fast
 </TabItem>
 </Tabs>
 
-Or if you want the opposite, you can skip the tests with a certain tag:
+或者，如果你想要相反的效果，你可以跳過具有某個標籤的測試:
 
 <Tabs
   groupId="bash-flavor"
@@ -167,7 +168,7 @@ npx playwright test --grep-invert "@fast"
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 npx playwright test --grep-invert @fast
@@ -176,7 +177,7 @@ npx playwright test --grep-invert @fast
 </TabItem>
 </Tabs>
 
-To run tests containing either tag (logical `OR` operator):
+要執行包含任一標籤的測試（邏輯 `OR` 運算符）:
 
 <Tabs
   groupId="bash-flavor"
@@ -201,7 +202,7 @@ npx playwright test --grep --% "@fast^|@slow"
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 npx playwright test --grep "@fast^|@slow"
@@ -210,19 +211,19 @@ npx playwright test --grep "@fast^|@slow"
 </TabItem>
 </Tabs>
 
-Or run tests containing both tags (logical `AND` operator) using regex lookaheads:
+或者使用正則表達式前瞻來執行包含兩個標籤（邏輯 `AND` 運算符）的測試:
 
 ```bash
 npx playwright test --grep "(?=.*@fast)(?=.*@slow)"
 ```
 
-You can also filter tests in the configuration file via [testConfig.grep](/api/class-testconfig.mdx#test-config-grep) and [testProject.grep](/api/class-testproject.mdx#test-project-grep).
+你也可以通過 [testConfig.grep](/api/class-testconfig.mdx#test-config-grep) 和 [testProject.grep](/api/class-testproject.mdx#test-project-grep) 在配置文件中過濾測試。
 
-## Annotate tests
+## 標註測試
 
-If you would like to annotate your tests with something more substantial than a tag, you can do that when declaring a test. Annotations have a `type` and a `description` for more context and available in reporter API. Playwright's built-in HTML reporter shows all annotations, except those where `type` starts with `_` symbol.
+如果你想用比標籤更實質的東西來註解你的測試，你可以在宣告測試時這樣做。註解有一個 `type` 和一個 `description` 來提供更多上下文，並且在 reporter API 中可用。Playwright 的內建 HTML reporter 顯示所有註解，除了那些 `type` 以 `_` 符號開頭的註解。
 
-For example, to annotate a test with an issue url:
+例如，要用問題 URL 註釋測試:
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -237,7 +238,7 @@ test('test login page', {
 });
 ```
 
-You can also annotate all tests in a group or provide multiple annotations:
+您也可以標註一組中的所有測試或提供多個標註:
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -260,9 +261,9 @@ test.describe('report tests', {
 });
 ```
 
-## Conditionally skip a group of tests
+## 有條件地跳過一組測試
 
-For example, you can run a group of tests just in Chromium by passing a callback.
+例如，你可以僅在 Chromium 中執行一組測試，方法是傳遞一個回呼。
 
 ```js title="example.spec.ts"
 
@@ -283,9 +284,9 @@ test.describe('chromium only', () => {
 });
 ```
 
-## Use fixme in `beforeEach` hook
+## 在 `beforeEach` 鉤子中使用 fixme
 
-To avoid running `beforeEach` hooks, you can put annotations in the hook itself.
+為了避免執行 `beforeEach` 鉤子，你可以將註解放在鉤子本身中。
 
 ```js title="example.spec.ts"
 
@@ -301,9 +302,9 @@ test('user profile', async ({ page }) => {
 });
 ```
 
-## Runtime annotations
+## 執行時註解
 
-While the test is already running, you can add annotations to [`test.info().annotations`](./api/class-testinfo#test-info-annotations).
+在測試已經執行時，你可以添加註解到 [`test.info().annotations`](./api/class-testinfo#test-info-annotations)。
 
 ```js title="example.spec.ts"
 
@@ -316,6 +317,8 @@ test('example test', async ({ page, browser }) => {
   // ...
 });
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

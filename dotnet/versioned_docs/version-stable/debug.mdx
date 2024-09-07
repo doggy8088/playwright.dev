@@ -1,6 +1,6 @@
----
+﻿---
 id: debug
-title: "Debugging Tests"
+title: "偵錯測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,15 +8,16 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## Playwright Inspector
 
-The Playwright Inspector is a GUI tool to help you debug your Playwright tests. It allows you to step through your tests, live edit locators, pick locators and see actionability logs.
+Playwright Inspector 是一個 GUI 工具，可以幫助你調試 Playwright 測試。它允許你逐步執行測試、即時編輯定位器、選擇定位器並查看可操作性日誌。
 
 <img width="864" alt="Playwright Inspector" src="https://user-images.githubusercontent.com/13063165/212924587-4b84e5f6-b147-40e9-8c75-d7b9ab6b7ca1.png" />
 
-### Run in debug mode
+### 在除錯模式下執行
 
-Set the `PWDEBUG` environment variable to run your Playwright tests in debug mode. This configures Playwright for debugging and opens the inspector. Additional useful defaults are configured when `PWDEBUG=1` is set:
-- Browsers launch in headed mode
-- Default timeout is set to 0 (= no timeout)
+將 `PWDEBUG` 環境變數設置為在調試模式下執行你的 Playwright 測試。這會配置 Playwright 進行調試並打開檢查器。當設置 `PWDEBUG=1` 時，會配置其他有用的默認值:
+
+- 瀏覽器在有頭模式下啟動
+- 預設超時設定為 0（= 無超時）
 
 <Tabs
   groupId="bash-flavor"
@@ -42,7 +43,7 @@ dotnet test
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 set PWDEBUG=1
@@ -52,74 +53,75 @@ dotnet test
 </TabItem>
 </Tabs>
 
-### Stepping through your tests
+### 逐步執行你的測試
 
-You can play, pause or step through each action of your test using the toolbar at the top of the Inspector. You can see the current action highlighted in the test code, and matching elements highlighted in the browser window.
+您可以使用 Inspector 頂部的工具欄來播放、暫停或逐步執行測試的每個動作。您可以在測試程式碼中看到當前動作被突出顯示，並且在瀏覽器視窗中匹配的元素也會被突出顯示。
 
-<img width="1340" alt="Playwright Inspector and browser" src="https://user-images.githubusercontent.com/13063165/212936618-84b87acc-bc2e-46ed-994b-32b2ef742e60.png" />
+<img width="1340" alt="Playwright Inspector 和瀏覽器" src="https://user-images.githubusercontent.com/13063165/212936618-84b87acc-bc2e-46ed-994b-32b2ef742e60.png" />
 
-### Run a test from a specific breakpoint
+### 從特定的斷點執行測試
 
-To speed up the debugging process you can add a [Page.PauseAsync()](/api/class-page.mdx#page-pause) method to your test. This way you won't have to step through each action of your test to get to the point where you want to debug.
+為了加速除錯過程，你可以在測試中加入 [Page.PauseAsync()](/api/class-page.mdx#page-pause) 方法。這樣你就不必逐步執行測試的每個動作來到達你想要除錯的點。
 
 ```csharp
 await page.PauseAsync();
 ```
 
-Once you add a `page.pause()` call, run your tests in debug mode. Clicking the "Resume" button in the Inspector will run the test and only stop on the `page.pause()`.
+一旦你添加了 `page.pause()` 呼叫，請在除錯模式下執行你的測試。點擊 Inspector 中的 "Resume" 按鈕將會執行測試並只在 `page.pause()` 停止。
 
-<img width="1350" alt="test with page.pause" src="https://user-images.githubusercontent.com/13063165/219473050-122be4c2-31d0-4cbd-aa8b-8588e8b781a6.png" />
+<img width="1350" alt="測試與 page.pause" src="https://user-images.githubusercontent.com/13063165/219473050-122be4c2-31d0-4cbd-aa8b-8588e8b781a6.png" />
 
-### Live editing locators
+### 即時編輯定位器
 
-While running in debug mode you can live edit the locators. Next to the 'Pick Locator' button there is a field showing the [locator](./locators.mdx) that the test is paused on. You can edit this locator directly in the **Pick Locator** field, and matching elements will be highlighted in the browser window.
+在偵錯模式下執行時，你可以即時編輯定位器。在 'Pick Locator' 按鈕旁邊有一個欄位顯示測試暫停的[定位器](./locators.mdx)。你可以直接在 **Pick Locator** 欄位中編輯此定位器，匹配的元素將在瀏覽器視窗中被高亮顯示。
 
-<img width="1348" alt="live editing locators" src="https://user-images.githubusercontent.com/13063165/212980815-1cf6ef7b-e69a-496c-898a-ec603a3bc562.png" />
 
-### Picking locators
 
-While debugging, you might need to choose a more resilient locator. You can do this by clicking on the **Pick Locator** button and hovering over any element in the browser window. While hovering over an element you will see the code needed to locate this element highlighted below. Clicking an element in the browser will add the locator into the field where you can then either tweak it or copy it into your code.
+### 選擇定位器
 
-<img width="1392" alt="Picking locators" src="https://user-images.githubusercontent.com/13063165/212968640-ce82a027-9277-4bdf-b0a9-6282fb2becb7.png" />
+在除錯時，你可能需要選擇一個更具彈性的定位器。你可以通過點擊 **Pick Locator** 按鈕並將滑鼠懸停在瀏覽器視窗中的任何元素上來完成此操作。當滑鼠懸停在某個元素上時，你會在下方看到定位此元素所需的程式碼被高亮顯示。點擊瀏覽器中的元素會將定位器添加到欄位中，然後你可以調整它或將其複製到你的程式碼中。
 
-Playwright will look at your page and figure out the best locator, prioritizing [role, text and test id locators](./locators.mdx). If Playwright finds multiple elements matching the locator, it will improve the locator to make it resilient and uniquely identify the target element, so you don't have to worry about failing tests due to locators.
 
-### Actionability logs
 
-By the time Playwright has paused on a click action, it has already performed [actionability checks](./actionability.mdx) that can be found in the log. This can help you understand what happened during your test and what Playwright did or tried to do. The log tells you if the element was visible, enabled and stable, if the locator resolved to an element, scrolled into view, and so much more. If actionability can't be reached, it will show the action as pending.
+Playwright 會查看你的頁面並找出最佳定位器，優先考慮[角色、文本和測試 ID 定位器](./locators.mdx)。如果 Playwright 找到多個匹配定位器的元素，它會改進定位器，使其具有彈性並唯一識別目標元素，因此你不必擔心因定位器而導致測試失敗。
 
-<img width="883" alt="Actionability Logs" src="https://user-images.githubusercontent.com/13063165/212968907-5dede739-e0e3-482a-91cd-726a0f5b0b6d.png" />
+### 可操作性日誌
+
+在 Playwright 暫停點擊動作時，它已經執行了可以在日誌中找到的[actionability checks](./actionability.mdx)。這可以幫助你了解測試期間發生了什麼以及 Playwright 做了什麼或試圖做什麼。日誌會告訴你元素是否可見、啟用和穩定，定位器是否解析為元素、滾動到視圖中，還有更多。如果無法達到行動性，它會顯示該行動為待處理。
+
+
 
 ## Trace Viewer
 
-Playwright [Trace Viewer](/trace-viewer.mdx) is a GUI tool that lets you explore recorded Playwright traces of your tests. You can go back and forward through each action on the left side, and visually see what was happening during the action. In the middle of the screen, you can see a DOM snapshot for the action. On the right side you can see action details, such as time, parameters, return value and log. You can also explore console messages, network requests and the source code.
+Playwright [Trace Viewer](/trace-viewer.mdx) 是一個 GUI 工具，讓你探索測試中記錄的 Playwright traces。你可以在左側來回瀏覽每個動作，並直觀地看到動作期間發生的事情。在螢幕中間，你可以看到該動作的 DOM 快照。在右側，你可以看到動作的詳細資訊，如時間、參數、返回值和日誌。你還可以探索主控台訊息、網路請求和原始程式碼。
 
 <video width="100%" height="100%" controls muted>
 
-<source src="https://user-images.githubusercontent.com/13063165/219132713-17b9d75b-71e3-42c4-a43f-3f9e2e15f834.mp4" type="video/mp4" /> Your browser does not support the video tag.
+<source src="https://user-images.githubusercontent.com/13063165/219132713-17b9d75b-71e3-42c4-a43f-3f9e2e15f834.mp4" type="video/mp4" /> 您的瀏覽器不支援 video 標籤。
 
 </video>
 
-To learn more about how to record traces and use the Trace Viewer, check out the [Trace Viewer](/trace-viewer.mdx) guide.
+要了解更多關於如何記錄追蹤和使用 Trace Viewer 的資訊，請查看 [Trace Viewer](https://ollama.com/trace-viewer.mdx) 指南。
 
-## Browser Developer Tools
+## 瀏覽器開發者工具
 
-When running in Debug Mode with `PWDEBUG=console`, a `playwright` object is available in the Developer tools console. Developer tools can help you to:
-- Inspect the DOM tree and **find element selectors**
-- **See console logs** during execution (or learn how to [read logs via API](./api/class-page.mdx#page-event-console))
-- Check **network activity** and other developer tools features
+當以 Debug 模式並使用 `PWDEBUG=console` 執行時，開發者工具的控制台中會有一個 `playwright` 物件可用。開發者工具可以幫助你：
 
-This will also set the default timeouts of Playwright to 0 (= no timeout).
+- 檢查 DOM 樹並**找到元素選擇器**
+- **查看執行期間的控制台日誌**（或學習如何[通過 API 閱讀日誌](./api/class-page.mdx#page-event-console)）
+- 檢查**網路活動**和其他開發者工具功能
 
-<img width="1399" alt="Browser Developer Tools with Playwright object" src="https://user-images.githubusercontent.com/13063165/219128002-898f604d-9697-4b7f-95b5-a6a8260b7282.png" />
+這也會將 Playwright 的預設超時設定為 0（= 無超時）。
 
-To debug your tests using the browser developer tools, start by setting a breakpoint in your test to pause the execution using the [Page.PauseAsync()](/api/class-page.mdx#page-pause) method.
+<img width="1399" alt="瀏覽器開發者工具與 Playwright 物件" src="https://user-images.githubusercontent.com/13063165/219128002-898f604d-9697-4b7f-95b5-a6a8260b7282.png" />
+
+要使用瀏覽器開發者工具調試測試，首先在測試中設置一個斷點以使用 [Page.PauseAsync()](/api/class-page.mdx#page-pause) 方法暫停執行。
 
 ```csharp
 await page.PauseAsync();
 ```
 
-Once you have set a breakpoint in your test, you can then run your test with `PWDEBUG=console`.
+一旦你在測試中設置了一個斷點，你可以使用 `PWDEBUG=console` 來執行你的測試。
 
 <Tabs
   groupId="bash-flavor"
@@ -145,7 +147,7 @@ dotnet test
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 set PWDEBUG=console
@@ -155,11 +157,11 @@ dotnet test
 </TabItem>
 </Tabs>
 
-Once Playwright launches the browser window, you can open the developer tools. The `playwright` object will be available in the console panel.
+一旦 Playwright 啟動瀏覽器視窗，你可以開啟開發者工具。`playwright` 物件將在主控台面板中可用。
 
 #### playwright.$(selector)
 
-Query the Playwright selector, using the actual Playwright query engine, for example:
+查詢 Playwright 選擇器，使用實際的 Playwright 查詢引擎，例如:
 
 ```bash
 playwright.$('.auth-form >> text=Log in');
@@ -169,7 +171,7 @@ playwright.$('.auth-form >> text=Log in');
 
 #### playwright.$$(selector)
 
-Same as `playwright.$`, but returns all matching elements.
+與 `playwright.$` 相同，但返回所有匹配的元素。
 
 ```bash
 playwright.$$('li >> text=John')
@@ -179,7 +181,7 @@ playwright.$$('li >> text=John')
 
 #### playwright.inspect(selector)
 
-Reveal element in the Elements panel.
+在 Elements 面板中顯示元素。
 
 ```bash
 playwright.inspect('text=Log in')
@@ -187,7 +189,7 @@ playwright.inspect('text=Log in')
 
 #### playwright.locator(selector)
 
-Create a locator and query matching elements, for example:
+建立一個定位器並查詢匹配的元素，例如:
 
 ```bash
 playwright.locator('.auth-form', { hasText: 'Log in' });
@@ -199,7 +201,7 @@ Locator ()
 
 #### playwright.selector(element)
 
-Generates selector for the given element. For example, select an element in the Elements panel and pass `$0`:
+產生給定元素的選擇器。例如，在 Elements 面板中選擇一個元素並傳遞 `$0`:
 
 ```bash
 playwright.selector($0)
@@ -207,9 +209,9 @@ playwright.selector($0)
 "div[id="glow-ingress-block"] >> text=/.*Hello.*/"
 ```
 
-## Verbose API logs
+## 冗長的 API 日誌
 
-Playwright supports verbose logging with the `DEBUG` environment variable.
+Playwright 支援使用 `DEBUG` 環境變數進行詳細日誌記錄。
 
 <Tabs
   groupId="bash-flavor"
@@ -235,7 +237,7 @@ dotnet run
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 set DEBUG=pw:api
@@ -246,14 +248,14 @@ dotnet run
 </Tabs>
 
 :::note
-**For WebKit**: launching WebKit Inspector during the execution will prevent the Playwright script from executing any further and will reset pre-configured user agent and device emulation.
+**對於 WebKit**: 在執行期間啟動 WebKit Inspector 將會阻止 Playwright 腳本繼續執行，並且會重置預先配置的使用者代理和裝置模擬。
 :::
 
 ## Headed mode
 
-Playwright runs browsers in headless mode by default. To change this behavior, use `headless: false` as a launch option.
+Playwright 預設以無頭模式執行瀏覽器。要更改此行為，請使用 `headless: false` 作為啟動選項。
 
-You can also use the `slowMo` option to slow down execution (by N milliseconds per operation) and follow along while debugging.
+你也可以使用 `slowMo` 選項來減慢執行速度（每次操作 N 毫秒），並在調試時跟隨。
 
 ```csharp
 // Chromium, Firefox, or WebKit
@@ -263,6 +265,8 @@ await using var browser = await playwright.Chromium.LaunchAsync(new()
     SlowMo = 100
 });
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

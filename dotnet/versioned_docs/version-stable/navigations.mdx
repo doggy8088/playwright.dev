@@ -1,35 +1,35 @@
----
+﻿---
 id: navigations
-title: "Navigations"
+title: "導航"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright can navigate to URLs and handle navigations caused by the page interactions.
+Playwright 可以導航到 URL 並處理由頁面互動引起的導航。
 
-## Basic navigation
+## 基本導航
 
-Simplest form of a navigation is opening a URL:
+導航的最簡單形式是開啟一個 URL:
 
 ```csharp
 // Navigate the page
 await page.GotoAsync("https://example.com");
 ```
 
-The code above loads the page and waits for the web page to fire the [load](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event) event. The load event is fired when the whole page has loaded, including all dependent resources such as stylesheets, scripts, iframes, and images.
+上述程式碼載入頁面並等待網頁觸發 [load](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event) 事件。當整個頁面載入完成，包括所有相依資源如樣式表、腳本、iframe 和圖片時，會觸發 load 事件。
 
 :::note
-If the page does a client-side redirect before `load`, [Page.GotoAsync()](/api/class-page.mdx#page-goto) will wait for the redirected page to fire the `load` event.
+如果頁面在 `load` 之前進行客戶端重定向，[Page.GotoAsync()](/api/class-page.mdx#page-goto) 會等待重定向的頁面觸發 `load` 事件。
 :::
 
-## When is the page loaded?
+## 當頁面載入時？
 
-Modern pages perform numerous activities after the `load` event was fired. They fetch data lazily, populate UI, load expensive resources, scripts and styles after the `load` event was fired. There is no way to tell that the page is `loaded`, it depends on the page, framework, etc. So when can you start interacting with it?
+現代頁面在 `load` 事件觸發後執行許多活動。它們會延遲獲取資料、填充 UI、在 `load` 事件觸發後載入昂貴的資源、腳本和樣式。無法確定頁面何時 `loaded`，這取決於頁面、框架等。因此，何時可以開始與其互動呢？
 
-In Playwright you can interact with the page at any moment. It will automatically wait for the target elements to become [actionable](./actionability.mdx).
+在 Playwright 中，你可以隨時與頁面互動。它會自動等待目標元素變得[可操作](./actionability.mdx)。
 
 ```csharp
 // Navigate and click element
@@ -38,42 +38,45 @@ await page.GotoAsync("https://example.com");
 await page.GetByText("Example Domain").ClickAsync();
 ```
 
-For the scenario above, Playwright will wait for the text to become visible, will wait for the rest of the actionability checks to pass for that element, and will click it.
+對於上述場景，Playwright 會等待文字變得可見，會等待該元素的其他可操作性檢查通過，並會點擊它。
 
-Playwright operates as a very fast user - the moment it sees the button, it clicks it. In the general case, you don't need to worry about whether all the resources loaded, etc.
+Playwright 運作得非常快 - 一看到按鈕就會點擊。在一般情況下，你不需要擔心所有資源是否已經載入等問題。
 
 ## Hydration
 
-At some point in time, you'll stumble upon a use case where Playwright performs an action, but nothing seemingly happens. Or you enter some text into the input field and it will disappear. The most probable reason behind that is a poor page [hydration](https://en.wikipedia.org/wiki/Hydration_(web_development)).
+某個時間點，你會遇到一個使用案例，其中 Playwright 執行了一個動作，但似乎什麼都沒有發生。或者你在輸入欄位中輸入了一些文字，然後它會消失。最可能的原因是頁面[hydration](https://en.wikipedia.org/wiki/Hydration_(web_development))不佳。
 
-When page is hydrated, first, a static version of the page is sent to the browser. Then the dynamic part is sent and the page becomes "live". As a very fast user, Playwright will start interacting with the page the moment it sees it. And if the button on a page is enabled, but the listeners have not yet been added, Playwright will do its job, but the click won't have any effect.
+當頁面被加載時，首先，一個靜態版本的頁面會被發送到瀏覽器。然後動態部分被發送，頁面變得“活躍”。作為一個非常快速的用戶，Playwright 會在看到頁面的那一刻開始與其互動。如果頁面上的按鈕已啟用，但監聽器尚未添加，Playwright 會完成它的工作，但點擊不會有任何效果。
 
-A simple way to verify if your page suffers from a poor hydration is to open Chrome DevTools, pick "Slow 3G" network emulation in the Network panel and reload the page. Once you see the element of interest, interact with it. You'll see that the button clicks will be ignored and the entered text will be reset by the subsequent page load code. The right fix for this issue is to make sure that all the interactive controls are disabled until after the hydration, when the page is fully functional.
+驗證頁面是否存在不良 hydration 的一個簡單方法是打開 Chrome DevTools，在 Network 面板中選擇 "Slow 3G" 網路模擬並重新載入頁面。一旦看到感興趣的元素，與之互動。你會看到按鈕點擊會被忽略，並且輸入的文字會被隨後的頁面載入程式碼重置。解決此問題的正確方法是確保所有的互動控制項在 hydration 之後（頁面完全功能化之後）才啟用。
 
-## Waiting for navigation
+## 等待導航
 
-Clicking an element could trigger multiple navigations. In these cases, it is recommended to explicitly [Page.WaitForURLAsync()](/api/class-page.mdx#page-wait-for-url) to a specific url.
+點擊一個元素可能會觸發多次導航。在這些情況下，建議明確地 [Page.WaitForURLAsync()](https://ollama.com/library) 到一個特定的 URL。
 
 ```csharp
 await page.GetByText("Click me").ClickAsync();
 await page.WaitForURL("**/login");
 ```
 
-## Navigation events
+## 導航事件
 
-Playwright splits the process of showing a new document in a page into **navigation** and **loading**.
+Playwright 將在頁面中顯示新文件的過程分為**導航**和**加載**。
 
-**Navigation starts** by changing the page URL or by interacting with the page (e.g., clicking a link). The navigation intent may be canceled, for example, on hitting an unresolved DNS address or transformed into a file download.
+**導航開始** 通過更改頁面 URL 或與頁面互動（例如，點擊連結）。導航意圖可能會被取消，例如，在遇到無法解析的 DNS 地址時，或轉變為檔案下載。
 
-**Navigation is committed** when the response headers have been parsed and session history is updated. Only after the navigation succeeds (is committed), the page starts **loading** the document.
+**導航已提交** 時，回應標頭已被解析且會話歷史已更新。只有在導航成功（已提交）後，頁面才開始**載入**文件。
 
-**Loading** covers getting the remaining response body over the network, parsing, executing the scripts and firing load events:
-- [Page.Url](/api/class-page.mdx#page-url) is set to the new url
-- document content is loaded over network and parsed
-- [Page.DOMContentLoaded](/api/class-page.mdx#page-event-dom-content-loaded) event is fired
-- page executes some scripts and loads resources like stylesheets and images
-- [Page.Load](/api/class-page.mdx#page-event-load) event is fired
-- page executes dynamically loaded scripts
+**載入**涵蓋通過網路獲取剩餘的響應正文、解析、執行腳本和觸發載入事件:
+
+- [Page.Url](/api/class-page.mdx#page-url) 被設定為新 url
+- 文件內容通過網路加載並解析
+- [Page.DOMContentLoaded](https://api/class-page.mdx#page-event-dom-content-loaded) 事件被觸發
+- 頁面執行一些腳本並加載樣式表和圖像等資源
+- [Page.Load](https://api/class-page.mdx#page-event-load) 事件被觸發
+- 頁面執行動態加載的腳本
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

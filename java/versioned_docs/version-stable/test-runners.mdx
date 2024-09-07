@@ -1,20 +1,20 @@
----
+﻿---
 id: test-runners
-title: "Test Runners"
+title: "測試執行器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-With a few lines of code, you can hook up Playwright to your favorite Java test runner.
+只需幾行程式碼，你就可以將 Playwright 連接到你最喜愛的 Java 測試執行器。
 
-Playwright and Browser instances can be reused between tests for better performance. We recommend running each test case in a new BrowserContext, this way browser state will be isolated between the tests.
+Playwright 和 Browser 實例可以在測試之間重複使用，以提高效能。我們建議在新的 BrowserContext 中執行每個測試案例，這樣瀏覽器狀態將在測試之間隔離。
 
 ## JUnit
 
-In [JUnit](https://junit.org/junit5/) you can initialize [Playwright] and [Browser] in [@BeforeAll](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeAll.html) method and destroy them in [@AfterAll](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/AfterAll.html). In the example below all three test methods use the same [Browser]. Each test uses its own [BrowserContext] and [Page].
+在 [JUnit](https://junit.org/junit5/) 中，你可以在 [@BeforeAll](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeAll.html) 方法中初始化 [Playwright] 和 [Browser]，並在 [@AfterAll](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/AfterAll.html) 方法中銷毀它們。在下面的範例中，所有三個測試方法都使用相同的 [Browser]。每個測試使用自己的 [BrowserContext] 和 [Page]。
 
 ```java
 package org.example;
@@ -84,13 +84,13 @@ public class TestExample {
 }
 ```
 
-See experimental [JUnit integration](./junit.mdx) to automatically initialize Playwright objects and more.
+請參閱實驗性 [JUnit integration](./junit.mdx) 以自動初始化 Playwright 物件及更多。
 
-### Running Tests in Parallel
+### 執行測試在平行處理
 
-By default JUnit will run all tests sequentially on a single thread. Since JUnit 5.3 you can change this behavior to run tests in parallel to speed up execution (see [this page](https://junit.org/junit5/docs/snapshot/user-guide/index.html#writing-tests-parallel-execution)). Since it is not safe to use same Playwright objects from multiple threads without extra synchronization we recommend you create Playwright instance per thread and use it on that thread exclusively. Here is an example how to run multiple test classes in parallel.
+預設情況下，JUnit 將在單個執行緒上順序執行所有測試。自 JUnit 5.3 起，您可以更改此行為以平行執行測試以加快執行速度（請參閱[此頁面](https://junit.org/junit5/docs/snapshot/user-guide/index.html#writing-tests-parallel-execution)）。由於在沒有額外同步的情況下，從多個執行緒使用相同的 Playwright 物件是不安全的，我們建議您為每個執行緒建立 Playwright 實例，並在該執行緒上專門使用它。以下是一個如何平行執行多個測試類別的範例。
 
-Use [`@TestInstance(TestInstance.Lifecycle.PER_CLASS)`](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/TestInstance.html) annotation to make JUnit create one instance of a class for all test methods within that class (by default each JUnit will create a new instance of the class for each test method). Store [Playwright] and [Browser] objects in instance fields. They will be shared between tests. Each instance of the class will use its own copy of Playwright.
+使用 [`@TestInstance(TestInstance.Lifecycle.PER_CLASS)`](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/TestInstance.html) 註解來讓 JUnit 為該類別中的所有測試方法建立一個類別的實例（默認情況下，每個 JUnit 會為每個測試方法建立一個新的類別實例）。將 [Playwright] 和 [Browser] 物件儲存在實例欄位中。它們將在測試之間共享。每個類別的實例將使用其自己的 Playwright 複製品。
 
 ```java
 // Subclasses will inherit PER_CLASS behavior.
@@ -169,7 +169,7 @@ class Test2 extends TestFixtures {
 }
 ```
 
-Configure JUnit to run tests in each class sequentially and run multiple classes on parallel threads (with max number of thread equal to 1/2 of the number of CPU cores):
+配置 JUnit 以在每個類別中依序執行測試，並在平行執行緒上執行多個類別（執行緒的最大數量等於 CPU 核心數的一半）:
 
 ```bash
 junit.jupiter.execution.parallel.enabled = true
@@ -179,9 +179,9 @@ junit.jupiter.execution.parallel.config.strategy=dynamic
 junit.jupiter.execution.parallel.config.dynamic.factor=0.5
 ```
 
-### Using Gradle
+### 使用 Gradle
 
-You can use a Gradle build configuration script, written in Groovy or Kotlin.
+你可以使用用 Groovy 或 Kotlin 編寫的 Gradle 建構配置腳本。
 
 <Tabs defaultValue="gradle" values={[ {label: 'build.gradle', value: 'gradle'}, {label: 'build.gradle.kts', value: 'gradle-kotlin'} ] }>
 
@@ -256,13 +256,13 @@ tasks.test {
 
 </Tabs>
 
-Tests can then be launched as follows:
+測試可以如下啟動:
 
 ```bash
 ./gradlew run
 ```
 
-Also, Playwright command line tools can be run with :
+此外，Playwright 命令列工具可以執行如下:
 
 ```bash
 ./gradlew playwright --args="help"
@@ -270,7 +270,7 @@ Also, Playwright command line tools can be run with :
 
 ## TestNG
 
-In [TestNG](https://testng.org/) you can initialize [Playwright] and [Browser] in [@BeforeClass](https://javadoc.io/doc/org.testng/testng/latest/org/testng/annotations/BeforeClass.html) method and destroy them in [@AfterClass](https://javadoc.io/doc/org.testng/testng/latest/org/testng/annotations/AfterClass.html). In the example below all three test methods use the same [Browser]. Each test uses its own [BrowserContext] and [Page].
+在 [TestNG](https://testng.org/) 中，你可以在 [@BeforeClass](https://javadoc.io/doc/org.testng/testng/latest/org/testng/annotations/BeforeClass.html) 方法中初始化 [Playwright] 和 [Browser]，並在 [@AfterClass](https://javadoc.io/doc/org.testng/testng/latest/org/testng/annotations/AfterClass.html) 方法中銷毀它們。在下面的範例中，所有三個測試方法都使用相同的 [Browser]。每個測試使用其自己的 [BrowserContext] 和 [Page]。
 
 ```java
 package org.example;
@@ -339,6 +339,8 @@ public class TestExample {
   }
 }
 ```
+
+
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

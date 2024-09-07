@@ -1,39 +1,40 @@
----
+﻿---
 id: ci
-title: "Continuous Integration"
+title: "持續整合"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright tests can be executed in CI environments. We have created sample configurations for common CI providers.
+Playwright 測試可以在 CI 環境中執行。我們已經為常見的 CI 提供者建立了範例配置。
 
-3 steps to get your tests running on CI:
-1. **Ensure CI agent can run browsers**: Use [our Docker image](./docker.mdx) in Linux agents or install your dependencies using the [CLI](./browsers#install-system-dependencies).
-1. **Install Playwright**:
+3 步驟讓你的測試在 CI 上執行:
+
+1. **確保 CI 代理可以執行瀏覽器**: 在 Linux 代理中使用[我們的 Docker 映像](./docker.mdx)或使用[CLI](./browsers#install-system-dependencies)安裝你的相依套件。
+1. **安裝 Playwright**:
    
    ```bash
    dotnet build
    pwsh bin/Debug/netX/playwright.ps1 install --with-deps
    ```
    
-1. **Run your tests**:
+1. **執行你的測試**:
    
    ```bash
    dotnet test
    ```
-   
+
 ## CI configurations
 
-The [Command line tools](./browsers#install-system-dependencies) can be used to install all operating system dependencies in CI.
+[命令列工具](./browsers#install-system-dependencies) 可以用來在 CI 中安裝所有作業系統相依套件。
 
 ### GitHub Actions
 
-#### On push/pull_request
+#### 在 push/pull_request
 
-Tests will run on push or pull request on branches main/master. The [workflow](https://docs.github.com/en/actions/using-workflows/about-workflows) will install all dependencies, install Playwright and then run the tests.
+測試將在 push 或 pull request 到 main/master 分支時執行。 [工作流程](https://docs.github.com/en/actions/using-workflows/about-workflows) 會安裝所有相依套件，安裝 Playwright，然後執行測試。
 
 ```yml title=".github/workflows/playwright.yml"
 name: Playwright Tests
@@ -60,9 +61,9 @@ jobs:
       run: dotnet test
 ```
 
-#### Via Containers
+#### 通過容器
 
-GitHub Actions support [running jobs in a container](https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container) by using the [`jobs.<job_id>.container`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer) option. This is useful to not pollute the host environment with dependencies and to have a consistent environment for e.g. screenshots/visual regression testing across different operating systems.
+GitHub Actions 支援[在容器中執行作業](https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container)，使用[`jobs.<job_id>.container`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer)選項。這對於不污染主機環境與相依套件並在不同作業系統中進行一致的環境，例如截圖/視覺回歸測試，非常有用。
 
 ```yml title=".github/workflows/playwright.yml"
 name: Playwright Tests
@@ -90,9 +91,9 @@ jobs:
           HOME: /root
 ```
 
-#### On deployment
+#### 部署
 
-This will start the tests after a [GitHub Deployment](https://developer.github.com/v3/repos/deployments/) went into the `success` state. Services like Vercel use this pattern so you can run your end-to-end tests on their deployed environment.
+這將在 [GitHub Deployment](https://developer.github.com/v3/repos/deployments/) 進入 `success` 狀態後開始測試。像 Vercel 這樣的服務使用這種模式，因此您可以在他們部署的環境中執行端到端測試。
 
 ```yml title=".github/workflows/playwright.yml"
 name: Playwright Tests
@@ -121,20 +122,21 @@ jobs:
 
 ### Docker
 
-We have a [pre-built Docker image](./docker.mdx) which can either be used directly, or as a reference to update your existing Docker definitions.
+我們有一個[預建的 Docker 映像](./docker.mdx)，可以直接使用，或作為更新現有 Docker 定義的參考。
 
-Suggested configuration
-1. Using `--ipc=host` is also recommended when using Chromium. Without it Chromium can run out of memory and crash. Learn more about this option in [Docker docs](https://docs.docker.com/engine/reference/run/#ipc-settings---ipc).
-1. Seeing other weird errors when launching Chromium? Try running your container with `docker run --cap-add=SYS_ADMIN` when developing locally.
-1. Using `--init` Docker flag or [dumb-init](https://github.com/Yelp/dumb-init) is recommended to avoid special treatment for processes with PID=1. This is a common reason for zombie processes.
+建議的設定
+
+1. 當使用 Chromium 時，也建議使用 `--ipc=host`。否則 Chromium 可能會耗盡記憶體並崩潰。了解更多關於此選項的資訊在 [Docker docs](https://docs.docker.com/engine/reference/run/#ipc-settings---ipc)。
+1. 啟動 Chromium 時看到其他奇怪的錯誤？嘗試在本地開發時使用 `docker run --cap-add=SYS_ADMIN` 執行容器。
+1. 建議使用 `--init` Docker 標誌或 [dumb-init](https://github.com/Yelp/dumb-init) 來避免對 PID=1 的進程進行特殊處理。這是殭屍進程的一個常見原因。
 
 ### Azure Pipelines
 
-For Windows or macOS agents, no additional configuration required, just install Playwright and run your tests.
+對於 Windows 或 macOS 代理，不需要額外的配置，只需安裝 Playwright 並執行您的測試。
 
-For Linux agents, you can use [our Docker container](./docker.mdx) with Azure Pipelines support [running containerized jobs](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases?view=azure-devops). Alternatively, you can use [Command line tools](./browsers#install-system-dependencies) to install all necessary dependencies.
+對於 Linux 代理，您可以使用[我們的 Docker 容器](./docker.mdx)與 Azure Pipelines 支援[執行容器化的作業](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases?view=azure-devops)。或者，您可以使用[命令列工具](./browsers#install-system-dependencies)來安裝所有必要的相依套件。
 
-For running the Playwright tests use this pipeline task:
+要執行 Playwright 測試，請使用此管道任務:
 
 ```yml
 trigger:
@@ -182,7 +184,7 @@ steps:
 
 ### CircleCI
 
-Running Playwright on CircleCI is very similar to running on GitHub Actions. In order to specify the pre-built Playwright [Docker image](./docker.mdx), simply modify the agent definition with `docker:` in your config like so:
+執行 Playwright 在 CircleCI 上與在 GitHub Actions 上非常相似。為了指定預建的 Playwright [Docker image](./docker.mdx)，只需在你的配置中用 `docker:` 修改代理定義，如下所示:
 
 ```yml
 executors:
@@ -191,11 +193,11 @@ executors:
       - image: mcr.microsoft.com/playwright/dotnet:v1.46.0-noble
 ```
 
-Note: When using the docker agent definition, you are specifying the resource class of where playwright runs to the 'medium' tier [here](https://circleci.com/docs/configuration-reference?#docker-execution-environment). The default behavior of Playwright is to set the number of workers to the detected core count (2 in the case of the medium tier). Overriding the number of workers to greater than this number will cause unnecessary timeouts and failures.
+注意: 當使用 docker 代理定義時，你正在將 Playwright 執行的資源類別指定為 'medium' 級別 [此處](https://circleci.com/docs/configuration-reference?#docker-execution-environment)。Playwright 的預設行為是將工作者數量設置為檢測到的核心數量（在 medium 級別的情況下為 2）。將工作者數量覆蓋設定為大於這個數字將導致不必要的超時和失敗。
 
 ### Jenkins
 
-Jenkins supports Docker agents for pipelines. Use the [Playwright Docker image](./docker.mdx) to run tests on Jenkins.
+Jenkins 支援 Docker 代理用於管線。使用 [Playwright Docker 映像](./docker.mdx) 在 Jenkins 上執行測試。
 
 ```groovy
 pipeline {
@@ -213,7 +215,7 @@ pipeline {
 
 ### Bitbucket Pipelines
 
-Bitbucket Pipelines can use public [Docker images as build environments](https://confluence.atlassian.com/bitbucket/use-docker-images-as-build-environments-792298897.html). To run Playwright tests on Bitbucket, use our public Docker image ([see Dockerfile](./docker.mdx)).
+Bitbucket Pipelines 可以使用公共 [Docker images as build environments](https://confluence.atlassian.com/bitbucket/use-docker-images-as-build-environments-792298897.html)。要在 Bitbucket 上執行 Playwright 測試，請使用我們的公共 Docker image ([see Dockerfile](./docker.mdx))。
 
 ```yml
 image: mcr.microsoft.com/playwright/dotnet:v1.46.0-noble
@@ -221,31 +223,33 @@ image: mcr.microsoft.com/playwright/dotnet:v1.46.0-noble
 
 ### GitLab CI
 
-To run Playwright tests on GitLab, use our public Docker image ([see Dockerfile](./docker.mdx)).
+要在 GitLab 上執行 Playwright 測試，請使用我們的公共 Docker 映像([see Dockerfile](./docker.mdx))。
 
-## Caching browsers
+## 快取瀏覽器
 
-Caching browser binaries is not recommended, since the amount of time it takes to restore the cache is comparable to the time it takes to download the binaries. Especially under Linux, [operating system dependencies](./browsers.mdx#install-system-dependencies) need to be installed, which are not cacheable.
+快取瀏覽器二進位檔案並不建議，因為還原快取所需的時間與下載二進位檔案所需的時間相當。特別是在 Linux 下，需要安裝[作業系統相依套件](./browsers.mdx#install-system-dependencies)，這些是無法快取的。
 
-If you still want to cache the browser binaries between CI runs, cache [these directories](./browsers.mdx#managing-browser-binaries) in your CI configuration, against a hash of the Playwright version.
+如果你仍然想在 CI 執行之間快取瀏覽器二進位檔，請在你的 CI 設定中，根據 Playwright 版本的雜湊值快取[這些目錄](./browsers.mdx#managing-browser-binaries)。
 
-## Debugging browser launches
+## 偵錯瀏覽器啟動
 
-Playwright supports the `DEBUG` environment variable to output debug logs during execution. Setting it to `pw:browser` is helpful while debugging `Error: Failed to launch browser` errors.
+Playwright 支援 `DEBUG` 環境變數來在執行期間輸出除錯日誌。將其設置為 `pw:browser` 在除錯 `Error: Failed to launch browser` 錯誤時非常有幫助。
 
 ```bash
 DEBUG=pw:browser dotnet test
 ```
 
-## Running headed
+## 執行 headed
 
-By default, Playwright launches browsers in headless mode. See in our [Running tests](./running-tests.mdx#run-tests-in-headed-mode) guide how to run tests in headed mode.
+預設情況下，Playwright 會在無頭模式下啟動瀏覽器。請參閱我們的[執行測試](./running-tests.mdx#run-tests-in-headed-mode)指南，了解如何在有頭模式下執行測試。
 
-On Linux agents, headed execution requires [Xvfb](https://en.wikipedia.org/wiki/Xvfb) to be installed. Our [Docker image](./docker.mdx) and GitHub Action have Xvfb pre-installed. To run browsers in headed mode with Xvfb, add `xvfb-run` before the actual command.
+在 Linux 代理上，帶頭執行需要安裝 [Xvfb](https://en.wikipedia.org/wiki/Xvfb)。我們的 [Docker image](./docker.mdx) 和 GitHub Action 已經預先安裝了 Xvfb。要在帶頭模式下使用 Xvfb 執行瀏覽器，請在實際命令前添加 `xvfb-run`。
 
 ```bash
 xvfb-run dotnet test
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

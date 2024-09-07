@@ -1,45 +1,47 @@
----
+﻿---
 id: screenshots
-title: "Screenshots"
+title: "截圖"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Here is a quick way to capture a screenshot and save it into a file:
+這裡有一個快速捕捉螢幕截圖並將其保存到文件中的方法:
 
 ```js
 await page.screenshot({ path: 'screenshot.png' });
 ```
 
-[Screenshots API](./api/class-page#page-screenshot) accepts many parameters for image format, clip area, quality, etc. Make sure to check them out.
+[Screenshots API](./api/class-page#page-screenshot) 接受許多參數來設定影像格式、裁剪區域、品質等。請務必查看。
 
-## Full page screenshots
+## 全頁截圖
 
-Full page screenshot is a screenshot of a full scrollable page, as if you had a very tall screen and the page could fit it entirely.
+整頁截圖是一個完整可滾動頁面的截圖，就像你有一個非常高的螢幕，頁面可以完全適應它。
 
 ```js
 await page.screenshot({ path: 'screenshot.png', fullPage: true });
 ```
 
-## Capture into buffer
+## 捕捉到緩衝區
 
-Rather than writing into a file, you can get a buffer with the image and post-process it or pass it to a third party pixel diff facility.
+與其寫入檔案，你可以獲取圖像的緩衝區並進行後處理或將其傳遞給第三方像素差異設施。
 
 ```js
 const buffer = await page.screenshot();
 console.log(buffer.toString('base64'));
 ```
 
-## Element screenshot
+## 元素截圖
 
-Sometimes it is useful to take a screenshot of a single element.
+有時候將單一元素截圖是有用的。
 
 ```js
 await page.locator('.header').screenshot({ path: 'screenshot.png' });
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

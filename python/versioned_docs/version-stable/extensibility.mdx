@@ -1,24 +1,25 @@
----
+﻿---
 id: extensibility
-title: "Extensibility"
+title: "延展性"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Custom selector engines
+## 自訂選擇器引擎
 
-Playwright supports custom selector engines, registered with [selectors.register()](/api/class-selectors.mdx#selectors-register).
+Playwright 支援自訂選擇器引擎，已註冊於 [selectors.register()](https://api/class-selectors.mdx#selectors-register)。
 
-Selector engine should have the following properties:
-- `query` function to query first element matching `selector` relative to the `root`.
-- `queryAll` function to query all elements matching `selector` relative to the `root`.
+選擇器引擎應該具有以下屬性:
 
-By default the engine is run directly in the frame's JavaScript context and, for example, can call an application-defined function. To isolate the engine from any JavaScript in the frame, but leave access to the DOM, register the engine with `{contentScript: true}` option. Content script engine is safer because it is protected from any tampering with the global objects, for example altering `Node.prototype` methods. All built-in selector engines run as content scripts. Note that running as a content script is not guaranteed when the engine is used together with other custom engines.
+- `query` 函式來查詢相對於 `root` 的第一個符合 `selector` 的元素。
+- `queryAll` 函式來查詢相對於 `root` 的所有符合 `selector` 的元素。
 
-Selectors must be registered before creating the page.
+默認情況下，引擎直接在框架的 JavaScript 上下文中執行，例如，可以呼叫應用程式定義的函式。要將引擎與框架中的任何 JavaScript 隔離，但保留對 DOM 的訪問，請使用 `{contentScript: true}` 選項註冊引擎。內容腳本引擎更安全，因為它受到任何對全域物件的篡改保護，例如更改 `Node.prototype` 方法。所有內建選擇器引擎都以內容腳本形式執行。請注意，當引擎與其他自定義引擎一起使用時，作為內容腳本執行並不保證。
 
-An example of registering selector engine that queries elements based on a tag name:
+建立頁面之前必須註冊選擇器。
+
+註冊選擇器引擎的範例，該引擎根據標籤名稱查詢元素:
 
 <Tabs
   groupId="python-flavor"
@@ -93,6 +94,8 @@ button_count = await page.locator("tag=button").count()
 
 </TabItem>
 </Tabs>
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

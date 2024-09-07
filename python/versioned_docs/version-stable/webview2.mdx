@@ -1,4 +1,4 @@
----
+﻿---
 id: webview2
 title: "WebView2"
 ---
@@ -6,13 +6,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-The following will explain how to use Playwright with [Microsoft Edge WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/). WebView2 is a WinForms control, which will use Microsoft Edge under the hood to render web content. It is a part of the Microsoft Edge browser and is available on Windows 10 and Windows 11. Playwright can be used to automate WebView2 applications and can be used to test web content in WebView2. For connecting to WebView2, Playwright uses [browser_type.connect_over_cdp()](/api/class-browsertype.mdx#browser-type-connect-over-cdp) which connects to it via the Chrome DevTools Protocol (CDP).
+以下將說明如何將 Playwright 與 [Microsoft Edge WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2) 一起使用。WebView2 是一個 WinForms 控制項，它將使用 Microsoft Edge 在後端渲染網頁內容。它是 Microsoft Edge 瀏覽器的一部分，可在 Windows 10 和 Windows 11 上使用。Playwright 可用於自動化 WebView2 應用程式，並可用於測試 WebView2 中的網頁內容。為了連接到 WebView2，Playwright 使用 [browser_type.connect_over_cdp](/api/class-browsertype.mdx#browser-type-connect-over-cdp)，它通過 Chrome DevTools Protocol (CDP) 連接到 WebView2。
 
-## Overview
+## 概述
 
-A WebView2 control can be instructed to listen to incoming CDP connections by setting either the `WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS` environment variable with `--remote-debugging-port=9222` or calling [EnsureCoreWebView2Async](https://docs.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.wpf.webview2.ensurecorewebview2async?view=webview2-dotnet-1.0.1343.22) with the `--remote-debugging-port=9222` argument. This will start the WebView2 process with the Chrome DevTools Protocol enabled which allows the automation by Playwright. 9222 is an example port in this case, but any other unused port can be used as well.
+WebView2 控制項可以透過設定 `WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS` 環境變數為 `--remote-debugging-port=9222` 或呼叫 [EnsureCoreWebView2Async](https://docs.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.wpf.webview2.ensurecorewebview2async?view=webview2-dotnet-1.0.1343.22) 並帶上 `--remote-debugging-port=9222` 參數來指示其監聽進入的 CDP 連接。這將啟動啟用 Chrome DevTools Protocol 的 WebView2 程序，允許 Playwright 進行自動化。9222 是此範例中的埠號，但也可以使用任何其他未使用的埠號。
 
 ```csharp
 await this.webView.EnsureCoreWebView2Async(await CoreWebView2Environment.CreateAsync(null, null, new CoreWebView2EnvironmentOptions()
@@ -21,7 +21,7 @@ await this.webView.EnsureCoreWebView2Async(await CoreWebView2Environment.CreateA
 })).ConfigureAwait(false);
 ```
 
-Once your application with the WebView2 control is running, you can connect to it via Playwright:
+一旦包含 WebView2 控制項的應用程式正在執行，你可以通過 Playwright 連接到它:
 
 <Tabs
   groupId="python-flavor"
@@ -51,7 +51,7 @@ page = context.pages[0]
 </TabItem>
 </Tabs>
 
-To ensure that the WebView2 control is ready, you can wait for the [`CoreWebView2InitializationCompleted`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.wpf.webview2.corewebview2initializationcompleted?view=webview2-dotnet-1.0.1343.22) event:
+為了確保 WebView2 控制項已準備好，你可以等待 [`CoreWebView2InitializationCompleted`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.wpf.webview2.corewebview2initializationcompleted?view=webview2-dotnet-1.0.1343.22) 事件：
 
 ```csharp
 this.webView.CoreWebView2InitializationCompleted += (_, e) =>
@@ -65,11 +65,11 @@ this.webView.CoreWebView2InitializationCompleted += (_, e) =>
 
 ## Writing and running tests
 
-By default, the WebView2 control will use the same user data directory for all instances. This means that if you run multiple tests in parallel, they will interfere with each other. To avoid this, you should set the `WEBVIEW2_USER_DATA_FOLDER` environment variable (or use [WebView2.EnsureCoreWebView2Async Method](https://docs.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.wpf.webview2.ensurecorewebview2async?view=webview2-dotnet-1.0.1343.22)) to a different folder for each test. This will make sure that each test runs in its own user data directory.
+默認情況下，WebView2 控制項將對所有實例使用相同的用戶資料目錄。這意味著如果您平行執行多個測試，它們將互相干擾。為了避免這種情況，您應該為每個測試設置 `WEBVIEW2_USER_DATA_FOLDER` 環境變數（或使用 [WebView2.EnsureCoreWebView2Async Method](https://docs.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.wpf.webview2.ensurecorewebview2async?view=webview2-dotnet-1.0.1343.22)），以使用不同的文件夾。這將確保每個測試在其自己的用戶資料目錄中執行。
 
-Using the following, Playwright will run your WebView2 application as a sub-process, assign a unique user data directory to it and provide the [Page] instance to your test:
+使用以下內容，Playwright 將會將你的 WebView2 應用程式作為子程序執行，為其分配一個唯一的使用者資料目錄，並將 [Page](/api/class-page.mdx) 實例提供給你的測試：
 
-<!-- source code is available here to verify that the examples are working https://github.com/mxschmitt/playwright-webview2-demo -->
+<!-- 原始程式碼可在此處獲取，以驗證範例是否正常運作 https://github.com/mxschmitt/playwright-webview2-demo -->
 
 ```python title="conftest.py"
 import os
@@ -163,11 +163,13 @@ def test_webview2(page: Page):
     expect(get_started).to_be_visible()
 ```
 
-## Debugging
+## 除錯
 
-Inside your webview2 control, you can just right-click to open the context menu and select "Inspect" to open the DevTools or press <kbd>F12</kbd>. You can also use the [WebView2.CoreWebView2.OpenDevToolsWindow](https://learn.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.core.corewebview2.opendevtoolswindow?view=webview2-dotnet-1.0.1462.37) method to open the DevTools programmatically.
+在你的 webview2 控制項內，你可以右鍵點擊以打開上下文選單並選擇 "Inspect" 來打開 DevTools 或按 <kbd>F12</kbd>。你也可以使用 [WebView2.CoreWebView2.OpenDevToolsWindow](https://learn.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.core.corewebview2.opendevtoolswindow?view=webview2-dotnet-1.0.1462.37) 方法以程式碼方式打開 DevTools。
 
-For debugging tests, see the Playwright [Debugging guide](./debug).
+如需除錯測試，請參閱 Playwright [除錯指南](./debug)。
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

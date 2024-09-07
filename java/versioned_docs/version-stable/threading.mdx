@@ -1,16 +1,16 @@
----
+﻿---
 id: multithreading
-title: "Multithreading"
+title: "多執行緒"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright Java is not thread safe, i.e. all its methods as well as methods on all objects created by it (such as [BrowserContext], [Browser], [Page] etc.) are expected to be called on the same thread where the Playwright object was created or proper synchronization should be implemented to ensure only one thread calls Playwright methods at any given time. Having said that it's okay to create multiple Playwright instances each on its own thread.
+Playwright Java 並不是執行緒安全的，也就是說，所有其方法以及所有由其建立的物件（例如 [BrowserContext]、[Browser]、[Page] 等）都應該在建立 Playwright 物件的同一執行緒上呼叫，或者應實作適當的同步化以確保在任何給定時間只有一個執行緒呼叫 Playwright 方法。話雖如此，可以在各自的執行緒上建立多個 Playwright 實例。
 
-Here is an example where three playwright instances are created each on its own thread. Each instance launches its own browser process and runs the test against it.
+這裡是一個範例，其中三個 Playwright 實例分別在各自的執行緒上建立。每個實例啟動自己的瀏覽器進程並對其進行測試。
 
 ```java
 package org.example;
@@ -62,15 +62,15 @@ public class PlaywrightThread extends Thread {
 }
 ```
 
-## Synchronous API and event dispatching
+## 同步 API 和事件分派
 
-In the synchronous Playwright API all events are dispatched only when Playwright is running its message loop. This happens automatically when you call any of the API methods and doesn't happen if there are no active Playwright calls on the stack. If you need to wait for an event the best way to do this is via one of the `waitFor*` methods.
+在同步的 Playwright API 中，所有事件僅在 Playwright 執行其訊息迴圈時才會被分派。當你呼叫任何 API 方法時，這會自動發生，如果堆疊上沒有活躍的 Playwright 呼叫，則不會發生。如果你需要等待一個事件，最好的方法是通過 `waitFor*` 方法之一來完成。
 
 ### Page.waitForTimeout() vs. Thread.sleep()
 
-One consequence of the synchronous API is that if you for whatever reason call `Thread.sleep()` no events will be fired while the thread is sleeping. If you want events from the browser to be dispatched while the program
+同步 API 的一個後果是，如果你因為某種原因呼叫 `Thread.sleep()`，那麼當執行緒在睡眠時不會觸發任何事件。如果你希望在程式執行時從瀏覽器分派事件
 
-execution is paused use [Page.waitForTimeout()](/api/class-page.mdx#page-wait-for-timeout) or [Frame.waitForTimeout()](/api/class-frame.mdx#frame-wait-for-timeout):
+執行已暫停使用 [Page.waitForTimeout()](https://api/class-page.mdx#page-wait-for-timeout) 或 [Frame.waitForTimeout()](https://api/class-frame.mdx#frame-wait-for-timeout):
 
 ```java
 page.onResponse(response -> System.out.println(response.url()));
@@ -79,6 +79,8 @@ System.out.println("-- did navigate --");
 // Block current thread for 60s and ensure the events are dispatched.
 page.waitForTimeout(60_000);
 ```
+
+
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

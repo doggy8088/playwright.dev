@@ -1,18 +1,18 @@
----
+﻿---
 id: test-use-options
-title: "Test use options"
+title: "測試使用選項"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-In addition to configuring the test runner you can also configure [Emulation](#emulation-options), [Network](#network-options) and [Recording](#recording-options) for the [Browser] or [BrowserContext]. These options are passed to the `use: {}` object in the Playwright config.
+除了配置測試執行器之外，你還可以配置[模擬](#emulation-options)、[網路](#network-options)和[錄製](#recording-options)給[Browser]或[BrowserContext]。這些選項會傳遞給 Playwright 配置中的 `use: {}` 物件。
 
-### Basic Options
+### 基本選項
 
-Set the base URL and storage state for all tests:
+設定所有測試的基本 URL 和儲存狀態:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -30,12 +30,12 @@ export default defineConfig({
 
 | Option | Description |
 | :- | :- |
-| [testOptions.baseURL](/api/class-testoptions.mdx#test-options-base-url) | Base URL used for all pages in the context. Allows navigating by using just the path, for example `page.goto('/settings')`. |
-| [testOptions.storageState](/api/class-testoptions.mdx#test-options-storage-state) | Populates context with given storage state. Useful for easy authentication, [learn more](./auth.mdx). |
+| [testOptions.baseURL](/api/class-testoptions.mdx#test-options-base-url) | 用於上下文中所有頁面的基本 URL。允許僅使用路徑進行導航，例如 `page.goto('/settings')`。 |
+| [testOptions.storageState](/api/class-testoptions.mdx#test-options-storage-state) | 使用給定的存儲狀態填充上下文。對於簡單的身份驗證非常有用，[了解更多](./auth.mdx)。
 
-### Emulation Options
+### 模擬選項
 
-With Playwright you can emulate a real device such as a mobile phone or tablet. See our [guide on projects](./test-projects.mdx) for more info on emulating devices. You can also emulate the `"geolocation"`, `"locale"` and `"timezone"` for all tests or for a specific test as well as set the `"permissions"` to show notifications or change the `"colorScheme"`. See our [Emulation](./emulation.mdx) guide to learn more.
+使用 Playwright，你可以模擬真實設備，例如手機或平板電腦。查看我們的[專案指南](./test-projects.mdx)以獲取有關模擬設備的更多資訊。你還可以為所有測試或特定測試模擬 `"geolocation"`、`"locale"` 和 `"timezone"`，以及設置 `"permissions"` 來顯示通知或更改 `"colorScheme"`。查看我們的[模擬](./emulation.mdx)指南以了解更多。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -65,16 +65,16 @@ export default defineConfig({
 
 | Option | Description |
 | :- | :- |
-| [testOptions.colorScheme](/api/class-testoptions.mdx#test-options-color-scheme) | [Emulates](./emulation.mdx#color-scheme-and-media) `'prefers-colors-scheme'` media feature, supported values are `'light'`, `'dark'`, `'no-preference'` |
-| [testOptions.geolocation](/api/class-testoptions.mdx#test-options-geolocation) | Context [geolocation](./emulation.mdx#geolocation). |
-| [testOptions.locale](/api/class-testoptions.mdx#test-options-locale) | [Emulates](./emulation.mdx#locale--timezone) the user locale, for example `en-GB`, `de-DE`, etc. |
-| [testOptions.permissions](/api/class-testoptions.mdx#test-options-permissions) | A list of [permissions](./emulation.mdx#permissions) to grant to all pages in the context. |
-| [testOptions.timezoneId](/api/class-testoptions.mdx#test-options-timezone-id) | Changes the [timezone](./emulation.mdx#locale--timezone) of the context. |
-| [testOptions.viewport](/api/class-testoptions.mdx#test-options-viewport) | [Viewport](./emulation.mdx#viewport) used for all pages in the context. |
+| [testOptions.colorScheme](/api/class-testoptions.mdx#test-options-color-scheme) | [模擬](./emulation.mdx#color-scheme-and-media) `'prefers-colors-scheme'` 媒體功能，支持的值有 `'light'`、`'dark'`、`'no-preference'` |
+| [testOptions.geolocation](/api/class-testoptions.mdx#test-options-geolocation) | 上下文 [geolocation](./emulation.mdx#geolocation) |
+| [testOptions.locale](/api/class-testoptions.mdx#test-options-locale) | [模擬](./emulation.mdx#locale--timezone) 使用者的區域設置，例如 `en-GB`、`de-DE` 等 |
+| [testOptions.permissions](/api/class-testoptions.mdx#test-options-permissions) | 要授予上下文中所有頁面的 [permissions](./emulation.mdx#permissions) 列表 |
+| [testOptions.timezoneId](/api/class-testoptions.mdx#test-options-timezone-id) | 更改上下文的 [timezone](./emulation.mdx#locale--timezone) |
+| [testOptions.viewport](/api/class-testoptions.mdx#test-options-viewport) | 用於上下文中所有頁面的 [Viewport](./emulation.mdx#viewport) |
 
-### Network Options
+### 網路選項
 
-Available options to configure networking:
+配置網絡的可用選項:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -112,22 +112,22 @@ export default defineConfig({
 
 | Option | Description |
 | :- | :- |
-| [testOptions.acceptDownloads](/api/class-testoptions.mdx#test-options-accept-downloads) | Whether to automatically download all the attachments, defaults to `true`. [Learn more](./downloads.mdx) about working with downloads. |
-| [testOptions.extraHTTPHeaders](/api/class-testoptions.mdx#test-options-extra-http-headers) | An object containing additional HTTP headers to be sent with every request. All header values must be strings. |
-| [testOptions.httpCredentials](/api/class-testoptions.mdx#test-options-http-credentials) | Credentials for [HTTP authentication](./network.mdx#http-authentication). |
-| [testOptions.ignoreHTTPSErrors](/api/class-testoptions.mdx#test-options-ignore-https-errors) | Whether to ignore HTTPS errors during navigation. |
-| [testOptions.offline](/api/class-testoptions.mdx#test-options-offline) | Whether to emulate network being offline. |
-| [testOptions.proxy](/api/class-testoptions.mdx#test-options-proxy) | [Proxy settings](./network.mdx#http-proxy) used for all pages in the test. |
+| [testOptions.acceptDownloads](/api/class-testoptions.mdx#test-options-accept-downloads) | 是否自動下載所有附件，預設為 `true`。[了解更多](./downloads.mdx) 關於下載的工作。 |
+| [testOptions.extraHTTPHeaders](/api/class-testoptions.mdx#test-options-extra-http-headers) | 包含要隨每個請求一起發送的額外 HTTP 標頭的物件。所有標頭值必須是字串。 |
+| [testOptions.httpCredentials](/api/class-testoptions.mdx#test-options-http-credentials) | [HTTP 認證](./network.mdx#http-authentication) 的憑證。 |
+| [testOptions.ignoreHTTPSErrors](/api/class-testoptions.mdx#test-options-ignore-https-errors) | 是否在導航期間忽略 HTTPS 錯誤。 |
+| [testOptions.offline](/api/class-testoptions.mdx#test-options-offline) | 是否模擬網路離線。 |
+| [testOptions.proxy](/api/class-testoptions.mdx#test-options-proxy) | 測試中所有頁面使用的 [代理設定](./network.mdx#http-proxy)。
 
 :::note
-You don't have to configure anything to mock network requests. Just define a custom [Route] that mocks the network for a browser context. See our [network mocking guide](./network.mdx) to learn more.
+你不需要配置任何東西來模擬網路請求。只需定義一個自訂的 [Route] 來模擬瀏覽器上下文的網路。請參閱我們的[網路模擬指南](./network.mdx)以了解更多資訊。
 :::
 
-### Recording Options
+### 錄製選項
 
-With Playwright you can capture screenshots, record videos as well as traces of your test. By default these are turned off but you can enable them by setting the `screenshot`, `video` and `trace` options in your `playwright.config.js` file.
+使用 Playwright，你可以截取螢幕截圖、錄製影片以及記錄測試的追蹤。這些功能預設是關閉的，但你可以透過在 `playwright.config.js` 檔案中設定 `screenshot`、`video` 和 `trace` 選項來啟用它們。
 
-Trace files, screenshots and videos will appear in the test output directory, typically `test-results`.
+測試輸出目錄中通常會出現追蹤檔案、截圖和影片，通常是 `test-results`。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -148,11 +148,11 @@ export default defineConfig({
 
 | Option | Description |
 | :- | :- |
-| [testOptions.screenshot](/api/class-testoptions.mdx#test-options-screenshot) | Capture [screenshots](./screenshots.mdx) of your test. Options include `'off'`, `'on'` and `'only-on-failure'` |
-| [testOptions.trace](/api/class-testoptions.mdx#test-options-trace) | Playwright can produce test traces while running the tests. Later on, you can view the trace and get detailed information about Playwright execution by opening [Trace Viewer](./trace-viewer.mdx). Options include: `'off'`, `'on'`, `'retain-on-failure'` and `'on-first-retry'`  |
-| [testOptions.video](/api/class-testoptions.mdx#test-options-video) | Playwright can record [videos](./videos.mdx) for your tests. Options include: `'off'`, `'on'`, `'retain-on-failure'` and `'on-first-retry'` |
+| [testOptions.screenshot](/api/class-testoptions.mdx#test-options-screenshot) | 捕捉測試的[截圖](./screenshots.mdx)。選項包括 `'off'`、`'on'` 和 `'only-on-failure'` |
+| [testOptions.trace](/api/class-testoptions.mdx#test-options-trace) | Playwright 可以在執行測試時產生測試追蹤。之後，你可以打開 [Trace Viewer](./trace-viewer.mdx) 查看追蹤並獲取有關 Playwright 執行的詳細資訊。選項包括：`'off'`、`'on'`、`'retain-on-failure'` 和 `'on-first-retry'` |
+| [testOptions.video](/api/class-testoptions.mdx#test-options-video) | Playwright 可以為你的測試錄製[影片](./videos.mdx)。選項包括：`'off'`、`'on'`、`'retain-on-failure'` 和 `'on-first-retry'` |
 
-### Other Options
+### 其他選項
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -182,16 +182,16 @@ export default defineConfig({
 
 | Option | Description |
 | :- | :- |
-| [testOptions.actionTimeout](/api/class-testoptions.mdx#test-options-action-timeout) | Timeout for each Playwright action in milliseconds. Defaults to `0` (no timeout). Learn more about [timeouts](./test-timeouts.mdx) and how to set them for a single test. |
-| [testOptions.browserName](/api/class-testoptions.mdx#test-options-browser-name) | Name of the browser that runs tests. Defaults to 'chromium'. Options include `chromium`, `firefox`, or `webkit`. |
-| [testOptions.bypassCSP](/api/class-testoptions.mdx#test-options-bypass-csp) |Toggles bypassing Content-Security-Policy. Useful when CSP includes the production origin. Defaults to `false`. |
-| [testOptions.channel](/api/class-testoptions.mdx#test-options-channel) | Browser channel to use. [Learn more](./browsers.mdx) about different browsers and channels. |
-| [testOptions.headless](/api/class-testoptions.mdx#test-options-headless) | Whether to run the browser in headless mode meaning no browser is shown when running tests. Defaults to `true`. |
-| [testOptions.testIdAttribute](/api/class-testoptions.mdx#test-options-test-id-attribute) | Changes the default [`data-testid` attribute](./locators.mdx#locate-by-test-id) used by Playwright locators. |
+| [testOptions.actionTimeout](/api/class-testoptions.mdx#test-options-action-timeout) | 每個 Playwright 動作的超時時間（以毫秒為單位）。預設為 `0`（無超時）。了解更多關於[超時](./test-timeouts.mdx)及如何為單個測試設定。 |
+| [testOptions.browserName](/api/class-testoptions.mdx#test-options-browser-name) | 執行測試的瀏覽器名稱。預設為 'chromium'。選項包括 `chromium`、`firefox` 或 `webkit`。 |
+| [testOptions.bypassCSP](/api/class-testoptions.mdx#test-options-bypass-csp) | 切換繞過內容安全政策（CSP）。當 CSP 包含生產來源時很有用。預設為 `false`。 |
+| [testOptions.channel](/api/class-testoptions.mdx#test-options-channel) | 要使用的瀏覽器頻道。了解更多關於不同瀏覽器和頻道的[資訊](./browsers.mdx)。 |
+| [testOptions.headless](/api/class-testoptions.mdx#test-options-headless) | 是否在無頭模式下執行瀏覽器，這意味著在執行測試時不顯示瀏覽器。預設為 `true`。 |
+| [testOptions.testIdAttribute](/api/class-testoptions.mdx#test-options-test-id-attribute) | 更改 Playwright 定位器使用的預設[`data-testid`屬性](./locators.mdx#locate-by-test-id)。
 
-### More browser and context options
+### 更多瀏覽器和上下文選項
 
-Any options accepted by [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) or [browser.newContext()](/api/class-browser.mdx#browser-new-context) can be put into `launchOptions` or `contextOptions` respectively in the `use` section.
+任何由 [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 或 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 接受的選項可以分別放入 `launchOptions` 或 `contextOptions` 中的 `use` 部分。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -205,11 +205,11 @@ export default defineConfig({
 });
 ```
 
-However, most common ones like `headless` or `viewport` are available directly in the `use` section - see [basic options](#basic-options), [emulation](#emulation-options) or [network](#network-options).
+然而，大多數常見的選項如 `headless` 或 `viewport` 可以直接在 `use` 部分使用 - 請參見[基本選項](#basic-options)、[模擬](#emulation-options)或[網絡](#network-options)。
 
-### Explicit Context Creation and Option Inheritance
+### 明確的上下文建立和選項繼承
 
-If using the built-in `browser` fixture, calling [browser.newContext()](/api/class-browser.mdx#browser-new-context) will create a context with options inherited from the config:
+如果使用內建的 `browser` fixture，呼叫 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 會建立一個繼承自配置的 context:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -222,7 +222,7 @@ export default defineConfig({
 });
 ```
 
-An example test illustrating the initial context options are set:
+一個範例測試說明了初始上下文選項的設定:
 
 ```js
 test('should inherit use options on context when using built-in browser fixture', async ({
@@ -236,9 +236,9 @@ test('should inherit use options on context when using built-in browser fixture'
 });
 ```
 
-### Configuration Scopes
+### 設定範圍
 
-You can configure Playwright globally, per project, or per test. For example, you can set the locale to be used globally by adding `locale` to the `use` option of the Playwright config, and then override it for a specific project using the `project` option in the config. You can also override it for a specific test by adding `test.use({})` in the test file and passing in the options.
+你可以全域、每個專案或每個測試來配置 Playwright。例如，你可以通過在 Playwright 配置的 `use` 選項中添加 `locale` 來設置全域使用的語言環境，然後使用配置中的 `project` 選項為特定專案覆蓋它。你也可以通過在測試文件中添加 `test.use({})` 並傳入選項來為特定測試覆蓋它。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -250,7 +250,7 @@ export default defineConfig({
 });
 ```
 
-You can override options for a specific project using the `project` option in the Playwright config.
+你可以使用 Playwright 設定中的 `project` 選項來覆蓋特定專案的選項。
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
@@ -268,7 +268,7 @@ export default defineConfig({
 });
 ```
 
-You can override options for a specific test file by using the `test.use()` method and passing in the options. For example to run tests with the French locale for a specific test:
+您可以使用 `test.use()` 方法並傳入選項來覆蓋特定測試文件的選項。例如，對於特定測試使用法語區域來執行測試:
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -280,7 +280,7 @@ test('example', async ({ page }) => {
 });
 ```
 
-The same works inside a describe block. For example to run tests in a describe block with the French locale:
+在 describe 區塊內也是一樣。例如，要在 describe 區塊中以法語區域執行測試:
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -294,6 +294,8 @@ test.describe('french language block', () => {
   });
 });
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

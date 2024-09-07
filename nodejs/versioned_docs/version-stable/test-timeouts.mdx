@@ -1,25 +1,25 @@
----
+﻿---
 id: test-timeouts
-title: "Timeouts"
+title: "超時"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright Test has multiple configurable timeouts for various tasks.
+Playwright Test 有多個可配置的超時設定，用於各種任務。
 
 |Timeout    |Default             |Description                      |
 |:----------|:----------------|:--------------------------------|
-|Test timeout|30000 ms|Timeout for each test, includes test, hooks and fixtures:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { timeout: 60000 }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`test.setTimeout(120000)` |
-|Expect timeout|5000 ms|Timeout for each assertion:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { expect: { timeout: 10000 } }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`expect(locator).toBeVisible({ timeout: 10000 })` |
+|Test timeout|30000 ms|每個測試的超時時間，包括測試、hooks 和 fixtures:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { timeout: 60000 }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`test.setTimeout(120000)` |
+|Expect timeout|5000 ms|每個斷言的超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { expect: { timeout: 10000 } }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`expect(locator).toBeVisible({ timeout: 10000 })` |
 
-## Test timeout
+## 測試超時
 
-Playwright Test enforces a timeout for each test, 30 seconds by default. Time spent by the test function, fixtures, `beforeEach` and `afterEach` hooks is included in the test timeout.
+Playwright Test 對每個測試強制執行超時，預設為 30 秒。測試函式、fixtures、`beforeEach` 和 `afterEach` hooks 所花費的時間包含在測試超時內。
 
-Timed out test produces the following error:
+測試超時會產生以下錯誤:
 
 ```txt
 example.spec.ts:3:1 › basic test ===========================
@@ -27,9 +27,9 @@ example.spec.ts:3:1 › basic test ===========================
 Timeout of 30000ms exceeded.
 ```
 
-The same timeout value also applies to `beforeAll` and `afterAll` hooks, but they do not share time with any test.
+相同的超時值也適用於 `beforeAll` 和 `afterAll` 鉤子，但它們不與任何測試共享時間。
 
-### Set test timeout in the config
+### 在 config 中設定測試超時時間
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -39,9 +39,9 @@ export default defineConfig({
 });
 ```
 
-API reference: [testConfig.timeout](/api/class-testconfig.mdx#test-config-timeout).
+API 參考: [testConfig.timeout](/api/class-testconfig.mdx#test-config-timeout)。
 
-### Set timeout for a single test
+### 為單個測試設定 timeout
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -57,9 +57,9 @@ test('very slow test', async ({ page }) => {
 });
 ```
 
-API reference: [test.setTimeout()](/api/class-test.mdx#test-set-timeout) and [test.slow()](/api/class-test.mdx#test-slow).
+API 參考: [test.setTimeout()](/api/class-test.mdx#test-set-timeout) 和 [test.slow()](/api/class-test.mdx#test-slow)。
 
-### Change timeout from a `beforeEach` hook
+### 從 `beforeEach` 鉤子更改超時設定
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -70,11 +70,11 @@ test.beforeEach(async ({ page }, testInfo) => {
 });
 ```
 
-API reference: [testInfo.setTimeout()](/api/class-testinfo.mdx#test-info-set-timeout).
+API reference: [testInfo.setTimeout](/api/class-testinfo.mdx#test-info-set-timeout)。
 
-### Change timeout for `beforeAll`/`afterAll` hook
+### 更改 `beforeAll`/`afterAll` 鉤子的超時時間
 
-`beforeAll` and `afterAll` hooks have a separate timeout, by default equal to test timeout. You can change it separately for each hook by calling [testInfo.setTimeout()](/api/class-testinfo.mdx#test-info-set-timeout) inside the hook.
+`beforeAll` 和 `afterAll` 鉤子有一個單獨的超時設定，預設等於測試超時。你可以在鉤子內呼叫 [testInfo.setTimeout()](/api/class-testinfo.mdx#test-info-set-timeout) 來分別更改每個鉤子的超時設定。
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -85,11 +85,11 @@ test.beforeAll(async () => {
 });
 ```
 
-API reference: [testInfo.setTimeout()](/api/class-testinfo.mdx#test-info-set-timeout).
+API reference: [testInfo.setTimeout](/api/class-testinfo.mdx#test-info-set-timeout)。
 
-## Expect timeout
+## 預期超時
 
-Web-first assertions like `expect(locator).toHaveText()` have a separate timeout, 5 seconds by default. Assertion timeout is unrelated to the test timeout. It produces the following error:
+Web-first 斷言如 `expect(locator).toHaveText()` 有一個單獨的超時時間，預設為 5 秒。斷言超時與測試超時無關。它會產生以下錯誤：
 
 ```txt
 example.spec.ts:3:1 › basic test ===========================
@@ -103,7 +103,7 @@ Call log:
   - waiting for "locator('button')"
 ```
 
-### Set expect timeout in the config
+### 在 config 中設定 expect timeout
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -115,9 +115,9 @@ export default defineConfig({
 });
 ```
 
-## Global timeout
+## 全域 timeout
 
-Playwright Test supports a timeout for the whole test run. This prevents excess resource usage when everything went wrong. There is no default global timeout, but you can set a reasonable one in the config, for example one hour. Global timeout produces the following error:
+Playwright Test 支援整個測試執行的超時設定。這可以防止在所有事情出錯時過度使用資源。沒有預設的全域超時，但你可以在配置中設定一個合理的時間，例如一小時。全域超時會產生以下錯誤:
 
 ```txt
 Running 1000 tests using 10 workers
@@ -127,7 +127,7 @@ Running 1000 tests using 10 workers
   Timed out waiting 3600s for the entire test run
 ```
 
-You can set global timeout in the config.
+你可以在配置中設定全域超時。
 
 ```js
 // playwright.config.ts
@@ -138,21 +138,21 @@ export default defineConfig({
 });
 ```
 
-API reference: [testConfig.globalTimeout](/api/class-testconfig.mdx#test-config-global-timeout).
+API 參考: [testConfig.globalTimeout](/api/class-testconfig.mdx#test-config-global-timeout)。
 
-## Advanced: low level timeouts
+## 進階: 低層級超時
 
-These are the low-level timeouts that are pre-configured by the test runner, you should not need to change these. If you happen to be in this section because your test are flaky, it is very likely that you should be looking for the solution elsewhere.
+這些是由測試執行器預先配置的低層級超時設定，你不需要更改這些。如果你因為測試不穩定而來到這個部分，很可能你應該在其他地方尋找解決方案。
 
 |Timeout    |Default             |Description                      |
 |:----------|:----------------|:--------------------------------|
-|Action timeout| no timeout |Timeout for each action:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { use: { actionTimeout: 10000 } }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`locator.click({ timeout: 10000 })` |
-|Navigation timeout| no timeout |Timeout for each navigation action:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { use: { navigationTimeout: 30000 } }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`page.goto('/', { timeout: 30000 })` |
-|Global timeout|no timeout |Global timeout for the whole test run:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set in config</span><br/>`config = { globalTimeout: 60*60*1000 }`<br/> |
-|`beforeAll`/`afterAll` timeout|30000 ms|Timeout for the hook:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set in hook</span><br/>`test.setTimeout(60000)`<br/> |
-|Fixture timeout|no timeout |Timeout for an individual fixture:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set in fixture</span><br/>`{ scope: 'test', timeout: 30000 }`<br/> |
+|Action timeout| no timeout |每個動作的超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { use: { actionTimeout: 10000 } }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`locator.click({ timeout: 10000 })` |
+|Navigation timeout| no timeout |每個導航動作的超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { use: { navigationTimeout: 30000 } }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`page.goto('/', { timeout: 30000 })` |
+|Global timeout|no timeout |整個測試執行的全域超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set in config</span><br/>`config = { globalTimeout: 60*60*1000 }`<br/> |
+|`beforeAll`/`afterAll` timeout|30000 ms|鉤子的超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set in hook</span><br/>`test.setTimeout(60000)`<br/> |
+|Fixture timeout|no timeout |單個夾具的超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set in fixture</span><br/>`{ scope: 'test', timeout: 30000 }`<br/> |
 
-### Set timeout for a single assertion
+### 設定單一斷言的超時時間
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -162,7 +162,7 @@ test('basic test', async ({ page }) => {
 });
 ```
 
-### Set action and navigation timeouts in the config
+### 在配置中設定操作和導航超時時間
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -175,9 +175,9 @@ export default defineConfig({
 });
 ```
 
-API reference: [testOptions.actionTimeout](/api/class-testoptions.mdx#test-options-action-timeout) and [testOptions.navigationTimeout](/api/class-testoptions.mdx#test-options-navigation-timeout).
+API 參考: [testOptions.actionTimeout](/api/class-testoptions.mdx#test-options-action-timeout) 和 [testOptions.navigationTimeout](/api/class-testoptions.mdx#test-options-navigation-timeout)。
 
-### Set timeout for a single action
+### 設定單個動作的超時時間
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -188,9 +188,9 @@ test('basic test', async ({ page }) => {
 });
 ```
 
-## Fixture timeout
+## 固定裝置超時
 
-By default, [fixture](./test-fixtures) shares timeout with the test. However, for slow fixtures, especially [worker-scoped](./test-fixtures#worker-scoped-fixtures) ones, it is convenient to have a separate timeout. This way you can keep the overall test timeout small, and give the slow fixture more time.
+默認情況下，[fixture](./test-fixtures) 與測試共享超時時間。然而，對於慢速的 fixtures，特別是[worker-scoped](./test-fixtures#worker-scoped-fixtures) 的那些，擁有單獨的超時時間會更方便。這樣你可以保持整體測試的超時時間較短，並給慢速的 fixture 更多時間。
 
 <Tabs
   groupId="js-flavor"
@@ -238,7 +238,9 @@ test('example test', async ({ slowFixture }) => {
 </TabItem>
 </Tabs>
 
-API reference: [test.extend()](/api/class-test.mdx#test-extend).
+API 參考: [test.extend()](/api/class-test.mdx#test-extend)。
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

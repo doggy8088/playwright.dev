@@ -1,34 +1,36 @@
----
+﻿---
 id: api-testing
-title: "API testing"
+title: "API 測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright can be used to get access to the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API of your application.
+Playwright 可以用來存取你的應用程式的 [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API。
 
-Sometimes you may want to send requests to the server directly from Node.js without loading a page and running js code in it. A few examples where it may come in handy:
-- Test your server API.
-- Prepare server side state before visiting the web application in a test.
-- Validate server side post-conditions after running some actions in the browser.
+有時你可能想要直接從 Node.js 向伺服器發送請求，而不需要加載頁面並在其中執行 js 程式碼。以下是一些可能會派上用場的範例:
 
-All of that could be achieved via [APIRequestContext] methods.
+- 測試你的伺服器 API。
+- 在測試中訪問 web 應用程式之前準備伺服器端狀態。
+- 在瀏覽器中執行一些操作後驗證伺服器端後置條件。
 
-## Writing API Test
+所有這些都可以通過 [APIRequestContext] 方法實現。
 
-[APIRequestContext] can send all kinds of HTTP(S) requests over network.
+## 撰寫 API 測試
 
-The following example demonstrates how to use Playwright to test issues creation via [GitHub API](https://docs.github.com/en/rest). The test suite will do the following:
-- Create a new repository before running tests.
-- Create a few issues and validate server state.
-- Delete the repository after running tests.
+[APIRequestContext] 可以透過網路發送各種 HTTP(S) 請求。
 
-### Configuration
+以下範例展示如何使用 Playwright 測試通過 [GitHub API](https://docs.github.com/en/rest) 建立問題。測試套件將執行以下操作：
 
-GitHub API requires authorization, so we'll configure the token once for all tests. While at it, we'll also set the `baseURL` to simplify the tests. You can either put them in the configuration file, or in the test file with `test.use()`.
+- 建立一個新的儲存庫後執行測試。
+- 建立一些問題並驗證伺服器狀態。
+- 執行測試後刪除儲存庫。
+
+### 設定
+
+GitHub API 需要授權，因此我們將為所有測試設定一次性 token。在此同時，我們也會設定 `baseURL` 以簡化測試。你可以將它們放在配置文件中，或者在測試文件中使用 `test.use()`。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -47,9 +49,9 @@ export default defineConfig({
 });
 ```
 
-**Proxy configuration**
+**代理配置**
 
-If your tests need to run behind a proxy, you can specify this in the config and the `request` fixture will pick it up automatically:
+如果你的測試需要在代理伺服器後面執行，你可以在配置中指定這一點，`request` 固定裝置會自動選取它:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -64,11 +66,11 @@ export default defineConfig({
 });
 ```
 
-### Writing tests
+### 撰寫測試
 
-Playwright Test comes with the built-in `request` fixture that respects configuration options like `baseURL` or `extraHTTPHeaders` we specified and is ready to send some requests.
+Playwright Test 內建 `request` fixture，遵循我們指定的 `baseURL` 或 `extraHTTPHeaders` 等配置選項，並準備發送一些請求。
 
-Now we can add a few tests that will create new issues in the repository.
+現在我們可以新增一些測試，這些測試將在儲存庫中建立新的問題。
 
 ```js
 const REPO = 'test-repo-1';
@@ -109,9 +111,9 @@ test('should create a feature request', async ({ request }) => {
 });
 ```
 
-### Setup and teardown
+### 設定和拆卸
 
-These tests assume that repository exists. You probably want to create a new one before running tests and delete it afterwards. Use `beforeAll` and `afterAll` hooks for that.
+這些測試假設資料庫已存在。你可能想在執行測試之前建立一個新的，並在之後刪除它。使用 `beforeAll` 和 `afterAll` 鉤子來實現。
 
 ```js
 test.beforeAll(async ({ request }) => {
@@ -131,9 +133,9 @@ test.afterAll(async ({ request }) => {
 });
 ```
 
-## Using request context
+## 使用請求上下文
 
-Behind the scenes, [`request` fixture](./api/class-fixtures#fixtures-request) will actually call [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context). You can always do that manually if you'd like more control. Below is a standalone script that does the same as `beforeAll` and `afterAll` from above.
+幕後，[`request` fixture](./api/class-fixtures#fixtures-request) 實際上會呼叫 [apiRequest.newContext()]( /api/class-apirequest.mdx#api-request-new-context)。如果你想要更多控制權，你可以手動執行。以下是一個獨立的腳本，它與上面的 `beforeAll` 和 `afterAll` 做同樣的事情。
 
 ```js
 import { request } from '@playwright/test';
@@ -169,13 +171,13 @@ const USER = 'github-username';
 })();
 ```
 
-## Sending API requests from UI tests
+## 從 UI 測試發送 API 請求
 
-While running tests inside browsers you may want to make calls to the HTTP API of your application. It may be helpful if you need to prepare server state before running a test or to check some postconditions on the server after performing some actions in the browser. All of that could be achieved via [APIRequestContext] methods.
+在瀏覽器內執行測試時，您可能希望呼叫應用程式的 HTTP API。如果您需要在執行測試之前準備伺服器狀態或在瀏覽器中執行某些操作後檢查伺服器上的一些後置條件，這可能會很有幫助。所有這些都可以通過 [APIRequestContext] 方法來實現。
 
-### Establishing preconditions
+### 建立前提條件
 
-The following test creates a new issue via API and then navigates to the list of all issues in the project to check that it appears at the top of the list.
+以下測試通過 API 建立一個新問題，然後導航到專案中所有問題的列表，以檢查它是否出現在列表頂部。
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -219,9 +221,9 @@ test('last created issue should be first in the list', async ({ page }) => {
 });
 ```
 
-### Validating postconditions
+### 驗證後置條件
 
-The following test creates a new issue via user interface in the browser and then uses checks if it was created via API:
+以下測試通過瀏覽器中的使用者介面建立一個新問題，然後使用檢查是否通過 API 建立:
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -269,11 +271,11 @@ test('last created issue should be on the server', async ({ page }) => {
 });
 ```
 
-## Reusing authentication state
+## 重複使用認證狀態
 
-Web apps use cookie-based or token-based authentication, where authenticated state is stored as [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). Playwright provides [apiRequestContext.storageState()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) method that can be used to retrieve storage state from an authenticated context and then create new contexts with that state.
+Web apps 使用基於 cookie 或 token 的身份驗證，已驗證的狀態存儲為 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)。Playwright 提供 [apiRequestContext.storageState()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) 方法，可以用來從已驗證的上下文中檢索存儲狀態，然後使用該狀態建立新的上下文。
 
-Storage state is interchangeable between [BrowserContext] and [APIRequestContext]. You can use it to log in via API calls and then create a new context with cookies already there. The following code snippet retrieves state from an authenticated [APIRequestContext] and creates a new [BrowserContext] with that state.
+儲存狀態在 [BrowserContext] 和 [APIRequestContext] 之間是可互換的。你可以使用它通過 API 呼叫登入，然後建立一個已經包含 cookies 的新 context。以下程式碼片段從已驗證的 [APIRequestContext] 中檢索狀態，並使用該狀態建立一個新的 [BrowserContext]。
 
 ```js
 const requestContext = await request.newContext({
@@ -290,13 +292,14 @@ await requestContext.storageState({ path: 'state.json' });
 const context = await browser.newContext({ storageState: 'state.json' });
 ```
 
-## Context request vs global request
+## Context request vs 全域 request
 
-There are two types of [APIRequestContext]:
-* associated with a [BrowserContext]
-* isolated instance, created via [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context)
+有兩種類型的 [APIRequestContext]：
 
-The main difference is that [APIRequestContext] accessible via [browserContext.request](/api/class-browsercontext.mdx#browser-context-request) and [page.request](/api/class-page.mdx#page-request) will populate request's `Cookie` header from the browser context and will automatically update browser cookies if [APIResponse] has `Set-Cookie` header:
+* 與 [BrowserContext] 相關
+* 建立的隔離實例，通過 [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context)
+
+主要的區別在於通過 [browserContext.request](/api/class-browsercontext.mdx#browser-context-request) 和 [page.request](/api/class-page.mdx#page-request) 訪問的 [APIRequestContext] 會從瀏覽器 context 填充請求的 `Cookie` 標頭，並且如果 [APIResponse] 有 `Set-Cookie` 標頭，則會自動更新瀏覽器 cookies：
 
 ```js
 test('context request will share cookie storage with its browser context', async ({
@@ -329,7 +332,7 @@ test('context request will share cookie storage with its browser context', async
 });
 ```
 
-If you don't want [APIRequestContext] to use and update cookies from the browser context, you can manually create a new instance of [APIRequestContext] which will have its own isolated cookies:
+如果你不希望 [APIRequestContext] 使用和更新來自瀏覽器上下文的 cookies，你可以手動建立一個新的 [APIRequestContext] 實例，這將擁有其自身隔離的 cookies:
 
 ```js
 test('global context request has isolated cookie storage', async ({
@@ -372,6 +375,8 @@ test('global context request has isolated cookie storage', async ({
   await request.dispose();
 });
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

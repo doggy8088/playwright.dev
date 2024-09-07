@@ -1,31 +1,32 @@
----
+﻿---
 id: browser-contexts
-title: "Isolation"
+title: "隔離"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Tests written with Playwright execute in isolated clean-slate environments called browser contexts. This isolation model improves reproducibility and prevents cascading test failures. 
+測試使用 Playwright 編寫並在稱為瀏覽器上下文的隔離乾淨環境中執行。這種隔離模型提高了可重現性並防止連鎖測試失敗。
 
-## What is Test Isolation? 
+## 什麼是測試隔離？
 
-Test Isolation is when each test is completely isolated from another test. Every test runs independently from any other test. This means that each test has its own local storage, session storage, cookies etc. Playwright achieves this using [BrowserContext]s which are equivalent to incognito-like profiles. They are fast and cheap to create and are completely isolated, even when running in a single browser. Playwright creates a context for each test, and provides a default [Page] in that context.
+測試隔離是指每個測試完全與其他測試隔離。每個測試獨立於其他任何測試執行。這意味著每個測試都有自己的本地儲存、會話儲存、cookies 等。Playwright 使用 [BrowserContext] 來實現這一點，這些相當於類似無痕模式的配置檔。它們建立快速且成本低，並且完全隔離，即使在單一瀏覽器中執行時也是如此。Playwright 為每個測試建立一個 context，並在該 context 中提供一個預設的 [Page]。
 
-## Why is Test Isolation Important? 
-- No failure carry-over. If one test fails it doesn't affect the other test.
-- Easy to debug errors or flakiness, because you can run just a single test as many times as you'd like. 
-- Don't have to think about the order when running in parallel, sharding, etc.
+## 為什麼測試隔離很重要？
 
-## Two Ways of Test Isolation
+- 沒有失敗攜帶。如果一個測試失敗，它不會影響其他測試。
+- 容易調試錯誤或不穩定，因為你可以根據需要多次執行單個測試。
+- 在平行執行、分片等時，不必考慮順序。
 
-There are two different strategies when it comes to Test Isolation: start from scratch or cleanup in between. The problem with cleaning up in between tests is that it can be easy to forget to clean up and some things are impossible to clean up such as "visited links". State from one test can leak into the next test which could cause your test to fail and make debugging harder as the problem comes from another test. Starting from scratch means everything is new, so if the test fails you only have to look within that test to debug.
+## 兩種測試隔離方法
 
-## How Playwright Achieves Test Isolation
+在測試隔離方面有兩種不同的策略: 從頭開始或在測試之間進行清理。在測試之間進行清理的問題是，容易忘記清理，有些東西是無法清理的，例如"已訪問的連結"。一個測試的狀態可能會洩漏到下一個測試中，這可能會導致測試失敗，並且由於問題來自另一個測試，使得除錯變得更加困難。從頭開始意味著一切都是新的，所以如果測試失敗，你只需要在該測試內進行除錯。
 
-Playwright uses browser contexts to achieve Test Isolation. Each test has its own Browser Context. Running the test creates a new browser context each time.  When using Playwright as a Test Runner, browser contexts are created by default. Otherwise, you can create browser contexts manually.
+## Playwright 如何實現測試隔離
+
+Playwright 使用瀏覽器上下文來實現測試隔離。每個測試都有自己的瀏覽器上下文。執行測試時，每次都會建立一個新的瀏覽器上下文。當使用 Playwright 作為測試執行器時，瀏覽器上下文會預設建立。否則，你可以手動建立瀏覽器上下文。
 
 ```java
 Browser browser = chromium.launch();
@@ -33,11 +34,11 @@ BrowserContext context = browser.newContext();
 Page page = context.newPage();
 ```
 
-Browser contexts can also be used to emulate multi-page scenarios involving mobile devices, permissions, locale and color scheme. Check out our [Emulation](./emulation.mdx) guide for more details.
+瀏覽器上下文也可以用來模擬涉及行動裝置、權限、語言環境和顏色方案的多頁面場景。查看我們的[模擬](./emulation.mdx)指南以獲取更多資訊。
 
-## Multiple Contexts in a Single Test
+## 單一測試中的多個上下文
 
-Playwright can create multiple browser contexts within a single scenario. This is useful when you want to test for multi-user functionality, like a chat.
+Playwright 可以在單一情境中建立多個瀏覽器上下文。這在你想測試多使用者功能（如聊天）時非常有用。
 
 ```java
 import com.microsoft.playwright.*;
@@ -56,6 +57,8 @@ public class Example {
   }
 }
 ```
+
+
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

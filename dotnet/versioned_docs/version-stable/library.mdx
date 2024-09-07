@@ -1,18 +1,18 @@
----
+﻿---
 id: library
-title: "Getting started - Library"
+title: "開始使用 - 函式庫"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright can either be used with the [MSTest](./test-runners.mdx#mstest) or [NUnit](./test-runners.mdx#nunit), or as a Playwright Library (this guide). If you are working on an application that utilizes Playwright capabilities or you are using Playwright with another test runner, read on.
+Playwright 可以與 [MSTest](./test-runners.mdx#mstest) 或 [NUnit](./test-runners.mdx#nunit) 一起使用，或作為 Playwright 函式庫（本指南）。如果您正在開發利用 Playwright 功能的應用程式或將 Playwright 與其他測試執行器一起使用，請繼續閱讀。
 
-## Usage
+## 使用方式
 
-Create a console project and add the Playwright dependency.
+建立一個主控台專案並新增 Playwright 相依套件。
 
 ```bash
 # Create project
@@ -30,7 +30,7 @@ pwsh bin/Debug/netX/playwright.ps1 install
 dotnet tool update --global PowerShell
 ```
 
-Create a `Program.cs` that will navigate to `https://playwright.dev/dotnet` and take a screenshot in Chromium.
+建立一個 `Program.cs`，將導航到 `https://playwright.dev/dotnet` 並在 Chromium 中截圖。
 
 ```csharp
 using Microsoft.Playwright;
@@ -45,13 +45,13 @@ await page.ScreenshotAsync(new()
 });
 ```
 
-Now run it.
+
 
 ```bash
 dotnet run
 ```
 
-By default, Playwright runs the browsers in headless mode. To see the browser UI, pass the `Headless = false` flag while launching the browser. You can also use `slowMo` to slow down execution. Learn more in the debugging tools [section](./debug.mdx).
+默認情況下，Playwright 以無頭模式執行瀏覽器。要查看瀏覽器 UI，啟動瀏覽器時傳遞 `Headless = false` 標誌。您也可以使用 `slowMo` 來減慢執行速度。了解更多在調試工具[部分](./debug.mdx)。
 
 ```csharp
 await using var browser = await playwright.Firefox.LaunchAsync(new()
@@ -61,9 +61,9 @@ await using var browser = await playwright.Firefox.LaunchAsync(new()
 });
 ```
 
-## Using Assertions
+## 使用 Assertions
 
-You can do the following to leverage Playwright's web-first assertions when you are using your own test framework. These will automatically retry until the condition is met, e.g. an element has a certain text or the timeout is reached:
+你可以執行以下操作來利用 Playwright 的 web-first 斷言，當你使用自己的測試框架時。這些將自動重試直到條件滿足，例如一個元素有特定的文本或達到超時時間:
 
 ```csharp
 using Microsoft.Playwright;
@@ -79,9 +79,9 @@ await page.GotoAsync("https://playwright.dev/dotnet");
 await Expect(page.GetByRole(AriaRole.Link, new() { Name = "Get started" })).ToBeVisibleAsync();
 ```
 
-## Bundle drivers for different platforms
+## 為不同平台捆綁驅動程式
 
-Playwright by default does bundle only the driver for the .NET publish target runtime. If you want to bundle for additional platforms, you can override this behavior by using either `all`, `none` or `linux`, `win`, `osx` in your project file.
+Playwright 預設僅包含 .NET 發佈目標執行階段的驅動程式。如果您想要為其他平台包含，您可以在您的專案檔中使用 `all`、`none` 或 `linux`、`win`、`osx` 來覆蓋此行為。
 
 ```xml
 <PropertyGroup>
@@ -89,13 +89,15 @@ Playwright by default does bundle only the driver for the .NET publish target ru
 </PropertyGroup>
 ```
 
-or:
+或者：
 
 ```xml
 <PropertyGroup>
   <PlaywrightPlatform>osx;linux</PlaywrightPlatform>
 </PropertyGroup>
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

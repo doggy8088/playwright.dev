@@ -1,20 +1,20 @@
----
+﻿---
 id: auth
-title: "Authentication"
+title: "身份驗證"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright executes tests in isolated environments called [browser contexts](./browser-contexts.mdx). This isolation model improves reproducibility and prevents cascading test failures. Tests can load existing authenticated state. This eliminates the need to authenticate in every test and speeds up test execution.
+Playwright 在稱為[瀏覽器上下文](./browser-contexts.mdx)的隔離環境中執行測試。這種隔離模型提高了可重現性並防止連鎖測試失敗。測試可以加載現有的已驗證狀態。這消除了在每個測試中進行身份驗證的需要，並加快了測試執行速度。
 
-## Core concepts
+## 核心概念
 
-Regardless of the authentication strategy you choose, you are likely to store authenticated browser state on the file system.
+無論您選擇哪種驗證策略，您可能會將已驗證的瀏覽器狀態存儲在檔案系統上。
 
-We recommend to create `playwright/.auth` directory and add it to your `.gitignore`. Your authentication routine will produce authenticated browser state and save it to a file in this `playwright/.auth` directory. Later on, tests will reuse this state and start already authenticated.
+我們建議建立 `playwright/.auth` 目錄並將其添加到 `.gitignore` 中。您的身份驗證程序將生成已驗證的瀏覽器狀態並將其保存到此 `playwright/.auth` 目錄中的檔案。稍後，測試將重用此狀態並以已驗證的方式開始。
 
 <Tabs
   groupId="bash-flavor"
@@ -41,7 +41,7 @@ Add-Content -path .gitignore "`r`nplaywright/.auth"
 ```
 
 </TabItem>
-<TabItem value="batch">
+<TabItem value="批次">
 
 ```batch
 md playwright\.auth
@@ -52,11 +52,11 @@ echo "playwright/.auth" >> .gitignore
 </TabItem>
 </Tabs>
 
-## Signing in before each test
+## 在每個測試前登入
 
-The Playwright API can [automate interaction](./input.mdx) with a login form.
+Playwright API 可以[自動化互動](./input.mdx)與登入表單。
 
-The following example logs into GitHub. Once these steps are executed, the browser context will be authenticated.
+以下範例登入 GitHub。一旦這些步驟執行完畢，瀏覽器上下文將會被驗證。
 
 ```csharp
 var page = await context.NewPageAsync();
@@ -68,17 +68,17 @@ await page.GetByRole(AriaRole.Button, new() { Name = "Sign in" }).ClickAsync();
 // Continue with the test
 ```
 
-Redoing login for every test can slow down test execution. To mitigate that, reuse existing authentication state instead.
+重新登入每個測試會減慢測試執行速度。為了減輕這種情況，請改用現有的驗證狀態。
 
-## Reusing signed in state
+## 重複使用已登入狀態
 
-Playwright provides a way to reuse the signed-in state in the tests. That way you can log in only once and then skip the log in step for all of the tests.
+Playwright 提供了一種在測試中重複使用已登入狀態的方法。這樣你只需登入一次，然後在所有測試中跳過登入步驟。
 
-Web apps use cookie-based or token-based authentication, where authenticated state is stored as [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) or in [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage). Playwright provides [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) method that can be used to retrieve storage state from authenticated contexts and then create new contexts with prepopulated state.
+Web apps 使用基於 cookie 或基於 token 的身份驗證，已驗證的狀態存儲為[cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)或在[local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage)中。Playwright 提供[BrowserContext.StorageStateAsync()](https://api/class-browsercontext.mdx#browser-context-storage-state)方法，可用於從已驗證的上下文中檢索存儲狀態，然後使用預填狀態建立新的上下文。
 
-Cookies and local storage state can be used across different browsers. They depend on your application's authentication model: some apps might require both cookies and local storage.
+Cookies 和 local storage 狀態可以在不同的瀏覽器中使用。它們依賴於您的應用程式的身份驗證模型: 一些應用程式可能需要同時使用 cookies 和 local storage。
 
-The following code snippet retrieves state from an authenticated context and creates a new context with that state.
+以下程式碼片段從已驗證的上下文中檢索狀態，並使用該狀態建立一個新的上下文。
 
 ```csharp
 // Save storage state into the file.
@@ -95,11 +95,11 @@ var context = await browser.NewContextAsync(new()
 });
 ```
 
-## Advanced scenarios
+## 進階情境
 
 ### Session storage
 
-Reusing authenticated state covers [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) and [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage) based authentication. Rarely, [session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is used for storing information associated with the signed-in state. Session storage is specific to a particular domain and is not persisted across page loads. Playwright does not provide API to persist session storage, but the following snippet can be used to save/load session storage.
+重複使用已驗證的狀態涵蓋了[ cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) 和[ local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage) 基於驗證。很少使用[ session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 來存儲與已登入狀態相關的資訊。Session storage 特定於某個特定的域，並且不會在頁面加載之間持續存在。Playwright 不提供持久化 session storage 的 API，但可以使用以下程式碼片段來保存/加載 session storage。
 
 ```csharp
 // Get session storage and store as env variable
@@ -117,6 +117,8 @@ await context.AddInitScriptAsync(@"(storage => {
     }
   })('" + loadedSessionStorage + "')");
 ```
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

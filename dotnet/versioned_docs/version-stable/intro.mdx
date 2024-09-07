@@ -1,17 +1,18 @@
----
+﻿---
 id: intro
-title: "Installation"
+title: "安裝"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
-## Introduction
+## 簡介
 
-Playwright was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation.
+Playwright 是專為滿足端到端測試需求而建立的。Playwright 支援所有現代渲染引擎，包括 Chromium、WebKit 和 Firefox。在 Windows、Linux 和 macOS 上進行測試，可以是本地或 CI 上，無頭或有頭，並具有原生行動模擬功能。
 
-You can choose to use [MSTest base classes](./test-runners.mdx#mstest) or [NUnit base classes](./test-runners.mdx#nunit) that Playwright provides to write end-to-end tests. These classes support running tests on multiple browser engines, parallelizing tests, adjusting launch/context options and getting a [Page]/[BrowserContext] instance per test out of the box. Alternatively you can use the [library](./library.mdx) to manually write the testing infrastructure.
-1. Start by creating a new project with `dotnet new`. This will create the `PlaywrightTests` directory which includes a `UnitTest1.cs` file:
+你可以選擇使用 [MSTest base classes](./test-runners.mdx#mstest) 或 [NUnit base classes](./test-runners.mdx#nunit) 來撰寫端到端測試，這些是 Playwright 提供的。這些類別支援在多個瀏覽器引擎上執行測試、平行處理測試、調整啟動/上下文選項，並在每個測試中自動獲取 [Page]/[BrowserContext] 實例。或者，你可以使用 [函式庫](./library.mdx) 手動撰寫測試基礎設施。
+
+1. 開始建立一個新專案，使用 `dotnet new`。這將建立 `PlaywrightTests` 目錄，其中包含一個 `UnitTest1.cs` 檔案:
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, ] }>
 
@@ -35,7 +36,7 @@ cd PlaywrightTests
 
 </Tabs>
 
-2. Install the necessary Playwright dependencies:
+2. 安裝必要的 Playwright 相依套件:
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, ] }>
 
@@ -57,23 +58,23 @@ dotnet add package Microsoft.Playwright.MSTest
 
 </Tabs>
 
-3. Build the project so the `playwright.ps1` is available inside the `bin` directory:
+3. 建構專案，使 `playwright.ps1` 可用於 `bin` 目錄內:
 
 ```bash
 dotnet build
 ```
 
-1. Install required browsers. This example uses `net8.0`, if you are using a different version of .NET you will need to adjust the command and change `net8.0` to your version.
+1. 安裝所需的瀏覽器。此範例使用 `net8.0`，如果您使用不同版本的 .NET，您需要調整命令並將 `net8.0` 更改為您的版本。
 
 ```bash
 pwsh bin/Debug/net8.0/playwright.ps1 install
 ```
 
-If `pwsh` is not available, you will have to [install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+如果 `pwsh` 不可用，你將需要[安裝 PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)。
 
-## Add Example Tests
+## 添加範例測試
 
-Edit the `UnitTest1.cs` file with the code below to create an example end-to-end test:
+編輯 `UnitTest1.cs` 文件，使用以下程式碼來建立一個範例端到端測試:
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, ] }>
 
@@ -156,29 +157,33 @@ public class ExampleTest : PageTest
 
 </Tabs>
 
-## Running the Example Tests
+## 執行範例測試
 
-By default tests will be run on Chromium. This can be configured via the `BROWSER` environment variable, or by adjusting the [launch configuration options](./running-tests.mdx). Tests are run in headless mode meaning no browser will open up when running the tests. Results of the tests and test logs will be shown in the terminal.
+預設情況下，測試將在 Chromium 上執行。這可以通過 `BROWSER` 環境變數進行配置，或通過調整 [launch configuration options](./running-tests.mdx) 來實現。測試在無頭模式下執行，這意味著在執行測試時不會打開瀏覽器。測試結果和測試日誌將顯示在終端中。
 
 ```bash
 dotnet test
 ```
 
-See our doc on [Running and Debugging Tests](./running-tests.mdx) to learn more about running tests in headed mode, running multiple tests, running specific configurations etc.
+請參閱我們的[執行和除錯測試](./running-tests.mdx)文件，以了解更多關於在有頭模式下執行測試、執行多個測試、執行特定配置等資訊。
 
-## System requirements
-- Playwright is distributed as a .NET Standard 2.0 library. We recommend .NET 8.
-- Windows 10+, Windows Server 2016+ or Windows Subsystem for Linux (WSL).
-- macOS 13 Ventura, or macOS 14 Sonoma.
-- Debian 11, Debian 12, Ubuntu 20.04 or Ubuntu 22.04, Ubuntu 24.04, on x86-64 and arm64 architecture.
+## 系統需求
 
-## What's next
-- [Write tests using web first assertions, page fixtures and locators](./writing-tests.mdx)
-- [Run single test, multiple tests, headed mode](./running-tests.mdx)
-- [Generate tests with Codegen](./codegen-intro.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
-- [Run tests on CI](./ci-intro.mdx)
-- [Learn more about the MSTest and NUnit base classes](./test-runners.mdx)
+- Playwright 以 .NET Standard 2.0 函式庫發佈。我們推薦 .NET 8。
+- Windows 10+、Windows Server 2016+ 或 Windows Subsystem for Linux (WSL)。
+- macOS 13 Ventura 或 macOS 14 Sonoma。
+- Debian 11、Debian 12、Ubuntu 20.04 或 Ubuntu 22.04、Ubuntu 24.04，在 x86-64 和 arm64 架構上。
+
+## 接下來是什麼
+
+- [使用 web first assertions、page fixtures 和 locators 撰寫測試](./writing-tests.mdx)
+- [執行單一測試、多個測試、headed 模式](./running-tests.mdx)
+- [使用 Codegen 產生測試](./codegen-intro.mdx)
+- [查看測試的 trace](./trace-viewer-intro.mdx)
+- [在 CI 上執行測試](./ci-intro.mdx)
+- [了解更多關於 MSTest 和 NUnit 基礎類別](./test-runners.mdx)
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

@@ -1,6 +1,6 @@
----
+﻿---
 id: getting-started-vscode
-title: "Getting started - VS Code"
+title: "入門 - VS Code"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,215 +8,219 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Introduction
+## 簡介
 
-Playwright Test was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation of Google Chrome for Android and Mobile Safari. 
+Playwright Test 是專為滿足端到端測試需求而建立的。Playwright 支援所有現代渲染引擎，包括 Chromium、WebKit 和 Firefox。在 Windows、Linux 和 macOS 上進行測試，可以在本地或 CI 上，無頭或有頭，並支援 Google Chrome for Android 和 Mobile Safari 的原生行動模擬。
 
-Get started by installing Playwright and generating a test to see it in action. Alternatively you can also get started and run your tests using the [CLI](./intro.mdx).
+開始安裝 Playwright 並生成測試以查看其運行效果。或者，您也可以開始並使用 [CLI](./intro.mdx) 執行您的測試。
 
-<LiteYouTube id="Xz6lhEzgI5I" title="Getting Started with Playwright in VS Code" />
+<LiteYouTube id="Xz6lhEzgI5I" title="在 VS Code 中開始使用 Playwright" />
 
-## Installation
+## 安裝
 
-Install the [VS Code extension from the marketplace](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) or from the extensions tab in VS Code.
+安裝 [VS Code extension from the marketplace](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) 或從 VS Code 的 extensions 標籤。
 
 ![VS Code extension for Playwright](https://github.com/microsoft/playwright/assets/13063165/cab54568-3168-4b3f-bf3d-854976594903)
 
-Once installed, open the command panel and type:
+一旦安裝完成，打開命令面板並輸入:
 
 ```bash
 Install Playwright
 ```
 
-![install playwright](https://github.com/microsoft/playwright/assets/13063165/14e91050-24ab-4ff1-a37b-57d7c15e5c35)
+![安裝 Playwright](https://github.com/microsoft/playwright/assets/13063165/14e91050-24ab-4ff1-a37b-57d7c15e5c35)
 
-Select **Test: Install Playwright** and Choose the browsers you would like to run your tests on. These can be later configured in the [playwright.config](./test-configuration.mdx) file. You can also choose if you would like to have a GitHub Actions setup to [run your tests on CI](./ci-intro.mdx).
+選擇 **Test: Install Playwright** 並選擇您想要執行測試的瀏覽器。這些可以稍後在 [playwright.config](./test-configuration.mdx) 文件中配置。您也可以選擇是否希望有一個 GitHub Actions 設定來 [在 CI 上執行您的測試](./ci-intro.mdx)。
 
 ![choose browsers](https://github.com/microsoft/playwright/assets/13063165/c9e8a25a-e9e8-4419-aeb5-1b8ba58bd71d)
 
-### Opening the testing sidebar
+### 開啟測試側邊欄
 
-The testing sidebar can be opened by clicking on the testing icon in the activity bar. This will give you access to the test explorer, which will show you all the tests in your project as well as the Playwright sidebar which includes projects, settings, tools and setup.
+測試側邊欄可以通過點擊活動欄中的測試圖標來打開。這將使您能夠訪問測試瀏覽器，它將顯示您項目中的所有測試以及包含項目、設定、工具和設定的 Playwright 側邊欄。
 
-![Testing Sidebar](https://github.com/microsoft/playwright/assets/13063165/d203fe83-6015-4e7a-b816-35d373906b24)
+![測試側邊欄](https://github.com/microsoft/playwright/assets/13063165/d203fe83-6015-4e7a-b816-35d373906b24)
 
-## Running tests
+## 執行測試
 
-You can run a single test by clicking the green triangle next to your test block to run your test. Playwright will run through each line of the test and when it finishes you will see a green tick next to your test block as well as the time it took to run the test.
+您可以通過點擊測試區塊旁邊的綠色三角形來執行單個測試。Playwright 會逐行執行測試，當測試完成時，您會在測試區塊旁邊看到一個綠色的勾號以及執行測試所花費的時間。
 
-<LiteYouTube id="mQmcIBMsc38" title="Getting Started with Playwright in VS Code" />
+<LiteYouTube id="mQmcIBMsc38" title="在 VS Code 中開始使用 Playwright" />
 
-![run a single test](https://github.com/microsoft/playwright/assets/13063165/69dbccfc-4e9f-40e7-bcdf-7d5c5a11f988)
+![執行單個測試](https://github.com/microsoft/playwright/assets/13063165/69dbccfc-4e9f-40e7-bcdf-7d5c5a11f988)
 
-### Run tests and show browsers
+### 執行測試並顯示瀏覽器
 
-You can also run your tests and show the browsers by selecting the option **Show Browsers** in the testing sidebar. Then when you click the green triangle to run your test the browser will open and you will visually see it run through your test. Leave this selected if you want browsers open for all your tests or uncheck it if you prefer your tests to run in headless mode with no browser open.
+你也可以通過在測試側邊欄中選擇 **Show Browsers** 選項來執行你的測試並顯示瀏覽器。然後當你點擊綠色三角形來執行你的測試時，瀏覽器將會打開，你將會直觀地看到它執行你的測試。如果你希望瀏覽器在所有測試中都保持打開狀態，請保持選中此選項；如果你更喜歡在無頭模式下執行測試而不打開瀏覽器，請取消選中此選項。
 
 ![show browsers while running tests](https://github.com/microsoft/playwright/assets/13063165/9f231530-0c43-466a-b944-8cf5102f714a)
 
-Use the **Close all browsers** button to close all browsers.
+使用 **Close all browsers** 按鈕來關閉所有瀏覽器。
 
-### View and run all tests
+### 檢視並執行所有測試
 
-View all tests in the testing sidebar and extend the tests by clicking on each test. Tests that have not been run will not have the green check next to them. Run all tests by clicking on the white triangle as you hover over the tests in the testing sidebar.
+查看測試側邊欄中的所有測試，並通過點擊每個測試來擴展測試。尚未執行的測試旁邊不會有綠色勾號。將滑鼠懸停在測試側邊欄中的測試上，然後點擊白色三角形來執行所有測試。
 
-![run all tests](https://github.com/microsoft/playwright/assets/13063165/348e18ff-f819-4caa-8f7e-f16c20724f56)
+![執行所有測試](https://github.com/microsoft/playwright/assets/13063165/348e18ff-f819-4caa-8f7e-f16c20724f56)
 
-### Running tests on multiple browsers
+### 在多個瀏覽器上執行測試
 
-The first section in the Playwright sidebar is the projects section. Here you can see all your projects as defined in your Playwright config file. The default config when installing Playwright gives you 3 projects, Chromium, Firefox and WebKit. The first project is selected by default.
+Playwright 側邊欄的第一部分是專案部分。在這裡，你可以看到在 Playwright 配置檔案中定義的所有專案。安裝 Playwright 時的預設配置會給你 3 個專案，Chromium、Firefox 和 WebKit。預設會選擇第一個專案。
 
 ![Projects section in VS Code extension](https://github.com/microsoft/playwright/assets/13063165/58fedea6-a2b9-4942-b2c7-2f3d482210cf)
 
-To run tests on multiple projects, select each project by checking the checkboxes next to the project name. Then when you run your tests from the sidebar or by pressing the play button next to the test name, the tests will run on all the selected projects.
+要在多個專案上執行測試，請通過勾選專案名稱旁邊的複選框來選擇每個專案。然後，當你從側邊欄執行測試或按下測試名稱旁邊的播放按鈕時，測試將在所有選定的專案上執行。
 
-![Selecting projects to run tests on](https://github.com/microsoft/playwright/assets/13063165/6dc86ef4-6097-481c-9cab-b6e053ec7ea6)
+![選擇專案來執行測試](https://github.com/microsoft/playwright/assets/13063165/6dc86ef4-6097-481c-9cab-b6e053ec7ea6)
 
-You can also individually run a test on a specific project by clicking the grey play button next to the project name of the test.
+您也可以點擊測試專案名稱旁邊的灰色播放按鈕，單獨對特定專案執行測試。
 
-![Running a test on a specific project](https://github.com/microsoft/playwright/assets/13063165/d29a27ab-07b5-4ca6-b4d7-1ad6d44bf222)
+![執行一個特定專案的測試](https://github.com/microsoft/playwright/assets/13063165/d29a27ab-07b5-4ca6-b4d7-1ad6d44bf222)
 
-### Run tests with trace viewer
+### 執行測試與追蹤檢視器
 
-For a better developer experience you can run your tests with the **Show Trace Viewer** option.
+為了更好的開發者體驗，你可以使用 **Show Trace Viewer** 選項來執行你的測試。
 
-![run tests with trace viewer](https://github.com/microsoft/playwright/assets/13063165/fab8efa6-d5ef-496d-876d-c99e94e6a6b3)
+![執行測試與追蹤檢視器](https://github.com/microsoft/playwright/assets/13063165/fab8efa6-d5ef-496d-876d-c99e94e6a6b3)
 
-This will open up a full trace of your test where you can step through each action of your tests, explore the timeline, source code and more.
-
-![trace viewer](https://github.com/microsoft/playwright/assets/13063165/ee31a4fe-c786-4d4b-887e-2dcecacfba2c)
-
-To learn more about the trace viewer see our [Trace Viewer guide](./trace-viewer.mdx).
-
-## Debugging tests
-
-With the VS Code extension you can debug your tests right in VS Code see error messages, create breakpoints and live debug your tests.
-
-<LiteYouTube id="tJF7UhA59Gc" title="Debugging Playwright tests in VS Code" />
-
-### Error messages
-
-If your test fails VS Code will show you error messages right in the editor showing what was expected, what was received as well as a complete call log.
-
-![error messaging in vs code](https://github.com/microsoft/playwright/assets/13063165/3b8af12a-4805-4573-9d38-92055a0a7e75)
-
-### Live debugging
-
-You can debug your test live in VS Code. After running a test with the `Show Browser` option checked, click on any of the locators in VS Code and it will be highlighted in the Browser window. Playwright will highlight it if it exists and show you if there is more than one result
-
-![live debugging in vs code](https://github.com/microsoft/playwright/assets/13063165/7d236ebb-3d2d-4384-b73d-32a2b4e33b9e)
-
-You can also edit the locators in VS Code and Playwright will show you the changes live in the browser window.
-
-### Run in debug mode
-
-To set a breakpoint click next to the line number where you want the breakpoint to be until a red dot appears. Run the tests in debug mode by right clicking on the line next to the test you want to run. 
-
-![setting debug mode](https://github.com/microsoft/playwright/assets/13063165/31640629-efac-4cc7-b8b0-80ae18a3af83)
-
-A browser window will open and the test will run and pause at where the breakpoint is set. You can step through the tests, pause the test and rerun the tests from the menu in VS Code.
-
-![running in debug mode](https://github.com/microsoft/playwright/assets/13063165/b96a9f50-0f4d-49f9-a3d8-f093980a5673)
-
-![choosing a profile for debugging](https://github.com/microsoft/playwright/assets/13063165/48c1b428-8dd2-4229-9eb5-24f7168db834)
-
-To learn more about debugging, see [Debugging in Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging).
-
-### Debug with trace viewer
-
-For a better developer experience you can debug your tests with the **Show Trace Viewer** option.
-
-![run tests with trace viewer](https://github.com/microsoft/playwright/assets/13063165/fab8efa6-d5ef-496d-876d-c99e94e6a6b3)
-
-This will open up a full trace of your test where you can step through each action and see what happened before and after the action. You can also inspect the DOM snapshot, see console logs, network requests, the source code and more.
+這將開啟完整的測試追蹤，您可以逐步檢查每個測試動作，探索時間軸、原始程式碼等。
 
 ![trace viewer](https://github.com/microsoft/playwright/assets/13063165/ee31a4fe-c786-4d4b-887e-2dcecacfba2c)
 
-To learn more about the trace viewer see our [Trace Viewer guide](./trace-viewer.mdx).
+要了解更多關於追蹤檢視器的資訊，請參閱我們的 [追蹤檢視器指南](./trace-viewer.mdx)。
 
-## Generating tests
+## 除錯測試
 
-CodeGen will auto generate your tests for you as you perform actions in the browser and is a great way to quickly get started. The viewport for the browser window is set to a specific width and height. See the [configuration guide](./test-configuration.mdx) to change the viewport or emulate different environments.
+使用 VS Code 擴充功能，你可以在 VS Code 中直接偵錯你的測試、查看錯誤訊息、建立中斷點並即時偵錯你的測試。
 
-<LiteYouTube id="5XIZPqKkdBA" title="Generating Playwright tests in VS Code" />
+<LiteYouTube id="tJF7UhA59Gc" title="在 VS Code 中偵錯 Playwright 測試" />
 
-### Record a new test
+### 錯誤訊息
 
-To record a test click on the **Record new** button from the Testing sidebar. This will create a `test-1.spec.ts` file as well as open up a browser window. In the browser go to the URL you wish to test and start clicking around. Playwright will record your actions and generate the test code directly in VS Code. You can also generate assertions by choosing one of the icons in the toolbar and then clicking on an element on the page to assert against. The following assertions can be generated:
-* `'assert visibility'` to assert that an element is visible
-* `'assert text'` to assert that an element contains specific text
-* `'assert value'` to assert that an element has a specific value
+如果你的測試失敗，VS Code 會在編輯器中直接顯示錯誤訊息，顯示預期的結果、實際接收到的結果以及完整的呼叫日誌。
 
-Once you are done recording click the **cancel** button or close the browser window. You can then inspect your `test-1.spec.ts` file and see your generated test.
+![錯誤訊息在 vs code](https://github.com/microsoft/playwright/assets/13063165/3b8af12a-4805-4573-9d38-92055a0a7e75)
 
-![record a new test](https://github.com/microsoft/playwright/assets/13063165/0407f112-e1cd-41e7-a05d-ae64e24d27ed)
+### 即時除錯
 
-### Record at cursor
+您可以在 VS Code 中即時偵錯您的測試。在勾選 `Show Browser` 選項後執行測試，點擊 VS Code 中的任意定位器，它將在瀏覽器視窗中被高亮顯示。如果存在，Playwright 會將其高亮顯示，並告訴您是否有多個結果。
 
-To record from a specific point in your test file click the **Record at cursor** button from the Testing sidebar. This generates actions into the existing test at the current cursor position. You can run the test, position the cursor at the end of the test and continue generating the test.
+![即時偵錯在 vs code](https://github.com/microsoft/playwright/assets/13063165/7d236ebb-3d2d-4384-b73d-32a2b4e33b9e)
+
+您也可以在 VS Code 中編輯定位器，Playwright 會在瀏覽器視窗中即時顯示變更。
+
+### 在除錯模式下執行
+
+要設定中斷點，請點擊您希望中斷點所在行號旁邊，直到出現一個紅點。通過右鍵點擊您想要執行的測試旁邊的行，在調試模式下執行測試。
+
+![設定 debug 模式](https://github.com/microsoft/playwright/assets/13063165/31640629-efac-4cc7-b8b0-80ae18a3af83)
+
+打開瀏覽器視窗，測試將會執行並在設定斷點的地方暫停。你可以在 VS Code 的選單中逐步執行測試、暫停測試並重新執行測試。
+
+![執行在除錯模式](https://github.com/microsoft/playwright/assets/13063165/b96a9f50-0f4d-49f9-a3d8-f093980a5673)
+
+![選擇一個用於偵錯的設定檔](https://github.com/microsoft/playwright/assets/13063165/48c1b428-8dd2-4229-9eb5-24f7168db834)
+
+要了解更多關於除錯的資訊，請參見 [Debugging in Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging)。
+
+### 使用追蹤檢視器進行偵錯
+
+為了更好的開發者體驗，你可以使用 **Show Trace Viewer** 選項來調試你的測試。
+
+![執行測試與追蹤檢視器](https://github.com/microsoft/playwright/assets/13063165/fab8efa6-d5ef-496d-876d-c99e94e6a6b3)
+
+這將開啟測試的完整追蹤，您可以逐步查看每個動作，並查看動作前後發生的情況。您還可以檢查 DOM 快照、查看控制台日誌、網路請求、源程式碼等。
+
+![trace viewer](https://github.com/microsoft/playwright/assets/13063165/ee31a4fe-c786-4d4b-887e-2dcecacfba2c)
+
+要了解更多關於追蹤檢視器的資訊，請參閱我們的 [追蹤檢視器指南](./trace-viewer.mdx)。
+
+## 產生測試
+
+CodeGen 會在你在瀏覽器中執行操作時自動產生你的測試，這是一個快速入門的好方法。瀏覽器視窗的視口被設定為特定的寬度和高度。請參閱[設定指南](./test-configuration.mdx)來更改視口或模擬不同的環境。
+
+<LiteYouTube id="5XIZPqKkdBA" title="在 VS Code 中生成 Playwright 測試" />
+
+### 記錄一個新的測試
+
+要記錄測試，請從測試側邊欄中點擊 **Record new** 按鈕。這將建立一個 `test-1.spec.ts` 檔案並打開一個瀏覽器視窗。在瀏覽器中，前往您希望測試的 URL 並開始點擊。Playwright 會記錄您的操作並直接在 VS Code 中生成測試程式碼。您還可以通過選擇工具欄中的一個圖標，然後點擊頁面上的一個元素來生成斷言。可以生成以下斷言:
+
+* `'assert visibility'` 來斷言一個元素是可見的
+* `'assert text'` 來斷言一個元素包含特定的文字
+* `'assert value'` 來斷言一個元素具有特定的值
+
+一旦錄製完成，點擊 **cancel** 按鈕或關閉瀏覽器視窗。然後你可以檢查你的 `test-1.spec.ts` 文件並查看生成的測試。
+
+![錄製一個新的測試](https://github.com/microsoft/playwright/assets/13063165/0407f112-e1cd-41e7-a05d-ae64e24d27ed)
+
+### 記錄在游標位置
+
+要從測試文件中的特定點開始記錄，請從測試側邊欄中點擊 **Record at cursor** 按鈕。這會在當前游標位置將動作生成到現有測試中。您可以執行測試，將游標定位到測試結尾並繼續生成測試。
 
 ![record at cursor](https://github.com/microsoft/playwright/assets/13063165/96933ea1-4c84-453a-acd7-22b4d3bde185)
 
-### Picking a locator
+### 選擇定位器
 
-Pick a [locator](./locators.mdx) and copy it into your test file by clicking the **Pick locator** button form the testing sidebar. Then in the browser click the element you require and it will now show up in the **Pick locator** box in VS Code. Press 'enter' on your keyboard to copy the locator into the clipboard and then paste anywhere in your code. Or press 'escape' if you want to cancel.
+選擇一個 [locator](./locators.mdx) 並通過點擊測試側邊欄中的 **Pick locator** 按鈕將其複製到你的測試檔案中。然後在瀏覽器中點擊你需要的元素，它現在會顯示在 VS Code 的 **Pick locator** 框中。按下鍵盤上的 'enter' 鍵將定位器複製到剪貼簿，然後將其粘貼到程式碼中的任何位置。或者如果你想取消，請按 'escape'。
 
 ![pick locators](https://github.com/microsoft/playwright/assets/13063165/9a1b2da9-9ac7-4def-a9e0-f94770364fc2)
 
-Playwright will look at your page and figure out the best locator, prioritizing [role, text and test id locators](./locators.mdx). If the generator finds multiple elements matching the locator, it will improve the locator to make it resilient and uniquely identify the target element, so you don't have to worry about failing tests due to locators.
+Playwright 會查看你的頁面並找出最佳定位器，優先考慮[role, text 和 test id 定位器](./locators.mdx)。如果產生器找到多個與定位器匹配的元素，它將改進定位器以使其具有彈性並唯一識別目標元素，因此你不必擔心因定位器而導致測試失敗。
 
-## Project Dependencies
+## 專案相依套件
 
-You can use [project dependencies](./test-projects.mdx) to run tests that depend on other tests. This is useful for **setup** tests such as logging in to a website. 
+你可以使用 [專案相依性](./test-projects.mdx) 來執行依賴其他測試的測試。這對於**設定**測試（例如登錄網站）非常有用。
 
-### Running setup tests
+### 執行設定測試
 
-To run your setup tests select the **setup** project, as defined in your configuration file, from the project section in the Playwright sidebar. This will give you access to the **setup** tests in the test explorer.
+要執行您的設定測試，請從 Playwright 側邊欄的專案部分中選擇配置檔案中定義的 **setup** 專案。這將使您可以在測試瀏覽器中訪問 **setup** 測試。
 
-![setup tests in vscode](https://github.com/microsoft/playwright/assets/13063165/7a9eccd5-a5b3-431f-9eff-9b2971501e07)
+![設定測試在 vscode](https://github.com/microsoft/playwright/assets/13063165/7a9eccd5-a5b3-431f-9eff-9b2971501e07)
 
-When you run a test that depends on the **setup** tests, the **setup** test will run first. Each time you run the test, the **setup** test will run again. 
+當你執行依賴於 **設定** 測試的測試時，**設定** 測試將首先執行。每次你執行測試時，**設定** 測試將再次執行。
 
-![running setup tests in vscode](https://github.com/microsoft/playwright/assets/13063165/a54b3868-3f9f-4e74-8d42-a93443f099fc)
+![執行設定測試在 vscode](https://github.com/microsoft/playwright/assets/13063165/a54b3868-3f9f-4e74-8d42-a93443f099fc)
 
-### Running setup tests only once
+### 執行設定測試僅一次
 
-To run the **setup** test only once, deselect it from the projects section in the Playwright sidebar. The **setup** test is now removed from the test explorer. When you run a test that depends on the **setup** test, it will no longer run the **setup** test, making it much faster and therefore a much better developer experience.
+要僅執行一次 **setup** 測試，請在 Playwright 側邊欄的專案部分取消選擇它。**setup** 測試現在已從測試瀏覽器中移除。當您執行依賴於 **setup** 測試的測試時，它將不再執行 **setup** 測試，使其速度更快，因此開發人員體驗更好。
 
-![deselecting setup tests in vscode](https://github.com/microsoft/playwright/assets/13063165/ebc50e38-c98d-4538-82fe-ec08491f8487)
+![取消選擇在 vscode 中設定測試](https://github.com/microsoft/playwright/assets/13063165/ebc50e38-c98d-4538-82fe-ec08491f8487)
 
-## Global Setup
+## 全域設定
 
-**Global setup** tests are run when you execute your first test. This runs only once and is useful for setting up a database or starting a server. You can manually run a **global setup** test by clicking the `Run global setup` option from the **Setup** section in the Playwright sidebar. You can also run **global teardown** tests by clicking the `Run global teardown` option.
+**全域設定** 測試會在你執行第一次測試時運行。這只會運行一次，對於設定資料庫或啟動伺服器非常有用。你可以通過點擊 Playwright 側邊欄中 **Setup** 部分的 `Run global setup` 選項手動運行 **全域設定** 測試。你也可以通過點擊 `Run global teardown` 選項運行 **全域拆卸** 測試。
 
-Global setup will re-run when you debug tests as this ensures an isolated environment and dedicated setup for the test.
+全域設定會在您偵錯測試時重新執行，因為這確保了測試的隔離環境和專用設定。
 
-![running global setup](https://github.com/microsoft/playwright/assets/13063165/bcf5fec7-2d7d-4cb9-a277-5f41e19b8d52)
+![執行全域設定](https://github.com/microsoft/playwright/assets/13063165/bcf5fec7-2d7d-4cb9-a277-5f41e19b8d52)
 
-## Multiple configurations
+## 多重設定配置
 
-If your project contains more than one playwright configuration file, you can switch between them by first clicking on the gear icon in the top right corner of the Playwright sidebar. This will show you all the configuration files in your project. Select the configuration files you want to use by checking the checkbox next to each one and clicking on the 'ok' button.
+如果你的專案包含多個 Playwright 設定檔，你可以先點擊 Playwright 側邊欄右上角的齒輪圖示來切換它們。這將顯示專案中的所有設定檔。通過勾選每個設定檔旁邊的複選框並點擊 'ok' 按鈕來選擇你想要使用的設定檔。
 
-![Selecting a configuration file](https://github.com/microsoft/playwright/assets/13063165/ff9ff838-d27a-403d-b939-94e6c295e1d7)
+![選擇一個配置文件](https://github.com/microsoft/playwright/assets/13063165/ff9ff838-d27a-403d-b939-94e6c295e1d7)
 
-You will now have access to all your tests in the test explorer. To run a test click on the grey triangle next to the file or project name. 
+您現在可以在測試瀏覽器中訪問所有測試。要執行測試，請點擊文件或項目名稱旁邊的灰色三角形。
 
-![Switching between configuration files](https://github.com/microsoft/playwright/assets/13063165/70930de5-0a0c-45e0-a6ee-b51f727f0e35)
+![在配置文件之間切換](https://github.com/microsoft/playwright/assets/13063165/70930de5-0a0c-45e0-a6ee-b51f727f0e35)
 
-To run all tests from all configurations click on the grey triangle at the top of the test explorer.
+要執行所有配置的所有測試，請點擊測試瀏覽器頂部的灰色三角形。
 
-![Running all tests from all configurations](https://github.com/microsoft/playwright/assets/13063165/b3de4ce1-d311-4527-b2c7-b3e2f179a685)
+![執行所有配置中的所有測試](https://github.com/microsoft/playwright/assets/13063165/b3de4ce1-d311-4527-b2c7-b3e2f179a685)
 
-To choose a configuration file to work with simply toggle between them by clicking on the configuration file name in the Playwright sidebar. Now when you use the tools, such as Record a test, it will record a test for the selected configuration file. 
+要選擇要使用的配置文件，只需通過點擊 Playwright 側邊欄中的配置文件名稱在它們之間切換。現在當你使用工具時，例如記錄測試，它將為選定的配置文件記錄測試。
 
-![Recording a test for a specific configuration file](https://github.com/microsoft/playwright/assets/13063165/a8ecbcd1-fab8-4012-bdaa-428951f233a2)
+![為特定配置文件錄製測試](https://github.com/microsoft/playwright/assets/13063165/a8ecbcd1-fab8-4012-bdaa-428951f233a2)
 
-You can easily toggle back and forth between configurations by clicking on the configuration file name in the Playwright sidebar.
+您可以通過點擊 Playwright 側邊欄中的配置文件名稱輕鬆地在配置之間來回切換。
 
-## What's next
-- [Write tests using web first assertions, page fixtures and locators](./writing-tests.mdx)
-- [Run your tests on CI](./ci-intro.mdx)
-- [Learn more about the Trace Viewer](./trace-viewer.mdx)
+## 接下來是什麼
+
+- [使用網頁優先斷言、頁面固定裝置和定位器撰寫測試](./writing-tests.mdx)
+- [在 CI 上執行你的測試](./ci-intro.mdx)
+- [了解更多關於 Trace Viewer](./trace-viewer.mdx)
+
+
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"
