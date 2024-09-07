@@ -209,7 +209,7 @@ const { webkit } = require('playwright');
 })();
 ```
 
-默認情況下，Playwright 以無頭模式執行瀏覽器。要查看瀏覽器 UI，啟動瀏覽器時傳遞 `headless: false` 標誌。您也可以使用 `slowMo` 來減慢執行速度。在調試工具[部分](./debug.mdx)了解更多資訊。
+預設情況下，Playwright 以無頭模式執行瀏覽器。要查看瀏覽器 UI，啟動瀏覽器時傳遞 `headless: false` 標誌。您也可以使用 `slowMo` 來減慢執行速度。在調試工具[部分](./debug.mdx)了解更多資訊。
 
 ```js
 firefox.launch({ headless: false, slowMo: 50 });
@@ -296,7 +296,7 @@ npm install
 
 **從 artifact repository 下載**
 
-默認情況下，Playwright 從 Microsoft 的 CDN 下載瀏覽器。傳遞 `PLAYWRIGHT_DOWNLOAD_HOST` 環境變數以改為從內部 artifacts 儲存庫下載。
+預設情況下，Playwright 從 Microsoft 的 CDN 下載瀏覽器。傳遞 `PLAYWRIGHT_DOWNLOAD_HOST` 環境變數以改為從內部 artifacts 儲存庫下載。
 
 <Tabs
   groupId="bash-flavor"

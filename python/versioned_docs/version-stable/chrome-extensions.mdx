@@ -161,7 +161,7 @@ def test_popup_page(page: Page, extension_id: str) -> None:
 `headless=new` 模式不受 Playwright 官方支持，可能會導致意外行為。
 :::
 
-默認情況下，Chrome 在 Playwright 中的無頭模式不支援 Chrome 擴充功能。為了克服這一限制，你可以使用以下程式碼在新的無頭模式下執行 Chrome 的持久性上下文:
+預設情況下，Chrome 在 Playwright 中的無頭模式不支援 Chrome 擴充功能。為了克服這一限制，你可以使用以下程式碼在新的無頭模式下執行 Chrome 的持久性上下文:
 
 ```python title="conftest.py"
 path_to_extension = Path(__file__).parent.joinpath("my-extension")

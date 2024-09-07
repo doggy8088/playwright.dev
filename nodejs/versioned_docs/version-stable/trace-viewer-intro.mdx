@@ -22,7 +22,7 @@ Playwright Trace Viewer 是一個 GUI 工具，可讓你探索已記錄的 Playw
 
 ## 記錄追蹤
 
-默認情況下，[playwright.config](./trace-viewer.mdx#recording-a-trace-on-ci) 文件將包含建立每個測試的 `trace.zip` 文件所需的配置。追蹤被設定為 `on-first-retry` 執行，這意味著它們將在第一次重試失敗的測試時執行。此外，當在 CI 上執行時，`retries` 被設置為 2，而在本地執行時設置為 0。這意味著追蹤將在第一次重試失敗的測試時記錄，但不會在第一次執行和第二次重試時記錄。
+預設情況下，[playwright.config](./trace-viewer.mdx#recording-a-trace-on-ci) 文件將包含建立每個測試的 `trace.zip` 文件所需的配置。追蹤被設定為 `on-first-retry` 執行，這意味著它們將在第一次重試失敗的測試時執行。此外，當在 CI 上執行時，`retries` 被設置為 2，而在本地執行時設置為 0。這意味著追蹤將在第一次重試失敗的測試時記錄，但不會在第一次執行和第二次重試時記錄。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';

@@ -80,7 +80,7 @@ test('example', async ({ page }) => {
 
 ### tsconfig 解決方案
 
-默認情況下，Playwright 將通過向上查找目錄結構並查找 `tsconfig.json` 或 `jsconfig.json` 來查找每個導入文件的最近 tsconfig。這樣，您可以建立一個 `tests/tsconfig.json` 文件，該文件將僅用於您的測試，Playwright 將自動選取它。
+預設情況下，Playwright 將通過向上查找目錄結構並查找 `tsconfig.json` 或 `jsconfig.json` 來查找每個導入文件的最近 tsconfig。這樣，您可以建立一個 `tests/tsconfig.json` 文件，該文件將僅用於您的測試，Playwright 將自動選取它。
 
 ```sh
 # Playwright will choose tsconfig automatically

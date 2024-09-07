@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## 簡介
 
-默認情況下，Playwright 會 [平行](./test-parallel.mdx) 執行測試檔案，並努力實現您機器上 CPU 核心的最佳利用。為了實現更大的平行化，您可以通過同時在多台機器上執行測試來進一步擴展 Playwright 測試執行。我們稱這種操作模式為 "分片"。在 Playwright 中，分片意味著將您的測試分成稱為 "分片" 的較小部分。每個分片就像一個可以獨立執行的單獨工作。整個目的是分割您的測試以加快測試執行時間。
+預設情況下，Playwright 會 [平行](./test-parallel.mdx) 執行測試檔案，並努力實現您機器上 CPU 核心的最佳利用。為了實現更大的平行化，您可以通過同時在多台機器上執行測試來進一步擴展 Playwright 測試執行。我們稱這種操作模式為 "分片"。在 Playwright 中，分片意味著將您的測試分成稱為 "分片" 的較小部分。每個分片就像一個可以獨立執行的單獨工作。整個目的是分割您的測試以加快測試執行時間。
 
 當你分片測試時，每個分片可以自行執行，利用可用的 CPU 核心。這有助於通過同時執行任務來加快測試過程。
 
@@ -27,7 +27,7 @@ npx playwright test --shard=4/4
 
 現在，如果你在不同的工作上平行執行這些分片，你的測試套件完成速度會快四倍。
 
-請注意，Playwright 只能分片可以平行執行的測試。預設情況下，這意味著 Playwright 將分片測試文件。了解更多其他選項，請參閱 [parallelism guide](./test-parallel.mdx)。
+請注意，Playwright 只能分片可以平行執行的測試。預設情況下，這意味著 Playwright 將分片測試文件。了解更多其他選項，請參閱 [平行處理](./test-parallel.mdx)。
 
 ## 合併來自多個分片的報告
 
@@ -152,25 +152,25 @@ jobs:
 支持的選項:
 
 - `--reporter reporter-to-use`
-  
+
   產生哪種報告。可以用逗號分隔多個報告。
-  
+
   範例:
-  
+
   ```bash
   npx playwright merge-reports --reporter=html,github ./blob-reports
   ```
-  
+
 - `--config path/to/config/file`
-  
+
   指定包含輸出報告的 Playwright 設定檔。使用此選項傳遞額外的設定給輸出報告器。此設定檔可以與建立 blob 報告時使用的不同。
-  
+
   範例:
-  
+
   ```bash
   npx playwright merge-reports --config=merge.config.ts ./blob-reports
   ```
-  
+
   ```ts title="merge.config.ts"
   export default {
     testDir: 'e2e',

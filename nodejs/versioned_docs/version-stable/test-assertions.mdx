@@ -109,7 +109,7 @@ await expect(locator).not.toContainText('some text');
 
 ## 軟性斷言
 
-默認情況下，斷言失敗將終止測試執行。Playwright 也支持*軟斷言*：軟斷言失敗**不會**終止測試執行，但會將測試標記為失敗。
+預設情況下，斷言失敗將終止測試執行。Playwright 也支持*軟斷言*：軟斷言失敗**不會**終止測試執行，但會將測試標記為失敗。
 
 ```js
 // Make a few checks that will not stop the test when failed...

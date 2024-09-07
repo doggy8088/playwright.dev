@@ -113,7 +113,7 @@ public class App {
 }
 ```
 
-默認情況下，Playwright 以無頭模式執行瀏覽器。要查看瀏覽器 UI，啟動瀏覽器時傳遞 `setHeadless(false)` 標誌。你也可以使用 `slowMo` 來減慢執行速度。了解更多在調試工具[部分](./debug.mdx)。
+預設情況下，Playwright 以無頭模式執行瀏覽器。要查看瀏覽器 UI，啟動瀏覽器時傳遞 `setHeadless(false)` 標誌。你也可以使用 `slowMo` 來減慢執行速度。了解更多在調試工具[部分](./debug.mdx)。
 
 ```java
 playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
@@ -125,7 +125,7 @@ playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false).s
 mvn compile exec:java -D exec.mainClass="org.example.App"
 ```
 
-默認情況下，使用 Playwright 啟動的瀏覽器是無頭模式，這意味著在執行程式碼時不會打開瀏覽器 UI。要更改這一點，您可以在啟動瀏覽器時傳遞 `new BrowserType.LaunchOptions().setHeadless(false)`。
+預設情況下，使用 Playwright 啟動的瀏覽器是無頭模式，這意味著在執行程式碼時不會打開瀏覽器 UI。要更改這一點，您可以在啟動瀏覽器時傳遞 `new BrowserType.LaunchOptions().setHeadless(false)`。
 
 ## 系統需求
 

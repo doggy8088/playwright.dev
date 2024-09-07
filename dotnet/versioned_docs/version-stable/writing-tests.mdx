@@ -8,10 +8,10 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## 簡介
 
-Playwright 測試很簡單，他們
+Playwright 測試很簡單，就兩件事：
 
-- **執行動作**, 和
-- **根據預期斷言狀態**。
+- **執行動作**
+- **根據預期斷言狀態**
 
 在執行動作之前無需等待任何事情: Playwright 會在執行每個動作之前自動等待各種[可操作性](./actionability.mdx)檢查通過。
 
@@ -67,7 +67,7 @@ public class ExampleTest : PageTest
 
         // Expects page to have a heading with the name of Installation.
         await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Installation" })).ToBeVisibleAsync();
-    } 
+    }
 }
 ```
 
@@ -106,7 +106,7 @@ public class ExampleTest : PageTest
 
         // Expects page to have a heading with the name of Installation.
         await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Installation" })).ToBeVisibleAsync();
-    } 
+    }
 }
 ```
 

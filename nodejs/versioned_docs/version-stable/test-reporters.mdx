@@ -196,7 +196,7 @@ HTML reporter 會產生一個自包含的資料夾，其中包含測試執行的
 npx playwright test --reporter=html
 ```
 
-默認情況下，如果某些測試失敗，HTML 報告會自動打開。你可以通過 Playwright 配置中的 `open` 屬性或 `PLAYWRIGHT_HTML_OPEN` 環境變數來控制此行為。該屬性的可能值為 `always`、`never` 和 `on-failure`（默認）。
+預設情況下，如果某些測試失敗，HTML 報告會自動打開。你可以通過 Playwright 配置中的 `open` 屬性或 `PLAYWRIGHT_HTML_OPEN` 環境變數來控制此行為。該屬性的可能值為 `always`、`never` 和 `on-failure`（預設）。
 
 你也可以設定用來提供 HTML 報告的 `host` 和 `port`。
 
@@ -260,7 +260,7 @@ Blob 報告包含有關測試執行的所有詳細資訊，並且可以在稍後
 npx playwright test --reporter=blob
 ```
 
-默認情況下，報告會寫入 package.json 目錄或當前工作目錄（如果未找到 package.json）中的 `blob-report` 目錄。報告文件名看起來像 `report-<hash>.zip` 或 `report-<hash>-<shard_number>.zip`，當使用 [sharding](./test-sharding.mdx) 時。hash 是一個可選值，從 `--grep`、`--grepInverted`、`--project` 和作為命令行參數傳遞的文件過濾器計算得出。hash 保證了使用不同命令行選項執行 Playwright 時會產生不同但在多次執行之間穩定的報告名稱。輸出文件名可以在配置文件中被覆蓋，或作為 `'PLAYWRIGHT_BLOB_OUTPUT_FILE'` 環境變數傳遞。
+預設情況下，報告會寫入 package.json 目錄或當前工作目錄（如果未找到 package.json）中的 `blob-report` 目錄。報告文件名看起來像 `report-<hash>.zip` 或 `report-<hash>-<shard_number>.zip`，當使用 [sharding](./test-sharding.mdx) 時。hash 是一個可選值，從 `--grep`、`--grepInverted`、`--project` 和作為命令行參數傳遞的文件過濾器計算得出。hash 保證了使用不同命令行選項執行 Playwright 時會產生不同但在多次執行之間穩定的報告名稱。輸出文件名可以在配置文件中被覆蓋，或作為 `'PLAYWRIGHT_BLOB_OUTPUT_FILE'` 環境變數傳遞。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';

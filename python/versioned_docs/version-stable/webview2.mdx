@@ -65,7 +65,7 @@ this.webView.CoreWebView2InitializationCompleted += (_, e) =>
 
 ## Writing and running tests
 
-默認情況下，WebView2 控制項將對所有實例使用相同的用戶資料目錄。這意味著如果您平行執行多個測試，它們將互相干擾。為了避免這種情況，您應該為每個測試設置 `WEBVIEW2_USER_DATA_FOLDER` 環境變數（或使用 [WebView2.EnsureCoreWebView2Async Method](https://docs.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.wpf.webview2.ensurecorewebview2async?view=webview2-dotnet-1.0.1343.22)），以使用不同的文件夾。這將確保每個測試在其自己的用戶資料目錄中執行。
+預設情況下，WebView2 控制項將對所有實例使用相同的用戶資料目錄。這意味著如果您平行執行多個測試，它們將互相干擾。為了避免這種情況，您應該為每個測試設置 `WEBVIEW2_USER_DATA_FOLDER` 環境變數（或使用 [WebView2.EnsureCoreWebView2Async Method](https://docs.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.wpf.webview2.ensurecorewebview2async?view=webview2-dotnet-1.0.1343.22)），以使用不同的文件夾。這將確保每個測試在其自己的用戶資料目錄中執行。
 
 使用以下內容，Playwright 將會將你的 WebView2 應用程式作為子程序執行，為其分配一個唯一的使用者資料目錄，並將 [Page](/api/class-page.mdx) 實例提供給你的測試：
 
