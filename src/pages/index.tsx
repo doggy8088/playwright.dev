@@ -12,13 +12,13 @@ const features = [
     title: "任何瀏覽器 \u2022 任何平台 \u2022 一個 API",
     description: <>
       <p>
-        <b>跨瀏覽器。</b> Playwright 支援所有現代渲染引擎，包括 Chromium、WebKit 和 Firefox。
+        <b>跨瀏覽器：</b> Playwright 支援所有現代渲染引擎，包括 Chromium、WebKit 和 Firefox。
       </p>
       <p>
-        <b>跨平台。</b> 在 Windows、Linux 和 macOS 上進行測試，本地或在 CI 上，無頭或有頭。
+        <b>跨平台：</b> 在 Windows、Linux 和 macOS 上進行測試，本地或在 CI 上，無頭或有頭。
       </p>
       <p>
-        <b>跨語言。</b> 使用 Playwright API 在 <a
+        <b>跨語言：</b> 使用 Playwright API 在 <a
         href="https://playwright.dev/docs/intro">TypeScript</a>、<a
         href="https://playwright.dev/docs/intro">JavaScript</a>、<a
         href="https://playwright.dev/python/docs/intro">Python</a>、<a
@@ -26,7 +26,7 @@ const features = [
         href="https://playwright.dev/java/docs/intro">Java</a> 中。
       </p>
       <p>
-        <b>測試行動網頁。</b> Google Chrome for Android 和 Mobile Safari 的原生行動模擬。相同的渲染引擎在您的桌面和雲端中運行。
+        <b>測試行動網頁：</b> Google Chrome for Android 和 Mobile Safari 的原生行動模擬。相同的渲染引擎在您的桌面和雲端中運行。
       </p>
     </>,
   },
@@ -51,20 +51,20 @@ const features = [
     ),
   },
   {
-    title: "無妥協 \u2022 無限制",
+    title: "沒有妥協 \u2022 沒有限制",
     description: (
       <>
         <p>
-          瀏覽器在不同進程中運行屬於不同來源的網頁內容。Playwright 與現代瀏覽器架構保持一致，並在進程外運行測試。這使得 Playwright 擺脫了典型的進程內測試運行器限制。
+          瀏覽器在不同程序中運行屬於不同來源的網頁內容。Playwright 與現代瀏覽器架構保持一致，並在程序外運行測試。這使得 Playwright 擺脫了典型的程序內測試執行器限制。
         </p>
         <p>
-          <b>多重一切。</b> 測試場景涵蓋多個 <b>標籤頁</b>、多個 <b>來源</b> 和多個 <b>用戶</b>。為不同用戶創建不同上下文的場景，並在一個測試中對您的服務器進行測試。
+          <b>多重一切。</b> 測試場景涵蓋多個 <b>頁籤(tabs)</b>、多個 <b>來源(origins)</b> 和多個 <b>用戶(users)</b>。為不同用戶建立不同上下文的場景，並在一個測試中對您的伺服器進行測試。
         </p>
         <p>
           <b>可信事件。</b> 懸停元素，與動態控件交互，生成可信事件。Playwright 使用真實的瀏覽器輸入管道，與真實用戶無法區分。
         </p>
         <p>
-          <b>測試框架，穿透 Shadow DOM。</b> Playwright 選擇器穿透 Shadow DOM，並允許無縫進入框架。
+          <b>測試 Frames，穿透 Shadow DOM。</b> Playwright 選擇器穿透 Shadow DOM，並允許無縫進入 Frames。
         </p>
       </>
     ),
@@ -78,10 +78,10 @@ const features = [
     description: (
       <>
         <p>
-          <b>瀏覽器上下文。</b> Playwright 為每個測試創建一個瀏覽器上下文。瀏覽器上下文相當於一個全新的瀏覽器配置文件。這提供了完全的測試隔離，且沒有任何開銷。創建一個新的瀏覽器上下文只需幾毫秒。
+          <b>瀏覽器上下文：</b> Playwright 為每個測試建立一個瀏覽器上下文。瀏覽器上下文相當於一個全新的瀏覽器配置文件。這提供了完全的測試隔離，且沒有任何開銷。建立一個新的瀏覽器上下文只需幾毫秒。
         </p>
         <p>
-          <b>一次登錄。</b> 保存上下文的身份驗證狀態，並在所有測試中重用它。這繞過了每個測試中的重複登錄操作，但仍提供了獨立測試的完全隔離。
+          <b>僅登入一次：</b> 保存上下文的身份驗證狀態，並在所有測試中重用它。這繞過了每個測試中的重複登錄操作，但仍提供了獨立測試的完全隔離。
         </p>
       </>
     ),
@@ -91,13 +91,13 @@ const features = [
     description: (
       <>
         <p>
-          <b><a href="docs/codegen">代碼生成器。</a></b> 通過記錄您的操作生成測試。將它們保存到任何語言中。
+          <b><a href="docs/codegen">程式碼產生器</a></b> 通過記錄您的操作生成測試。將它們保存到任何語言中。
         </p>
         <p>
-          <b><a href="docs/debug#playwright-inspector">Playwright 檢查器。</a></b> 檢查頁面，生成選擇器，逐步執行測試，查看點擊點，探索執行日誌。
+          <b><a href="docs/debug#playwright-inspector">Playwright inspector</a></b> 檢查頁面，生成選擇器，逐步執行測試，查看點擊點，探索執行日誌。
         </p>
         <p>
-          <b><a href="docs/trace-viewer-intro">追蹤查看器。</a></b> 捕獲所有信息以調查測試失敗。Playwright 追蹤包含測試執行截屏、實時 DOM 快照、操作探索器、測試源代碼等。
+          <b><a href="docs/trace-viewer-intro">追蹤檢視器</a></b> 捕獲所有訊息以調查測試失敗。Playwright 追蹤包含測試執行螢幕截圖、即時 DOM 快照、操作探索器、測試原始碼等。
         </p>
       </>
     ),
@@ -206,7 +206,7 @@ const Home: React.FC = () => {
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className={clsx("hero__title", styles.heroTitle)}>
-            <span className={styles.highlight}>Playwright</span> 使現代網頁應用的端到端測試變得可靠。
+            <span className={styles.highlight}>Playwright</span> 使現代網頁應用的 end-to-end 測試變得可靠。
           </h1>
           <div className={styles.buttons}>
             <Link
