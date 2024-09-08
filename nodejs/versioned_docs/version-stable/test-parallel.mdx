@@ -12,7 +12,7 @@ Playwright Test 平行執行測試。為了達到這一點，它會執行多個�
 
 - 你可以使用 [`test.describe.configure`](#parallelize-tests-in-a-single-file) 配置測試以平行執行**單個檔案中的測試**。
 - 你可以配置**整個專案**，使用 [testProject.fullyParallel](/api/class-testproject.mdx#test-project-fully-parallel) 或 [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) 使所有檔案中的所有測試平行執行。
-- 要**禁用**平行處理，將 [workers 的數量限制為一](#disable-parallelism)。
+- 要**停用**平行處理，將 [workers 的數量限制為 1](#停用平行處理)。
 
 你可以控制[平行工作程序](#limit-workers)的數量和[限制失敗次數](#limit-failures-and-fail-fast)以提高整個測試套件的效率。
 
@@ -47,7 +47,7 @@ export default defineConfig({
 
 ## 停用平行處理
 
-您可以通過僅允許一次只有一個工作者來禁用任何平行處理。可以在配置文件中設置 `workers: 1` 選項，或在命令行中傳遞 `--workers=1`。
+您可以通過僅允許一次只有一個工作者來停用任何平行處理。可以在配置文件中設置 `workers: 1` 選項，或在命令行中傳遞 `--workers=1`。
 
 ```bash
 npx playwright test --workers=1
@@ -97,10 +97,10 @@ export default defineConfig({
 
 ## 序列模式
 
-你可以將相互依賴的測試標註為串行。如果其中一個串行測試失敗，所有後續測試將被跳過。一組中的所有測試將一起重試。
+你可以將相互依賴的測試標註為序列。如果其中一個序列測試失敗，所有後續測試將被跳過。一組中的所有測試將一起重試。
 
 :::note
-不建議使用串行。通常最好使您的測試獨立，以便它們可以獨立執行。
+不建議使用序列。通常最好使您的測試獨立，以便它們可以獨立執行。
 :::
 
 ```js
@@ -206,16 +206,16 @@ test('test', async ({ dbUserName }) => {
 
 Playwright Test 會依照宣告的順序從單一檔案執行測試，除非你[在單一檔案中平行化測試](#parallelize-tests-in-a-single-file)。
 
-測試檔案的執行順序無法保證，因為 Playwright Test 預設會平行執行測試檔案。然而，如果你[禁用平行處理](#disable-parallelism)，你可以通過按字母順序命名檔案或使用“測試列表”檔案來控制測試順序。
+測試檔案的執行順序無法保證，因為 Playwright Test 預設會平行執行測試檔案。然而，如果你[停用平行處理](#disable-parallelism)，你可以通過按字母順序命名檔案或使用“測試列表”檔案來控制測試順序。
 
 ### 將測試檔案按字母順序排序
 
-當你**禁用平行測試執行**時，Playwright Test 會按字母順序執行測試檔案。你可以使用一些命名規則來控制測試順序，例如 `001-user-signin-flow.spec.ts`、`002-create-new-document.spec.ts` 等等。
+當你**停用平行測試執行**時，Playwright Test 會按字母順序執行測試檔案。你可以使用一些命名規則來控制測試順序，例如 `001-user-signin-flow.spec.ts`、`002-create-new-document.spec.ts` 等等。
 
 ### 使用 "測試清單" 文件
 
 :::warning
-不建議使用測試清單，並且僅提供盡力而為的支持。一些功能如 VS Code 擴充套件 和追蹤可能無法與測試清單正常運作。
+不建議使用測試清單，並且僅提供盡力而為的支持。一些功能如 VS Code 擴充套件和追蹤可能無法與測試清單正常運作。
 :::
 
 你可以將你的測試放在多個檔案中的輔助函式中。考慮以下範例，其中測試並未直接定義在檔案中，而是在包裝函式中。
@@ -254,7 +254,7 @@ test.describe(featureBTests);
 test.describe(featureATests);
 ```
 
-現在通過將 workers 設定為 1 來**禁用平行執行**，並指定你的測試清單檔案。
+現在通過將 workers 設定為 1 來**停用平行執行**，並指定你的測試清單檔案。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';

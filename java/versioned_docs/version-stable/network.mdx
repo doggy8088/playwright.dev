@@ -193,7 +193,7 @@ page.onWebSocket(ws -> {
 
 Playwright 的內建 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.route()](/api/class-page.mdx#page-route) 允許你的測試原生地路由請求並執行模擬和攔截。
 
-1. 如果你正在使用 Playwright 的原生 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.route()](/api/class-page.mdx#page-route)，並且似乎缺少網路事件，請通過將 `Browser.newContext.serviceWorkers` 設置為 `'block'` 來禁用 Service Workers。
+1. 如果你正在使用 Playwright 的原生 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.route()](/api/class-page.mdx#page-route)，並且似乎缺少網路事件，請通過將 `Browser.newContext.serviceWorkers` 設置為 `'block'` 來停用 Service Workers。
 1. 可能是你正在使用像 Mock Service Worker (MSW) 這樣的模擬工具。雖然這個工具可以開箱即用地模擬回應，但它會添加自己的 Service Worker 來接管網路請求，因此使它們對 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.route()](/api/class-page.mdx#page-route) 不可見。如果你對網路測試和模擬都感興趣，請考慮使用內建的 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.route()](/api/class-page.mdx#page-route) 來進行[回應模擬](#handle-requests)。
 1. 如果你不僅僅是想使用 Service Workers 進行測試和網路模擬，而是想路由和監聽由 Service Workers 自己發出的請求，請參見[這個實驗性功能](https://github.com/microsoft/playwright/issues/15684)。
 

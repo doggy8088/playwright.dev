@@ -56,9 +56,9 @@ export default defineConfig({
 
 所有內建報告器顯示有關失敗的詳細資訊，主要在於成功執行的冗長度有所不同。
 
-### 列表報告器
+### List reporter
 
-預設情況下，列表報告器是預設的（除了在 CI 上 `dot` 報告器是預設的）。它會為每個正在執行的測試列印一行。
+預設情況下，List reporter 是預設的 (除了在 CI 上 `Dot reporter` 是預設的)。它會為每個正在執行的測試列印一行。
 
 ```bash
 npx playwright test --reporter=list
@@ -108,9 +108,9 @@ export default defineConfig({
 | `PLAYWRIGHT_FORCE_TTY` | | 是否生成適合即時終端的輸出。如果指定了一個數字，則該數字也將用作終端寬度。 | 當終端處於 TTY 模式時為 `true`，否則為 `false`。
 | `FORCE_COLOR` | | 是否生成彩色輸出。 | 當終端處於 TTY 模式時為 `true`，否則為 `false`。
 
-### 行報告員
+### Line reporter
 
-行報告器比列表報告器更簡潔。它使用單行報告最後完成的測試，並在發生失敗時打印出來。行報告器對於大型測試套件非常有用，它顯示進度但不會通過列出所有測試來刷屏輸出。
+Line reporter 比 List reporter 更簡潔。它使用單行報告最後完成的測試，並在發生失敗時打印出來。Line reporter對於大型測試套件非常有用，它顯示進度但不會通過列出所有測試來刷屏輸出。
 
 ```bash
 npx playwright test --reporter=line
@@ -308,7 +308,7 @@ npx playwright test --reporter=json
 ```
 
 </TabItem>
-<TabItem value="批次">
+<TabItem value="batch">
 
 ```batch
 set PLAYWRIGHT_JSON_OUTPUT_NAME=results.json
@@ -366,7 +366,7 @@ npx playwright test --reporter=junit
 ```
 
 </TabItem>
-<TabItem value="批次">
+<TabItem value="batch">
 
 ```batch
 set PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml
@@ -402,7 +402,7 @@ JUnit 報告支援以下配置選項和環境變數:
 
 您可以使用內建的 `github` reporter 在 GitHub Actions 執行時獲取自動失敗註釋。
 
-請注意，所有其他報告器也可以在 GitHub Actions 上運行，但不提供註釋。此外，如果使用矩陣策略執行測試，不建議使用此註釋類型，因為堆疊追蹤失敗將會倍增並模糊 GitHub 文件視圖。
+請注意，所有其他報告器也可以在 GitHub Actions 上工作，但不提供註釋。此外，如果使用矩陣策略執行測試，不建議使用此註釋類型，因為堆疊追蹤失敗會倍增並模糊 GitHub 檔案檢視。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -463,20 +463,18 @@ npx playwright test --reporter="./myreporter/my-awesome-reporter.ts"
 ## 第三方報告展示
 
 * [Allure](https://www.npmjs.com/package/allure-playwright)
-* [Argos 視覺測試](https://argos-ci.com/docs/playwright)
+* [Argos Visual Testing](https://argos-ci.com/docs/playwright)
 * [Currents](https://www.npmjs.com/package/@currents/playwright)
-* [GitHub Actions 報告工具](https://www.npmjs.com/package/@estruyf/github-actions-reporter)
-* [GitHub Pull Request 評論](https://github.com/marketplace/actions/playwright-report-comment)
-* [郵件報告工具](https://www.npmjs.com/package/playwright-mail-reporter)
-* [Microsoft Teams 報告工具](https://www.npmjs.com/package/playwright-msteams-reporter)
+* [GitHub Actions Reporter](https://www.npmjs.com/package/@estruyf/github-actions-reporter)
+* [GitHub Pull Request Comment](https://github.com/marketplace/actions/playwright-report-comment)
+* [Mail Reporter](https://www.npmjs.com/package/playwright-mail-reporter)
+* [Microsoft Teams Reporter](https://www.npmjs.com/package/playwright-msteams-reporter)
 * [Monocart](https://github.com/cenfun/monocart-reporter)
 * [ReportPortal](https://github.com/reportportal/agent-js-playwright)
 * [Serenity/JS](https://serenity-js.org/handbook/test-runners/playwright-test)
 * [Testmo](https://github.com/jonasclaes/playwright-testmo-reporter)
 * [Testomat.io](https://github.com/testomatio/reporter/blob/master/docs/frameworks.md#playwright)
 * [Tesults](https://www.tesults.com/docs/playwright)
-
-
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

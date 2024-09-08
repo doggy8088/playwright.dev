@@ -45,7 +45,7 @@ Playwright 在執行操作之前會對元素進行一系列的可操作性檢查
 
 
 
-有些操作如 [locator.click()](/api/class-locator.mdx#locator-click) 支援 `force` 選項，該選項會禁用非必要的可操作性檢查，例如傳遞真值 `force` 給 [locator.click()](/api/class-locator.mdx#locator-click) 方法將不會檢查目標元素是否實際接收到點擊事件。
+有些操作如 [locator.click()](/api/class-locator.mdx#locator-click) 支援 `force` 選項，該選項會停用非必要的可操作性檢查，例如傳遞真值 `force` 給 [locator.click()](/api/class-locator.mdx#locator-click) 方法將不會檢查目標元素是否實際接收到點擊事件。
 
 ## 斷言
 
@@ -55,7 +55,7 @@ Playwright 包含自動重試的斷言，通過等待條件滿足來消除不穩
 | :- | :- |
 | [expect(locator).toBeAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | 元素已附加 |
 | [expect(locator).toBeChecked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 核取方塊已勾選 |
-| [expect(locator).toBeDisabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已禁用 |
+| [expect(locator).toBeDisabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已停用 |
 | [expect(locator).toBeEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | 元素可編輯 |
 | [expect(locator).toBeEmpty()](/api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | 容器為空 |
 | [expect(locator).toBeEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 元素已啟用 |
@@ -107,8 +107,8 @@ Element 被認為是啟用的，除非它是具有 `disabled` 屬性的 `<button
 
 例如，考慮一個場景，無論何時進行 [locator.click](/api/class-locator.mdx#locator-click) 呼叫，Playwright 都會點擊 `Sign Up` 按鈕：
 
-- 頁面正在檢查用戶名是否唯一且`Sign Up`按鈕被禁用;
-- 與伺服器檢查後，被禁用的`Sign Up`按鈕被替換為另一個現在啟用的按鈕。
+- 頁面正在檢查用戶名是否唯一且`Sign Up`按鈕被停用;
+- 與伺服器檢查後，被停用的`Sign Up`按鈕被替換為另一個現在啟用的按鈕。
 
 
 

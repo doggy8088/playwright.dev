@@ -955,7 +955,7 @@ await page.RouteAsync("**/*", async route =>
 
 ### 雜項
 
-* 如果有一個 service worker 擋住了你的路，現在可以使用新的 context 選項 `serviceWorkers` 輕鬆禁用它：
+* 如果有一個 service worker 擋住了你的路，現在可以使用新的 context 選項 `serviceWorkers` 輕鬆停用它：
 
   ```csharp
   var context = await Browser.NewContextAsync(new()

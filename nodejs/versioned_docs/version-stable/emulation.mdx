@@ -12,7 +12,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## 裝置
 
-Playwright 附帶一個[設備參數註冊表](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json)，使用[playwright.devices](/api/class-playwright.mdx#playwright-devices)為選定的桌面、平板和移動設備。它可以用來模擬特定設備的瀏覽器行為，例如使用者代理、螢幕大小、視窗大小以及是否啟用了觸控。所有測試將使用指定的設備參數進行。
+Playwright 附帶一個[設備參數註冊表](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json)，使用 [playwright.devices](/api/class-playwright.mdx#playwright-devices) 為選定的桌面、平板和移動設備。它可以用來模擬特定設備的瀏覽器行為，例如使用者代理、螢幕大小、視窗大小以及是否啟用了觸控。所有測試將使用指定的設備參數進行。
 
 <Tabs
   groupId="js-flavor"
@@ -46,7 +46,7 @@ export default defineConfig({
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 const { chromium, devices } = require('playwright');
@@ -96,7 +96,7 @@ export default defineConfig({
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 // Create context with given viewport
@@ -133,7 +133,7 @@ test('my test', async ({ page }) => {
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 // Create context with given viewport
@@ -179,7 +179,7 @@ test.describe('specific viewport block', () => {
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 // Create context with given viewport
@@ -257,7 +257,7 @@ test('my test for de lang in Berlin timezone', async ({ page }) => {
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 const context = await browser.newContext({
@@ -297,7 +297,7 @@ export default defineConfig({
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 const context = await browser.newContext({
@@ -334,7 +334,7 @@ test('first', async ({ page }) => {
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 await context.grantPermissions(['notifications'], { origin: 'https://skype.com' });
@@ -390,7 +390,7 @@ test('my test with geolocation', async ({ page }) => {
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 const context = await browser.newContext({
@@ -432,7 +432,7 @@ test('my test with geolocation', async ({ page, context }) => {
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 await context.setGeolocation({ longitude: 48.858455, latitude: 2.294474 });
@@ -480,7 +480,7 @@ test('my test with dark mode', async ({ page }) => {
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 // Create context with dark mode
@@ -530,7 +530,7 @@ test('my user agent test', async ({ page }) => {
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 const context = await browser.newContext({
@@ -557,7 +557,7 @@ export default defineConfig({
 
 ## 啟用 JavaScript
 
-模擬使用者在 JavaScript 被禁用的情境。
+模擬使用者在 JavaScript 被停用的情境。
 
 <Tabs
   groupId="js-flavor"
@@ -580,7 +580,7 @@ test('test with no JavaScript', async ({ page }) => {
 ```
 
 </TabItem>
-<TabItem value="函式庫">
+<TabItem value="library">
 
 ```js
 const context = await browser.newContext({

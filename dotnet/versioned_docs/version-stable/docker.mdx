@@ -26,7 +26,7 @@ docker pull mcr.microsoft.com/playwright/dotnet:v1.46.0-noble
 
 ### 執行該映像檔
 
-預設情況下，Docker 映像將使用 `root` 用戶來執行瀏覽器。這將禁用 Chromium 沙盒，因為 root 無法使用沙盒。如果你執行受信任的程式碼（例如，端到端測試）並且想避免管理單獨用戶的麻煩，那麼 root 用戶可能沒問題。對於網頁抓取或爬行，我們建議在 Docker 容器內建立一個單獨的用戶並使用 seccomp 配置檔。
+預設情況下，Docker 映像將使用 `root` 用戶來執行瀏覽器。這將停用 Chromium 沙盒，因為 root 無法使用沙盒。如果你執行受信任的程式碼（例如，端到端測試）並且想避免管理單獨用戶的麻煩，那麼 root 用戶可能沒問題。對於網頁抓取或爬行，我們建議在 Docker 容器內建立一個單獨的用戶並使用 seccomp 配置檔。
 
 #### 端到端測試
 

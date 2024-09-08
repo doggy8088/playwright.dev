@@ -41,7 +41,7 @@ Add-Content -path .gitignore "`r`nplaywright/.auth"
 ```
 
 </TabItem>
-<TabItem value="批次">
+<TabItem value="batch">
 
 ```batch
 md playwright\.auth
@@ -144,7 +144,7 @@ test('test', async ({ page }) => {
 
 UI mode 將不會預設執行 `setup` 專案以提高測試速度。我們建議在現有身份驗證過期時，偶爾手動執行 `auth.setup.ts` 來進行身份驗證。
 
-首先[在篩選器中啟用 `setup` 專案](./test-ui-mode#filtering-tests)，然後點擊 `auth.setup.ts` 文件旁邊的三角形按鈕，然後再次在篩選器中禁用 `setup` 專案。
+首先[在篩選器中啟用 `setup` 專案](./test-ui-mode#filtering-tests)，然後點擊 `auth.setup.ts` 文件旁邊的三角形按鈕，然後再次在篩選器中停用 `setup` 專案。
 
 ## Moderate: 每個平行工作者一個帳戶
 
