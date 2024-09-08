@@ -127,7 +127,7 @@ npx playwright codegen playwright.dev
 
 #### 使用 VS Code 擴充套件來產生定位器
 
-你也可以使用 [VS Code 擴充套件](./getting-started-vscode.mdx) 來產生定位器以及錄製測試。VS Code extension 也讓你在撰寫、執行和偵錯測試時擁有極佳的開發者體驗。
+你也可以使用 [VS Code 擴充套件](./getting-started-vscode.mdx) 來產生定位器以及錄製測試。VS Code 擴充套件也讓你在撰寫、執行和偵錯測試時擁有極佳的開發者體驗。
 
 <img width="1394" alt="在 vs code 中使用程式碼產生器生成定位器" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212269873-aca04043-16ce-4627-906f-7351d09740ab.png" />
 
@@ -163,7 +163,7 @@ await expect(page.getByText('welcome')).toBeVisible();
 
 #### 本地除錯
 
-本地偵錯我們建議你通過安裝 [VS Code extension](./getting-started-vscode.mdx) [在 VSCode 中即時偵錯你的測試](./getting-started-vscode.mdx#live-debugging)。你可以通過右鍵點擊你想要執行的測試旁邊的行來在偵錯模式下執行測試，這將打開一個瀏覽器窗口並在設置斷點處暫停。
+本地偵錯我們建議你通過安裝 [VS Code 擴充套件](./getting-started-vscode.mdx) [在 VSCode 中即時偵錯你的測試](./getting-started-vscode.mdx#live-debugging)。你可以通過右鍵點擊你想要執行的測試旁邊的行來在偵錯模式下執行測試，這將打開一個瀏覽器窗口並在設置斷點處暫停。
 
 <img width="1338" alt="在 vscode 中除錯測試" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212274675-5c6e1647-2aab-40fd-9804-8680c1ac2d16.png" />
 
@@ -215,10 +215,10 @@ npx playwright show-report
 
 Playwright 附帶一系列工具來幫助你撰寫測試。
 
-- [VS Code extension](./getting-started-vscode.mdx) 在撰寫、執行和偵錯測試時為您提供了極佳的開發者體驗。
-- [test generator](./codegen.mdx) 可以為您生成測試並選擇定位器。
-- [trace viewer](./trace-viewer.mdx) 為您提供測試的完整追蹤，作為本地 PWA，可以輕鬆分享。使用 trace viewer，您可以查看時間軸、檢查每個動作的 DOM 快照、查看網路請求等。
-- [UI Mode](./test-ui-mode) 讓您以時間旅行的體驗來探索、執行和偵錯測試，並配有觀察模式。所有測試檔案都會載入測試側邊欄，您可以展開每個檔案和描述區塊來單獨執行、查看、觀察和偵錯每個測試。
+- [VS Code 擴充套件](./getting-started-vscode.mdx) 在撰寫、執行和偵錯測試時為您提供了極佳的開發者體驗。
+- [測試產生器](./codegen.mdx) 可以為您生成測試並選擇定位器。
+- [追蹤檢視器](./trace-viewer.mdx) 為您提供測試的完整追蹤，作為本地 PWA，可以輕鬆分享。使用 trace viewer，您可以查看時間軸、檢查每個動作的 DOM 快照、查看網路請求等。
+- [UI 模式](./test-ui-mode) 讓您以時間旅行的體驗來探索、執行和偵錯測試，並配有觀察模式。所有測試檔案都會載入測試側邊欄，您可以展開每個檔案和描述區塊來單獨執行、查看、觀察和偵錯每個測試。
 - Playwright 中的 [TypeScript](./test-typescript) 開箱即用，為您提供更好的 IDE 整合。您的 IDE 會顯示您可以做的一切，並在您做錯事時進行高亮顯示。不需要 TypeScript 經驗，也不需要您的程式碼是 TypeScript，只需使用 `.ts` 擴展名來建立測試即可。
 
 ### 測試所有瀏覽器
@@ -268,7 +268,7 @@ npx playwright --version
 
 在 CI 上執行測試時使用 Linux，因為它更便宜。開發人員在本地執行時可以使用任何環境，但在 CI 上使用 Linux。考慮設定 [Sharding](./test-sharding.mdx) 以加快 CI。
 
-### Lint your tests
+### 檢查你的測試
 
 我們建議使用 TypeScript 和 ESLint 進行 linting 來早期捕捉錯誤。使用 [`@typescript-eslint/no-floating-promises`](https://typescript-eslint.io/rules/no-floating-promises/) [ESLint](https://eslint.org) 規則來確保在 Playwright API 的非同步呼叫之前沒有遺漏的 await。在你的 CI 上，你可以執行 `tsc --noEmit` 來確保函式是用正確的簽名呼叫的。
 

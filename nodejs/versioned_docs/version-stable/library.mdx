@@ -12,7 +12,7 @@ Playwright 函式庫提供了啟動和互動瀏覽器的統一 API，而 Playwri
 
 在大多數情況下，對於端到端測試，你會想要使用 `@playwright/test` (Playwright Test)，而不是直接使用 `playwright` (Playwright 函式庫)。要開始使用 Playwright Test，請遵循 [入門指南](./intro.mdx)。
 
-## 使用 函式庫 時的差異
+## 使用函式庫時的差異
 
 ### 函式庫範例
 
@@ -144,13 +144,13 @@ test('should be titled', async ({ page, context }) => {
 
 除了上述內容外，Playwright Test 作為一個全功能的測試執行器，還包括:
 
-- [Configuration Matrix and Projects](./test-configuration.mdx): 在上述範例中，在 Playwright 函式庫版本中，如果我們想要使用不同的裝置或瀏覽器執行，我們必須修改腳本並傳遞資訊。使用 Playwright Test，我們只需在一個地方指定[配置矩陣](./test-configuration.mdx)，它將在每個這些配置下建立並執行一個測試。
-- [Parallelization](./test-parallel.mdx)
-- [Web-First Assertions](./test-assertions.mdx)
-- [Reporting](./test-reporters.mdx)
-- [Retries](./test-retries.mdx)
-- [Easily Enabled Tracing](./trace-viewer-intro.mdx)
-- and more…
+- [配置矩陣和專案](./test-configuration.mdx)：在上述範例中，在 Playwright 函式庫版本中，如果我們想要使用不同的裝置或瀏覽器執行，我們必須修改腳本並傳遞資訊。使用 Playwright Test，我們只需在一個地方指定[配置矩陣](./test-configuration.mdx)，它將在每個這些配置下建立並執行一個測試。
+- [平行處理](./test-parallel.mdx)
+- [Web-First 斷言](./test-assertions.mdx)
+- [測試報告](./test-reporters.mdx)
+- [失敗重試](./test-retries.mdx)
+- [輕鬆啟用追蹤](./trace-viewer-intro.mdx)
+- 以及更多…
 
 ## 使用方式
 
