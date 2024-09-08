@@ -19,7 +19,7 @@ Playwright Test 可以為您的測試錄製影片, 由 Playwright 配置中的 `
 - `'retain-on-failure'` - 為每個測試錄製 影片，但移除所有成功測試執行的 影片。
 - `'on-first-retry'` - 僅在第一次重試測試時錄製 影片。
 
-影片檔案將出現在測試輸出目錄中，通常是 `test-results`。請參閱 [testOptions.video](https://ollama.com/api/class-testoptions.mdx#test-options-video) 以進行高級影片配置。
+影片檔案將出現在測試輸出目錄中，通常是 `test-results`。請參閱 [testOptions.video](/api/class-testoptions.mdx#test-options-video) 以進行高級影片配置。
 
 影片會在測試結束時於 [browser context](./browser-contexts.mdx) 關閉時儲存。如果你手動建立一個 browser context，請確保等待 [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) 。
 
@@ -94,7 +94,7 @@ const context = await browser.newContext({
 </TabItem>
 </Tabs>
 
-對於多頁面場景，你可以通過 [page.video()](https://ollama.com/api/class-page.mdx#page-video) 訪問與頁面相關的影片文件。
+對於多頁面場景，你可以通過 [page.video()](/api/class-page.mdx#page-video) 訪問與頁面相關的影片文件。
 
 ```js
 const path = await page.video().path();

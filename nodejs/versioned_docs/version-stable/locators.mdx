@@ -282,7 +282,7 @@ await expect(page.getByTitle('Issues count')).toHaveText('25 issues');
 
 ### 依據測試 ID 定位
 
-測試通過測試 ids 是最具彈性的測試方式，因為即使您的文字或屬性的角色發生變化，測試仍然會通過。QA 和開發人員應該定義明確的測試 ids 並使用 [page.getByTestId()](https://ollama.com/library) 查詢它們。然而，通過測試 ids 進行測試並不是面向用戶的。如果角色或文字值對您很重要，請考慮使用面向用戶的定位器，例如 [role](#locate-by-role) 和 [text locators](#locate-by-text)。
+測試通過測試 ids 是最具彈性的測試方式，因為即使您的文字或屬性的角色發生變化，測試仍然會通過。QA 和開發人員應該定義明確的測試 ids 並使用 [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 查詢它們。然而，通過測試 ids 進行測試並不是面向用戶的。如果角色或文字值對您很重要，請考慮使用面向用戶的定位器，例如 [role](#locate-by-role) 和 [text locators](#locate-by-text)。
 
 例如，考慮以下的 DOM 結構。
 
@@ -458,7 +458,7 @@ await expect(page.locator('x-details')).toContainText('Details');
 
 ### 以文字篩選
 
-定位器可以通過 [locator.filter()](https://ollama.com/api/class-locator.mdx#locator-filter) 方法按文本過濾。它會在元素內的某處（可能在子元素中）搜尋特定字串，不區分大小寫。你也可以傳遞正則表達式。
+定位器可以通過 [locator.filter()](/api/class-locator.mdx#locator-filter) 方法按文本過濾。它會在元素內的某處（可能在子元素中）搜尋特定字串，不區分大小寫。你也可以傳遞正則表達式。
 
 ```js
 await page
@@ -587,7 +587,7 @@ await dialog.locator(saveButton).click();
 
 ### 同時匹配兩個定位器
 
-方法 [locator.and()](https://api/class-locator.mdx#locator-and) 通過匹配額外的定位器來縮小現有定位器的範圍。例如，你可以結合 [page.getByRole()](https://api/class-page.mdx#page-get-by-role) 和 [page.getByTitle()](https://api/class-page.mdx#page-get-by-title) 來同時匹配角色和標題。
+方法 [locator.and()](/api/class-locator.mdx#locator-and) 通過匹配額外的定位器來縮小現有定位器的範圍。例如，你可以結合 [page.getByRole()](/api/class-page.mdx#page-get-by-role) 和 [page.getByTitle()](/api/class-page.mdx#page-get-by-title) 來同時匹配角色和標題。
 
 ```js
 const button = page.getByRole('button').and(page.getByTitle('Subscribe'));
@@ -595,12 +595,12 @@ const button = page.getByRole('button').and(page.getByTitle('Subscribe'));
 
 ### 匹配兩個替代定位器之一
 
-如果你想要定位兩個或更多的元素之一，並且你不知道會是哪一個，使用 [locator.or()](https://ollama.com/api/class-locator.mdx#locator-or) 來建立一個匹配所有替代方案的定位器。
+如果你想要定位兩個或更多的元素之一，並且你不知道會是哪一個，使用 [locator.or()](/api/class-locator.mdx#locator-or) 來建立一個匹配所有替代方案的定位器。
 
 例如，考慮一個情境，你想點擊 "New email" 按鈕，但有時會出現一個安全設定對話框。在這種情況下，你可以等待 "New email" 按鈕或對話框並據此行動。
 
 :::note
-如果 "New email" 按鈕和安全對話框同時出現在螢幕上，"or" 定位器將會匹配到它們兩者，可能會拋出["strict mode violation" 錯誤](#strictness)。在這種情況下，你可以使用[locator.first()](https://api/class-locator.mdx#locator-first) 來只匹配其中一個。
+如果 "New email" 按鈕和安全對話框同時出現在螢幕上，"or" 定位器將會匹配到它們兩者，可能會拋出["strict mode violation" 錯誤](#strictness)。在這種情況下，你可以使用[locator.first()](/api/class-locator.mdx#locator-first) 來只匹配其中一個。
 :::
 
 ```js
@@ -695,7 +695,7 @@ await expect(page.getByRole('listitem')).toHaveCount(3);
 
 </HTMLCard>
 
-使用 [expect(locator).toHaveText()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-text) 確保列表中有 "apple"、"banana" 和 "orange"。
+使用 [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 確保列表中有 "apple"、"banana" 和 "orange"。
 
 ```js
 await expect(page
@@ -774,7 +774,7 @@ await page
 
 #### Get by test id
 
-使用 [page.getByTestId()](https://ollama.com/library) 方法來定位佇列中的元素。如果你還沒有測試 id，你可能需要修改 html 並添加測試 id。
+使用 [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 方法來定位佇列中的元素。如果你還沒有測試 id，你可能需要修改 html 並添加測試 id。
 
 例如，考慮以下的 DOM 結構:
 
@@ -815,7 +815,7 @@ const banana = await page.getByRole('listitem').nth(1);
 
 ### 鏈接過濾器
 
-當你有具有各種相似性的元素時，你可以使用 [locator.filter()](https://api/class-locator.mdx#locator-filter) 方法來選擇正確的元素。你也可以串聯多個過濾器來縮小選擇範圍。
+當你有具有各種相似性的元素時，你可以使用 [locator.filter()](/api/class-locator.mdx#locator-filter) 方法來選擇正確的元素。你也可以串聯多個過濾器來縮小選擇範圍。
 
 例如，考慮以下的 DOM 結構:
 
@@ -925,7 +925,7 @@ await page.getByRole('button').click();
 await page.getByRole('button').count();
 ```
 
-您可以通過告訴 Playwright 當多個元素匹配時使用哪個元素，明確選擇退出嚴格性檢查，通過 [locator.first()](https://api/class-locator.mdx#locator-first)、[locator.last()](https://api/class-locator.mdx#locator-last) 和 [locator.nth()](https://api/class-locator.mdx#locator-nth)。這些方法**不推薦**，因為當您的頁面發生變化時，Playwright 可能會點擊您不打算點擊的元素。相反，請遵循上述最佳實踐來建立唯一識別目標元素的定位器。
+您可以通過告訴 Playwright 當多個元素匹配時使用哪個元素，明確選擇退出嚴格性檢查，通過 [locator.first()](/api/class-locator.mdx#locator-first)、[locator.last()](/api/class-locator.mdx#locator-last) 和 [locator.nth()](/api/class-locator.mdx#locator-nth)。這些方法**不推薦**，因為當您的頁面發生變化時，Playwright 可能會點擊您不打算點擊的元素。相反，請遵循上述最佳實踐來建立唯一識別目標元素的定位器。
 
 ## 更多定位器
 

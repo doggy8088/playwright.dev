@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
 
-API for collecting and saving Playwright traces. Playwright traces can be opened in [Trace Viewer](../trace-viewer.mdx) after Playwright script runs.
+API for collecting and saving Playwright Traces. Playwright Traces can be opened in [Trace Viewer](../trace-viewer.mdx) after Playwright script runs.
 
 Start recording a trace before performing actions. At the end, stop tracing and save it to a file.
 
@@ -61,21 +61,21 @@ await context.Tracing.StopAsync(new()
 **Arguments**
 - `options` `TracingStartOptions?` *(optional)*
   - `Name` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-name"/><a href="#tracing-start-option-name" class="list-anchor">#</a>
-    
+
     If specified, intermediate trace files are going to be saved into the files with the given name prefix inside the `tracesDir` folder specified in [BrowserType.LaunchAsync()](/api/class-browsertype.mdx#browser-type-launch). To specify the final trace zip file name, you need to pass `path` option to [Tracing.StopAsync()](/api/class-tracing.mdx#tracing-stop) instead.
   - `Screenshots` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-screenshots"/><a href="#tracing-start-option-screenshots" class="list-anchor">#</a>
-    
+
     Whether to capture screenshots during tracing. Screenshots are used to build a timeline preview.
   - `Snapshots` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-snapshots"/><a href="#tracing-start-option-snapshots" class="list-anchor">#</a>
-    
+
     If this option is true tracing will
     * capture DOM snapshot on every action
     * record network activity
   - `Sources` [bool]? *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-sources"/><a href="#tracing-start-option-sources" class="list-anchor">#</a>
-    
+
     Whether to include source files for trace actions.
   - `Title` [string]? *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-title"/><a href="#tracing-start-option-title" class="list-anchor">#</a>
-    
+
     Trace name to be shown in the Trace Viewer.
 
 **Returns**
@@ -123,10 +123,10 @@ await context.Tracing.StopChunkAsync(new()
 **Arguments**
 - `options` `TracingStartChunkOptions?` *(optional)*
   - `Name` [string]? *(optional)* <font size="2">Added in: v1.32</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-name"/><a href="#tracing-start-chunk-option-name" class="list-anchor">#</a>
-    
+
     If specified, intermediate trace files are going to be saved into the files with the given name prefix inside the `tracesDir` folder specified in [BrowserType.LaunchAsync()](/api/class-browsertype.mdx#browser-type-launch). To specify the final trace zip file name, you need to pass `path` option to [Tracing.StopChunkAsync()](/api/class-tracing.mdx#tracing-stop-chunk) instead.
   - `Title` [string]? *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-title"/><a href="#tracing-start-chunk-option-title" class="list-anchor">#</a>
-    
+
     Trace name to be shown in the Trace Viewer.
 
 **Returns**
@@ -149,7 +149,7 @@ await Tracing.StopAsync(options);
 **Arguments**
 - `options` `TracingStopOptions?` *(optional)*
   - `Path` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-option-path"/><a href="#tracing-stop-option-path" class="list-anchor">#</a>
-    
+
     Export trace into the file with the given path.
 
 **Returns**
@@ -172,7 +172,7 @@ await Tracing.StopChunkAsync(options);
 **Arguments**
 - `options` `TracingStopChunkOptions?` *(optional)*
   - `Path` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-chunk-option-path"/><a href="#tracing-stop-chunk-option-path" class="list-anchor">#</a>
-    
+
     Export trace collected since the last [Tracing.StartChunkAsync()](/api/class-tracing.mdx#tracing-start-chunk) call into the file with the given path.
 
 **Returns**

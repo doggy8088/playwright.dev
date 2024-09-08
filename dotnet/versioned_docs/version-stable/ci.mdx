@@ -14,14 +14,14 @@ Playwright 測試可以在 CI 環境中執行。我們已經為常見的 CI 提�
 
 1. **確保 CI 代理可以執行瀏覽器**: 在 Linux 代理中使用[我們的 Docker 映像](./docker.mdx)或使用[CLI](./browsers#install-system-dependencies)安裝你的相依套件。
 1. **安裝 Playwright**:
-   
+
    ```bash
    dotnet build
    pwsh bin/Debug/netX/playwright.ps1 install --with-deps
    ```
-   
+
 1. **執行你的測試**:
-   
+
    ```bash
    dotnet test
    ```
@@ -128,7 +128,7 @@ jobs:
 
 1. 當使用 Chromium 時，也建議使用 `--ipc=host`。否則 Chromium 可能會耗盡記憶體並崩潰。了解更多關於此選項的資訊在 [Docker docs](https://docs.docker.com/engine/reference/run/#ipc-settings---ipc)。
 1. 啟動 Chromium 時看到其他奇怪的錯誤？嘗試在本地開發時使用 `docker run --cap-add=SYS_ADMIN` 執行容器。
-1. 建議使用 `--init` Docker 標誌或 [dumb-init](https://github.com/Yelp/dumb-init) 來避免對 PID=1 的進程進行特殊處理。這是殭屍進程的一個常見原因。
+1. 建議使用 `--init` Docker 旗標或 [dumb-init](https://github.com/Yelp/dumb-init) 來避免對 PID=1 的進程進行特殊處理。這是殭屍進程的一個常見原因。
 
 ### Azure Pipelines
 

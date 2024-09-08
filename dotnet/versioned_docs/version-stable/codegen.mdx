@@ -116,7 +116,7 @@ pwsh bin/Debug/netX/playwright.ps1 codegen --timezone="Europe/Rome" --geolocatio
 
 ### 保留驗證狀態
 
-執行 `codegen` 並使用 `--save-storage` 來在會話結束時保存 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) 和 [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)。這對於分別記錄身份驗證步驟並在稍後記錄更多測試時重用非常有用。
+執行 `codegen` 並使用 `--save-storage` 來在工作階段結束時保存 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) 和 [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)。這對於分別記錄身份驗證步驟並在稍後記錄更多測試時重用非常有用。
 
 ```bash
 pwsh bin/Debug/netX/playwright.ps1 codegen github.com/microsoft/playwright --save-storage=auth.json
@@ -148,7 +148,7 @@ pwsh bin/Debug/netX/playwright.ps1 codegen --load-storage=auth.json github.com/m
 
 ## 記錄使用自訂設定
 
-如果你想在一些非標準的設定中使用程式碼產生器（例如，使用 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route)），可以呼叫 [Page.PauseAsync()](/api/class-page.mdx#page-pause)，這將開啟一個帶有程式碼產生器控制項的單獨視窗。
+如果你想在一些非標準的設定中使用程式碼產生器 (例如，使用 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 方法)，可以呼叫 [Page.PauseAsync()](/api/class-page.mdx#page-pause)，這將開啟一個帶有程式碼產生器控制項的單獨視窗。
 
 ```csharp
 using Microsoft.Playwright;

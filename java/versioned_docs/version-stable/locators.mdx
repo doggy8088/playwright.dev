@@ -35,7 +35,7 @@ assertThat(page.getByText("Welcome, John!")).isVisible();
 
 ## 定位元素
 
-Playwright 內建多個定位器。為了讓測試更具韌性，我們建議優先考慮面向使用者的屬性和明確的合約，例如 [Page.getByRole()](https://ollama.com/library)。
+Playwright 內建多個定位器。為了讓測試更具韌性，我們建議優先考慮面向使用者的屬性和明確的合約，例如 [Page.getByRole()](/api/class-page.mdx#page-get-by-role)。
 
 例如，考慮以下的 DOM 結構。
 
@@ -71,7 +71,7 @@ locator.hover();
 locator.click();
 ```
 
-請注意，所有建立定位器的方法，例如 [Page.getByLabel()](https://ollama.com/api/class-page.mdx#page-get-by-label)，也可在 [Locator] 和 [FrameLocator] 類別上使用，因此您可以鏈接它們並逐步縮小您的定位器範圍。
+請注意，所有建立定位器的方法，例如 [Page.getByLabel()](/api/class-page.mdx#page-get-by-label)，也可在 [Locator] 和 [FrameLocator] 類別上使用，因此您可以鏈接它們並逐步縮小您的定位器範圍。
 
 ```java
 Locator locator = page
@@ -83,7 +83,7 @@ locator.click();
 
 ### 根據角色定位
 
-[Page.getByRole()](https://ollama.com/library#page-get-by-role) 定位器反映了使用者和輔助技術如何感知頁面，例如某個元素是按鈕還是複選框。當按角色定位時，你通常應該傳遞可訪問的名稱，以便定位器能夠精確定位到具體的元素。
+[Page.getByRole()](/api/class-page.mdx#page-get-by-role) 定位器反映了使用者和輔助技術如何感知頁面，例如某個元素是按鈕還是複選框。當按角色定位時，你通常應該傳遞可訪問的名稱，以便定位器能夠精確定位到具體的元素。
 
 例如，考慮以下的 DOM 結構。
 
@@ -192,7 +192,7 @@ page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
 
 ### 根據文字定位
 
-找到包含特定文字的元素。使用 [Page.getByText()](https://ollama.com/library#page-get-by-text) 時，你可以透過子字串、精確字串或正則表達式來匹配。
+找到包含特定文字的元素。使用 [Page.getByText()](/api/class-page.mdx#page-get-by-text) 時，你可以透過子字串、精確字串或正則表達式來匹配。
 
 例如，考慮以下的 DOM 結構。
 
@@ -241,7 +241,7 @@ assertThat(page
 
 ### Locate by alt text
 
-所有圖片應該有一個 `alt` 屬性來描述圖片。你可以使用 [Page.getByAltText](https://ollama.com/library) 根據文字替代項來定位圖片。
+所有圖片應該有一個 `alt` 屬性來描述圖片。你可以使用 [Page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text) 根據文字替代項來定位圖片。
 
 例如，考慮以下的 DOM 結構。
 
@@ -295,7 +295,7 @@ assertThat(page.getByTitle("Issues count")).hasText("25 issues");
 
 ### 依據測試 ID 定位
 
-測試 id 是最具彈性的測試方式，因為即使您的文字或屬性的角色發生變化，測試仍然會通過。QA 和開發人員應該定義明確的測試 id 並使用 [Page.getByTestId()](https://ollama.com/library) 進行查詢。然而，通過測試 id 進行測試並不是面向使用者的。如果角色或文字值對您很重要，請考慮使用面向使用者的定位器，例如 [role](#locate-by-role) 和 [text locators](#locate-by-text)。
+測試 id 是最具彈性的測試方式，因為即使您的文字或屬性的角色發生變化，測試仍然會通過。QA 和開發人員應該定義明確的測試 id 並使用 [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 進行查詢。然而，通過測試 id 進行測試並不是面向使用者的。如果角色或文字值對您很重要，請考慮使用面向使用者的定位器，例如 [role](#locate-by-role) 和 [text locators](#locate-by-text)。
 
 例如，考慮以下的 DOM 結構。
 
@@ -464,7 +464,7 @@ assertThat(page.locator("x-details")).containsText("Details");
 
 ### 以文字篩選
 
-定位器可以通過 [Locator.filter()](https://ollama.com/api/class-locator.mdx#locator-filter) 方法根據文本過濾。它將在元素內部的某個地方（可能在後代元素中）搜索特定字符串，不區分大小寫。你也可以傳遞正則表達式。
+定位器可以通過 [Locator.filter()](/api/class-locator.mdx#locator-filter) 方法根據文本過濾。它將在元素內部的某個地方（可能在後代元素中）搜索特定字符串，不區分大小寫。你也可以傳遞正則表達式。
 
 ```java
 page.getByRole(AriaRole.LISTITEM)
@@ -607,7 +607,7 @@ dialog.locator(saveButton).click();
 
 ### 同時匹配兩個定位器
 
-方法 [Locator.and()](https://api/class-locator.mdx#locator-and) 通過匹配額外的定位器來縮小現有定位器的範圍。例如，你可以結合 [Page.getByRole()](https://api/class-page.mdx#page-get-by-role) 和 [Page.getByTitle()](https://api/class-page.mdx#page-get-by-title) 來同時按角色和標題進行匹配。
+方法 [Locator.and()](/api/class-locator.mdx#locator-and) 通過匹配額外的定位器來縮小現有定位器的範圍。例如，你可以結合 [Page.getByRole()](/api/class-page.mdx#page-get-by-role) 和 [Page.getByTitle()](/api/class-page.mdx#page-get-by-title) 來同時按角色和標題進行匹配。
 
 ```java
 Locator button = page.getByRole(AriaRole.BUTTON).and(page.getByTitle("Subscribe"));
@@ -615,7 +615,7 @@ Locator button = page.getByRole(AriaRole.BUTTON).and(page.getByTitle("Subscribe"
 
 ### 匹配兩個替代定位器之一
 
-如果你想要定位其中一個或多個元素，並且你不知道會是哪一個，使用 [Locator.or()](https://api/class-locator.mdx#locator-or) 來建立一個匹配所有替代方案的定位器。
+如果你想要定位其中一個或多個元素，並且你不知道會是哪一個，使用 [Locator.or()](/api/class-locator.mdx#locator-or) 來建立一個匹配所有替代方案的定位器。
 
 例如，考慮一個情境，你想點擊 "New email" 按鈕，但有時會出現一個安全設定對話框。在這種情況下，你可以等待 "New email" 按鈕或對話框並據此行動。
 
@@ -760,7 +760,7 @@ page.getByText("orange").click();
 
 #### 根據文字篩選
 
-使用 [Locator.filter()](https://ollama.com/api/class-locator.mdx#locator-filter) 來定位清單中的特定項目。
+使用 [Locator.filter()](/api/class-locator.mdx#locator-filter) 來定位清單中的特定項目。
 
 例如，考慮以下的 DOM 結構:
 
@@ -793,7 +793,7 @@ page.getByRole(AriaRole.LISTITEM)
 
 #### Get by test id
 
-使用 [Page.getByTestId()](https://ollama.com/api/class-page.mdx#page-get-by-test-id) 方法來定位列表中的元素。如果你還沒有測試 ID，你可能需要修改 HTML 並添加測試 ID。
+使用 [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 方法來定位列表中的元素。如果你還沒有測試 ID，你可能需要修改 HTML 並添加測試 ID。
 
 例如，考慮以下的 DOM 結構:
 
@@ -824,7 +824,7 @@ page.getByTestId("orange").click();
 
 #### 取得第 n 個物件
 
-如果你有一個相同元素的列表，且區分它們的唯一方法是順序，你可以從列表中選擇一個特定元素，使用 [Locator.first()](https://ollama.com/api/class-locator.mdx#locator-first)、[Locator.last()](https://ollama.com/api/class-locator.mdx#locator-last) 或 [Locator.nth()](https://ollama.com/api/class-locator.mdx#locator-nth)。
+如果你有一個相同元素的列表，且區分它們的唯一方法是順序，你可以從列表中選擇一個特定元素，使用 [Locator.first()](/api/class-locator.mdx#locator-first)、[Locator.last()](/api/class-locator.mdx#locator-last) 或 [Locator.nth()](/api/class-locator.mdx#locator-nth)。
 
 ```java
 Locator banana = page.getByRole(AriaRole.LISTITEM).nth(1);
@@ -834,7 +834,7 @@ Locator banana = page.getByRole(AriaRole.LISTITEM).nth(1);
 
 ### 鏈接過濾器
 
-當你有具有各種相似性的元素時，你可以使用 [Locator.filter()](https://ollama.com/api/class-locator.mdx#locator-filter) 方法來選擇正確的元素。你也可以串聯多個篩選器來縮小選擇範圍。
+當你有具有各種相似性的元素時，你可以使用 [Locator.filter()](/api/class-locator.mdx#locator-filter) 方法來選擇正確的元素。你也可以串聯多個篩選器來縮小選擇範圍。
 
 例如，考慮以下的 DOM 結構:
 
@@ -947,7 +947,7 @@ page.getByRole(AriaRole.BUTTON).click();
 page.getByRole(AriaRole.BUTTON).count();
 ```
 
-您可以通過告訴 Playwright 當多個元素匹配時使用哪個元素來明確選擇退出嚴格性檢查，通過 [Locator.first()](https://api/class-locator.mdx#locator-first)、[Locator.last()](https://api/class-locator.mdx#locator-last) 和 [Locator.nth()](https://api/class-locator.mdx#locator-nth)。這些方法**不推薦**，因為當您的頁面更改時，Playwright 可能會點擊您未打算點擊的元素。相反，請遵循上述最佳實踐來建立唯一識別目標元素的定位器。
+您可以通過告訴 Playwright 當多個元素匹配時使用哪個元素來明確選擇退出嚴格性檢查，通過 [Locator.first()](/api/class-locator.mdx#locator-first)、[Locator.last()](/api/class-locator.mdx#locator-last) 和 [Locator.nth()](/api/class-locator.mdx#locator-nth)。這些方法**不推薦**，因為當您的頁面更改時，Playwright 可能會點擊您未打算點擊的元素。相反，請遵循上述最佳實踐來建立唯一識別目標元素的定位器。
 
 ## 更多定位器
 

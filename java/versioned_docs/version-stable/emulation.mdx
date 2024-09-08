@@ -12,7 +12,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## 裝置
 
-Playwright 可以透過指定 `setDeviceScaleFactor`、`setHasTouch`、`setIsMobile`、`setScreenSize`、`setUserAgent` 和 `setViewportSize` 選項來模擬各種裝置，當使用 [Browser.newContext()](https://ollama.com/library#browser-new-context) 建立一個 context 時。
+Playwright 可以透過指定 `setDeviceScaleFactor`、`setHasTouch`、`setIsMobile`、`setScreenSize`、`setUserAgent` 和 `setViewportSize` 選項來模擬各種裝置，當使用 [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 建立一個 context 時。
 
 ## 視口 (Viewport)
 
@@ -101,7 +101,7 @@ context.setGeolocation(new Geolocation(48.858455, 2.294474));
 
 ## 色彩方案和媒體
 
-模擬使用者的 `"colorScheme"`。支援的值有 'light'、'dark'、'no-preference'。你也可以使用 [Page.emulateMedia()](https://ollama.com/library) 模擬媒體類型。
+模擬使用者的 `"colorScheme"`。支援的值有 'light'、'dark'、'no-preference'。你也可以使用 [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media) 模擬媒體類型。
 
 ```java
 // Create context with dark mode

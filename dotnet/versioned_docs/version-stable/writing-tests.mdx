@@ -150,15 +150,15 @@ await Page.GetByRole(AriaRole.Link, new() { Name = "Get started" }).ClickAsync()
 
 | Action | Description |
 | :- | :- |
-| [Locator.CheckAsync()](https://ollama.com/api/class-locator.mdx#locator-check) | 勾選輸入的複選框 |
-| [Locator.ClickAsync()](https://ollama.com/api/class-locator.mdx#locator-click) | 點擊元素 |
-| [Locator.UncheckAsync()](https://ollama.com/api/class-locator.mdx#locator-uncheck) | 取消勾選輸入的複選框 |
-| [Locator.HoverAsync()](https://ollama.com/api/class-locator.mdx#locator-hover) | 將滑鼠懸停在元素上 |
-| [Locator.FillAsync()](https://ollama.com/api/class-locator.mdx#locator-fill) | 填寫表單欄位，輸入文字 |
-| [Locator.FocusAsync()](https://ollama.com/api/class-locator.mdx#locator-focus) | 聚焦元素 |
-| [Locator.PressAsync()](https://ollama.com/api/class-locator.mdx#locator-press) | 按下單一鍵 |
-| [Locator.SetInputFilesAsync()](https://ollama.com/api/class-locator.mdx#locator-set-input-files) | 選擇要上傳的檔案 |
-| [Locator.SelectOptionAsync()](https://ollama.com/api/class-locator.mdx#locator-select-option) | 在下拉選單中選擇選項 |
+| [Locator.CheckAsync()](/api/class-locator.mdx#locator-check) | 勾選輸入的複選框 |
+| [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) | 點擊元素 |
+| [Locator.UncheckAsync()](/api/class-locator.mdx#locator-uncheck) | 取消勾選輸入的複選框 |
+| [Locator.HoverAsync()](/api/class-locator.mdx#locator-hover) | 將滑鼠懸停在元素上 |
+| [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) | 填寫表單欄位，輸入文字 |
+| [Locator.FocusAsync()](/api/class-locator.mdx#locator-focus) | 聚焦元素 |
+| [Locator.PressAsync()](/api/class-locator.mdx#locator-press) | 按下單一鍵 |
+| [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) | 選擇要上傳的檔案 |
+| [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-option) | 在下拉選單中選擇選項 |
 
 ## 斷言
 
@@ -172,16 +172,16 @@ await Expect(Page).ToHaveTitleAsync(new Regex("Playwright"));
 
 | Assertion | Description |
 | :- | :- |
-| [Expect(Locator).ToBeCheckedAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox 已勾選 |
-| [Expect(Locator).ToBeEnabledAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 控制項已啟用 |
-| [Expect(Locator).ToBeVisibleAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
-| [Expect(Locator).ToContainTextAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
-| [Expect(Locator).ToHaveAttributeAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有屬性 |
-| [Expect(Locator).ToHaveCountAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 元素列表具有給定的長度 |
-| [Expect(Locator).ToHaveTextAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素匹配文字 |
-| [Expect(Locator).ToHaveValueAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入元素具有值 |
-| [Expect(Page).ToHaveTitleAsync()](https://api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
-| [Expect(Page).ToHaveURLAsync()](https://api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
+| [Expect(Locator).ToBeCheckedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox 已勾選 |
+| [Expect(Locator).ToBeEnabledAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 控制項已啟用 |
+| [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
+| [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
+| [Expect(Locator).ToHaveAttributeAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有屬性 |
+| [Expect(Locator).ToHaveCountAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 元素列表具有給定的長度 |
+| [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素匹配文字 |
+| [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入元素具有值 |
+| [Expect(Page).ToHaveTitleAsync()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
+| [Expect(Page).ToHaveURLAsync()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
 
 ## 測試隔離
 

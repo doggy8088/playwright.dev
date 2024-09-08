@@ -43,7 +43,7 @@ Playwright 在執行操作之前會對元素進行一系列的可操作性檢查
 | [locator.press_sequentially()](/api/class-locator.mdx#locator-press-sequentially) | - | - | - | - | - |
 | [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) | - | - | - | - | - |
 
-
+## 強制動作
 
 有些操作如 [locator.click()](/api/class-locator.mdx#locator-click) 支援 `force` 選項，該選項會禁用非必要的可操作性檢查，例如傳遞真值 `force` 給 [locator.click()](/api/class-locator.mdx#locator-click) 方法將不會檢查目標元素是否實際接收到點擊事件。
 
@@ -53,29 +53,29 @@ Playwright 包含自動重試的斷言，通過等待條件滿足來消除不穩
 
 | Assertion | Description |
 | :- | :- |
-| [expect(locator).to_be_attached](https://ollama.com/library#locator-assertions-to-be-attached) | 元素已附加 |
-| [expect(locator).to_be_checked](https://ollama.com/library#locator-assertions-to-be-checked) | 勾選框已勾選 |
-| [expect(locator).to_be_disabled](https://ollama.com/library#locator-assertions-to-be-disabled) | 元素已禁用 |
-| [expect(locator).to_be_editable](https://ollama.com/library#locator-assertions-to-be-editable) | 元素可編輯 |
-| [expect(locator).to_be_empty](https://ollama.com/library#locator-assertions-to-be-empty) | 容器為空 |
-| [expect(locator).to_be_enabled](https://ollama.com/library#locator-assertions-to-be-enabled) | 元素已啟用 |
-| [expect(locator).to_be_focused](https://ollama.com/library#locator-assertions-to-be-focused) | 元素已聚焦 |
-| [expect(locator).to_be_hidden](https://ollama.com/library#locator-assertions-to-be-hidden) | 元素不可見 |
-| [expect(locator).to_be_in_viewport](https://ollama.com/library#locator-assertions-to-be-in-viewport) | 元素與視口相交 |
-| [expect(locator).to_be_visible](https://ollama.com/library#locator-assertions-to-be-visible) | 元素可見 |
-| [expect(locator).to_contain_text](https://ollama.com/library#locator-assertions-to-contain-text) | 元素包含文本 |
-| [expect(locator).to_have_attribute](https://ollama.com/library#locator-assertions-to-have-attribute) | 元素具有 DOM 屬性 |
-| [expect(locator).to_have_class](https://ollama.com/library#locator-assertions-to-have-class) | 元素具有類別屬性 |
-| [expect(locator).to_have_count](https://ollama.com/library#locator-assertions-to-have-count) | 列表具有確切數量的子元素 |
-| [expect(locator).to_have_css](https://ollama.com/library#locator-assertions-to-have-css) | 元素具有 CSS 屬性 |
-| [expect(locator).to_have_id](https://ollama.com/library#locator-assertions-to-have-id) | 元素具有 ID |
-| [expect(locator).to_have_js_property](https://ollama.com/library#locator-assertions-to-have-js-property) | 元素具有 JavaScript 屬性 |
-| [expect(locator).to_have_text](https://ollama.com/library#locator-assertions-to-have-text) | 元素匹配文本 |
-| [expect(locator).to_have_value](https://ollama.com/library#locator-assertions-to-have-value) | 輸入具有值 |
-| [expect(locator).to_have_values](https://ollama.com/library#locator-assertions-to-have-values) | 選擇具有選中的選項 |
-| [expect(page).to_have_title](https://ollama.com/library#page-assertions-to-have-title) | 頁面具有標題 |
-| [expect(page).to_have_url](https://ollama.com/library#page-assertions-to-have-url) | 頁面具有 URL |
-| [expect(response).to_be_ok](https://ollama.com/library#api-response-assertions-to-be-ok) | 響應具有 OK 狀態 |
+| [expect(locator).to_be_attached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | 元素已附加 |
+| [expect(locator).to_be_checked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 核取方塊已勾選 |
+| [expect(locator).to_be_disabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已禁用 |
+| [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | 元素可編輯 |
+| [expect(locator).to_be_empty()](/api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | 容器為空 |
+| [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 元素已啟用 |
+| [expect(locator).to_be_focused()](/api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | 元素已聚焦 |
+| [expect(locator).to_be_hidden()](/api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | 元素不可見 |
+| [expect(locator).to_be_in_viewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | 元素在視窗中 |
+| [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
+| [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
+| [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素有 DOM 屬性 |
+| [expect(locator).to_have_class()](/api/class-locatorassertions.mdx#locator-assertions-to-have-class) | 元素有類別屬性 |
+| [expect(locator).to_have_count()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 列表有確切的子項數量 |
+| [expect(locator).to_have_css()](/api/class-locatorassertions.mdx#locator-assertions-to-have-css) | 元素有 CSS 屬性 |
+| [expect(locator).to_have_id()](/api/class-locatorassertions.mdx#locator-assertions-to-have-id) | 元素有 ID |
+| [expect(locator).to_have_js_property()](/api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | 元素有 JavaScript 屬性 |
+| [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素匹配文字 |
+| [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入框有值 |
+| [expect(locator).to_have_values()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) | 選擇框有選中的選項 |
+| [expect(page).to_have_title()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面有標題 |
+| [expect(page).to_have_url()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面有 URL |
+| [expect(response).to_be_ok()](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | 回應狀態為 OK |
 
 了解更多在 [assertions 指南](./test-assertions.mdx)。
 

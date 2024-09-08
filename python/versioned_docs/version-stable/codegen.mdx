@@ -116,7 +116,7 @@ playwright codegen --timezone="Europe/Rome" --geolocation="41.890221,12.492348" 
 
 ### 保留驗證狀態
 
-執行 `codegen` 並使用 `--save-storage` 來在會話結束時保存 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) 和 [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)。這對於分別記錄身份驗證步驟並在稍後記錄更多測試時重用非常有用。
+執行 `codegen` 並使用 `--save-storage` 來在工作階段結束時保存 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) 和 [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)。這對於分別記錄身份驗證步驟並在稍後記錄更多測試時重用非常有用。
 
 ```bash
 playwright codegen github.com/microsoft/playwright --save-storage=auth.json

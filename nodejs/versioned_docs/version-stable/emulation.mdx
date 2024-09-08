@@ -65,7 +65,7 @@ const context = await browser.newContext({
 
 ## 視口 (Viewport)
 
-視口包含在裝置中，但您可以使用 [page.setViewportSize()](https://ollama.com/library) 覆蓋某些測試。
+視口包含在裝置中，但您可以使用 [page.setViewportSize()](/api/class-page.mdx#page-set-viewport-size) 覆蓋某些測試。
 
 <Tabs
   groupId="js-flavor"
@@ -343,7 +343,7 @@ await context.grantPermissions(['notifications'], { origin: 'https://skype.com' 
 </TabItem>
 </Tabs>
 
-撤銷所有權限，請使用 [browserContext.clearPermissions()](https://api/class-browsercontext.mdx#browser-context-clear-permissions)。
+撤銷所有權限，請使用 [browserContext.clearPermissions()](/api/class-browsercontext.mdx#browser-context-clear-permissions)。
 
 ```js
 // Library

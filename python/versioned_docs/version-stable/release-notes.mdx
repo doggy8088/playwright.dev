@@ -285,9 +285,9 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 
 ### 新的 API
 
-- 新方法 [page.unroute_all()](https://api/class-page.mdx#page-unroute-all) 移除所有由 [page.route()](https://api/class-page.mdx#page-route) 和 [page.route_from_har()](https://api/class-page.mdx#page-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略它們的任何錯誤。
-- 新方法 [browser_context.unroute_all()](https://api/class-browsercontext.mdx#browser-context-unroute-all) 移除所有由 [browser_context.route()](https://api/class-browsercontext.mdx#browser-context-route) 和 [browser_context.route_from_har()](https://api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略它們的任何錯誤。
-- 新選項 `style` 在 [page.screenshot()](https://api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](https://api/class-locator.mdx#locator-screenshot) 中，在截圖前添加自訂 CSS 到頁面。
+- 新方法 [page.unroute_all()](/api/class-page.mdx#page-unroute-all) 移除所有由 [page.route()](/api/class-page.mdx#page-route) 和 [page.route_from_har()](/api/class-page.mdx#page-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略它們的任何錯誤。
+- 新方法 [browser_context.unroute_all()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除所有由 [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略它們的任何錯誤。
+- 新選項 `style` 在 [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 中，在截圖前添加自訂 CSS 到頁面。
 
 ### 瀏覽器版本
 
@@ -511,11 +511,11 @@ Linux 支援看起來像這樣:
 
 ### 新的 API
 
-- [locator.or_()](https://ollama.com/api/class-locator.mdx#locator-or)
-- 新選項 `has_not` 在 [locator.filter()](https://ollama.com/api/class-locator.mdx#locator-filter)
-- 新選項 `has_not_text` 在 [locator.filter()](https://ollama.com/api/class-locator.mdx#locator-filter)
-- [expect(locator).to_be_attached()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-be-attached)
-- 新選項 `timeout` 在 [route.fetch()](https://ollama.com/api/class-route.mdx#route-fetch)
+- [locator.or_()](/api/class-locator.mdx#locator-or)
+- 新選項 `has_not` 在 [locator.filter()](/api/class-locator.mdx#locator-filter)
+- 新選項 `has_not_text` 在 [locator.filter()](/api/class-locator.mdx#locator-filter)
+- [expect(locator).to_be_attached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached)
+- 新選項 `timeout` 在 [route.fetch()](/api/class-route.mdx#route-fetch)
 
 ### ⚠️ 重大變更
 
@@ -556,7 +556,7 @@ Linux 支援看起來像這樣:
 
 ### 新的 API
 
-- 新的斷言 [expect(locator).to_be_in_viewport()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) 確保定位器指向與視窗相交的元素，根據 [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)。
+- 新的斷言 [expect(locator).to_be_in_viewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) 確保定位器指向與視窗相交的元素，根據 [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)。
 
   ```python
   from playwright.sync_api import expect
@@ -720,7 +720,7 @@ expect(page.get_by_text("Welcome, John!")).to_be_visible()
 
 ### 行為變更
 
-- [expect(locator).to_have_attribute()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore。For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
+- [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore。For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
 
   ```python
   expect(page.get_by_role("button")).to_have_attribute("disabled", "")
@@ -741,14 +741,14 @@ expect(page.get_by_text("Welcome, John!")).to_be_visible()
 
 ### 斷言
 
-- 新選項 `enabled` 用於 [expect(locator).to_be_enabled()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled)。
-- [expect(locator).to_have_text()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在可以穿透開放的 shadow roots。
-- 新選項 `editable` 用於 [expect(locator).to_be_editable()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-be-editable)。
-- 新選項 `visible` 用於 [expect(locator).to_be_visible()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
+- 新選項 `enabled` 用於 [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled)。
+- [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在可以穿透開放的 shadow roots。
+- 新選項 `editable` 用於 [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable)。
+- 新選項 `visible` 用於 [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
 
 ### 其他亮點
 
-- 新選項 `max_redirects` 用於 [api_request_context.get()](https://api/class-apirequestcontext.mdx#api-request-context-get) 和其他方法來限制重定向次數。
+- 新選項 `max_redirects` 用於 [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) 和其他方法來限制重定向次數。
 - 現在支援 Python 3.11。
 
 ### 行為變更
@@ -859,7 +859,7 @@ await context.close()
 </TabItem>
 </Tabs>
 
-使用新方法 [page.route_from_har()](https://api/class-page.mdx#page-route-from-har) 或 [browser_context.route_from_har()](https://api/class-browsercontext.mdx#browser-context-route-from-har) 從 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 檔案提供匹配的回應:
+使用新方法 [page.route_from_har()](/api/class-page.mdx#page-route-from-har) 或 [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har) 從 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 檔案提供匹配的回應:
 
 <Tabs
   groupId="python-flavor"
@@ -1413,19 +1413,19 @@ Playwright Docker image 現在已經為 Arm64 發佈，因此可以在 Apple Sil
 
 ### 🖱️ 滑鼠滾輪
 
-使用 [mouse.wheel()](https://api/class-mouse.mdx#mouse-wheel) 現在可以垂直或水平滾動。
+使用 [mouse.wheel()](/api/class-mouse.mdx#mouse-wheel) 現在可以垂直或水平滾動。
 
 ### 📜 新標頭 API
 
 先前無法獲取回應的多個標頭值。現在這是可能的，並且提供了額外的輔助函式:
 
-- [request.all_headers](https://ollama.com/api/class-request.mdx#request-all-headers)()
-- [request.headers_array](https://ollama.com/api/class-request.mdx#request-headers-array)()
-- [request.header_value](https://ollama.com/api/class-request.mdx#request-header-value)()
-- [response.all_headers](https://ollama.com/api/class-response.mdx#response-all-headers)()
-- [response.headers_array](https://ollama.com/api/class-response.mdx#response-headers-array)()
-- [response.header_value](https://ollama.com/api/class-response.mdx#response-header-value)()
-- [response.header_values](https://ollama.com/api/class-response.mdx#response-header-values)()
+- [request.all_headers](/api/class-request.mdx#request-all-headers)()
+- [request.headers_array](/api/class-request.mdx#request-headers-array)()
+- [request.header_value](/api/class-request.mdx#request-header-value)()
+- [response.all_headers](/api/class-response.mdx#response-all-headers)()
+- [response.headers_array](/api/class-response.mdx#response-headers-array)()
+- [response.header_value](/api/class-response.mdx#response-header-value)()
+- [response.header_values](/api/class-response.mdx#response-header-values)()
 
 ### 🌈 強制色彩模擬
 
@@ -1542,7 +1542,7 @@ button.click("button >> visible=true")
 
 #### 🧟‍♂️ 準備推出 Playwright Trace Viewer
 
-[Playwright Trace Viewer](./trace-viewer.mdx) 是一個新的 GUI 工具，幫助在程式碼執行後探索記錄的 Playwright traces。Playwright traces 讓你檢查:
+[Playwright Trace Viewer](./trace-viewer.mdx) 是一個新的 GUI 工具，幫助在程式碼執行後探索記錄的 Playwright Traces。Playwright Traces 讓你檢查:
 
 - 每個 Playwright 操作前後的頁面 DOM
 - 每個 Playwright 操作前後的頁面渲染
@@ -1681,19 +1681,19 @@ playwright show-trace trace.zip
 
 #### 新的 API
 
-- [element_handle.is_checked()](https://api/class-elementhandle.mdx#element-handle-is-checked)。
-- [element_handle.is_disabled()](https://api/class-elementhandle.mdx#element-handle-is-disabled)。
-- [element_handle.is_editable()](https://api/class-elementhandle.mdx#element-handle-is-editable)。
-- [element_handle.is_enabled()](https://api/class-elementhandle.mdx#element-handle-is-enabled)。
-- [element_handle.is_hidden()](https://api/class-elementhandle.mdx#element-handle-is-hidden)。
-- [element_handle.is_visible()](https://api/class-elementhandle.mdx#element-handle-is-visible)。
-- [page.is_checked()](https://api/class-page.mdx#page-is-checked)。
-- [page.is_disabled()](https://api/class-page.mdx#page-is-disabled)。
-- [page.is_editable()](https://api/class-page.mdx#page-is-editable)。
-- [page.is_enabled()](https://api/class-page.mdx#page-is-enabled)。
-- [page.is_hidden()](https://api/class-page.mdx#page-is-hidden)。
-- [page.is_visible()](https://api/class-page.mdx#page-is-visible)。
-- 新選項 'editable' 在 [element_handle.wait_for_element_state()](https://api/class-elementhandle.mdx#element-handle-wait-for-element-state)。
+- [element_handle.is_checked()](/api/class-elementhandle.mdx#element-handle-is-checked)。
+- [element_handle.is_disabled()](/api/class-elementhandle.mdx#element-handle-is-disabled)。
+- [element_handle.is_editable()](/api/class-elementhandle.mdx#element-handle-is-editable)。
+- [element_handle.is_enabled()](/api/class-elementhandle.mdx#element-handle-is-enabled)。
+- [element_handle.is_hidden()](/api/class-elementhandle.mdx#element-handle-is-hidden)。
+- [element_handle.is_visible()](/api/class-elementhandle.mdx#element-handle-is-visible)。
+- [page.is_checked()](/api/class-page.mdx#page-is-checked)。
+- [page.is_disabled()](/api/class-page.mdx#page-is-disabled)。
+- [page.is_editable()](/api/class-page.mdx#page-is-editable)。
+- [page.is_enabled()](/api/class-page.mdx#page-is-enabled)。
+- [page.is_hidden()](/api/class-page.mdx#page-is-hidden)。
+- [page.is_visible()](/api/class-page.mdx#page-is-visible)。
+- 新選項 'editable' 在 [element_handle.wait_for_element_state()](/api/class-elementhandle.mdx#element-handle-wait-for-element-state)。
 
 #### 瀏覽器版本
 
@@ -1711,8 +1711,8 @@ playwright show-trace trace.zip
 
 #### 新的 API
 
-- [browser_context.storage_state()](https://api/class-browsercontext.mdx#browser-context-storage-state) 取得當前狀態以供日後重用。
-- 在 [browser.new_context()](https://api/class-browser.mdx#browser-new-context) 和 [browser.new_page()](https://api/class-browser.mdx#browser-new-page) 中的 `storageState` 選項設定瀏覽器上下文狀態。
+- [browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state) 取得當前狀態以供日後重用。
+- 在 [browser.new_context()](/api/class-browser.mdx#browser-new-context) 和 [browser.new_page()](/api/class-browser.mdx#browser-new-page) 中的 `storageState` 選項設定瀏覽器上下文狀態。
 
 #### 瀏覽器版本
 

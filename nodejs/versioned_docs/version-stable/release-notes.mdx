@@ -138,7 +138,7 @@ test('example test', async ({ mount }) => {
 
 - 測試註釋現在顯示在 UI 模式中。
 - 文字附件的內容現在會在附件窗格中內嵌顯示。
-- 新設定可顯示/隱藏路由操作，如 [route.continue()](https://ollama.com/api/class-route.mdx#route-continue)。
+- 新設定可顯示/隱藏路由操作，如 [route.continue()](/api/class-route.mdx#route-continue)。
 - 請求方法和狀態顯示在網路詳細資訊標籤中。
 - 新按鈕可將來源檔案位置複製到剪貼簿。
 - Metadata 窗格現在顯示 `baseURL`。
@@ -195,7 +195,7 @@ await expect(page.getByTestId('current-time')).toHaveText('2/2/2024, 10:30:00 AM
 ### 測試執行器
 
 - 新的 CLI 選項 `--fail-on-flaky-tests`，在任何不穩定的測試時將退出碼設置為 `1`。請注意，預設情況下，當所有失敗的測試在重試後恢復時，測試運行器會以退出碼 `0` 退出。使用此選項，在這種情況下測試運行將失敗。
-- 新的環境變量 `PLAYWRIGHT_FORCE_TTY` 控制內建的 `list`、`line` 和 `dot` 報告器是否假設為實時終端。例如，當您的 CI 環境無法很好地處理 ANSI 控制序列時，這可能有助於禁用 tty 行為。或者，如果您計劃後處理輸出並處理控制序列，即使沒有實時終端，也可以啟用 tty 行為。
+- 新的環境變量 `PLAYWRIGHT_FORCE_TTY` 控制內建的 `list`、`line` 和 `dot` 報告器是否假設為即時終端。例如，當您的 CI 環境無法很好地處理 ANSI 控制序列時，這可能有助於禁用 tty 行為。或者，如果您計劃後處理輸出並處理控制序列，即使沒有即時終端，也可以啟用 tty 行為。
 
   ```sh
   # 避免輸出 ANSI 控制序列的 TTY 功能
@@ -222,22 +222,22 @@ await expect(page.getByTestId('current-time')).toHaveText('2/2/2024, 10:30:00 AM
 
 ### 雜項
 
-- Method [locator.setInputFiles()](https://api/class-locator.mdx#locator-set-input-files) now supports uploading a directory for `<input type=file webkitdirectory>` elements。
+- Method [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) now supports uploading a directory for `<input type=file webkitdirectory>` elements。
 
   ```ts
   await page.getByLabel('Upload directory').setInputFiles(path.join(__dirname, 'mydir'));
   ```
 
-- Multiple methods like [locator.click()](https://api/class-locator.mdx#locator-click) or [locator.press()](https://api/class-locator.mdx#locator-press) now support a `ControlOrMeta` modifier key. This key maps to `Meta` on macOS and maps to `Control` on Windows and Linux。
+- Multiple methods like [locator.click()](/api/class-locator.mdx#locator-click) or [locator.press()](/api/class-locator.mdx#locator-press) now support a `ControlOrMeta` modifier key. This key maps to `Meta` on macOS and maps to `Control` on Windows and Linux。
 
   ```ts
   // Press the common keyboard shortcut Control+S or Meta+S to trigger a "Save" operation.
   await page.keyboard.press('ControlOrMeta+S');
   ```
 
-- New property `httpCredentials.send` in [apiRequest.newContext()](https://api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`。
-- New option `reason` in [apiRequestContext.dispose()](https://api/class-apirequestcontext.mdx#api-request-context-dispose) that will be included in the error message of ongoing operations interrupted by the context disposal。
-- New option `host` in [browserType.launchServer()](https://api/class-browsertype.mdx#browser-type-launch-server) allows to accept websocket connections on a specific address instead of unspecified `0.0.0.0`。
+- New property `httpCredentials.send` in [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`。
+- New option `reason` in [apiRequestContext.dispose()](/api/class-apirequestcontext.mdx#api-request-context-dispose) that will be included in the error message of ongoing operations interrupted by the context disposal。
+- New option `host` in [browserType.launchServer()](/api/class-browsertype.mdx#browser-type-launch-server) allows to accept websocket connections on a specific address instead of unspecified `0.0.0.0`。
 - Playwright now supports Chromium, Firefox and WebKit on Ubuntu 24.04。
 - v1.45 is the last release to receive WebKit update for macOS 12 Monterey。Please update macOS to keep using the latest WebKit。
 
@@ -260,21 +260,21 @@ await expect(page.getByTestId('current-time')).toHaveText('2/2/2024, 10:30:00 AM
 
 **無障礙聲明**
 
-- [expect(locator).toHaveAccessibleName()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的可存取名稱:
+- [expect(locator).toHaveAccessibleName()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的可存取名稱:
 
   ```js
   const locator = page.getByRole('button');
   await expect(locator).toHaveAccessibleName('Submit');
   ```
 
-- [expect(locator).toHaveAccessibleDescription()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的可存取描述:
+- [expect(locator).toHaveAccessibleDescription()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的可存取描述:
 
   ```js
   const locator = page.getByRole('button');
   await expect(locator).toHaveAccessibleDescription('Upload a photo');
   ```
 
-- [expect(locator).toHaveRole()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色:
+- [expect(locator).toHaveRole()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色:
 
   ```js
   const locator = page.getByTestId('save-button');
@@ -317,9 +317,9 @@ await page.removeLocatorHandler(locator);
 
 **Reporter API**
 
-- 新方法 [suite.entries()](https://ollama.com/api/class-suite.mdx#suite-entries) 返回子測試套件和測試案例的宣告順序。 [suite.type](https://ollama.com/api/class-suite.mdx#suite-type) 和 [testCase.type](https://ollama.com/api/class-testcase.mdx#test-case-type) 可用於區分清單中的測試案例和套件。
-- [Blob](https://ollama.com/test-reporters#blob-reporter) 報告器現在允許使用單一選項 `outputFile` 覆蓋報告檔案路徑。相同的選項也可以指定為 `PLAYWRIGHT_BLOB_OUTPUT_FILE` 環境變數，這在 CI/CD 上可能更方便。
-- [JUnit](https://ollama.com/test-reporters#junit-reporter) 報告器現在支援 `includeProjectInTestName` 選項。
+- 新方法 [suite.entries()](/api/class-suite.mdx#suite-entries) 以聲明順序返回子測試套件和測試案例。[suite.type](/api/class-suite.mdx#suite-type) 和 [testCase.type](/api/class-testcase.mdx#test-case-type) 可用於區分列表中的測試案例和套件。
+- [Blob](./test-reporters#blob-reporter) 報告器現在允許使用單一選項 `outputFile` 覆蓋報告文件路徑。相同的選項也可以指定為 `PLAYWRIGHT_BLOB_OUTPUT_FILE` 環境變數，這在 CI/CD 上可能更方便。
+- [JUnit](./test-reporters#junit-reporter) 報告器現在支持 `includeProjectInTestName` 選項。
 
 **命令列**
 
@@ -362,7 +362,7 @@ await page.removeLocatorHandler(locator);
 
 ### 新的 API
 
-- 方法 [browserContext.clearCookies()](https://api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援過濾器，只移除部分 cookies。
+- 方法 [browserContext.clearCookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援過濾器，只移除部分 cookies。
 
   ```js
   // 清除所有 cookies。
@@ -373,7 +373,7 @@ await page.removeLocatorHandler(locator);
   await context.clearCookies({ domain: 'my-origin.com' });
   ```
 
-- 新模式 `retain-on-first-failure` 用於 [testOptions.trace](https://api/class-testoptions.mdx#test-options-trace)。在此模式下，trace 會在每次測試的第一次執行時記錄，但不會在重試時記錄。當測試執行失敗時，trace 檔案會被保留，否則會被移除。
+- 新模式 `retain-on-first-failure` 用於 [testOptions.trace](/api/class-testoptions.mdx#test-options-trace)。在此模式下，trace 會在每次測試的第一次執行時記錄，但不會在重試時記錄。當測試執行失敗時，trace 檔案會被保留，否則會被移除。
 
   ```js
   import { defineConfig } from '@playwright/test';
@@ -385,7 +385,7 @@ await page.removeLocatorHandler(locator);
   });
   ```
 
-- 新屬性 [testInfo.tags](https://api/class-testinfo.mdx#test-info-tags) 在測試執行期間暴露測試標籤。
+- 新屬性 [testInfo.tags](/api/class-testinfo.mdx#test-info-tags) 在測試執行期間暴露測試標籤。
 
   ```js
   test('example', async ({ page }) => {
@@ -393,7 +393,7 @@ await page.removeLocatorHandler(locator);
   });
   ```
 
-- 新方法 [locator.contentFrame()](https://api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。當你已經獲得一個 [Locator] 物件，並且稍後希望與框架內的內容互動時，這會很有用。
+- 新方法 [locator.contentFrame()](/api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。當你已經獲得一個 [Locator] 物件，並且稍後希望與框架內的內容互動時，這會很有用。
 
   ```js
   const locator = page.locator('iframe[name="embedded"]');
@@ -402,7 +402,7 @@ await page.removeLocatorHandler(locator);
   await frameLocator.getByRole('button').click();
   ```
 
-- 新方法 [frameLocator.owner()](https://api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。當你已經獲得一個 [FrameLocator] 物件，並且稍後希望與 `iframe` 元素互動時，這會很有用。
+- 新方法 [frameLocator.owner()](/api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。當你已經獲得一個 [FrameLocator] 物件，並且稍後希望與 `iframe` 元素互動時，這會很有用。
 
   ```js
   const frameLocator = page.frameLocator('iframe[name="embedded"]');
@@ -439,7 +439,7 @@ await page.removeLocatorHandler(locator);
 
 ### 新的 API
 
-- 新方法 [page.addLocatorHandler()](https://ollama.com/library#page-add-locator-handler) 註冊了一個回呼，當指定的元素變得可見時將會被呼叫並可能阻止 Playwright 操作。回呼可以去除覆蓋層。這裡有一個範例，當 cookie 對話框出現時將其關閉:
+- 新方法 [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 註冊了一個回呼，當指定的元素變得可見時將會被呼叫並可能阻止 Playwright 操作。回呼可以去除覆蓋層。這裡有一個範例，當 cookie 對話框出現時將其關閉:
 
 ```js
 // Setup the handler.
@@ -502,7 +502,7 @@ test('test full report', {
 });
 ```
 
-- [page.pdf()](https://api/class-page.mdx#page-pdf) 接受兩個新選項 [`tagged`](./api/class-page#page-pdf-option-tagged) 和 [`outline`](./api/class-page#page-pdf-option-outline)。
+- [page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [`tagged`](./api/class-page#page-pdf-option-tagged) 和 [`outline`](./api/class-page#page-pdf-option-outline)。
 
 ### 公告
 
@@ -678,7 +678,7 @@ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
   16 | });
 ```
 
-請參閱 [test.step()](https://api/class-test.mdx#test-step) 文件以獲取完整範例。
+請參閱 [test.step()](/api/class-test.mdx#test-step) 文件以獲取完整範例。
 
 ### 新的 API
 
@@ -974,7 +974,7 @@ Linux 支援看起來像這樣:
   const button = page.getByRole('button').and(page.getByTitle('Subscribe'));
   ```
 
-* 新事件 [browserContext.on('console')](/api/class-browsercontext.mdx#browser-context-event-console) 和 [browserContext.on('dialog')](/api/class-browsercontext.mdx#browser-context-event-dialog) 用於訂閱來自給定瀏覽器上下文的任何頁面的對話框和控制台訊息。使用新方法 [consoleMessage.page()](https://api/class-consolemessage.mdx#console-message-page) 和 [dialog.page()](https://api/class-dialog.mdx#dialog-page) 來確定事件來源。
+* 新事件 [browserContext.on('console')](/api/class-browsercontext.mdx#browser-context-event-console) 和 [browserContext.on('dialog')](/api/class-browsercontext.mdx#browser-context-event-dialog) 用於訂閱來自給定瀏覽器上下文的任何頁面的對話框和控制台訊息。使用新方法 [consoleMessage.page()](/api/class-consolemessage.mdx#console-message-page) 和 [dialog.page()](/api/class-dialog.mdx#dialog-page) 來確定事件來源。
 
 ### ⚠️ 重大變更
 
@@ -1025,16 +1025,16 @@ Linux 支援看起來像這樣:
       .screenshot();
   ```
 
-* 使用新的 web-first 斷言 [expect(locator).toBeAttached()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 確保元素存在於頁面的 DOM 中。不要與 [expect(locator).toBeVisible()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既已附加又可見。
+* 使用新的 web-first 斷言 [expect(locator).toBeAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 確保元素存在於頁面的 DOM 中。不要與 [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既已附加又可見。
 
 ### 新的 API
 
 - [locator.or()](/api/class-locator.mdx#locator-or)
-- 新選項 `hasNot` 在 [locator.filter()](https://api/class-locator.mdx#locator-filter)
-- 新選項 `hasNotText` 在 [locator.filter()](https://api/class-locator.mdx#locator-filter)
-- [expect(locator).toBeAttached()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-attached)
-- 新選項 `timeout` 在 [route.fetch()](https://api/class-route.mdx#route-fetch)
-- [reporter.onExit()](https://api/class-reporter.mdx#reporter-on-exit)
+- 新選項 `hasNot` 在 [locator.filter()](/api/class-locator.mdx#locator-filter)
+- 新選項 `hasNotText` 在 [locator.filter()](/api/class-locator.mdx#locator-filter)
+- [expect(locator).toBeAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached)
+- 新選項 `timeout` 在 [route.fetch()](/api/class-route.mdx#route-fetch)
+- [reporter.onExit()](/api/class-reporter.mdx#reporter-on-exit)
 
 ### ⚠️ 重大變更
 
@@ -1210,7 +1210,7 @@ export default defineConfig({
 
 ### 新的 API
 
-- 新方法 [route.fetch()](https://api/class-route.mdx#route-fetch) 和 [route.fulfill()](https://api/class-route.mdx#route-fulfill) 的新選項 `json`:
+- 新方法 [route.fetch()](/api/class-route.mdx#route-fetch) 和 [route.fulfill()](/api/class-route.mdx#route-fulfill) 的新選項 `json`:
 
   ```js
   await page.route('**/api/settings', async route => {
@@ -1226,7 +1226,7 @@ export default defineConfig({
   });
   ```
 
-- 新方法 [locator.all()](https://api/class-locator.mdx#locator-all) 用於遍歷所有匹配的元素:
+- 新方法 [locator.all()](/api/class-locator.mdx#locator-all) 用於遍歷所有匹配的元素:
 
   ```js
   // 檢查所有的複選框！
@@ -1235,7 +1235,7 @@ export default defineConfig({
     await checkbox.check();
   ```
 
-- [locator.selectOption()](https://api/class-locator.mdx#locator-select-option) 現在可以通過值或標籤匹配:
+- [locator.selectOption()](/api/class-locator.mdx#locator-select-option) 現在可以通過值或標籤匹配:
 
   ```html
   <select multiple>
@@ -1332,10 +1332,10 @@ export default defineConfig({
 
 ### 新的 API
 
-- [locator.blur()](https://ollama.com/api/class-locator.mdx#locator-blur)
-- [locator.clear()](https://ollama.com/api/class-locator.mdx#locator-clear)
-- [android.launchServer()](https://ollama.com/api/class-android.mdx#android-launch-server) 和 [android.connect()](https://ollama.com/api/class-android.mdx#android-connect)
-- [androidDevice.on('close')](https://ollama.com/api/class-androiddevice.mdx#android-device-event-close)
+- [locator.blur()](/api/class-locator.mdx#locator-blur)
+- [locator.clear()](/api/class-locator.mdx#locator-clear)
+- [android.launchServer()](/api/class-android.mdx#android-launch-server) 和 [android.connect()](/api/class-android.mdx#android-connect)
+- [androidDevice.on('close')](/api/class-androiddevice.mdx#android-device-event-close)
 
 ### 瀏覽器版本
 
@@ -1399,7 +1399,7 @@ await expect(page.getByText('Welcome, John!')).toBeVisible();
 
 ### 行為變更
 
-- [expect(locator).toHaveAttribute()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. 例如, 當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
+- [expect(locator).toHaveAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. 例如, 當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
 
   ```js
   await expect(page.getByRole('button')).toHaveAttribute('disabled', '');
@@ -1431,7 +1431,7 @@ await expect(page.getByText('Welcome, John!')).toBeVisible();
 
 ### 其他亮點
 
-- 新選項 `maxRedirects` 用於 [apiRequestContext.get()](https://ollama.com/library#api-request-context-get) 和其他函式以限制重定向次數。
+- 新選項 `maxRedirects` 用於 [apiRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) 和其他函式以限制重定向次數。
 - 新的命令列標誌 `--pass-with-no-tests` 允許在未找到檔案時測試套件通過。
 - 新的命令列標誌 `--ignore-snapshots` 用於跳過快照期望，例如 `expect(value).toMatchSnapshot()` 和 `expect(page).toHaveScreenshot()`。
 
@@ -1474,7 +1474,7 @@ await page.goto('https://playwright.dev', {
 
 ### 測試執行器
 
-* [test.step()](https://api/class-test.mdx#test-step) 現在返回 step 函式的值:
+* [test.step()](/api/class-test.mdx#test-step) 現在返回 step 函式的值:
 
   ```ts
   test('should work', async ({ page }) => {
@@ -1486,9 +1486,9 @@ await page.goto('https://playwright.dev', {
   });
   ```
 
-* 新增 [test.describe.fixme()](https://api/class-test.mdx#test-describe-fixme)。
+* 新增 [test.describe.fixme()](/api/class-test.mdx#test-describe-fixme)。
 * 新的 `'interrupted'` 測試狀態。
-* 通過 CLI 標誌啟用追蹤: `npx playwright test --trace=on`。
+* 通過 CLI 旗標啟用追蹤: `npx playwright test --trace=on`。
 
 ### 公告
 
@@ -1553,7 +1553,7 @@ Linux 支援看起來像這樣:
 
 ### 🕵️ 匿名描述
 
-現在可以呼叫 [test.describe()](https://api/class-test.mdx#test-describe) 來建立沒有標題的套件。這對於使用 [test.use()](https://api/class-test.mdx#test-use) 為一組測試提供共同選項很有用。
+現在可以呼叫 [test.describe()](/api/class-test.mdx#test-describe) 來建立沒有標題的套件。這對於使用 [test.use()](/api/class-test.mdx#test-use) 為一組測試提供共同選項很有用。
 
 ```ts
 test.describe(() => {
@@ -1650,7 +1650,7 @@ const context = await browser.newContext({
 await context.close();
 ```
 
-使用新方法 [page.routeFromHAR()](https://api/class-page.mdx#page-route-from-har) 或 [browserContext.routeFromHAR()](https://api/class-browsercontext.mdx#browser-context-route-from-har) 從 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 檔案提供匹配的回應:
+使用新方法 [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 或 [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) 從 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 檔案提供匹配的回應:
 
 ```ts
 await context.routeFromHAR('github.har.zip');
@@ -1684,12 +1684,12 @@ test('should work', async ({ page }) => {
 });
 ```
 
-注意，新方法 [page.routeFromHAR()](https://api/class-page.mdx#page-route-from-har) 和 [browserContext.routeFromHAR()](https://api/class-browsercontext.mdx#browser-context-route-from-har) 也參與路由並且可以被延遲。
+注意，新方法 [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 和 [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) 也參與路由並且可以被延遲。
 
 ### Web-First Assertions Update
 
-* 新方法 [expect(locator).toHaveValues()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-values) 可斷言 `<select multiple>` 元素的所有選定值。
-* 方法 [expect(locator).toContainText()](https://api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [expect(locator).toHaveText()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在接受 `ignoreCase` 選項。
+* 新方法 [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 可斷言 `<select multiple>` 元素的所有選定值。
+* 方法 [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在接受 `ignoreCase` 選項。
 
 ### 元件測試更新
 
@@ -2292,19 +2292,19 @@ Playwright Docker image 現在已經為 Arm64 發佈，因此可以在 Apple Sil
 
 #### 🖱️ 滑鼠滾輪
 
-使用 [mouse.wheel()](https://api/class-mouse.mdx#mouse-wheel) 現在可以垂直或水平滾動。
+使用 [mouse.wheel()](/api/class-mouse.mdx#mouse-wheel) 現在可以垂直或水平滾動。
 
 #### 📜 新的 Headers API
 
 先前無法獲取回應的多個標頭值。現在這是可能的，並且提供了額外的輔助函式:
 
-- [request.allHeaders()](https://ollama.com/api/class-request.mdx#request-all-headers)
-- [request.headersArray()](https://ollama.com/api/class-request.mdx#request-headers-array)
-- [request.headerValue()](https://ollama.com/api/class-request.mdx#request-header-value)
-- [response.allHeaders()](https://ollama.com/api/class-response.mdx#response-all-headers)
-- [response.headersArray()](https://ollama.com/api/class-response.mdx#response-headers-array)
-- [response.headerValue()](https://ollama.com/api/class-response.mdx#response-header-value)
-- [response.headerValues()](https://ollama.com/api/class-response.mdx#response-header-values)
+- [request.allHeaders()](/api/class-request.mdx#request-all-headers)
+- [request.headersArray()](/api/class-request.mdx#request-headers-array)
+- [request.headerValue()](/api/class-request.mdx#request-header-value)
+- [response.allHeaders()](/api/class-response.mdx#response-all-headers)
+- [response.headersArray()](/api/class-response.mdx#response-headers-array)
+- [response.headerValue()](/api/class-response.mdx#response-header-value)
+- [response.headerValues()](/api/class-response.mdx#response-header-values)
 
 #### 🌈 強制色彩模擬
 
@@ -2333,7 +2333,7 @@ test.describe.parallel('group', () => {
 
 根據預設，單個文件中的測試會按順序執行。如果你在一個文件中有許多獨立的測試，你現在可以使用 [test.describe.parallel(title, callback)](./api/class-test#test-describe-parallel) 平行執行它們。
 
-#### 🛠 添加 `--debug` CLI 標誌
+#### 🛠 添加 `--debug` CLI 旗標
 
 使用 `npx playwright test --debug` 將啟用 [Playwright Inspector](./debug#playwright-inspector) 以便您偵錯測試。
 
@@ -2529,13 +2529,13 @@ export default defineConfig({
 
 #### 新的 Playwright API
 
-- 新的 `baseURL` 選項在 [browser.newContext()](https://ollama.com/api/class-browser.mdx#browser-new-context) 和 [browser.newPage()](https://ollama.com/api/class-browser.mdx#browser-new-page)
-- [response.securityDetails()](https://ollama.com/api/class-response.mdx#response-security-details) 和 [response.serverAddr()](https://ollama.com/api/class-response.mdx#response-server-addr)
-- [page.dragAndDrop()](https://ollama.com/api/class-page.mdx#page-drag-and-drop) 和 [frame.dragAndDrop()](https://ollama.com/api/class-frame.mdx#frame-drag-and-drop)
-- [download.cancel()](https://ollama.com/api/class-download.mdx#download-cancel)
-- [page.inputValue()](https://ollama.com/api/class-page.mdx#page-input-value), [frame.inputValue()](https://ollama.com/api/class-frame.mdx#frame-input-value) 和 [elementHandle.inputValue()](https://ollama.com/api/class-elementhandle.mdx#element-handle-input-value)
-- 新的 `force` 選項在 [page.fill()](https://ollama.com/api/class-page.mdx#page-fill), [frame.fill()](https://ollama.com/api/class-frame.mdx#frame-fill), 和 [elementHandle.fill()](https://ollama.com/api/class-elementhandle.mdx#element-handle-fill)
-- 新的 `force` 選項在 [page.selectOption()](https://ollama.com/api/class-page.mdx#page-select-option), [frame.selectOption()](https://ollama.com/api/class-frame.mdx#frame-select-option), 和 [elementHandle.selectOption()](https://ollama.com/api/class-elementhandle.mdx#element-handle-select-option)
+- 新的 `baseURL` 選項在 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [browser.newPage()](/api/class-browser.mdx#browser-new-page)
+- [response.securityDetails()](/api/class-response.mdx#response-security-details) 和 [response.serverAddr()](/api/class-response.mdx#response-server-addr)
+- [page.dragAndDrop()](/api/class-page.mdx#page-drag-and-drop) 和 [frame.dragAndDrop()](/api/class-frame.mdx#frame-drag-and-drop)
+- [download.cancel()](/api/class-download.mdx#download-cancel)
+- [page.inputValue()](/api/class-page.mdx#page-input-value), [frame.inputValue()](/api/class-frame.mdx#frame-input-value) 和 [elementHandle.inputValue()](/api/class-elementhandle.mdx#element-handle-input-value)
+- 新的 `force` 選項在 [page.fill()](/api/class-page.mdx#page-fill), [frame.fill()](/api/class-frame.mdx#frame-fill), 和 [elementHandle.fill()](/api/class-elementhandle.mdx#element-handle-fill)
+- 新的 `force` 選項在 [page.selectOption()](/api/class-page.mdx#page-select-option), [frame.selectOption()](/api/class-frame.mdx#frame-select-option), 和 [elementHandle.selectOption()](/api/class-elementhandle.mdx#element-handle-select-option)
 
 ## Version 1.12
 
@@ -2577,7 +2577,7 @@ npx playwright test
 
 #### 🧟‍♂️ 準備推出 Playwright Trace Viewer
 
-[Playwright Trace Viewer](./trace-viewer.mdx) 是一個新的 GUI 工具，幫助在程式碼執行後探索記錄的 Playwright traces。Playwright traces 讓你檢查:
+[Playwright Trace Viewer](./trace-viewer.mdx) 是一個新的 GUI 工具，幫助在程式碼執行後探索記錄的 Playwright Traces。Playwright Traces 讓你檢查:
 
 - 每個 Playwright 操作前後的頁面 DOM
 - 每個 Playwright 操作前後的頁面渲染

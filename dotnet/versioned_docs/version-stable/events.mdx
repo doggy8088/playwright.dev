@@ -14,7 +14,7 @@ Playwright 允許監聽網頁上發生的各種類型事件，例如網路請求
 
 大多數情況下，腳本需要等待特定事件發生。以下是一些典型的事件等待模式。
 
-等待具有指定 URL 的請求，使用 [Page.RunAndWaitForRequestAsync()](https://api/class-page.mdx#page-wait-for-request)：
+等待具有指定 URL 的請求，使用 [Page.RunAndWaitForRequestAsync()](/api/class-page.mdx#page-wait-for-request)：
 
 ```csharp
 var waitForRequestTask = page.WaitForRequestAsync("**/*logo*.png");

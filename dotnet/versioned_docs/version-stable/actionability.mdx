@@ -22,30 +22,30 @@ Playwright 在執行操作之前會對元素進行一系列的可操作性檢查
 
 | Action | [Visible] | [Stable] | [Receives Events] | [Enabled] | [Editable] |
 | :- | :-: | :-: | :-: | :-: | :-: |
-| [Locator.CheckAsync()](https://ollama.com/library) | Yes | Yes | Yes | Yes | - |
-| [Locator.ClickAsync()](https://ollama.com/library) | Yes | Yes | Yes | Yes | - |
-| [Locator.DblClickAsync()](https://ollama.com/library) | Yes | Yes | Yes | Yes | - |
-| [Locator.SetCheckedAsync()](https://ollama.com/library) | Yes | Yes | Yes | Yes | - |
-| [Locator.TapAsync()](https://ollama.com/library) | Yes | Yes | Yes | Yes | - |
-| [Locator.UncheckAsync()](https://ollama.com/library) | Yes | Yes | Yes | Yes | - |
-| [Locator.HoverAsync()](https://ollama.com/library) | Yes | Yes | Yes | - | - |
-| [Locator.DragToAsync()](https://ollama.com/library) | Yes | Yes | Yes | - | - |
-| [Locator.ScreenshotAsync()](https://ollama.com/library) | Yes | Yes | - | - | - |
-| [Locator.FillAsync()](https://ollama.com/library) | Yes | - | - | Yes | Yes |
-| [Locator.ClearAsync()](https://ollama.com/library) | Yes | - | - | Yes | Yes |
-| [Locator.SelectOptionAsync()](https://ollama.com/library) | Yes | - | - | Yes | - |
-| [Locator.SelectTextAsync()](https://ollama.com/library) | Yes | - | - | - | - |
-| [Locator.ScrollIntoViewIfNeededAsync()](https://ollama.com/library) | - | Yes | - | - | - |
-| [Locator.BlurAsync()](https://ollama.com/library) | - | - | - | - | - |
-| [Locator.DispatchEventAsync()](https://ollama.com/library) | - | - | - | - | - |
-| [Locator.FocusAsync()](https://ollama.com/library) | - | - | - | - | - |
-| [Locator.PressAsync()](https://ollama.com/library) | - | - | - | - | - |
-| [Locator.PressSequentiallyAsync()](https://ollama.com/library) | - | - | - | - | - |
-| [Locator.SetInputFilesAsync()](https://ollama.com/library) | - | - | - | - | - |
+| [Locator.CheckAsync()](/api/class-locator.mdx#locator-check) | Yes | Yes | Yes | Yes | - |
+| [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) | Yes | Yes | Yes | Yes | - |
+| [Locator.DblClickAsync()](/api/class-locator.mdx#locator-dblclick) | Yes | Yes | Yes | Yes | - |
+| [Locator.SetCheckedAsync()](/api/class-locator.mdx#locator-set-checked) | Yes | Yes | Yes | Yes | - |
+| [Locator.TapAsync()](/api/class-locator.mdx#locator-tap) | Yes | Yes | Yes | Yes | - |
+| [Locator.UncheckAsync()](/api/class-locator.mdx#locator-uncheck) | Yes | Yes | Yes | Yes | - |
+| [Locator.HoverAsync()](/api/class-locator.mdx#locator-hover) | Yes | Yes | Yes | - | - |
+| [Locator.DragToAsync()](/api/class-locator.mdx#locator-drag-to) | Yes | Yes | Yes | - | - |
+| [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) | Yes | Yes | - | - | - |
+| [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) | Yes | - | - | Yes | Yes |
+| [Locator.ClearAsync()](/api/class-locator.mdx#locator-clear) | Yes | - | - | Yes | Yes |
+| [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-option) | Yes | - | - | Yes | - |
+| [Locator.SelectTextAsync()](/api/class-locator.mdx#locator-select-text) | Yes | - | - | - | - |
+| [Locator.ScrollIntoViewIfNeededAsync()](/api/class-locator.mdx#locator-scroll-into-view-if-needed) | - | Yes | - | - | - |
+| [Locator.BlurAsync()](/api/class-locator.mdx#locator-blur) | - | - | - | - | - |
+| [Locator.DispatchEventAsync()](/api/class-locator.mdx#locator-dispatch-event) | - | - | - | - | - |
+| [Locator.FocusAsync()](/api/class-locator.mdx#locator-focus) | - | - | - | - | - |
+| [Locator.PressAsync()](/api/class-locator.mdx#locator-press) | - | - | - | - | - |
+| [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially) | - | - | - | - | - |
+| [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) | - | - | - | - | - |
 
+## 強制動作
 
-
-有些操作如 [Locator.ClickAsync()](https://api/class-locator.mdx#locator-click) 支援 `force` 選項，該選項會禁用非必要的可操作性檢查，例如，將真值 `force` 傳遞給 [Locator.ClickAsync()](https://api/class-locator.mdx#locator-click) 方法將不會檢查目標元素是否實際接收到點擊事件。
+有些操作如 [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) 支援 `force` 選項，該選項會禁用非必要的可操作性檢查，例如，將真值 `force` 傳遞給 [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) 方法將不會檢查目標元素是否實際接收到點擊事件。
 
 ## 斷言
 
@@ -53,29 +53,29 @@ Playwright 包含自動重試的斷言，通過等待條件滿足來消除不穩
 
 | Assertion | Description |
 | :- | :- |
-| [Expect(Locator).ToBeAttachedAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | 元素已附加 |
-| [Expect(Locator).ToBeCheckedAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 勾選框已勾選 |
-| [Expect(Locator).ToBeDisabledAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已禁用 |
-| [Expect(Locator).ToBeEditableAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | 元素可編輯 |
-| [Expect(Locator).ToBeEmptyAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | 容器為空 |
-| [Expect(Locator).ToBeEnabledAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 元素已啟用 |
-| [Expect(Locator).ToBeFocusedAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | 元素已聚焦 |
-| [Expect(Locator).ToBeHiddenAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | 元素不可見 |
-| [Expect(Locator).ToBeInViewportAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | 元素與視口相交 |
-| [Expect(Locator).ToBeVisibleAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
-| [Expect(Locator).ToContainTextAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文本 |
-| [Expect(Locator).ToHaveAttributeAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有 DOM 屬性 |
-| [Expect(Locator).ToHaveClassAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-class) | 元素具有類別屬性 |
-| [Expect(Locator).ToHaveCountAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 列表具有確切的子項數量 |
-| [Expect(Locator).ToHaveCSSAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-css) | 元素具有 CSS 屬性 |
-| [Expect(Locator).ToHaveIdAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-id) | 元素具有 ID |
-| [Expect(Locator).ToHaveJSPropertyAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | 元素具有 JavaScript 屬性 |
-| [Expect(Locator).ToHaveTextAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素匹配文本 |
-| [Expect(Locator).ToHaveValueAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入框具有值 |
-| [Expect(Locator).ToHaveValuesAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-values) | 選擇框具有選項 |
-| [Expect(Page).ToHaveTitleAsync()](https://api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
-| [Expect(Page).ToHaveURLAsync()](https://api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
-| [Expect(Response).ToBeOKAsync()](https://api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | 回應狀態為 OK |
+| [Expect(Locator).ToBeAttachedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | 元素已附加 |
+| [Expect(Locator).ToBeCheckedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 勾選框已勾選 |
+| [Expect(Locator).ToBeDisabledAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已禁用 |
+| [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | 元素可編輯 |
+| [Expect(Locator).ToBeEmptyAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | 容器為空 |
+| [Expect(Locator).ToBeEnabledAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 元素已啟用 |
+| [Expect(Locator).ToBeFocusedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | 元素已聚焦 |
+| [Expect(Locator).ToBeHiddenAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | 元素不可見 |
+| [Expect(Locator).ToBeInViewportAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | 元素與視口相交 |
+| [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
+| [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文本 |
+| [Expect(Locator).ToHaveAttributeAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有 DOM 屬性 |
+| [Expect(Locator).ToHaveClassAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-class) | 元素具有類別屬性 |
+| [Expect(Locator).ToHaveCountAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 列表具有確切的子項數量 |
+| [Expect(Locator).ToHaveCSSAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-css) | 元素具有 CSS 屬性 |
+| [Expect(Locator).ToHaveIdAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-id) | 元素具有 ID |
+| [Expect(Locator).ToHaveJSPropertyAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | 元素具有 JavaScript 屬性 |
+| [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素匹配文本 |
+| [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入框具有值 |
+| [Expect(Locator).ToHaveValuesAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) | 選擇框具有選項 |
+| [Expect(Page).ToHaveTitleAsync()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
+| [Expect(Page).ToHaveURLAsync()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
+| [Expect(Response).ToBeOKAsync()](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | 回應狀態為 OK |
 
 了解更多在 [assertions 指南](./test-assertions.mdx)。
 

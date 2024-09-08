@@ -116,20 +116,20 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
 
 ### 雜項
 
-- 方法 [Locator.SetInputFilesAsync()](https://api/class-locator.mdx#locator-set-input-files) 現在支援上傳目錄給 `<input type=file webkitdirectory>` 元素。
+- 方法 [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) 現在支援上傳目錄給 `<input type=file webkitdirectory>` 元素。
 
   ```csharp
   await page.GetByLabel("Upload directory").SetInputFilesAsync("mydir");
   ```
 
-- 多個方法如 [Locator.ClickAsync()](https://api/class-locator.mdx#locator-click) 或 [Locator.PressAsync()](https://api/class-locator.mdx#locator-press) 現在支援 `ControlOrMeta` 修飾鍵。此鍵在 macOS 上對應 `Meta`，在 Windows 和 Linux 上對應 `Control`。
+- 多個方法如 [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) 或 [Locator.PressAsync()](/api/class-locator.mdx#locator-press) 現在支援 `ControlOrMeta` 修飾鍵。此鍵在 macOS 上對應 `Meta`，在 Windows 和 Linux 上對應 `Control`。
 
   ```csharp
   // 按下常見的鍵盤快捷鍵 Control+S 或 Meta+S 來觸發 "Save" 操作。
   await page.Keyboard.PressAsync("ControlOrMeta+S");
   ```
 
-- 新屬性 `httpCredentials.send` 在 [ApiRequest.NewContextAsync()](https://api/class-apirequest.mdx#api-request-new-context) 中允許選擇總是發送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時發送。
+- 新屬性 `httpCredentials.send` 在 [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 中允許選擇總是發送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時發送。
 - Playwright 現在支援 Ubuntu 24.04 上的 Chromium、Firefox 和 WebKit。
 - v1.45 是最後一個為 macOS 12 Monterey 接收 WebKit 更新的版本。請更新 macOS 以繼續使用最新的 WebKit。
 
@@ -150,21 +150,21 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
 
 **無障礙聲明**
 
-- [Expect(Locator).ToHaveAccessibleNameAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的可存取名稱:
+- [Expect(Locator).ToHaveAccessibleNameAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的可存取名稱:
 
   ```csharp
   var locator = Page.GetByRole(AriaRole.Button);
   await Expect(locator).ToHaveAccessibleNameAsync("Submit");
   ```
 
-- [Expect(Locator).ToHaveAccessibleDescriptionAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的可存取描述:
+- [Expect(Locator).ToHaveAccessibleDescriptionAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的可存取描述:
 
   ```csharp
   var locator = Page.GetByRole(AriaRole.Button);
   await Expect(locator).ToHaveAccessibleDescriptionAsync("Upload a photo");
   ```
 
-- [Expect(Locator).ToHaveRoleAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色:
+- [Expect(Locator).ToHaveRoleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色:
 
   ```csharp
   var locator = Page.GetByTestId("save-button");
@@ -173,10 +173,10 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
 
 **定位器處理程式**
 
-- 在執行使用 [Page.AddLocatorHandlerAsync()](https://ollama.com/library) 添加的處理程序後，Playwright 現在將等待觸發處理程序的覆蓋層不再可見。您可以使用新的 `NoWaitAfter` 選項選擇退出此行為。
-- 您可以在 [Page.AddLocatorHandlerAsync()](https://ollama.com/library) 中使用新的 `Times` 選項來指定處理程序應執行的最大次數。
-- [Page.AddLocatorHandlerAsync()](https://ollama.com/library) 中的處理程序現在接受定位器作為參數。
-- 新的 [Page.RemoveLocatorHandlerAsync()](https://ollama.com/library) 方法用於移除先前添加的定位器處理程序。
+- 在執行使用 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 新增的處理程序後，Playwright 現在會等待觸發處理程序的覆蓋層不再可見。您可以使用新的 `NoWaitAfter` 選項選擇退出此行為。
+- 您可以在 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `Times` 選項來指定處理程序應執行的最大次數。
+- [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 中的處理程序現在接受定位器作為參數。
+- 新增的 [Page.RemoveLocatorHandlerAsync()](/api/class-page.mdx#page-remove-locator-handler) 方法可用於移除先前新增的定位器處理程序。
 
 ```csharp
 var locator = Page.GetByText("This interstitial covers the button");
@@ -333,9 +333,9 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 
 產生斷言的新工具:
 
-- "Assert visibility" 工具生成 [Expect(Locator).ToBeVisibleAsync()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
-- "Assert value" 工具生成 [Expect(Locator).ToHaveValueAsync()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
-- "Assert text" 工具生成 [Expect(Locator).ToContainTextAsync()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
+- "Assert visibility" 工具生成 [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
+- "Assert value" 工具生成 [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
+- "Assert text" 工具生成 [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
 這裡是一個帶有斷言的生成測試範例:
 
@@ -401,7 +401,7 @@ Evergreen 瀏覽器更新。
 
 ### 棄用
 
-* 以下方法已被棄用: [Page.TypeAsync()](https://api/class-page.mdx#page-type), [Frame.TypeAsync()](https://api/class-frame.mdx#frame-type), [Locator.TypeAsync()](https://api/class-locator.mdx#locator-type) 和 [ElementHandle.TypeAsync()](https://api/class-elementhandle.mdx#element-handle-type)。請改用 [Locator.FillAsync()](https://api/class-locator.mdx#locator-fill)，速度更快。僅在頁面上有特殊鍵盤處理且需要逐個按鍵時使用 [Locator.PressSequentiallyAsync()](https://api/class-locator.mdx#locator-press-sequentially)。
+* 以下方法已被棄用: [Page.TypeAsync()](/api/class-page.mdx#page-type), [Frame.TypeAsync()](/api/class-frame.mdx#frame-type), [Locator.TypeAsync()](/api/class-locator.mdx#locator-type) 和 [ElementHandle.TypeAsync()](/api/class-elementhandle.mdx#element-handle-type)。請改用 [Locator.FillAsync()](/api/class-locator.mdx#locator-fill)，速度更快。僅在頁面上有特殊鍵盤處理且需要逐個按鍵時使用 [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially)。
 
 ### 瀏覽器版本
 
@@ -525,7 +525,7 @@ Linux 支援看起來像這樣:
       .ScreenshotAsync();
   ```
 
-* 使用新的 web-first 斷言 [Expect(Locator).ToBeAttachedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 來確保元素存在於頁面的 DOM 中。不要與 [Expect(Locator).ToBeVisibleAsync](https://api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既已附加又可見。
+* 使用新的 web-first 斷言 [Expect(Locator).ToBeAttachedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 來確保元素存在於頁面的 DOM 中。不要與 [Expect(Locator).ToBeVisibleAsync](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既已附加又可見。
 
 ### 新的 API
 
@@ -593,7 +593,7 @@ Linux 支援看起來像這樣:
 ### 雜項
 
 - 現在可以在單獨的視窗中打開追蹤檢視器中的 DOM 快照。
-- 新選項 `Route.fetch.maxRedirects` 用於 [Route.FetchAsync()](https://ollama.com/library) 方法。
+- 新選項 `Route.fetch.maxRedirects` 用於 [Route.FetchAsync()](/api/class-route.mdx#route-fetch) 方法。
 - Playwright 現在支援 Debian 11 arm64。
 - 官方 [docker images](./docker.mdx) 現在包含 Node 18 而不是 Node 16。
 
@@ -625,7 +625,7 @@ Linux 支援看起來像這樣:
 
 ### 新的 API
 
-- 新方法 [Route.FetchAsync()](https://ollama.com/api/class-route.mdx#route-fetch) 和 [Route.FulfillAsync()](https://ollama.com/api/class-route.mdx#route-fulfill) 的新選項 `Json`:
+- 新方法 [Route.FetchAsync()](/api/class-route.mdx#route-fetch) 和 [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill) 的新選項 `Json`:
 
   ```csharp
   await Page.RouteAsync("**/api/settings", async route => {
@@ -643,7 +643,7 @@ Linux 支援看起來像這樣:
   });
   ```
 
-- 新方法 [Locator.AllAsync()](https://ollama.com/api/class-locator.mdx#locator-all) 用於遍歷所有匹配的元素:
+- 新方法 [Locator.AllAsync()](/api/class-locator.mdx#locator-all) 用於遍歷所有匹配的元素:
 
   ```csharp
   // 檢查所有的複選框！
@@ -652,7 +652,7 @@ Linux 支援看起來像這樣:
     await checkbox.CheckAsync();
   ```
 
-- [Locator.SelectOptionAsync()](https://ollama.com/api/class-locator.mdx#locator-select-option) 現在可以通過值或標籤匹配:
+- [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-option) 現在可以通過值或標籤匹配:
 
   ```html
   <select multiple>
@@ -707,13 +707,13 @@ Linux 支援看起來像這樣:
 
 使用這些新的 API，寫定位器是一種樂趣:
 
-- [Page.GetByText()](https://api/class-page.mdx#page-get-by-text) 根據文字內容定位。
-- [Page.GetByRole()](https://api/class-page.mdx#page-get-by-role) 根據 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
-- [Page.GetByLabel()](https://api/class-page.mdx#page-get-by-label) 根據關聯標籤的文字定位表單控制項。
-- [Page.GetByTestId()](https://api/class-page.mdx#page-get-by-test-id) 根據 `data-testid` 屬性（其他屬性可配置）定位元素。
-- [Page.GetByPlaceholder()](https://api/class-page.mdx#page-get-by-placeholder) 根據佔位符定位輸入框。
-- [Page.GetByAltText()](https://api/class-page.mdx#page-get-by-alt-text) 根據替代文字定位元素，通常是圖片。
-- [Page.GetByTitle()](https://api/class-page.mdx#page-get-by-title) 根據標題定位元素。
+- [Page.GetByText()](/api/class-page.mdx#page-get-by-text) 根據文字內容定位。
+- [Page.GetByRole()](/api/class-page.mdx#page-get-by-role) 根據 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
+- [Page.GetByLabel()](/api/class-page.mdx#page-get-by-label) 根據關聯標籤的文字定位表單控制項。
+- [Page.GetByTestId()](/api/class-page.mdx#page-get-by-test-id) 根據 `data-testid` 屬性（其他屬性可配置）定位元素。
+- [Page.GetByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder) 根據佔位符定位輸入框。
+- [Page.GetByAltText()](/api/class-page.mdx#page-get-by-alt-text) 根據替代文字定位元素，通常是圖片。
+- [Page.GetByTitle()](/api/class-page.mdx#page-get-by-title) 根據標題定位元素。
 
 ```csharp
 await page.GetByLabel("User Name").FillAsync("John");
@@ -733,7 +733,7 @@ await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 
 ### 行為變更
 
-- [Expect(Locator).ToHaveAttributeAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) 與空值不再匹配缺失的屬性。例如，當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
+- [Expect(Locator).ToHaveAttributeAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) 與空值不再匹配缺失的屬性。例如，當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
 
   ```csharp
   await Expect(Page.GetByRole(AriaRole.Button)).ToHaveAttribute("disabled", "");
@@ -919,7 +919,7 @@ await context.RouteFromHARAsync("example.har");
 
 ### 進階路由
 
-您現在可以使用 [Route.FallbackAsync()](https://ollama.com/api/class-route.mdx#route-fallback) 來延遲路由到其他處理程序。
+您現在可以使用 [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) 來延遲路由到其他處理程序。
 
 考慮以下範例:
 
@@ -1147,7 +1147,7 @@ Playwright 1.17 準備推出 [frame locators](./api/class-framelocator) - 一個
 
 
 
-框架定位器可以使用 [Page.FrameLocator()](https://api/class-page.mdx#page-frame-locator) 或 [Locator.FrameLocator()](https://api/class-locator.mdx#locator-frame-locator) 方法建立。
+框架定位器可以使用 [Page.FrameLocator()](/api/class-page.mdx#page-frame-locator) 或 [Locator.FrameLocator()](/api/class-locator.mdx#locator-frame-locator) 方法建立。
 
 ```csharp
 var locator = page.FrameLocator("#my-frame").Locator("text=Submit");
@@ -1233,13 +1233,13 @@ orderSent.WaitForAsync();
 
 以前無法獲取回應的多個標頭值。現在這是可能的，並且有額外的輔助函式可用:
 
-- [Request.AllHeadersAsync()](https://ollama.com/api/class-request.mdx#request-all-headers)
-- [Request.HeadersArrayAsync()](https://ollama.com/api/class-request.mdx#request-headers-array)
-- [Request.HeaderValueAsync()](https://ollama.com/api/class-request.mdx#request-header-value)
-- [Response.AllHeadersAsync()](https://ollama.com/api/class-response.mdx#response-all-headers)
-- [Response.HeadersArrayAsync()](https://ollama.com/api/class-response.mdx#response-headers-array)
-- [Response.HeaderValueAsync()](https://ollama.com/api/class-response.mdx#response-header-value)
-- [Response.HeaderValuesAsync()](https://ollama.com/api/class-response.mdx#response-header-values)
+- [Request.AllHeadersAsync()](/api/class-request.mdx#request-all-headers)
+- [Request.HeadersArrayAsync()](/api/class-request.mdx#request-headers-array)
+- [Request.HeaderValueAsync()](/api/class-request.mdx#request-header-value)
+- [Response.AllHeadersAsync()](/api/class-response.mdx#response-all-headers)
+- [Response.HeadersArrayAsync()](/api/class-response.mdx#response-headers-array)
+- [Response.HeaderValueAsync()](/api/class-response.mdx#response-header-value)
+- [Response.HeaderValuesAsync()](/api/class-response.mdx#response-header-values)
 
 ### 🌈 強制色彩模擬
 

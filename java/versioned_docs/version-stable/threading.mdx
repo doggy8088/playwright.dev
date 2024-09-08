@@ -70,7 +70,7 @@ public class PlaywrightThread extends Thread {
 
 同步 API 的一個後果是，如果你因為某種原因呼叫 `Thread.sleep()`，那麼當執行緒在睡眠時不會觸發任何事件。如果你希望在程式執行時從瀏覽器分派事件
 
-執行已暫停使用 [Page.waitForTimeout()](https://api/class-page.mdx#page-wait-for-timeout) 或 [Frame.waitForTimeout()](https://api/class-frame.mdx#frame-wait-for-timeout):
+執行已暫停使用 [Page.waitForTimeout()](/api/class-page.mdx#page-wait-for-timeout) 或 [Frame.waitForTimeout()](/api/class-frame.mdx#frame-wait-for-timeout):
 
 ```java
 page.onResponse(response -> System.out.println(response.url()));

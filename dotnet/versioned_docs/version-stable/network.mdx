@@ -81,7 +81,7 @@ page.Response += (_, response) => Console.WriteLine("<< " + response.Status + " 
 await page.GotoAsync("https://example.com");
 ```
 
-或者在按鈕點擊後等待網路回應 [Page.RunAndWaitForResponseAsync()](https://ollama.com/api/class-page.mdx#page-wait-for-response):
+或者在按鈕點擊後等待網路回應 [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response):
 
 ```csharp
 // Use a glob URL pattern
@@ -92,7 +92,7 @@ var response = await waitForResponseTask;
 
 #### 變體
 
-等待 [Response]s with [Page.RunAndWaitForResponseAsync()](https://ollama.com/api/class-page.mdx#page-wait-for-response)
+等待 [Response]s with [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response)
 
 ```csharp
 // Use a regular expression
@@ -197,7 +197,7 @@ page.WebSocket += (_, ws) =>
 
 ## 缺少網路事件和服務工作者
 
-Playwright 的內建 [BrowserContext.RouteAsync()](https://api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](https://api/class-page.mdx#page-route) 允許您的測試原生地路由請求並執行模擬和攔截。
+Playwright 的內建 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route) 允許您的測試原生地路由請求並執行模擬和攔截。
 
 1. 如果你正在使用 Playwright 的原生 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route)，並且出現網路事件缺失的情況，請通過將 `Browser.newContext.serviceWorkers` 設置為 `'block'` 來禁用 Service Workers。
 1. 可能是因為你正在使用一個模擬工具，例如 Mock Service Worker (MSW)。雖然這個工具可以開箱即用來模擬回應，但它添加了自己的 Service Worker，接管了網路請求，因此使它們對 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route) 不可見。如果你對網路測試和模擬都感興趣，請考慮使用內建的 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route) 來進行[回應模擬](#handle-requests)。

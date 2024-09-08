@@ -69,14 +69,12 @@ Playwright 將在頁面中顯示新文件的過程分為**導航**和**加載**�
 
 **載入**涵蓋通過網路獲取剩餘的響應正文、解析、執行腳本和觸發載入事件:
 
-- [Page.url()](https://ollama.com/library) 被設定為新的 url
-- 文件內容透過網路載入並解析
-- [Page.onDOMContentLoaded(handler)](https://ollama.com/library) 事件被觸發
-- 頁面執行一些腳本並加載樣式表和圖像等資源
-- [Page.onLoad(handler)](https://ollama.com/library) 事件被觸發
+- [Page.url()](/api/class-page.mdx#page-url) 設定為新 URL
+- 文件內容通過網路加載並解析
+- 觸發 [Page.onDOMContentLoaded(handler)](/api/class-page.mdx#page-event-dom-content-loaded) 事件
+- 頁面執行一些腳本並加載資源如樣式表和圖像
+- 觸發 [Page.onLoad(handler)](/api/class-page.mdx#page-event-load) 事件
 - 頁面執行動態加載的腳本
-
-
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

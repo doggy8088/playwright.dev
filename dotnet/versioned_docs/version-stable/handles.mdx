@@ -53,7 +53,7 @@ Assert.True(classNames.Contains("highlighted"));
 
 ## Handles as parameters
 
-控制代碼可以傳遞到 [Page.EvaluateAsync()](https://api/class-page.mdx#page-evaluate) 和類似的方法中。以下程式碼片段在頁面中建立一個新陣列，使用資料初始化它，並將此陣列的控制代碼返回到 Playwright。然後在後續的評估中使用該控制代碼：
+控制代碼可以傳遞到 [Page.EvaluateAsync()](/api/class-page.mdx#page-evaluate) 和類似的方法中。以下程式碼片段在頁面中建立一個新陣列，使用資料初始化它，並將此陣列的控制代碼返回到 Playwright。然後在後續的評估中使用該控制代碼：
 
 ```csharp
 // Create new array in page.
@@ -75,7 +75,7 @@ await myArrayHandle.DisposeAsync();
 
 ## Handle Lifecycle
 
-句柄可以使用頁面方法獲取，例如 [Page.EvaluateHandleAsync()](https://api/class-page.mdx#page-evaluate-handle)、[Page.QuerySelectorAsync()](https://api/class-page.mdx#page-query-selector) 或 [Page.QuerySelectorAllAsync()](https://api/class-page.mdx#page-query-selector-all)，或其框架對應方法 [Frame.EvaluateHandleAsync()](https://api/class-frame.mdx#frame-evaluate-handle)、[Frame.QuerySelectorAsync()](https://api/class-frame.mdx#frame-query-selector) 或 [Frame.QuerySelectorAllAsync()](https://api/class-frame.mdx#frame-query-selector-all)。一旦建立，句柄將保留物件，防止 [垃圾回收](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)，除非頁面導航或通過 [JsHandle.DisposeAsync()](https://api/class-jshandle.mdx#js-handle-dispose) 方法手動處置句柄。
+句柄可以使用頁面方法獲取，例如 [Page.EvaluateHandleAsync()](/api/class-page.mdx#page-evaluate-handle)、[Page.QuerySelectorAsync()](/api/class-page.mdx#page-query-selector) 或 [Page.QuerySelectorAllAsync()](/api/class-page.mdx#page-query-selector-all)，或其框架對應方法 [Frame.EvaluateHandleAsync()](/api/class-frame.mdx#frame-evaluate-handle)、[Frame.QuerySelectorAsync()](/api/class-frame.mdx#frame-query-selector) 或 [Frame.QuerySelectorAllAsync()](/api/class-frame.mdx#frame-query-selector-all)。一旦建立，句柄將保留物件，防止 [垃圾回收](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)，除非頁面導航或通過 [JsHandle.DisposeAsync()](/api/class-jshandle.mdx#js-handle-dispose) 方法手動處置句柄。
 
 ### API 參考
 

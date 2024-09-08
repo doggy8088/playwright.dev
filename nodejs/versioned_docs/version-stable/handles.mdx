@@ -76,7 +76,7 @@ await myArrayHandle.dispose();
 
 ## Handle Lifecycle
 
-句柄可以使用頁面方法獲取，例如 [page.evaluateHandle()](https://api/class-page.mdx#page-evaluate-handle)、[page.$()](https://api/class-page.mdx#page-query-selector) 或 [page.$$()](https://api/class-page.mdx#page-query-selector-all) 或其框架對應方法 [frame.evaluateHandle()](https://api/class-frame.mdx#frame-evaluate-handle)、[frame.$()](https://api/class-frame.mdx#frame-query-selector) 或 [frame.$$()](https://api/class-frame.mdx#frame-query-selector-all)。一旦建立，句柄將保留物件，防止其被[垃圾回收](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)，除非頁面導航或通過 [jsHandle.dispose()](https://api/class-jshandle.mdx#js-handle-dispose) 方法手動處置句柄。
+句柄可以使用頁面方法獲取，例如 [page.evaluateHandle()](/api/class-page.mdx#page-evaluate-handle)、[page.$()](/api/class-page.mdx#page-query-selector) 或 [page.$$()](/api/class-page.mdx#page-query-selector-all) 或其框架對應方法 [frame.evaluateHandle()](/api/class-frame.mdx#frame-evaluate-handle)、[frame.$()](/api/class-frame.mdx#frame-query-selector) 或 [frame.$$()](/api/class-frame.mdx#frame-query-selector-all)。一旦建立，句柄將保留物件，防止其被[垃圾回收](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)，除非頁面導航或通過 [jsHandle.dispose()](/api/class-jshandle.mdx#js-handle-dispose) 方法手動處置句柄。
 
 ### API 參考
 

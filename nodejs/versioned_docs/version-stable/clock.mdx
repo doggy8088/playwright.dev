@@ -10,7 +10,7 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
 
 ## 簡介
 
-準確模擬時間依賴行為對於驗證應用程式的正確性至關重要。利用 [Clock] 功能允許開發人員在測試中操縱和控制時間，從而精確驗證渲染時間、超時、排程任務等功能，而不會有實時執行的延遲和變異性。
+準確模擬時間依賴行為對於驗證應用程式的正確性至關重要。利用 [Clock] 功能允許開發人員在測試中操縱和控制時間，從而精確驗證渲染時間、超時、排程任務等功能，而不會有即時執行的延遲和變異性。
 
 [Clock] API 提供以下方法來控制時間:
 
@@ -25,7 +25,18 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
 建議的方法是使用 `setFixedTime` 將時間設置為特定值。如果這不適用於您的使用案例，您可以使用 `install`，這允許您稍後暫停時間、快進時間、滴答時間等。`setSystemTime` 只建議用於高級使用案例。
 
 :::note
-[page.clock](https://ollama.com/library) 覆蓋了與時間相關的原生全域類別和函式，允許手動控制它們:   - `Date`   - `setTimeout`   - `clearTimeout`   - `setInterval`   - `clearInterval`   - `requestAnimationFrame`   - `cancelAnimationFrame`   - `requestIdleCallback`   - `cancelIdleCallback`   - `performance`   - `Event.timeStamp`
+[Page.clock()](/api/class-page.mdx#page-clock) 覆蓋了與時間相關的原生全域類別和函式，允許手動控制它們:
+- `Date`
+- `setTimeout`
+- `clearTimeout`
+- `setInterval`
+- `clearInterval`
+- `requestAnimationFrame`
+- `cancelAnimationFrame`
+- `requestIdleCallback`
+- `cancelIdleCallback`
+- `performance`
+- `Event.timeStamp`
 :::
 
 ## 測試預定時間

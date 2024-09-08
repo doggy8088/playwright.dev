@@ -63,7 +63,7 @@ Playwright 包含許多 CSS 偽類別來根據其文字內容匹配元素。
   同樣，`:text-is("Download")` 不會匹配 `<button>download</button>`，因為它是區分大小寫的。
 
 * `#nav-bar :text-matches("reg?ex", "i")` - `:text-matches()` 偽類別匹配具有與 [JavaScript-like regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) 相匹配的文本內容的最小元素。
-  
+
   例如，`:text-matches("Log\s*in", "i")` 匹配 `<button>Login</button>` 和 `<button>log IN</button>`。
 
 :::note
@@ -86,13 +86,13 @@ Playwright 支援 CSS 選擇器中的 `:visible` 偽類別。例如，`css=butto
 ```
 
 * 這將會找到兩個按鈕並拋出一個[嚴格性](./locators.mdx#strictness)違規錯誤：
-  
+
   ```csharp
   await page.Locator("button").ClickAsync();
   ```
-  
+
 * 這將只會找到第二個按鈕，因為它是可見的，然後點擊它。
-  
+
   ```csharp
   await page.Locator("button:visible").ClickAsync();
   ```
@@ -335,12 +335,12 @@ await page.Locator("//span[contains(@class, 'spinner__loading')]|//div[@id='conf
 
 例如，考慮以下 DOM 結構: `<label for="password">Password:</label><input id="password" type="password">`。你可以使用 [Page.GetByText()](/api/class-page.mdx#page-get-by-text) 根據其 "Password" 文字來定位標籤。然而，以下操作將在 input 上執行而不是在標籤上:
 
-- [Locator.ClickAsync](https://ollama.com/api/class-locator.mdx#locator-click)() 會點擊標籤並自動聚焦到輸入欄位;
-- [Locator.FillAsync](https://ollama.com/api/class-locator.mdx#locator-fill)() 會填充輸入欄位;
-- [Locator.InputValueAsync](https://ollama.com/api/class-locator.mdx#locator-input-value)() 會返回輸入欄位的值;
-- [Locator.SelectTextAsync](https://ollama.com/api/class-locator.mdx#locator-select-text)() 會選擇輸入欄位中的文字;
-- [Locator.SetInputFilesAsync](https://ollama.com/api/class-locator.mdx#locator-set-input-files)() 會為 `type=file` 的輸入欄位設置文件;
-- [Locator.SelectOptionAsync](https://ollama.com/api/class-locator.mdx#locator-select-option)() 會從選擇框中選擇一個選項。
+- [Locator.ClickAsync](/api/class-locator.mdx#locator-click)() 會點擊標籤並自動聚焦到輸入欄位;
+- [Locator.FillAsync](/api/class-locator.mdx#locator-fill)() 會填充輸入欄位;
+- [Locator.InputValueAsync](/api/class-locator.mdx#locator-input-value)() 會返回輸入欄位的值;
+- [Locator.SelectTextAsync](/api/class-locator.mdx#locator-select-text)() 會選擇輸入欄位中的文字;
+- [Locator.SetInputFilesAsync](/api/class-locator.mdx#locator-set-input-files)() 會為 `type=file` 的輸入欄位設置文件;
+- [Locator.SelectOptionAsync](/api/class-locator.mdx#locator-select-option)() 會從選擇框中選擇一個選項。
 
 ```csharp
 // Fill the input by targeting the label.
@@ -369,23 +369,23 @@ await page.Locator("text=Log in").ClickAsync();
 舊版文字定位器有幾種變體:
 
 - `text=Log in` - 預設匹配不區分大小寫，會去除空白並搜尋子字串。例如，`text=Log` 匹配 `<button>Log in</button>`。
-  
+
   ```csharp
   await page.Locator("text=Log in").ClickAsync();
   ```
-  
+
 - `text="Log in"` - 文字內容可以用單引號或雙引號來轉義，以搜尋去除空白後的精確內容的文字節點。
-  
+
   例如，`text="Log"` 不匹配 `<button>Log in</button>`，因為 `<button>` 包含一個文字節點 `"Log in"`，這與 `"Log"` 不相等。然而，`text="Log"` 匹配 `<button> Log <span>in</span></button>`，因為 `<button>` 包含一個文字節點 `" Log "`。這種精確模式意味著區分大小寫匹配，因此 `text="Download"` 不會匹配 `<button>download</button>`。
-  
+
   引號內的內容遵循通常的轉義規則，例如在雙引號字串中使用 `\"` 來轉義雙引號：`text="foo\"bar"`。
-  
+
   ```csharp
   await page.Locator("text='Log in'").ClickAsync();
   ```
-  
+
 - `/Log\s*in/i` - 內容可以是用 `/` 符號包裹的 [JavaScript-like regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)。例如，`text=/Log\s*in/i` 匹配 `<button>Login</button>` 和 `<button>log IN</button>`。
-  
+
   ```csharp
   await page.Locator("text=/Log\\s*in/i").ClickAsync();
   ```

@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## 簡介
 
-使用 Playwright，你可以執行單一測試、一組測試或所有測試。測試可以使用 `--project` 標誌在一個瀏覽器或多個瀏覽器上執行。測試預設是平行執行的，並且以無頭模式執行，這意味著在執行測試時不會開啟瀏覽器視窗，結果將在終端機中顯示。然而，你可以使用 `--headed` CLI 參數在有頭模式下執行測試，或者你可以使用 `--ui` 標誌在 [UI 模式](./test-ui-mode.mdx) 下執行測試。查看完整的測試追蹤，包括監看模式、時間旅行除錯等。
+使用 Playwright，你可以執行單一測試、一組測試或所有測試。測試可以使用 `--project` 旗標在一個瀏覽器或多個瀏覽器上執行。測試預設是平行執行的，並且以無頭模式執行，這意味著在執行測試時不會開啟瀏覽器視窗，結果將在終端機中顯示。然而，你可以使用 `--headed` CLI 參數在有頭模式下執行測試，或者你可以使用 `--ui` 旗標在 [UI 模式](./test-ui-mode.mdx) 下執行測試。查看完整的測試追蹤，包括監看模式、時間旅行除錯等。
 
 **你將學到**
 
@@ -43,7 +43,7 @@ npx playwright test --ui
 
 ### 在有頭模式下執行測試
 
-要在有頭模式下執行你的測試，使用 `--headed` 標誌。這將使你能夠直觀地看到 Playwright 如何與網站互動。
+要在有頭模式下執行你的測試，使用 `--headed` 旗標。這將使你能夠直觀地看到 Playwright 如何與網站互動。
 
 ```bash
 npx playwright test --headed
@@ -51,13 +51,13 @@ npx playwright test --headed
 
 ### 在不同瀏覽器上執行測試
 
-要指定您希望在哪個瀏覽器上執行測試，請使用 `--project` 標誌，後接瀏覽器的名稱。
+要指定您希望在哪個瀏覽器上執行測試，請使用 `--project` 旗標，後接瀏覽器的名稱。
 
 ```bash
 npx playwright test --project webkit
 ```
 
-要指定多個瀏覽器來執行你的測試，請多次使用 `--project` 標誌，並在其後加上每個瀏覽器的名稱。
+要指定多個瀏覽器來執行你的測試，請多次使用 `--project` 旗標，並在其後加上每個瀏覽器的名稱。
 
 ```bash
 npx playwright test --project webkit --project firefox
@@ -83,7 +83,7 @@ npx playwright test tests/todo-page/ tests/landing-page/
 npx playwright test landing login
 ```
 
-要執行具有特定標題的測試，請使用 `-g` 標誌，後接測試的標題。
+要執行具有特定標題的測試，請使用 `-g` 旗標，後接測試的標題。
 
 ```bash
 npx playwright test -g "add a todo item"
@@ -91,7 +91,7 @@ npx playwright test -g "add a todo item"
 
 ### 執行最後失敗的測試
 
-要僅執行上次測試中失敗的測試，首先執行你的測試，然後使用 `--last-failed` 標誌再次執行它們。
+要僅執行上次測試中失敗的測試，首先執行你的測試，然後使用 `--last-failed` 旗標再次執行它們。
 
 ```bash
 npx playwright test --last-failed
@@ -99,13 +99,13 @@ npx playwright test --last-failed
 
 ### 在 VS Code 中執行測試
 
-測試可以直接從 VS Code 執行，使用 [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)。安裝後，你可以簡單地點擊你想要執行的測試旁邊的綠色三角形，或從測試側邊欄執行所有測試。查看我們的 [Getting Started with VS Code](./getting-started-vscode.mdx#running-tests) 指南以獲取更多詳細資訊。
+測試可以直接從 VS Code 執行，使用 [VS Code 擴充套件](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)。安裝後，你可以簡單地點擊你想要執行的測試旁邊的綠色三角形，或從測試側邊欄執行所有測試。查看我們的 [VS Code 快速入門](./getting-started-vscode.mdx#running-tests) 指南以獲取更多詳細資訊。
 
 ![Playwright VS Code 擴充功能](https://github.com/microsoft/playwright/assets/13063165/47726e70-683b-4bd5-94de-7d03dd45c30f)
 
 ## 除錯測試
 
-由於 Playwright 在 Node.js 中執行，你可以使用你選擇的除錯工具來除錯，例如使用 `console.log` 或在你的 IDE 中，或直接在 VS Code 中使用 [VS Code Extension](./getting-started-vscode.mdx)。Playwright 附帶 [UI Mode](./test-ui-mode.mdx)，在這裡你可以輕鬆地逐步執行每一步測試，查看日誌、錯誤、網路請求、檢查 DOM 快照等。你也可以使用 [Playwright Inspector](./debug.mdx#playwright-inspector)，它允許你逐步執行 Playwright API 呼叫，查看其除錯日誌並探索 [locators](./locators.mdx)。
+由於 Playwright 在 Node.js 中執行，你可以使用你選擇的除錯工具來除錯，例如使用 `console.log` 或在你的 IDE 中，或直接在 VS Code 中使用 [VS Code 擴充套件](./getting-started-vscode.mdx)。Playwright 附帶 [UI Mode](./test-ui-mode.mdx)，在這裡你可以輕鬆地逐步執行每一步測試，查看日誌、錯誤、網路請求、檢查 DOM 快照等。你也可以使用 [Playwright Inspector](./debug.mdx#playwright-inspector)，它允許你逐步執行 Playwright API 呼叫，查看其除錯日誌並探索[定位器](./locators.mdx)。
 
 ### 在 UI 模式中偵錯測試
 
@@ -117,7 +117,7 @@ npx playwright test --ui
 
 ![顯示錯誤在 ui 模式](https://github.com/microsoft/playwright/assets/13063165/ffca2fd1-5349-41fb-ade9-ace143bb2c58)
 
-在除錯時，你可以使用 Pick Locator 按鈕來選擇頁面上的元素，並查看 Playwright 將用於查找該元素的定位器。你還可以在定位器 playground 中編輯定位器，並在瀏覽器視窗中實時查看其高亮顯示。使用 Copy Locator 按鈕將定位器複製到剪貼簿，然後將其粘貼到你的測試中。
+在除錯時，你可以使用 Pick Locator 按鈕來選擇頁面上的元素，並查看 Playwright 將用於查找該元素的定位器。你還可以在定位器 playground 中編輯定位器，並在瀏覽器視窗中即時查看其高亮顯示。使用 Copy Locator 按鈕將定位器複製到剪貼簿，然後將其粘貼到你的測試中。
 
 ![pick locator in ui mode](https://github.com/microsoft/playwright/assets/13063165/9e7eeb84-bd26-4010-8614-75e24b56c716)
 
@@ -125,7 +125,7 @@ npx playwright test --ui
 
 ### 使用 Playwright Inspector 偵錯測試
 
-要偵錯所有測試，執行 Playwright 測試命令並加上 `--debug` 標誌。
+要偵錯所有測試，執行 Playwright 測試命令並加上 `--debug` 旗標。
 
 ```bash
 npx playwright test --debug
@@ -135,13 +135,13 @@ npx playwright test --debug
 
 此指令將開啟一個瀏覽器視窗以及 Playwright Inspector。你可以使用 Inspector 頂部的步過按鈕逐步執行你的測試。或者，按下播放按鈕從頭到尾執行你的測試。一旦測試完成，瀏覽器視窗將會關閉。
 
-要偵錯一個測試文件，請執行 Playwright 測試命令，並在要偵錯的測試文件名稱後加上 `--debug` 標誌。
+要偵錯一個測試文件，請執行 Playwright 測試命令，並在要偵錯的測試文件名稱後加上 `--debug` 旗標。
 
 ```bash
 npx playwright test example.spec.ts --debug
 ```
 
-要從定義 `test(..` 的行號偵錯特定測試，請在測試檔案名稱末尾添加一個冒號，後跟行號，然後是 `--debug` 標誌。
+要從定義 `test(..` 的行號偵錯特定測試，請在測試檔案名稱末尾添加一個冒號，後跟行號，然後是 `--debug` 旗標。
 
 ```bash
 npx playwright test example.spec.ts:10 --debug
@@ -151,7 +151,7 @@ npx playwright test example.spec.ts:10 --debug
 
 ![Locator picker in the Playwright Inspector](https://github.com/microsoft/playwright/assets/13063165/013d5edb-583e-423a-bb53-9f57bab7f3e1)
 
-請查看我們的[除錯指南](./debug.mdx)以了解更多關於使用[VS Code 除錯器](./debug.mdx#vs-code-debugger)、UI 模式和[Playwright Inspector](./debug.mdx#playwright-inspector)進行除錯，以及使用[瀏覽器開發工具](./debug.mdx#browser-developer-tools)進行除錯的資訊。
+請查看我們的[除錯指南](./debug.mdx)以了解更多關於使用 [VS Code 偵錯工具](./debug.mdx#vs-code-偵錯工具)、UI 模式和 [Playwright Inspector](./debug.mdx#playwright-inspector) 進行除錯，以及使用[瀏覽器開發者工具](./debug.mdx#瀏覽器開發者工具)進行除錯的資訊。
 
 ## 測試報告
 

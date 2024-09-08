@@ -287,7 +287,7 @@ await page.get_by_label("Password").fill("secret")
 
 ### Locate by placeholder
 
-輸入可能有一個 placeholder 屬性來提示使用者應該輸入什麼值。你可以使用 [page.get_by_placeholder](https://api/class-page.mdx#page-get-by-placeholder) 來定位這樣的輸入。
+輸入可能有一個 placeholder 屬性來提示使用者應該輸入什麼值。你可以使用 [page.get_by_placeholder](/api/class-page.mdx#page-get-by-placeholder) 來定位這樣的輸入。
 
 例如，考慮以下的 DOM 結構。
 
@@ -535,7 +535,7 @@ await expect(page.get_by_title("Issues count")).to_have_text("25 issues")
 
 ### 依據測試 ID 定位
 
-測試 id 測試是最具彈性的測試方式，即使您的文字或屬性角色發生變化，測試仍然會通過。QA 和開發人員應該定義明確的測試 id 並使用 [page.get_by_test_id()](https://ollama.com/library#page-get-by-test-id) 來查詢它們。然而，通過測試 id 測試並不是面向用戶的。如果角色或文字值對您很重要，請考慮使用面向用戶的定位器，例如 [role](#locate-by-role) 和 [text locators](#locate-by-text)。
+測試 id 測試是最具彈性的測試方式，即使您的文字或屬性角色發生變化，測試仍然會通過。QA 和開發人員應該定義明確的測試 id 並使用 [page.get_by_test_id()](/api/class-page.mdx#page-get-by-test-id) 來查詢它們。然而，通過測試 id 測試並不是面向用戶的。如果角色或文字值對您很重要，請考慮使用面向用戶的定位器，例如 [role](#locate-by-role) 和 [text locators](#locate-by-text)。
 
 例如，考慮以下的 DOM 結構。
 
@@ -871,7 +871,7 @@ await expect(page.locator("x-details")).to_contain_text("Details")
 
 ### 以文字篩選
 
-定位器可以通過 [locator.filter()](https://ollama.com/api/class-locator.mdx#locator-filter) 方法按文本過濾。它會在元素內的某處（可能在子元素中）搜尋特定字串，不區分大小寫。你也可以傳遞正則表達式。
+定位器可以通過 [locator.filter()](/api/class-locator.mdx#locator-filter) 方法按文本過濾。它會在元素內的某處（可能在子元素中）搜尋特定字串，不區分大小寫。你也可以傳遞正則表達式。
 
 <Tabs
   groupId="python-flavor"
@@ -1200,7 +1200,7 @@ await dialog.locator(save_button).click()
 
 ### 同時匹配兩個定位器
 
-方法 [locator.and_()](https://api/class-locator.mdx#locator-and) 通過匹配額外的定位器來縮小現有定位器的範圍。例如，你可以結合 [page.get_by_role()](https://api/class-page.mdx#page-get-by-role) 和 [page.get_by_title()](https://api/class-page.mdx#page-get-by-title) 來同時匹配角色和標題。
+方法 [locator.and_()](/api/class-locator.mdx#locator-and) 通過匹配額外的定位器來縮小現有定位器的範圍。例如，你可以結合 [page.get_by_role()](/api/class-page.mdx#page-get-by-role) 和 [page.get_by_title()](/api/class-page.mdx#page-get-by-title) 來同時匹配角色和標題。
 
 <Tabs
   groupId="python-flavor"
@@ -1626,7 +1626,7 @@ banana = await page.get_by_role("listitem").nth(1)
 
 ### 鏈接過濾器
 
-當你有具有各種相似性的元素時，你可以使用 [locator.filter()](https://api/class-locator.mdx#locator-filter) 方法來選擇正確的元素。你也可以串聯多個過濾器來縮小選擇範圍。
+當你有具有各種相似性的元素時，你可以使用 [locator.filter()](/api/class-locator.mdx#locator-filter) 方法來選擇正確的元素。你也可以串聯多個過濾器來縮小選擇範圍。
 
 例如，考慮以下的 DOM 結構:
 

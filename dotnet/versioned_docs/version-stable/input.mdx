@@ -12,7 +12,7 @@ Playwright 可以與 HTML 輸入元素互動，例如文字輸入、複選框、
 
 ## 文字輸入
 
-使用 [Locator.FillAsync()](https://api/class-locator.mdx#locator-fill) 是填寫表單欄位的最簡單方法。它會聚焦元素並使用輸入的文字觸發 `input` 事件。它適用於 `<input>`、`<textarea>` 和 `[contenteditable]` 元素。
+使用 [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) 是填寫表單欄位的最簡單方法。它會聚焦元素並使用輸入的文字觸發 `input` 事件。它適用於 `<input>`、`<textarea>` 和 `[contenteditable]` 元素。
 
 ```csharp
 // Text input
@@ -30,7 +30,7 @@ await page.GetByLabel("Local time").FillAsync("2020-03-02T05:15");
 
 ## 核取方塊和單選按鈕
 
-使用 [Locator.SetCheckedAsync()](https://api/class-locator.mdx#locator-set-checked) 是勾選和取消勾選複選框或單選按鈕的最簡單方法。此方法可用於 `input[type=checkbox]`、`input[type=radio]` 和 `[role=checkbox]` 元素。
+使用 [Locator.SetCheckedAsync()](/api/class-locator.mdx#locator-set-checked) 是勾選和取消勾選複選框或單選按鈕的最簡單方法。此方法可用於 `input[type=checkbox]`、`input[type=radio]` 和 `[role=checkbox]` 元素。
 
 ```csharp
 // Check the checkbox
@@ -45,7 +45,7 @@ await page.GetByLabel("XL").CheckAsync();
 
 ## 選擇選項
 
-選擇 `<select>` 元素中的一個或多個選項，使用 [Locator.SelectOptionAsync()](https://ollama.com/api/class-locator.mdx#locator-select-option)。您可以指定選項的 `value` 或 `label` 來選擇。可以選擇多個選項。
+選擇 `<select>` 元素中的一個或多個選項，使用 [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-option)。您可以指定選項的 `value` 或 `label` 來選擇。可以選擇多個選項。
 
 ```csharp
 // Single selection matching the value or label
@@ -115,10 +115,10 @@ await page.GetByRole(AriaRole.Button).DispatchEventAsync("click");
 ## 鍵入字元
 
 :::caution
-大多數情況下，你應該使用 [Locator.FillAsync()](https://ollama.com/library#locator-fill) 輸入文字。請參見上面的 [Text input](#text-input) 部分。只有在頁面上有特殊鍵盤處理時，你才需要輸入字符。
+大多數情況下，你應該使用 [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) 輸入文字。請參見上面的 [Text input](#text-input) 部分。只有在頁面上有特殊鍵盤處理時，你才需要輸入字符。
 :::
 
-逐字輸入欄位，就像使用真實鍵盤的使用者一樣，使用 [Locator.PressSequentiallyAsync()](https://ollama.com/api/class-locator.mdx#locator-press-sequentially)。
+逐字輸入欄位，就像使用真實鍵盤的使用者一樣，使用 [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially)。
 
 ```csharp
 // Press keys one by one
@@ -234,7 +234,7 @@ await page.Mouse.UpAsync();
 ```
 
 :::note
-如果你的頁面依賴於 `dragover` 事件被分派，你需要至少兩次滑鼠移動來在所有瀏覽器中觸發它。為了可靠地發出第二次滑鼠移動，重複你的 [Mouse.MoveAsync()](https://ollama.com/api/class-mouse.mdx#mouse-move) 或 [Locator.HoverAsync()](https://ollama.com/api/class-locator.mdx#locator-hover) 兩次。操作順序將是：懸停拖動元素，按下滑鼠，懸停放置元素，第二次懸停放置元素，放開滑鼠。
+如果你的頁面依賴於 `dragover` 事件被分派，你需要至少兩次滑鼠移動來在所有瀏覽器中觸發它。為了可靠地發出第二次滑鼠移動，重複你的 [Mouse.MoveAsync()](/api/class-mouse.mdx#mouse-move) 或 [Locator.HoverAsync()](/api/class-locator.mdx#locator-hover) 兩次。操作順序將是：懸停拖動元素，按下滑鼠，懸停放置元素，第二次懸停放置元素，放開滑鼠。
 :::
 
 ## 捲動
@@ -253,7 +253,7 @@ await page.GetByRole(AriaRole.Button).ClickAsync();
 await page.GetByText("Footer text").ScrollIntoViewIfNeededAsync();
 ```
 
-如果你想更精確地控制滾動，使用 [Mouse.WheelAsync()](https://ollama.com/api/class-mouse.mdx#mouse-wheel) 或 [Locator.EvaluateAsync()](https://ollama.com/api/class-locator.mdx#locator-evaluate)：
+如果你想更精確地控制滾動，使用 [Mouse.WheelAsync()](/api/class-mouse.mdx#mouse-wheel) 或 [Locator.EvaluateAsync()](/api/class-locator.mdx#locator-evaluate)：
 
 ```csharp
 // Position the mouse and scroll with the mouse wheel

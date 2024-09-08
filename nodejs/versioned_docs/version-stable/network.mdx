@@ -36,7 +36,7 @@ test('loads page without css', async ({ page }) => {
 });
 ```
 
-或者，你可以使用 [page.route()](https://api/class-page.mdx#page-route) 來模擬單一頁面的網路。
+或者，你可以使用 [page.route()](/api/class-page.mdx#page-route) 來模擬單一頁面的網路。
 
 ```js title="example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -192,7 +192,7 @@ page.on('response', response => console.log('<<', response.status(), response.ur
 await page.goto('https://example.com');
 ```
 
-或者在按鈕點擊後等待網路回應，使用 [page.waitForResponse()](https://api/class-page.mdx#page-wait-for-response)：
+或者在按鈕點擊後等待網路回應，使用 [page.waitForResponse()](/api/class-page.mdx#page-wait-for-response)：
 
 ```js
 // Use a glob URL pattern. Note no await.
@@ -259,7 +259,7 @@ await page.route('**/*', route => route.continue({ method: 'POST' }));
 
 ## 中止請求
 
-你可以使用 [page.route()](https://api/class-page.mdx#page-route) 和 [route.abort()](https://api/class-route.mdx#route-abort) 來中止請求。
+你可以使用 [page.route()](/api/class-page.mdx#page-route) 和 [route.abort()](/api/class-route.mdx#route-abort) 來中止請求。
 
 ```js
 await page.route('**/*.{png,jpg,jpeg}', route => route.abort());
@@ -297,7 +297,7 @@ await page.route('**/title.html', async route => {
 
 ## WebSockets
 
-Playwright 支援 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) 檢查。每次建立 WebSocket 時，會觸發 [page.on('websocket')](https://api/class-page.mdx#page-event-web-socket) 事件。此事件包含 [WebSocket] 實例以進一步檢查 web socket 幀:
+Playwright 支援 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) 檢查。每次建立 WebSocket 時，會觸發 [page.on('websocket')](/api/class-page.mdx#page-event-web-socket) 事件。此事件包含 [WebSocket] 實例以進一步檢查 web socket 幀:
 
 ```js
 page.on('websocket', ws => {
@@ -310,10 +310,10 @@ page.on('websocket', ws => {
 
 ## 缺少網路事件和服務工作者
 
-Playwright 的內建 [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](https://api/class-page.mdx#page-route) 允許你的測試原生地路由請求並執行模擬和攔截。
+Playwright 的內建 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](/api/class-page.mdx#page-route) 允許你的測試原生地路由請求並執行模擬和攔截。
 
-1. 如果你正在使用 Playwright 的原生 [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](https://api/class-page.mdx#page-route)，並且出現網路事件遺失的情況，請通過將 `Browser.newContext.serviceWorkers` 設定為 `'block'` 來禁用 Service Workers。
-1. 可能是因為你正在使用像 Mock Service Worker (MSW) 這樣的模擬工具。雖然這個工具可以開箱即用地模擬回應，但它會添加自己的 Service Worker 來接管網路請求，從而使它們對 [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](https://api/class-page.mdx#page-route) 不可見。如果你對網路測試和模擬都感興趣，請考慮使用內建的 [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](https://api/class-page.mdx#page-route) 來進行[回應模擬](#handle-requests)。
+1. 如果你正在使用 Playwright 的原生 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](/api/class-page.mdx#page-route)，並且出現網路事件遺失的情況，請通過將 `Browser.newContext.serviceWorkers` 設定為 `'block'` 來禁用 Service Workers。
+1. 可能是因為你正在使用像 Mock Service Worker (MSW) 這樣的模擬工具。雖然這個工具可以開箱即用地模擬回應，但它會添加自己的 Service Worker 來接管網路請求，從而使它們對 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](/api/class-page.mdx#page-route) 不可見。如果你對網路測試和模擬都感興趣，請考慮使用內建的 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [page.route()](/api/class-page.mdx#page-route) 來進行[回應模擬](#handle-requests)。
 1. 如果你不僅僅對使用 Service Workers 進行測試和網路模擬感興趣，還對路由和監聽由 Service Workers 自己發出的請求感興趣，請參閱[這個實驗性功能](https://github.com/microsoft/playwright/issues/15684)。
 
 

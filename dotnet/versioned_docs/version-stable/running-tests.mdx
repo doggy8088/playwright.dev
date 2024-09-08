@@ -136,7 +136,7 @@ dotnet test --settings:webkit.runsettings
 dotnet test --filter "ExampleTest"
 ```
 
-要執行一組測試文件，請使用 filter 標誌，後跟您要執行的測試類別名稱。
+要執行一組測試文件，請使用 filter 旗標，後跟您要執行的測試類別名稱。
 
 ```bash
 dotnet test --filter "ExampleTest1|ExampleTest2"
@@ -172,7 +172,7 @@ dotnet test -- MSTest.Parallelize.Workers=5
 
 ## 偵錯測試
 
-由於 Playwright 在 .NET 中執行，你可以使用你選擇的除錯器來除錯，例如 Visual Studio Code 或 Visual Studio。Playwright 附帶了 Playwright Inspector，允許你逐步執行 Playwright API 呼叫，查看它們的除錯日誌並探索 [locators](./locators.mdx)。
+由於 Playwright 在 .NET 中執行，你可以使用你選擇的除錯器來除錯，例如 Visual Studio Code 或 Visual Studio。Playwright 附帶了 Playwright Inspector，允許你逐步執行 Playwright API 呼叫，查看它們的除錯日誌並探索[定位器](./locators.mdx)。
 
 <Tabs
   groupId="bash-flavor"
@@ -210,7 +210,7 @@ dotnet test
 
 ![偵錯測試與 Playwright 檢查器](https://github.com/microsoft/playwright/assets/13063165/a1e758d3-d379-414f-be0b-7339f12bb635)
 
-請查看我們的[偵錯指南](./debug.mdx)以了解更多關於[Playwright Inspector](./debug.mdx#playwright-inspector)以及使用[瀏覽器開發者工具](./debug.mdx#browser-developer-tools)進行偵錯的資訊。
+請查看我們的[偵錯指南](./debug.mdx)以了解更多關於[Playwright Inspector](./debug.mdx#playwright-inspector)以及使用[瀏覽器開發者工具](./debug.mdx#瀏覽器開發者工具)進行偵錯的資訊。
 
 ## 接下來是什麼
 

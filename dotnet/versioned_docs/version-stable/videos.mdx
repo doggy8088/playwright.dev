@@ -35,7 +35,7 @@ var context = await browser.NewContextAsync(new()
 await context.CloseAsync();
 ```
 
-儲存的 影片 檔案將出現在指定的資料夾中。它們都有生成的唯一名稱。對於多頁面場景，您可以通過 [Page.Video](https://ollama.com/api/class-page.mdx#page-video) 訪問與頁面相關的 影片 檔案。
+儲存的 影片 檔案將出現在指定的資料夾中。它們都有生成的唯一名稱。對於多頁面場景，您可以通過 [Page.Video](/api/class-page.mdx#page-video) 訪問與頁面相關的 影片 檔案。
 
 ```csharp
 var path = await page.Video.PathAsync();

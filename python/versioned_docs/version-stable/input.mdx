@@ -60,7 +60,7 @@ await page.get_by_label("Local time").fill("2020-03-02T05:15")
 
 ## 核取方塊和單選按鈕
 
-使用 [locator.set_checked()](https://api/class-locator.mdx#locator-set-checked) 是勾選和取消勾選複選框或單選按鈕的最簡單方法。此方法可用於 `input[type=checkbox]`、`input[type=radio]` 和 `[role=checkbox]` 元素。
+使用 [locator.set_checked()](/api/class-locator.mdx#locator-set-checked) 是勾選和取消勾選複選框或單選按鈕的最簡單方法。此方法可用於 `input[type=checkbox]`、`input[type=radio]` 和 `[role=checkbox]` 元素。
 
 <Tabs
   groupId="python-flavor"
@@ -102,7 +102,7 @@ await page.get_by_label('XL').check()
 
 ## 選擇選項
 
-選擇 `<select>` 元素中的一個或多個選項，使用 [locator.select_option()](https://ollama.com/api/class-locator.mdx#locator-select-option)。你可以指定選項的 `value` 或 `label` 來選擇。可以選擇多個選項。
+選擇 `<select>` 元素中的一個或多個選項，使用 [locator.select_option()](/api/class-locator.mdx#locator-select-option)。你可以指定選項的 `value` 或 `label` 來選擇。可以選擇多個選項。
 
 <Tabs
   groupId="python-flavor"
@@ -275,10 +275,10 @@ await page.get_by_role("button").dispatch_event('click')
 ## 鍵入字元
 
 :::caution
-大多數情況下，你應該使用 [locator.fill()](https://ollama.com/api/class-locator.mdx#locator-fill) 輸入文字。請參閱上面的 [Text input](#text-input) 部分。只有在頁面上有特殊鍵盤處理時，你才需要輸入字符。
+大多數情況下，你應該使用 [locator.fill()](/api/class-locator.mdx#locator-fill) 輸入文字。請參閱上面的 [Text input](#text-input) 部分。只有在頁面上有特殊鍵盤處理時，你才需要輸入字符。
 :::
 
-逐字輸入到欄位中，就像使用真實鍵盤的使用者一樣，使用 [locator.press_sequentially()](https://ollama.com/api/class-locator.mdx#locator-press-sequentially)。
+逐字輸入到欄位中，就像使用真實鍵盤的使用者一樣，使用 [locator.press_sequentially()](/api/class-locator.mdx#locator-press-sequentially)。
 
 <Tabs
   groupId="python-flavor"
@@ -348,7 +348,7 @@ await page.get_by_role("textbox").press("$")
 </TabItem>
 </Tabs>
 
-[locator.press()](https://ollama.com/library) 方法將焦點集中在選定的元素上並產生單個按鍵。它接受在鍵盤事件的 [keyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) 屬性中發出的邏輯鍵名稱:
+[locator.press()](/api/class-locator.mdx#locator-press) 方法將焦點集中在選定的元素上並產生單個按鍵。它接受在鍵盤事件的 [keyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) 屬性中發出的邏輯鍵名稱:
 
 ```txt
 Backquote, Minus, Equal, Backslash, Backspace, Tab, Delete, Escape,
@@ -399,7 +399,7 @@ await page.locator('#name').press('Shift+ArrowLeft')
 
 ## 上傳檔案
 
-您可以使用 [locator.set_input_files()](https://api/class-locator.mdx#locator-set-input-files) 方法選擇要上傳的輸入檔案。它期望第一個參數指向一個類型為 `"file"` 的 [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)。多個檔案可以在陣列中傳遞。如果某些檔案路徑是相對的，它們會相對於當前工作目錄解析。空陣列會清除選擇的檔案。
+您可以使用 [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) 方法選擇要上傳的輸入檔案。它期望第一個參數指向一個類型為 `"file"` 的 [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)。多個檔案可以在陣列中傳遞。如果某些檔案路徑是相對的，它們會相對於當前工作目錄解析。空陣列會清除選擇的檔案。
 
 <Tabs
   groupId="python-flavor"
@@ -493,7 +493,7 @@ await file_chooser.set_files("myfile.pdf")
 
 ## 聚焦元素
 
-對於處理焦點事件的動態頁面，你可以使用 [locator.focus()](https://ollama.com/api/class-locator.mdx#locator-focus) 聚焦到指定的元素。
+對於處理焦點事件的動態頁面，你可以使用 [locator.focus()](/api/class-locator.mdx#locator-focus) 聚焦到指定的元素。
 
 <Tabs
   groupId="python-flavor"

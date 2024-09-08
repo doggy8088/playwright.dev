@@ -115,7 +115,7 @@ test('my test', async ({ page }, testInfo) => {
 });
 ```
 
-您可以為特定的一組測試或單個檔案指定重試次數，請參閱 [test.describe.configure()](https://api/class-test.mdx#test-describe-configure)。
+您可以為特定的一組測試或單個檔案指定重試次數，請參閱 [test.describe.configure()](/api/class-test.mdx#test-describe-configure)。
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -178,7 +178,7 @@ test('third good', async ({ page }) => { /* ... */ });
 
 ## 在測試之間重用單頁
 
-Playwright Test 為每個測試建立一個獨立的 [Page] 物件。然而，如果你想在多個測試之間重複使用單個 [Page] 物件，你可以在 [test.beforeAll()](https://api/class-test.mdx#test-before-all) 中建立自己的物件，並在 [test.afterAll()](https://api/class-test.mdx#test-after-all) 中關閉它。
+Playwright Test 為每個測試建立一個獨立的 [Page] 物件。然而，如果你想在多個測試之間重複使用單個 [Page] 物件，你可以在 [test.beforeAll()](/api/class-test.mdx#test-before-all) 中建立自己的物件，並在 [test.afterAll()](/api/class-test.mdx#test-after-all) 中關閉它。
 
 <Tabs
   groupId="js-flavor"

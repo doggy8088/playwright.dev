@@ -40,7 +40,7 @@ page.getByRole(AriaRole.BUTTON).click(); // Will hang here
 
 ## beforeunload 對話框
 
-當 [Page.close()](https://api/class-page.mdx#page-close) 被呼叫並帶有真值的 `runBeforeUnload` 值時，頁面會執行其卸載處理程式。這是唯一一種 [Page.close()](https://api/class-page.mdx#page-close) 不會等待頁面實際關閉的情況，因為在操作結束時頁面可能會保持開啟。
+當 [Page.close()](/api/class-page.mdx#page-close) 被呼叫並帶有真值的 `runBeforeUnload` 值時，頁面會執行其卸載處理程式。這是唯一一種 [Page.close()](/api/class-page.mdx#page-close) 不會等待頁面實際關閉的情況，因為在操作結束時頁面可能會保持開啟。
 
 您可以註冊一個對話框處理器來自行處理 `beforeunload` 對話框:
 

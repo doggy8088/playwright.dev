@@ -52,7 +52,7 @@ Playwright 運作得非常快 - 一看到按鈕就會點擊。在一般情況下
 
 ## 等待導航
 
-點擊一個元素可能會觸發多次導航。在這些情況下，建議明確地 [Page.WaitForURLAsync()](https://ollama.com/library) 到一個特定的 URL。
+點擊一個元素可能會觸發多次導航。在這些情況下，建議明確地 [Page.WaitForURLAsync()](/api/class-page.mdx#page-wait-for-url) 到一個特定的 URL。
 
 ```csharp
 await page.GetByText("Click me").ClickAsync();
@@ -71,9 +71,9 @@ Playwright 將在頁面中顯示新文件的過程分為**導航**和**加載**�
 
 - [Page.Url](/api/class-page.mdx#page-url) 被設定為新 url
 - 文件內容通過網路加載並解析
-- [Page.DOMContentLoaded](https://api/class-page.mdx#page-event-dom-content-loaded) 事件被觸發
+- [Page.DOMContentLoaded](/api/class-page.mdx#page-event-dom-content-loaded) 事件被觸發
 - 頁面執行一些腳本並加載樣式表和圖像等資源
-- [Page.Load](https://api/class-page.mdx#page-event-load) 事件被觸發
+- [Page.Load](/api/class-page.mdx#page-event-load) 事件被觸發
 - 頁面執行動態加載的腳本
 
 

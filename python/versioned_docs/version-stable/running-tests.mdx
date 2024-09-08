@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## 簡介
 
-您可以執行單一測試、一組測試或所有測試。可以使用 `--browser` 標誌在一個瀏覽器或多個瀏覽器上執行測試。預設情況下，測試以無頭方式執行，這意味著在執行測試時不會打開瀏覽器視窗，結果將在終端機中顯示。如果您願意，可以使用 `--headed` CLI 參數在有頭模式下執行測試。
+您可以執行單一測試、一組測試或所有測試。可以使用 `--browser` 旗標在一個瀏覽器或多個瀏覽器上執行測試。預設情況下，測試以無頭方式執行，這意味著在執行測試時不會打開瀏覽器視窗，結果將在終端機中顯示。如果您願意，可以使用 `--headed` CLI 參數在有頭模式下執行測試。
 
 **你將學到**
 
@@ -27,7 +27,7 @@ pytest
 
 ### 在有頭模式下執行測試
 
-要在 headed 模式下執行你的測試，使用 `--headed` 標誌。這將在執行測試時打開一個瀏覽器視窗，測試完成後瀏覽器視窗將關閉。
+要在 headed 模式下執行你的測試，使用 `--headed` 旗標。這將在執行測試時打開一個瀏覽器視窗，測試完成後瀏覽器視窗將關閉。
 
 ```bash
 pytest --headed
@@ -35,13 +35,13 @@ pytest --headed
 
 ### 在不同瀏覽器上執行測試
 
-要指定您想要在哪個瀏覽器上執行測試，請使用 `--browser` 標誌，後接瀏覽器的名稱。
+要指定您想要在哪個瀏覽器上執行測試，請使用 `--browser` 旗標，後接瀏覽器的名稱。
 
 ```bash
 pytest --browser webkit
 ```
 
-要指定多個瀏覽器來執行你的測試，請多次使用 `--browser` 標誌，後跟每個瀏覽器的名稱。
+要指定多個瀏覽器來執行你的測試，請多次使用 `--browser` 旗標，後跟每個瀏覽器的名稱。
 
 ```bash
 pytest --browser webkit --browser firefox
@@ -69,7 +69,7 @@ pytest -k test_add_a_todo_item
 
 ### 平行執行測試
 
-要平行執行測試，使用 `--numprocesses` 標誌，後接您想要執行測試的進程數。我們建議使用邏輯 CPU 核心的一半。
+要平行執行測試，使用 `--numprocesses` 旗標，後接您想要執行測試的進程數。我們建議使用邏輯 CPU 核心的一半。
 
 ```bash
 pytest --numprocesses 2
@@ -81,7 +81,7 @@ pytest --numprocesses 2
 
 ## 除錯測試
 
-由於 Playwright 在 Python 中執行，您可以使用您選擇的偵錯工具來偵錯，例如，在 Visual Studio Code 中使用 [Python extension](https://code.visualstudio.com/docs/python/python-tutorial)。Playwright 附帶 Playwright Inspector，允許您逐步執行 Playwright API 呼叫，查看其偵錯日誌並探索 [locators](./locators.mdx)。
+由於 Playwright 在 Python 中執行，您可以使用您選擇的偵錯工具來偵錯，例如，在 Visual Studio Code 中使用 [Python extension](https://code.visualstudio.com/docs/python/python-tutorial)。Playwright 附帶 Playwright Inspector，允許您逐步執行 Playwright API 呼叫，查看其偵錯日誌並探索[定位器](./locators.mdx)。
 
 要除錯所有測試，請執行以下命令。
 
@@ -197,7 +197,7 @@ pytest -s -k test_get_started_link
 
 ![Playwright Inspector](https://github.com/microsoft/playwright/assets/13063165/c94c89c8-f945-460c-a653-7809c6ca50ee)
 
-請查看我們的[偵錯指南](./debug.mdx)以了解更多關於[Playwright Inspector](./debug.mdx#playwright-inspector)以及使用[瀏覽器開發者工具](./debug.mdx#browser-developer-tools)進行偵錯的資訊。
+請查看我們的[偵錯指南](./debug.mdx)以了解更多關於[Playwright Inspector](./debug.mdx#playwright-inspector)以及使用[瀏覽器開發者工具](./debug.mdx#瀏覽器開發者工具)進行偵錯的資訊。
 
 ## 接下來是什麼
 

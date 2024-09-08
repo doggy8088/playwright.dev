@@ -22,28 +22,28 @@ Playwright 在執行操作之前會對元素進行一系列的可操作性檢查
 
 | Action | [Visible] | [Stable] | [Receives Events] | [Enabled] | [Editable] |
 | :- | :-: | :-: | :-: | :-: | :-: |
-| [Locator.check()](https://api/class-locator.mdx#locator-check) | Yes | Yes | Yes | Yes | - |
-| [Locator.click()](https://api/class-locator.mdx#locator-click) | Yes | Yes | Yes | Yes | - |
-| [Locator.dblclick()](https://api/class-locator.mdx#locator-dblclick) | Yes | Yes | Yes | Yes | - |
-| [Locator.setChecked()](https://api/class-locator.mdx#locator-set-checked) | Yes | Yes | Yes | Yes | - |
-| [Locator.tap()](https://api/class-locator.mdx#locator-tap) | Yes | Yes | Yes | Yes | - |
-| [Locator.uncheck()](https://api/class-locator.mdx#locator-uncheck) | Yes | Yes | Yes | Yes | - |
-| [Locator.hover()](https://api/class-locator.mdx#locator-hover) | Yes | Yes | Yes | - | - |
-| [Locator.dragTo()](https://api/class-locator.mdx#locator-drag-to) | Yes | Yes | Yes | - | - |
-| [Locator.screenshot()](https://api/class-locator.mdx#locator-screenshot) | Yes | Yes | - | - | - |
-| [Locator.fill()](https://api/class-locator.mdx#locator-fill) | Yes | - | - | Yes | Yes |
-| [Locator.clear()](https://api/class-locator.mdx#locator-clear) | Yes | - | - | Yes | Yes |
-| [Locator.selectOption()](https://api/class-locator.mdx#locator-select-option) | Yes | - | - | Yes | - |
-| [Locator.selectText()](https://api/class-locator.mdx#locator-select-text) | Yes | - | - | - | - |
-| [Locator.scrollIntoViewIfNeeded()](https://api/class-locator.mdx#locator-scroll-into-view-if-needed) | - | Yes | - | - | - |
-| [Locator.blur()](https://api/class-locator.mdx#locator-blur) | - | - | - | - | - |
-| [Locator.dispatchEvent()](https://api/class-locator.mdx#locator-dispatch-event) | - | - | - | - | - |
-| [Locator.focus()](https://api/class-locator.mdx#locator-focus) | - | - | - | - | - |
-| [Locator.press()](https://api/class-locator.mdx#locator-press) | - | - | - | - | - |
-| [Locator.pressSequentially()](https://api/class-locator.mdx#locator-press-sequentially) | - | - | - | - | - |
-| [Locator.setInputFiles()](https://api/class-locator.mdx#locator-set-input-files) | - | - | - | - | - |
+| [Locator.check()](/api/class-locator.mdx#locator-check) | Yes | Yes | Yes | Yes | - |
+| [Locator.click()](/api/class-locator.mdx#locator-click) | Yes | Yes | Yes | Yes | - |
+| [Locator.dblclick()](/api/class-locator.mdx#locator-dblclick) | Yes | Yes | Yes | Yes | - |
+| [Locator.setChecked()](/api/class-locator.mdx#locator-set-checked) | Yes | Yes | Yes | Yes | - |
+| [Locator.tap()](/api/class-locator.mdx#locator-tap) | Yes | Yes | Yes | Yes | - |
+| [Locator.uncheck()](/api/class-locator.mdx#locator-uncheck) | Yes | Yes | Yes | Yes | - |
+| [Locator.hover()](/api/class-locator.mdx#locator-hover) | Yes | Yes | Yes | - | - |
+| [Locator.dragTo()](/api/class-locator.mdx#locator-drag-to) | Yes | Yes | Yes | - | - |
+| [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) | Yes | Yes | - | - | - |
+| [Locator.fill()](/api/class-locator.mdx#locator-fill) | Yes | - | - | Yes | Yes |
+| [Locator.clear()](/api/class-locator.mdx#locator-clear) | Yes | - | - | Yes | Yes |
+| [Locator.selectOption()](/api/class-locator.mdx#locator-select-option) | Yes | - | - | Yes | - |
+| [Locator.selectText()](/api/class-locator.mdx#locator-select-text) | Yes | - | - | - | - |
+| [Locator.scrollIntoViewIfNeeded()](/api/class-locator.mdx#locator-scroll-into-view-if-needed) | - | Yes | - | - | - |
+| [Locator.blur()](/api/class-locator.mdx#locator-blur) | - | - | - | - | - |
+| [Locator.dispatchEvent()](/api/class-locator.mdx#locator-dispatch-event) | - | - | - | - | - |
+| [Locator.focus()](/api/class-locator.mdx#locator-focus) | - | - | - | - | - |
+| [Locator.press()](/api/class-locator.mdx#locator-press) | - | - | - | - | - |
+| [Locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially) | - | - | - | - | - |
+| [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) | - | - | - | - | - |
 
-
+## 強制動作
 
 有些操作如 [Locator.click()](/api/class-locator.mdx#locator-click) 支援 `force` 選項，該選項會禁用非必要的可操作性檢查，例如傳遞真值 `force` 給 [Locator.click()](/api/class-locator.mdx#locator-click) 方法將不會檢查目標元素是否實際接收到點擊事件。
 
@@ -53,29 +53,29 @@ Playwright 包含自動重試的斷言，通過等待條件滿足來消除不穩
 
 | Assertion | Description |
 | :- | :- |
-| [assertThat(locator).isAttached()](https://ollama.com/library) | 元素已附加 |
-| [assertThat(locator).isChecked()](https://ollama.com/library) | 核取方塊已勾選 |
-| [assertThat(locator).isDisabled()](https://ollama.com/library) | 元素已禁用 |
-| [assertThat(locator).isEditable()](https://ollama.com/library) | 元素可編輯 |
-| [assertThat(locator).isEmpty()](https://ollama.com/library) | 容器為空 |
-| [assertThat(locator).isEnabled()](https://ollama.com/library) | 元素已啟用 |
-| [assertThat(locator).isFocused()](https://ollama.com/library) | 元素已聚焦 |
-| [assertThat(locator).isHidden()](https://ollama.com/library) | 元素不可見 |
-| [assertThat(locator).isInViewport()](https://ollama.com/library) | 元素與視口相交 |
-| [assertThat(locator).isVisible()](https://ollama.com/library) | 元素可見 |
-| [assertThat(locator).containsText()](https://ollama.com/library) | 元素包含文字 |
-| [assertThat(locator).hasAttribute()](https://ollama.com/library) | 元素有 DOM 屬性 |
-| [assertThat(locator).hasClass()](https://ollama.com/library) | 元素有類別屬性 |
-| [assertThat(locator).hasCount()](https://ollama.com/library) | 清單有確切數量的子項目 |
-| [assertThat(locator).hasCSS()](https://ollama.com/library) | 元素有 CSS 屬性 |
-| [assertThat(locator).hasId()](https://ollama.com/library) | 元素有 ID |
-| [assertThat(locator).hasJSProperty()](https://ollama.com/library) | 元素有 JavaScript 屬性 |
-| [assertThat(locator).hasText()](https://ollama.com/library) | 元素匹配文字 |
-| [assertThat(locator).hasValue()](https://ollama.com/library) | 輸入框有值 |
-| [assertThat(locator).hasValues()](https://ollama.com/library) | 選擇框有選中的選項 |
-| [assertThat(page).hasTitle()](https://ollama.com/library) | 頁面有標題 |
-| [assertThat(page).hasURL()](https://ollama.com/library) | 頁面有 URL |
-| [assertThat(response).isOK()](https://ollama.com/library) | 回應狀態為 OK |
+| [assertThat(locator).isAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | 元素已附加 |
+| [assertThat(locator).isChecked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 核取方塊已勾選 |
+| [assertThat(locator).isDisabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已禁用 |
+| [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | 元素可編輯 |
+| [assertThat(locator).isEmpty()](/api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | 容器為空 |
+| [assertThat(locator).isEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 元素已啟用 |
+| [assertThat(locator).isFocused()](/api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | 元素已聚焦 |
+| [assertThat(locator).isHidden()](/api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | 元素不可見 |
+| [assertThat(locator).isInViewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | 元素在視窗中 |
+| [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
+| [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
+| [assertThat(locator).hasAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素有 DOM 屬性 |
+| [assertThat(locator).hasClass()](/api/class-locatorassertions.mdx#locator-assertions-to-have-class) | 元素有類別屬性 |
+| [assertThat(locator).hasCount()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 列表有確切的子項數量 |
+| [assertThat(locator).hasCSS()](/api/class-locatorassertions.mdx#locator-assertions-to-have-css) | 元素有 CSS 屬性 |
+| [assertThat(locator).hasId()](/api/class-locatorassertions.mdx#locator-assertions-to-have-id) | 元素有 ID |
+| [assertThat(locator).hasJSProperty()](/api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | 元素有 JavaScript 屬性 |
+| [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素匹配文字 |
+| [assertThat(locator).hasValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入框有值 |
+| [assertThat(locator).hasValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) | 選擇框有選中的選項 |
+| [assertThat(page).hasTitle()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面有標題 |
+| [assertThat(page).hasURL()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面有 URL |
+| [assertThat(response).isOK()](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | 回應狀態為 OK |
 
 了解更多在 [assertions 指南](./test-assertions.mdx)。
 

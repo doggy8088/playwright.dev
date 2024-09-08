@@ -51,7 +51,7 @@ await page.ScreenshotAsync(new()
 dotnet run
 ```
 
-預設情況下，Playwright 以無頭模式執行瀏覽器。要查看瀏覽器 UI，啟動瀏覽器時傳遞 `Headless = false` 標誌。您也可以使用 `slowMo` 來減慢執行速度。了解更多在偵錯工具[部分](./debug.mdx)。
+預設情況下，Playwright 以無頭模式執行瀏覽器。要查看瀏覽器 UI，啟動瀏覽器時傳遞 `Headless = false` 旗標。您也可以使用 `slowMo` 來減慢執行速度。了解更多在偵錯工具[部分](./debug.mdx)。
 
 ```csharp
 await using var browser = await playwright.Firefox.LaunchAsync(new()

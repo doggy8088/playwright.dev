@@ -55,7 +55,7 @@ BrowserContext context = browser.newContext(new Browser.NewContextOptions()
 ### 追蹤檢視器更新
 
 - 現在在附件窗格中內嵌顯示文字附件的內容。
-- 新增設定以顯示/隱藏路由操作，如 [Route.resume()](https://ollama.com/api/class-route.mdx#route-continue)。
+- 新增設定以顯示/隱藏路由操作，如 [Route.resume()](/api/class-route.mdx#route-continue)。
 - 請求方法和狀態顯示在網路詳細資訊標籤中。
 - 新按鈕可將來源檔案位置複製到剪貼簿。
 - Metadata 窗格現在顯示 `baseURL`。
@@ -183,7 +183,7 @@ page.removeLocatorHandler(locator);
 
 **其他選項**
 
-- 新方法 [FormData.append()](https://api/class-formdata.mdx#form-data-append) 允許在 `RequestOptions` 的 [`setMultipart`](./api/class-requestoptions#request-options-set-multipart) 選項中指定具有相同名稱的重複字段:
+- 新方法 [FormData.append()](/api/class-formdata.mdx#form-data-append) 允許在 `RequestOptions` 的 [`setMultipart`](./api/class-requestoptions#request-options-set-multipart) 選項中指定具有相同名稱的重複字段:
 
   ```java
   FormData formData = FormData.create();
@@ -334,7 +334,7 @@ public class MyTest {
 
 ### 新定位器處理程式
 
-新方法 [Page.addLocatorHandler()](https://api/class-page.mdx#page-add-locator-handler) 註冊了一個回呼，當指定元素變得可見時將會被呼叫，並且可能會阻擋 Playwright 操作。回呼可以去除覆蓋層。這裡有一個範例，當 cookie 對話框出現時將其關閉。
+新方法 [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 註冊了一個回呼，當指定元素變得可見時將會被呼叫，並且可能會阻擋 Playwright 操作。回呼可以去除覆蓋層。這裡有一個範例，當 cookie 對話框出現時將其關閉。
 
 ```java
 // Setup the handler.
@@ -535,7 +535,7 @@ Linux 支援看起來像這樣:
 
 ### 重點
 
-* 新選項 `maskColor` 用於方法 [Page.screenshot()](https://api/class-page.mdx#page-screenshot) 和 [Locator.screenshot()](https://api/class-locator.mdx#locator-screenshot) 來更改預設遮罩顏色。
+* 新選項 `maskColor` 用於方法 [Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 來更改預設遮罩顏色。
 * 新的 `uninstall` CLI 命令來卸載瀏覽器二進位檔：
 
   ```bash
@@ -611,8 +611,8 @@ Linux 支援看起來像這樣:
 - [Locator.or()](/api/class-locator.mdx#locator-or)
 - 新選項 `hasNot` 在 [Locator.filter()](/api/class-locator.mdx#locator-filter)
 - 新選項 `hasNotText` 在 [Locator.filter()](/api/class-locator.mdx#locator-filter)
-- [assertThat(locator).isAttached()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-attached)
-- 新選項 `timeout` 在 [Route.fetch()](https://api/class-route.mdx#route-fetch)
+- [assertThat(locator).isAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached)
+- 新選項 `timeout` 在 [Route.fetch()](/api/class-route.mdx#route-fetch)
 
 ### 其他亮點
 
@@ -707,7 +707,7 @@ Linux 支援看起來像這樣:
 
 ### 新的 API
 
-- 新方法 [Route.fetch()](https://ollama.com/api/class-route.mdx#route-fetch):
+- 新方法 [Route.fetch()](/api/class-route.mdx#route-fetch):
 
   ```java
   page.route("**/api/settings", route -> {
@@ -721,7 +721,7 @@ Linux 支援看起來像這樣:
   });
   ```
 
-- 新方法 [Locator.all()](https://ollama.com/api/class-locator.mdx#locator-all) 來迭代所有匹配的元素:
+- 新方法 [Locator.all()](/api/class-locator.mdx#locator-all) 來迭代所有匹配的元素:
 
   ```java
   // 檢查所有的複選框！
@@ -730,7 +730,7 @@ Linux 支援看起來像這樣:
     checkbox.check();
   ```
 
-- [Locator.selectOption()](https://ollama.com/api/class-locator.mdx#locator-select-option) 現在可以通過值或標籤匹配:
+- [Locator.selectOption()](/api/class-locator.mdx#locator-select-option) 現在可以通過值或標籤匹配:
 
   ```html
   <select multiple>
@@ -765,8 +765,8 @@ Linux 支援看起來像這樣:
 
 ### 新的 API
 
-- [Locator.blur()](https://api/class-locator.mdx#locator-blur)
-- [Locator.clear()](https://api/class-locator.mdx#locator-clear)
+- [Locator.blur()](/api/class-locator.mdx#locator-blur)
+- [Locator.clear()](/api/class-locator.mdx#locator-clear)
 
 ### 瀏覽器版本
 
@@ -785,13 +785,14 @@ Linux 支援看起來像這樣:
 
 使用這些新的 API，寫定位器是一種樂趣:
 
-- [Page.getByText()](https://ollama.com/library) 根據文字內容定位。
-- [Page.getByRole()](https://ollama.com/library) 根據 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
-- [Page.getByLabel()](https://ollama.com/library) 根據關聯標籤的文字定位表單控制項。
-- [Page.getByTestId()](https://ollama.com/library) 根據 `data-testid` 屬性（其他屬性可以配置）定位元素。
-- [Page.getByPlaceholder()](https://ollama.com/library) 根據佔位符定位輸入框。
-- [Page.getByAltText()](https://ollama.com/library) 根據替代文字（通常是圖片）定位元素。
-- [Page.getByTitle()](https://ollama.com/library) 根據標題定位元素。
+- [Page.GetByText()](/api/class-page.mdx#page-get-by-text) 根據文本內容定位。
+- [Page.GetByRole()](/api/class-page.mdx#page-get-by-role) 根據 [ARIA 角色](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA 屬性](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [可訪問名稱](https://w3c.github.io/accname/#dfn-accessible-name) 進行定位。
+- [Page.GetByLabel()](/api/class-page.mdx#page-get-by-label) 根據關聯標籤的文本定位表單控件。
+- [Page.GetByTestId()](/api/class-page.mdx#page-get-by-test-id) 根據其 `data-testid` 屬性（可以配置其他屬性）定位元素。
+- [Page.GetByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder) 根據佔位符定位輸入框。
+- [Page.GetByAltText()](/api/class-page.mdx#page-get-by-alt-text) 根據替代文本定位元素，通常是圖像。
+- [Page.GetByTitle()](/api/class-page.mdx#page-get-by-title) 根據標題定位元素。
+
 
 ```java
 page.getByLabel("User Name").fill("John");
@@ -832,14 +833,14 @@ assertThat(page.getByText("Welcome, John!")).isVisible();
 
 ### 斷言
 
-- 新選項 `enabled` 用於 [assertThat(locator).isEnabled()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled)。
-- [assertThat(locator).hasText()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在穿透開放的 shadow roots。
-- 新選項 `editable` 用於 [assertThat(locator).isEditable()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-be-editable)。
-- 新選項 `visible` 用於 [assertThat(locator).isVisible()](https://ollama.com/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
+- 新選項 `enabled` 用於 [assertThat(locator).isEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled)。
+- [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在穿透開放的 shadow roots。
+- 新選項 `editable` 用於 [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable)。
+- 新選項 `visible` 用於 [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
 
 ### 其他亮點
 
-- 新選項 `setMaxRedirects` 用於 [APIRequestContext.get()](https://ollama.com/library#api-request-context-get) 和其他用來限制重定向次數。
+- 新選項 `setMaxRedirects` 用於 [APIRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) 和其他用來限制重定向次數。
 - Docker 映像現在使用 OpenJDK 17。
 
 ### 行為變更
@@ -932,7 +933,7 @@ BrowserContext context = browser.newContext(new Browser.NewContextOptions()
 context.close();
 ```
 
-使用新方法 [Page.routeFromHAR()](https://api/class-page.mdx#page-route-from-har) 或 [BrowserContext.routeFromHAR()](https://api/class-browsercontext.mdx#browser-context-route-from-har) 從 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 檔案提供匹配的回應:
+使用新方法 [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 或 [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) 從 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 檔案提供匹配的回應:
 
 ```java
 context.routeFromHAR(Paths.get("example.har"));
@@ -1036,7 +1037,7 @@ page.route("**/*", route -> {
 
 ### 行為變更
 
-- Playwright 現在支援大型檔案上傳 (數百 MB) 透過 [Locator.setInputFiles()](https://api/class-locator.mdx#locator-set-input-files) API。
+- Playwright 現在支援大型檔案上傳 (數百 MB) 透過 [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) API。
 
 ### 瀏覽器版本
 
@@ -1110,7 +1111,7 @@ Playwright for Java 1.18 準備推出新的 [API Testing](./api/class-apirequest
 - 在測試中訪問 web 應用程式之前準備伺服器端狀態
 - 在瀏覽器中執行一些操作後驗證伺服器端後置條件
 
-要代表 Playwright 的 Page 進行請求，使用 **new [Page.request()](https://api/class-page.mdx#page-request) API**:
+要代表 Playwright 的 Page 進行請求，使用 **new [Page.request()](/api/class-page.mdx#page-request) API**:
 
 ```java
 // Do a GET request on behalf of page
@@ -1271,13 +1272,13 @@ orderSent.waitFor();
 
 以前無法獲取回應的多個標頭值。現在這是可能的，並且有額外的輔助函式可用:
 
-- [Request.allHeaders](https://ollama.com/api/class-request.mdx#request-all-headers)()
-- [Request.headersArray](https://ollama.com/api/class-request.mdx#request-headers-array)()
-- [Request.headerValue](https://ollama.com/api/class-request.mdx#request-header-value)()
-- [Response.allHeaders](https://ollama.com/api/class-response.mdx#response-all-headers)()
-- [Response.headersArray](https://ollama.com/api/class-response.mdx#response-headers-array)()
-- [Response.headerValue](https://ollama.com/api/class-response.mdx#response-header-value)()
-- [Response.headerValues](https://ollama.com/api/class-response.mdx#response-header-values)()
+- [Request.allHeaders](/api/class-request.mdx#request-all-headers)()
+- [Request.headersArray](/api/class-request.mdx#request-headers-array)()
+- [Request.headerValue](/api/class-request.mdx#request-header-value)()
+- [Response.allHeaders](/api/class-response.mdx#response-all-headers)()
+- [Response.headersArray](/api/class-response.mdx#response-headers-array)()
+- [Response.headerValue](/api/class-response.mdx#response-header-value)()
+- [Response.headerValues](/api/class-response.mdx#response-header-values)()
 
 ### 🌈 強制色彩模擬
 
@@ -1393,7 +1394,7 @@ button.click("button >> visible=true");
 
 #### 🧟‍♂️ 準備推出 Playwright Trace Viewer
 
-[Playwright Trace Viewer](./trace-viewer.mdx) 是一個新的 GUI 工具，幫助在程式碼執行後探索記錄的 Playwright traces。Playwright traces 讓你檢查:
+[Playwright Trace Viewer](./trace-viewer.mdx) 是一個新的 GUI 工具，幫助在程式碼執行後探索記錄的 Playwright Traces。Playwright Traces 讓你檢查:
 
 - 每個 Playwright 操作前後的頁面 DOM
 - 每個 Playwright 操作前後的頁面渲染
@@ -1498,7 +1499,7 @@ mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="sh
 
 #### 新的 API
 
-- [BrowserType.launch()](https://ollama.com/library) 現在接受新的 'channel' 選項。更多資訊請參閱[我們的文件](./browsers)。
+- [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 現在接受新的 'channel' 選項。更多資訊請參閱[我們的文件](./browsers)。
 
 ## Version 1.9
 
@@ -1566,8 +1567,8 @@ mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="sh
 
 #### 新的 API
 
-- [BrowserContext.storageState()](https://api/class-browsercontext.mdx#browser-context-storage-state) 來獲取當前狀態以供日後重用。
-- `storageState` 選項在 [Browser.newContext()](https://api/class-browser.mdx#browser-new-context) 和 [Browser.newPage()](https://api/class-browser.mdx#browser-new-page) 中用於設定瀏覽器上下文狀態。
+- [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 來獲取當前狀態以供日後重用。
+- `storageState` 選項在 [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [Browser.newPage()](/api/class-browser.mdx#browser-new-page) 中用於設定瀏覽器上下文狀態。
 
 #### 瀏覽器版本
 

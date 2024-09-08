@@ -120,14 +120,14 @@ npx playwright test --ui-host=0.0.0.0
 
 在 GitHub Codespaces 的情況下，該埠會[自動轉發](https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#about-forwarded-ports)，因此您可以通過點擊終端中的連結在瀏覽器中開啟 UI 模式。
 
-要有一個靜態埠號(Port)，你可以傳遞 `--ui-port` 標誌:
+要有一個靜態埠號(Port)，你可以傳遞 `--ui-port` 旗標:
 
 ```bash
 npx playwright test --ui-port=8080 --ui-host=0.0.0.0
 ```
 
 :::note
-請注意，當指定 `--ui-host=0.0.0.0` 標誌時，UI 模式與您的追蹤、密碼和秘密可以從您網路內的其他機器存取。在 GitHub Codespaces 的情況下，這些埠預設僅能從您的帳戶存取。
+請注意，當指定 `--ui-host=0.0.0.0` 旗標時，UI 模式與您的追蹤、密碼和秘密可以從您網路內的其他機器存取。在 GitHub Codespaces 的情況下，這些埠預設僅能從您的帳戶存取。
 :::
 
 

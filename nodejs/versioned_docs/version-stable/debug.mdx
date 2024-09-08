@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## VS Code 偵錯工具
 
-我們建議使用 [VS Code Extension](./getting-started-vscode.mdx) 來進行偵錯，以獲得更好的開發者體驗。有了 VS Code extension，你可以直接在 VS Code 中偵錯你的測試，查看錯誤訊息，設置斷點並逐步執行你的測試。
+我們建議使用 [VS Code 擴充套件](./getting-started-vscode.mdx) 來進行偵錯，以獲得更好的開發者體驗。有了 VS Code extension，你可以直接在 VS Code 中偵錯你的測試，查看錯誤訊息，設置斷點並逐步執行你的測試。
 
 <img width="1269" alt="執行測試在除錯模式" src="https://user-images.githubusercontent.com/13063165/212740233-3f278825-13e7-4a88-a118-dd4478d43a16.png" />
 
@@ -66,14 +66,14 @@ Playwright Inspector 是一個 GUI 工具，可以幫助你偵錯 Playwright 測
 
 ### 在除錯模式下執行
 
-執行你的測試並使用 `--debug` 標誌來開啟檢查器。這會配置 Playwright 進行偵錯並開啟檢查器。當使用 `--debug` 時，會配置其他有用的預設值:
+執行你的測試並使用 `--debug` 旗標來開啟檢查器。這會配置 Playwright 進行偵錯並開啟檢查器。當使用 `--debug` 時，會配置其他有用的預設值:
 
 - 瀏覽器在有頭模式下啟動
 - 預設超時設定為 0（= 無超時）
 
 #### 偵錯所有瀏覽器上的所有測試
 
-要偵錯所有測試，請使用 `--debug` 標誌執行測試命令。這將逐一執行測試，並為每個測試打開檢查器和瀏覽器窗口。
+要偵錯所有測試，請使用 `--debug` 旗標執行測試命令。這將逐一執行測試，並為每個測試打開檢查器和瀏覽器窗口。
 
 ```bash
 npx playwright test --debug
@@ -81,7 +81,7 @@ npx playwright test --debug
 
 #### 在所有瀏覽器上偵錯一個測試
 
-要在特定行上偵錯一個測試，請執行測試命令，後跟測試檔案的名稱和您要偵錯的測試行號，然後是 `--debug` 標誌。這將在每個配置在您的 [`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers) 中的瀏覽器中執行單個測試並打開檢查器。
+要在特定行上偵錯一個測試，請執行測試命令，後跟測試檔案的名稱和您要偵錯的測試行號，然後是 `--debug` 旗標。這將在每個配置在您的 [`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers) 中的瀏覽器中執行單個測試並打開檢查器。
 
 ```bash
 npx playwright test example.spec.ts:10 --debug
@@ -89,7 +89,7 @@ npx playwright test example.spec.ts:10 --debug
 
 #### 在特定瀏覽器上除錯
 
-在 Playwright 中，你可以在你的[`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers)中配置專案。一旦配置完成，你可以使用 `--project` 標誌，後接在你的 `playwright.config` 中配置的專案名稱，來在特定的瀏覽器或行動裝置視窗中偵錯你的測試。
+在 Playwright 中，你可以在你的[`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers)中配置專案。一旦配置完成，你可以使用 `--project` 旗標，後接在你的 `playwright.config` 中配置的專案名稱，來在特定的瀏覽器或行動裝置視窗中偵錯你的測試。
 
 ```bash
 npx playwright test --project=chromium --debug
@@ -99,7 +99,7 @@ npx playwright test --project="Microsoft Edge" --debug
 
 #### 偵錯一個特定瀏覽器上的測試
 
-要在特定瀏覽器上執行一個測試，請添加測試檔案的名稱和您要偵錯的測試行號，以及 `--project` 標誌，後面跟著專案的名稱。
+要在特定瀏覽器上執行一個測試，請添加測試檔案的名稱和您要偵錯的測試行號，以及 `--project` 旗標，後面跟著專案的名稱。
 
 ```bash
 npx playwright test example.spec.ts:10 --project=webkit --debug
@@ -145,7 +145,7 @@ Playwright 會查看你的頁面並找出最佳定位器，優先考慮[角色�
 
 ## Trace Viewer
 
-Playwright [Trace Viewer](/trace-viewer.mdx) 是一個 GUI 工具，讓你探索測試中記錄的 Playwright traces。你可以在左側來回瀏覽每個動作，並直觀地看到動作期間發生的事情。在螢幕中間，你可以看到該動作的 DOM 快照。在右側，你可以看到動作的詳細資訊，如時間、參數、返回值和日誌。你還可以探索主控台訊息、網路請求和原始程式碼。
+Playwright [Trace Viewer](/trace-viewer.mdx) 是一個 GUI 工具，讓你探索測試中記錄的 Playwright Traces。你可以在左側來回瀏覽每個動作，並直觀地看到動作期間發生的事情。在螢幕中間，你可以看到該動作的 DOM 快照。在右側，你可以看到動作的詳細資訊，如時間、參數、返回值和日誌。你還可以探索主控台訊息、網路請求和原始程式碼。
 
 <video width="100%" height="100%" controls muted>
 
@@ -153,7 +153,7 @@ Playwright [Trace Viewer](/trace-viewer.mdx) 是一個 GUI 工具，讓你探索
 
 </video>
 
-要了解更多關於如何記錄追蹤和使用 Trace Viewer 的資訊，請查看 [Trace Viewer](https://ollama.com/trace-viewer.mdx) 指南。
+要了解更多關於如何記錄追蹤和使用 Trace Viewer 的資訊，請查看 [Trace Viewer](/trace-viewer.mdx) 指南。
 
 ## 瀏覽器開發者工具
 

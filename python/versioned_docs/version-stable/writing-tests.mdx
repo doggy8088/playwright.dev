@@ -125,7 +125,7 @@ expect(page).to_have_title(re.compile("Playwright"))
 
 ### 測試隔離
 
-Playwright Pytest 插件是基於測試固定裝置的概念，例如[內建 page 固定裝置](./test-runners.mdx)，它會傳遞到你的測試中。由於[瀏覽器上下文](./browser-contexts)的原因，頁面在測試之間是隔離的，這相當於一個全新的瀏覽器配置檔案，每個測試都會獲得一個全新的環境，即使多個測試在單個瀏覽器中執行。
+Playwright Pytest 外掛是基於測試固定裝置的概念，例如[內建 page 固定裝置](./test-runners.mdx)，它會傳遞到你的測試中。由於[瀏覽器上下文](./browser-contexts)的原因，頁面在測試之間是隔離的，這相當於一個全新的瀏覽器配置檔案，每個測試都會獲得一個全新的環境，即使多個測試在單個瀏覽器中執行。
 
 ```python title="test_example.py"
 from playwright.sync_api import Page

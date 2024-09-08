@@ -34,7 +34,7 @@ await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 
 ## 定位元素
 
-Playwright 內建多個定位器。為了使測試具有彈性，我們建議優先考慮面向使用者的屬性和明確的合約，例如 [Page.GetByRole](https://api/class-page.mdx#page-get-by-role)。
+Playwright 內建多個定位器。為了使測試具有彈性，我們建議優先考慮面向使用者的屬性和明確的合約，例如 [Page.GetByRole](/api/class-page.mdx#page-get-by-role)。
 
 例如，考慮以下的 DOM 結構。
 
@@ -294,7 +294,7 @@ await Expect(Page.GetByTitle("Issues count")).toHaveText("25 issues");
 
 ### 依據測試 ID 定位
 
-測試 id 是最具彈性的測試方式，即使您的文字或屬性角色發生變化，測試仍然會通過。QA 和開發人員應該定義明確的測試 id 並使用 [Page.GetByTestId()](https://ollama.com/library#page-get-by-test-id) 進行查詢。然而，通過測試 id 進行測試並不是面向使用者的。如果角色或文字值對您很重要，那麼考慮使用面向使用者的定位器，例如 [role](#locate-by-role) 和 [text locators](#locate-by-text)。
+測試 id 是最具彈性的測試方式，即使您的文字或屬性角色發生變化，測試仍然會通過。QA 和開發人員應該定義明確的測試 id 並使用 [Page.GetByTestId()](/api/class-page.mdx#page-get-by-test-id) 進行查詢。然而，通過測試 id 進行測試並不是面向使用者的。如果角色或文字值對您很重要，那麼考慮使用面向使用者的定位器，例如 [role](#locate-by-role) 和 [text locators](#locate-by-text)。
 
 例如，考慮以下的 DOM 結構。
 
@@ -462,7 +462,7 @@ await Expect(Page.Locator("x-details")).ToContainTextAsync("Details");
 
 ### 以文字篩選
 
-定位器可以通過 [Locator.Filter()](https://api/class-locator.mdx#locator-filter) 方法按文本過濾。它將在元素內的某個地方（可能是在後代元素中）搜尋特定字串，不區分大小寫。你也可以傳遞正則表達式。
+定位器可以通過 [Locator.Filter()](/api/class-locator.mdx#locator-filter) 方法按文本過濾。它將在元素內的某個地方（可能是在後代元素中）搜尋特定字串，不區分大小寫。你也可以傳遞正則表達式。
 
 ```csharp
 await page
@@ -612,7 +612,7 @@ var button = page.GetByRole(AriaRole.Button).And(page.GetByTitle("Subscribe"));
 
 ### 匹配兩個替代定位器之一
 
-如果你想要針對兩個或更多元素中的一個，而你不知道會是哪一個，請使用 [Locator.Or()](https://ollama.com/api/class-locator.mdx#locator-or) 來建立一個符合所有替代方案的定位器。
+如果你想要針對兩個或更多元素中的一個，而你不知道會是哪一個，請使用 [Locator.Or()](/api/class-locator.mdx#locator-or) 來建立一個符合所有替代方案的定位器。
 
 例如，考慮一個情境，你想點擊 "New email" 按鈕，但有時會出現一個安全設定對話框。在這種情況下，你可以等待 "New email" 按鈕或對話框並據此行動。
 
@@ -712,7 +712,7 @@ await Expect(Page.GetByRole(AriaRole.Listitem)).ToHaveCountAsync(3);
 
 </HTMLCard>
 
-使用 [Expect(Locator).ToHaveTextAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-text) 確保列表中有 "apple"、"banana" 和 "orange"。
+使用 [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 確保列表中有 "apple"、"banana" 和 "orange"。
 
 ```csharp
 await Expect(Page
@@ -822,7 +822,7 @@ await page.GetByTestId("orange").ClickAsync();
 
 #### 取得第 n 個物件
 
-如果你有一個相同元素的列表，並且區分它們的唯一方法是順序，你可以從列表中選擇一個特定的元素，使用 [Locator.First](https://ollama.com/api/class-locator.mdx#locator-first)、[Locator.Last](https://ollama.com/api/class-locator.mdx#locator-last) 或 [Locator.Nth()](https://ollama.com/api/class-locator.mdx#locator-nth)。
+如果你有一個相同元素的列表，並且區分它們的唯一方法是順序，你可以從列表中選擇一個特定的元素，使用 [Locator.First](/api/class-locator.mdx#locator-first)、[Locator.Last](/api/class-locator.mdx#locator-last) 或 [Locator.Nth()](/api/class-locator.mdx#locator-nth)。
 
 ```csharp
 var banana = await page.GetByRole(AriaRole.Listitem).Nth(1);
@@ -918,7 +918,7 @@ for (int i = 0; i < count; ++i)
 
 #### 在頁面中評估
 
-程式碼在 [Locator.EvaluateAllAsync()](https://ollama.com/api/class-locator.mdx#locator-evaluate-all) 內 執行於頁面中，你可以在那裡呼叫任意 DOM apis。
+程式碼在 [Locator.EvaluateAllAsync()](/api/class-locator.mdx#locator-evaluate-all) 內 執行於頁面中，你可以在那裡呼叫任意 DOM apis。
 
 ```csharp
 var rows = page.GetByRole(AriaRole.Listitem);

@@ -138,7 +138,7 @@ await page.locator('button:has-text("Log in"), button:has-text("Sign in")').clic
 * `:below(div > button)` - 匹配在任何符合內部選擇器的元素下方的元素，在任何水平位置。
 * `:near(div > button)` - 匹配在任何符合內部選擇器的元素附近（50 個 CSS 像素內）的元素。
 
-請注意，結果匹配是根據它們與錨點元素的距離進行排序的，因此您可以使用 [locator.first()](https://ollama.com/api/class-locator.mdx#locator-first) 來選擇最近的一個。這只有在您有類似元素列表的情況下才有用，其中最近的顯然是正確的。然而，在其他情況下使用 [locator.first()](https://ollama.com/api/class-locator.mdx#locator-first) 很可能不會按預期工作——它不會定位到您正在搜索的元素，而是一些碰巧最近的其他元素，如隨機的空 `<div>`，或是已經滾動出來且當前不可見的元素。
+請注意，結果匹配是根據它們與錨點元素的距離進行排序的，因此您可以使用 [locator.first()](/api/class-locator.mdx#locator-first) 來選擇最近的一個。這只有在您有類似元素列表的情況下才有用，其中最近的顯然是正確的。然而，在其他情況下使用 [locator.first()](/api/class-locator.mdx#locator-first) 很可能不會按預期工作——它不會定位到您正在搜索的元素，而是一些碰巧最近的其他元素，如隨機的空 `<div>`，或是已經滾動出來且當前不可見的元素。
 
 ```js
 // Fill an input to the right of "Username".
@@ -199,7 +199,7 @@ await page.locator('button').locator('nth=-1').click();
 
 ## 父元素定位器
 
-當你需要定位某個元素的父元素時，大多數情況下你應該通過子定位器來[locator.filter()](https://ollama.com/api/class-locator.mdx#locator-filter)。例如，考慮以下 DOM 結構:
+當你需要定位某個元素的父元素時，大多數情況下你應該通過子定位器來[locator.filter()](/api/class-locator.mdx#locator-filter)。例如，考慮以下 DOM 結構:
 
 ```html
 <li><label>Hello</label></li>

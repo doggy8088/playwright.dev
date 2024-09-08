@@ -79,7 +79,7 @@ A HAR 檔案是個 [HTTP Archive](http://www.softwareishard.com/blog/har-12-spec
 
 ### 錄製 HAR 檔案
 
-要記錄 HAR 檔案，我們使用 [Page.RouteFromHARAsync()](https://api/class-page.mdx#page-route-from-har) 或 [BrowserContext.RouteFromHARAsync()](https://api/class-browsercontext.mdx#browser-context-route-from-har) 方法。此方法需要 HAR 檔案的路徑和一個可選的選項物件。選項物件可以包含 URL，以便只有符合指定 glob 模式的 URL 請求會從 HAR 檔案中提供。如果未指定，所有請求都會從 HAR 檔案中提供。
+要記錄 HAR 檔案，我們使用 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 或 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) 方法。此方法需要 HAR 檔案的路徑和一個可選的選項物件。選項物件可以包含 URL，以便只有符合指定 glob 模式的 URL 請求會從 HAR 檔案中提供。如果未指定，所有請求都會從 HAR 檔案中提供。
 
 設定 `update` 選項為 true 將會建立或更新 HAR 檔案，使用實際的網路資訊，而不是從 HAR 檔案提供請求。在建立測試時使用它來填充具有真實數據的 HAR。
 

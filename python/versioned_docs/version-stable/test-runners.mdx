@@ -1,6 +1,6 @@
 ﻿---
 id: test-runners
-title: "Pytest 插件參考"
+title: "Pytest 外掛參考"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## 簡介
 
-Playwright 提供一個 [Pytest](https://docs.pytest.org/en/stable/) 插件來編寫端到端測試。要開始使用它，請參考 [getting started guide](./intro.mdx)。
+Playwright 提供一個 [Pytest](https://docs.pytest.org/en/stable/) 外掛來編寫端到端測試。要開始使用它，請參考 [getting started guide](./intro.mdx)。
 
 ## 使用方式
 
@@ -29,7 +29,7 @@ addopts = --headed --browser firefox
 
 ## CLI arguments
 
-注意，CLI 參數僅適用於預設的 `browser`、`context` 和 `page` 固定裝置。如果你使用 API 呼叫建立一個 browser、context 或 page，例如 [browser.new_context()](https://ollama.com/library#browser-new-context)，CLI 參數將不會被應用。
+注意，CLI 參數僅適用於預設的 `browser`、`context` 和 `page` 固定裝置。如果你使用 API 呼叫建立一個 browser、context 或 page，例如 [browser.new_context()](/api/class-browser.mdx#browser-new-context)，CLI 參數將不會被應用。
 
 - `--headed`: 在 headed 模式下執行測試 (預設: headless)。
 - `--browser`: 在不同的瀏覽器 `chromium`、`firefox` 或 `webkit` 中執行測試。可以多次指定 (預設: `chromium`)。
@@ -44,7 +44,7 @@ addopts = --headed --browser firefox
 
 ## Fixtures
 
-此插件配置了 Playwright 特定的 [pytest 夾具](https://docs.pytest.org/en/latest/fixture.html)。要使用這些夾具，請將夾具名稱作為測試函式的參數。
+此外掛配置了 Playwright 特定的 [pytest 夾具](https://docs.pytest.org/en/latest/fixture.html)。要使用這些夾具，請將夾具名稱作為測試函式的參數。
 
 ```py
 def test_my_app_is_working(fixture_name):
@@ -57,7 +57,7 @@ def test_my_app_is_working(fixture_name):
 
 - `context`: 新的 [browser context](./browser-contexts) 用於測試。
 - `page`: 新的 [browser page](./pages) 用於測試。
-- `new_context`: 允許建立不同的 [browser contexts](./browser-contexts) 用於測試。對於多使用者場景很有用。接受與 [browser.new_context()](https://api/class-browser.mdx#browser-new-context) 相同的參數。
+- `new_context`: 允許建立不同的 [browser contexts](./browser-contexts) 用於測試。對於多使用者場景很有用。接受與 [browser.new_context()](/api/class-browser.mdx#browser-new-context) 相同的參數。
 
 **Session scope**: 這些 物件 在測試 函式 中請求時 建立，並在所有測試結束時銷毀。
 
@@ -70,8 +70,8 @@ def test_my_app_is_working(fixture_name):
 
 **自訂 fixture 選項**: 對於 `browser` 和 `context` fixtures，使用以下 fixtures 定義自訂啟動選項。
 
-- `browser_type_launch_args`: 覆寫 [browser_type.launch()](https://ollama.com/library#browser-type-launch) 的啟動參數。它應該返回一個 Dict。
-- `browser_context_args`: 覆寫 [browser.new_context()](https://ollama.com/library#browser-new-context) 的選項。它應該返回一個 Dict。
+- `browser_type_launch_args`: 覆寫 [browser_type.launch()](/api/class-browsertype.mdx#browser-type-launch) 的啟動參數。它應該返回一個 Dict。
+- `browser_context_args`: 覆寫 [browser.new_context()](/api/class-browser.mdx#browser-new-context) 的選項。它應該返回一個 Dict。
 
 也可以使用 `browser_context_args` 標記來覆蓋單個測試的上下文選項([browser.new_context()](/api/class-browser.mdx#browser-new-context))。
 
@@ -156,7 +156,7 @@ def test_example(page):
 
 ### 設定 base-url
 
-開始 Pytest 並使用 `base-url` 參數。[`pytest-base-url`](https://github.com/pytest-dev/pytest-base-url) 插件用於此，允許您從配置、CLI 參數或作為固定裝置設定基礎 url。
+開始 Pytest 並使用 `base-url` 參數。[`pytest-base-url`](https://github.com/pytest-dev/pytest-base-url) 外掛用於此，允許您從配置、CLI 參數或作為固定裝置設定基礎 url。
 
 ```bash
 pytest --base-url http://localhost:8080

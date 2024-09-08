@@ -38,7 +38,7 @@ await page.goto('/example-with-a-service-worker.html');
 const serviceworker = await serviceWorkerPromise;
 ```
 
-[browserContext.on('serviceworker')](https://api/class-browsercontext.mdx#browser-context-event-service-worker) 是在 Service Worker 的主腳本被評估***之前***觸發的，所以在呼叫 service[worker.evaluate()](https://api/class-worker.mdx#worker-evaluate) 之前，你應該等待它的啟動。
+[browserContext.on('serviceworker')](/api/class-browsercontext.mdx#browser-context-event-service-worker) 是在 Service Worker 的主腳本被評估***之前***觸發的，所以在呼叫 service[worker.evaluate()](/api/class-worker.mdx#worker-evaluate) 之前，你應該等待它的啟動。
 
 等待 Service Worker 被啟動有更多慣用的方法，但以下是一種與實作無關的方法:
 
@@ -57,18 +57,18 @@ await page.evaluate(async () => {
 
 任何網路請求由 **Service Worker** 發出將會有:
 
-* [browserContext.on('request')](https://api/class-browsercontext.mdx#browser-context-event-request) 和其對應的事件([browserContext.on('requestfinished')](https://api/class-browsercontext.mdx#browser-context-event-request-finished) 和 [browserContext.on('response')](https://api/class-browsercontext.mdx#browser-context-event-response), 或 [browserContext.on('requestfailed')](https://api/class-browsercontext.mdx#browser-context-event-request-failed))
-* [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 會看到該請求
-* [request.serviceWorker()](https://api/class-request.mdx#request-service-worker) 將被設置為 Service [Worker] 實例, 並且 [request.frame()](https://api/class-request.mdx#request-frame) 將**拋出**
-* [response.fromServiceWorker()](https://api/class-response.mdx#response-from-service-worker) 將返回 `false`
+* [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) 和其對應的事件([browserContext.on('requestfinished')](/api/class-browsercontext.mdx#browser-context-event-request-finished) 和 [browserContext.on('response')](/api/class-browsercontext.mdx#browser-context-event-response), 或 [browserContext.on('requestfailed')](/api/class-browsercontext.mdx#browser-context-event-request-failed))
+* [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 會看到該請求
+* [request.serviceWorker()](/api/class-request.mdx#request-service-worker) 將被設置為 Service [Worker] 實例, 並且 [request.frame()](/api/class-request.mdx#request-frame) 將**拋出**
+* [response.fromServiceWorker()](/api/class-response.mdx#response-from-service-worker) 將返回 `false`
 
 此外，任何由 **Page**（包括其子 [Frame]）發出的網路請求將會有:
 
-* [browserContext.on('request')](https://api/class-browsercontext.mdx#browser-context-event-request) 和其對應的事件([browserContext.on('requestfinished')](https://api/class-browsercontext.mdx#browser-context-event-request-finished) 和 [browserContext.on('response')](https://api/class-browsercontext.mdx#browser-context-event-response), 或 [browserContext.on('requestfailed')](https://api/class-browsercontext.mdx#browser-context-event-request-failed))
-* [page.on('request')](https://api/class-page.mdx#page-event-request) 和其對應的事件([page.on('requestfinished')](https://api/class-page.mdx#page-event-request-finished) 和 [page.on('response')](https://api/class-page.mdx#page-event-response), 或 [page.on('requestfailed')](https://api/class-page.mdx#page-event-request-failed))
-* [page.route()](https://api/class-page.mdx#page-route) 和 [page.route()](https://api/class-page.mdx#page-route) 將**不會**看到請求(如果已註冊了 Service Worker 的 fetch 處理器)
-* [request.serviceWorker()](https://api/class-request.mdx#request-service-worker) 將被設置為 `null`, 而 [request.frame()](https://api/class-request.mdx#request-frame) 將返回 [Frame]
-* [response.fromServiceWorker()](https://api/class-response.mdx#response-from-service-worker) 將返回 `true`(如果已註冊了 Service Worker 的 fetch 處理器)
+* [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) 和其對應的事件([browserContext.on('requestfinished')](/api/class-browsercontext.mdx#browser-context-event-request-finished) 和 [browserContext.on('response')](/api/class-browsercontext.mdx#browser-context-event-response), 或 [browserContext.on('requestfailed')](/api/class-browsercontext.mdx#browser-context-event-request-failed))
+* [page.on('request')](/api/class-page.mdx#page-event-request) 和其對應的事件([page.on('requestfinished')](/api/class-page.mdx#page-event-request-finished) 和 [page.on('response')](/api/class-page.mdx#page-event-response), 或 [page.on('requestfailed')](/api/class-page.mdx#page-event-request-failed))
+* [page.route()](/api/class-page.mdx#page-route) 和 [page.route()](/api/class-page.mdx#page-route) 將**不會**看到請求(如果已註冊了 Service Worker 的 fetch 處理器)
+* [request.serviceWorker()](/api/class-request.mdx#request-service-worker) 將被設置為 `null`, 而 [request.frame()](/api/class-request.mdx#request-frame) 將返回 [Frame]
+* [response.fromServiceWorker()](/api/class-response.mdx#response-from-service-worker) 將返回 `true`(如果已註冊了 Service Worker 的 fetch 處理器)
 
 許多 Service Worker 實作只是簡單地執行來自頁面的請求（可能為了簡單起見省略了一些自訂的快取/離線邏輯）:
 
@@ -111,7 +111,7 @@ self.addEventListener('activate', event => {
 * 只有 Service [Worker] 擁有的資源請求可以通過 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 進行路由; 針對 `data.json` 的 [Frame] 擁有事件是無法路由的，因為它們甚至沒有可能訪問外部網絡，因為 Service Worker 已經註冊了一個 fetch 處理器。
 
 :::caution
-重要的是要注意: 呼叫 [request.frame()](https://ollama.com/api/class-request.mdx#request-frame) 或 [response.frame()](https://ollama.com/api/class-response.mdx#response-frame) 將會 **拋出** 一個例外，如果在一個具有非空 [request.serviceWorker()](https://ollama.com/api/class-request.mdx#request-service-worker) 的 [Request]/[Response] 上呼叫。
+重要的是要注意: 呼叫 [request.frame()](/api/class-request.mdx#request-frame) 或 [response.frame()](/api/class-response.mdx#response-frame) 將會 **拋出** 一個例外，如果在一個具有非空 [request.serviceWorker()](/api/class-request.mdx#request-service-worker) 的 [Request]/[Response] 上呼叫。
 :::
 
 #### 高級範例

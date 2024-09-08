@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 
 
-API for collecting and saving Playwright traces. Playwright traces can be opened in [Trace Viewer](../trace-viewer.mdx) after Playwright script runs.
+API for collecting and saving Playwright Traces. Playwright Traces can be opened in [Trace Viewer](../trace-viewer.mdx) after Playwright script runs.
 
 Start recording a trace before performing actions. At the end, stop tracing and save it to a file.
 
@@ -49,21 +49,21 @@ context.tracing().stop(new Tracing.StopOptions()
 **Arguments**
 - `options` `Tracing.StartOptions` *(optional)*
   - `setName` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-name"/><a href="#tracing-start-option-name" class="list-anchor">#</a>
-    
+
     If specified, intermediate trace files are going to be saved into the files with the given name prefix inside the `tracesDir` folder specified in [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch). To specify the final trace zip file name, you need to pass `path` option to [Tracing.stop()](/api/class-tracing.mdx#tracing-stop) instead.
   - `setScreenshots` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-screenshots"/><a href="#tracing-start-option-screenshots" class="list-anchor">#</a>
-    
+
     Whether to capture screenshots during tracing. Screenshots are used to build a timeline preview.
   - `setSnapshots` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-snapshots"/><a href="#tracing-start-option-snapshots" class="list-anchor">#</a>
-    
+
     If this option is true tracing will
     * capture DOM snapshot on every action
     * record network activity
   - `setSources` [boolean] *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-sources"/><a href="#tracing-start-option-sources" class="list-anchor">#</a>
-    
+
     Whether to include source files for trace actions. List of the directories with source code for the application must be provided via `PLAYWRIGHT_JAVA_SRC` environment variable (the paths should be separated by ';' on Windows and by ':' on other platforms).
   - `setTitle` [String] *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-title"/><a href="#tracing-start-option-title" class="list-anchor">#</a>
-    
+
     Trace name to be shown in the Trace Viewer.
 
 **Returns**
@@ -102,10 +102,10 @@ context.tracing().stopChunk(new Tracing.StopChunkOptions()
 **Arguments**
 - `options` `Tracing.StartChunkOptions` *(optional)*
   - `setName` [String] *(optional)* <font size="2">Added in: v1.32</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-name"/><a href="#tracing-start-chunk-option-name" class="list-anchor">#</a>
-    
+
     If specified, intermediate trace files are going to be saved into the files with the given name prefix inside the `tracesDir` folder specified in [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch). To specify the final trace zip file name, you need to pass `path` option to [Tracing.stopChunk()](/api/class-tracing.mdx#tracing-stop-chunk) instead.
   - `setTitle` [String] *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-title"/><a href="#tracing-start-chunk-option-title" class="list-anchor">#</a>
-    
+
     Trace name to be shown in the Trace Viewer.
 
 **Returns**
@@ -129,7 +129,7 @@ Tracing.stop(options);
 **Arguments**
 - `options` `Tracing.StopOptions` *(optional)*
   - `setPath` [Path] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-option-path"/><a href="#tracing-stop-option-path" class="list-anchor">#</a>
-    
+
     Export trace into the file with the given path.
 
 **Returns**
@@ -153,7 +153,7 @@ Tracing.stopChunk(options);
 **Arguments**
 - `options` `Tracing.StopChunkOptions` *(optional)*
   - `setPath` [Path] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-chunk-option-path"/><a href="#tracing-stop-chunk-option-path" class="list-anchor">#</a>
-    
+
     Export trace collected since the last [Tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) call into the file with the given path.
 
 **Returns**

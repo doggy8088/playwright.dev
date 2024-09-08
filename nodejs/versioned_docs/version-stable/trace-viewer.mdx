@@ -10,7 +10,7 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
 
 ## 簡介
 
-Playwright Trace Viewer 是一個 GUI 工具，可以幫助你在腳本執行後探索記錄的 Playwright traces。Traces 是在 CI 上測試失敗時進行除錯的好方法。你可以在 [本地](#opening-the-trace) 或在瀏覽器上 [trace.playwright.dev](https://trace.playwright.dev) 打開 traces。
+Playwright Trace Viewer 是一個 GUI 工具，可以幫助你在腳本執行後探索記錄的 Playwright Traces。Traces 是在 CI 上測試失敗時進行除錯的好方法。你可以在 [本地](#opening-the-trace) 或在瀏覽器上 [trace.playwright.dev](https://trace.playwright.dev) 打開 traces。
 
 ######
 
@@ -114,7 +114,7 @@ Network 頁籤顯示了測試期間所做的所有網路請求。你可以按不
 
 ## 在本地記錄追蹤
 
-要在開發模式下記錄追蹤，請在執行測試時將 `--trace` 標誌設置為 `on`。你也可以使用 [UI Mode](./test-ui-mode.mdx) 來獲得更好的開發者體驗。
+要在開發模式下記錄追蹤，請在執行測試時將 `--trace` 旗標設置為 `on`。你也可以使用 [UI Mode](./test-ui-mode.mdx) 來獲得更好的開發者體驗。
 
 ```bash
 npx playwright test --trace on
@@ -180,7 +180,7 @@ await context.tracing.stop({ path: 'trace.zip' });
 
 你也可以使用 `trace: 'retain-on-failure'` 如果你沒有啟用重試但仍想要失敗測試的追蹤。
 
-有更多細粒度的選項可用，請參見 [testOptions.trace](https://ollama.com/api/class-testoptions.mdx#test-options-trace)。
+有更多細粒度的選項可用，請參見 [testOptions.trace](/api/class-testoptions.mdx#test-options-trace)。
 
 如果你沒有使用 Playwright 作為測試執行器，請改用 [browserContext.tracing](/api/class-browsercontext.mdx#browser-context-tracing) API。
 

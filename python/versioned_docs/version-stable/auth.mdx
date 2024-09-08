@@ -102,7 +102,7 @@ await page.page.get_by_role("button", name="Sign in").click()
 
 Playwright 提供了一種在測試中重複使用已登入狀態的方法。這樣你只需登入一次，然後在所有測試中跳過登入步驟。
 
-Web apps 使用基於 cookie 或基於 token 的身份驗證，已驗證的狀態存儲為[cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)或在[local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage)中。Playwright 提供[browser_context.storage_state()](https://api/class-browsercontext.mdx#browser-context-storage-state)方法，可用於從已驗證的上下文中檢索存儲狀態，然後建立具有預填狀態的新上下文。
+Web apps 使用基於 cookie 或基於 token 的身份驗證，已驗證的狀態存儲為[cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)或在[local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage)中。Playwright 提供[browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state)方法，可用於從已驗證的上下文中檢索存儲狀態，然後建立具有預填狀態的新上下文。
 
 Cookies 和 local storage 狀態可以在不同的瀏覽器中使用。它們依賴於您的應用程式的身份驗證模型: 一些應用程式可能需要同時使用 cookies 和 local storage。
 

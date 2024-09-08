@@ -30,7 +30,7 @@ page.getByLabel("Local time").fill("2020-03-02T05:15");
 
 ## 核取方塊和單選按鈕
 
-使用 [Locator.setChecked()](https://api/class-locator.mdx#locator-set-checked) 是勾選和取消勾選複選框或單選按鈕的最簡單方法。此方法可用於 `input[type=checkbox]`、`input[type=radio]` 和 `[role=checkbox]` 元素。
+使用 [Locator.setChecked()](/api/class-locator.mdx#locator-set-checked) 是勾選和取消勾選複選框或單選按鈕的最簡單方法。此方法可用於 `input[type=checkbox]`、`input[type=radio]` 和 `[role=checkbox]` 元素。
 
 ```java
 // Check the checkbox
@@ -118,7 +118,7 @@ page.getByRole(AriaRole.BUTTON).dispatchEvent("click");
 大多數情況下，你應該使用 [Locator.fill()](/api/class-locator.mdx#locator-fill) 輸入文字。請參閱上面的 [Text input](#text-input) 部分。只有在頁面上有特殊鍵盤處理時，你才需要輸入字符。
 :::
 
-逐字輸入到欄位中，就像使用真實鍵盤的使用者一樣，使用 [Locator.pressSequentially()](https://ollama.com/library#locator-press-sequentially)。
+逐字輸入到欄位中，就像使用真實鍵盤的使用者一樣，使用 [Locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially)。
 
 ```java
 // Press keys one by one
@@ -167,7 +167,7 @@ page.locator("#name").press("Shift+ArrowLeft");
 
 ## 上傳檔案
 
-您可以使用 [Locator.setInputFiles()](https://ollama.com/library) 方法選擇要上傳的輸入檔案。它預期第一個參數指向類型為 `"file"` 的 [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)。多個檔案可以在陣列中傳遞。如果某些檔案路徑是相對的，它們會相對於當前工作目錄解析。空陣列會清除選定的檔案。
+您可以使用 [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) 方法選擇要上傳的輸入檔案。它預期第一個參數指向類型為 `"file"` 的 [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)。多個檔案可以在陣列中傳遞。如果某些檔案路徑是相對的，它們會相對於當前工作目錄解析。空陣列會清除選定的檔案。
 
 ```java
 // Select one file
@@ -198,7 +198,7 @@ fileChooser.setFiles(Paths.get("myfile.pdf"));
 
 ## 聚焦元素
 
-對於處理焦點事件的動態頁面，你可以使用 [Locator.focus()](https://ollama.com/api/class-locator.mdx#locator-focus) 聚焦給定的元素。
+對於處理焦點事件的動態頁面，你可以使用 [Locator.focus()](/api/class-locator.mdx#locator-focus) 聚焦給定的元素。
 
 ```java
 page.getByLabel("Password").focus();
@@ -248,7 +248,7 @@ page.getByRole(AriaRole.BUTTON).click();
 page.getByText("Footer text").scrollIntoViewIfNeeded();
 ```
 
-如果你想更精確地控制滾動，請使用 [Mouse.wheel()](https://ollama.com/api/class-mouse.mdx#mouse-wheel) 或 [Locator.evaluate()](https://ollama.com/api/class-locator.mdx#locator-evaluate):
+如果你想更精確地控制滾動，請使用 [Mouse.wheel()](/api/class-mouse.mdx#mouse-wheel) 或 [Locator.evaluate()](/api/class-locator.mdx#locator-evaluate):
 
 ```java
 // Position the mouse and scroll with the mouse wheel

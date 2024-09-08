@@ -127,7 +127,7 @@ npx playwright codegen playwright.dev
 
 #### 使用 VS Code 擴充套件來產生定位器
 
-你也可以使用 [VS Code Extension](./getting-started-vscode.mdx) 來產生定位器以及錄製測試。VS Code extension 也讓你在撰寫、執行和偵錯測試時擁有極佳的開發者體驗。
+你也可以使用 [VS Code 擴充套件](./getting-started-vscode.mdx) 來產生定位器以及錄製測試。VS Code extension 也讓你在撰寫、執行和偵錯測試時擁有極佳的開發者體驗。
 
 <img width="1394" alt="在 vs code 中使用程式碼產生器生成定位器" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212269873-aca04043-16ce-4627-906f-7351d09740ab.png" />
 
@@ -171,7 +171,7 @@ await expect(page.getByText('welcome')).toBeVisible();
 
 <img width="1394" alt="在 vscode 中即時偵錯定位器" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212273189-da271dc4-0f59-4138-92a8-10e719066cbe.png" />
 
-你也可以使用 Playwright 檢查器來偵錯你的測試，方法是使用 `--debug` 標誌來執行你的測試。
+你也可以使用 Playwright 檢查器來偵錯你的測試，方法是使用 `--debug` 旗標來執行你的測試。
 
 ```bash
 npx playwright test --debug
@@ -181,7 +181,7 @@ npx playwright test --debug
 
 <img width="1350" alt="使用 Playwright Inspector 偵錯" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212276296-4f5b18e7-2bd7-4766-9aa5-783517bd4aa2.png" />
 
-要偵錯特定測試，請添加測試檔案的名稱和測試的行號，並加上 `--debug` 標誌。
+要偵錯特定測試，請添加測試檔案的名稱和測試的行號，並加上 `--debug` 旗標。
 
 ```bash
 npx playwright test example.spec.ts:9 --debug
@@ -193,7 +193,7 @@ npx playwright test example.spec.ts:9 --debug
 
 <img width="1516" alt="playwrights trace viewer" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212277895-c63d94c2-bd06-4881-864e-62790a072ca3.png" />
 
-Playwright 配置檔案中配置了追蹤，並設定在 CI 上第一次重試失敗測試時執行。我們不建議將其設定為 `on`，以便在每次測試時都執行追蹤，因為這會非常影響效能。然而，你可以在開發時使用 `--trace` 標誌在本地執行追蹤。
+Playwright 配置檔案中配置了追蹤，並設定在 CI 上第一次重試失敗測試時執行。我們不建議將其設定為 `on`，以便在每次測試時都執行追蹤，因為這會非常影響效能。然而，你可以在開發時使用 `--trace` 旗標在本地執行追蹤。
 
 ```bash
 npx playwright test --trace on
