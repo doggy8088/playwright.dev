@@ -1057,7 +1057,7 @@ page.route("**/*", route -> {
   * 選項 `ScreenshotAnimations.DISABLED` 將所有 CSS 動畫和過渡倒帶到一致的狀態
   * 選項 `mask: Locator[]` 遮罩給定的元素，並用粉紅色 `#FF00FF` 框覆蓋它們。
 - [Trace Viewer](https://playwright.dev/trace-viewer) 現在顯示 [API 測試請求](https://playwright.dev/api-testing)。
-- [Locator.highlight()](/api/class-locator.mdx#locator-highlight) 視覺上顯示元素以便於調試。
+- [Locator.highlight()](/api/class-locator.mdx#locator-highlight) 視覺上顯示元素以便於偵錯。
 
 ### 公告
 
@@ -1502,12 +1502,12 @@ mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="sh
 
 ## Version 1.9
 
-- [Playwright Inspector](./debug.mdx) 是一個**新的 GUI 工具**，用於編寫和調試你的測試。
-  - **逐行調試**你的 Playwright 腳本，具有播放、暫停和逐步執行功能。
+- [Playwright Inspector](./debug.mdx) 是一個**新的 GUI 工具**，用於編寫和偵錯你的測試。
+  - **逐行偵錯**你的 Playwright 腳本，具有播放、暫停和逐步執行功能。
   - 通過**錄製用戶操作**來編寫新腳本。
   - 通過懸停在元素上來**生成元素選擇器**。
   - 設置 `PWDEBUG=1` 環境變量以啟動 Inspector
-- 在有頭模式下使用 [Page.pause()](./api/class-page.mdx#page-pause) **暫停腳本執行**。暫停頁面會啟動 [Playwright Inspector](./debug.mdx) 進行調試。
+- 在有頭模式下使用 [Page.pause()](./api/class-page.mdx#page-pause) **暫停腳本執行**。暫停頁面會啟動 [Playwright Inspector](./debug.mdx) 進行偵錯。
 - **新的 has-text 偽類**用於 CSS 選擇器。`:has-text("example")` 匹配包含 `"example"` 的任何元素，可能在子元素或後代元素內。查看[更多範例](./other-locators.mdx#css-matching-by-text)。
 - **頁面對話框現在在執行期間自動關閉**，除非配置了 `dialog` 事件的監聽器。了解[更多資訊](./dialogs.mdx)。
 - [Playwright for Python](https://github.com/microsoft/playwright-python) 現在**穩定**，具有慣用的蛇形命名法 API 和預構建的 [Docker 映像](./docker.mdx) 用於在 CI/CD 中運行測試。

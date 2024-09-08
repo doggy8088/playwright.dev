@@ -20,7 +20,7 @@ Playwright Trace Viewer 是一個 GUI 工具，可以幫助你在腳本執行後
 
 ### Actions
 
-在 Actions 標籤中，你可以看到每個動作使用了什麼定位器以及每個動作執行了多長時間。將滑鼠懸停在測試的每個動作上，可以直觀地看到 DOM 快照中的變化。可以在時間上前後移動，並點擊一個動作來檢查和調試。使用 Before 和 After 標籤，可以直觀地看到動作前後發生了什麼。
+在 Actions 標籤中，你可以看到每個動作使用了什麼定位器以及每個動作執行了多長時間。將滑鼠懸停在測試的每個動作上，可以直觀地看到 DOM 快照中的變化。可以在時間上前後移動，並點擊一個動作來檢查和偵錯。使用 Before 和 After 標籤，可以直觀地看到動作前後發生了什麼。
 
 ![actions tab in trace viewer](https://github.com/microsoft/playwright/assets/13063165/948b65cd-f0fd-4c7f-8e53-2c632b5a07f1)
 
@@ -56,31 +56,31 @@ Playwright Trace Viewer 是一個 GUI 工具，可以幫助你在腳本執行後
 
 注意它如何同時突出顯示 DOM 節點以及精確的點擊位置。
 
-### 來源
+### Source
 
-當你點擊側邊欄中的某個動作時，該動作的程式碼行會在源面板中突出顯示。
+當你點擊側邊欄中的某個動作時，該動作的程式碼行會在 Source 面板中突出顯示。
 
 ![顯示程式碼標籤在追蹤檢視器中](https://github.com/microsoft/playwright/assets/13063165/daa8845d-c250-4923-aa7a-5d040da9adc5)
 
-### 呼叫
+### Call
 
-呼叫標籤顯示有關動作的資訊，例如所花費的時間、使用的定位器、是否處於嚴格模式以及使用了什麼鍵。
+Call 頁籤顯示有關動作的資訊，例如所花費的時間、使用的定位器、是否處於嚴格模式以及使用了什麼鍵。
 
-![顯示在追蹤檢視器中的呼叫標籤](https://github.com/microsoft/playwright/assets/13063165/95498580-f9dd-4932-a123-c37fe7cfc3c2)
+![顯示在追蹤檢視器中的Call 頁籤](https://github.com/microsoft/playwright/assets/13063165/95498580-f9dd-4932-a123-c37fe7cfc3c2)
 
-### 日誌
+### Log
 
 查看完整的測試日誌，以更好地了解 Playwright 在幕後執行的操作，例如滾動到視圖中、等待元素可見、啟用和穩定，以及執行點擊、填寫、按壓等操作。
 
 ![顯示測試日誌於 trace viewer](https://github.com/microsoft/playwright/assets/13063165/de621461-3bab-4140-b39d-9f02d6672dbf)
 
-### 錯誤
+### Errors
 
 如果您的測試失敗，您將在錯誤標籤中看到每個測試的錯誤訊息。時間軸還會顯示一條紅線，突出顯示錯誤發生的位置。您也可以點擊來源標籤，查看錯誤發生在來源程式碼的哪一行。
 
 ![顯示錯誤在 trace viewer](https://github.com/microsoft/playwright/assets/13063165/e9ef77b3-05d1-4df2-852c-981023723d34)
 
-### 控制台
+### Console
 
 請查看來自瀏覽器以及測試的控制台日誌。不同的圖示會顯示控制台日誌是來自瀏覽器還是測試檔案。
 
@@ -90,9 +90,9 @@ Playwright Trace Viewer 是一個 GUI 工具，可以幫助你在腳本執行後
 
 使用時間軸來篩選動作，點擊一個起點並拖動到一個終點。控制台標籤也將被篩選，只顯示在選定動作期間生成的日誌。
 
-### 網路
+### Network
 
-Network 標籤顯示了測試期間所做的所有網路請求。你可以按不同類型的請求、狀態碼、方法、請求、內容類型、持續時間和大小進行排序。點擊一個請求以查看更多關於它的資訊，例如請求標頭、回應標頭、請求主體和回應主體。
+Network 頁籤顯示了測試期間所做的所有網路請求。你可以按不同類型的請求、狀態碼、方法、請求、內容類型、持續時間和大小進行排序。點擊一個請求以查看更多關於它的資訊，例如請求標頭、回應標頭、請求主體和回應主體。
 
 ![network requests tab in trace viewer](https://github.com/microsoft/playwright/assets/13063165/0a3d1671-8ccd-4f7a-a844-35f5eb37f236)
 
@@ -106,9 +106,9 @@ Network 標籤顯示了測試期間所做的所有網路請求。你可以按不
 
 ![Metadata in trace viewer](https://github.com/microsoft/playwright/assets/13063165/82ab3d33-1ec9-4b8a-9cf2-30a6e2d59091)
 
-### 附件
+### Attachments
 
-"Attachments" 標籤允許你探索附件。如果你正在進行[視覺回歸測試](./test-snapshots.mdx)，你將能夠通過檢查圖像差異、實際圖像和預期圖像來比較截圖。當你點擊預期圖像時，你可以使用滑桿將一個圖像滑動到另一個圖像上，以便輕鬆看到截圖中的差異。
+"Attachments" 頁籤允許你探索附件。如果你正在進行[視覺回歸測試](./test-snapshots.mdx)，你將能夠通過檢查圖像差異、實際圖像和預期圖像來比較截圖。當你點擊預期圖像時，你可以使用滑桿將一個圖像滑動到另一個圖像上，以便輕鬆看到截圖中的差異。
 
 ![附件標籤在追蹤查看器中](https://github.com/microsoft/playwright/assets/13063165/4386178a-5808-4fa8-9436-315350a23b04)
 

@@ -107,9 +107,9 @@ npx playwright test --last-failed
 
 由於 Playwright 在 Node.js 中執行，你可以使用你選擇的除錯工具來除錯，例如使用 `console.log` 或在你的 IDE 中，或直接在 VS Code 中使用 [VS Code Extension](./getting-started-vscode.mdx)。Playwright 附帶 [UI Mode](./test-ui-mode.mdx)，在這裡你可以輕鬆地逐步執行每一步測試，查看日誌、錯誤、網路請求、檢查 DOM 快照等。你也可以使用 [Playwright Inspector](./debug.mdx#playwright-inspector)，它允許你逐步執行 Playwright API 呼叫，查看其除錯日誌並探索 [locators](./locators.mdx)。
 
-### 在 UI 模式中調試測試
+### 在 UI 模式中偵錯測試
 
-我們強烈建議使用[UI Mode](./test-ui-mode.mdx)來調試您的測試，以獲得更好的開發者體驗，您可以輕鬆地逐步查看測試的每一步，並直觀地看到每一步之前、期間和之後發生的事情。UI mode 還附帶許多其他功能，例如定位器選擇器、監視模式等。
+我們強烈建議使用[UI Mode](./test-ui-mode.mdx)來偵錯您的測試，以獲得更好的開發者體驗，您可以輕鬆地逐步查看測試的每一步，並直觀地看到每一步之前、期間和之後發生的事情。UI mode 還附帶許多其他功能，例如定位器選擇器、監視模式等。
 
 ```bash
 npx playwright test --ui
@@ -125,7 +125,7 @@ npx playwright test --ui
 
 ### 使用 Playwright Inspector 偵錯測試
 
-要調試所有測試，執行 Playwright 測試命令並加上 `--debug` 標誌。
+要偵錯所有測試，執行 Playwright 測試命令並加上 `--debug` 標誌。
 
 ```bash
 npx playwright test --debug
@@ -135,13 +135,13 @@ npx playwright test --debug
 
 此指令將開啟一個瀏覽器視窗以及 Playwright Inspector。你可以使用 Inspector 頂部的步過按鈕逐步執行你的測試。或者，按下播放按鈕從頭到尾執行你的測試。一旦測試完成，瀏覽器視窗將會關閉。
 
-要調試一個測試文件，請執行 Playwright 測試命令，並在要調試的測試文件名稱後加上 `--debug` 標誌。
+要偵錯一個測試文件，請執行 Playwright 測試命令，並在要偵錯的測試文件名稱後加上 `--debug` 標誌。
 
 ```bash
 npx playwright test example.spec.ts --debug
 ```
 
-要從定義 `test(..` 的行號調試特定測試，請在測試檔案名稱末尾添加一個冒號，後跟行號，然後是 `--debug` 標誌。
+要從定義 `test(..` 的行號偵錯特定測試，請在測試檔案名稱末尾添加一個冒號，後跟行號，然後是 `--debug` 標誌。
 
 ```bash
 npx playwright test example.spec.ts:10 --debug

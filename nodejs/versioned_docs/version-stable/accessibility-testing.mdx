@@ -218,7 +218,7 @@ function violationFingerprints(accessibilityScanResults) {
 
 ## 將掃描結果匯出為測試附件
 
-大多數的無障礙測試主要關注的是 axe 掃描結果的 `violations` 屬性。然而，掃描結果不僅僅包含 `violations`。例如，結果還包含有關通過規則的資訊，以及 axe 發現某些規則結果不確定的元素的資訊。這些資訊對於調試未檢測到所有預期違規的測試可能是有用的。
+大多數的無障礙測試主要關注的是 axe 掃描結果的 `violations` 屬性。然而，掃描結果不僅僅包含 `violations`。例如，結果還包含有關通過規則的資訊，以及 axe 發現某些規則結果不確定的元素的資訊。這些資訊對於偵錯未檢測到所有預期違規的測試可能是有用的。
 
 為了包含*所有*的掃描結果作為除錯用途的測試結果的一部分，你可以使用 [`testInfo.attach()`](./api/class-testinfo#test-info-attach) 將掃描結果添加為測試附件。[報告器](./test-reporters) 然後可以將完整結果嵌入或鏈接作為測試輸出的一部分。
 

@@ -38,7 +38,7 @@ Playwright 會查看你的頁面並找出最佳定位器，優先考慮[角色�
 
 ### 執行在除錯模式下
 
-要設定中斷點，請點擊您希望中斷點所在行號旁邊，直到出現一個紅點。通過右鍵點擊您希望執行的測試旁邊的行，在調試模式下執行測試。
+要設定中斷點，請點擊您希望中斷點所在行號旁邊，直到出現一個紅點。通過右鍵點擊您希望執行的測試旁邊的行，在偵錯模式下執行測試。
 
 <img width="1269" alt="設定 debug 測試模式" src="https://user-images.githubusercontent.com/13063165/212739847-ecb7dcfe-8929-45f3-b24e-f9c4b592f430.png" />
 
@@ -48,19 +48,19 @@ Playwright 會查看你的頁面並找出最佳定位器，優先考慮[角色�
 
 ### 在不同瀏覽器中除錯
 
-預設情況下，調試是使用 Chromium 配置檔進行的。您可以通過右鍵單擊測試側邊欄中的調試圖標，然後從下拉選單中單擊 'Select Default Profile' 選項，在不同的瀏覽器上調試您的測試。
+預設情況下，偵錯是使用 Chromium 配置檔進行的。您可以通過右鍵單擊測試側邊欄中的偵錯圖標，然後從下拉選單中單擊 'Select Default Profile' 選項，在不同的瀏覽器上偵錯您的測試。
 
 <img width="1312" alt="在特定配置上除錯" src="https://user-images.githubusercontent.com/13063165/212879469-436f8130-c62a-49e1-9d67-c1903b478d5f.png" />
 
-然後選擇您想要用來調試測試的測試配置檔。每次在調試模式下執行測試時，它將使用您選擇的配置檔。您可以通過右鍵點擊測試所在的行號，並從菜單中選擇 'Debug Test' 來在調試模式下執行測試。
+然後選擇您想要用來偵錯測試的測試配置檔。每次在偵錯模式下執行測試時，它將使用您選擇的配置檔。您可以通過右鍵點擊測試所在的行號，並從菜單中選擇 'Debug Test' 來在偵錯模式下執行測試。
 
-<img width="1312" alt="選擇一個調試配置" src="https://user-images.githubusercontent.com/13063165/212880198-eac22c3e-68ce-47da-9163-d6b376ae7575.png" />
+<img width="1312" alt="選擇一個偵錯配置" src="https://user-images.githubusercontent.com/13063165/212880198-eac22c3e-68ce-47da-9163-d6b376ae7575.png" />
 
 要了解更多關於除錯的資訊，請參見 [Debugging in Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging)。
 
 ## Playwright Inspector
 
-Playwright Inspector 是一個 GUI 工具，可以幫助你調試 Playwright 測試。它允許你逐步執行測試、即時編輯定位器、選擇定位器並查看可操作性日誌。
+Playwright Inspector 是一個 GUI 工具，可以幫助你偵錯 Playwright 測試。它允許你逐步執行測試、即時編輯定位器、選擇定位器並查看可操作性日誌。
 
 <img width="864" alt="Playwright Inspector" src="https://user-images.githubusercontent.com/13063165/212924587-4b84e5f6-b147-40e9-8c75-d7b9ab6b7ca1.png" />
 
@@ -73,13 +73,13 @@ Playwright Inspector 是一個 GUI 工具，可以幫助你調試 Playwright 測
 
 #### 偵錯所有瀏覽器上的所有測試
 
-要調試所有測試，請使用 `--debug` 標誌執行測試命令。這將逐一執行測試，並為每個測試打開檢查器和瀏覽器窗口。
+要偵錯所有測試，請使用 `--debug` 標誌執行測試命令。這將逐一執行測試，並為每個測試打開檢查器和瀏覽器窗口。
 
 ```bash
 npx playwright test --debug
 ```
 
-#### 在所有瀏覽器上調試一個測試
+#### 在所有瀏覽器上偵錯一個測試
 
 要在特定行上偵錯一個測試，請執行測試命令，後跟測試檔案的名稱和您要偵錯的測試行號，然後是 `--debug` 標誌。這將在每個配置在您的 [`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers) 中的瀏覽器中執行單個測試並打開檢查器。
 
@@ -89,7 +89,7 @@ npx playwright test example.spec.ts:10 --debug
 
 #### 在特定瀏覽器上除錯
 
-在 Playwright 中，你可以在你的[`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers)中配置專案。一旦配置完成，你可以使用 `--project` 標誌，後接在你的 `playwright.config` 中配置的專案名稱，來在特定的瀏覽器或行動裝置視窗中調試你的測試。
+在 Playwright 中，你可以在你的[`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers)中配置專案。一旦配置完成，你可以使用 `--project` 標誌，後接在你的 `playwright.config` 中配置的專案名稱，來在特定的瀏覽器或行動裝置視窗中偵錯你的測試。
 
 ```bash
 npx playwright test --project=chromium --debug
@@ -99,7 +99,7 @@ npx playwright test --project="Microsoft Edge" --debug
 
 #### 偵錯一個特定瀏覽器上的測試
 
-要在特定瀏覽器上執行一個測試，請添加測試檔案的名稱和您要調試的測試行號，以及 `--project` 標誌，後面跟著專案的名稱。
+要在特定瀏覽器上執行一個測試，請添加測試檔案的名稱和您要偵錯的測試行號，以及 `--project` 標誌，後面跟著專案的名稱。
 
 ```bash
 npx playwright test example.spec.ts:10 --project=webkit --debug
@@ -307,7 +307,7 @@ npx playwright test
 
 Playwright 預設以無頭模式執行瀏覽器。要更改此行為，請使用 `headless: false` 作為啟動選項。
 
-你也可以使用 `slowMo` 選項來減慢執行速度（每次操作 N 毫秒），並在調試時跟隨。
+你也可以使用 `slowMo` 選項來減慢執行速度（每次操作 N 毫秒），並在偵錯時跟隨。
 
 ```js
 // Chromium, Firefox, or WebKit

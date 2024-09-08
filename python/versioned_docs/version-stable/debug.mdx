@@ -8,13 +8,13 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## Playwright Inspector
 
-Playwright Inspector 是一個 GUI 工具，可以幫助你調試 Playwright 測試。它允許你逐步執行測試、即時編輯定位器、選擇定位器並查看可操作性日誌。
+Playwright Inspector 是一個 GUI 工具，可以幫助你偵錯 Playwright 測試。它允許你逐步執行測試、即時編輯定位器、選擇定位器並查看可操作性日誌。
 
 <img width="864" alt="Playwright Inspector" src="https://user-images.githubusercontent.com/13063165/212924587-4b84e5f6-b147-40e9-8c75-d7b9ab6b7ca1.png" />
 
 ### 在除錯模式下執行
 
-將 `PWDEBUG` 環境變數設置為在調試模式下執行你的 Playwright 測試。這會配置 Playwright 進行調試並打開檢查器。當設置 `PWDEBUG=1` 時，會配置其他有用的預設值:
+將 `PWDEBUG` 環境變數設置為在偵錯模式下執行你的 Playwright 測試。這會配置 Playwright 進行偵錯並打開檢查器。當設置 `PWDEBUG=1` 時，會配置其他有用的預設值:
 
 - 瀏覽器在有頭模式下啟動
 - 預設超時設定為 0（= 無超時）
@@ -295,7 +295,7 @@ pytest -s
 
 Playwright 預設以無頭模式執行瀏覽器。要更改此行為，請使用 `headless: false` 作為啟動選項。
 
-您也可以使用 `slow_mo` 選項來減慢執行速度（每次操作 N 毫秒），並在調試時跟隨。
+您也可以使用 `slow_mo` 選項來減慢執行速度（每次操作 N 毫秒），並在偵錯時跟隨。
 
 <Tabs
   groupId="python-flavor"

@@ -102,7 +102,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 | `--global-timeout <number>` | 整個測試運行的總超時時間（毫秒）。預設情況下，沒有全域超時。了解更多關於[各種超時](./test-timeouts.mdx)。|
 | `-g <grep>` or `--grep <grep>` | 只運行與此正則表達式匹配的測試。例如，這將在傳遞 `-g "add to cart"` 時運行 `'should add to cart'`。正則表達式將針對由專案名稱、測試文件名、`test.describe` 標題（如果有）、測試標題和所有測試標籤組成的字串進行測試，這些字串由空格分隔，例如 `chromium my-test.spec.ts my-suite my-test @smoke`。過濾器不適用於相依專案的測試，即 Playwright 仍將運行所有來自[專案相依性](./test-projects.mdx#dependencies)的測試。 |
 | `--grep-invert <grep>` | 只運行**不**匹配此正則表達式的測試。與 `--grep` 相反。過濾器不適用於相依專案的測試，即 Playwright 仍將運行所有來自[專案相依性](./test-projects.mdx#dependencies)的測試。|
-| `--headed` | 在有頭瀏覽器中運行測試。對於調試很有用。 |
+| `--headed` | 在有頭瀏覽器中運行測試。對於偵錯很有用。 |
 | `--ignore-snapshots` | 是否忽略[快照](./test-snapshots.mdx)。當快照期望值已知不同時使用，例如在 Linux 上運行測試對比 Windows 截圖。 |
 | `--last-failed` | 只重新運行失敗的測試。|
 | `--list` | 列出所有測試，但不運行它們。|

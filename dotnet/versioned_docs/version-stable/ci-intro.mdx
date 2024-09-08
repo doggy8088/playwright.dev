@@ -55,15 +55,15 @@ jobs:
 
 一旦你設定好你的 [GitHub actions workflow](#setting-up-github-actions) 後，你所需要做的就是 [在 GitHub 上建立一個 repo](https://docs.github.com/en/get-started/quickstart/create-a-repo) 或將你的程式碼推送到現有的儲存庫。按照 GitHub 上的指示操作，並且不要忘記使用 `git init` 命令 [初始化一個 git 儲存庫](https://github.com/git-guides/git-init)，這樣你就可以 [add](https://github.com/git-guides/git-add)、[commit](https://github.com/git-guides/git-commit) 和 [push](https://github.com/git-guides/git-push) 你的程式碼。
 
-###### 
+######
 
 ![dotnet repo on github](https://github.com/microsoft/playwright/assets/13063165/4f1b4cc3-b850-4d60-a99e-24057eaf91ad)
 
 ## 開啟工作流程
 
-點擊 **Actions** 標籤以查看工作流程。在這裡你將看到你的測試是否通過或失敗。
+點擊 **Actions** 頁籤以查看工作流程。在這裡你將看到你的測試是否通過或失敗。
 
-###### 
+######
 
 ![開啟工作流程](https://github.com/microsoft/playwright/assets/13063165/71793c09-0815-4faa-866b-85684a1f87e5)
 
@@ -75,7 +75,7 @@ jobs:
 
 點擊工作流程執行將顯示 GitHub 執行的所有操作，點擊 **Run Playwright tests** 將顯示錯誤訊息、預期結果和實際接收到的結果以及呼叫日誌。
 
-###### 
+######
 
 ![viewing the test logs](https://github.com/microsoft/playwright/assets/13063165/ba2d8d7b-ffce-42de-95e0-bcb35c421975)
 
@@ -83,7 +83,7 @@ jobs:
 
 您可以上傳在您的 CI（如 GitHub Actions）上建立的 Traces 作為 artifacts。這需要[開始和停止 trace](./trace-viewer-intro#recording-a-trace)。我們建議僅記錄失敗測試的 traces。一旦您的 traces 已上傳到 CI，它們可以使用 [trace.playwright.dev](https://trace.playwright.dev) 下載並打開，這是一個靜態託管的 Trace Viewer 變體。您可以使用拖放上傳 trace 文件。
 
-###### 
+######
 
 ![playwright trace viewer](https://github.com/microsoft/playwright/assets/13063165/84150084-5019-470a-8449-b61d206bfbb0)
 
