@@ -473,7 +473,7 @@ steps:
   - 'CI=true'
 ```
 
-### 無人機
+### Drone
 
 要在 Drone 上執行 Playwright 測試，請使用我們的公開 Docker 映像檔([see Dockerfile](./docker.mdx))。
 
@@ -503,7 +503,7 @@ Playwright 支援 `DEBUG` 環境變數來在執行期間輸出除錯日誌。將
 DEBUG=pw:browser npx playwright test
 ```
 
-## 執行 headed
+## 執行有頭瀏覽器 (Running headed)
 
 預設情況下，Playwright 會在無頭模式下啟動瀏覽器。請參閱我們的[執行測試](./running-tests.mdx#run-tests-in-headed-mode)指南，了解如何在有頭模式下執行測試。
 

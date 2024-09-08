@@ -20,7 +20,7 @@ page.getByRole(AriaRole.BUTTON).click();
 ```
 
 :::note
-[Page.onDialog(handler)](/api/class-page.mdx#page-event-dialog) 監聽器**必須處理**對話框。否則你的操作將會停滯，不管是 [Locator.click()](/api/class-locator.mdx#locator-click) 還是其他操作。這是因為 Web 中的對話框是模態的，因此會阻止進一步的頁面執行，直到它們被處理。
+[Page.onDialog(handler)](/api/class-page.mdx#page-event-dialog) 監聽器**必須處理**對話框。否則你的操作將會停滯，不管是 [Locator.click()](/api/class-locator.mdx#locator-click) 還是其他操作。這是因為網頁中的對話框通常為模態視窗 (modal dialog)，會阻擋進一步的頁面執行，直到它們被處理為止。
 :::
 
 由此可見，以下程式碼片段將永遠無法解析:

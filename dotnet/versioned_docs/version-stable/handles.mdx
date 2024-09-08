@@ -1,6 +1,6 @@
 ﻿---
 id: handles
-title: "控制代碼"
+title: "控制代碼 (Handles)"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -75,7 +75,7 @@ await myArrayHandle.DisposeAsync();
 
 ## Handle Lifecycle
 
-句柄可以使用頁面方法獲取，例如 [Page.EvaluateHandleAsync()](/api/class-page.mdx#page-evaluate-handle)、[Page.QuerySelectorAsync()](/api/class-page.mdx#page-query-selector) 或 [Page.QuerySelectorAllAsync()](/api/class-page.mdx#page-query-selector-all)，或其框架對應方法 [Frame.EvaluateHandleAsync()](/api/class-frame.mdx#frame-evaluate-handle)、[Frame.QuerySelectorAsync()](/api/class-frame.mdx#frame-query-selector) 或 [Frame.QuerySelectorAllAsync()](/api/class-frame.mdx#frame-query-selector-all)。一旦建立，句柄將保留物件，防止 [垃圾回收](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)，除非頁面導航或通過 [JsHandle.DisposeAsync()](/api/class-jshandle.mdx#js-handle-dispose) 方法手動處置句柄。
+控制代碼 (Handles) 可以使用頁面方法獲取，例如 [Page.EvaluateHandleAsync()](/api/class-page.mdx#page-evaluate-handle)、[Page.QuerySelectorAsync()](/api/class-page.mdx#page-query-selector) 或 [Page.QuerySelectorAllAsync()](/api/class-page.mdx#page-query-selector-all)，或其框架對應方法 [Frame.EvaluateHandleAsync()](/api/class-frame.mdx#frame-evaluate-handle)、[Frame.QuerySelectorAsync()](/api/class-frame.mdx#frame-query-selector) 或 [Frame.QuerySelectorAllAsync()](/api/class-frame.mdx#frame-query-selector-all)。一旦建立，控制代碼 (Handles) 將保留物件，防止 [垃圾回收](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)，除非頁面導航或通過 [JsHandle.DisposeAsync()](/api/class-jshandle.mdx#js-handle-dispose) 方法手動處置控制代碼 (Handles) 。
 
 ### API 參考
 

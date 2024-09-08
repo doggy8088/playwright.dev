@@ -53,7 +53,7 @@ test('query params', async ({ request }) => {
 - `mcr.microsoft.com/playwright:v1.47.0` 現在提供基於 Ubuntu 24.04 Noble 的 Playwright 映像。要使用基於 22.04 jammy 的映像，請改用 `mcr.microsoft.com/playwright:v1.47.0-jammy`。
 - 在 [page.removeAllListeners](/api/class-page.mdx#page-remove-all-listeners)()、[browser.removeAllListeners](/api/class-browser.mdx#browser-remove-all-listeners)() 和 [browserContext.removeAllListeners](/api/class-browsercontext.mdx#browser-context-remove-all-listeners)() 中新增了 `behavior` 選項，以等待正在進行的監聽器完成。
 - 現在可以通過將 `cert` 和 `key` 作為緩衝區傳遞，而不是文件路徑，從記憶體中傳遞 TLS 客戶端證書。
-- 現在可以在 HTML 報告中的新標籤頁中打開 `text/html` 內容類型的附件。這對於在 Playwright 測試報告中包含第三方報告或其他 HTML 內容並將其分發給您的團隊非常有用。
+- 現在可以在 HTML 報告中的新分頁中打開 `text/html` 內容類型的附件。這對於在 Playwright 測試報告中包含第三方報告或其他 HTML 內容並將其分發給您的團隊非常有用。
 - [locator.selectOption](/api/class-locator.mdx#locator-select-option)() 中的 `noWaitAfter` 已被棄用。
 - 我們已經看到 Webkit 中的 WebGL 在 GitHub Actions `macos-13` 上表現不正常的報告。我們建議將 GitHub Actions 升級到 `macos-14`。
 

@@ -1,6 +1,6 @@
 ﻿---
 id: evaluating
-title: "評估 JavaScript"
+title: "執行 JavaScript"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## 簡介
 
-Playwright 程式碼在你的 Playwright 環境中執行。你的頁面程式碼在瀏覽器頁面環境中執行。這些環境不會交叉，它們在不同的虛擬機器中執行，在不同的程序中，甚至可能在不同的電腦上。
+Playwright 腳本在你的 Playwright 環境中執行。你的頁面程式碼在瀏覽器頁面環境中執行。這些環境不會交叉，它們在不同的虛擬機器中執行，在不同的程序中，甚至可能在不同的電腦上。
 
 [Page.EvaluateAsync()](/api/class-page.mdx#page-evaluate) API 可以在網頁的上下文中執行 JavaScript 函式，並將結果帶回 Playwright 環境。像 `window` 和 `document` 這樣的瀏覽器全域物件可以在 `evaluate` 中使用。
 
@@ -49,7 +49,7 @@ var result = await page.EvaluateAsync("data => { window.myApp.use(data); }", dat
 
 ## 評估參數
 
-Playwright 評估方法如 [Page.EvaluateAsync()](/api/class-page.mdx#page-evaluate) 接受一個可選參數。此參數可以是 [Serializable] 值和 [JSHandle] 實例的混合。句柄會自動轉換為它們所代表的值。
+Playwright 評估方法如 [Page.EvaluateAsync()](/api/class-page.mdx#page-evaluate) 接受一個可選參數。此參數可以是 [Serializable] 值和 [JSHandle] 實例的混合。控制代碼 (Handles) 會自動轉換為它們所代表的值。
 
 ```csharp
 // A primitive value.

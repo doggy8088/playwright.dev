@@ -1,6 +1,6 @@
 ﻿---
 id: handles
-title: "控制代碼"
+title: "控制代碼 (Handles)"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -53,7 +53,7 @@ assertTrue(classNames.contains("highlighted"));
 
 ## Handles as parameters
 
-句柄可以傳入 [Page.evaluate()](/api/class-page.mdx#page-evaluate) 和類似的方法。以下程式碼片段在頁面中建立一個新的陣列，用資料初始化它，並將這個陣列的句柄返回給 Playwright。然後在後續的評估中使用這個句柄:
+控制代碼 (Handles) 可以傳入 [Page.evaluate()](/api/class-page.mdx#page-evaluate) 和類似的方法。以下程式碼片段在頁面中建立一個新的陣列，用資料初始化它，並將這個陣列的控制代碼 (Handles) 返回給 Playwright。然後在後續的評估中使用這個控制代碼 (Handles) :
 
 ```java
 // Create new array in page.
@@ -77,7 +77,7 @@ myArrayHandle.dispose();
 
 ## Handle Lifecycle
 
-句柄可以使用頁面方法獲取，例如 [Page.evaluateHandle()](/api/class-page.mdx#page-evaluate-handle), [Page.querySelector()](/api/class-page.mdx#page-query-selector) 或 [Page.querySelectorAll()](/api/class-page.mdx#page-query-selector-all) 或其框架對應方法 [Frame.evaluateHandle()](/api/class-frame.mdx#frame-evaluate-handle), [Frame.querySelector()](/api/class-frame.mdx#frame-query-selector) 或 [Frame.querySelectorAll()](/api/class-frame.mdx#frame-query-selector-all)。一旦建立，句柄將保留物件，防止其被[垃圾回收](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)，除非頁面導航或通過 [JSHandle.dispose()](/api/class-jshandle.mdx#js-handle-dispose) 方法手動處置句柄。
+控制代碼 (Handles) 可以使用頁面方法獲取，例如 [Page.evaluateHandle()](/api/class-page.mdx#page-evaluate-handle), [Page.querySelector()](/api/class-page.mdx#page-query-selector) 或 [Page.querySelectorAll()](/api/class-page.mdx#page-query-selector-all) 或其框架對應方法 [Frame.evaluateHandle()](/api/class-frame.mdx#frame-evaluate-handle), [Frame.querySelector()](/api/class-frame.mdx#frame-query-selector) 或 [Frame.querySelectorAll()](/api/class-frame.mdx#frame-query-selector-all)。一旦建立，控制代碼 (Handles) 將保留物件，防止其被[垃圾回收](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)，除非頁面導航或通過 [JSHandle.dispose()](/api/class-jshandle.mdx#js-handle-dispose) 方法手動處置控制代碼 (Handles) 。
 
 ### API 參考
 
