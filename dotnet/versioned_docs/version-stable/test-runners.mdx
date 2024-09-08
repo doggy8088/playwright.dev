@@ -20,7 +20,7 @@ Playwright 提供基礎類別來使用 MSTest 撰寫測試，透過 [`Microsoft.
 
 ### 執行 MSTest 測試並行
 
-預設情況下，MSTest 會平行處理所有類別，同時在每個類別內部依序執行測試（`ExecutionScope.ClassLevel`）。它會建立與主機系統上的核心數量相同的進程。您可以使用以下 CLI 參數或使用 `.runsettings` 文件來調整此行為，請參見下文。在方法層級（`ExecutionScope.MethodLevel`）平行處理測試是不支援的。
+預設情況下，MSTest 會平行處理所有類別，同時在每個類別內部依序執行測試（`ExecutionScope.ClassLevel`）。它會建立與主機系統上的核心數量相同的程序。您可以使用以下 CLI 參數或使用 `.runsettings` 文件來調整此行為，請參見下文。在方法層級（`ExecutionScope.MethodLevel`）平行處理測試是不支援的。
 
 ```bash
 dotnet test --settings:.runsettings -- MSTest.Parallelize.Workers=4
@@ -98,7 +98,7 @@ dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless
 
 ```xml
 <RunSettings>
-  <!-- MSTest adapter -->  
+  <!-- MSTest adapter -->
   <MSTest>
     <Parallelize>
       <Workers>4</Workers>
@@ -112,7 +112,7 @@ dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless
       <DEBUG>pw:api</DEBUG>
     </EnvironmentVariables>
   </RunConfiguration>
-  <!-- Playwright -->  
+  <!-- Playwright -->
   <Playwright>
     <BrowserName>chromium</BrowserName>
     <ExpectTimeout>5000</ExpectTimeout>
@@ -143,7 +143,7 @@ Playwright 提供基礎類別來使用 NUnit 撰寫測試，透過 [`Microsoft.P
 
 ### 執行 NUnit 測試在平行處理
 
-根據預設，NUnit 會平行執行所有測試檔案，同時在每個檔案內部順序執行測試（`ParallelScope.Self`）。它會建立與主機系統上核心數量相同的進程。您可以使用 NUnit.NumberOfTestWorkers 參數來調整此行為。僅支援 `ParallelScope.Self`。
+根據預設，NUnit 會平行執行所有測試檔案，同時在每個檔案內部順序執行測試（`ParallelScope.Self`）。它會建立與主機系統上核心數量相同的程序。您可以使用 NUnit.NumberOfTestWorkers 參數來調整此行為。僅支援 `ParallelScope.Self`。
 
 對於 CPU 密集型測試，我們建議使用與系統核心數量相同的工作者數量，除以 2。對於 IO 密集型測試，您可以使用與核心數量相同的工作者數量。
 
@@ -221,7 +221,7 @@ dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RunSettings>
-  <!-- NUnit adapter -->  
+  <!-- NUnit adapter -->
   <NUnit>
     <NumberOfTestWorkers>24</NumberOfTestWorkers>
   </NUnit>
@@ -232,7 +232,7 @@ dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless
       <DEBUG>pw:api</DEBUG>
     </EnvironmentVariables>
   </RunConfiguration>
-  <!-- Playwright -->  
+  <!-- Playwright -->
   <Playwright>
     <BrowserName>chromium</BrowserName>
     <ExpectTimeout>5000</ExpectTimeout>

@@ -193,7 +193,7 @@ jobs:
 
 1. 當使用 Chromium 時，也建議使用 `--ipc=host`。否則 Chromium 可能會耗盡記憶體並崩潰。了解更多關於此選項的資訊在 [Docker docs](https://docs.docker.com/engine/reference/run/#ipc-settings---ipc)。
 1. 啟動 Chromium 時看到其他奇怪的錯誤？嘗試在本地開發時使用 `docker run --cap-add=SYS_ADMIN` 執行容器。
-1. 建議使用 `--init` Docker 旗標或 [dumb-init](https://github.com/Yelp/dumb-init) 來避免對 PID=1 的進程進行特殊處理。這是殭屍進程的一個常見原因。
+1. 建議使用 `--init` Docker 旗標或 [dumb-init](https://github.com/Yelp/dumb-init) 來避免對 PID=1 的程序進行特殊處理。這是殭屍程序的一個常見原因。
 
 ### Azure Pipelines
 

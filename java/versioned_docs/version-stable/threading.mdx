@@ -10,7 +10,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 Playwright Java 並不是執行緒安全的，也就是說，所有其方法以及所有由其建立的物件（例如 [BrowserContext]、[Browser]、[Page] 等）都應該在建立 Playwright 物件的同一執行緒上呼叫，或者應實作適當的同步化以確保在任何給定時間只有一個執行緒呼叫 Playwright 方法。話雖如此，可以在各自的執行緒上建立多個 Playwright 實例。
 
-這裡是一個範例，其中三個 Playwright 實例分別在各自的執行緒上建立。每個實例啟動自己的瀏覽器進程並對其進行測試。
+這裡是一個範例，其中三個 Playwright 實例分別在各自的執行緒上建立。每個實例啟動自己的瀏覽器程序並對其進行測試。
 
 ```java
 package org.example;
