@@ -1,6 +1,6 @@
 ﻿---
 id: test-reporters
-title: "報告者"
+title: "報告器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -14,7 +14,7 @@ Playwright Test 附帶一些內建的報告工具，以滿足不同的需求，�
 npx playwright test --reporter=line
 ```
 
-為了獲得更多控制，您可以在[設定檔](./test-configuration.mdx)中以程式化方式指定報告者。
+為了獲得更多控制，您可以在[設定檔](./test-configuration.mdx)中以程式化方式指定報告器。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -39,7 +39,7 @@ export default defineConfig({
 });
 ```
 
-### CI 上的報告者
+### CI 上的報告器
 
 您可以在本地和 CI 上使用不同的報告器。例如，使用簡潔的 `'dot'` 報告器可以避免過多的輸出。這是 CI 上的預設設定。
 
@@ -146,9 +146,9 @@ Running 124 tests using 6 workers
 | `PLAYWRIGHT_FORCE_TTY` | | 是否產生適合即時終端機的輸出。如果指定了數字，該數字也將用作終端機寬度。 | 當終端機處於 TTY 模式時為 `true`，否則為 `false`。
 | `FORCE_COLOR` | | 是否產生彩色輸出。 | 當終端機處於 TTY 模式時為 `true`，否則為 `false`。
 
-### 點報告者
+### Dot reporter
 
-Dot reporter 非常簡潔 - 每次成功的測試執行只會產生一個字符。它是 CI 上的預設選項，適用於不需要大量輸出的情況。
+Dot reporter 非常簡潔 - 每次成功的測試執行只會產生一個字元。它是 CI 上的預設選項，適用於不需要大量輸出的情況。
 
 ```bash
 npx playwright test --reporter=dot
@@ -170,7 +170,7 @@ Running 124 tests using 6 workers
 ······F·············································
 ```
 
-每個已執行測試都會顯示一個字符，指示其狀態:
+每個已執行測試都會顯示一個字元，指示其狀態:
 
 | Character | Description |
 |---|---|
@@ -400,7 +400,7 @@ JUnit 報告支援以下配置選項和環境變數:
 
 ### GitHub Actions 註解
 
-您可以使用內建的 `github` reporter 在 GitHub actions 執行時獲取自動失敗註解。
+您可以使用內建的 `github` reporter 在 GitHub Actions 執行時獲取自動失敗註解。
 
 請注意，所有其他報告器也可以在 GitHub Actions 上運行，但不提供註釋。此外，如果使用矩陣策略執行測試，不建議使用此註釋類型，因為堆疊追蹤失敗將會倍增並模糊 GitHub 文件視圖。
 

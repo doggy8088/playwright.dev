@@ -115,7 +115,7 @@ await page.GetByRole(AriaRole.Button).DispatchEventAsync("click");
 ## 鍵入字元
 
 :::caution
-大多數情況下，你應該使用 [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) 輸入文字。請參見上面的 [Text input](#text-input) 部分。只有在頁面上有特殊鍵盤處理時，你才需要輸入字符。
+大多數情況下，你應該使用 [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) 輸入文字。請參見上面的 [Text input](#text-input) 部分。只有在頁面上有特殊鍵盤處理時，你才需要輸入字元。
 :::
 
 逐字輸入欄位，就像使用真實鍵盤的使用者一樣，使用 [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially)。
@@ -148,7 +148,7 @@ ArrowDown, End, Enter, Home, Insert, PageDown, PageUp, ArrowRight,
 ArrowUp, F1 - F12, Digit0 - Digit9, KeyA - KeyZ, etc.
 ```
 
-- 你也可以選擇指定一個你想要生成的單一字符，例如 `"a"` 或 `"#"`。
+- 你也可以選擇指定一個你想要生成的單一字元，例如 `"a"` 或 `"#"`。
 - 以下的修改快捷鍵也被支援: `Shift, Control, Alt, Meta`。
 
 簡單版本會產生一個單一字元。這個字元是區分大小寫的，所以 `"a"` 和 `"A"` 會產生不同的結果。
