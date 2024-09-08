@@ -78,7 +78,7 @@ test('sign in', async ({ mount }) => { // 2
 });
 ```
 
-遷移重點 (請參閱 Playwright Test 程式碼片段中的內嵌註解):
+遷移重點 (請參閱 Playwright Test 程式碼片段中的內嵌註釋):
 
 1. 從 `@playwright/experimental-ct-react`（或 -vue, -svelte）匯入所有內容以進行元件測試，或從 `@playwright/test` 進行端到端測試。
 1. 測試函式會給予一個與其他測試隔離的 `page`，以及在此頁面中渲染元件的 `mount`。這些是 Playwright Test 中的兩個[有用的 fixtures](./api/class-fixtures)。

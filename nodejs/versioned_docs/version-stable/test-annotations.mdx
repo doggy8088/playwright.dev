@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 
 ## 簡介
 
-Playwright 支援在測試報告中顯示標籤和註解。
+Playwright 支援在測試報告中顯示標籤和註釋。
 
 你可以隨時添加你自己的標籤和註釋，但 Playwright 附帶了一些內建的標籤:
 
@@ -17,9 +17,9 @@ Playwright 支援在測試報告中顯示標籤和註解。
 - [test.fixme()](/api/class-test.mdx#test-fixme) 將測試標記為失敗。與 `fail` 註釋相反，Playwright 不會執行此測試。當測試執行緩慢或崩潰時使用 `fixme`。
 - [test.slow()](/api/class-test.mdx#test-slow) 將測試標記為緩慢並將測試超時時間增加三倍。
 
-可以將註解新增到單一測試或一組測試。
+可以將註釋新增到單一測試或一組測試。
 
-內建註解可以是有條件的，在這種情況下，它們在條件為真時適用，並且可能依賴於測試夾具。同一測試上可能有多個註解，可能在不同的配置中。
+內建註釋可以是有條件的，在這種情況下，它們在條件為真時適用，並且可能依賴於測試夾具。同一測試上可能有多個註釋，可能在不同的配置中。
 
 ## 聚焦測試
 
@@ -221,7 +221,7 @@ npx playwright test --grep "(?=.*@fast)(?=.*@slow)"
 
 ## 標註測試
 
-如果你想用比標籤更實質的東西來註解你的測試，你可以在宣告測試時這樣做。註解有一個 `type` 和一個 `description` 來提供更多上下文，並且在 reporter API 中可用。Playwright 的內建 HTML reporter 顯示所有註解，除了那些 `type` 以 `_` 符號開頭的註解。
+如果你想用比標籤更實質的東西來註釋你的測試，你可以在宣告測試時這樣做。註釋有一個 `type` 和一個 `description` 來提供更多上下文，並且在 reporter API 中可用。Playwright 的內建 HTML reporter 顯示所有註釋，除了那些 `type` 以 `_` 符號開頭的註釋。
 
 例如，要用問題 URL 註釋測試:
 
@@ -286,7 +286,7 @@ test.describe('chromium only', () => {
 
 ## 在 `beforeEach` 鉤子中使用 fixme
 
-為了避免執行 `beforeEach` 鉤子，你可以將註解放在鉤子本身中。
+為了避免執行 `beforeEach` 鉤子，你可以將註釋放在鉤子本身中。
 
 ```js title="example.spec.ts"
 
@@ -302,9 +302,9 @@ test('user profile', async ({ page }) => {
 });
 ```
 
-## 執行時註解
+## 執行時註釋
 
-在測試已經執行時，你可以添加註解到 [`test.info().annotations`](./api/class-testinfo#test-info-annotations)。
+在測試已經執行時，你可以添加註釋到 [`test.info().annotations`](./api/class-testinfo#test-info-annotations)。
 
 ```js title="example.spec.ts"
 

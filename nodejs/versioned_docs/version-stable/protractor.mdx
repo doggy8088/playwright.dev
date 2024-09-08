@@ -78,7 +78,7 @@ test.describe('angularjs homepage todo list', () => {
 });
 ```
 
-遷移重點 (請參閱 Playwright Test 程式碼片段中的內嵌註解):
+遷移重點 (請參閱 Playwright Test 程式碼片段中的內嵌註釋):
 
 1. 每個 Playwright 測試文件都有明確的 `test` 和 `expect` 函式匯入
 1. 測試函式標記為 `async`
@@ -94,11 +94,11 @@ Playwright Test 有內建的[自動等待](./actionability.mdx)，這使得 prot
 
 1. 確保你在 package.json 中安裝了 protractor
 1. Polyfill function
-   
+
    ```js
    async function waitForAngular(page) {
      const clientSideScripts = require('protractor/built/clientsidescripts.js');
-   
+
      async function executeScriptAsync(page, script, ...scriptArgs) {
        await page.evaluate(`
          new Promise((resolve, reject) => {
@@ -112,13 +112,13 @@ Playwright Test 有內建的[自動等待](./actionability.mdx)，這使得 prot
          })
        `);
      }
-   
+
      await executeScriptAsync(page, clientSideScripts.waitForAngular, '');
    }
    ```
-   
+
    如果你不想保留一個版本的 protractor，你也可以使用這個更簡單的方法（僅適用於 Angular 2+）:
-   
+
    ```js
    async function waitForAngular(page) {
      await page.evaluate(async () => {
@@ -134,9 +134,9 @@ Playwright Test 有內建的[自動等待](./actionability.mdx)，這使得 prot
      });
    }
    ```
-   
+
 1. Polyfill usage
-   
+
    ```js
    const page = await context.newPage();
    await page.goto('https://example.org');

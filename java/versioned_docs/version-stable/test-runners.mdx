@@ -90,7 +90,7 @@ public class TestExample {
 
 預設情況下，JUnit 將在單個執行緒上順序執行所有測試。自 JUnit 5.3 起，您可以更改此行為以平行執行測試以加快執行速度（請參閱[此頁面](https://junit.org/junit5/docs/snapshot/user-guide/index.html#writing-tests-parallel-execution)）。由於在沒有額外同步的情況下，從多個執行緒使用相同的 Playwright 物件是不安全的，我們建議您為每個執行緒建立 Playwright 實例，並在該執行緒上專門使用它。以下是一個如何平行執行多個測試類別的範例。
 
-使用 [`@TestInstance(TestInstance.Lifecycle.PER_CLASS)`](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/TestInstance.html) 註解來讓 JUnit 為該類別中的所有測試方法建立一個類別的實例（預設情況下，每個 JUnit 會為每個測試方法建立一個新的類別實例）。將 [Playwright] 和 [Browser] 物件儲存在實例欄位中。它們將在測試之間共享。每個類別的實例將使用其自己的 Playwright 複製品。
+使用 [`@TestInstance(TestInstance.Lifecycle.PER_CLASS)`](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/TestInstance.html) 註釋來讓 JUnit 為該類別中的所有測試方法建立一個類別的實例（預設情況下，每個 JUnit 會為每個測試方法建立一個新的類別實例）。將 [Playwright] 和 [Browser] 物件儲存在實例欄位中。它們將在測試之間共享。每個類別的實例將使用其自己的 Playwright 複製品。
 
 ```java
 // Subclasses will inherit PER_CLASS behavior.

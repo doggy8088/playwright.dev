@@ -51,7 +51,7 @@ public class TestExample {
 
 ## Fixtures
 
-只需將 JUnit 註解 `@UsePlaywright` 添加到您的測試類別，即可啟用 Playwright fixtures。測試 fixtures 用於為每個測試建立環境，提供測試所需的一切，而不會有其他東西。
+只需將 JUnit 註釋 `@UsePlaywright` 添加到您的測試類別，即可啟用 Playwright fixtures。測試 fixtures 用於為每個測試建立環境，提供測試所需的一切，而不會有其他東西。
 
 ```java
 @UsePlaywright
@@ -80,7 +80,7 @@ public class TestExample {
 
 ## 自訂選項
 
-要自訂固定裝置選項，您應該實作一個 `OptionsFactory` 並在 `@UsePlaywright()` 註解中指定該類別。
+要自訂固定裝置選項，您應該實作一個 `OptionsFactory` 並在 `@UsePlaywright()` 註釋中指定該類別。
 
 您可以輕鬆地覆寫 [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 的啟動選項，或 [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 的上下文選項。請參閱以下範例。
 
