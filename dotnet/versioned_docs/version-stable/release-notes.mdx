@@ -37,7 +37,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 - Google Chrome 128
 - Microsoft Edge 128
 
-## Version 1.46
+## 版本 1.46
 
 ### TLS Client Certificates
 
@@ -80,7 +80,7 @@ var context = await Browser.NewContextAsync(new() {
 - Google Chrome 127
 - Microsoft Edge 127
 
-## Version 1.45
+## 版本 1.45
 
 ### 時鐘
 
@@ -267,7 +267,7 @@ await Page.RemoveLocatorHandlerAsync(locator);
 * Google Chrome 123
 * Microsoft Edge 123
 
-## Version 1.42
+## 版本 1.42
 
 ### 新定位器處理程式
 
@@ -306,7 +306,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 * Google Chrome 122
 * Microsoft Edge 123
 
-## Version 1.41
+## 版本 1.41
 
 ### 新的 API
 
@@ -325,7 +325,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 * Google Chrome 120
 * Microsoft Edge 120
 
-## Version 1.40
+## 版本 1.40
 
 ### 測試程式碼產生器更新
 
@@ -370,7 +370,7 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 * Google Chrome 119
 * Microsoft Edge 119
 
-## Version 1.39
+## 版本 1.39
 
 Evergreen 瀏覽器更新。
 
@@ -385,7 +385,7 @@ Evergreen 瀏覽器更新。
 * Google Chrome 118
 * Microsoft Edge 118
 
-## Version 1.38
+## 版本 1.38
 
 ### 追蹤檢視器更新
 
@@ -414,7 +414,7 @@ Evergreen 瀏覽器更新。
 * Google Chrome 116
 * Microsoft Edge 116
 
-## Version 1.37
+## 版本 1.37
 
 ### 📚 Debian 12 Bookworm 支援
 
@@ -439,7 +439,7 @@ Linux 支援看起來像這樣:
 * Google Chrome 115
 * Microsoft Edge 115
 
-## Version 1.36
+## 版本 1.36
 
 🏝️ 夏季維護版本發佈。
 
@@ -454,7 +454,7 @@ Linux 支援看起來像這樣:
 * Google Chrome 114
 * Microsoft Edge 114
 
-## Version 1.35
+## 版本 1.35
 
 ### 重點
 
@@ -621,7 +621,7 @@ Linux 支援看起來像這樣:
 * Google Chrome 109
 * Microsoft Edge 109
 
-## Version 1.29
+## 版本 1.29
 
 ### 新的 API
 
@@ -750,7 +750,7 @@ await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 * Google Chrome 106
 * Microsoft Edge 106
 
-## Version 1.26
+## 版本 1.26
 
 ### 斷言
 
@@ -835,7 +835,7 @@ await Page.GotoAsync("https://playwright.dev", new() { WaitUntil = WaitUntilStat
 * Google Chrome 104
 * Microsoft Edge 104
 
-## Version 1.24
+## 版本 1.24
 
 <div className="embed-youtube">
 
@@ -859,7 +859,7 @@ Linux 支援看起來像這樣:
 
 我們重寫了我們的設定指南文件，使其更專注於端到端測試。請在 [playwright.dev](./intro) 查看。
 
-## Version 1.23
+## 版本 1.23
 
 ### API 測試
 
@@ -979,7 +979,7 @@ await page.RouteAsync("**/*", async route =>
 * Playwright 現在可以在 Ubuntu 22 amd64 和 Ubuntu 22 arm64 上執行。
 * Playwright for .NET 現在支援 **linux-arm64** 並為其提供 **arm64 Ubuntu 20.04 Docker image**。
 
-## Version 1.22
+## 版本 1.22
 
 ### 重點
 
@@ -1000,7 +1000,7 @@ await page.RouteAsync("**/*", async route =>
   await submitLocator.ClickAsync();
   ```
 
-## Version 1.21
+## 版本 1.21
 
 ### 重點
 
@@ -1031,7 +1031,7 @@ await page.RouteAsync("**/*", async route =>
 - Google Chrome 100
 - Microsoft Edge 100
 
-## Version 1.20
+## 版本 1.20
 
 ### Web-First Assertions
 
@@ -1083,7 +1083,7 @@ Playwright 將會重新測試具有選擇器 `.status` 的節點，直到獲取�
 - Google Chrome 99
 - Microsoft Edge 99
 
-## Version 1.19
+## 版本 1.19
 
 ### 重點
 
@@ -1139,7 +1139,7 @@ Playwright 將會重新測試具有選擇器 `.status` 的節點，直到獲取�
 - Google Chrome 97
 - Microsoft Edge 97
 
-## Version 1.17
+## 版本 1.17
 
 ### Frame 定位器
 
@@ -1190,7 +1190,7 @@ Playwright Trace Viewer 現在**可在線使用**，網址為 [https://trace.pla
 - Tracing 現在支援一個 [`'title'`](./api/class-tracing#tracing-start-option-title) 選項
 - Page 導航支援一個新的 [`'commit'`](./api/class-page#page-goto) 等待選項
 
-## Version 1.16
+## 版本 1.16
 
 ### 🎭 Playwright 函式庫
 
@@ -1263,7 +1263,7 @@ orderSent.WaitForAsync();
 - Mozilla Firefox 92.0
 - WebKit 15.0
 
-## Version 1.14
+## 版本 1.14
 
 #### ⚡️ 新的 "strict" 模式
 
@@ -1355,7 +1355,7 @@ await button.ClickAsync("button >> visible=true");
 - 新的 `force` 選項在 [Page.FillAsync()](/api/class-page.mdx#page-fill), [Frame.FillAsync()](/api/class-frame.mdx#frame-fill), 和 [ElementHandle.FillAsync()](/api/class-elementhandle.mdx#element-handle-fill)
 - 新的 `force` 選項在 [Page.SelectOptionAsync()](/api/class-page.mdx#page-select-option), [Frame.SelectOptionAsync()](/api/class-frame.mdx#frame-select-option), 和 [ElementHandle.SelectOptionAsync()](/api/class-elementhandle.mdx#element-handle-select-option)
 
-## Version 1.12
+## 版本 1.12
 
 #### 重點
 
