@@ -206,7 +206,7 @@ const Home: React.FC = () => {
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className={clsx("hero__title", styles.heroTitle)}>
-            <span className={styles.highlight}>Playwright</span> 為現代網頁應用提供穩定可靠的<br/>端到端測試體驗。
+            <span className={styles.highlight}>Playwright</span> 為現代網頁應用提供穩定可靠的端到端測試體驗。
           </h1>
           <div className={styles.buttons}>
             <Link
