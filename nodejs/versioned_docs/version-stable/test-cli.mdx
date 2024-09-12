@@ -116,7 +116,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 | `--repeat-each <N>` | 每個測試運行 `N` 次，預設為一次。 |
 | `--reporter <reporter>` | 選擇一個報告器：簡約的 `dot`，簡潔的 `line` 或詳細的 `list`。查看[報告器](./test-reporters.mdx)以獲取更多資訊。您也可以傳遞一個[自定義報告器](./test-reporters.mdx#custom-reporters)文件的路徑。 |
 | `--retries <number>` | 不穩定測試的最大[重試](./test-retries.mdx#retries)次數，預設為零（不重試）。 |
-| `--shard <shard>` | [分片](./test-parallel.mdx#shard-tests-between-multiple-machines)測試並僅執行選定的分片，以 `current/all` 的形式指定，從 1 開始，例如 `3/5`。|
+| `--shard <shard>` | [分片](./test-parallel.mdx#在多台機器之間分片測試)測試並僅執行選定的分片，以 `current/all` 的形式指定，從 1 開始，例如 `3/5`。|
 | `--timeout <number>` | 每個測試的最大超時時間（毫秒），預設為 30 秒。了解更多關於[各種超時](./test-timeouts.mdx)。|
 | `--trace <mode>` | 強制追蹤模式，可以是 `on`、`off`、`on-first-retry`、`on-all-retries`、`retain-on-failure` |
 | `--tsconfig <path>` | 適用於所有導入文件的單個 tsconfig 的路徑。查看[tsconfig 解析](./test-typescript.mdx#tsconfig-resolution)以獲取更多詳情。 |
