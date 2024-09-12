@@ -110,7 +110,7 @@ export default defineConfig({
 
 ### Line reporter
 
-Line reporter 比 List reporter 更簡潔。它使用單行報告最後完成的測試，並在發生失敗時列印出來。Line reporter對於大型測試套件非常有用，它顯示進度但不會通過列出所有測試來刷屏輸出。
+Line reporter 比 List reporter 更簡潔。它使用單行報告最後完成的測試，並在發生失敗時輸出到螢幕上。Line reporter 對於大型測試套件非常有用，它顯示進度但不會將所有測試輸出到螢幕上。
 
 ```bash
 npx playwright test --reporter=line
