@@ -1,0 +1,5 @@
+> **僅限 Chromium** Playwright 也可以用來控制 Google Chrome 或 Microsoft Edge 瀏覽器，但它與捆綁的 Chromium 版本一起使用效果最佳。無法保證它能與任何其他版本一起工作。使用 `executablePath` 選項時需極度謹慎。
+>
+> 如果偏好使用 Google Chrome（而不是 Chromium），建議使用 [Chrome Canary](https://www.google.com/chrome/browser/canary.html) 或 [Dev Channel](https://www.chromium.org/getting-involved/dev-channel) 版本。
+>
+> 像 Google Chrome 和 Microsoft Edge 這樣的標準瀏覽器適合需要專有媒體編解碼器進行影片播放的測試。請參閱[這篇文章](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/) 了解 Chromium 和 Chrome 之間的其他差異。[這篇文章](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md) 描述了 Linux 用戶的一些差異。

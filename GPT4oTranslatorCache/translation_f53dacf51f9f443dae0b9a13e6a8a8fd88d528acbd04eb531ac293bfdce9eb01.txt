@@ -1,0 +1,3 @@
+:::note
+這類似於強制退出瀏覽器。因此，在呼叫 [browser.close](https://api/class-browser.mdx#browser-close) **之前**，你應該呼叫 [browserContext.close](https://api/class-browsercontext.mdx#browser-context-close) 於任何你之前用 [browser.newContext](https://api/class-browser.mdx#browser-new-context) 明確建立的 [BrowserContext]。
+:::

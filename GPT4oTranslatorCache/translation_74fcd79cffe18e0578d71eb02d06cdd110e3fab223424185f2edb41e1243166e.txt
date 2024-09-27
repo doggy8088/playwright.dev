@@ -1,0 +1,7 @@
+|Timeout    |Default             |Description                      |
+|:----------|:----------------|:--------------------------------|
+|Action timeout| no timeout |每個動作的超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { use: { actionTimeout: 10000 } }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`locator.click({ timeout: 10000 })` |
+|Navigation timeout| no timeout |每個導航動作的超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { use: { navigationTimeout: 30000 } }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`page.goto('/', { timeout: 30000 })` |
+|Global timeout|no timeout |整個測試執行的全域超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set in config</span><br/>`config = { globalTimeout: 60*60*1000 }`<br/> |
+|`beforeAll`/`afterAll` timeout|30000 ms|鉤子的超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set in hook</span><br/>`test.setTimeout(60000)`<br/> |
+|Fixture timeout|no timeout |單個夾具的超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set in fixture</span><br/>`{ scope: 'test', timeout: 30000 }`<br/> |

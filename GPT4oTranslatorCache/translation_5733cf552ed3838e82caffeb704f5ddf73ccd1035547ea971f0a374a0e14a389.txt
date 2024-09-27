@@ -1,0 +1,8 @@
+| Option | Description |
+| :- | :- |
+| [testOptions.actionTimeout](/api/class-testoptions.mdx#test-options-action-timeout) | 每個 Playwright 動作的超時時間（以毫秒為單位）。預設為 `0`（無超時）。了解更多關於[超時](./test-timeouts.mdx)及如何為單個測試設定。 |
+| [testOptions.browserName](/api/class-testoptions.mdx#test-options-browser-name) | 執行測試的瀏覽器名稱。預設為 'chromium'。選項包括 `chromium`、`firefox` 或 `webkit`。 |
+| [testOptions.bypassCSP](/api/class-testoptions.mdx#test-options-bypass-csp) | 切換繞過內容安全政策（CSP）。當 CSP 包含生產來源時很有用。預設為 `false`。 |
+| [testOptions.channel](/api/class-testoptions.mdx#test-options-channel) | 要使用的瀏覽器頻道。了解更多關於不同瀏覽器和頻道的[資訊](./browsers.mdx)。 |
+| [testOptions.headless](/api/class-testoptions.mdx#test-options-headless) | 是否在無頭模式下執行瀏覽器，這意味著在執行測試時不顯示瀏覽器。預設為 `true`。 |
+| [testOptions.testIdAttribute](/api/class-testoptions.mdx#test-options-test-id-attribute) | 更改 Playwright 定位器使用的預設[`data-testid`屬性](./locators.mdx#locate-by-test-id)。

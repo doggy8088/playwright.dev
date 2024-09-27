@@ -1,0 +1,36 @@
+- [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-storage-state-return"/><a href="#browser-context-storage-state-return" class="list-anchor">#</a>
+  - `cookies` [List]\[[Dict]\]
+    - `name` [str]
+      
+      
+    - `value` [str]
+      
+      
+    - `domain` [str]
+      
+      
+    - `path` [str]
+      
+      
+    - `expires` [float]
+      
+      Unix time in seconds.
+    - `httpOnly` [bool]
+      
+      
+    - `secure` [bool]
+      
+      
+    - `sameSite` "Strict" | "Lax" | "None"
+      
+      
+    
+  - `origins` [List]\[[Dict]\]
+    - `origin` [str]
+      
+      
+    - `localStorage` [List]\[[Dict]\]
+      - `name` [str]
+        
+        
+      - `value` [str]

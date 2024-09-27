@@ -1,0 +1,35 @@
+- `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-checked-option-selector"/><a href="#frame-set-checked-option-selector" class="list-anchor">#</a>
+  
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `checked` [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-checked-option-checked"/><a href="#frame-set-checked-option-checked" class="list-anchor">#</a>
+  
+  是否勾選或取消勾選複選框。
+- `options` `Frame.SetCheckedOptions` *(optional)*
+  - `setForce` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-checked-option-force"/><a href="#frame-set-checked-option-force" class="list-anchor">#</a>
+    
+    是否繞過[actionability](../actionability.mdx)檢查。預設為`false`。
+  - `setNoWaitAfter` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-checked-option-no-wait-after"/><a href="#frame-set-checked-option-no-wait-after" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+    
+    
+    此選項無效。
+  - `setPosition` Position *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-checked-option-position"/><a href="#frame-set-checked-option-position" class="list-anchor">#</a>
+    - `setX` [double]
+      
+      
+    - `setY` [double]
+      
+      
+    相對於元素填充框左上角的位置點。如果未指定，將使用元素的某個可見點。
+  - `setStrict` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-checked-option-strict"/><a href="#frame-set-checked-option-strict" class="list-anchor">#</a>
+    
+    當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-checked-option-timeout"/><a href="#frame-set-checked-option-timeout" class="list-anchor">#</a>
+    
+    最大時間（毫秒）。預設為`30000`（30秒）。傳遞`0`以禁用超時。可以使用[BrowserContext.setDefaultTimeout()](https://ollama.com/api/class-browsercontext.mdx#browser-context-set-default-timeout)或[Page.setDefaultTimeout()](https://ollama.com/api/class-page.mdx#page-set-default-timeout)方法更改預設值。
+  - `setTrial` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-checked-option-trial"/><a href="#frame-set-checked-option-trial" class="list-anchor">#</a>
+    
+    設置時，此方法僅執行[actionability](../actionability.mdx)檢查並跳過操作。預設為`false`。在不執行操作的情況下，等待元素準備好操作時非常有用。

@@ -1,0 +1,62 @@
+- 新方法 [route.fetch()](https://api/class-route.mdx#route-fetch) 和 [route.fulfill()](https://api/class-route.mdx#route-fulfill) 的新選項 `json`:
+  
+  ```js
+  await page.route('**/api/settings', async route => {
+    // 獲取原始設定。
+    const response = await route.fetch();
+  
+    // 強制設定主題為預定義值。
+    const json = await response.json();
+    json.theme = 'Solorized';
+  
+    // 使用修改後的資料完成。
+    await route.fulfill({ json });
+  });
+  ```
+  
+- 新方法 [locator.all()](https://api/class-locator.mdx#locator-all) 用於遍歷所有匹配的元素:
+  
+  ```js
+  // 檢查所有的複選框！
+  const checkboxes = page.getByRole('checkbox');
+  for (const checkbox of await checkboxes.all())
+    await checkbox.check();
+  ```
+  
+- [locator.selectOption()](https://api/class-locator.mdx#locator-select-option) 現在可以通過值或標籤匹配:
+  
+  ```html
+  <select multiple>
+    <option value="red">Red</div>
+    <option value="green">Green</div>
+    <option value="blue">Blue</div>
+  </select>
+  ```
+  
+  ```js
+  await element.selectOption('Red');
+  ```
+  
+- 重試程式碼塊直到所有斷言通過:
+  
+  ```js
+  await expect(async () => {
+    const response = await page.request.get('https://api.example.com');
+    await expect(response).toBeOK();
+  }).toPass();
+  ```
+  
+  在 [我們的文件](./test-assertions.mdx#expecttopass) 中閱讀更多資訊。
+- 測試失敗時自動捕獲**全頁截圖**:
+  
+  ```js title="playwright.config.ts"
+  import { defineConfig } from '@playwright/test';
+  export default defineConfig({
+    use: {
+      screenshot: {
+        mode: 'only-on-failure',
+        fullPage: true,
+      }
+    }
+  });
+  ```

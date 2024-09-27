@@ -1,0 +1,28 @@
+- [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-timing-return"/><a href="#request-timing-return" class="list-anchor">#</a>
+  - `startTime` [float]
+    
+    請求開始時間，以 1970 年 1 月 1 日 00:00:00 UTC 起經過的毫秒數表示
+  - `domainLookupStart` [float]
+    
+    瀏覽器開始查詢資源的域名之前的時間。該值以相對於 `startTime` 的毫秒數表示，如果不可用則為 -1。
+  - `domainLookupEnd` [float]
+    
+    瀏覽器開始查詢資源的域名之後的時間。該值以相對於 `startTime` 的毫秒數表示，如果不可用則為 -1。
+  - `connectStart` [float]
+    
+    使用者代理開始建立與伺服器的連接以檢索資源之前的時間。該值以相對於 `startTime` 的毫秒數表示，如果不可用則為 -1。
+  - `secureConnectionStart` [float]
+    
+    瀏覽器開始握手過程以保護當前連接之前的時間。該值以相對於 `startTime` 的毫秒數表示，如果不可用則為 -1。
+  - `connectEnd` [float]
+    
+    使用者代理開始建立與伺服器的連接以檢索資源之前的時間。該值以相對於 `startTime` 的毫秒數表示，如果不可用則為 -1。
+  - `requestStart` [float]
+    
+    瀏覽器開始從伺服器、快取或本地資源請求資源之前的時間。該值以相對於 `startTime` 的毫秒數表示，如果不可用則為 -1。
+  - `responseStart` [float]
+    
+    瀏覽器從伺服器、快取或本地資源接收到響應的第一個字節之後的時間。該值以相對於 `startTime` 的毫秒數表示，如果不可用則為 -1。
+  - `responseEnd` [float]
+    
+    瀏覽器接收到資源的最後一個字節之後或傳輸連接關閉之前的時間，以先到者為準。該值以相對於 `startTime` 的毫秒數表示，如果不可用則為 -1。

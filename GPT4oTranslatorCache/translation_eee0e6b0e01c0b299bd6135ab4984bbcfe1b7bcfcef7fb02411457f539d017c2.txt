@@ -1,0 +1,1 @@
+請注意，結果匹配是根據它們與錨點元素的距離排序的，因此您可以使用 [Locator.First](/api/class-locator.mdx#locator-first) 來選擇最近的一個。如果您有類似元素的列表，其中最近的顯然是正確的，這才有用。然而，在其他情況下使用 [Locator.First](/api/class-locator.mdx#locator-first) 很可能不會如預期般工作——它不會定位到您正在搜索的元素，而是一些碰巧最近的其他元素，如隨機的空 `<div>`，或是滾動出來且當前不可見的元素。

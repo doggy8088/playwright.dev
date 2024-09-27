@@ -1,0 +1,24 @@
+- `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-fill-option-selector"/><a href="#frame-fill-option-selector" class="list-anchor">#</a>
+  
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `value` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-fill-option-value"/><a href="#frame-fill-option-value" class="list-anchor">#</a>
+  
+  用於填充 `<input>`、`<textarea>` 或 `[contenteditable]` 元素的值。
+- `options` `FrameFillOptions?` *(可選)*
+  - `Force` [bool]? *(可選)* <font size="2">新增於: v1.13</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-fill-option-force"/><a href="#frame-fill-option-force" class="list-anchor">#</a>
+    
+    是否繞過[actionability](../actionability.mdx)檢查。預設為 `false`。
+  - `NoWaitAfter` [bool]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-fill-option-no-wait-after"/><a href="#frame-fill-option-no-wait-after" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+    
+    
+    此選項無效。
+  - `Strict` [bool]? *(可選)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-fill-option-strict"/><a href="#frame-fill-option-strict" class="list-anchor">#</a>
+    
+    當為 true 時，呼叫要求選擇器解析為單一元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+  - `Timeout` [float]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-fill-option-timeout"/><a href="#frame-fill-option-timeout" class="list-anchor">#</a>
+    
+    最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](https://api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.SetDefaultTimeout()](https://api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

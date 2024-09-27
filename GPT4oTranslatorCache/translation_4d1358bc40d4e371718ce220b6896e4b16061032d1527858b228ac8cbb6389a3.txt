@@ -1,0 +1,10 @@
+- `title` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-option-title"/><a href="#test-step-option-title" class="list-anchor">#</a>
+  
+  步驟名稱。
+- `body` [function]\(\):[Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-option-body"/><a href="#test-step-option-body" class="list-anchor">#</a>
+  
+  步驟內容。
+- `options` [Object] *(optional)*
+  - `box` [boolean] *(optional)* <font size="2">新增於: v1.39</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-option-box"/><a href="#test-step-option-box" class="list-anchor">#</a>
+    
+    是否在報告中將步驟框起來。預設為 `false`。當步驟被框起來時，從步驟內部拋出的錯誤會指向步驟呼叫位置。詳情請見下文。

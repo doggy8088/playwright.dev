@@ -1,0 +1,7 @@
+* 新選項 `MaskColor` 用於方法 [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) 以更改預設的遮罩顏色。
+* 新的 `uninstall` CLI 指令用於卸載瀏覽器二進位檔：
+
+  ```bash
+  $ pwsh bin/Debug/netX/playwright.ps1 uninstall # 移除此安裝所安裝的瀏覽器
+  $ pwsh bin/Debug/netX/playwright.ps1 uninstall --all # 移除所有曾經安裝的 Playwright 瀏覽器
+  ```

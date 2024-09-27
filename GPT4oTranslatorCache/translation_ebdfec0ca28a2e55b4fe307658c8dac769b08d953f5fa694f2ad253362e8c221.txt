@@ -1,0 +1,9 @@
+- 支援 **非同步判斷** 在 API 中的方法，如 [page.waitForRequest()](/api/class-page.mdx#page-wait-for-request) 和其他方法
+- 新的 **模擬裝置**: Galaxy S8, Galaxy S9+, Galaxy Tab S4, Pixel 3, Pixel 4
+- 新的方法:
+  * [page.waitForURL()](/api/class-page.mdx#page-wait-for-url) 等待 URL 導航
+  * [video.delete()](/api/class-video.mdx#video-delete) 和 [video.saveAs()](/api/class-video.mdx#video-save-as) 管理螢幕錄影
+- 新的選項:
+  * 在 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 方法中的 `screen` 選項來模擬 `window.screen` 尺寸
+  * 在 [page.check()](/api/class-page.mdx#page-check) 和 [page.uncheck()](/api/class-page.mdx#page-uncheck) 方法中的 `position` 選項
+  * `trial` 選項在 [page.check()](/api/class-page.mdx#page-check), [page.uncheck()](/api/class-page.mdx#page-uncheck), [page.click()](/api/class-page.mdx#page-click), [page.dblclick()](/api/class-page.mdx#page-dblclick), [page.hover()](/api/class-page.mdx#page-hover) 和 [page.tap()](/api/class-page.mdx#page-tap) 中進行試運行操作

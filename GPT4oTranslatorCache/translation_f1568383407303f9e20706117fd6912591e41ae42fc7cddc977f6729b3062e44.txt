@@ -1,0 +1,1 @@
+GitLab CI 支援使用 [parallel](https://docs.gitlab.com/ee/ci/yaml/index.html#parallel) 關鍵字 [在多個工作之間分片測試](https://docs.gitlab.com/ee/ci/jobs/job_control.html#parallelize-large-jobs)。測試工作將被拆分成多個較小的工作並行執行。並行工作會從 `job_name 1/N` 到 `job_name N/N` 順序命名。

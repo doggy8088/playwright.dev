@@ -1,0 +1,30 @@
+- 定位器現在支援 `has` 選項，確保其內包含另一個定位器：
+
+  <Tabs
+    groupId="python-flavor"
+    defaultValue="sync"
+    values={[
+      {label: 'Sync', value: 'sync'},
+      {label: 'Async', value: 'async'}
+    ]
+  }>
+  <TabItem value="sync">
+  
+  ```py
+  page.locator("article", has=page.locator(".highlight")).click()
+  ```
+  
+  </TabItem>
+  <TabItem value="async">
+  
+  ```py
+  await page.locator("article", has=page.locator(".highlight")).click()
+  ```
+  
+  </TabItem>
+  </Tabs>
+  
+  閱讀更多在 [定位器文件](./api/class-locator#locator-locator)。
+- 新的 [locator.page](/api/class-locator.mdx#locator-page)
+- [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 現在自動隱藏閃爍的插入點
+- Playwright Codegen 現在生成定位器和框架定位器

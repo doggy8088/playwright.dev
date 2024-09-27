@@ -1,0 +1,144 @@
+- `userDataDir` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-user-data-dir"/><a href="#browser-type-launch-persistent-context-option-user-data-dir" class="list-anchor">#</a>
+
+  路徑到使用者資料目錄，儲存瀏覽器會話資料如 cookies 和本地儲存。更多詳細資訊請參閱 [Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md#introduction) 和 [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options#User_Profile)。注意，Chromium 的使用者資料目錄是 `chrome://version` 中顯示的「Profile Path」的 **父目錄**。傳遞空字串以使用臨時目錄。
+- `options` `BrowserTypeLaunchPersistentContextOptions?` *(optional)*
+  - `AcceptDownloads` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-accept-downloads"/><a href="#browser-type-launch-persistent-context-option-accept-downloads" class="list-anchor">#</a>
+
+    是否自動下載所有附件。預設為 `true`，即接受所有下載。
+  - `Args` [IEnumerable]?&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-args"/><a href="#browser-type-launch-persistent-context-option-args" class="list-anchor">#</a>
+
+    :::warning
+    使用自定義瀏覽器參數需自行承擔風險，因為其中一些可能會破壞 Playwright 功能。
+    :::
+
+    傳遞給瀏覽器實例的附加參數。Chromium 參數列表可在 [這裡](https://peter.sh/experiments/chromium-command-line-switches/) 找到。
+  - `BaseURL` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-base-url"/><a href="#browser-type-launch-persistent-context-option-base-url" class="list-anchor">#</a>
+
+    使用 [Page.GotoAsync()](/api/class-page#page-goto)、[Page.RouteAsync()](/api/class-page#page-route)、[Page.WaitForURLAsync()](/api/class-page#page-wait-for-url)、[Page.RunAndWaitForRequestAsync()](/api/class-page#page-wait-for-request) 或 [Page.RunAndWaitForResponseAsync()](/api/class-page#page-wait-for-response) 時，會使用 [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 構造函數來考慮基礎 URL 以構建相應的 URL。預設未設置。範例:
+    * baseURL: `http://localhost:3000` 並導航到 `/bar.html` 結果為 `http://localhost:3000/bar.html`
+    * baseURL: `http://localhost:3000/foo/` 並導航到 `./bar.html` 結果為 `http://localhost:3000/foo/bar.html`
+    * baseURL: `http://localhost:3000/foo` （無結尾斜線）並導航到 `./bar.html` 結果為 `http://localhost:3000/bar.html`
+  - `BypassCSP` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-bypass-csp"/><a href="#browser-type-launch-persistent-context-option-bypass-csp" class="list-anchor">#</a>
+
+    切換繞過頁面的內容安全政策。預設為 `false`。
+  - `Channel` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-channel"/><a href="#browser-type-launch-persistent-context-option-channel" class="list-anchor">#</a>
+
+    瀏覽器發行渠道。支持的值有 "chrome"、"chrome-beta"、"chrome-dev"、"chrome-canary"、"msedge"、"msedge-beta"、"msedge-dev"、"msedge-canary"。閱讀更多關於使用 [Google Chrome 和 Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge) 的資訊。
+  - `ChromiumSandbox` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-chromium-sandbox"/><a href="#browser-type-launch-persistent-context-option-chromium-sandbox" class="list-anchor">#</a>
+
+    啟用 Chromium 沙盒。預設為 `false`。
+  - `ClientCertificates` [IEnumerable]?&lt;ClientCertificates&gt; *(optional)* <font size="2">Added in: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-client-certificates"/><a href="#browser-type-launch-persistent-context-option-client-certificates" class="list-anchor">#</a>
+    - `Origin` [string]
+
+      憑證有效的確切來源。來源包括 `https` 協議、主機名和可選的端口。
+    - `CertPath` [string]? *(optional)*
+
+      憑證文件的 PEM 格式路徑。
+    - `Cert` [byte]&#91;&#93;? *(optional)*
+
+      PEM 格式的憑證直接值。
+    - `KeyPath` [string]? *(optional)*
+
+      私鑰文件的 PEM 格式路徑。
+    - `Key` [byte]&#91;&#93;? *(optional)*
+
+      PEM 格式的私鑰直接值。
+    - `PfxPath` [string]? *(optional)*
+
+      PFX 或 PKCS12 編碼的私鑰和憑證鏈的路徑。
+    - `Pfx` [byte]&#91;&#93;? *(optional)*
+
+      PFX 或 PKCS12 編碼的私鑰和憑證鏈的直接值。
+    - `Passphrase` [string]? *(optional)*
+
+      私鑰的密碼（PEM 或 PFX）。
+
+    TLS 客戶端認證允許服務器請求客戶端憑證並驗證它。
+
+    **詳細資訊**
+
+    要使用的客戶端憑證數組。每個憑證物件必須有 `certPath` 和 `keyPath`，或單個 `pfxPath`，或其相應的直接值等效物（`cert` 和 `key`，或 `pfx`）。如果憑證已加密，應提供 `passphrase` 屬性。應提供 `origin` 屬性以精確匹配請求來源。
+
+    :::note
+    不支持將客戶端憑證與代理服務器結合使用。
+    :::
+
+    :::note
+    在 macOS 上使用 WebKit 時，訪問 `localhost` 不會拾取客戶端憑證。您可以通過將 `localhost` 替換為 `local.playwright` 來使其工作。
+    :::
+
+  - `ColorScheme` `enum ColorScheme { Light, Dark, NoPreference, Null }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-color-scheme"/><a href="#browser-type-launch-persistent-context-option-color-scheme" class="list-anchor">#</a>
+
+    模擬 `'prefers-colors-scheme'` 媒體特性，支持的值為 `'light'`、`'dark'`、`'no-preference'`。更多詳細資訊請參閱 [Page.EmulateMediaAsync()](/api/class-page#page-emulate-media)。傳遞 `'null'` 將模擬重置為系統預設值。預設為 `'light'`。
+  - `DeviceScaleFactor` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-device-scale-factor"/><a href="#browser-type-launch-persistent-context-option-device-scale-factor" class="list-anchor">#</a>
+
+    指定設備縮放因子（可以視為 dpr）。預設為 `1`。了解更多關於 [模擬設備與設備縮放因子](../emulation.mdx#devices) 的資訊。
+  - `Devtools` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-devtools"/><a href="#browser-type-launch-persistent-context-option-devtools" class="list-anchor">#</a>
+
+    :::warning[Deprecated]
+    使用 [偵錯工具](../debug.mdx) 代替。
+    :::
+
+
+    **僅限 Chromium** 是否為每個標籤自動打開開發者工具面板。如果此選項為 `true`，則 `headless` 選項將設置為 `false`。
+  - `DownloadsPath` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-downloads-path"/><a href="#browser-type-launch-persistent-context-option-downloads-path" class="list-anchor">#</a>
+
+    如果指定，接受的下載將下載到此目錄。否則，將創建臨時目錄並在瀏覽器關閉時刪除。在任何情況下，下載在創建它們的瀏覽器上下文關閉時被刪除。
+  - `Env` [IDictionary]?&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-env"/><a href="#browser-type-launch-persistent-context-option-env" class="list-anchor">#</a>
+
+    指定對瀏覽器可見的環境變量。預設為 `process.env`。
+  - `ExecutablePath` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-executable-path"/><a href="#browser-type-launch-persistent-context-option-executable-path" class="list-anchor">#</a>
+
+    要運行的瀏覽器可執行文件的路徑，而不是捆綁的那個。如果 `executablePath` 是相對路徑，則相對於當前工作目錄解析。請注意，Playwright 僅適用於捆綁的 Chromium、Firefox 或 WebKit，使用需自行承擔風險。
+  - `ExtraHTTPHeaders` [IDictionary]?&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-extra-http-headers"/><a href="#browser-type-launch-persistent-context-option-extra-http-headers" class="list-anchor">#</a>
+
+    包含要與每個請求一起發送的附加 HTTP 標頭的物件。預設為無。
+  - `FirefoxUserPrefs` [IDictionary]?&lt;[string], [object]&gt; *(optional)* <font size="2">Added in: v1.40</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-firefox-user-prefs"/><a href="#browser-type-launch-persistent-context-option-firefox-user-prefs" class="list-anchor">#</a>
+
+    Firefox 使用者偏好設置。了解更多關於 Firefox 使用者偏好設置在 [`about:config`](https://support.mozilla.org/en-US/kb/about-config-editor-firefox)。
+  - `ForcedColors` `enum ForcedColors { Active, None, Null }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-forced-colors"/><a href="#browser-type-launch-persistent-context-option-forced-colors" class="list-anchor">#</a>
+
+    模擬 `'forced-colors'` 媒體特性，支持的值為 `'active'`、`'none'`。更多詳細資訊請參閱 [Page.EmulateMediaAsync()](/api/class-page#page-emulate-media)。傳遞 `'null'` 將模擬重置為系統預設值。預設為 `'none'`。
+  - `Geolocation` Geolocation? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-geolocation"/><a href="#browser-type-launch-persistent-context-option-geolocation" class="list-anchor">#</a>
+    - `Latitude` [float]
+
+      緯度在 -90 和 90 之間。
+    - `Longitude` [float]
+
+      經度在 -180 和 180 之間。
+    - `Accuracy` [float]? *(optional)*
+
+      非負精度值。預設為 `0`。
+  - `HandleSIGHUP` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-handle-sighup"/><a href="#browser-type-launch-persistent-context-option-handle-sighup" class="list-anchor">#</a>
+
+    在 SIGHUP 上關閉瀏覽器進程。預設為 `true`。
+  - `HandleSIGINT` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-handle-sigint"/><a href="#browser-type-launch-persistent-context-option-handle-sigint" class="list-anchor">#</a>
+
+    在 Ctrl-C 上關閉瀏覽器進程。預設為 `true`。
+  - `HandleSIGTERM` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-handle-sigterm"/><a href="#browser-type-launch-persistent-context-option-handle-sigterm" class="list-anchor">#</a>
+
+    在 SIGTERM 上關閉瀏覽器進程。預設為 `true`。
+  - `HasTouch` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-has-touch"/><a href="#browser-type-launch-persistent-context-option-has-touch" class="list-anchor">#</a>
+
+    指定視口是否支持觸摸事件。預設為 false。了解更多關於 [移動模擬](../emulation.mdx#devices) 的資訊。
+  - `Headless` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-headless"/><a href="#browser-type-launch-persistent-context-option-headless" class="list-anchor">#</a>
+
+    是否在無頭模式下運行瀏覽器。更多詳細資訊請參閱 [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) 和 [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Headless_mode)。預設為 `true`，除非 `devtools` 選項為 `true`。
+  - `HttpCredentials` HttpCredentials? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-http-credentials"/><a href="#browser-type-launch-persistent-context-option-http-credentials" class="list-anchor">#</a>
+    - `Username` [string]
+
+
+    - `Password` [string]
+
+
+    - `Origin` [string]? *(optional)*
+
+      限制在特定來源（scheme://host:port）上發送 http 憑證。
+    - `Send` `enum HttpCredentialsSend { Unauthorized, Always }?` *(optional)*
+
+      此選項僅適用於從相應的 [APIRequestContext] 發送的請求，不影響從瀏覽器發送的請求。`'always'` - 每個 API 請求都會發送帶有基本身份驗證憑證的 `Authorization` 標頭。`'unauthorized` - 僅在收到帶有 `WWW-Authenticate` 標頭的 401（未授權）響應時發送憑證。預設為 `'unauthorized'`。
+
+    [HTTP 認證](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) 的憑證。如果未指定來源，則用戶名和密碼將在未授權響應時發送到任何服務器。
+  - `IgnoreAllDefaultArgs` [bool]? *(optional)* <font size="2">Added in: v1.9</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-ignore-all-default-args"/><a href="#browser-type-launch-persistent-context-option-ignore-all-default-args" class="list-anchor">#</a>
+
+    如果 `true`，Playwright 不會傳遞其自己的配置參數，只使用 `args` 中的參數。危險選項；請謹慎使用。預設為 `false

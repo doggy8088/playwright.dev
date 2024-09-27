@@ -1,0 +1,7 @@
+- `state` `enum ElementState { Visible, Hidden, Stable, Enabled, Disabled, Editable }`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-element-state-option-state"/><a href="#element-handle-wait-for-element-state-option-state" class="list-anchor">#</a>
+
+  等待的狀態，詳情請見下文。
+- `options` `ElementHandleWaitForElementStateOptions?` *(optional)*
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-element-state-option-timeout"/><a href="#element-handle-wait-for-element-state-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

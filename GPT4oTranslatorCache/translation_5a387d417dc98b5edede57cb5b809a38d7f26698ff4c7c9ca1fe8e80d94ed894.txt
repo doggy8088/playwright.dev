@@ -1,0 +1,18 @@
+| Testing Library                                                                 | Playwright                                                             |
+| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [screen](https://testing-library.com/docs/queries/about#screen)                 | [page](./api/class-page) 和 [component](./api/class-locator)          |
+| [queries](https://testing-library.com/docs/queries/about)                       | [locators](./locators)                                                 |
+| [async helpers](https://testing-library.com/docs/dom-testing-library/api-async) | [assertions](./test-assertions)                                        |
+| [user events](https://testing-library.com/docs/user-event/intro)                | [actions](./api/class-locator)                                         |
+| `await user.click(screen.getByText('Click me'))`                                | `await component.getByText('Click me').click()`                        |
+| `await user.click(await screen.findByText('Click me'))`                         | `await component.getByText('Click me').click()`                        |
+| `await user.type(screen.getByLabelText('Password'), 'secret')`                  | `await component.getByLabel('Password').fill('secret')`                |
+| `expect(screen.getByLabelText('Password')).toHaveValue('secret')`               | `await expect(component.getByLabel('Password')).toHaveValue('secret')` |
+| `screen.getByRole('button', { pressed: true })`                                 | `component.getByRole('button', { pressed: true })`                     |
+| `screen.getByLabelText('...')`                                                  | `component.getByLabel('...')`                                          |
+| `screen.queryByPlaceholderText('...')`                                          | `component.getByPlaceholder('...')`                                    |
+| `screen.findByText('...')`                                                      | `component.getByText('...')`                                           |
+| `screen.getByTestId('...')`                                                     | `component.getByTestId('...')`                                         |
+| `render(<Component />);`                                                        | `mount(<Component />);`                                                |
+| `const { unmount } = render(<Component />);`                                    | `const { unmount } = await mount(<Component />);`                      |
+| `const { rerender } = render(<Component />);`                                   | `const { update } = await mount(<Component />);`                       |

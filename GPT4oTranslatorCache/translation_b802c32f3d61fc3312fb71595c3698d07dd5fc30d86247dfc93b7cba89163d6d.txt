@@ -1,0 +1,36 @@
+- [Promise]&lt;[物件]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-return"/><a href="#api-request-context-storage-state-return" class="list-anchor">#</a>
+  - `cookies` [Array]&lt;[物件]&gt;
+    - `name` [string]
+      
+      
+    - `value` [string]
+      
+      
+    - `domain` [string]
+      
+      
+    - `path` [string]
+      
+      
+    - `expires` [number]
+      
+      Unix time in seconds.
+    - `httpOnly` [boolean]
+      
+      
+    - `secure` [boolean]
+      
+      
+    - `sameSite` "Strict" | "Lax" | "None"
+      
+      
+    
+  - `origins` [Array]&lt;[物件]&gt;
+    - `origin` [string]
+      
+      
+    - `localStorage` [Array]&lt;[物件]&gt;
+      - `name` [string]
+        
+        
+      - `value` [string]

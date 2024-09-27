@@ -1,0 +1,7 @@
+- `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-query-selector-option-selector"/><a href="#page-query-selector-option-selector" class="list-anchor">#</a>
+  
+  一個要查詢的選擇器。
+- `options` `Page.QuerySelectorOptions` *(可選)*
+  - `setStrict` [boolean] *(可選)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-query-selector-option-strict"/><a href="#page-query-selector-option-strict" class="list-anchor">#</a>
+    
+    當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。

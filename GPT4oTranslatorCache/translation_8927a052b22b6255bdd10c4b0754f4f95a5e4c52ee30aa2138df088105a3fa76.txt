@@ -1,0 +1,1 @@
+很可能你不需要手動等待，因為 Playwright 有[自動等待](./actionability.mdx)。如果你仍然依賴它，你應該使用 `page.wait_for_timeout(5000)` 而不是 `time.sleep(5)`，最好完全不要等待超時，但有時它對除錯很有用。在這些情況下，使用我們的等待（`wait_for_timeout`）方法而不是 `time` 模組。這是因為我們內部依賴非同步操作，而使用 `time.sleep(5)` 時，它們無法正確處理。

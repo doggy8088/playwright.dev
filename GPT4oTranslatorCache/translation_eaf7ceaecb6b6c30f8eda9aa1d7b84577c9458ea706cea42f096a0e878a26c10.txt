@@ -1,0 +1,36 @@
+- 新方法 [Route.fetch()](https://ollama.com/api/class-route.mdx#route-fetch):
+
+  ```java
+  page.route("**/api/settings", route -> {
+    // 獲取原始設定。
+    APIResponse response = route.fetch();
+    // 將設定主題強制為預定義值。
+    String body = response.text().replace("\"theme\":\"default\"",
+      "\"theme\":\"Solorized\"");
+    // 用修改後的資料回應。
+    route.fulfill(new Route.FulfillOptions().setResponse(response).setBody(body));
+  });
+  ```
+
+- 新方法 [Locator.all()](https://ollama.com/api/class-locator.mdx#locator-all) 來迭代所有匹配的元素:
+
+  ```java
+  // 檢查所有的複選框！
+  Locator checkboxes = page.getByRole(AriaRole.CHECKBOX);
+  for (Locator checkbox : checkboxes.all())
+    checkbox.check();
+  ```
+
+- [Locator.selectOption()](https://ollama.com/api/class-locator.mdx#locator-select-option) 現在可以通過值或標籤匹配:
+
+  ```html
+  <select multiple>
+    <option value="red">Red</div>
+    <option value="green">Green</div>
+    <option value="blue">Blue</div>
+  </select>
+  ```
+
+  ```java
+  element.selectOption("Red");
+  ```

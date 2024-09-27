@@ -1,0 +1,27 @@
+- `values` [null] | [String] | [ElementHandle] | [String]&#91;&#93; | `SelectOption` | [ElementHandle]&#91;&#93; | `SelectOption`&#91;&#93;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-option-option-values"/><a href="#element-handle-select-option-option-values" class="list-anchor">#</a>
+  - `setValue` [String] *(optional)*
+
+    通過 `option.value` 匹配。可選。
+  - `setLabel` [String] *(optional)*
+
+    通過 `option.label` 匹配。可選。
+  - `setIndex` [int] *(optional)*
+
+    通過索引匹配。可選。
+
+  要選擇的選項。如果 `<select>` 具有 `multiple` 屬性，則選擇所有匹配的選項，否則僅選擇第一個匹配的選項。字符串值同時匹配值和標籤。如果所有指定屬性都匹配，則認為選項匹配。
+- `options` `ElementHandle.SelectOptionOptions` *(optional)*
+  - `setForce` [boolean] *(optional)* <font size="2">新增於: v1.13</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-option-option-force"/><a href="#element-handle-select-option-option-force" class="list-anchor">#</a>
+
+    是否繞過[actionability](../actionability.mdx)檢查。預設為 `false`。
+  - `setNoWaitAfter` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-option-option-no-wait-after"/><a href="#element-handle-select-option-option-no-wait-after" class="list-anchor">#</a>
+
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+
+
+    此選項無效。
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-option-option-timeout"/><a href="#element-handle-select-option-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以通過使用 [BrowserContext.setDefaultTimeout()](https://api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.setDefaultTimeout()](https://api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

@@ -1,0 +1,1 @@
+如果您的自訂報告器沒有向終端機輸出任何內容，請實作 [reporter.printsToStdio()](https://api/class-reporter.mdx#reporter-prints-to-stdio) 並回傳 `false`。這樣，Playwright 將會使用標準終端機報告器之一來補充您的自訂報告器，以提升使用者體驗。

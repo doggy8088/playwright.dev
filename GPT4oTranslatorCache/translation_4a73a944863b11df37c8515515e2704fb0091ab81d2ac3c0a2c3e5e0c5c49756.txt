@@ -1,0 +1,18 @@
+* 配置重試次數和測試超時時間，使用 [test.describe.configure()](/api/class-test.mdx#test-describe-configure) 為文件或測試設定。
+
+  ```js
+  // 文件中的每個測試將重試兩次，並有 20 秒的超時時間。
+  test.describe.configure({ retries: 2, timeout: 20_000 });
+  test('runs first', async ({ page }) => {});
+  test('runs second', async ({ page }) => {});
+  ```
+
+* 使用 [testProject.snapshotPathTemplate](/api/class-testproject.mdx#test-project-snapshot-path-template) 和 [testConfig.snapshotPathTemplate](api/class-testconfig.mdx#test-config-snapshot-path-template) 來配置控制由 [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1) 生成的快照位置的模板。
+
+  ```js title="playwright.config.ts"
+  import { defineConfig } from '@playwright/test';
+  export default defineConfig({
+    testDir: './tests',
+    snapshotPathTemplate: '{testDir}/__screenshots__/{testFilePath}/{arg}{ext}',
+  });
+  ```

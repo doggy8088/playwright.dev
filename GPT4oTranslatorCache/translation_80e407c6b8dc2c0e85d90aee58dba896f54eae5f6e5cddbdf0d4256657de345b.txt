@@ -1,0 +1,8 @@
+| 事件                             | 擁有者            | URL                            | 路由   | [response.fromServiceWorker](/api/class-response.mdx#response-from-service-worker) |
+| -                                 | -                | -                              | -      | -                                      |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | index.html                     | 是    |                                        |
+| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | index.html                     | 是    |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | transparent-service-worker.js  | 是    |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | data.json                      | 是    |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | data.json                      |        | 是                                    |
+| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | data.json                      |        | 是                                    |

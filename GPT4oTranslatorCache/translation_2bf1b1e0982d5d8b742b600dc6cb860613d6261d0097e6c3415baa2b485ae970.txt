@@ -1,0 +1,16 @@
+- 方法 [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) 現在支援上傳 `<input type=file webkitdirectory>` 元素的目錄。
+  
+  ```java
+  page.getByLabel("Upload directory").setInputFiles(Paths.get("mydir"));
+  ```
+  
+- 多個方法如 [Locator.click()](/api/class-locator.mdx#locator-click) 或 [Locator.press()](/api/class-locator.mdx#locator-press) 現在支援 `ControlOrMeta` 修飾鍵。此鍵在 macOS 上對應 `Meta`，在 Windows 和 Linux 上對應 `Control`。
+  
+  ```java
+  // 按下常見的鍵盤快捷鍵 Control+S 或 Meta+S 以觸發 "Save" 操作。
+  page.keyboard.press("ControlOrMeta+S");
+  ```
+  
+- 新屬性 `httpCredentials.send` 在 [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 中允許選擇總是發送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時發送。
+- Playwright 現在支援 Ubuntu 24.04 上的 Chromium、Firefox 和 WebKit。
+- v1.45 是最後一個針對 macOS 12 Monterey 獲得 WebKit 更新的版本。請更新 macOS 以繼續使用最新的 WebKit。

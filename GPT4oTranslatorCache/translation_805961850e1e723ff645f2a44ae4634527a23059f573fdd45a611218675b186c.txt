@@ -1,0 +1,4 @@
+1. 第一個專案**沒有**名稱，因此其快照將儲存在 `<configDir>/__screenshots__/example.spec.ts/...`。
+1. 第二個專案**有**名稱，因此其快照將儲存在 `<configDir>/__screenshots__/chromium/example.spec.ts/..`。
+1. 由於 `snapshotPathTemplate` 解析為相對路徑，因此將相對於 `configDir` 解析。
+1. 正斜杠 `"/"` 可以在任何平台上用作路徑分隔符。

@@ -1,0 +1,130 @@
+- `options` [物件] *(optional)*
+  - `baseURL` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-base-url"/><a href="#api-request-new-context-option-base-url" class="list-anchor">#</a>
+
+    像 [apiRequestContext.get()](https://ollama.com/library) 這樣的方法會通過使用 [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 建構對應的 URL 來考慮 base URL。範例:
+    * baseURL: `http://localhost:3000` 並發送請求到 `/bar.html` 導致 `http://localhost:3000/bar.html`
+    * baseURL: `http://localhost:3000/foo/` 並發送請求到 `./bar.html` 導致 `http://localhost:3000/foo/bar.html`
+    * baseURL: `http://localhost:3000/foo` (沒有結尾斜線) 並導航到 `./bar.html` 導致 `http://localhost:3000/bar.html`
+  - `clientCertificates` [Array]&lt;[物件]&gt; *(optional)* <font size="2">新增於: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-client-certificates"/><a href="#api-request-new-context-option-client-certificates" class="list-anchor">#</a>
+    - `origin` [string]
+
+      憑證有效的確切來源。來源包括 `https` 協議、主機名和可選的端口。
+    - `certPath` [string] *(optional)*
+
+      PEM 格式憑證的文件路徑。
+    - `cert` [Buffer] *(optional)*
+
+      PEM 格式憑證的直接值。
+    - `keyPath` [string] *(optional)*
+
+      PEM 格式私鑰的文件路徑。
+    - `key` [Buffer] *(optional)*
+
+      PEM 格式私鑰的直接值。
+    - `pfxPath` [string] *(optional)*
+
+      PFX 或 PKCS12 編碼的私鑰和憑證鏈的文件路徑。
+    - `pfx` [Buffer] *(optional)*
+
+      PFX 或 PKCS12 編碼的私鑰和憑證鏈的直接值。
+    - `passphrase` [string] *(optional)*
+
+      私鑰的密碼 (PEM 或 PFX)。
+
+    TLS 客戶端身份驗證允許服務器請求客戶端憑證並進行驗證。
+
+    **詳細資訊**
+
+    要使用的客戶端憑證數組。每個憑證物件必須具有 `certPath` 和 `keyPath`，單個 `pfxPath` 或其對應的直接值 (`cert` 和 `key` 或 `pfx`)。如果憑證是加密的，應提供 `passphrase` 屬性。應提供 `origin` 屬性，與憑證有效的請求來源完全匹配。
+
+    :::note
+    不支持將客戶端憑證與代理服務器結合使用。
+    :::
+
+    :::note
+    在 macOS 上使用 WebKit 時，訪問 `localhost` 將不會拾取客戶端憑證。您可以通過將 `localhost` 替換為 `local.playwright` 來使其工作。
+    :::
+
+  - `extraHTTPHeaders` [物件]&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-extra-http-headers"/><a href="#api-request-new-context-option-extra-http-headers" class="list-anchor">#</a>
+
+    包含要隨每個請求一起發送的額外 HTTP 標頭的物件。預設為無。
+  - `httpCredentials` [物件] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-http-credentials"/><a href="#api-request-new-context-option-http-credentials" class="list-anchor">#</a>
+    - `username` [string]
+
+
+    - `password` [string]
+
+
+    - `origin` [string] *(optional)*
+
+      限制在特定來源 (scheme://host:port) 上發送 http 憑證。
+    - `send` "unauthorized" | "always" *(optional)*
+
+      此選項僅適用於從相應 [APIRequestContext] 發送的請求，不影響從瀏覽器發送的請求。`'always'` - 每個 API 請求都將發送帶有基本身份驗證憑證的 `Authorization` 標頭。`'unauthorized` - 僅在收到帶有 `WWW-Authenticate` 標頭的 401 (未授權) 響應時發送憑證。預設為 `'unauthorized'`。
+
+    [HTTP 身份驗證](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) 的憑證。如果未指定來源，則在未授權響應時將用戶名和密碼發送到任何服務器。
+  - `ignoreHTTPSErrors` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-ignore-https-errors"/><a href="#api-request-new-context-option-ignore-https-errors" class="list-anchor">#</a>
+
+    發送網絡請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+  - `proxy` [物件] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-proxy"/><a href="#api-request-new-context-option-proxy" class="list-anchor">#</a>
+    - `server` [string]
+
+      用於所有請求的代理。支持 HTTP 和 SOCKS 代理，例如 `http://myproxy.com:3128` 或 `socks5://myproxy.com:3128`。簡短形式 `myproxy.com:3128` 被認為是 HTTP 代理。
+    - `bypass` [string] *(optional)*
+
+      可選的逗號分隔域以繞過代理，例如 `".com, chromium.org, .domain.com"`。
+    - `username` [string] *(optional)*
+
+      如果 HTTP 代理需要身份驗證，則使用的可選用戶名。
+    - `password` [string] *(optional)*
+
+      如果 HTTP 代理需要身份驗證，則使用的可選密碼。
+
+    網絡代理設置。
+  - `storageState` [string] | [物件] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-storage-state"/><a href="#api-request-new-context-option-storage-state" class="list-anchor">#</a>
+    - `cookies` [Array]&lt;[物件]&gt;
+      - `name` [string]
+
+
+      - `value` [string]
+
+
+      - `domain` [string]
+
+
+      - `path` [string]
+
+
+      - `expires` [number]
+
+        以秒為單位的 Unix 時間。
+      - `httpOnly` [boolean]
+
+
+      - `secure` [boolean]
+
+
+      - `sameSite` "Strict" | "Lax" | "None"
+
+
+
+    - `origins` [Array]&lt;[物件]&gt;
+      - `origin` [string]
+
+
+      - `localStorage` [Array]&lt;[物件]&gt;
+        - `name` [string]
+
+
+        - `value` [string]
+
+
+
+
+    使用給定的存儲狀態填充上下文。此選項可用於使用通過 [browserContext.storageState()](https://ollama.com/library) 或 [apiRequestContext.storageState()](https://ollama.com/library) 獲得的登錄資訊初始化上下文。可以是保存的存儲文件的路徑，也可以是 [browserContext.storageState()](https://ollama.com/library) 或 [apiRequestContext.storageState()](https://ollama.com/library) 方法返回的值。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-timeout"/><a href="#api-request-new-context-option-timeout" class="list-anchor">#</a>
+
+    等待響應的最大時間（以毫秒為單位）。預設為 `30000` (30 秒)。傳遞 `0` 以禁用超時。
+  - `userAgent` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-user-agent"/><a href="#api-request-new-context-option-user-agent" class="list-anchor">#</a>
+
+    在此上下文中使用的特定用戶代理。

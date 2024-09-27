@@ -1,0 +1,1 @@
+所有由 [APIRequestContext.get()](/api/class-apirequestcontext#api-request-context-get) 和類似方法返回的回應都儲存在記憶體中，因此您可以稍後呼叫 [APIResponse.body()](/api/class-apiresponse#api-response-body)。此方法會丟棄其所有資源，對已處置的 [APIRequestContext] 呼叫任何方法都會拋出異常。

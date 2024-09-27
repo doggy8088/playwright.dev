@@ -1,0 +1,39 @@
+* 更改測試超時。
+
+  ```js
+  test('非常慢的測試', async ({ page }) => {
+    test.setTimeout(120000);
+    // ...
+  });
+  ```
+  
+* 從慢的 `beforeEach` 或 `afterEach` 鉤子更改超時。請注意，這會影響與 `beforeEach`/`afterEach` 鉤子共享的測試超時。
+
+  ```js
+  test.beforeEach(async ({ page }, testInfo) => {
+    // 將執行此鉤子的所有測試的超時延長 30 秒。
+    test.setTimeout(testInfo.timeout + 30000);
+  });
+  ```
+  
+* 更改 `beforeAll` 或 `afterAll` 鉤子的超時。請注意，這會影響鉤子的超時，而不是測試超時。
+
+  ```js
+  test.beforeAll(async () => {
+    // 設定此鉤子的超時。
+    test.setTimeout(60000);
+  });
+  ```
+  
+* 更改 [test.describe()](https://api/class-test.mdx#test-describe) 組中的所有測試的超時。
+
+  ```js
+  test.describe('group', () => {
+    // 適用於此組中的所有測試。
+    test.describe.configure({ timeout: 60000 });
+  
+    test('測試一', async () => { /* ... */ });
+    test('測試二', async () => { /* ... */ });
+    test('測試三', async () => { /* ... */ });
+  });
+  ```

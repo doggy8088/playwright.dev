@@ -1,0 +1,5 @@
+1. 從 `@playwright/experimental-ct-react`（或 -vue, -svelte）匯入所有內容以進行元件測試，或從 `@playwright/test` 進行端到端測試。
+1. 測試函式會給予一個與其他測試隔離的 `page`，以及在此頁面中渲染元件的 `mount`。這些是 Playwright Test 中的兩個[有用的 fixtures](./api/class-fixtures)。
+1. 將 `render` 替換為 `mount`，它會返回一個[元件定位器](./locators)。
+1. 使用 [locator.locator()](/api/class-locator.mdx#locator-locator) 或 [page.locator()](/api/class-page.mdx#page-locator) 建立的定位器來執行大多數操作。
+1. 使用[斷言](./test-assertions)來驗證狀態。

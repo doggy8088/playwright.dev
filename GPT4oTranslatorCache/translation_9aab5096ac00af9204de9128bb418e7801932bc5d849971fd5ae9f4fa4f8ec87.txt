@@ -1,0 +1,20 @@
+- [expect(locator).to_have_accessible_name()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的可訪問名稱:
+
+  ```python
+  locator = page.get_by_role("button")
+  expect(locator).to_have_accessible_name("Submit")
+  ```
+
+- [expect(locator).to_have_accessible_description()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的可訪問描述:
+
+  ```python
+  locator = page.get_by_role("button")
+  expect(locator).to_have_accessible_description("Upload a photo")
+  ```
+
+- [expect(locator).to_have_role()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色:
+
+  ```python
+  locator = page.get_by_test_id("save-button")
+  expect(locator).to_have_role("button")
+  ```

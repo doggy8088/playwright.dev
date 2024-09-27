@@ -1,0 +1,1 @@
+執行操作並等待 [Request] 加載完成。如果提供了謂詞，它會將 [Request] 值傳遞給 `predicate` 函式並等待 `predicate(request)` 返回真值。如果頁面在 [Page.RequestFinished](/api/class-page.mdx#page-event-request-finished) 事件觸發前關閉，將拋出錯誤。

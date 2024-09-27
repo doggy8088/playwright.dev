@@ -1,0 +1,5 @@
+| Environment Variable Name | Reporter Config Option| Description | Default
+|---|---|---|---|
+| `PLAYWRIGHT_LIST_PRINT_STEPS` | `printSteps` | 是否將每個步驟打印在自己的行上。 | `false`
+| `PLAYWRIGHT_FORCE_TTY` | | 是否生成適合即時終端的輸出。如果指定了一個數字，則該數字也將用作終端寬度。 | 當終端處於 TTY 模式時為 `true`，否則為 `false`。
+| `FORCE_COLOR` | | 是否生成彩色輸出。 | 當終端處於 TTY 模式時為 `true`，否則為 `false`。

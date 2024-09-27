@@ -1,0 +1,17 @@
+- `error_code` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-abort-option-error-code"/><a href="#route-abort-option-error-code" class="list-anchor">#</a>
+  
+  選用的錯誤代碼。預設為 `failed`，可能是以下之一:
+  * `'aborted'` - 操作被中止（由於使用者行動）
+  * `'accessdenied'` - 訪問資源（非網路）的權限被拒絕
+  * `'addressunreachable'` - IP 地址無法訪問。這通常意味著沒有到指定主機或網路的路由。
+  * `'blockedbyclient'` - 用戶端選擇阻止請求。
+  * `'blockedbyresponse'` - 請求失敗，因為回應包含未滿足的要求（例如 'X-Frame-Options' 和 'Content-Security-Policy' 祖先檢查）。
+  * `'connectionaborted'` - 由於未收到已發送數據的 ACK，連接超時。
+  * `'connectionclosed'` - 連接已關閉（對應於 TCP FIN）。
+  * `'connectionfailed'` - 連接嘗試失敗。
+  * `'connectionrefused'` - 連接嘗試被拒絕。
+  * `'connectionreset'` - 連接被重置（對應於 TCP RST）。
+  * `'internetdisconnected'` - 互聯網連接已丟失。
+  * `'namenotresolved'` - 主機名無法解析。
+  * `'timedout'` - 操作超時。
+  * `'failed'` - 發生通用故障。

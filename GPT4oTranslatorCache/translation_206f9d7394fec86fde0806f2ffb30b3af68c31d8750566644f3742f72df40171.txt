@@ -1,0 +1,13 @@
+- [物件]
+  - `username` [string]
+    
+    
+  - `password` [string]
+    
+    
+  - `origin` [string] *(optional)*
+    
+    限制在特定來源 (scheme://host:port) 發送 http 憑證。
+  - `send` "unauthorized" | "always" *(optional)*
+    
+    此選項僅適用於從相應的 [APIRequestContext] 發送的請求，不影響從瀏覽器發送的請求。`'always'` - 每個 API 請求都會附帶基本身份驗證憑證的 `Authorization` 標頭。`'unauthorized'` - 只有在收到帶有 `WWW-Authenticate` 標頭的 401 (Unauthorized) 回應時才會發送憑證。預設為 `'unauthorized'`。

@@ -1,0 +1,1 @@
+所有由 [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) 和類似方法返回的回應都存儲在記憶體中，因此您可以稍後呼叫 [ApiResponse.BodyAsync()](/api/class-apiresponse.mdx#api-response-body)。此方法會丟棄其所有資源，在已處置的 [APIRequestContext] 上呼叫任何方法都會拋出異常。

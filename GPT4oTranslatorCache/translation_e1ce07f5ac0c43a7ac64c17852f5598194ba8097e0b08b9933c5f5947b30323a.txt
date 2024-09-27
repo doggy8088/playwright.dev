@@ -1,0 +1,3 @@
+- 你可以使用 [`test.describe.configure`](#parallelize-tests-in-a-single-file) 配置測試以平行執行**單個檔案中的測試**。
+- 你可以配置**整個專案**，使用 [testProject.fullyParallel](/api/class-testproject.mdx#test-project-fully-parallel) 或 [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) 使所有檔案中的所有測試平行執行。
+- 要**禁用**平行處理，將 [workers 的數量限制為一](#disable-parallelism)。

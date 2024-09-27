@@ -1,0 +1,13 @@
+- `expression` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-function-option-expression"/><a href="#frame-wait-for-function-option-expression" class="list-anchor">#</a>
+
+  在瀏覽器上下文中執行的 JavaScript 表達式。如果表達式評估為函式，則會自動呼叫該函式。
+- `arg` [EvaluationArgument]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-function-option-arg"/><a href="#frame-wait-for-function-option-arg" class="list-anchor">#</a>
+
+  傳遞給 `expression` 的可選參數。
+- `options` `FrameWaitForFunctionOptions?` *(optional)*
+  - `PollingInterval` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-function-option-polling-interval"/><a href="#frame-wait-for-function-option-polling-interval" class="list-anchor">#</a>
+
+    如果指定，則將其視為函式執行的毫秒間隔。預設情況下，如果未指定此選項，則在 `requestAnimationFrame` 回調中執行 `expression`。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-function-option-timeout"/><a href="#frame-wait-for-function-option-timeout" class="list-anchor">#</a>
+
+    最大等待時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext#browser-context-set-default-timeout) 或 [Page.SetDefaultTimeout()](/api/class-page#page-set-default-timeout) 方法更改預設值。

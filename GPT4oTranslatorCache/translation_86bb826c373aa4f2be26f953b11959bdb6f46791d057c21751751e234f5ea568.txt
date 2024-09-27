@@ -1,0 +1,15 @@
+- `name` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-expose-binding-option-name"/><a href="#browser-context-expose-binding-option-name" class="list-anchor">#</a>
+  
+  函式在 window 物件上的名稱。
+- `callback` `BindingCallback`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-expose-binding-option-callback"/><a href="#browser-context-expose-binding-option-callback" class="list-anchor">#</a>
+  
+  將在 Playwright 的上下文中被呼叫的回呼函式。
+- `options` `BrowserContext.ExposeBindingOptions` *(optional)*
+  - `setHandle` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-expose-binding-option-handle"/><a href="#browser-context-expose-binding-option-handle" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    此選項將在未來被移除。
+    :::
+    
+    
+    是否將參數作為 handle 傳遞，而不是按值傳遞。當傳遞 handle 時，只支持一個參數。當按值傳遞時，支持多個參數。

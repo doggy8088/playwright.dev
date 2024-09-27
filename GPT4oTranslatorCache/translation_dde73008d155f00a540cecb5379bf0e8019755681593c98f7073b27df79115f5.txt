@@ -1,0 +1,11 @@
+- `options` [物件] *(optional)*
+  - `state` "attached" | "detached" | "visible" | "hidden" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-wait-for-option-state"/><a href="#locator-wait-for-option-state" class="list-anchor">#</a>
+    
+    預設為 `'visible'`。可以是以下之一:
+    * `'attached'` - 等待元素出現在 DOM 中。
+    * `'detached'` - 等待元素不在 DOM 中。
+    * `'visible'` - 等待元素有非空的邊界框且沒有 `visibility:hidden`。注意，沒有任何內容或 `display:none` 的元素有一個空的邊界框，且不被視為可見。
+    * `'hidden'` - 等待元素從 DOM 中分離，或有一個空的邊界框或 `visibility:hidden`。這與 `'visible'` 選項相反。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-wait-for-option-timeout"/><a href="#locator-wait-for-option-timeout" class="list-anchor">#</a>
+    
+    最大時間（毫秒）。預設為 `0` - 無超時。預設值可以通過 config 中的 `actionTimeout` 選項更改，或通過使用 [browserContext.setDefaultTimeout()](https://ollama.com/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.setDefaultTimeout()](https://ollama.com/api/class-page.mdx#page-set-default-timeout) 方法更改。

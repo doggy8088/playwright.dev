@@ -1,0 +1,9 @@
+| | 函式庫 | 測試 |
+| - | - | - |
+| 安裝 | `npm install playwright` | `npm init playwright@latest` - 注意 `install` vs. `init` |
+| 安裝瀏覽器 | 安裝 `@playwright/browser-chromium`、`@playwright/browser-firefox` 和/或 `@playwright/browser-webkit` | `npx playwright install` 或 `npx playwright install chromium` 來安裝單一瀏覽器 |
+| `import` 來源 | `playwright` | `@playwright/test` |
+| 初始化 | 明確需要: <ol><li>選擇要使用的瀏覽器，例如 `chromium`</li><li>使用 [browserType.launch()](./api/class-browsertype.mdx#browser-type-launch) 啟動瀏覽器</li><li>使用 [browser.newContext()](./api/class-browser.mdx#browser-new-context) 建立一個 context，<em>並且</em> 明確傳遞任何 context 選項，例如 `devices['iPhone 11']`</li><li>使用 [browserContext.newPage()](./api/class-browsercontext.mdx#browser-context-new-page) 建立一個 page</li></ol> | 每個測試會自動提供一個獨立的 `page` 和 `context`，以及其他 [內建 fixtures](./test-fixtures.mdx#built-in-fixtures)。不需要明確建立。如果在測試的參數中引用，測試執行器會為測試建立它們。(即懶初始化) |
+| 斷言 | 沒有內建的 Web-First 斷言 | [Web-First 斷言](./test-assertions.mdx) 如: <ul><li>[expect(page).toHaveTitle()](./api/class-pageassertions.mdx#page-assertions-to-have-title)</li><li>[expect(page).toHaveScreenshot()](./api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1)</li></ul> 會自動等待並重試以滿足條件。|
+| 清理 | 明確需要: <ol><li>使用 [browserContext.close()](./api/class-browsercontext.mdx#browser-context-close) 關閉 context</li><li>使用 [browser.close()](./api/class-browser.mdx#browser-close) 關閉瀏覽器</li></ol> | 不需要明確關閉 [內建 fixtures](./test-fixtures.mdx#built-in-fixtures); 測試執行器會處理。|
+| 執行 | 使用函式庫時，你會將程式碼作為 node 腳本執行，可能需要先進行一些編譯。 | 使用測試執行器時，你會使用 `npx playwright test` 命令。配合你的 [配置](./test-configuration.mdx)，測試執行器會處理任何編譯並選擇執行什麼以及如何執行。 |

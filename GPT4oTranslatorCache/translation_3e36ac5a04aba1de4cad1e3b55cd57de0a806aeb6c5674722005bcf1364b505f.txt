@@ -1,0 +1,86 @@
+- `options` [物件] *(optional)*
+  - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-args"/><a href="#browser-type-launch-server-option-args" class="list-anchor">#</a>
+
+    :::warning
+    使用自定義瀏覽器參數需自行承擔風險，因為其中一些可能會破壞 Playwright 功能。
+    :::
+
+    傳遞給瀏覽器實例的附加參數。Chromium 旗標的列表可以在[這裡](https://peter.sh/experiments/chromium-command-line-switches/)找到。
+  - `channel` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-channel"/><a href="#browser-type-launch-server-option-channel" class="list-anchor">#</a>
+
+    瀏覽器發行渠道。支持的值有 "chrome"、"chrome-beta"、"chrome-dev"、"chrome-canary"、"msedge"、"msedge-beta"、"msedge-dev"、"msedge-canary"。閱讀更多關於使用[Google Chrome 和 Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge)。
+  - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-chromium-sandbox"/><a href="#browser-type-launch-server-option-chromium-sandbox" class="list-anchor">#</a>
+
+    啟用 Chromium 沙盒。預設為 `false`。
+  - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-devtools"/><a href="#browser-type-launch-server-option-devtools" class="list-anchor">#</a>
+
+    :::warning[Deprecated]
+    使用[偵錯工具](../debug.mdx)代替。
+    :::
+
+
+    **僅限 Chromium** 是否自動為每個標籤頁打開開發者工具面板。如果此選項為 `true`，則 `headless` 選項將設置為 `false`。
+  - `downloadsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-downloads-path"/><a href="#browser-type-launch-server-option-downloads-path" class="list-anchor">#</a>
+
+    如果指定，接受的下載將下載到此目錄。否則，將創建臨時目錄並在瀏覽器關閉時刪除。在任何情況下，當它們被創建的瀏覽器上下文關閉時，下載都會被刪除。
+  - `env` [物件]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-env"/><a href="#browser-type-launch-server-option-env" class="list-anchor">#</a>
+
+    指定對瀏覽器可見的環境變量。預設為 `process.env`。
+  - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-executable-path"/><a href="#browser-type-launch-server-option-executable-path" class="list-anchor">#</a>
+
+    要運行的瀏覽器可執行文件的路徑，而不是捆綁的那個。如果 `executablePath` 是相對路徑，則相對於當前工作目錄解析。請注意，Playwright 只適用於捆綁的 Chromium、Firefox 或 WebKit，使用需自行承擔風險。
+  - `firefoxUserPrefs` [物件]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-firefox-user-prefs"/><a href="#browser-type-launch-server-option-firefox-user-prefs" class="list-anchor">#</a>
+
+    Firefox 用戶偏好設置。了解更多關於 Firefox 用戶偏好設置的信息，請訪問[`about:config`](https://support.mozilla.org/en-US/kb/about-config-editor-firefox)。
+  - `handleSIGHUP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-handle-sighup"/><a href="#browser-type-launch-server-option-handle-sighup" class="list-anchor">#</a>
+
+    在 SIGHUP 上關閉瀏覽器進程。預設為 `true`。
+  - `handleSIGINT` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-handle-sigint"/><a href="#browser-type-launch-server-option-handle-sigint" class="list-anchor">#</a>
+
+    在 Ctrl-C 上關閉瀏覽器進程。預設為 `true`。
+  - `handleSIGTERM` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-handle-sigterm"/><a href="#browser-type-launch-server-option-handle-sigterm" class="list-anchor">#</a>
+
+    在 SIGTERM 上關閉瀏覽器進程。預設為 `true`。
+  - `headless` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-headless"/><a href="#browser-type-launch-server-option-headless" class="list-anchor">#</a>
+
+    是否以無頭模式運行瀏覽器。更多詳情請參見[Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome)和[Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Headless_mode)。預設為 `true`，除非 `devtools` 選項為 `true`。
+  - `host` [string] *(optional)* <font size="2">新增於: v1.45</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-host"/><a href="#browser-type-launch-server-option-host" class="list-anchor">#</a>
+
+    用於 WebSocket 的主機。這是可選的，如果省略，則服務器將在 IPv6 可用時接受未指定的 IPv6 地址 (::) 上的連接，否則在未指定的 IPv4 地址 (0.0.0.0) 上接受連接。考慮通過選擇特定接口來加強它。
+  - `ignoreDefaultArgs` [boolean] | [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-ignore-default-args"/><a href="#browser-type-launch-server-option-ignore-default-args" class="list-anchor">#</a>
+
+    如果 `true`，Playwright 不會傳遞其自己的配置參數，只使用 `args` 中的參數。如果給定數組，則過濾掉給定的預設參數。危險選項；請謹慎使用。預設為 `false`。
+  - `logger` [Logger] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-logger"/><a href="#browser-type-launch-server-option-logger" class="list-anchor">#</a>
+
+    Playwright 日誌的記錄器。
+  - `port` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-port"/><a href="#browser-type-launch-server-option-port" class="list-anchor">#</a>
+
+    用於 WebSocket 的端口。預設為 0，選擇任何可用的端口。
+  - `proxy` [物件] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-proxy"/><a href="#browser-type-launch-server-option-proxy" class="list-anchor">#</a>
+    - `server` [string]
+
+      用於所有請求的代理。支持 HTTP 和 SOCKS 代理，例如 `http://myproxy.com:3128` 或 `socks5://myproxy.com:3128`。簡短形式 `myproxy.com:3128` 被視為 HTTP 代理。
+    - `bypass` [string] *(optional)*
+
+      可選的逗號分隔域名以繞過代理，例如 `".com, chromium.org, .domain.com"`。
+    - `username` [string] *(optional)*
+
+      如果 HTTP 代理需要身份驗證，則使用的可選用戶名。
+    - `password` [string] *(optional)*
+
+      如果 HTTP 代理需要身份驗證，則使用的可選密碼。
+
+    網絡代理設置。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-timeout"/><a href="#browser-type-launch-server-option-timeout" class="list-anchor">#</a>
+
+    等待瀏覽器實例啟動的最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。
+  - `tracesDir` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-traces-dir"/><a href="#browser-type-launch-server-option-traces-dir" class="list-anchor">#</a>
+
+    如果指定，跟蹤將保存到此目錄。
+  - `wsPath` [string] *(optional)* <font size="2">新增於: v1.15</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-ws-path"/><a href="#browser-type-launch-server-option-ws-path" class="list-anchor">#</a>
+
+    用於提供瀏覽器服務器的路徑。為了安全起見，預設為無法猜測的字符串。
+
+    :::warning
+    任何知道 `wsPath` 的進程或網頁（包括在 Playwright 中運行的那些）都可以控制操作系統用戶。因此，在使用此選項時，應使用無法猜測的令牌。
+    :::

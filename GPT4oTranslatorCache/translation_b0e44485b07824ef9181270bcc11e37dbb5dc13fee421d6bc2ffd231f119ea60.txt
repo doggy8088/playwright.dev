@@ -1,0 +1,1 @@
+你可以利用 `process.env.TEST_WORKER_INDEX` 或 [testInfo.workerIndex](/api/class-testinfo.mdx#test-info-worker-index) 提到的來隔離資料庫中不同工作者執行測試之間的使用者資料。所有由工作者執行的測試都會重複使用相同的使用者。

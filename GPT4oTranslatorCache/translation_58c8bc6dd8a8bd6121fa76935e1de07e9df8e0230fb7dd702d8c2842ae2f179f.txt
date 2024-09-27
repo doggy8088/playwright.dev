@@ -1,0 +1,4 @@
+* [browserContext.on('request')](https://api/class-browsercontext.mdx#browser-context-event-request) 和其對應的事件([browserContext.on('requestfinished')](https://api/class-browsercontext.mdx#browser-context-event-request-finished) 和 [browserContext.on('response')](https://api/class-browsercontext.mdx#browser-context-event-response), 或 [browserContext.on('requestfailed')](https://api/class-browsercontext.mdx#browser-context-event-request-failed))
+* [browserContext.route()](https://api/class-browsercontext.mdx#browser-context-route) 會看到該請求
+* [request.serviceWorker()](https://api/class-request.mdx#request-service-worker) 將被設置為 Service [Worker] 實例, 並且 [request.frame()](https://api/class-request.mdx#request-frame) 將**拋出**
+* [response.fromServiceWorker()](https://api/class-response.mdx#response-from-service-worker) 將返回 `false`

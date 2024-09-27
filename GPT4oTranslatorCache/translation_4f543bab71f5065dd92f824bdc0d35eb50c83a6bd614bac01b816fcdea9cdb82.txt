@@ -1,0 +1,3 @@
+:::note
+如果你在瀏覽器中使用 DOM Testing Library（例如，你使用 webpack 打包端到端測試），你可以直接切換到 Playwright Test。以下範例專注於元件測試，但對於端到端測試，你只需將 `await mount` 替換為 `await page.goto('http://localhost:3000/')` 來打開測試頁面。
+:::

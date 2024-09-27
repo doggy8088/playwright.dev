@@ -1,0 +1,3 @@
+- 執行 TypeScript 測試時，ESM 支援現在預設啟用。不再需要 `PLAYWRIGHT_EXPERIMENTAL_TS_ESM` 環境變數。
+- `mcr.microsoft.com/playwright` docker 映像不再包含 Python。請使用 `mcr.microsoft.com/playwright/python` 作為預先安裝 Python 的 Playwright-ready docker 映像。
+- Playwright 現在支援通過 [locator.setInputFiles](/api/class-locator.mdx#locator-set-input-files) API 上傳大文件（數百 MB）。

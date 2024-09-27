@@ -1,0 +1,6 @@
+* [reporter.onBegin()](/api/class-reporter.mdx#reporter-on-begin) 在包含所有其他套件和測試的根套件中被呼叫一次。了解更多關於[套件層次][Suite]。
+* [reporter.onTestBegin()](/api/class-reporter.mdx#reporter-on-test-begin) 在每次測試執行時被呼叫。它會接收一個執行的[TestCase]和一個幾乎是空的[TestResult]。測試結果會在測試執行時填充（例如，包含步驟和標準輸入輸出），並在測試結束時獲得最終的`status`。
+* [reporter.onStepBegin()](/api/class-reporter.mdx#reporter-on-step-begin) 和 [reporter.onStepEnd()](/api/class-reporter.mdx#reporter-on-step-end) 在測試內的每個執行步驟時被呼叫。當步驟執行時，測試尚未結束。
+* [reporter.onTestEnd()](/api/class-reporter.mdx#reporter-on-test-end) 在測試結束時被呼叫。此時，[TestResult]已完成，您可以使用[testResult.status](/api/class-testresult.mdx#test-result-status)、[testResult.error](/api/class-testresult.mdx#test-result-error)等。
+* [reporter.onEnd()](/api/class-reporter.mdx#reporter-on-end) 在所有應該執行的測試結束後被呼叫一次。
+* [reporter.onExit()](/api/class-reporter.mdx#reporter-on-exit) 在測試執行器退出之前立即被呼叫。

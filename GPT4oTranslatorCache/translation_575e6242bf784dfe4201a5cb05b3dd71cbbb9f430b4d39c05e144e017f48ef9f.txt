@@ -1,0 +1,7 @@
+- `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-title-option-text"/><a href="#frame-locator-get-by-title-option-text" class="list-anchor">#</a>
+  
+  用來定位元素的文字。
+- `options` `FrameLocatorGetByTitleOptions?` *(optional)*
+  - `Exact` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-title-option-exact"/><a href="#frame-locator-get-by-title-option-exact" class="list-anchor">#</a>
+    
+    是否尋找精確匹配：區分大小寫和整個字串。預設為 false。使用正則表達式定位時忽略此選項。請注意，精確匹配仍會修剪空白。

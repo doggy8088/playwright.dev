@@ -1,0 +1,1 @@
+如果你正在[安裝相依套件](#install-system-dependencies)並且需要在 Linux 上使用代理，請確保以 root 使用者執行命令。否則，Playwright 將嘗試成為 root 並且不會將 `HTTPS_PROXY` 等環境變數傳遞給 linux 套件管理器。

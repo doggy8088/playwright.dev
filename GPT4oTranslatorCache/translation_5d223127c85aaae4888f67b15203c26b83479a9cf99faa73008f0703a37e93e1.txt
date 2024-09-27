@@ -1,0 +1,1 @@
+以下範例顯示如何配置一個作業，以平行在四台機器上執行測試，然後將報告合併成一個報告。不要忘記將 `reporter: process.env.CI ? 'blob' : 'html',` 添加到你的 `playwright.config.ts` 檔案中，如上面的範例所示。

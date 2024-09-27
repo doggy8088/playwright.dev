@@ -1,0 +1,28 @@
+* worker setup 和 `beforeAll` 部分:
+  * `browser` 設定因為它是 `autoWorkerFixture` 所需的。
+  * `autoWorkerFixture` 設定因為自動 worker fixtures 總是在其他任何東西之前設定。
+  * `beforeAll` 執行。
+* `first test` 部分:
+  * `autoTestFixture` 設定因為自動 test fixtures 總是在測試和 `beforeEach` 鉤子之前設定。
+  * `page` 設定因為它在 `beforeEach` 鉤子中需要。
+  * `beforeEach` 執行。
+  * `first test` 執行。
+  * `afterEach` 執行。
+  * `page` 拆卸因為它是測試範圍的 fixture，應該在測試完成後拆卸。
+  * `autoTestFixture` 拆卸因為它是測試範圍的 fixture，應該在測試完成後拆卸。
+* `second test` 部分:
+  * `autoTestFixture` 設定因為自動 test fixtures 總是在測試和 `beforeEach` 鉤子之前設定。
+  * `page` 設定因為它在 `beforeEach` 鉤子中需要。
+  * `beforeEach` 執行。
+  * `workerFixture` 設定因為它是 `testFixture` 所需的，而 `testFixture` 是 `second test` 所需的。
+  * `testFixture` 設定因為它是 `second test` 所需的。
+  * `second test` 執行。
+  * `afterEach` 執行。
+  * `testFixture` 拆卸因為它是測試範圍的 fixture，應該在測試完成後拆卸。
+  * `page` 拆卸因為它是測試範圍的 fixture，應該在測試完成後拆卸。
+  * `autoTestFixture` 拆卸因為它是測試範圍的 fixture，應該在測試完成後拆卸。
+* `afterAll` 和 worker 拆卸部分:
+  * `afterAll` 執行。
+  * `workerFixture` 拆卸因為它是 worker 範圍的 fixture，應該在最後一次拆卸。
+  * `autoWorkerFixture` 拆卸因為它是 worker 範圍的 fixture，應該在最後一次拆卸。
+  * `browser` 拆卸因為它是 worker 範圍的 fixture，應該在最後一次拆卸。

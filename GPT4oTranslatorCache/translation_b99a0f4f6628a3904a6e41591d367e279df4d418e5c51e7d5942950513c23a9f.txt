@@ -1,0 +1,10 @@
+- Locator 現在支援 `has` 選項，以確保其內包含另一個 locator:
+
+  ```csharp
+  await Page.Locator("article", new() { Has = Page.Locator(".highlight") }).ClickAsync();
+  ```
+
+  閱讀更多在 [locator 文件](./api/class-locator#locator-locator)。
+- 新的 [Locator.Page](/api/class-locator.mdx#locator-page)
+- [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) 現在自動隱藏閃爍的插入點
+- Playwright Codegen 現在生成 locators 和 frame locators

@@ -1,0 +1,1 @@
+我們建議使用 TypeScript 和 ESLint 進行 linting 來早期捕捉錯誤。使用 [`@typescript-eslint/no-floating-promises`](https://typescript-eslint.io/rules/no-floating-promises/) [ESLint](https://eslint.org) 規則來確保在 Playwright API 的非同步呼叫之前沒有遺漏的 await。在你的 CI 上，你可以執行 `tsc --noEmit` 來確保函式是用正確的簽名呼叫的。

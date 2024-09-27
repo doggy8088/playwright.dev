@@ -1,0 +1,16 @@
+- 新的斷言 [Expect(Locator).ToBeInViewportAsync()](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) 確保定位器指向與視窗相交的元素，根據 [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)。
+  
+  ```csharp
+  var locator = Page.GetByRole(AriaRole.Button);
+  
+  // 確保元素的至少一部分與視窗相交。
+  await Expect(locator).ToBeInViewportAsync();
+  
+  // 確保元素完全在視窗外。
+  await Expect(locator).Not.ToBeInViewportAsync();
+  
+  // 確保元素至少有一半與視窗相交。
+  await Expect(locator).ToBeInViewportAsync(new() { Ratio = 0.5 });
+  ```
+  
+- 新的方法 [BrowserContext.NewCDPSessionAsync()](https://chromedevtools.github.io/devtools-protocol/) 和 [Browser.NewBrowserCDPSessionAsync()](https://chromedevtools.github.io/devtools-protocol/) 分別為頁面和瀏覽器建立一個 [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) 會話。

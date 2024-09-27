@@ -1,0 +1,12 @@
+- 新方法 [FormData.append()](https://api/class-formdata.mdx#form-data-append) 允許在 `RequestOptions` 的 [`setMultipart`](./api/class-requestoptions#request-options-set-multipart) 選項中指定具有相同名稱的重複字段:
+  
+  ```java
+  FormData formData = FormData.create();
+  formData.append("file", new FilePayload("f1.js", "text/javascript",
+  "var x = 2024;".getBytes(StandardCharsets.UTF_8)));
+  formData.append("file", new FilePayload("f2.txt", "text/plain",
+    "hello".getBytes(StandardCharsets.UTF_8)));
+  APIResponse response = context.request().post("https://example.com/uploadFile", RequestOptions.create().setMultipart(formData));
+  ```
+  
+- `expect(page).toHaveURL(url)` 現在支持 `setIgnoreCase` [選項](./api/class-pageassertions#page-assertions-to-have-url-option-ignore-case)。

@@ -1,0 +1,12 @@
+- 根據 **component** 匹配: `_react=BookItem`
+- 根據 component 和 **精確屬性值** 匹配，區分大小寫: `_react=BookItem[author = "Steven King"]`
+- 僅根據屬性值匹配，**不區分大小寫**: `_react=[author = "steven king" i]`
+- 根據 component 和 **真值屬性值** 匹配: `_react=MyButton[enabled]`
+- 根據 component 和 **布林值** 匹配: `_react=MyButton[enabled = false]`
+- 根據屬性 **值子串** 匹配: `_react=[author *= "King"]`
+- 根據 component 和 **多個屬性** 匹配: `_react=BookItem[author *= "king" i][year = 1990]`
+- 根據 **嵌套** 屬性值匹配: `_react=[some.nested.value = 12]`
+- 根據 component 和屬性值 **前綴** 匹配: `_react=BookItem[author ^= "Steven"]`
+- 根據 component 和屬性值 **後綴** 匹配: `_react=BookItem[author $= "Steven"]`
+- 根據 component 和 **key** 匹配: `_react=BookItem[key = '2']`
+- 根據屬性值 **正則表達式** 匹配: `_react=[author = /Steven(\\s+King)?/i]`

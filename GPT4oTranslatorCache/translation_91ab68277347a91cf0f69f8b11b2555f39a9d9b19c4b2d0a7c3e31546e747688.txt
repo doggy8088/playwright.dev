@@ -1,0 +1,16 @@
+- [Promise]&lt;[Array]&lt;[物件]&gt;&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="coverage-stop-css-coverage-return"/><a href="#coverage-stop-css-coverage-return" class="list-anchor">#</a>
+  - `url` [string]
+    
+    StyleSheet URL
+  - `text` [string] *(optional)*
+    
+    StyleSheet 內容, 如果可用.
+  - `ranges` [Array]&lt;[物件]&gt;
+    - `start` [number]
+      
+      文字中的起始偏移量, 包含在內
+    - `end` [number]
+      
+      文字中的結束偏移量, 不包含在內
+    
+    使用的 StyleSheet 範圍. 範圍是排序且不重疊的.

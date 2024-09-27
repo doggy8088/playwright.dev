@@ -1,0 +1,28 @@
+- `cookies` [List]<`Cookie`><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-add-cookies-option-cookies"/><a href="#browser-context-add-cookies-option-cookies" class="list-anchor">#</a>
+  - `setName` [String]
+    
+    
+  - `setValue` [String]
+    
+    
+  - `setUrl` [String] *(optional)*
+    
+    Either url or domain / path are required. Optional.
+  - `setDomain` [String] *(optional)*
+    
+    For the cookie to apply to all subdomains as well, prefix domain with a dot, like this: ".example.com". Either url or domain / path are required. Optional.
+  - `setPath` [String] *(optional)*
+    
+    Either url or domain / path are required Optional.
+  - `setExpires` [double] *(optional)*
+    
+    Unix time in seconds. Optional.
+  - `setHttpOnly` [boolean] *(optional)*
+    
+    Optional.
+  - `setSecure` [boolean] *(optional)*
+    
+    Optional.
+  - `setSameSite` `enum SameSiteAttribute { STRICT, LAX, NONE }` *(optional)*
+    
+    Optional.

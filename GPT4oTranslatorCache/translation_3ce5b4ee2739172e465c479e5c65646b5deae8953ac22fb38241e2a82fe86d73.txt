@@ -1,0 +1,41 @@
+- 新選項用於方法 [page.screenshot()](/api/class-page#page-screenshot), [locator.screenshot()](/api/class-locator#locator-screenshot) 和 [elementHandle.screenshot()](/api/class-elementhandle#element-handle-screenshot):
+  * 選項 `animations: "disabled"` 將所有 CSS 動畫和過渡倒帶到一致的狀態
+  * 選項 `mask: Locator[]` 掩蓋給定的元素，用粉紅色 `#FF00FF` 方框覆蓋它們。
+- `expect().toMatchSnapshot()` 現在支持匿名快照：當快照名稱缺失時，Playwright Test 將自動生成一個：
+
+  ```js
+  expect('Web is Awesome <3').toMatchSnapshot();
+  ```
+
+- 新的 `maxDiffPixels` 和 `maxDiffPixelRatio` 選項用於使用 `expect().toMatchSnapshot()` 進行細粒度的截圖比較：
+
+  ```js
+  expect(await page.screenshot()).toMatchSnapshot({
+    maxDiffPixels: 27, // 允許不超過 27 個不同的像素。
+  });
+  ```
+
+  最方便的是在 [testConfig.expect](/api/class-testconfig#test-config-expect) 中一次性指定 `maxDiffPixels` 或 `maxDiffPixelRatio`。
+- Playwright Test 現在添加了 [testConfig.fullyParallel](/api/class-testconfig#test-config-fully-parallel) 模式。預設情況下，Playwright Test 在文件之間並行。在完全並行模式下，單個文件內的測試也會並行執行。您還可以使用 `--fully-parallel` 命令行標誌。
+
+  ```ts title="playwright.config.ts"
+  export default {
+    fullyParallel: true,
+  };
+  ```
+
+- [testProject.grep](/api/class-testproject#test-project-grep) 和 [testProject.grepInvert](/api/class-testproject#test-project-grep-invert) 現在可以按項目配置。例如，您現在可以使用 `grep` 配置煙霧測試項目：
+
+  ```ts title="playwright.config.ts"
+  export default {
+    projects: [
+      {
+        name: 'smoke tests',
+        grep: /@smoke/,
+      },
+    ],
+  };
+  ```
+
+- [Trace Viewer](https://playwright.dev/docs/trace-viewer) 現在顯示 [API 測試請求](https://playwright.dev/docs/api-testing)。
+- [locator.highlight()](/api/class-locator#locator-highlight) 視覺上顯示元素以便於偵錯。

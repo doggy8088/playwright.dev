@@ -1,0 +1,3 @@
+:::note
+如果直接使用此方法建立 [BrowserContext]，最佳做法是在程式碼使用完 [BrowserContext] 並在呼叫 [browser.close()](/api/class-browser.mdx#browser-close) 之前，明確關閉返回的 context，透過 [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close)。這將確保 `context` 優雅地關閉，並且任何如 HAR 和 影片的工件都被完全刷新和保存。
+:::

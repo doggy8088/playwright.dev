@@ -1,0 +1,3 @@
+:::warning
+Playwright 與 Selenium Grid Hub 整合在未來可能會中斷。使用前請確保權衡風險與收益。  <br /> <br /> <details> <summary> <span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.6'}}>更多詳情</span> </summary>  內部，Playwright 使用 [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) websocket 連接到瀏覽器。Selenium 4 目前暴露了這個功能。然而，[未來可能不會是這樣](https://github.com/SeleniumHQ/selenium/issues/11590#issuecomment-1436113950)。如果 Selenium 放棄這個功能，Playwright 將無法再與其一起工作。 </details>
+:::

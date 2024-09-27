@@ -1,0 +1,9 @@
+- [Locator.DragToAsync()](/api/class-locator.mdx#locator-drag-to)
+- 每個定位器現在可以選擇性地根據其包含的文本進行過濾:
+
+  ```csharp
+  await Page.Locator("li", new() { HasTextString = "My Item" })
+            .Locator("button").click();
+  ```
+
+  閱讀更多在 [定位器文件](./api/class-locator#locator-locator)。

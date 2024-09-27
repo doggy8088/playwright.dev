@@ -1,0 +1,1 @@
+額外的 HTTP 標頭將隨著上下文中任何頁面發起的每個請求一起發送。這些標頭將與使用 [page.setExtraHTTPHeaders()](https://ollama.com/library) 設定的頁面特定額外 HTTP 標頭合併。如果頁面覆蓋了特定標頭，將使用頁面特定的標頭值，而不是瀏覽器上下文的標頭值。

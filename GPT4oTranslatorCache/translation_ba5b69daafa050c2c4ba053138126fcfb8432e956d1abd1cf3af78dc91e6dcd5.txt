@@ -1,0 +1,22 @@
+- `options` [物件] *(optional)*
+  - `body` [string] | [Buffer] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fulfill-option-body"/><a href="#route-fulfill-option-body" class="list-anchor">#</a>
+
+    回應內容。
+  - `contentType` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fulfill-option-content-type"/><a href="#route-fulfill-option-content-type" class="list-anchor">#</a>
+
+    如果設置，等同於設定 `Content-Type` 回應標頭。
+  - `headers` [物件]&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fulfill-option-headers"/><a href="#route-fulfill-option-headers" class="list-anchor">#</a>
+
+    回應標頭。標頭值將被轉換為字串。
+  - `json` [Serializable] *(optional)* <font size="2">新增於: v1.29</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fulfill-option-json"/><a href="#route-fulfill-option-json" class="list-anchor">#</a>
+
+    JSON 回應。如果未設置，此方法將內容類型設為 `application/json`。
+  - `path` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fulfill-option-path"/><a href="#route-fulfill-option-path" class="list-anchor">#</a>
+
+    用於回應的檔案路徑。內容類型將從檔案副檔名推斷。如果 `path` 是相對路徑，則相對於當前工作目錄解析。
+  - `response` [APIResponse] *(optional)* <font size="2">新增於: v1.15</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fulfill-option-response"/><a href="#route-fulfill-option-response" class="list-anchor">#</a>
+
+    用於滿足路由請求的 [APIResponse]。回應的各個字段（如標頭）可以使用 fulfill 選項覆蓋。
+  - `status` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fulfill-option-status"/><a href="#route-fulfill-option-status" class="list-anchor">#</a>
+
+    回應狀態碼，預設為 `200`。

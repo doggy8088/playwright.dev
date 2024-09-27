@@ -1,0 +1,6 @@
+- `predicate` [Callable]\[[Worker]\]:[bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-worker-option-predicate"/><a href="#page-wait-for-worker-option-predicate" class="list-anchor">#</a>
+
+  接收 [Worker] 物件並在應該解決等待時解析為真值。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-worker-option-timeout"/><a href="#page-wait-for-worker-option-timeout" class="list-anchor">#</a>
+
+  最長等待時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 來更改預設值。

@@ -1,0 +1,25 @@
+- [Array]&lt;[Object]&gt;
+  - `origin` [string]
+    
+    憑證有效的確切來源。來源包括 `https` 協議、主機名和可選的埠。
+  - `certPath` [string] *(optional)*
+    
+    憑證的 PEM 格式文件路徑。
+  - `cert` [Buffer] *(optional)*
+    
+    憑證的 PEM 格式直接值。
+  - `keyPath` [string] *(optional)*
+    
+    私鑰的 PEM 格式文件路徑。
+  - `key` [Buffer] *(optional)*
+    
+    私鑰的 PEM 格式直接值。
+  - `pfxPath` [string] *(optional)*
+    
+    PFX 或 PKCS12 編碼的私鑰和憑證鏈的路徑。
+  - `pfx` [Buffer] *(optional)*
+    
+    PFX 或 PKCS12 編碼的私鑰和憑證鏈的直接值。
+  - `passphrase` [string] *(optional)*
+    
+    私鑰（PEM 或 PFX）的密碼。

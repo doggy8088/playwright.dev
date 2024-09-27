@@ -1,0 +1,7 @@
+- `options` [物件] *(optional)*
+  - `ratio` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-in-viewport-option-ratio"/><a href="#locator-assertions-to-be-in-viewport-option-ratio" class="list-anchor">#</a>
+    
+    元素與視口相交的最小比例。如果等於 `0`，則元素應以任何正比例與視口相交。預設為 `0`。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-in-viewport-option-timeout"/><a href="#locator-assertions-to-be-in-viewport-option-timeout" class="list-anchor">#</a>
+    
+    以毫秒為單位重試斷言的時間。預設為 `TestConfig.expect` 中的 `timeout`。

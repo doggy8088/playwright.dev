@@ -1,0 +1,5 @@
+* `page` 和 `autoTestFixture` 會在每個測試中設定和拆除，作為測試範圍的裝置。
+* `unusedFixture` 從未被設定，因為它沒有被任何測試/鉤子使用。
+* `testFixture` 依賴於 `workerFixture` 並觸發其設定。
+* `workerFixture` 在第二個測試之前懶惰地設定，但在工作者關閉期間被拆除一次，作為工作者範圍的裝置。
+* `autoWorkerFixture` 為 `beforeAll` 鉤子設定，但 `autoTestFixture` 則不會。

@@ -1,0 +1,63 @@
+- `options` `PagePdfOptions?` *(optional)*
+  - `DisplayHeaderFooter` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-display-header-footer"/><a href="#page-pdf-option-display-header-footer" class="list-anchor">#</a>
+    
+    顯示頁首和頁尾。預設為 `false`。
+  - `FooterTemplate` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-footer-template"/><a href="#page-pdf-option-footer-template" class="list-anchor">#</a>
+    
+    列印頁尾的 HTML 模板。應使用與 `headerTemplate` 相同的格式。
+  - `Format` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-format"/><a href="#page-pdf-option-format" class="list-anchor">#</a>
+    
+    紙張格式。如果設置，優先於 `width` 或 `height` 選項。預設為 'Letter'。
+  - `HeaderTemplate` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-header-template"/><a href="#page-pdf-option-header-template" class="list-anchor">#</a>
+    
+    列印頁首的 HTML 模板。應為有效的 HTML 標記，並使用以下類別來注入列印值：
+    * `'date'` 格式化的列印日期
+    * `'title'` 文件標題
+    * `'url'` 文件位置
+    * `'pageNumber'` 當前頁碼
+    * `'totalPages'` 文件的總頁數
+  - `Height` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-height"/><a href="#page-pdf-option-height" class="list-anchor">#</a>
+    
+    紙張高度，接受帶有單位的值。
+  - `Landscape` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-landscape"/><a href="#page-pdf-option-landscape" class="list-anchor">#</a>
+    
+    紙張方向。預設為 `false`。
+  - `Margin` Margin? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-margin"/><a href="#page-pdf-option-margin" class="list-anchor">#</a>
+    - `Top` [string]? *(optional)*
+      
+      上邊距，接受帶有單位的值。預設為 `0`。
+    - `Right` [string]? *(optional)*
+      
+      右邊距，接受帶有單位的值。預設為 `0`。
+    - `Bottom` [string]? *(optional)*
+      
+      下邊距，接受帶有單位的值。預設為 `0`。
+    - `Left` [string]? *(optional)*
+      
+      左邊距，接受帶有單位的值。預設為 `0`。
+    
+    紙張邊距，預設為無。
+  - `Outline` [bool]? *(optional)* <font size="2">新增於: v1.42</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-outline"/><a href="#page-pdf-option-outline" class="list-anchor">#</a>
+    
+    是否將文件大綱嵌入 PDF。預設為 `false`。
+  - `PageRanges` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-page-ranges"/><a href="#page-pdf-option-page-ranges" class="list-anchor">#</a>
+    
+    要列印的頁面範圍，例如 '1-5, 8, 11-13'。預設為空字符串，表示列印所有頁面。
+  - `Path` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-path"/><a href="#page-pdf-option-path" class="list-anchor">#</a>
+    
+    保存 PDF 的文件路徑。如果 `path` 是相對路徑，則相對於當前工作目錄解析。如果未提供路徑，則不會將 PDF 保存到磁碟。
+  - `PreferCSSPageSize` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-prefer-css-page-size"/><a href="#page-pdf-option-prefer-css-page-size" class="list-anchor">#</a>
+    
+    給頁面中聲明的任何 CSS `@page` 尺寸優先於 `width` 和 `height` 或 `format` 選項中聲明的內容。預設為 `false`，這將縮放內容以適應紙張大小。
+  - `PrintBackground` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-print-background"/><a href="#page-pdf-option-print-background" class="list-anchor">#</a>
+    
+    列印背景圖形。預設為 `false`。
+  - `Scale` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-scale"/><a href="#page-pdf-option-scale" class="list-anchor">#</a>
+    
+    網頁渲染的縮放比例。預設為 `1`。縮放比例必須在 0.1 和 2 之間。
+  - `Tagged` [bool]? *(optional)* <font size="2">新增於: v1.42</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-tagged"/><a href="#page-pdf-option-tagged" class="list-anchor">#</a>
+    
+    是否生成標記（可訪問）的 PDF。預設為 `false`。
+  - `Width` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-width"/><a href="#page-pdf-option-width" class="list-anchor">#</a>
+    
+    紙張寬度，接受帶有單位的值。

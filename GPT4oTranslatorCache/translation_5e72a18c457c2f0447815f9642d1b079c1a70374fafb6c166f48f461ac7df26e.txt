@@ -1,0 +1,14 @@
+- [`multipart`](./api/class-apirequestcontext#api-request-context-fetch-option-multipart) 選項在 `apiRequestContext.fetch()` 中現在接受 [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) 並支援具有相同名稱的重複欄位。
+  
+  ```js
+  const formData = new FormData();
+  formData.append('file', new File(['let x = 2024;'], 'f1.js', { type: 'text/javascript' }));
+  formData.append('file', new File(['hello'], 'f2.txt', { type: 'text/plain' }));
+  context.request.post('https://example.com/uploadFiles', {
+    multipart: formData
+  });
+  ```
+  
+- `expect(callback).toPass({ intervals })` 現在可以在 [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) 中全域配置 `expect.toPass.intervals` 選項或在 [testProject.expect](/api/class-testproject.mdx#test-project-expect) 中按專案配置。
+- `expect(page).toHaveURL(url)` 現在支援 `ignoreCase` [選項](./api/class-pageassertions#page-assertions-to-have-url-option-ignore-case)。
+- [testProject.ignoreSnapshots](./api/class-testproject#test-project-ignore-snapshots) 允許按專案配置是否跳過截圖期望。

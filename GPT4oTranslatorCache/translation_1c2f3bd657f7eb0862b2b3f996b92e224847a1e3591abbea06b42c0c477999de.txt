@@ -1,0 +1,1 @@
+Playwright 將會重新測試具有 `status` 測試 id 的元素，直到獲取的元素具有 `"Submitted"` 文本。它會重新獲取元素並一遍又一遍地檢查，直到條件滿足或超時為止。你可以傳遞這個超時時間，或者通過測試配置中的 [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) 值來配置一次。

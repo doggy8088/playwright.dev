@@ -1,0 +1,1 @@
+Playwright Test 使用 [worker processes](./test-parallel.mdx) 執行測試檔案。類似於如何為個別測試執行設定測試夾具，worker 夾具是為每個 worker process 設定的。這就是你可以設定服務、執行伺服器等的地方。只要它們的 worker 夾具匹配，並且環境相同，Playwright Test 將會重用 worker process 來執行儘可能多的測試檔案。

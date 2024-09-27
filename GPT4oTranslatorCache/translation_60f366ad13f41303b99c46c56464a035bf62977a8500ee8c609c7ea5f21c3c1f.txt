@@ -1,0 +1,17 @@
+- `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-option-selector"/><a href="#element-handle-wait-for-selector-option-selector" class="list-anchor">#</a>
+
+  要查詢的選擇器。
+- `options` `ElementHandleWaitForSelectorOptions?` *(optional)*
+  - `State` `enum WaitForSelectorState { Attached, Detached, Visible, Hidden }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-option-state"/><a href="#element-handle-wait-for-selector-option-state" class="list-anchor">#</a>
+
+    預設為 `'visible'`。可以是：
+    * `'attached'` - 等待元素出現在 DOM 中。
+    * `'detached'` - 等待元素不在 DOM 中。
+    * `'visible'` - 等待元素有非空的邊界框且沒有 `visibility:hidden`。注意，沒有任何內容或 `display:none` 的元素有空的邊界框，並且不被認為是可見的。
+    * `'hidden'` - 等待元素從 DOM 中分離，或有空的邊界框或 `visibility:hidden`。這與 `'visible'` 選項相反。
+  - `Strict` [bool]? *(optional)* <font size="2">新增於: v1.15</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-option-strict"/><a href="#element-handle-wait-for-selector-option-strict" class="list-anchor">#</a>
+
+    當為 true 時，呼叫需要選擇器解析為單一元素。如果給定的選擇器解析為多個元素，呼叫會拋出異常。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-option-timeout"/><a href="#element-handle-wait-for-selector-option-timeout" class="list-anchor">#</a>
+
+    最大時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

@@ -1,0 +1,15 @@
+- `selector` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-dispatch-event-option-selector"/><a href="#page-dispatch-event-option-selector" class="list-anchor">#</a>
+
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個元素。
+- `type` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-dispatch-event-option-type"/><a href="#page-dispatch-event-option-type" class="list-anchor">#</a>
+
+  DOM 事件類型: `"click"`，`"dragstart"`，等等。
+- `event_init` [EvaluationArgument] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-dispatch-event-option-event-init"/><a href="#page-dispatch-event-option-event-init" class="list-anchor">#</a>
+
+  可選的事件特定初始化屬性。
+- `strict` [bool] *(optional)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-dispatch-event-option-strict"/><a href="#page-dispatch-event-option-strict" class="list-anchor">#</a>
+
+  當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-dispatch-event-option-timeout"/><a href="#page-dispatch-event-option-timeout" class="list-anchor">#</a>
+
+  最大時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](/api/class-browsercontext#browser-context-set-default-timeout) 或 [page.set_default_timeout()](/api/class-page#page-set-default-timeout) 方法更改預設值。

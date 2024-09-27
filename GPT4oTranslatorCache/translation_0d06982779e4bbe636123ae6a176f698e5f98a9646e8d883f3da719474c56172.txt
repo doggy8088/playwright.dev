@@ -1,0 +1,16 @@
+1. **確保 CI 代理可以執行瀏覽器**: 使用 [我們的 Docker 映像](./docker.mdx) 在 Linux 代理中或使用 [CLI](./browsers#install-system-dependencies) 安裝你的相依套件。
+1. **安裝 Playwright**:
+   
+   ```bash
+   # 安裝 NPM 套件
+   npm ci
+   
+   # 安裝 Playwright 瀏覽器和相依套件
+   npx playwright install --with-deps
+   ```
+   
+1. **執行你的測試**:
+   
+   ```bash
+   npx playwright test
+   ```

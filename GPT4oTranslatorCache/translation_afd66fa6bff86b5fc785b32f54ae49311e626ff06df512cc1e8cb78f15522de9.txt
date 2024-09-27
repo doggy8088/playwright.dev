@@ -1,0 +1,1 @@
+* 不同分片的專案始終保持為獨立的 [TestProject] 物件。例如，如果專案 'Desktop Chrome' 被分片到 5 台機器上，那麼在傳遞給 [reporter.onBegin()](/api/class-reporter.mdx#reporter-on-begin) 的配置中將有 5 個具有相同名稱的專案實例。

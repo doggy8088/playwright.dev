@@ -1,0 +1,12 @@
+1. **確保 CI 代理可以執行瀏覽器**: 在 Linux 代理中使用[我們的 Docker 映像](./docker.mdx)或使用[CLI](./browsers#install-system-dependencies)安裝您的相依套件。
+1. **安裝 Playwright**:
+   
+   ```bash
+   mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
+   ```
+   
+1. **執行您的測試**:
+   
+   ```bash
+   mvn test
+   ```

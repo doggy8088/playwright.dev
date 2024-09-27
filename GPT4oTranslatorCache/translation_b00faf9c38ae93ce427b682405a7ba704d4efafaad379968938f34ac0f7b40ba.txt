@@ -1,0 +1,1 @@
+您可以使用 [Locator.setInputFiles()](https://ollama.com/library) 方法選擇要上傳的輸入檔案。它預期第一個參數指向類型為 `"file"` 的 [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)。多個檔案可以在陣列中傳遞。如果某些檔案路徑是相對的，它們會相對於當前工作目錄解析。空陣列會清除選定的檔案。

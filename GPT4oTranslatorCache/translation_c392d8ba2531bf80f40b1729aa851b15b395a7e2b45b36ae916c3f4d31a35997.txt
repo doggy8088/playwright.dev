@@ -1,0 +1,1 @@
+頁面可用的最早時刻是它已導航到初始 URL 的時候。例如，當使用 `window.open('http://example.com')` 打開一個彈出窗口時，當對 "http://example.com" 的網路請求完成並且其響應開始在彈出窗口中加載時，這個事件將會觸發。如果您想要路由/監聽這個網路請求，請使用 [BrowserContext.route()](/api/class-browsercontext#browser-context-route) 和 [BrowserContext.onRequest(handler)](/api/class-browsercontext#browser-context-event-request) 來代替 [Page] 上的類似方法。

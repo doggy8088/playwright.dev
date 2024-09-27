@@ -1,0 +1,43 @@
+- `source` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-option-source"/><a href="#page-drag-and-drop-option-source" class="list-anchor">#</a>
+  
+  一個選擇器，用於搜尋要拖動的元素。如果有多個元素符合選擇器，將使用第一個。
+- `target` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-option-target"/><a href="#page-drag-and-drop-option-target" class="list-anchor">#</a>
+  
+  一個選擇器，用於搜尋要放置的元素。如果有多個元素符合選擇器，將使用第一個。
+- `options` `PageDragAndDropOptions?` *(可選)*
+  - `Force` [bool]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-option-force"/><a href="#page-drag-and-drop-option-force" class="list-anchor">#</a>
+    
+    是否繞過[actionability](../actionability.mdx)檢查。預設為`false`。
+  - `NoWaitAfter` [bool]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-option-no-wait-after"/><a href="#page-drag-and-drop-option-no-wait-after" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+    
+    
+    此選項無效。
+  - `SourcePosition` SourcePosition? *(可選)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-option-source-position"/><a href="#page-drag-and-drop-option-source-position" class="list-anchor">#</a>
+    - `X` [float]
+      
+      
+    - `Y` [float]
+      
+      
+    在此點擊源元素，相對於元素的填充框的左上角。如果未指定，將使用元素的某個可見點。
+  - `Strict` [bool]? *(可選)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-option-strict"/><a href="#page-drag-and-drop-option-strict" class="list-anchor">#</a>
+    
+    當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+  - `TargetPosition` TargetPosition? *(可選)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-option-target-position"/><a href="#page-drag-and-drop-option-target-position" class="list-anchor">#</a>
+    - `X` [float]
+      
+      
+    - `Y` [float]
+      
+      
+    在此點放置目標元素，相對於元素的填充框的左上角。如果未指定，將使用元素的某個可見點。
+  - `Timeout` [float]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-option-timeout"/><a href="#page-drag-and-drop-option-timeout" class="list-anchor">#</a>
+    
+    最大時間（毫秒）。預設為`30000`（30秒）。傳遞`0`以禁用超時。可以使用[BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout)或[Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout)方法更改預設值。
+  - `Trial` [bool]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-option-trial"/><a href="#page-drag-and-drop-option-trial" class="list-anchor">#</a>
+    
+    設置此選項時，此方法僅執行[actionability](../actionability.mdx)檢查並跳過操作。預設為`false`。用於等待元素準備好操作而不執行操作。

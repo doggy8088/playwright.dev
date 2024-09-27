@@ -1,0 +1,13 @@
+- 新方法 [BrowserContext.newCDPSession()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) 和 [Browser.newBrowserCDPSession()](/api/class-browser.mdx#browser-new-browser-cdp-session) 分別為頁面和瀏覽器建立一個 [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) 會話。
+  
+  ```java
+  CDPSession cdpSession = page.context().newCDPSession(page);
+  cdpSession.send("Runtime.enable");
+  
+  JsonObject params = new JsonObject();
+  params.addProperty("expression", "window.foo = 'bar'");
+  cdpSession.send("Runtime.evaluate", params);
+  
+  Object foo = page.evaluate("window['foo']");
+  assertEquals("bar", foo);
+  ```

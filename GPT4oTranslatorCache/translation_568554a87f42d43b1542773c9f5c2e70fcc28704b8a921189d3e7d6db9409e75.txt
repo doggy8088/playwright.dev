@@ -1,0 +1,50 @@
+- `role` "alert" | "alertdialog" | "application" | "article" | "banner" | "blockquote" | "button" | "caption" | "cell" | "checkbox" | "code" | "columnheader" | "combobox" | "complementary" | "contentinfo" | "definition" | "deletion" | "dialog" | "directory" | "document" | "emphasis" | "feed" | "figure" | "form" | "generic" | "grid" | "gridcell" | "group" | "heading" | "img" | "insertion" | "link" | "list" | "listbox" | "listitem" | "log" | "main" | "marquee" | "math" | "meter" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "navigation" | "none" | "note" | "option" | "paragraph" | "presentation" | "progressbar" | "radio" | "radiogroup" | "region" | "row" | "rowgroup" | "rowheader" | "scrollbar" | "search" | "searchbox" | "separator" | "slider" | "spinbutton" | "status" | "strong" | "subscript" | "superscript" | "switch" | "tab" | "table" | "tablist" | "tabpanel" | "term" | "textbox" | "time" | "timer" | "toolbar" | "tooltip" | "tree" | "treegrid" | "treeitem"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-role"/><a href="#frame-get-by-role-option-role" class="list-anchor">#</a>
+
+  必需的 aria role。
+- `options` [物件] *(可選)*
+  - `checked` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-checked"/><a href="#frame-get-by-role-option-checked" class="list-anchor">#</a>
+
+    通常由 `aria-checked` 或原生 `<input type=checkbox>` 控制設定的屬性。
+
+    了解更多關於 [`aria-checked`](https://www.w3.org/TR/wai-aria-1.2/#aria-checked)。
+  - `disabled` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-disabled"/><a href="#frame-get-by-role-option-disabled" class="list-anchor">#</a>
+
+    通常由 `aria-disabled` 或 `disabled` 設定的屬性。
+
+    :::note
+    與大多數其他屬性不同，`disabled` 是通過 DOM 階層繼承的。了解更多關於 [`aria-disabled`](https://www.w3.org/TR/wai-aria-1.2/#aria-disabled)。
+    :::
+
+  - `exact` [boolean] *(可選)* <font size="2">新增於: v1.28</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-exact"/><a href="#frame-get-by-role-option-exact" class="list-anchor">#</a>
+
+    是否精確匹配 `name`：區分大小寫和整字匹配。預設為 false。當 `name` 是正則表達式時忽略此選項。請注意，精確匹配仍然會修剪空白。
+  - `expanded` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-expanded"/><a href="#frame-get-by-role-option-expanded" class="list-anchor">#</a>
+
+    通常由 `aria-expanded` 設定的屬性。
+
+    了解更多關於 [`aria-expanded`](https://www.w3.org/TR/wai-aria-1.2/#aria-expanded)。
+  - `includeHidden` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-include-hidden"/><a href="#frame-get-by-role-option-include-hidden" class="list-anchor">#</a>
+
+    控制是否匹配隱藏元素的選項。預設情況下，僅匹配非隱藏元素，如 [ARIA 定義](https://www.w3.org/TR/wai-aria-1.2/#tree_exclusion)。
+
+    了解更多關於 [`aria-hidden`](https://www.w3.org/TR/wai-aria-1.2/#aria-hidden)。
+  - `level` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-level"/><a href="#frame-get-by-role-option-level" class="list-anchor">#</a>
+
+    通常存在於 `heading`、`listitem`、`row`、`treeitem` 角色的數字屬性，對 `<h1>-<h6>` 元素有預設值。
+
+    了解更多關於 [`aria-level`](https://www.w3.org/TR/wai-aria-1.2/#aria-level)。
+  - `name` [string] | [RegExp] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-name"/><a href="#frame-get-by-role-option-name" class="list-anchor">#</a>
+
+    匹配 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 的選項。預設情況下，匹配不區分大小寫並搜索子字串，使用 `exact` 來控制此行為。
+
+    了解更多關於 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name)。
+  - `pressed` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-pressed"/><a href="#frame-get-by-role-option-pressed" class="list-anchor">#</a>
+
+    通常由 `aria-pressed` 設定的屬性。
+
+    了解更多關於 [`aria-pressed`](https://www.w3.org/TR/wai-aria-1.2/#aria-pressed)。
+  - `selected` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-selected"/><a href="#frame-get-by-role-option-selected" class="list-anchor">#</a>
+
+    通常由 `aria-selected` 設定的屬性。
+
+    了解更多關於 [`aria-selected`](https://www.w3.org/TR/wai-aria-1.2/#aria-selected)。

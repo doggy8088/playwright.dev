@@ -1,0 +1,13 @@
+- `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-selector"/><a href="#android-device-fling-option-selector" class="list-anchor">#</a>
+
+  要甩動的選擇器。
+- `direction` "down" | "up" | "left" | "right"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-direction"/><a href="#android-device-fling-option-direction" class="list-anchor">#</a>
+
+  甩動方向。
+- `options` [物件] *(可選)*
+  - `speed` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-speed"/><a href="#android-device-fling-option-speed" class="list-anchor">#</a>
+
+    甩動的可選速度，以每秒像素為單位。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-timeout"/><a href="#android-device-fling-option-timeout" class="list-anchor">#</a>
+
+    最大時間，以毫秒為單位，預設為30秒，傳遞 `0` 以禁用超時。可以使用 [androidDevice.setDefaultTimeout()](https://ollama.com/library) 方法更改預設值。

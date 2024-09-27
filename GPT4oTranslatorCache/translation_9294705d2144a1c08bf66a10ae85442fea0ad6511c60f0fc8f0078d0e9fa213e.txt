@@ -1,0 +1,13 @@
+- [void] | [物件]
+  - `wsEndpoint` [string]
+
+    一個用於連接的瀏覽器 websocket 端點。
+  - `headers` [void] | [物件]<[string], [string]> *(optional)*
+
+    與 web socket 連接請求一起發送的額外 HTTP 標頭。可選。
+  - `timeout` [number] *(optional)*
+
+    連接建立的超時時間（以毫秒為單位）。可選，預設為無超時。
+  - `exposeNetwork` [string] *(optional)*
+
+    將連接客戶端上可用的網絡暴露給正在連接的瀏覽器的選項。詳情請參見 [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect)。

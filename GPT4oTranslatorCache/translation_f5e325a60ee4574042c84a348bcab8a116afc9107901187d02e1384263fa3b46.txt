@@ -1,0 +1,17 @@
+- `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-option-selector"/><a href="#element-handle-wait-for-selector-option-selector" class="list-anchor">#</a>
+
+  要查詢的選擇器。
+- `options` [物件] *(可選)*
+  - `state` "attached" | "detached" | "visible" | "hidden" *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-option-state"/><a href="#element-handle-wait-for-selector-option-state" class="list-anchor">#</a>
+
+    預設為 `'visible'`。可以是：
+    * `'attached'` - 等待元素存在於 DOM 中。
+    * `'detached'` - 等待元素不在 DOM 中。
+    * `'visible'` - 等待元素有非空的邊界框且沒有 `visibility:hidden`。注意，沒有任何內容或 `display:none` 的元素有一個空的邊界框，不被認為是可見的。
+    * `'hidden'` - 等待元素從 DOM 中分離，或者有一個空的邊界框或 `visibility:hidden`。這與 `'visible'` 選項相反。
+  - `strict` [boolean] *(可選)* <font size="2">新增於: v1.15</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-option-strict"/><a href="#element-handle-wait-for-selector-option-strict" class="list-anchor">#</a>
+
+    當為 true 時，呼叫要求選擇器解析為單一元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-option-timeout"/><a href="#element-handle-wait-for-selector-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `0` - 無超時。預設值可以通過配置中的 `actionTimeout` 選項更改，或者使用 [browserContext.setDefaultTimeout](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.setDefaultTimeout](/api/class-page.mdx#page-set-default-timeout) 方法更改。

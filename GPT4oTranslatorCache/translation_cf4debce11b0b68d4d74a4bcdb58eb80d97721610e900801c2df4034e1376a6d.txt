@@ -1,0 +1,25 @@
+- 新的 CLI 選項 `--fail-on-flaky-tests`，在任何不穩定的測試時將退出碼設置為 `1`。請注意，預設情況下，當所有失敗的測試在重試後恢復時，測試運行器會以退出碼 `0` 退出。使用此選項，在這種情況下測試運行將失敗。
+- 新的環境變量 `PLAYWRIGHT_FORCE_TTY` 控制內建的 `list`、`line` 和 `dot` 報告器是否假設為實時終端。例如，當您的 CI 環境無法很好地處理 ANSI 控制序列時，這可能有助於禁用 tty 行為。或者，如果您計劃後處理輸出並處理控制序列，即使沒有實時終端，也可以啟用 tty 行為。
+
+  ```sh
+  # 避免輸出 ANSI 控制序列的 TTY 功能
+  PLAYWRIGHT_FORCE_TTY=0 npx playwright test
+
+  # 啟用 TTY 功能，假設終端寬度為 80
+  PLAYWRIGHT_FORCE_TTY=80 npx playwright test
+  ```
+
+- 新選項 [testConfig.respectGitIgnore](/api/class-testconfig.mdx#test-config-respect-git-ignore) 和 [testProject.respectGitIgnore](/api/class-testproject.mdx#test-project-respect-git-ignore) 控制在搜索測試時是否排除匹配 `.gitignore` 模式的文件。
+- 新屬性 `timeout` 現在可用於自定義的 expect 匹配器。此屬性考慮 `playwright.config.ts` 和 `expect.configure()`。
+
+  ```ts
+  import { expect as baseExpect } from '@playwright/test';
+
+  export const expect = baseExpect.extend({
+    async toHaveAmount(locator: Locator, expected: number, options?: { timeout?: number }) {
+      // 當未指定 timeout 選項時，使用配置的超時時間。
+      const timeout = options?.timeout ?? this.timeout;
+      // ... 實現斷言 ...
+    },
+  });
+  ```

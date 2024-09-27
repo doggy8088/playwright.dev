@@ -1,0 +1,1 @@
+預設情況下，WebView2 控制項將對所有實例使用相同的用戶資料目錄。這意味著如果您平行執行多個測試，它們將互相干擾。為了避免這種情況，您應該為每個測試設置 `WEBVIEW2_USER_DATA_FOLDER` 環境變數（或使用 [WebView2.EnsureCoreWebView2Async Method](https://docs.microsoft.com/en-us/dotnet/api/microsoft.web.webview2.wpf.webview2.ensurecorewebview2async?view=webview2-dotnet-1.0.1343.22)），以使用不同的文件夾。這將確保每個測試在其自己的用戶資料目錄中執行。

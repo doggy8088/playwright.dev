@@ -1,0 +1,1 @@
+[APIRequestContext] 由 [BrowserContext.APIRequest](/api/class-browsercontext.mdx#browser-context-request) 和 [Page.APIRequest](/api/class-page.mdx#page-request) 返回，與相應的 [BrowserContext] 共享 cookie 儲存空間。每個 API 請求都會在 `Cookie` 標頭中填入來自瀏覽器上下文的值。如果 API 回應包含 `Set-Cookie` 標頭，它將自動更新 [BrowserContext] cookies，並且從頁面發出的請求將會獲取它們。這意味著如果你使用此 API 登錄，你的 e2e 測試將會登錄，反之亦然。

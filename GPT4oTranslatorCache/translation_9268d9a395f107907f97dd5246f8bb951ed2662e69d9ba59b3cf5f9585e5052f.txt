@@ -1,0 +1,6 @@
+- `text` [str] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-alt-text-option-text"/><a href="#page-get-by-alt-text-option-text" class="list-anchor">#</a>
+  
+  要定位元素的文字。
+- `exact` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-alt-text-option-exact"/><a href="#page-get-by-alt-text-option-exact" class="list-anchor">#</a>
+  
+  是否要找到精確匹配：區分大小寫和整個字串。預設為 false。使用正則表達式定位時忽略此選項。請注意，精確匹配仍會修剪空白。

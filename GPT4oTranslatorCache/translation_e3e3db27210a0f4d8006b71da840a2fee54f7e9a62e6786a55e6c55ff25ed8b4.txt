@@ -1,0 +1,58 @@
+- `options` [物件] *(optional)*
+  - `animations` "disabled" | "allow" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-animations"/><a href="#page-screenshot-option-animations" class="list-anchor">#</a>
+
+    當設置為 `"disabled"` 時，停止 CSS 動畫、CSS 過渡和 Web 動畫。動畫根據其持續時間得到不同的處理:
+    * 有限動畫將快進到完成，因此它們會觸發 `transitionend` 事件。
+    * 無限動畫將取消到初始狀態，然後在截圖後重新播放。
+
+    預設為 `"allow"`，即不改變動畫。
+  - `caret` "hide" | "initial" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-caret"/><a href="#page-screenshot-option-caret" class="list-anchor">#</a>
+
+    當設置為 `"hide"` 時，截圖將隱藏文本插入點。當設置為 `"initial"` 時，文本插入點行為不會改變。預設為 `"hide"`。
+  - `clip` [物件] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-clip"/><a href="#page-screenshot-option-clip" class="list-anchor">#</a>
+    - `x` [number]
+
+      剪裁區域左上角的 x 座標
+    - `y` [number]
+
+      剪裁區域左上角的 y 座標
+    - `width` [number]
+
+      剪裁區域的寬度
+    - `height` [number]
+
+      剪裁區域的高度
+
+    一個指定結果圖像剪裁的物件。
+  - `fullPage` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-full-page"/><a href="#page-screenshot-option-full-page" class="list-anchor">#</a>
+
+    當為 true 時，截取整個可滾動頁面的截圖，而不是當前可見的視口。預設為 `false`。
+  - `mask` [Array]&lt;[Locator]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-mask"/><a href="#page-screenshot-option-mask" class="list-anchor">#</a>
+
+    指定在截圖時應該被遮罩的定位器。遮罩的元素將被覆蓋上粉紅色的框 `#FF00FF`（由 `maskColor` 自定義），完全覆蓋其邊界框。
+  - `maskColor` [string] *(optional)* <font size="2">Added in: v1.35</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-mask-color"/><a href="#page-screenshot-option-mask-color" class="list-anchor">#</a>
+
+    指定遮罩元素的覆蓋框的顏色，使用 [CSS 顏色格式](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)。預設顏色為粉紅色 `#FF00FF`。
+  - `omitBackground` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-omit-background"/><a href="#page-screenshot-option-omit-background" class="list-anchor">#</a>
+
+    隱藏預設的白色背景，允許捕捉透明背景的截圖。不適用於 `jpeg` 圖像。預設為 `false`。
+  - `path` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-path"/><a href="#page-screenshot-option-path" class="list-anchor">#</a>
+
+    保存圖像的文件路徑。截圖類型將從文件擴展名推斷。如果 `path` 是相對路徑，則相對於當前工作目錄解析。如果未提供路徑，圖像將不會保存到磁盤。
+  - `quality` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-quality"/><a href="#page-screenshot-option-quality" class="list-anchor">#</a>
+
+    圖像的品質，範圍在 0-100 之間。不適用於 `png` 圖像。
+  - `scale` "css" | "device" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-scale"/><a href="#page-screenshot-option-scale" class="list-anchor">#</a>
+
+    當設置為 `"css"` 時，截圖將每個 css 像素對應一個像素。對於高 dpi 設備，這將保持截圖較小。使用 `"device"` 選項將產生每個設備像素對應一個像素，因此高 dpi 設備的截圖將是兩倍或更大。
+
+    預設為 `"device"`。
+  - `style` [string] *(optional)* <font size="2">Added in: v1.41</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-style"/><a href="#page-screenshot-option-style" class="list-anchor">#</a>
+
+    在製作截圖時應用的樣式表文本。這裡可以隱藏動態元素，使元素不可見或更改其屬性，以幫助您創建可重複的截圖。此樣式表穿透 Shadow DOM 並應用於內部框架。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-timeout"/><a href="#page-screenshot-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `0` - 無超時。預設值可以通過配置中的 `actionTimeout` 選項更改，或使用 [browserContext.setDefaultTimeout](/api/class-browsercontext#browser-context-set-default-timeout) 或 [page.setDefaultTimeout](/api/class-page#page-set-default-timeout) 方法更改。
+  - `type` "png" | "jpeg" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-type"/><a href="#page-screenshot-option-type" class="list-anchor">#</a>
+
+    指定截圖類型，預設為 `png`。

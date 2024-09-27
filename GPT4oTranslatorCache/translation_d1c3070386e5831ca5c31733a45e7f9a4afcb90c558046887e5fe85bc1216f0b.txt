@@ -1,0 +1,30 @@
+| Option | Description |
+| :- | :- |
+| Non-option arguments | 每個參數都被視為正則表達式，與完整的測試文件路徑匹配。只有來自匹配模式的文件的測試將被執行。像 `$` 或 `*` 這樣的特殊符號應該用 `\` 轉義。在許多 shell/終端中，您可能需要引用參數。 |
+| `-c <file>` or `--config <file>`| 配置文件。如果未傳遞，預設為當前目錄中的 `playwright.config.ts` 或 `playwright.config.js`。 |
+| `--debug`| 使用 Playwright Inspector 執行測試。是 `PWDEBUG=1` 環境變數和 `--timeout=0 --max-failures=1 --headed --workers=1` 選項的快捷方式。|
+| `--fail-on-flaky-tests` | 包含不穩定測試的測試運行失敗。預設情況下，不穩定的測試計算為成功。 |
+| `--forbid-only` | 是否禁止 `test.only`。在 CI 上很有用。|
+| `--global-timeout <number>` | 整個測試運行的總超時時間（毫秒）。預設情況下，沒有全域超時。了解更多關於[各種超時](./test-timeouts.mdx)。|
+| `-g <grep>` or `--grep <grep>` | 只運行與此正則表達式匹配的測試。例如，這將在傳遞 `-g "add to cart"` 時運行 `'should add to cart'`。正則表達式將針對由專案名稱、測試文件名、`test.describe` 標題（如果有）、測試標題和所有測試標籤組成的字串進行測試，這些字串由空格分隔，例如 `chromium my-test.spec.ts my-suite my-test @smoke`。過濾器不適用於相依專案的測試，即 Playwright 仍將運行所有來自[專案相依性](./test-projects.mdx#dependencies)的測試。 |
+| `--grep-invert <grep>` | 只運行**不**匹配此正則表達式的測試。與 `--grep` 相反。過濾器不適用於相依專案的測試，即 Playwright 仍將運行所有來自[專案相依性](./test-projects.mdx#dependencies)的測試。|
+| `--headed` | 在有頭瀏覽器中運行測試。對於偵錯很有用。 |
+| `--ignore-snapshots` | 是否忽略[快照](./test-snapshots.mdx)。當快照期望值已知不同時使用，例如在 Linux 上運行測試對比 Windows 截圖。 |
+| `--last-failed` | 只重新運行失敗的測試。|
+| `--list` | 列出所有測試，但不運行它們。|
+| `--max-failures <N>` or `-x`| 在第一個 `N` 個測試失敗後停止。傳遞 `-x` 在第一次失敗後停止。|
+| `--no-deps` | 忽略專案之間的相依性，並表現得好像它們未指定一樣。 |
+| `--output <dir>` | 測試生成的工件目錄，預設為 `test-results`。 |
+| `--only-changed [ref]` | 只運行工作樹和 "ref" 之間已更改的測試文件。預設為運行所有未提交的更改，ref=HEAD。僅支持 Git。 |
+| `--pass-with-no-tests` | 當未找到文件時允許測試套件通過。 |
+| `--project <name>` | 只運行指定[專案](./test-projects.mdx)的測試，支持 '*' 通配符。預設為運行配置文件中定義的所有專案。|
+| `--quiet` | 是否抑制測試的 stdout 和 stderr。 |
+| `--repeat-each <N>` | 每個測試運行 `N` 次，預設為一次。 |
+| `--reporter <reporter>` | 選擇一個報告器：簡約的 `dot`，簡潔的 `line` 或詳細的 `list`。查看[報告器](./test-reporters.mdx)以獲取更多資訊。您也可以傳遞一個[自定義報告器](./test-reporters.mdx#custom-reporters)文件的路徑。 |
+| `--retries <number>` | 不穩定測試的最大[重試](./test-retries.mdx#retries)次數，預設為零（不重試）。 |
+| `--shard <shard>` | [分片](./test-parallel.mdx#shard-tests-between-multiple-machines)測試並僅執行選定的分片，以 `current/all` 的形式指定，從 1 開始，例如 `3/5`。|
+| `--timeout <number>` | 每個測試的最大超時時間（毫秒），預設為 30 秒。了解更多關於[各種超時](./test-timeouts.mdx)。|
+| `--trace <mode>` | 強制追蹤模式，可以是 `on`、`off`、`on-first-retry`、`on-all-retries`、`retain-on-failure` |
+| `--tsconfig <path>` | 適用於所有導入文件的單個 tsconfig 的路徑。查看[tsconfig 解析](./test-typescript.mdx#tsconfig-resolution)以獲取更多詳情。 |
+| `--update-snapshots` or `-u` | 是否使用實際結果更新[快照](./test-snapshots.mdx)而不是進行比較。當快照期望值已更改時使用。|
+| `--workers <number>` or `-j <number>`| 在[平行](./test-parallel.mdx)中運行的最大並發工作進程數。 |

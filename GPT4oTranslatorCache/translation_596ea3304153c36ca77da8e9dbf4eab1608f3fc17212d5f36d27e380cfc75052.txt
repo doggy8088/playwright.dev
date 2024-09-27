@@ -1,0 +1,6 @@
+- `predicate` [Callable]\[[WebSocket]\]:[bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-web-socket-option-predicate"/><a href="#page-wait-for-web-socket-option-predicate" class="list-anchor">#</a>
+
+  接收 [WebSocket] 物件，並在等待應該解決時解析為真值。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-web-socket-option-timeout"/><a href="#page-wait-for-web-socket-option-timeout" class="list-anchor">#</a>
+
+  最長等待時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 來更改預設值。

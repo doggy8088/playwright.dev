@@ -1,0 +1,58 @@
+- `options` [物件] *(optional)*
+  - `animations` "disabled" | "allow" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-animations"/><a href="#page-assertions-to-have-screenshot-2-option-animations" class="list-anchor">#</a>
+
+    當設置為 `"disabled"` 時，停止 CSS 動畫、CSS 過渡和 Web 動畫。動畫根據其持續時間得到不同的處理：
+    * 有限動畫會快進到完成，因此它們會觸發 `transitionend` 事件。
+    * 無限動畫會被取消到初始狀態，然後在截圖後重新播放。
+
+    預設為 `"disabled"`，即禁用動畫。
+  - `caret` "hide" | "initial" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-caret"/><a href="#page-assertions-to-have-screenshot-2-option-caret" class="list-anchor">#</a>
+
+    當設置為 `"hide"` 時，截圖將隱藏文本插入符號。當設置為 `"initial"` 時，文本插入符號行為不會改變。預設為 `"hide"`。
+  - `clip` [物件] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-clip"/><a href="#page-assertions-to-have-screenshot-2-option-clip" class="list-anchor">#</a>
+    - `x` [number]
+
+      剪裁區域左上角的 x 坐標
+    - `y` [number]
+
+      剪裁區域左上角的 y 坐標
+    - `width` [number]
+
+      剪裁區域的寬度
+    - `height` [number]
+
+      剪裁區域的高度
+
+    一個指定結果圖像剪裁的物件。
+  - `fullPage` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-full-page"/><a href="#page-assertions-to-have-screenshot-2-option-full-page" class="list-anchor">#</a>
+
+    當為 true 時，截取整個可滾動頁面的截圖，而不是當前可見的視口。預設為 `false`。
+  - `mask` [Array]&lt;[Locator]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-mask"/><a href="#page-assertions-to-have-screenshot-2-option-mask" class="list-anchor">#</a>
+
+    指定在截圖時應該被遮罩的定位器。被遮罩的元素將被覆蓋一個粉紅色的框 `#FF00FF`（由 `maskColor` 自定義），完全覆蓋其邊界框。
+  - `maskColor` [string] *(optional)* <font size="2">新增於: v1.35</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-mask-color"/><a href="#page-assertions-to-have-screenshot-2-option-mask-color" class="list-anchor">#</a>
+
+    指定遮罩元素的覆蓋框的顏色，使用 [CSS 顏色格式](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)。預設顏色為粉紅色 `#FF00FF`。
+  - `maxDiffPixelRatio` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-max-diff-pixel-ratio"/><a href="#page-assertions-to-have-screenshot-2-option-max-diff-pixel-ratio" class="list-anchor">#</a>
+
+    可接受的不同像素與總像素的比例，介於 `0` 和 `1` 之間。預設值可通過 `TestConfig.expect` 配置。預設未設置。
+  - `maxDiffPixels` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-max-diff-pixels"/><a href="#page-assertions-to-have-screenshot-2-option-max-diff-pixels" class="list-anchor">#</a>
+
+    可接受的不同像素數量。預設值可通過 `TestConfig.expect` 配置。預設未設置。
+  - `omitBackground` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-omit-background"/><a href="#page-assertions-to-have-screenshot-2-option-omit-background" class="list-anchor">#</a>
+
+    隱藏預設的白色背景，允許捕捉具有透明度的截圖。不適用於 `jpeg` 圖像。預設為 `false`。
+  - `scale` "css" | "device" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-scale"/><a href="#page-assertions-to-have-screenshot-2-option-scale" class="list-anchor">#</a>
+
+    當設置為 `"css"` 時，截圖將為頁面上的每個 css 像素生成一個像素。對於高 dpi 設備，這將保持截圖較小。使用 `"device"` 選項將為每個設備像素生成一個像素，因此高 dpi 設備的截圖將是原來的兩倍或更大。
+
+    預設為 `"css"`。
+  - `stylePath` [string] | [Array]&lt;[string]&gt; *(optional)* <font size="2">新增於: v1.41</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-style-path"/><a href="#page-assertions-to-have-screenshot-2-option-style-path" class="list-anchor">#</a>
+
+    包含樣式表的文件名，在截圖時應用。這是你可以隱藏動態元素、使元素不可見或更改其屬性以幫助你創建可重複截圖的地方。此樣式表穿透 Shadow DOM 並應用於內部框架。
+  - `threshold` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-threshold"/><a href="#page-assertions-to-have-screenshot-2-option-threshold" class="list-anchor">#</a>
+
+    在 [YIQ 色彩空間](https://en.wikipedia.org/wiki/YIQ) 中可接受的感知顏色差異，介於零（嚴格）和一（寬鬆）之間，預設值可通過 `TestConfig.expect` 配置。預設為 `0.2`。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-screenshot-2-option-timeout"/><a href="#page-assertions-to-have-screenshot-2-option-timeout" class="list-anchor">#</a>
+
+    以毫秒為單位重試斷言的時間。預設為 `TestConfig.expect` 中的 `timeout`。

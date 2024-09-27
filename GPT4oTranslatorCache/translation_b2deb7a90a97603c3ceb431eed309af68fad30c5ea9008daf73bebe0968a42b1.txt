@@ -1,0 +1,35 @@
+- `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-hover-option-selector"/><a href="#frame-hover-option-selector" class="list-anchor">#</a>
+
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `options` [物件] *(可選)*
+  - `force` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-hover-option-force"/><a href="#frame-hover-option-force" class="list-anchor">#</a>
+
+    是否繞過[可操作性](../actionability.mdx)檢查。預設為 `false`。
+  - `modifiers` [Array]&lt;"Alt" | "Control" | "ControlOrMeta" | "Meta" | "Shift"&gt; *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-hover-option-modifiers"/><a href="#frame-hover-option-modifiers" class="list-anchor">#</a>
+
+    要按下的修飾鍵。確保在操作期間僅按下這些修飾鍵，然後恢復當前的修飾鍵。如果未指定，則使用當前按下的修飾鍵。"ControlOrMeta" 在 Windows 和 Linux 上解析為 "Control"，在 macOS 上解析為 "Meta"。
+  - `noWaitAfter` [boolean] *(可選)* <font size="2">新增於: v1.28</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-hover-option-no-wait-after"/><a href="#frame-hover-option-no-wait-after" class="list-anchor">#</a>
+
+    :::warning[已棄用]
+    此選項無效。
+    :::
+
+
+    此選項無效。
+  - `position` [物件] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-hover-option-position"/><a href="#frame-hover-option-position" class="list-anchor">#</a>
+    - `x` [number]
+
+
+    - `y` [number]
+
+
+    相對於元素填充框左上角的點。如果未指定，則使用元素的某個可見點。
+  - `strict` [boolean] *(可選)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-hover-option-strict"/><a href="#frame-hover-option-strict" class="list-anchor">#</a>
+
+    當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-hover-option-timeout"/><a href="#frame-hover-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `0` - 無超時。可以通過配置中的 `actionTimeout` 選項更改預設值，或使用 [browserContext.setDefaultTimeout()](/api/class-browsercontext#browser-context-set-default-timeout) 或 [page.setDefaultTimeout()](/api/class-page#page-set-default-timeout) 方法更改。
+  - `trial` [boolean] *(可選)* <font size="2">新增於: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-hover-option-trial"/><a href="#frame-hover-option-trial" class="list-anchor">#</a>
+
+    設置時，此方法僅執行[可操作性](../actionability.mdx)檢查並跳過操作。預設為 `false`。有助於在元素準備好操作之前等待而不執行操作。

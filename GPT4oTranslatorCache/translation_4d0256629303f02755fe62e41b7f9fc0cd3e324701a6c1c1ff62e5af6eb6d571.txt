@@ -1,0 +1,26 @@
+- `wsEndpoint` [string] <font size="2">新增於: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-ws-endpoint"/><a href="#browser-type-connect-option-ws-endpoint" class="list-anchor">#</a>
+
+  一個瀏覽器 websocket 端點以進行連接。
+- `options` `BrowserTypeConnectOptions?` *(可選)*
+  - `ExposeNetwork` [string]? *(可選)* <font size="2">新增於: v1.37</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-expose-network"/><a href="#browser-type-connect-option-expose-network" class="list-anchor">#</a>
+
+    此選項將連接客戶端上可用的網路暴露給正在連接的瀏覽器。由逗號分隔的規則列表組成。
+
+    可用規則:
+    1. 主機名模式，例如: `example.com`, `*.org:99`, `x.*.y.com`, `*foo.org`。
+    1. IP 字面量，例如: `127.0.0.1`, `0.0.0.0:99`, `[::1]`, `[0:0::1]:99`。
+    1. `<loopback>` 匹配本地回環接口: `localhost`, `*.localhost`, `127.0.0.1`, `[::1]`。
+
+    一些常見的範例:
+    1. `"*"` 暴露所有網路。
+    1. `"<loopback>"` 暴露本地主機網路。
+    1. `"*.test.internal-domain,*.staging.internal-domain,<loopback>"` 暴露測試/預備部署和本地主機。
+  - `Headers` [IDictionary]?&lt;[string], [string]&gt; *(可選)* <font size="2">新增於: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-headers"/><a href="#browser-type-connect-option-headers" class="list-anchor">#</a>
+
+    與 web socket 連接請求一起發送的額外 HTTP 標頭。可選。
+  - `SlowMo` [float]? *(可選)* <font size="2">新增於: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-slow-mo"/><a href="#browser-type-connect-option-slow-mo" class="list-anchor">#</a>
+
+    按指定的毫秒數減慢 Playwright 操作。這樣可以看到正在發生的事情。預設為 0。
+  - `Timeout` [float]? *(可選)* <font size="2">新增於: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-timeout"/><a href="#browser-type-connect-option-timeout" class="list-anchor">#</a>
+
+    等待連接建立的最長時間（毫秒）。預設為 `0`（無超時）。

@@ -1,0 +1,3 @@
+:::note
+對話框會自動關閉，除非有 [Page.onDialog(handler)](/api/class-page.mdx#page-event-dialog) 監聽器。當監聽器存在時，它**必須** [Dialog.accept()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#never_blocking) 或 [Dialog.dismiss()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#never_blocking) 對話框 - 否則頁面將 [freeze](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#never_blocking) 等待對話框，並且像點擊這樣的操作將永遠不會完成。
+:::

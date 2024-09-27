@@ -1,0 +1,7 @@
+- `options` `PageRunAndWaitForWebSocketOptions?` *(optional)*
+  - `Predicate` [Func]&lt;[WebSocket]?, bool&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-web-socket-option-predicate"/><a href="#page-wait-for-web-socket-option-predicate" class="list-anchor">#</a>
+    
+    接收 [WebSocket] 物件並在等待應該解決時解析為真值。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-web-socket-option-timeout"/><a href="#page-wait-for-web-socket-option-timeout" class="list-anchor">#</a>
+    
+    最長等待時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](https://ollama.com/library) 來更改預設值。

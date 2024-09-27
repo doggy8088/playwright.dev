@@ -1,0 +1,1 @@
+Playwright 在子程序中執行驅動程式，因此在 Windows 上需要 `asyncio` 的 `ProactorEventLoop`，因為 `SelectorEventLoop` 不支援非同步子程序。

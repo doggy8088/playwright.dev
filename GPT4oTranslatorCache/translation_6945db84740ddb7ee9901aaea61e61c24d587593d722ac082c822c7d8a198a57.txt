@@ -1,0 +1,6 @@
+- `predicate` [Callable]\[[ConsoleMessage]\]:[bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-wait-for-console-message-option-predicate"/><a href="#browser-context-wait-for-console-message-option-predicate" class="list-anchor">#</a>
+  
+  接收 [ConsoleMessage] 物件並在等待應該解決時解析為真值。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-wait-for-console-message-option-timeout"/><a href="#browser-context-wait-for-console-message-option-timeout" class="list-anchor">#</a>
+  
+  等待的最長時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](https://ollama.com/api/class-browsercontext.mdx#browser-context-set-default-timeout) 更改預設值。

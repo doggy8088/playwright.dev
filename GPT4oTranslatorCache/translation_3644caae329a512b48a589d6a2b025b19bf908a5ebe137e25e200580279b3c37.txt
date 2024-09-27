@@ -1,0 +1,16 @@
+- 新的斷言 [expect(locator).to_be_in_viewport()](https://api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) 確保定位器指向與視窗相交的元素，根據 [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)。
+  
+  ```python
+  from playwright.sync_api import expect
+  
+  locator = page.get_by_role("button")
+  
+  # 確保元素的至少一部分與視窗相交。
+  expect(locator).to_be_in_viewport()
+  
+  # 確保元素完全在視窗之外。
+  expect(locator).not_to_be_in_viewport()
+  
+  # 確保元素的至少一半與視窗相交。
+  expect(locator).to_be_in_viewport(ratio=0.5)
+  ```

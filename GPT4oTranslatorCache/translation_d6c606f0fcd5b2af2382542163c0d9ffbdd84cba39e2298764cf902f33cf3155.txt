@@ -1,0 +1,1 @@
+Playwright Test 包含使用 `await expect(page).toHaveScreenshot()` 來生成和視覺比較截圖的功能。在第一次執行時，Playwright Test 會生成參考截圖。隨後的執行將與參考截圖進行比較。

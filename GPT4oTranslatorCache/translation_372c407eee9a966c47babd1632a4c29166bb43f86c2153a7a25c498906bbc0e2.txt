@@ -1,0 +1,13 @@
+- `options` [物件] *(optional)*
+  - `headers` [物件]&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fallback-option-headers"/><a href="#route-fallback-option-headers" class="list-anchor">#</a>
+    
+    如果設定會更改請求的 HTTP 標頭。標頭值將被轉換為字串。
+  - `method` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fallback-option-method"/><a href="#route-fallback-option-method" class="list-anchor">#</a>
+    
+    如果設定會更改請求方法（例如 GET 或 POST）。
+  - `postData` [string] | [Buffer] | [Serializable] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fallback-option-post-data"/><a href="#route-fallback-option-post-data" class="list-anchor">#</a>
+    
+    如果設定會更改請求的 post 資料。
+  - `url` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fallback-option-url"/><a href="#route-fallback-option-url" class="list-anchor">#</a>
+    
+    如果設定會更改請求的 URL。新 URL 必須與原始 URL 擁有相同的協議。更改 URL 不會影響路由匹配，所有路由都是使用原始請求 URL 進行匹配的。

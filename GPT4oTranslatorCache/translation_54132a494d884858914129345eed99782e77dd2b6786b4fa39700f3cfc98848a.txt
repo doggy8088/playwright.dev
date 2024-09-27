@@ -1,0 +1,49 @@
+* 這將找到兩個按鈕並拋出一個[嚴格性](./locators.mdx#strictness)違規錯誤:
+  <Tabs
+    groupId="python-flavor"
+    defaultValue="sync"
+    values={[
+      {label: 'Sync', value: 'sync'},
+      {label: 'Async', value: 'async'}
+    ]
+  }>
+  <TabItem value="sync">
+  
+  ```py
+  page.locator("button").click()
+  ```
+  
+  </TabItem>
+  <TabItem value="async">
+  
+  ```py
+  await page.locator("button").click()
+  ```
+  
+  </TabItem>
+  </Tabs>
+* 這將只找到第二個按鈕，因為它是可見的，然後點擊它。
+  
+  <Tabs
+    groupId="python-flavor"
+    defaultValue="sync"
+    values={[
+      {label: 'Sync', value: 'sync'},
+      {label: 'Async', value: 'async'}
+    ]
+  }>
+  <TabItem value="sync">
+  
+  ```py
+  page.locator("button").locator("visible=true").click()
+  ```
+  
+  </TabItem>
+  <TabItem value="async">
+  
+  ```py
+  await page.locator("button").locator("visible=true").click()
+  ```
+  
+  </TabItem>
+  </Tabs>

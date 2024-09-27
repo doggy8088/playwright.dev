@@ -1,0 +1,5 @@
+| Environment Variable Name | Reporter Config Option| Description | Default
+|---|---|---|---|
+| `PLAYWRIGHT_JSON_OUTPUT_DIR` | | 儲存輸出檔案的目錄。如果指定了輸出檔案，則忽略此項。 | `cwd` 或配置目錄。
+| `PLAYWRIGHT_JSON_OUTPUT_NAME` | `outputFile` | 輸出檔案的基本檔名，相對於輸出目錄。 | JSON 報告將打印到 stdout。
+| `PLAYWRIGHT_JSON_OUTPUT_FILE` | `outputFile` | 輸出檔案的完整路徑。如果已定義，`PLAYWRIGHT_JSON_OUTPUT_DIR` 和 `PLAYWRIGHT_JSON_OUTPUT_NAME` 將被忽略。 | JSON 報告將打印到 stdout。

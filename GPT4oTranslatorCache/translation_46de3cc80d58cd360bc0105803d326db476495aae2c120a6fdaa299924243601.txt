@@ -1,0 +1,6 @@
+- `name` [str] *(optional)* <font size="2">新增於: v1.32</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-name"/><a href="#tracing-start-chunk-option-name" class="list-anchor">#</a>
+  
+  如果指定，中間追蹤檔案將會儲存到 `traces_dir` 資料夾內具有給定名稱前綴的檔案中，該資料夾在 [browser_type.launch()](https://ollama.com/library#browser-type-launch) 中指定。要指定最終追蹤 zip 檔案名稱，您需要將 `path` 選項傳遞給 [tracing.stop_chunk()](https://ollama.com/library#tracing-stop-chunk)。
+- `title` [str] *(optional)* <font size="2">新增於: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-title"/><a href="#tracing-start-chunk-option-title" class="list-anchor">#</a>
+  
+  要在追蹤檢視器中顯示的追蹤名稱。

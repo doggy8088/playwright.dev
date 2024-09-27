@@ -1,0 +1,42 @@
+- `url` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-url"/><a href="#api-request-context-head-option-url" class="list-anchor">#</a>
+  
+  目標 URL。
+- `data` [str] | [bytes] | [Serializable] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-data"/><a href="#api-request-context-head-option-data" class="list-anchor">#</a>
+  
+  允許設定請求的 post 資料。如果 data 參數是一個物件，它將被序列化為 json 字串，並且 `content-type` 標頭將被設置為 `application/json`，如果未明確設置。否則，`content-type` 標頭將被設置為 `application/octet-stream`，如果未明確設置。
+- `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-fail-on-status-code"/><a href="#api-request-context-head-option-fail-on-status-code" class="list-anchor">#</a>
+  
+  是否在回應碼不是 2xx 和 3xx 時拋出異常。預設情況下，回應物件會返回所有狀態碼。
+- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-form"/><a href="#api-request-context-head-option-form" class="list-anchor">#</a>
+  
+  提供一個物件，將被序列化為 html 表單，使用 `application/x-www-form-urlencoded` 編碼並作為此請求的主體發送。如果指定了此參數，`content-type` 標頭將被設置為 `application/x-www-form-urlencoded`，除非明確提供。
+- `headers` [Dict]\[[str], [str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-headers"/><a href="#api-request-context-head-option-headers" class="list-anchor">#</a>
+  
+  允許設置 HTTP 標頭。這些標頭將應用於提取的請求以及由它發起的任何重定向。
+- `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-ignore-https-errors"/><a href="#api-request-context-head-option-ignore-https-errors" class="list-anchor">#</a>
+  
+  發送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+- `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-max-redirects"/><a href="#api-request-context-head-option-max-redirects" class="list-anchor">#</a>
+  
+  將自動跟隨的最大請求重定向次數。如果超過該數字，將拋出錯誤。預設為 `20`。傳遞 `0` 以不跟隨重定向。
+- `max_retries` [int] *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-max-retries"/><a href="#api-request-context-head-option-max-retries" class="list-anchor">#</a>
+  
+  應重試網路錯誤的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超過限制，將拋出錯誤。預設為 `0` - 不重試。
+- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-multipart"/><a href="#api-request-context-head-option-multipart" class="list-anchor">#</a>
+  - `name` [str]
+    
+    文件名
+  - `mimeType` [str]
+    
+    文件類型
+  - `buffer` [bytes]
+    
+    文件內容
+  
+  提供一個物件，將被序列化為 html 表單，使用 `multipart/form-data` 編碼並作為此請求的主體發送。如果指定了此參數，`content-type` 標頭將被設置為 `multipart/form-data`，除非明確提供。文件值可以作為包含文件名、mime 類型及其內容的類文件物件傳遞。
+- `params` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-params"/><a href="#api-request-context-head-option-params" class="list-anchor">#</a>
+  
+  要與 URL 一起發送的查詢參數。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-timeout"/><a href="#api-request-context-head-option-timeout" class="list-anchor">#</a>
+  
+  請求超時時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。

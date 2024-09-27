@@ -1,0 +1,20 @@
+- [expect(locator).toHaveAccessibleName()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的可存取名稱:
+
+  ```js
+  const locator = page.getByRole('button');
+  await expect(locator).toHaveAccessibleName('Submit');
+  ```
+
+- [expect(locator).toHaveAccessibleDescription()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的可存取描述:
+
+  ```js
+  const locator = page.getByRole('button');
+  await expect(locator).toHaveAccessibleDescription('Upload a photo');
+  ```
+
+- [expect(locator).toHaveRole()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色:
+
+  ```js
+  const locator = page.getByTestId('save-button');
+  await expect(locator).toHaveRole('button');
+  ```

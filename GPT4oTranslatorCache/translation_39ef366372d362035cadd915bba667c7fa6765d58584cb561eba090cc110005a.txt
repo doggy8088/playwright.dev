@@ -1,0 +1,1 @@
+這是一個方便的 API，應該僅用於單頁面場景和短程式碼片段。生產程式碼和測試框架應明確地建立 [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 然後 [BrowserContext.NewPageAsync()](/api/class-browsercontext.mdx#browser-context-new-page) 來控制它們的確切生命週期。

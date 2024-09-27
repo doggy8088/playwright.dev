@@ -1,0 +1,46 @@
+- 新屬性 [testProject.dependencies](/api/class-testproject.mdx#test-project-dependencies) 用於配置專案之間的相依性。
+  
+  使用相依性允許全域設定產生追蹤和其他工件，請參閱測試報告中的設定步驟等。
+  
+  ```js title="playwright.config.ts"
+  import { defineConfig } from '@playwright/test';
+  
+  export default defineConfig({
+    projects: [
+      {
+        name: 'setup',
+        testMatch: /global.setup\.ts/,
+      },
+      {
+        name: 'chromium',
+        use: devices['Desktop Chrome'],
+        dependencies: ['setup'],
+      },
+      {
+        name: 'firefox',
+        use: devices['Desktop Firefox'],
+        dependencies: ['setup'],
+      },
+      {
+        name: 'webkit',
+        use: devices['Desktop Safari'],
+        dependencies: ['setup'],
+      },
+    ],
+  });
+  ```
+  
+- 新的斷言 [expect(locator).toBeInViewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) 確保定位器指向與視口相交的元素，根據 [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)。
+  
+  ```js
+  const button = page.getByRole('button');
+  
+  // 確保元素的至少一部分與視口相交。
+  await expect(button).toBeInViewport();
+  
+  // 確保元素完全在視口外。
+  await expect(button).not.toBeInViewport();
+  
+  // 確保元素至少有一半與視口相交。
+  await expect(button).toBeInViewport({ ratio: 0.5 });
+  ```

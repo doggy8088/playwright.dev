@@ -1,0 +1,26 @@
+- `article:has-text("Playwright")` - `:has-text()` 匹配包含指定文本的任何元素，可能在子元素或後代元素內。匹配不區分大小寫，會去除空白並搜尋子字串。
+
+  例如，`article:has-text("Playwright")` 匹配 `<article><div>Playwright</div></article>`。
+
+  注意，`:has-text()` 應與其他 CSS 指定符一起使用，否則它會匹配所有包含指定文本的元素，包括 `<body>`。
+
+  ```csharp
+  // 錯誤，會匹配許多元素包括 <body>
+  await page.Locator(":has-text(\"Playwright\")").ClickAsync();
+  // 正確，只匹配 <article> 元素
+  await page.Locator("article:has-text(\"Playwright\")").ClickAsync();
+  ```
+
+- `#nav-bar :text("Home")` - `:text()` 偽類匹配包含指定文本的最小元素。匹配不區分大小寫，會去除空白並搜尋子字串。
+
+  例如，這將在 `#nav-bar` 元素內找到包含文本 "Home" 的元素：
+
+  ```csharp
+  await page.Locator("#nav-bar :text('Home')").ClickAsync();
+  ```
+
+- `#nav-bar :text-is("Home")` - `:text-is()` 偽類匹配具有精確文本的最小元素。精確匹配區分大小寫，會去除空白並搜尋完整字串。
+
+  例如，`:text-is("Log")` 不匹配 `<button>Log in</button>`，因為 `<button>` 包含的單個文本節點 `"Log in"` 不等於 `"Log"`。然而，`:text-is("Log")` 匹配 `<button> Log <span>in</span></button>`，因為 `<button>` 包含一個文本節點 `" Log "`。
+
+  同樣，`:text-is("Download")` 不會匹配 `<button>download</button>`，因為它是區分大小寫的。

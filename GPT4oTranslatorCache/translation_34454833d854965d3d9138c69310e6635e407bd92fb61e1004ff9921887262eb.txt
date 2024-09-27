@@ -1,0 +1,1 @@
+每個 worker 程序被分配兩個 id: 從 1 開始的唯一 worker 索引和介於 `0` 和 `workers - 1` 之間的平行索引。當一個 worker 重新啟動時，例如在故障後，新 worker 程序具有相同的 `parallelIndex` 和新的 `workerIndex`。

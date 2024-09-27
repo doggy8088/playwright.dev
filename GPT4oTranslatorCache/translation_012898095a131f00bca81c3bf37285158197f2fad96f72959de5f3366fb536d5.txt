@@ -1,0 +1,1 @@
+執行動作並等待頁面記錄 [ConsoleMessage]。如果提供了謂詞，則將 [ConsoleMessage] 值傳遞給 `predicate` 函式，並等待 `predicate(message)` 返回真值。如果頁面在 [Page.onConsoleMessage(handler)](/api/class-page.mdx#page-event-console) 事件觸發之前關閉，將拋出錯誤。

@@ -1,0 +1,1 @@
+測試通過測試 ids 是最具彈性的測試方式，因為即使您的文字或屬性的角色發生變化，測試仍然會通過。QA 和開發人員應該定義明確的測試 ids 並使用 [page.getByTestId()](https://ollama.com/library) 查詢它們。然而，通過測試 ids 進行測試並不是面向用戶的。如果角色或文字值對您很重要，請考慮使用面向用戶的定位器，例如 [role](#locate-by-role) 和 [text locators](#locate-by-text)。

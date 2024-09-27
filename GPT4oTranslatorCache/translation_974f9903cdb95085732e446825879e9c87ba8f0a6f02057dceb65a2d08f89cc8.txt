@@ -1,0 +1,13 @@
+- `html` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-content-option-html"/><a href="#page-set-content-option-html" class="list-anchor">#</a>
+
+  指定給頁面的 HTML 標記。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-content-option-timeout"/><a href="#page-set-content-option-timeout" class="list-anchor">#</a>
+
+  最大操作時間（毫秒），預設為 30 秒，傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_navigation_timeout](/api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout)、[browser_context.set_default_timeout](/api/class-browsercontext.mdx#browser-context-set-default-timeout)、[page.set_default_navigation_timeout](/api/class-page.mdx#page-set-default-navigation-timeout) 或 [page.set_default_timeout](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。
+- `wait_until` "load" | "domcontentloaded" | "networkidle" | "commit" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-content-option-wait-until"/><a href="#page-set-content-option-wait-until" class="list-anchor">#</a>
+
+  何時認為操作成功，預設為 `load`。事件可以是：
+  * `'domcontentloaded'` - 當 `DOMContentLoaded` 事件被觸發時認為操作完成。
+  * `'load'` - 當 `load` 事件被觸發時認為操作完成。
+  * `'networkidle'` - **不建議** 當至少 `500` 毫秒內沒有網路連接時認為操作完成。不要在測試中使用此方法，應依賴網頁斷言來評估就緒狀態。
+  * `'commit'` - 當接收到網路響應並且文件開始加載時認為操作完成。

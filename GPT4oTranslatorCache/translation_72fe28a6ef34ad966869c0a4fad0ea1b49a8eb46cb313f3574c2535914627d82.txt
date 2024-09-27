@@ -1,0 +1,1 @@
+Playwright 不會從 HAR 檔案中提供由 Service Worker 攔截的請求。請參閱[此問題](https://github.com/microsoft/playwright/issues/1090)。我們建議在使用請求攔截時，將 `Browser.newContext.serviceWorkers` 設定為 `'block'` 來禁用 Service Workers。

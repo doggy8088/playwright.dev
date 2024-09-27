@@ -1,0 +1,72 @@
+* UI Mode 現在顯示步驟、fixtures 和附件: ![UI Mode attachments](https://github.com/microsoft/playwright/assets/746130/1d280419-d79a-4a56-b2dc-54d631281d56)
+* 新屬性 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) 用於指定需要在此專案和所有相依專案完成後執行的專案。Teardown 用於清理此專案獲取的任何資源。
+  
+  一個常見的模式是具有相應 `teardown` 的 `setup` 相依性:
+  
+  ```js title="playwright.config.ts"
+  import { defineConfig } from '@playwright/test';
+  
+  export default defineConfig({
+    projects: [
+      {
+        name: 'setup',
+        testMatch: /global.setup\.ts/,
+        teardown: 'teardown',
+      },
+      {
+        name: 'teardown',
+        testMatch: /global.teardown\.ts/,
+      },
+      {
+        name: 'chromium',
+        use: devices['Desktop Chrome'],
+        dependencies: ['setup'],
+      },
+      {
+        name: 'firefox',
+        use: devices['Desktop Firefox'],
+        dependencies: ['setup'],
+      },
+      {
+        name: 'webkit',
+        use: devices['Desktop Safari'],
+        dependencies: ['setup'],
+      },
+    ],
+  });
+  ```
+  
+* 新方法 [`expect.configure`](./test-assertions.mdx#expectconfigure) 用於建立預先配置的 expect 實例，具有其自己的預設值，如 `timeout` 和 `soft`。
+  
+  ```js
+  const slowExpect = expect.configure({ timeout: 10000 });
+  await slowExpect(locator).toHaveText('Submit');
+  
+  // 總是進行軟性斷言。
+  const softExpect = expect.configure({ soft: true });
+  ```
+  
+* 新選項 `stderr` 和 `stdout` 在 [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) 中配置輸出處理:
+  
+  ```js title="playwright.config.ts"
+  import { defineConfig } from '@playwright/test';
+  
+  export default defineConfig({
+    // 在開始測試之前運行本地開發伺服器
+    webServer: {
+      command: 'npm run start',
+      url: 'http://127.0.0.1:3000',
+      reuseExistingServer: !process.env.CI,
+      stdout: 'pipe',
+      stderr: 'pipe',
+    },
+  });
+  ```
+  
+* 新的 [locator.and()](/api/class-locator.mdx#locator-and) 用於建立同時匹配兩個定位器的定位器。
+  
+  ```js
+  const button = page.getByRole('button').and(page.getByTitle('Subscribe'));
+  ```
+  
+* 新事件 [browserContext.on('console')](/api/class-browsercontext.mdx#browser-context-event-console) 和 [browserContext.on('dialog')](/api/class-browsercontext.mdx#browser-context-event-dialog) 用於訂閱來自給定瀏覽器上下文的任何頁面的對話框和控制台訊息。使用新方法 [consoleMessage.page()](https://api/class-consolemessage.mdx#console-message-page) 和 [dialog.page()](https://api/class-dialog.mdx#dialog-page) 來確定事件來源。

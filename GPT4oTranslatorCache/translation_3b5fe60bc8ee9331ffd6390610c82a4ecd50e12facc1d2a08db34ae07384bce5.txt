@@ -1,0 +1,5 @@
+1. 匯入 `@axe-core/playwright` 套件
+1. 使用一般的 Playwright Test 語法來定義測試案例
+1. 使用一般的 Playwright 語法來導航至測試頁面
+1. 等待 `AxeBuilder.analyze()` 執行無障礙掃描以檢查頁面
+1. 使用一般的 Playwright Test [assertions](./test-assertions) 來驗證返回的掃描結果中沒有違規

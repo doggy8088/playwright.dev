@@ -1,0 +1,13 @@
+- `locator` [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-locator-handler-option-locator"/><a href="#page-add-locator-handler-option-locator" class="list-anchor">#</a>
+  
+  觸發處理程序的 Locator。
+- `handler` [function]\([Locator]\):[Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-locator-handler-option-handler"/><a href="#page-add-locator-handler-option-handler" class="list-anchor">#</a>
+  
+  一旦 `locator` 出現應該執行的函式。此函式應該移除阻擋點擊等操作的元素。
+- `options` [Object] *(optional)*
+  - `noWaitAfter` [boolean] *(optional)* <font size="2">新增於: v1.44</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-locator-handler-option-no-wait-after"/><a href="#page-add-locator-handler-option-no-wait-after" class="list-anchor">#</a>
+    
+    預設情況下，呼叫處理程序後 Playwright 會等待覆蓋層隱藏，然後才會繼續觸發處理程序的動作/斷言。此選項允許選擇不進行此行為，以便覆蓋層在處理程序執行後仍可保持可見。
+  - `times` [number] *(optional)* <font size="2">新增於: v1.44</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-locator-handler-option-times"/><a href="#page-add-locator-handler-option-times" class="list-anchor">#</a>
+    
+    指定此處理程序應被呼叫的最大次數。預設為無限制。

@@ -1,0 +1,1 @@
+在 [TestNG](https://testng.org/) 中，你可以在 [@BeforeClass](https://javadoc.io/doc/org.testng/testng/latest/org/testng/annotations/BeforeClass.html) 方法中初始化 [Playwright] 和 [Browser]，並在 [@AfterClass](https://javadoc.io/doc/org.testng/testng/latest/org/testng/annotations/AfterClass.html) 方法中銷毀它們。在下面的範例中，所有三個測試方法都使用相同的 [Browser]。每個測試使用其自己的 [BrowserContext] 和 [Page]。

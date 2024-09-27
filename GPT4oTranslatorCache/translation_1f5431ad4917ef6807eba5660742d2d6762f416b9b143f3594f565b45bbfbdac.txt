@@ -1,0 +1,3 @@
+- 新選項 `maxRedirects` 用於 [apiRequestContext.get()](https://ollama.com/library#api-request-context-get) 和其他函式以限制重定向次數。
+- 新的命令列標誌 `--pass-with-no-tests` 允許在未找到檔案時測試套件通過。
+- 新的命令列標誌 `--ignore-snapshots` 用於跳過快照期望，例如 `expect(value).toMatchSnapshot()` 和 `expect(page).toHaveScreenshot()`。

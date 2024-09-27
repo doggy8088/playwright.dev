@@ -1,0 +1,1 @@
+執行動作並等待傳送框架。如果提供了謂詞，則將 [WebSocketFrame] 值傳遞給 `predicate` 函式並等待 `predicate(webSocketFrame)` 返回真值。如果在框架傳送之前 WebSocket 或頁面關閉，將拋出錯誤。

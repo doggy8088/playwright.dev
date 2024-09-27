@@ -1,0 +1,101 @@
+- `options` [物件] *(optional)*
+  - `acceptDownloads` [boolean] *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-accept-downloads"/><a href="#electron-launch-option-accept-downloads" class="list-anchor">#</a>
+    
+    是否自動下載所有附件。預設為 `true`，即接受所有下載。
+  - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-args"/><a href="#electron-launch-option-args" class="list-anchor">#</a>
+    
+    啟動應用程式時傳遞的額外參數。通常在這裡傳遞主腳本名稱。
+  - `bypassCSP` [boolean] *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-bypass-csp"/><a href="#electron-launch-option-bypass-csp" class="list-anchor">#</a>
+    
+    切換是否繞過頁面的內容安全政策。預設為 `false`。
+  - `colorScheme` [null] | "light" | "dark" | "no-preference" *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-color-scheme"/><a href="#electron-launch-option-color-scheme" class="list-anchor">#</a>
+    
+    模擬 `'prefers-colors-scheme'` 媒體特性，支持的值有 `'light'`、`'dark'`、`'no-preference'`。詳情請參見 [page.emulateMedia()](https://api/class-page.mdx#page-emulate-media)。傳遞 `null` 將重置模擬為系統預設值。預設為 `'light'`。
+  - `cwd` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-cwd"/><a href="#electron-launch-option-cwd" class="list-anchor">#</a>
+    
+    啟動應用程式的當前工作目錄。
+  - `env` [物件]&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-env"/><a href="#electron-launch-option-env" class="list-anchor">#</a>
+    
+    指定 Electron 可見的環境變數。預設為 `process.env`。
+  - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-executable-path"/><a href="#electron-launch-option-executable-path" class="list-anchor">#</a>
+    
+    啟動指定的 Electron 應用程式。如果未指定，則啟動此套件中安裝的預設 Electron 可執行檔，位於 `node_modules/.bin/electron`。
+  - `extraHTTPHeaders` [物件]&lt;[string], [string]&gt; *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-extra-http-headers"/><a href="#electron-launch-option-extra-http-headers" class="list-anchor">#</a>
+    
+    包含每個請求要發送的額外 HTTP 標頭的物件。預設為無。
+  - `geolocation` [物件] *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-geolocation"/><a href="#electron-launch-option-geolocation" class="list-anchor">#</a>
+    - `latitude` [number]
+      
+      緯度在 -90 和 90 之間。
+    - `longitude` [number]
+      
+      經度在 -180 和 180 之間。
+    - `accuracy` [number] *(optional)*
+      
+      非負的精確度值。預設為 `0`。
+  - `httpCredentials` [物件] *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-http-credentials"/><a href="#electron-launch-option-http-credentials" class="list-anchor">#</a>
+    - `username` [string]
+      
+      
+    - `password` [string]
+      
+      
+    - `origin` [string] *(optional)*
+      
+      限制在特定來源（scheme://host:port）上發送 HTTP 憑證。
+    - `send` "unauthorized" | "always" *(optional)*
+      
+      此選項僅適用於從相應的 [APIRequestContext] 發送的請求，不影響從瀏覽器發送的請求。`'always'` - 每個 API 請求都會發送帶有基本身份驗證憑證的 `Authorization` 標頭。`'unauthorized'` - 僅在收到帶有 `WWW-Authenticate` 標頭的 401（未授權）響應時發送憑證。預設為 `'unauthorized'`。
+    
+    [HTTP 身份驗證](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) 的憑證。如果未指定來源，則在未授權響應時將用戶名和密碼發送到任何伺服器。
+  - `ignoreHTTPSErrors` [boolean] *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-ignore-https-errors"/><a href="#electron-launch-option-ignore-https-errors" class="list-anchor">#</a>
+    
+    發送網絡請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+  - `locale` [string] *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-locale"/><a href="#electron-launch-option-locale" class="list-anchor">#</a>
+    
+    指定用戶區域，例如 `en-GB`、`de-DE` 等。區域將影響 `navigator.language` 值、`Accept-Language` 請求標頭值以及數字和日期格式規則。預設為系統預設區域。了解更多有關模擬的信息，請參見我們的 [模擬指南](../emulation.mdx#locale--timezone)。
+  - `offline` [boolean] *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-offline"/><a href="#electron-launch-option-offline" class="list-anchor">#</a>
+    
+    是否模擬網絡離線。預設為 `false`。了解更多有關 [網絡模擬](../emulation.mdx#offline) 的信息。
+  - `recordHar` [物件] *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-record-har"/><a href="#electron-launch-option-record-har" class="list-anchor">#</a>
+    - `omitContent` [boolean] *(optional)*
+      
+      控制是否省略 HAR 中的請求內容的可選設定。預設為 `false`。已棄用，請改用 `content` 策略。
+    - `content` "omit" | "embed" | "attach" *(optional)*
+      
+      控制資源內容管理的可選設定。如果指定 `omit`，則不會保留內容。如果指定 `attach`，則資源將作為單獨的文件或 ZIP 壓縮檔中的條目保留。如果指定 `embed`，則內容將按照 HAR 規範內嵌在 HAR 文件中。對於 `.zip` 輸出文件，預設為 `attach`，對於所有其他文件擴展名，預設為 `embed`。
+    - `path` [string]
+      
+      寫入 HAR 文件的文件系統路徑。如果文件名以 `.zip` 結尾，則預設使用 `content: 'attach'`。
+    - `mode` "full" | "minimal" *(optional)*
+      
+      設置為 `minimal` 時，只記錄從 HAR 路由所需的資訊。這會省略大小、時間、頁面、cookie、安全性和其他在從 HAR 重播時不使用的 HAR 資訊。預設為 `full`。
+    - `urlFilter` [string] | [RegExp] *(optional)*
+      
+      用於過濾存儲在 HAR 中的請求的 glob 或正則表達式模式。當通過上下文選項提供 `baseURL` 並且傳遞的 URL 是路徑時，它會通過 [`new URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 構造函式合併。預設為無。
+    
+    為所有頁面啟用 [HAR](http://www.softwareishard.com/blog/har-12-spec) 記錄到 `recordHar.path` 文件中。如果未指定，則不記錄 HAR。確保等待 [browserContext.close()](https://api/class-browsercontext.mdx#browser-context-close) 以保存 HAR。
+  - `recordVideo` [物件] *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-record-video"/><a href="#electron-launch-option-record-video" class="list-anchor">#</a>
+    - `dir` [string]
+      
+      放置影片的目錄路徑。
+    - `size` [物件] *(optional)*
+      - `width` [number]
+        
+        影片幀寬度。
+      - `height` [number]
+        
+        影片幀高度。
+      
+      錄製影片的可選尺寸。如果未指定，大小將等於 `viewport` 縮小以適應 800x800。如果未明確配置 `viewport`，則影片大小預設為 800x450。每個頁面的實際圖片將在必要時縮小以適應指定的大小。
+    
+    為所有頁面啟用影片錄製到 `recordVideo.dir` 目錄中。如果未指定，則不錄製影片。確保等待 [browserContext.close()](https://api/class-browsercontext.mdx#browser-context-close) 以保存影片。
+  - `timeout` [number] *(optional)* <font size="2">Added in: v1.15</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-timeout"/><a href="#electron-launch-option-timeout" class="list-anchor">#</a>
+    
+    等待應用程式啟動的最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。
+  - `timezoneId` [string] *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-timezone-id"/><a href="#electron-launch-option-timezone-id" class="list-anchor">#</a>
+    
+    更改上下文的時區。請參見 [ICU 的 metaZones.txt](https://cs.chromium.org/chromium/src/third_party/icu/source/data/misc/metaZones.txt?rcl=faee8bc70570192d82d2978a71e2a615788597d1) 了解支持的時區 ID 列表。預設為系統時區。
+  - `tracesDir` [string] *(optional)* <font size="2">Added in: v1.36</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-launch-option-traces-dir"/><a href="#electron-launch-option-traces-dir" class="list-anchor">#</a>
+    
+    如果指定，則將追蹤保存到此目錄中。

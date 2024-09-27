@@ -1,0 +1,4 @@
+1. 每個 Playwright 函式庫文件都有明確匯入 `chromium`。其他瀏覽器 `webkit` 或 `firefox` 也可以使用。
+1. 為了瀏覽器狀態隔離，請考慮 [browser contexts](./browser-contexts.mdx)
+1. `setViewport` 變成 `setViewportSize`
+1. `networkidle2` 變成 `networkidle`。請注意，在大多數情況下，由於自動等待，它並不有用。

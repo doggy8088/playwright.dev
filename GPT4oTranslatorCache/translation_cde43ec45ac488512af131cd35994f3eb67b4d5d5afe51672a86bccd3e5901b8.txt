@@ -1,0 +1,15 @@
+- `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-expose-binding-option-name"/><a href="#page-expose-binding-option-name" class="list-anchor">#</a>
+  
+  窗口物件上函式的名稱。
+- `callback` [function]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-expose-binding-option-callback"/><a href="#page-expose-binding-option-callback" class="list-anchor">#</a>
+  
+  將在 Playwright 的上下文中呼叫的回呼函式。
+- `options` [Object] *(optional)*
+  - `handle` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-expose-binding-option-handle"/><a href="#page-expose-binding-option-handle" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    此選項將在未來移除。
+    :::
+    
+    
+    是否以 handle 傳遞參數，而不是按值傳遞。當以 handle 傳遞時，只支持一個參數。按值傳遞時，支持多個參數。

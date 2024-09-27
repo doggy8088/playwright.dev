@@ -1,0 +1,16 @@
+- 允許通過其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素的角色選擇器。
+  
+  ```csharp
+  // 點擊一個具有可訪問名稱 "log in" 的按鈕
+  await page.Locator("role=button[name='log in']").ClickAsync();
+  ```
+  
+  閱讀更多在 [我們的文件](./locators.mdx#locate-by-role)。
+- 新的 [Locator.Filter()](/api/class-locator.mdx#locator-filter) API 來篩選現有的定位器
+  
+  ```csharp
+  var buttons = page.Locator("role=button");
+  // ...
+  var submitLocator = buttons.Filter(new() { HasText = "Sign up" });
+  await submitLocator.ClickAsync();
+  ```

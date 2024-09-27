@@ -1,0 +1,16 @@
+- [物件] | "off" | "on" | "retain-on-failure" | "on-first-retry" | "retain-on-first-failure"
+  - `mode` "off" | "on" | "retain-on-failure" | "on-first-retry" | "on-all-retries" | "retain-on-first-failure"
+    
+    追蹤記錄模式。
+  - `attachments` [boolean] *(optional)*
+    
+    是否包含測試附件。預設為 true。可選。
+  - `screenshots` [boolean] *(optional)*
+    
+    是否在追蹤期間捕捉螢幕截圖。螢幕截圖用於建立時間線預覽。預設為 true。可選。
+  - `snapshots` [boolean] *(optional)*
+    
+    是否在每個動作上捕捉 DOM 快照。預設為 true。可選。
+  - `sources` [boolean] *(optional)*
+    
+    是否包含追蹤動作的源文件。預設為 true。可選。

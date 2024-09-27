@@ -1,0 +1,1 @@
+使用 [`@TestInstance(TestInstance.Lifecycle.PER_CLASS)`](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/TestInstance.html) 註解來讓 JUnit 為該類別中的所有測試方法建立一個類別的實例（預設情況下，每個 JUnit 會為每個測試方法建立一個新的類別實例）。將 [Playwright] 和 [Browser] 物件儲存在實例欄位中。它們將在測試之間共享。每個類別的實例將使用其自己的 Playwright 複製品。

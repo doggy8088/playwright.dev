@@ -1,0 +1,78 @@
+* 如果有服務工作者阻礙了你，你現在可以使用新的上下文選項 `service_workers` 輕鬆禁用它：
+  
+  <Tabs
+    groupId="python-flavor"
+    defaultValue="sync"
+    values={[
+      {label: 'Sync', value: 'sync'},
+      {label: 'Async', value: 'async'}
+    ]
+  }>
+  <TabItem value="sync">
+  
+  ```py
+  context = browser.new_context(service_workers="block")
+  page = context.new_page()
+  ```
+  
+  </TabItem>
+  <TabItem value="async">
+  
+  ```py
+  context = await browser.new_context(service_workers="block")
+  page = await context.new_page()
+  ```
+  
+  </TabItem>
+  </Tabs>
+* 使用 `.zip` 路徑作為 `recordHar` 上下文選項會自動壓縮生成的 HAR：
+  
+  <Tabs
+    groupId="python-flavor"
+    defaultValue="sync"
+    values={[
+      {label: 'Sync', value: 'sync'},
+      {label: 'Async', value: 'async'}
+    ]
+  }>
+  <TabItem value="sync">
+  
+  ```py
+  context = browser.new_context(record_har_path="github.har.zip")
+  ```
+  
+  </TabItem>
+  <TabItem value="async">
+  
+  ```py
+  context = await browser.new_context(record_har_path="github.har.zip")
+  ```
+  
+  </TabItem>
+  </Tabs>
+* 如果你打算手動編輯 HAR，考慮使用 `"minimal"` HAR 錄製模式，該模式僅記錄重播所需的基本資訊：
+  
+  <Tabs
+    groupId="python-flavor"
+    defaultValue="sync"
+    values={[
+      {label: 'Sync', value: 'sync'},
+      {label: 'Async', value: 'async'}
+    ]
+  }>
+  <TabItem value="sync">
+  
+  ```py
+  context = browser.new_context(record_har_mode="minimal", record_har_path="har.har")
+  ```
+  
+  </TabItem>
+  <TabItem value="async">
+  
+  ```py
+  context = await browser.new_context(record_har_mode="minimal", record_har_path="har.har")
+  ```
+  
+  </TabItem>
+  </Tabs>
+* Playwright 現在可在 Ubuntu 22 amd64 和 Ubuntu 22 arm64 上執行。

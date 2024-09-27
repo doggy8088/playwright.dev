@@ -1,0 +1,50 @@
+- `role` `enum AriaRole { ALERT, ALERTDIALOG, APPLICATION, ARTICLE, BANNER, BLOCKQUOTE, BUTTON, CAPTION, CELL, CHECKBOX, CODE, COLUMNHEADER, COMBOBOX, COMPLEMENTARY, CONTENTINFO, DEFINITION, DELETION, DIALOG, DIRECTORY, DOCUMENT, EMPHASIS, FEED, FIGURE, FORM, GENERIC, GRID, GRIDCELL, GROUP, HEADING, IMG, INSERTION, LINK, LIST, LISTBOX, LISTITEM, LOG, MAIN, MARQUEE, MATH, METER, MENU, MENUBAR, MENUITEM, MENUITEMCHECKBOX, MENUITEMRADIO, NAVIGATION, NONE, NOTE, OPTION, PARAGRAPH, PRESENTATION, PROGRESSBAR, RADIO, RADIOGROUP, REGION, ROW, ROWGROUP, ROWHEADER, SCROLLBAR, SEARCH, SEARCHBOX, SEPARATOR, SLIDER, SPINBUTTON, STATUS, STRONG, SUBSCRIPT, SUPERSCRIPT, SWITCH, TAB, TABLE, TABLIST, TABPANEL, TERM, TEXTBOX, TIME, TIMER, TOOLBAR, TOOLTIP, TREE, TREEGRID, TREEITEM }`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-role"/><a href="#page-get-by-role-option-role" class="list-anchor">#</a>
+  
+  必需的 aria 角色。
+- `options` `Page.GetByRoleOptions` *(可選)*
+  - `setChecked` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-checked"/><a href="#page-get-by-role-option-checked" class="list-anchor">#</a>
+    
+    通常由 `aria-checked` 或原生 `<input type=checkbox>` 控制項設置的屬性。
+    
+    了解更多關於 [`aria-checked`](https://www.w3.org/TR/wai-aria-1.2/#aria-checked)。
+  - `setDisabled` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-disabled"/><a href="#page-get-by-role-option-disabled" class="list-anchor">#</a>
+    
+    通常由 `aria-disabled` 或 `disabled` 設置的屬性。
+    
+    :::note
+    與大多數其他屬性不同，`disabled` 是通過 DOM 層次結構繼承的。了解更多關於 [`aria-disabled`](https://www.w3.org/TR/wai-aria-1.2/#aria-disabled)。
+    :::
+    
+  - `setExact` [boolean] *(可選)* <font size="2">新增於: v1.28</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-exact"/><a href="#page-get-by-role-option-exact" class="list-anchor">#</a>
+    
+    是否精確匹配 `name`: 區分大小寫和整個字串。預設為 false。當 `name` 是正則表達式時忽略此選項。請注意，精確匹配仍會修剪空白。
+  - `setExpanded` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-expanded"/><a href="#page-get-by-role-option-expanded" class="list-anchor">#</a>
+    
+    通常由 `aria-expanded` 設置的屬性。
+    
+    了解更多關於 [`aria-expanded`](https://www.w3.org/TR/wai-aria-1.2/#aria-expanded)。
+  - `setIncludeHidden` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-include-hidden"/><a href="#page-get-by-role-option-include-hidden" class="list-anchor">#</a>
+    
+    控制是否匹配隱藏元素的選項。預設情況下，只有非隱藏元素（根據 [ARIA 定義](https://www.w3.org/TR/wai-aria-1.2/#tree_exclusion)）會被角色選擇器匹配。
+    
+    了解更多關於 [`aria-hidden`](https://www.w3.org/TR/wai-aria-1.2/#aria-hidden)。
+  - `setLevel` [int] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-level"/><a href="#page-get-by-role-option-level" class="list-anchor">#</a>
+    
+    一個數字屬性，通常存在於角色 `heading`、`listitem`、`row`、`treeitem`，對 `<h1>-<h6>` 元素有預設值。
+    
+    了解更多關於 [`aria-level`](https://www.w3.org/TR/wai-aria-1.2/#aria-level)。
+  - `setName` [String] | [Pattern] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-name"/><a href="#page-get-by-role-option-name" class="list-anchor">#</a>
+    
+    匹配 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 的選項。預設情況下，匹配不區分大小寫並搜索子字串，使用 `exact` 來控制此行為。
+    
+    了解更多關於 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name)。
+  - `setPressed` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-pressed"/><a href="#page-get-by-role-option-pressed" class="list-anchor">#</a>
+    
+    通常由 `aria-pressed` 設置的屬性。
+    
+    了解更多關於 [`aria-pressed`](https://www.w3.org/TR/wai-aria-1.2/#aria-pressed)。
+  - `setSelected` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-selected"/><a href="#page-get-by-role-option-selected" class="list-anchor">#</a>
+    
+    通常由 `aria-selected` 設置的屬性。
+    
+    了解更多關於 [`aria-selected`](https://www.w3.org/TR/wai-aria-1.2/#aria-selected)。

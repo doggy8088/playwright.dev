@@ -1,0 +1,28 @@
+- [locator.drag_to()](/api/class-locator.mdx#locator-drag-to)
+- 每個 locator 現在可以選擇性地根據其包含的文本進行過濾：
+
+  <Tabs
+    groupId="python-flavor"
+    defaultValue="sync"
+    values={[
+      {label: 'Sync', value: 'sync'},
+      {label: 'Async', value: 'async'}
+    ]
+  }>
+  <TabItem value="sync">
+
+  ```py
+  page.locator("li", has_text="my item").locator("button").click()
+  ```
+
+  </TabItem>
+  <TabItem value="async">
+
+  ```py
+  await page.locator("li", has_text="my item").locator("button").click()
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  閱讀更多在 [locator 文件](./api/class-locator#locator-locator)。

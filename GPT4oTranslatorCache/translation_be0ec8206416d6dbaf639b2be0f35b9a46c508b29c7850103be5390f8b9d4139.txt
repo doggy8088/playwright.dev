@@ -1,0 +1,1 @@
+新的方法 [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) 註冊了一個回調函式，當指定的元素變得可見時將被呼叫，並且可能會阻止 Playwright 動作。回調函式可以去除覆蓋層。這裡有一個範例，當 cookie 對話框出現時將其關閉。

@@ -1,0 +1,29 @@
+- [Promise]&lt;[Array]&lt;[物件]&gt;&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="coverage-stop-js-coverage-return"/><a href="#coverage-stop-js-coverage-return" class="list-anchor">#</a>
+  - `url` [string]
+    
+    Script URL
+  - `scriptId` [string]
+    
+    Script ID
+  - `source` [string] *(optional)*
+    
+    Script content, if applicable.
+  - `functions` [Array]&lt;[物件]&gt;
+    - `functionName` [string]
+      
+      
+    - `isBlockCoverage` [boolean]
+      
+      
+    - `ranges` [Array]&lt;[物件]&gt;
+      - `count` [number]
+        
+        
+      - `startOffset` [number]
+        
+        
+      - `endOffset` [number]
+        
+        
+      
+    V8-specific coverage format.

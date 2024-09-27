@@ -1,0 +1,9 @@
+- `url` [str] | [Pattern] | [Callable]\[[URL]\]:[bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-option-url"/><a href="#browser-context-route-option-url" class="list-anchor">#</a>
+
+  一個 glob 模式、正則表達式模式或接收 [URL] 的謂詞來匹配路由。當通過 context 選項提供了 `base_url` 並且傳遞的 URL 是一個路徑時，它會通過 [`new URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 構造函式合併。
+- `handler` [Callable]\[[Route], [Request]\]:[Promise]\[[Any]\] | [Any]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-option-handler"/><a href="#browser-context-route-option-handler" class="list-anchor">#</a>
+
+  處理請求的 handler 函式。
+- `times` [int] *(optional)* <font size="2">新增於: v1.15</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-option-times"/><a href="#browser-context-route-option-times" class="list-anchor">#</a>
+
+  路由應該使用的次數。預設情況下，每次都會使用。

@@ -1,0 +1,1 @@
+要記錄 HAR 檔案，我們使用 [Page.routeFromHAR()](/api/class-page#page-route-from-har) 或 [BrowserContext.routeFromHAR()](/api/class-browsercontext#browser-context-route-from-har) 方法。此方法需要提供 HAR 檔案的路徑和一個可選的選項物件。選項物件可以包含 URL，以便只有與指定的 glob 模式匹配的 URL 請求會從 HAR 檔案中提供。如果未指定，則所有請求都會從 HAR 檔案中提供。

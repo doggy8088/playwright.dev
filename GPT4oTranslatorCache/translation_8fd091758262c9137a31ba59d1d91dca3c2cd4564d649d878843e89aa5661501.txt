@@ -1,0 +1,4 @@
+|Timeout    |Default             |Description                      |
+|:----------|:----------------|:--------------------------------|
+|Test timeout|30000 ms|每個測試的超時時間，包括測試、hooks 和 fixtures:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { timeout: 60000 }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`test.setTimeout(120000)` |
+|Expect timeout|5000 ms|每個斷言的超時時間:<br/><span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.7'}}>Set default</span><br/><code>{`config = { expect: { timeout: 10000 } }`}</code><br/><span style={{textTransform: 'uppercase',fontSize: 'smaller', fontWeight: 'bold', opacity: '0.7'}}>Override</span><br/>`expect(locator).toBeVisible({ timeout: 10000 })` |

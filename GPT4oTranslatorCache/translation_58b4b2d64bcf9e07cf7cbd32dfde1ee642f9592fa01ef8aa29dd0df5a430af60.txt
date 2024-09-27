@@ -1,0 +1,6 @@
+| Option | Description |
+| :- | :- |
+| [testConfig.globalSetup](/api/class-testconfig.mdx#test-config-global-setup) | 全域設定檔案的路徑。此檔案將在所有測試之前被要求並執行。它必須匯出一個函式。 |
+| [testConfig.globalTeardown](/api/class-testconfig.mdx#test-config-global-teardown) |全域拆卸檔案的路徑。此檔案將在所有測試之後被要求並執行。它必須匯出一個函式。 |
+| [testConfig.outputDir](/api/class-testconfig.mdx#test-config-output-dir) | 測試工件的資料夾，例如截圖、影片、追蹤等。 |
+| [testConfig.timeout](/api/class-testconfig.mdx#test-config-timeout) | Playwright 為每個測試強制執行一個[超時](./test-timeouts.mdx)，預設為30秒。測試函式、fixtures、beforeEach 和 afterEach hooks 所花費的時間都包含在測試超時內。 |

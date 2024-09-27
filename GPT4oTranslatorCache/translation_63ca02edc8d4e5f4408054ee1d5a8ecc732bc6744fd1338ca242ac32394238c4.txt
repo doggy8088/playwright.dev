@@ -1,0 +1,4 @@
+- `options` `Locator.IsEditableOptions` *(optional)*
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-editable-option-timeout"/><a href="#locator-is-editable-option-timeout" class="list-anchor">#</a>
+    
+    最長時間（毫秒）。預設為 `30000`（30 秒）。傳入 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultTimeout()](https://ollama.com/library) 或 [Page.setDefaultTimeout()](https://ollama.com/library) 方法更改預設值。

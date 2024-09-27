@@ -1,0 +1,7 @@
+- [expect(locator).toHaveAttribute()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. 例如, 當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
+
+  ```js
+  await expect(page.getByRole('button')).toHaveAttribute('disabled', '');
+  ```
+
+- 命令列選項 `--grep` 和 `--grep-invert` 先前錯誤地忽略了在配置中指定的 `grep` 和 `grepInvert` 選項。現在它們會一起應用。

@@ -1,0 +1,13 @@
+- `options` `Page.EmulateMediaOptions` *(optional)*
+  - `setColorScheme` [null] | `enum ColorScheme { LIGHT, DARK, NO_PREFERENCE }` *(optional)* <font size="2">Added in: v1.9</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-emulate-media-option-color-scheme"/><a href="#page-emulate-media-option-color-scheme" class="list-anchor">#</a>
+    
+    模擬 `'prefers-colors-scheme'` 媒體特性，支持的值為 `'light'`、`'dark'`、`'no-preference'`。傳遞 `null` 會禁用顏色方案模擬。
+  - `setForcedColors` [null] | `enum ForcedColors { ACTIVE, NONE }` *(optional)* <font size="2">Added in: v1.15</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-emulate-media-option-forced-colors"/><a href="#page-emulate-media-option-forced-colors" class="list-anchor">#</a>
+    
+    模擬 `'forced-colors'` 媒體特性，支持的值為 `'active'` 和 `'none'`。傳遞 `null` 會禁用強制顏色模擬。
+  - `setMedia` [null] | `enum Media { SCREEN, PRINT }` *(optional)* <font size="2">Added in: v1.9</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-emulate-media-option-media"/><a href="#page-emulate-media-option-media" class="list-anchor">#</a>
+    
+    更改頁面的 CSS 媒體類型。唯一允許的值是 `'screen'`、`'print'` 和 `null`。傳遞 `null` 會禁用 CSS 媒體模擬。
+  - `setReducedMotion` [null] | `enum ReducedMotion { REDUCE, NO_PREFERENCE }` *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-emulate-media-option-reduced-motion"/><a href="#page-emulate-media-option-reduced-motion" class="list-anchor">#</a>
+    
+    模擬 `'prefers-reduced-motion'` 媒體特性，支持的值為 `'reduce'`、`'no-preference'`。傳遞 `null` 會禁用減少動作模擬。

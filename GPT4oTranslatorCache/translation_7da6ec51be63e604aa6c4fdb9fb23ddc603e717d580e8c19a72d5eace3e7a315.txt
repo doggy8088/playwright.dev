@@ -1,0 +1,29 @@
+- `checkedState` [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-set-checked-option-checked"/><a href="#locator-set-checked-option-checked" class="list-anchor">#</a>
+  
+  是否勾選或取消勾選複選框。
+- `options` `LocatorSetCheckedOptions?` *(optional)*
+  - `Force` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-set-checked-option-force"/><a href="#locator-set-checked-option-force" class="list-anchor">#</a>
+    
+    是否繞過[actionability](../actionability.mdx)檢查。預設為`false`。
+  - `NoWaitAfter` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-set-checked-option-no-wait-after"/><a href="#locator-set-checked-option-no-wait-after" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+    
+    
+    此選項無效。
+  - `Position` Position? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-set-checked-option-position"/><a href="#locator-set-checked-option-position" class="list-anchor">#</a>
+    - `X` [float]
+      
+      
+    - `Y` [float]
+      
+      
+    相對於元素填充框左上角的點。如果未指定，則使用元素的某個可見點。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-set-checked-option-timeout"/><a href="#locator-set-checked-option-timeout" class="list-anchor">#</a>
+    
+    最大時間（毫秒）。預設為`30000`（30秒）。傳遞`0`以禁用超時。可以使用[BrowserContext.SetDefaultTimeout()](https://api/class-browsercontext.mdx#browser-context-set-default-timeout)或[Page.SetDefaultTimeout()](https://api/class-page.mdx#page-set-default-timeout)方法更改預設值。
+  - `Trial` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-set-checked-option-trial"/><a href="#locator-set-checked-option-trial" class="list-anchor">#</a>
+    
+    設置後，此方法僅執行[actionability](../actionability.mdx)檢查並跳過操作。預設為`false`。有助於在元素準備好操作之前等待。

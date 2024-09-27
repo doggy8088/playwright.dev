@@ -1,0 +1,1 @@
+在 CircleCI 中的分片是從 0 開始索引的，這意味著你需要覆寫預設的平行處理環境變數。以下範例展示了如何通過將 `CIRCLE_NODE_INDEX` 加 1 來傳遞到 `--shard` cli 參數，以 4 的 CircleCI 平行處理執行 Playwright。

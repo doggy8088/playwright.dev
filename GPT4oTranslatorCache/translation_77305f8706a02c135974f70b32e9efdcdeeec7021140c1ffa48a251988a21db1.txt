@@ -1,0 +1,5 @@
+1. 每個 Playwright 測試文件都有明確的 `test` 和 `expect` 函式匯入
+1. 測試函式標記為 `async`
+1. Playwright 測試給定一個 `page` 作為其參數之一。這是 Playwright 測試中許多[有用的 fixtures](./api/class-fixtures)之一。
+1. 幾乎所有的 Playwright 呼叫都以 `await` 為前綴
+1. 使用 [page.locator()](/api/class-page.mdx#page-locator) 建立定位器是少數同步的方法之一。

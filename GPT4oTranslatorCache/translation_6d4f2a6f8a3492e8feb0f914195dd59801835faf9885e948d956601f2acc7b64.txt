@@ -1,0 +1,26 @@
+- `options` [物件] *(optional)*
+  - `adbHost` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-adb-host"/><a href="#android-launch-server-option-adb-host" class="list-anchor">#</a>
+    
+    選擇性主機以建立 ADB 伺服器連線。預設為 `127.0.0.1`。
+  - `adbPort` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-adb-port"/><a href="#android-launch-server-option-adb-port" class="list-anchor">#</a>
+    
+    選擇性埠以建立 ADB 伺服器連線。預設為 `5037`。
+  - `deviceSerialNumber` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-device-serial-number"/><a href="#android-launch-server-option-device-serial-number" class="list-anchor">#</a>
+    
+    選擇性裝置序號以啟動瀏覽器。如果未指定，當連接多個裝置時將會拋出錯誤。
+  - `host` [string] *(optional)* <font size="2">新增於: v1.45</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-host"/><a href="#android-launch-server-option-host" class="list-anchor">#</a>
+    
+    用於 Web Socket 的主機。這是選擇性的，如果省略，伺服器將在 IPv6 可用時接受未指定的 IPv6 位址 (::) 的連線，否則接受未指定的 IPv4 位址 (0.0.0.0) 的連線。考慮選擇特定的介面來加強安全性。
+  - `omitDriverInstall` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-omit-driver-install"/><a href="#android-launch-server-option-omit-driver-install" class="list-anchor">#</a>
+    
+    防止在附加時自動安裝 Playwright 驅動程式。假設驅動程式已經安裝。
+  - `port` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-port"/><a href="#android-launch-server-option-port" class="list-anchor">#</a>
+    
+    用於 Web Socket 的埠。預設為 0，選擇任何可用的埠。
+  - `wsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-ws-path"/><a href="#android-launch-server-option-ws-path" class="list-anchor">#</a>
+    
+    用於提供 Android 伺服器的路徑。為了安全起見，預設為一個無法猜測的字串。
+    
+    :::warning
+    任何具有 `wsPath` 資訊的進程或網頁（包括在 Playwright 中執行的那些）都可以控制 OS 使用者。因此，在使用此選項時，應使用無法猜測的令牌。
+    :::

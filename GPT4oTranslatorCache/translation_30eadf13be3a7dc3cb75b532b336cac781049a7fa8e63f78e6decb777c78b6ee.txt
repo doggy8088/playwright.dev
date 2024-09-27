@@ -1,0 +1,1 @@
+在測試執行器退出之前立即呼叫。此時所有報告器都已收到 [reporter.onEnd()](/api/class-reporter.mdx#reporter-on-end) 信號，因此所有報告都應該建構完成。你可以在這個掛鉤中執行上傳報告的程式碼。

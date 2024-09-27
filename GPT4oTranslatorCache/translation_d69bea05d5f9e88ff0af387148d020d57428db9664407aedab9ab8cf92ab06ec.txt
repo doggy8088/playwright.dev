@@ -1,0 +1,1 @@
+- `/Log\s*in/i` - body 可以是 [JavaScript-like regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) 包裹在 `/` 符號中。例如, `text=/Log\s*in/i` 匹配 `<button>Login</button>` 和 `<button>log IN</button>`。

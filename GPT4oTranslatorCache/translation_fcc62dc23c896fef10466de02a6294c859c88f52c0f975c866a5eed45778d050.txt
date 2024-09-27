@@ -1,0 +1,12 @@
+1. 在 CI 上執行時，將新的 "blob" reporter 添加到 config 中:
+
+   ```js title="playwright.config.ts"
+   export default defineConfig({
+     testDir: './tests',
+     reporter: process.env.CI ? 'blob' : 'html',
+   });
+   ```
+
+   "blob" reporter 將生成包含所有測試執行資訊的 ".zip" 文件。
+
+2. 將所有 "blob" 報告複製到單一共享位置並執行 `npx playwright merge-reports`:

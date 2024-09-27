@@ -1,0 +1,7 @@
+- `name` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-attribute-option-name"/><a href="#locator-get-attribute-option-name" class="list-anchor">#</a>
+
+  要獲取值的屬性名稱。
+- `options` `Locator.GetAttributeOptions` *(可選)*
+  - `setTimeout` [double] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-attribute-option-timeout"/><a href="#locator-get-attribute-option-timeout" class="list-anchor">#</a>
+
+    最大時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultTimeout()](https://ollama.com/library) 或 [Page.setDefaultTimeout()](https://ollama.com/library) 方法更改預設值。

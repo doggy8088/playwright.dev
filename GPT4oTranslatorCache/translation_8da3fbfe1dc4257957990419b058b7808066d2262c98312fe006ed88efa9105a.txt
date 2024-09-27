@@ -1,0 +1,13 @@
+- `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-eval-on-selector-option-selector"/><a href="#frame-eval-on-selector-option-selector" class="list-anchor">#</a>
+  
+  用於查詢的選擇器。
+- `pageFunction` [function]\([Element]\) | [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-eval-on-selector-option-expression"/><a href="#frame-eval-on-selector-option-expression" class="list-anchor">#</a>
+  
+  在頁面上下文中執行的函式。
+- `arg` [EvaluationArgument] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-eval-on-selector-option-arg"/><a href="#frame-eval-on-selector-option-arg" class="list-anchor">#</a>
+  
+  傳遞給 `pageFunction` 的可選參數。
+- `options` [Object] *(optional)*
+  - `strict` [boolean] *(optional)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-eval-on-selector-option-strict"/><a href="#frame-eval-on-selector-option-strict" class="list-anchor">#</a>
+    
+    當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。

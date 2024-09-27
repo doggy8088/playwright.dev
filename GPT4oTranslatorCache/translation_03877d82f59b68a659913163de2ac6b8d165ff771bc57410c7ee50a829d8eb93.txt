@@ -1,0 +1,77 @@
+- 執行所有測試
+  
+  ```bash
+  npx playwright test
+  ```
+  
+- 執行單一測試檔案
+  
+  ```bash
+  npx playwright test tests/todo-page.spec.ts
+  ```
+  
+- 執行一組測試檔案
+  
+  ```bash
+  npx playwright test tests/todo-page/ tests/landing-page/
+  ```
+  
+- 執行檔名中包含 `my-spec` 或 `my-spec-2` 的檔案
+  
+  ```bash
+  npx playwright test my-spec my-spec-2
+  ```
+  
+- 執行 my-spec.ts 中第 42 行的測試
+  
+  ```bash
+  npx playwright test my-spec.ts:42
+  ```
+  
+- 執行具有特定標題的測試
+  
+  ```bash
+  npx playwright test -g "add a todo item"
+  ```
+  
+- 在有頭瀏覽器中執行測試
+  
+  ```bash
+  npx playwright test --headed
+  ```
+  
+- 對特定專案執行所有測試
+  
+  ```bash
+  npx playwright test --project=chromium
+  ```
+  
+- 禁用[平行處理](./test-parallel.mdx)
+  
+  ```bash
+  npx playwright test --workers=1
+  ```
+  
+- 選擇一個[報告器](./test-reporters.mdx)
+  
+  ```bash
+  npx playwright test --reporter=dot
+  ```
+  
+- 使用[Playwright Inspector](./debug.mdx) 在除錯模式下執行
+  
+  ```bash
+  npx playwright test --debug
+  ```
+  
+- 在互動式 UI 模式下執行測試，內建監看模式（預覽）
+  
+  ```bash
+  npx playwright test --ui
+  ```
+  
+- 尋求幫助
+  
+  ```bash
+  npx playwright test --help
+  ```

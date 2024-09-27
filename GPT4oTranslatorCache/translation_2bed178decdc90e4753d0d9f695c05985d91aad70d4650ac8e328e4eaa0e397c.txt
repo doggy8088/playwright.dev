@@ -1,0 +1,12 @@
+- `event` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-wait-for-event-option-event"/><a href="#android-device-wait-for-event-option-event" class="list-anchor">#</a>
+  
+  事件名稱，通常傳遞給 `*.on(event)`。
+- `optionsOrPredicate` [function] | [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-wait-for-event-option-options-or-predicate"/><a href="#android-device-wait-for-event-option-options-or-predicate" class="list-anchor">#</a>
+  - `predicate` [function]
+    
+    接收事件資料並在等待應該解決時解析為真值。
+  - `timeout` [number] *(optional)*
+    
+    等待的最長時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [androidDevice.setDefaultTimeout()](api/class-androiddevice.mdx#android-device-set-default-timeout) 更改預設值。
+  
+  接收事件的條件函式或選項物件。可選。

@@ -1,0 +1,31 @@
+- [Object] | [Array]&lt;[Object]&gt;
+  - `command` [string]
+
+    啟動的 Shell 指令。例如 `npm run start`。
+  - `cwd` [string] *(optional)*
+
+    產生的程序的當前工作目錄，預設為配置文件的目錄。
+  - `env` [Object]&lt;[string], [string]&gt; *(optional)*
+
+    為指令設置的環境變量，預設為 `process.env`。
+  - `ignoreHTTPSErrors` [boolean] *(optional)*
+
+    是否在獲取 `url` 時忽略 HTTPS 錯誤。預設為 `false`。
+  - `port` [number] *(optional)*
+
+    預期您的 http 服務器出現的端口。它會等待直到接受連接。應指定 `port` 或 `url`。
+  - `reuseExistingServer` [boolean] *(optional)*
+
+    如果為 true，當 `port` 或 `url` 可用時，它將重用現有的服務器。如果在該 `port` 或 `url` 上沒有服務器在運行，它將運行指令以啟動新服務器。如果為 `false`，如果在 `port` 或 `url` 上有現有的進程在監聽，它將拋出錯誤。這應該通常設置為 `!process.env.CI` 以允許在本地運行測試時使用本地開發服務器。
+  - `stdout` "pipe" | "ignore" *(optional)*
+
+    如果為 `"pipe"`，它將把指令的 stdout 管道輸出到進程的 stdout。如果為 `"ignore"`，它將忽略指令的 stdout。預設為 `"ignore"`。
+  - `stderr` "pipe" | "ignore" *(optional)*
+
+    是否將指令的 stderr 管道輸出到進程的 stderr 或忽略它。預設為 `"pipe"`。
+  - `timeout` [number] *(optional)*
+
+    等待進程啟動並可用的時間（毫秒）。預設為 60000。
+  - `url` [string] *(optional)*
+
+    當服務器準備接受連接時，預期您的 http 服務器返回 2xx、3xx、400、401、402 或 403 狀態碼的 url。重定向（3xx 狀態碼）正在被跟隨並檢查新位置。應指定 `port` 或 `url`。

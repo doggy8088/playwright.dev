@@ -1,0 +1,1 @@
+接下來我們將建立一個 `account` 固定裝置，該固定裝置將由同一個工作者中的所有測試共享，並覆蓋 `page` 固定裝置以便每個測試都能登錄到此帳戶。為了生成唯一的帳戶，我們將使用 [workerInfo.workerIndex](/api/class-workerinfo.mdx#worker-info-worker-index)，它可供任何測試或固定裝置使用。請注意工作者固定裝置的類元組語法 - 我們必須傳遞 `{scope: 'worker'}` 以便測試執行器為每個工作者設定此固定裝置一次。

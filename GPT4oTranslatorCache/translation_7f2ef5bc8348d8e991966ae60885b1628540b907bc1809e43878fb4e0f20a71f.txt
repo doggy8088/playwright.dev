@@ -1,0 +1,38 @@
+- `url` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-url"/><a href="#api-request-context-get-option-url" class="list-anchor">#</a>
+
+  目標 URL.
+- `options` `ApiRequestContextGetOptions?` *(optional)*
+  - `Data|DataByte|DataObject` [string]? | [byte]&#91;&#93;? | [object]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-data-data-byte-data-object"/><a href="#api-request-context-get-option-data-data-byte-data-object" class="list-anchor">#</a>
+
+    允許設置請求的 post 資料。如果 data 參數是一個物件，它將被序列化為 json 字串，並且如果未明確設置，`content-type` 標頭將設置為 `application/json`。否則，如果未明確設置，`content-type` 標頭將設置為 `application/octet-stream`。
+  - `FailOnStatusCode` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-fail-on-status-code"/><a href="#api-request-context-get-option-fail-on-status-code" class="list-anchor">#</a>
+
+    是否在 2xx 和 3xx 以外的響應代碼上拋出異常。預設情況下，對所有狀態代碼都返回響應物件。
+  - `Form` [FormData]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-form"/><a href="#api-request-context-get-option-form" class="list-anchor">#</a>
+
+    提供一個物件，將使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單並作為此請求正文發送。如果指定了此參數，`content-type` 標頭將設置為 `application/x-www-form-urlencoded`，除非明確提供。
+
+    可以通過 [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data) 建立 [FormData] 的實例。
+  - `Headers` [IDictionary]?&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-headers"/><a href="#api-request-context-get-option-headers" class="list-anchor">#</a>
+
+    允許設置 HTTP 標頭。這些標頭將適用於獲取的請求以及由其發起的任何重定向。
+  - `IgnoreHTTPSErrors` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-ignore-https-errors"/><a href="#api-request-context-get-option-ignore-https-errors" class="list-anchor">#</a>
+
+    發送網絡請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+  - `MaxRedirects` [int]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-max-redirects"/><a href="#api-request-context-get-option-max-redirects" class="list-anchor">#</a>
+
+    將自動跟隨的請求重定向的最大數量。如果超過此數量，將拋出錯誤。預設為 `20`。傳遞 `0` 表示不跟隨重定向。
+  - `MaxRetries` [int]? *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-max-retries"/><a href="#api-request-context-get-option-max-retries" class="list-anchor">#</a>
+
+    應重試網絡錯誤的最大次數。目前僅重試 `ECONNRESET` 錯誤。不基於 HTTP 響應代碼重試。如果超過限制，將拋出錯誤。預設為 `0` - 不重試。
+  - `Multipart` [FormData]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-multipart"/><a href="#api-request-context-get-option-multipart" class="list-anchor">#</a>
+
+    提供一個物件，將使用 `multipart/form-data` 編碼序列化為 html 表單並作為此請求正文發送。如果指定了此參數，`content-type` 標頭將設置為 `multipart/form-data`，除非明確提供。文件值可以作為包含文件名、mime 類型及其內容的類文件物件傳遞。
+
+    可以通過 [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data) 建立 [FormData] 的實例。
+  - `Params` [IDictionary]?&lt;[string], [object]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-params"/><a href="#api-request-context-get-option-params" class="list-anchor">#</a>
+
+    與 URL 一起發送的查詢參數。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-timeout"/><a href="#api-request-context-get-option-timeout" class="list-anchor">#</a>
+
+    請求超時時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 表示禁用超時。

@@ -1,0 +1,21 @@
+- `selector_or_locator` [str] | [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-locator-option-selector-or-locator"/><a href="#locator-locator-option-selector-or-locator" class="list-anchor">#</a>
+  
+  用於解析 DOM 元素的選擇器或定位器。
+- `has` [Locator] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-locator-option-has"/><a href="#locator-locator-option-has" class="list-anchor">#</a>
+  
+  將方法的結果縮小到包含與此相對定位器匹配的元素。例如，具有 `text=Playwright` 的 `article` 匹配 `<article><div>Playwright</div></article>`。
+  
+  內部定位器**必須相對於**外部定位器，並從外部定位器匹配開始查詢，而不是從文件根開始查詢。例如，你可以在 `<article><content><div>Playwright</div></content></article>` 中找到具有 `div` 的 `content`。但是，尋找具有 `article div` 的 `content` 將失敗，因為內部定位器必須是相對的，且不應使用 `content` 之外的任何元素。
+  
+  請注意，外部和內部定位器必須屬於同一框架。內部定位器不得包含 [FrameLocator]。
+- `has_not` [Locator] *(optional)* <font size="2">新增於: v1.33</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-locator-option-has-not"/><a href="#locator-locator-option-has-not" class="list-anchor">#</a>
+  
+  匹配不包含與內部定位器匹配的元素的元素。內部定位器是針對外部定位器查詢的。例如，不具有 `div` 的 `article` 匹配 `<article><span>Playwright</span></article>`。
+  
+  請注意，外部和內部定位器必須屬於同一框架。內部定位器不得包含 [FrameLocator]。
+- `has_not_text` [str] | [Pattern] *(optional)* <font size="2">新增於: v1.33</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-locator-option-has-not-text"/><a href="#locator-locator-option-has-not-text" class="list-anchor">#</a>
+  
+  匹配不在內部某處包含指定文本的元素，可能在子元素或後代元素中。當傳遞 [string] 時，匹配是不區分大小寫的，並且搜索子字符串。
+- `has_text` [str] | [Pattern] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-locator-option-has-text"/><a href="#locator-locator-option-has-text" class="list-anchor">#</a>
+  
+  匹配內部某處包含指定文本的元素，可能在子元素或後代元素中。當傳遞 [string] 時，匹配是不區分大小寫的，並且搜索子字符串。例如，`"Playwright"` 匹配 `<article><div>Playwright</div></article>`。

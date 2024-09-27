@@ -1,0 +1,11 @@
+| Option | Description |
+| :- | :- |
+| [testConfig.forbidOnly](/api/class-testconfig.mdx#test-config-forbid-only) | 如果任何測試標記為 `test.only`，是否以錯誤退出。對 CI 有用。|
+| [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) | 讓所有檔案中的所有測試平行執行。查看 [Parallelism](./test-parallel) 和 [Sharding](./test-sharding) 以了解更多詳情。 |
+| [testConfig.projects](/api/class-testconfig.mdx#test-config-projects) | 在多個配置或多個瀏覽器上執行測試 |
+| [testConfig.reporter](/api/class-testconfig.mdx#test-config-reporter) | 使用的報告器。查看 [Test Reporters](/test-reporters.mdx) 以了解更多可用的報告器。 |
+| [testConfig.retries](/api/class-testconfig.mdx#test-config-retries) | 每個測試的最大重試次數。查看 [Test Retries](/test-retries.mdx) 以了解更多關於重試的資訊。|
+| [testConfig.testDir](/api/class-testconfig.mdx#test-config-test-dir) | 測試檔案所在的目錄。 |
+| [testConfig.use](/api/class-testconfig.mdx#test-config-use)  | 帶有 `use{}` 的選項 |
+| [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) | 要在測試期間啟動伺服器，請使用 `webServer` 選項 |
+| [testConfig.workers](/api/class-testconfig.mdx#test-config-workers) | 用於平行化測試的最大並行工作進程數。也可以設置為邏輯 CPU 核心的百分比，例如 `'50%'`。查看 [Parallelism](./test-parallel) 和 [Sharding](./test-sharding) 以了解更多詳情。

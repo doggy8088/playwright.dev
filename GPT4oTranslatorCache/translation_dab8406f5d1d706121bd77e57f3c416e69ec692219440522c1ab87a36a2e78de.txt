@@ -1,0 +1,3 @@
+:::note
+[browserContext.route()](/api/class-browsercontext#browser-context-route) 不會攔截由 Service Worker 攔截的請求。請參閱[此問題](https://github.com/microsoft/playwright/issues/1090)。我們建議在使用請求攔截時禁用 Service Workers，方法是將 `Browser.newContext.serviceWorkers` 設置為 `'block'`。
+:::

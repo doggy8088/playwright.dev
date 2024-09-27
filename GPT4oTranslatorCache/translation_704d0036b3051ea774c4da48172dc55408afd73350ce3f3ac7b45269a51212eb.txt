@@ -1,0 +1,3 @@
+- 新的 `maxRetries` 選項在 [apiRequestContext.fetch()](./api/class-apirequestcontext.mdx#api-request-context-fetch)，當 `ECONNRESET` 網路錯誤時會重試。
+- 新選項來 [封裝一個 fixture](./test-fixtures#box-fixtures)，以最小化 fixture 在測試報告和錯誤訊息中的曝光。
+- 新選項來提供一個 [自訂 fixture 標題](./test-fixtures#custom-fixture-title)，用於測試報告和錯誤訊息中。

@@ -1,0 +1,3 @@
+- `expect(callback).toPass({ intervals })` 現在可以透過 `expect.toPass.intervals` 選項在 [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) 中全域設定，或在 [testProject.expect](/api/class-testproject.mdx#test-project-expect) 中針對每個專案設定。
+- `expect(page).toHaveURL(url)` 現在支援 `ignoreCase` [選項](./api/class-pageassertions#page-assertions-to-have-url-option-ignore-case)。
+- [testProject.ignoreSnapshots](./api/class-testproject#test-project-ignore-snapshots) 允許針對每個專案設定是否跳過截圖期望。

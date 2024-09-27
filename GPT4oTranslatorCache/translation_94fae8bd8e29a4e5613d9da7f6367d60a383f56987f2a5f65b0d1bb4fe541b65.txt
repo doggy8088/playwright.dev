@@ -1,0 +1,13 @@
+- [物件]
+  - `server` [string]
+    
+    代理伺服器將用於所有請求。支持 HTTP 和 SOCKS 代理，例如 `http://myproxy.com:3128` 或 `socks5://myproxy.com:3128`。簡短形式 `myproxy.com:3128` 被認為是 HTTP 代理。
+  - `bypass` [string] *(optional)*
+    
+    可選的逗號分隔域名以繞過代理，例如 `".com, chromium.org, .domain.com"`。
+  - `username` [string] *(optional)*
+    
+    如果 HTTP 代理需要身份驗證，則可選的用戶名。
+  - `password` [string] *(optional)*
+    
+    如果 HTTP 代理需要身份驗證，則可選的密碼。

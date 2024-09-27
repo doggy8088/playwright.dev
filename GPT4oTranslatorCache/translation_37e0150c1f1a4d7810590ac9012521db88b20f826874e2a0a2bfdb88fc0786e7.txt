@@ -1,0 +1,4 @@
+- [test.skip()](https://ollama.com/api/class-test.mdx#test-skip) 將測試標記為不相關。Playwright 不會執行此測試。在某些配置中測試不適用時使用此註釋。
+- [test.fail()](https://ollama.com/api/class-test.mdx#test-fail) 將測試標記為失敗。Playwright 會執行此測試並確保它確實失敗。如果測試沒有失敗，Playwright 會抱怨。
+- [test.fixme()](https://ollama.com/api/class-test.mdx#test-fixme) 將測試標記為失敗。與 `fail` 註釋相反，Playwright 不會執行此測試。當測試執行緩慢或崩潰時使用 `fixme`。
+- [test.slow()](https://ollama.com/api/class-test.mdx#test-slow) 將測試標記為緩慢並將測試超時時間增加三倍。

@@ -1,0 +1,9 @@
+- `event` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-event-2-option-event"/><a href="#page-wait-for-event-2-option-event" class="list-anchor">#</a>
+  
+  事件名稱，通常傳入 `*.on(event)`。
+- `predicate` [Callable] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-event-2-option-predicate"/><a href="#page-wait-for-event-2-option-predicate" class="list-anchor">#</a>
+  
+  接收事件資料並在應該解決等待時解析為真值。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-event-2-option-timeout"/><a href="#page-wait-for-event-2-option-timeout" class="list-anchor">#</a>
+  
+  最長等待時間（毫秒）。預設為 `30000`（30 秒）。傳入 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](https://api/class-browsercontext.mdx#browser-context-set-default-timeout) 來更改預設值。

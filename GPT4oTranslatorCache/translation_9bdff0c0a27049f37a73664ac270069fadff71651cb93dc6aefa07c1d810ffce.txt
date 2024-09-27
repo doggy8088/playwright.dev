@@ -1,0 +1,43 @@
+- `selector` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-selector"/><a href="#page-click-option-selector" class="list-anchor">#</a>
+
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `button` "left" | "right" | "middle" *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-button"/><a href="#page-click-option-button" class="list-anchor">#</a>
+
+  預設為 `left`。
+- `click_count` [int] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-click-count"/><a href="#page-click-option-click-count" class="list-anchor">#</a>
+
+  預設為 1。請參閱 [UIEvent.detail]。
+- `delay` [float] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-delay"/><a href="#page-click-option-delay" class="list-anchor">#</a>
+
+  `mousedown` 和 `mouseup` 之間等待的時間，以毫秒為單位。預設為 0。
+- `force` [bool] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-force"/><a href="#page-click-option-force" class="list-anchor">#</a>
+
+  是否繞過 [actionability](../actionability.mdx) 檢查。預設為 `false`。
+- `modifiers` [List]\["Alt" | "Control" | "ControlOrMeta" | "Meta" | "Shift"\] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-modifiers"/><a href="#page-click-option-modifiers" class="list-anchor">#</a>
+
+  要按下的修飾鍵。確保在操作期間僅按下這些修飾鍵，然後恢復當前的修飾鍵。如果未指定，則使用當前按下的修飾鍵。"ControlOrMeta" 在 Windows 和 Linux 上解析為 "Control"，在 macOS 上解析為 "Meta"。
+- `no_wait_after` [bool] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-no-wait-after"/><a href="#page-click-option-no-wait-after" class="list-anchor">#</a>
+
+  :::warning[Deprecated]
+  此選項未來將預設為 `true`。
+  :::
+
+
+  發起導航的操作正在等待這些導航發生並等待頁面開始加載。您可以通過設置此標誌來選擇不等待。您只需要在例外情況下使用此選項，例如導航到無法訪問的頁面。預設為 `false`。
+- `position` [Dict] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-position"/><a href="#page-click-option-position" class="list-anchor">#</a>
+  - `x` [float]
+
+
+  - `y` [float]
+
+
+  相對於元素內邊距框左上角的點。如果未指定，則使用元素的某個可見點。
+- `strict` [bool] *(可選)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-strict"/><a href="#page-click-option-strict" class="list-anchor">#</a>
+
+  當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+- `timeout` [float] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-timeout"/><a href="#page-click-option-timeout" class="list-anchor">#</a>
+
+  最大時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](/api/class-browsercontext#browser-context-set-default-timeout) 或 [page.set_default_timeout()](/api/class-page#page-set-default-timeout) 方法更改預設值。
+- `trial` [bool] *(可選)* <font size="2">新增於: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-trial"/><a href="#page-click-option-trial" class="list-anchor">#</a>
+
+  設置時，此方法僅執行 [actionability](../actionability.mdx) 檢查並跳過操作。預設為 `false`。在不執行操作的情況下等待元素準備就緒非常有用。

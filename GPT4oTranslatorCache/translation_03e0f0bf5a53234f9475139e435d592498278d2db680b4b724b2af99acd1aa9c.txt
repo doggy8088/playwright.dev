@@ -1,0 +1,18 @@
+- `workers` 選項在 `playwright.config.ts` 中現在接受百分比字串來使用部分可用的 CPU。你也可以在命令列中傳遞它:
+
+  ```bash
+  npx playwright test --workers=20%
+  ```
+
+- html reporter 的新選項 `host` 和 `port`。
+
+  ```js
+  import { defineConfig } from '@playwright/test';
+
+  export default defineConfig({
+    reporter: [['html', { host: 'localhost', port: '9223' }]],
+  });
+  ```
+
+- 新欄位 `FullConfig.configFile` 可供測試 reporter 使用，指定 config 檔案的路徑（如果有的話）。
+- 如 v1.25 中所宣布，Ubuntu 18 將於 2022 年 12 月起不再支援。除此之外，從下一個 Playwright 版本開始，Ubuntu 18 上將不再有 WebKit 更新。

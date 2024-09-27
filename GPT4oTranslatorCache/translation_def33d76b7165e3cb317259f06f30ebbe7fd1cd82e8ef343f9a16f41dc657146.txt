@@ -1,0 +1,1 @@
+當通過 [`merge-reports`](../test-sharding#merge-reports-cli) CLI 指令合併多個 [`blob`](../test-reporters#blob-reporter) 報告時，會呼叫相同的 [Reporter] API 來生成最終報告，所有現有的報告器應該都能正常工作而不需要任何更改。不過，某些微妙的差異可能會影響一些自訂報告器。

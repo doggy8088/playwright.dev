@@ -1,0 +1,1 @@
+如果請求在某個時間點失敗，那麼不會觸發 `'requestfinished'` 事件（也可能不會觸發 'response' 事件），而是觸發 [page.on('requestfailed')](/api/class-page.mdx#page-event-request-failed) 事件。

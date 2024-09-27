@@ -1,0 +1,1 @@
+Playwright 的 API 不是線程安全的。如果你在多線程環境中使用 Playwright，你應該為每個線程建立一個 playwright 實例。詳情請參閱[線程問題](https://github.com/microsoft/playwright-python/issues/623)。

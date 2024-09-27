@@ -1,0 +1,1 @@
+Playwright Test 基於 [測試裝置](./test-fixtures.mdx) 的概念，例如 [內建的 page 裝置](./test-fixtures#built-in-fixtures)，它會被傳遞到你的測試中。由於 [瀏覽器上下文](./browser-contexts)，頁面在測試之間是隔離的，這相當於一個全新的瀏覽器配置檔案，每個測試都會獲得一個全新的環境，即使多個測試在單個瀏覽器中執行。

@@ -1,0 +1,1 @@
+你可以使用各種 [fixtures](https://docs.pytest.org/en/6.2.x/fixture.html#autouse-fixtures-fixtures-you-don-t-have-to-request) 在測試之前或之後執行程式碼，並在它們之間共享物件。一個 `function` 範圍的 fixture，例如使用 autouse，行為類似於 beforeEach/afterEach。而一個 `module` 範圍的 fixture 使用 autouse，行為類似於 beforeAll/afterAll，會在所有測試之前和之後執行。

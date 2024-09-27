@@ -1,0 +1,7 @@
+|Fixture    |Type               |Description                      |
+|:----------|:------------------|:--------------------------------|
+|page       |[Page]             |此測試執行的獨立頁面。 |
+|context    |[BrowserContext]   |此測試執行的獨立上下文。`page` 物件也屬於此上下文。了解如何[配置上下文](./test-configuration.mdx)。 |
+|browser    |[Browser]          |瀏覽器在測試間共享以優化資源。了解如何[配置瀏覽器](./test-configuration.mdx)。 |
+|browserName|[string]           |當前執行測試的瀏覽器名稱。可以是 `chromium`、`firefox` 或 `webkit`。|
+|request    |[APIRequestContext]|此測試執行的獨立 [APIRequestContext](./api/class-apirequestcontext.mdx) 實例。

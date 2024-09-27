@@ -1,0 +1,10 @@
+- `state` `enum LoadState { Load, DOMContentLoaded, NetworkIdle }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-load-state-option-state"/><a href="#frame-wait-for-load-state-option-state" class="list-anchor">#</a>
+
+  可選的載入狀態，預設為 `load`。如果在載入當前文件時狀態已經達到，該方法會立即解決。可以是以下之一:
+  * `'load'` - 等待 `load` 事件被觸發。
+  * `'domcontentloaded'` - 等待 `DOMContentLoaded` 事件被觸發。
+  * `'networkidle'` - **不推薦** 等待至少 `500` 毫秒內沒有網絡連接。不要使用此方法進行測試，應依賴網頁斷言來評估準備狀態。
+- `options` `FrameWaitForLoadStateOptions?` *(optional)*
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-load-state-option-timeout"/><a href="#frame-wait-for-load-state-option-timeout" class="list-anchor">#</a>
+
+    最大操作時間（毫秒），預設為 30 秒，傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultNavigationTimeout()](https://api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout)、[BrowserContext.SetDefaultTimeout()](https://api/class-browsercontext.mdx#browser-context-set-default-timeout)、[Page.SetDefaultNavigationTimeout()](https://api/class-page.mdx#page-set-default-navigation-timeout) 或 [Page.SetDefaultTimeout()](https://api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

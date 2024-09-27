@@ -1,0 +1,1 @@
+如果傳遞給 [electronApplication.evaluate()](/api/class-electronapplication.mdx#electron-application-evaluate) 的函式返回一個非 [Serializable] 值，那麼 [electronApplication.evaluate()](/api/class-electronapplication.mdx#electron-application-evaluate) 返回 `undefined`。Playwright 也支持傳輸一些無法被 `JSON` 序列化的附加值: `-0`, `NaN`, `Infinity`, `-Infinity`。

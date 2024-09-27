@@ -1,0 +1,18 @@
+- `key` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-option-key"/><a href="#locator-press-option-key" class="list-anchor">#</a>
+
+  要按下的鍵的名稱或要生成的字符，例如 `ArrowLeft` 或 `a`。
+- `options` `LocatorPressOptions?` *(optional)*
+  - `Delay` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-option-delay"/><a href="#locator-press-option-delay" class="list-anchor">#</a>
+
+    `keydown` 和 `keyup` 之間等待的時間，以毫秒為單位。預設為 0。
+  - `NoWaitAfter` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-option-no-wait-after"/><a href="#locator-press-option-no-wait-after" class="list-anchor">#</a>
+
+    :::warning[Deprecated]
+    此選項將在未來預設為 `true`。
+    :::
+
+
+    發起導航的操作正在等待這些導航發生並且頁面開始加載。您可以通過設置此標誌選擇不等待。您只需要在特殊情況下使用此選項，例如導航到無法訪問的頁面。預設為 `false`。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-option-timeout"/><a href="#locator-press-option-timeout" class="list-anchor">#</a>
+
+    最大時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

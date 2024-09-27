@@ -1,0 +1,7 @@
+- `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-label-option-text"/><a href="#locator-get-by-label-option-text" class="list-anchor">#</a>
+  
+  用來定位元素的文字。
+- `options` `LocatorGetByLabelOptions?` *(optional)*
+  - `Exact` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-label-option-exact"/><a href="#locator-get-by-label-option-exact" class="list-anchor">#</a>
+    
+    是否尋找精確匹配：區分大小寫和整個字串。預設為 false。當使用正則表達式定位時忽略。請注意，精確匹配仍會修剪空白。

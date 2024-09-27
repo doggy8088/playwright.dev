@@ -1,0 +1,26 @@
+- `--reporter reporter-to-use`
+  
+  產生哪種報告。可以用逗號分隔多個報告。
+  
+  範例:
+  
+  ```bash
+  npx playwright merge-reports --reporter=html,github ./blob-reports
+  ```
+  
+- `--config path/to/config/file`
+  
+  指定包含輸出報告的 Playwright 設定檔。使用此選項傳遞額外的設定給輸出報告器。此設定檔可以與建立 blob 報告時使用的不同。
+  
+  範例:
+  
+  ```bash
+  npx playwright merge-reports --config=merge.config.ts ./blob-reports
+  ```
+  
+  ```ts title="merge.config.ts"
+  export default {
+    testDir: 'e2e',
+    reporter: [['html', { open: 'never' }]],
+  };
+  ```

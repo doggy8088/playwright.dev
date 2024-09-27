@@ -1,0 +1,12 @@
+- `expected` [str] | [Pattern] | [List]\[[str]\] | [List]\[[Pattern]\] | [List]\[[str] | [Pattern]\] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-text-option-expected"/><a href="#locator-assertions-to-contain-text-option-expected" class="list-anchor">#</a>
+
+  預期的子字串或正則表達式或這些的列表。
+- `ignore_case` [bool] *(optional)* <font size="2">Added in: v1.23</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-text-option-ignore-case"/><a href="#locator-assertions-to-contain-text-option-ignore-case" class="list-anchor">#</a>
+
+  是否執行不區分大小寫的匹配。`ignore_case` 選項優先於相應的正則表達式標誌（如果有指定）。
+- `timeout` [float] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-text-option-timeout"/><a href="#locator-assertions-to-contain-text-option-timeout" class="list-anchor">#</a>
+
+  重試斷言的時間（以毫秒為單位）。預設為 `5000`。
+- `use_inner_text` [bool] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-text-option-use-inner-text"/><a href="#locator-assertions-to-contain-text-option-use-inner-text" class="list-anchor">#</a>
+
+  在檢索 DOM 節點文本時是否使用 `element.innerText` 而不是 `element.textContent`。

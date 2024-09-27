@@ -1,0 +1,21 @@
+- `headers` [Dict]\[[str], [str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-headers"/><a href="#route-fetch-option-headers" class="list-anchor">#</a>
+  
+  如果設定則更改請求的 HTTP headers。Header 值將被轉換為字串。
+- `max_redirects` [int] *(optional)* <font size="2">Added in: v1.31</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-max-redirects"/><a href="#route-fetch-option-max-redirects" class="list-anchor">#</a>
+  
+  將自動跟隨的最大請求重定向次數。如果超過該數量將拋出錯誤。預設為 `20`。傳遞 `0` 以不跟隨重定向。
+- `max_retries` [int] *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-max-retries"/><a href="#route-fetch-option-max-retries" class="list-anchor">#</a>
+  
+  應重試的網絡錯誤的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會基於 HTTP 響應碼重試。如果超過限制將拋出錯誤。預設為 `0` - 不重試。
+- `method` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-method"/><a href="#route-fetch-option-method" class="list-anchor">#</a>
+  
+  如果設定則更改請求方法（例如 GET 或 POST）。
+- `post_data` [str] | [bytes] | [Serializable] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-post-data"/><a href="#route-fetch-option-post-data" class="list-anchor">#</a>
+  
+  允許設定請求的 post data。如果 data 參數是一個物件，它將被序列化為 json 字串並且 `content-type` header 將被設置為 `application/json`（如果未明確設置）。否則，`content-type` header 將被設置為 `application/octet-stream`（如果未明確設置）。
+- `timeout` [float] *(optional)* <font size="2">Added in: v1.33</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-timeout"/><a href="#route-fetch-option-timeout" class="list-anchor">#</a>
+  
+  請求超時時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。
+- `url` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-url"/><a href="#route-fetch-option-url" class="list-anchor">#</a>
+  
+  如果設定則更改請求的 URL。新 URL 必須與原始 URL 使用相同的協議。

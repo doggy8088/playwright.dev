@@ -1,0 +1,1 @@
+使用 `--load-storage` 來消耗 `auth.json` 中先前載入的存儲。這樣，所有 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) 和 [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) 都會被恢復，使大多數網頁應用程式進入已驗證狀態，無需再次登入。這意味著你可以從已登入狀態繼續生成測試。

@@ -1,0 +1,7 @@
+| Environment Variable Name | Reporter Config Option| Description | Default
+|---|---|---|---|
+| `PLAYWRIGHT_HTML_OUTPUT_DIR` | `outputFolder` | 儲存報告的目錄。 | `playwright-report`
+| `PLAYWRIGHT_HTML_OPEN` | `open` | 何時在瀏覽器中開啟 html 報告，可選擇 `'always'`、`'never'` 或 `'on-failure'` | `'on-failure'`
+| `PLAYWRIGHT_HTML_HOST` | `host` | 當報告在瀏覽器中開啟時，將綁定到此主機名。 | `localhost`
+| `PLAYWRIGHT_HTML_PORT` | `port` | 當報告在瀏覽器中開啟時，將在此埠上提供服務。 | `9323` 或當 `9323` 不可用時的任何可用埠。
+| `PLAYWRIGHT_HTML_ATTACHMENTS_BASE_URL` | `attachmentsBaseURL` | `data` 子目錄中的附件上傳到的單獨位置。僅當您將報告和 `data` 分別上傳到不同位置時才需要。 | `data/`

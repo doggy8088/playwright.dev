@@ -1,0 +1,22 @@
+- `files` [Path] | [Path]&#91;&#93; | `FilePayload` | `FilePayload`&#91;&#93;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="file-chooser-set-files-option-files"/><a href="#file-chooser-set-files-option-files" class="list-anchor">#</a>
+  - `setName` [String]
+
+    檔案名稱
+  - `setMimeType` [String]
+
+    檔案類型
+  - `setBuffer` [byte&#91;&#93;]
+
+    檔案內容
+- `options` `FileChooser.SetFilesOptions` *(optional)*
+  - `setNoWaitAfter` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="file-chooser-set-files-option-no-wait-after"/><a href="#file-chooser-set-files-option-no-wait-after" class="list-anchor">#</a>
+
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+
+
+    此選項無效。
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="file-chooser-set-files-option-timeout"/><a href="#file-chooser-set-files-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

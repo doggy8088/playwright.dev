@@ -1,0 +1,3 @@
+:::note
+HTTP 錯誤回應，例如 404 或 503，從 HTTP 角度來看仍然是成功的回應，因此請求將會完成並觸發 [Page.RequestFinished](/api/class-page.mdx#page-event-request-finished) 事件，而不是 [Page.RequestFailed](/api/class-page.mdx#page-event-request-failed) 事件。只有當客戶端無法從伺服器獲取 HTTP 回應時，例如由於網路錯誤 net::ERR_FAILED，請求才會被視為失敗。
+:::

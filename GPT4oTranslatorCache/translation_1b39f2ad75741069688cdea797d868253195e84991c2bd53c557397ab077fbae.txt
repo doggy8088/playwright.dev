@@ -1,0 +1,4 @@
+- `options` `Locator.TextContentOptions` *(optional)*
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-text-content-option-timeout"/><a href="#locator-text-content-option-timeout" class="list-anchor">#</a>
+    
+    最大時間（毫秒）。預設為 `30000`（30 秒）。傳入 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

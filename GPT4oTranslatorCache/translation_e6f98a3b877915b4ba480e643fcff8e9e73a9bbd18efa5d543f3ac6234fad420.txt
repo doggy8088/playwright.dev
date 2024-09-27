@@ -1,0 +1,26 @@
+- `article:has-text("Playwright")` - `:has-text()` 匹配包含指定文字的任何元素，可能在子元素或後代元素內。匹配不區分大小寫，會修剪空白並搜尋子字串。
+
+  例如，`article:has-text("Playwright")` 匹配 `<article><div>Playwright</div></article>`。
+
+  注意，`:has-text()` 應與其他 CSS 指定符一起使用，否則它會匹配所有包含指定文字的元素，包括 `<body>`。
+
+  ```js
+  // 錯誤，將匹配許多元素包括 <body>
+  await page.locator(':has-text("Playwright")').click();
+  // 正確，只匹配 <article> 元素
+  await page.locator('article:has-text("Playwright")').click();
+  ```
+
+- `#nav-bar :text("Home")` - `:text()` 偽類匹配包含指定文字的最小元素。匹配不區分大小寫，會修剪空白並搜尋子字串。
+
+  例如，這將在 `#nav-bar` 元素內找到包含文字 "Home" 的元素：
+
+  ```js
+  await page.locator('#nav-bar :text("Home")').click();
+  ```
+
+- `#nav-bar :text-is("Home")` - `:text-is()` 偽類匹配具有精確文字的最小元素。精確匹配區分大小寫，會修剪空白並搜尋完整字串。
+
+  例如，`:text-is("Log")` 不匹配 `<button>Log in</button>` 因為 `<button>` 包含的單一文字節點 `"Log in"` 不等於 `"Log"`。然而，`:text-is("Log")` 匹配 `<button> Log <span>in</span></button>`，因為 `<button>` 包含一個文字節點 `" Log "`。
+
+  同樣，`:text-is("Download")` 不會匹配 `<button>download</button>` 因為它區分大小寫。

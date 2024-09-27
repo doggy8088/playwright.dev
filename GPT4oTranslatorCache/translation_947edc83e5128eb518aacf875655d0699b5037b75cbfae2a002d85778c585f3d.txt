@@ -1,0 +1,15 @@
+- `options` [物件] *(optional)*
+  - `force` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-clear-option-force"/><a href="#locator-clear-option-force" class="list-anchor">#</a>
+    
+    Whether to bypass the [actionability](../actionability.mdx) checks. Defaults to `false`.
+  - `noWaitAfter` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-clear-option-no-wait-after"/><a href="#locator-clear-option-no-wait-after" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    This option has no effect.
+    :::
+    
+    
+    This option has no effect.
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-clear-option-timeout"/><a href="#locator-clear-option-timeout" class="list-anchor">#</a>
+    
+    Maximum time in milliseconds. Defaults to `0` - no timeout. The default value can be changed via `actionTimeout` option in the config, or by using the [browserContext.setDefaultTimeout](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.setDefaultTimeout](/api/class-page.mdx#page-set-default-timeout) methods.

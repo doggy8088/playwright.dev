@@ -1,0 +1,7 @@
+- `options` `PageRunAndWaitForWorkerOptions?` *(optional)*
+  - `Predicate` [Func]<[Worker]?, bool> *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-worker-option-predicate"/><a href="#page-wait-for-worker-option-predicate" class="list-anchor">#</a>
+    
+    接收 [Worker] 物件並在等待應該解決時解析為真值。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-worker-option-timeout"/><a href="#page-wait-for-worker-option-timeout" class="list-anchor">#</a>
+    
+    最長等待時間（毫秒）。預設為 `30000` (30 秒)。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](https://ollama.com/library#browser-context-set-default-timeout) 來更改預設值。

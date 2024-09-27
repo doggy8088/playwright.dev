@@ -1,0 +1,1 @@
+為了持續整合，你可能會想要使用 `reuseExistingServer: !process.env.CI` 選項，這個選項不會在 CI 上使用現有的伺服器。要查看 stdout，你可以設定 `DEBUG=pw:webserver` 環境變數。

@@ -1,0 +1,1 @@
+Web APIs 通常實作為 HTTP 端點。Playwright 提供 **mock** 和 **修改** 網路流量的 API，包括 HTTP 和 HTTPS。頁面所做的任何請求，包括 [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) 和 [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 請求，都可以被追蹤、修改和 mock。使用 Playwright，你也可以使用包含頁面所做多個網路請求的 HAR 檔案來 mock。

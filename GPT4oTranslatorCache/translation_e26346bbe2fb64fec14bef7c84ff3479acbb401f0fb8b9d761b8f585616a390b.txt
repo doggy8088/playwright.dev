@@ -1,0 +1,13 @@
+- `endpointURL` [string] <font size="2">新增於: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
+
+  一個 CDP websocket endpoint 或 http url 用於連接。例如 `http://localhost:9222/` 或 `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`。
+- `options` `BrowserTypeConnectOverCDPOptions?` *(可選)*
+  - `Headers` [IDictionary]?&lt;[string], [string]&gt; *(可選)* <font size="2">新增於: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-headers"/><a href="#browser-type-connect-over-cdp-option-headers" class="list-anchor">#</a>
+
+    附加的 HTTP headers 將與連接請求一起發送。可選。
+  - `SlowMo` [float]? *(可選)* <font size="2">新增於: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-slow-mo"/><a href="#browser-type-connect-over-cdp-option-slow-mo" class="list-anchor">#</a>
+
+    以指定的毫秒數減慢 Playwright 操作。這樣可以讓你看到正在發生的事情。預設為 0。
+  - `Timeout` [float]? *(可選)* <font size="2">新增於: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-timeout"/><a href="#browser-type-connect-over-cdp-option-timeout" class="list-anchor">#</a>
+
+    等待連接建立的最大時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。

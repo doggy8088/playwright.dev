@@ -1,0 +1,7 @@
+* 新選項 `mask_color` 用於方法 [page.screenshot()](/api/class-page#page-screenshot) 和 [locator.screenshot()](/api/class-locator#locator-screenshot) 來改變預設的遮罩顏色。
+* 新的 `uninstall` CLI 指令來卸載瀏覽器二進位檔：
+
+  ```bash
+  $ playwright uninstall # 移除此安裝所安裝的瀏覽器
+  $ playwright uninstall --all # 移除所有曾經安裝的 Playwright 瀏覽器
+  ```

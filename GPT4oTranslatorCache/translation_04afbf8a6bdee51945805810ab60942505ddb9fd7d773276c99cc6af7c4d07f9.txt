@@ -1,0 +1,11 @@
+- `selector` [物件]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-web-view-option-selector"/><a href="#android-device-web-view-option-selector" class="list-anchor">#</a>
+  - `pkg` [string] *(optional)*
+
+    可選的套件識別碼。
+  - `socketName` [string] *(optional)*
+
+    可選的 webview socket 名稱。
+- `options` [物件] *(optional)*
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-web-view-option-timeout"/><a href="#android-device-web-view-option-timeout" class="list-anchor">#</a>
+
+    最大時間（以毫秒為單位），預設為 30 秒，傳遞 `0` 以禁用超時。可以使用 [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) 方法更改預設值。

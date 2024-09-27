@@ -1,0 +1,10 @@
+- 新的角色選擇器允許通過其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素。
+
+  ```java
+  // 點擊一個可訪問名稱為 "log in" 的按鈕
+  page.locator("role=button[name='log in']").click();
+  ```
+
+  閱讀更多在 [我們的文件](./locators.mdx#locate-by-role)。
+- 新的 `scale` 選項在 [Page.screenshot()](./api/class-page.mdx#page-screenshot) 中，用於較小尺寸的截圖。
+- 新的 `caret` 選項在 [Page.screenshot()](./api/class-page.mdx#page-screenshot) 中控制文本插入符號。預設為 `"hide"`。

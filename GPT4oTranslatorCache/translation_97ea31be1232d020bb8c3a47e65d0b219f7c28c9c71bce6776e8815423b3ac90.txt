@@ -1,0 +1,6 @@
+- `predicate` [Callable]\[[Page]\]:[bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-popup-option-predicate"/><a href="#page-wait-for-popup-option-predicate" class="list-anchor">#</a>
+  
+  接收 [Page] 物件並在等待應該解決時解析為真值。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-popup-option-timeout"/><a href="#page-wait-for-popup-option-timeout" class="list-anchor">#</a>
+  
+  最大等待時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](https://ollama.com/library#browser-context-set-default-timeout) 來更改預設值。

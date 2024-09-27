@@ -1,0 +1,11 @@
+- 新的角色選擇器允許通過其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素。
+
+  ```csharp
+  // 點擊具有可訪問名稱 "log in" 的按鈕
+  await page.Locator("role=button[name='log in']").ClickAsync();
+  ```
+
+  閱讀更多在 [我們的文件](./locators.mdx#locate-by-role)。
+- [Page.ScreenshotAsync()](./api/class-page.mdx#page-screenshot) 中的新 `scale` 選項，用於較小尺寸的截圖。
+- [Page.ScreenshotAsync()](./api/class-page.mdx#page-screenshot) 中的新 `caret` 選項，用於控制文本插入點。預設為 `"hide"`。
+- 我們現在提供專用的 .NET docker 映像 `mcr.microsoft.com/playwright/dotnet`。閱讀更多在 [我們的文件](./docker)。

@@ -1,0 +1,14 @@
+- 新的斷言 [assertThat(locator).isInViewport()](https://playwright.dev/java/docs/api/class-locatorassertions#locator-assertions-to-be-in-viewport) 確保定位器指向與視窗相交的元素，根據 [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)。
+  
+  ```java
+  Locator locator = page.getByRole(AriaRole.BUTTON);
+  
+  // 確保元素的至少一部分與視窗相交。
+  assertThat(locator).isInViewport();
+  
+  // 確保元素完全在視窗外。
+  assertThat(locator).not().isInViewport();
+  
+  // 確保元素至少有一半與視窗相交。
+  assertThat(locator).isInViewport(new LocatorAssertions.IsInViewportOptions().setRatio(0.5));
+  ```

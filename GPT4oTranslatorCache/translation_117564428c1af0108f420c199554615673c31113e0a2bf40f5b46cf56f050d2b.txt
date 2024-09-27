@@ -1,0 +1,19 @@
+* `{arg}` - 相對快照路徑 **不含副檔名**。這些來自傳遞給 `toHaveScreenshot()` 和 `toMatchSnapshot()` 呼叫的參數；如果在沒有參數的情況下呼叫，這將是一個自動生成的快照名稱。
+  * 值: `foo/bar/baz`
+* `{ext}` - 快照副檔名（含點）
+  * 值: `.png`
+* `{platform}` - `process.platform` 的值。
+* `{projectName}` - 專案的檔案系統安全名稱（如果有的話）。
+  * 值: `''`（空字串）。
+* `{snapshotDir}` - 專案的 [testConfig.snapshotDir](/api/class-testconfig#test-config-snapshot-dir)。
+  * 值: `/home/playwright/tests`（由於 `snapshotDir` 未在配置中提供，預設為 `testDir`）
+* `{testDir}` - 專案的 [testConfig.testDir](/api/class-testconfig#test-config-test-dir)。
+  * 值: `/home/playwright/tests`（絕對路徑，因為 `testDir` 是相對於配置目錄解析的）
+* `{testFileDir}` - 從 `testDir` 到 **測試檔案** 的相對路徑中的目錄。
+  * 值: `page`
+* `{testFileName}` - 含副檔名的測試檔案名稱。
+  * 值: `page-click.spec.ts`
+* `{testFilePath}` - 從 `testDir` 到 **測試檔案** 的相對路徑
+  * 值: `page/page-click.spec.ts`
+* `{testName}` - 檔案系統安全的測試標題，包括父描述但不包括檔案名稱。
+  * 值: `suite-test-should-work`

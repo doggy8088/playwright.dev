@@ -1,0 +1,13 @@
+- `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-pinch-open-option-selector"/><a href="#android-device-pinch-open-option-selector" class="list-anchor">#</a>
+
+  用於開啟捏合的選擇器。
+- `percent` [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-pinch-open-option-percent"/><a href="#android-device-pinch-open-option-percent" class="list-anchor">#</a>
+
+  捏合大小作為 widget 大小的百分比。
+- `options` [物件] *(optional)*
+  - `speed` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-pinch-open-option-speed"/><a href="#android-device-pinch-open-option-speed" class="list-anchor">#</a>
+
+    捏合速度（每秒像素）可選。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-pinch-open-option-timeout"/><a href="#android-device-pinch-open-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒），預設為 30 秒，傳遞 `0` 以禁用超時。可以使用 [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) 方法更改預設值。

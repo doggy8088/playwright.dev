@@ -1,0 +1,2 @@
+- 新選項 [testConfig.respectGitIgnore](/api/class-testconfig.mdx#test-config-respect-git-ignore) 和 [testProject.respectGitIgnore](/api/class-testproject.mdx#test-project-respect-git-ignore) 控制在搜尋測試時是否排除符合 `.gitignore` 模式的檔案。
+- 新屬性 `timeout` 現在可用於自訂的 expect 匹配器。此屬性考慮 `playwright.config.ts` 和 `expect.configure()`。

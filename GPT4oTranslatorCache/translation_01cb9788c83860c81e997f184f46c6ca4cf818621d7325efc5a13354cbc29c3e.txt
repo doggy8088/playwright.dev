@@ -1,0 +1,12 @@
+| Event                             | Owner            | URL                            | Routed | [response.fromServiceWorker](/api/class-response.mdx#response-from-service-worker) |
+| -                                 | -                | -                              | -      | -                                      |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | addressbook.json               |        | Yes                                    |
+| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | addressbook.json               |        | Yes                                    |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | bar                            | Yes    |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | foo                            |        | Yes                                    |
+| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | foo                            |        | Yes                                    |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | tracker.js                     |        | Yes                                    |
+| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | tracker.js                     |        | Yes                                    |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | Service [Worker] | fallthrough.txt                | Yes    |                                        |
+| [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) | [Frame]          | fallthrough.txt                |        | Yes                                    |
+| [page.on('request')](/api/class-page.mdx#page-event-request)           | [Frame]          | fallthrough.txt                |        | Yes                                    |

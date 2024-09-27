@@ -1,0 +1,10 @@
+- `options` `Page.WaitForDownloadOptions` *(optional)*
+  - `setPredicate` [Predicate]&lt;[Download]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-download-option-predicate"/><a href="#page-wait-for-download-option-predicate" class="list-anchor">#</a>
+    
+    接收 [Download] 物件並在等待應該解決時解析為真值。
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-download-option-timeout"/><a href="#page-wait-for-download-option-timeout" class="list-anchor">#</a>
+    
+    最長等待時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultTimeout()](https://ollama.com/library#browser-context-set-default-timeout) 更改預設值。
+- `callback` [Runnable]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-download-option-callback"/><a href="#page-wait-for-download-option-callback" class="list-anchor">#</a>
+  
+  執行觸發事件操作的回調。

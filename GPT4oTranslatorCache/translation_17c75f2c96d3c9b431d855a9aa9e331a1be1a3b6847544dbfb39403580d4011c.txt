@@ -1,0 +1,1 @@
+建立 `playwright/fixtures.ts` 檔案來[覆寫 `storageState` fixture](./test-fixtures.mdx#overriding-fixtures)以每個 worker 認證一次。使用 [testInfo.parallelIndex](/api/class-testinfo.mdx#test-info-parallel-index) 來區分 worker。

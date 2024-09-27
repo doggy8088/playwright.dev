@@ -1,0 +1,1 @@
+該方法在上下文中每個頁面的每個框架的 `window` 物件上新增一個名為 `name` 的函式。當呼叫時，該函式執行 `callback` 並返回一個 [Promise]，該 Promise 解析為 `callback` 的返回值。如果 `callback` 返回一個 [Promise]，它將被等待。

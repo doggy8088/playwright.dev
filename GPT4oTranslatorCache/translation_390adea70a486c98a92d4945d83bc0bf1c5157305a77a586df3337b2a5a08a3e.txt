@@ -1,0 +1,40 @@
+- `options` `ElementHandleScreenshotOptions?` *(optional)*
+  - `Animations` `enum ScreenshotAnimations { Disabled, Allow }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-animations"/><a href="#element-handle-screenshot-option-animations" class="list-anchor">#</a>
+
+    當設置為 `"disabled"` 時，停止 CSS 動畫、CSS 過渡和 Web 動畫。動畫根據其持續時間得到不同的處理：
+    * 有限動畫將快速轉到完成，因此它們會觸發 `transitionend` 事件。
+    * 無限動畫將取消到初始狀態，然後在截圖後重新播放。
+
+    預設為 `"allow"`，保持動畫不變。
+  - `Caret` `enum ScreenshotCaret { Hide, Initial }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-caret"/><a href="#element-handle-screenshot-option-caret" class="list-anchor">#</a>
+
+    當設置為 `"hide"` 時，截圖將隱藏文本插入符號。當設置為 `"initial"` 時，文本插入符號行為不會改變。預設為 `"hide"`。
+  - `Mask` [IEnumerable]?&lt;[Locator]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-mask"/><a href="#element-handle-screenshot-option-mask" class="list-anchor">#</a>
+
+    指定在截圖時應該遮罩的定位器。被遮罩的元素將被覆蓋上粉紅色框 `#FF00FF`（由 `maskColor` 自定義），完全覆蓋其邊界框。
+  - `MaskColor` [string]? *(optional)* <font size="2">Added in: v1.35</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-mask-color"/><a href="#element-handle-screenshot-option-mask-color" class="list-anchor">#</a>
+
+    指定遮罩元素的覆蓋框的顏色，使用 [CSS 顏色格式](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)。預設顏色為粉紅色 `#FF00FF`。
+  - `OmitBackground` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-omit-background"/><a href="#element-handle-screenshot-option-omit-background" class="list-anchor">#</a>
+
+    隱藏預設的白色背景，允許捕捉透明的截圖。不適用於 `jpeg` 圖像。預設為 `false`。
+  - `Path` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-path"/><a href="#element-handle-screenshot-option-path" class="list-anchor">#</a>
+
+    保存圖像的文件路徑。截圖類型將從文件擴展名推斷出來。如果 `path` 是相對路徑，則相對於當前工作目錄解析。如果未提供路徑，圖像將不會保存到磁盤。
+  - `Quality` [int]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-quality"/><a href="#element-handle-screenshot-option-quality" class="list-anchor">#</a>
+
+    圖像的品質，介於 0-100 之間。不適用於 `png` 圖像。
+  - `Scale` `enum ScreenshotScale { Css, Device }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-scale"/><a href="#element-handle-screenshot-option-scale" class="list-anchor">#</a>
+
+    當設置為 `"css"` 時，截圖將每個 css 像素對應一個像素。對於高分辨率設備，這將保持截圖較小。使用 `"device"` 選項將產生每個設備像素對應一個像素，因此高分辨率設備的截圖將是兩倍或更大。
+
+    預設為 `"device"`。
+  - `Style` [string]? *(optional)* <font size="2">Added in: v1.41</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-style"/><a href="#element-handle-screenshot-option-style" class="list-anchor">#</a>
+
+    截圖時應用的樣式表文本。在這裡你可以隱藏動態元素，使元素不可見或更改其屬性，以幫助你建立可重複的截圖。此樣式表穿透 Shadow DOM 並應用於內部框架。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-timeout"/><a href="#element-handle-screenshot-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext#browser-context-set-default-timeout) 或 [Page.SetDefaultTimeout()](/api/class-page#page-set-default-timeout) 方法更改預設值。
+  - `Type` `enum ScreenshotType { Png, Jpeg }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-type"/><a href="#element-handle-screenshot-option-type" class="list-anchor">#</a>
+
+    指定截圖類型，預設為 `png`。

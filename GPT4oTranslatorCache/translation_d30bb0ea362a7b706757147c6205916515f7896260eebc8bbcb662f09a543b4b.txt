@@ -1,0 +1,12 @@
+- `content` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-script-tag-option-content"/><a href="#page-add-script-tag-option-content" class="list-anchor">#</a>
+  
+  要注入到框架中的原始 JavaScript 內容。
+- `path` [Union]\[[str], [pathlib.Path]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-script-tag-option-path"/><a href="#page-add-script-tag-option-path" class="list-anchor">#</a>
+  
+  要注入到框架中的 JavaScript 文件的路徑。如果 `path` 是相對路徑，則相對於當前工作目錄解析。
+- `type` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-script-tag-option-type"/><a href="#page-add-script-tag-option-type" class="list-anchor">#</a>
+  
+  腳本類型。使用 'module' 以加載 JavaScript ES6 模組。更多詳情請參見 [script](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)。
+- `url` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-script-tag-option-url"/><a href="#page-add-script-tag-option-url" class="list-anchor">#</a>
+  
+  要添加的腳本的 URL。

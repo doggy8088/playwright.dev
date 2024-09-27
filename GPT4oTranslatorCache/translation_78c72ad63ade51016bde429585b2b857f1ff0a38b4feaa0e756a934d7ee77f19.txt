@@ -1,0 +1,4 @@
+- 在執行使用 [Page.AddLocatorHandlerAsync()](https://ollama.com/library) 添加的處理程序後，Playwright 現在將等待觸發處理程序的覆蓋層不再可見。您可以使用新的 `NoWaitAfter` 選項選擇退出此行為。
+- 您可以在 [Page.AddLocatorHandlerAsync()](https://ollama.com/library) 中使用新的 `Times` 選項來指定處理程序應執行的最大次數。
+- [Page.AddLocatorHandlerAsync()](https://ollama.com/library) 中的處理程序現在接受定位器作為參數。
+- 新的 [Page.RemoveLocatorHandlerAsync()](https://ollama.com/library) 方法用於移除先前添加的定位器處理程序。

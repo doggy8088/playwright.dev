@@ -1,0 +1,4 @@
+- `options` `ApiRequestContextStorageStateOptions?` *(optional)*
+  - `Path` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-option-path"/><a href="#api-request-context-storage-state-option-path" class="list-anchor">#</a>
+    
+    保存存儲狀態的文件路徑。如果 `path` 是相對路徑，則相對於當前工作目錄解析。如果未提供路徑，仍然返回存儲狀態，但不會保存到磁碟。

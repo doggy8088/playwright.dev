@@ -1,0 +1,1 @@
+- 新方法 [page.addLocatorHandler()](https://ollama.com/library#page-add-locator-handler) 註冊了一個回呼，當指定的元素變得可見時將會被呼叫並可能阻止 Playwright 操作。回呼可以去除覆蓋層。這裡有一個範例，當 cookie 對話框出現時將其關閉:

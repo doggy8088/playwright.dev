@@ -1,0 +1,3 @@
+* `#nav-bar :text-matches("reg?ex", "i")` - `:text-matches()` 偽類別匹配具有與 [JavaScript-like regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) 相匹配的文本內容的最小元素。
+  
+  例如，`:text-matches("Log\s*in", "i")` 匹配 `<button>Login</button>` 和 `<button>log IN</button>`。

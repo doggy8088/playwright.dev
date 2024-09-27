@@ -1,0 +1,22 @@
+- `options` [物件] *(optional)*
+  - `headers` [物件]&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-headers"/><a href="#route-fetch-option-headers" class="list-anchor">#</a>
+
+    如果設置，則更改請求的 HTTP 標頭。標頭值將被轉換為字符串。
+  - `maxRedirects` [number] *(optional)* <font size="2">Added in: v1.31</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-max-redirects"/><a href="#route-fetch-option-max-redirects" class="list-anchor">#</a>
+
+    將自動跟隨的最大請求重定向次數。如果超過次數，將拋出錯誤。預設為 `20`。傳遞 `0` 以不跟隨重定向。
+  - `maxRetries` [number] *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-max-retries"/><a href="#route-fetch-option-max-retries" class="list-anchor">#</a>
+
+    應重試的網絡錯誤的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 響應代碼重試。如果超過限制，將拋出錯誤。預設為 `0` - 不重試。
+  - `method` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-method"/><a href="#route-fetch-option-method" class="list-anchor">#</a>
+
+    如果設置，則更改請求方法（例如 GET 或 POST）。
+  - `postData` [string] | [Buffer] | [Serializable] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-post-data"/><a href="#route-fetch-option-post-data" class="list-anchor">#</a>
+
+    允許設置請求的 post 資料。如果資料參數是一個物件，將被序列化為 json 字符串，並且如果未明確設置，`content-type` 標頭將設置為 `application/json`。否則，如果未明確設置，`content-type` 標頭將設置為 `application/octet-stream`。
+  - `timeout` [number] *(optional)* <font size="2">Added in: v1.33</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-timeout"/><a href="#route-fetch-option-timeout" class="list-anchor">#</a>
+
+    請求超時時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。
+  - `url` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-url"/><a href="#route-fetch-option-url" class="list-anchor">#</a>
+
+    如果設置，則更改請求的 URL。新 URL 必須具有與原始 URL 相同的協議。

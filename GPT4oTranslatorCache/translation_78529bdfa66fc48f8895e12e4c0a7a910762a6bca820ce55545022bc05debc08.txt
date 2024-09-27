@@ -1,0 +1,1 @@
+用於區分多個測試配置之間快照的後綴。例如，如果快照依賴於平台，您可以將 `testInfo.snapshotSuffix` 設置為 `process.platform`。在這種情況下，`expect(value).toMatchSnapshot(snapshotName)` 將根據平台使用不同的快照。了解更多關於 [快照](../test-snapshots.mdx)。

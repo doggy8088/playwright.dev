@@ -1,0 +1,3 @@
+:::note
+[page.on('dialog')](https://ollama.com/library) 監聽器**必須處理**對話框。否則你的操作將會停滯，不論是 [locator.click()](https://ollama.com/library) 還是其他操作。這是因為 Web 中的對話框是模態的，因此會阻止頁面進一步執行，直到它們被處理。
+:::

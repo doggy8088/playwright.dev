@@ -1,0 +1,28 @@
+- 方法 [BrowserContext.ClearCookiesAsync()](/api/class-browsercontext#browsercontext-clearcookies) 現在支援過濾器來移除部分 cookies。
+
+  ```csharp
+  // 清除所有 cookies。
+  await Context.ClearCookiesAsync();
+  // 新增: 清除特定名稱的 cookies。
+  await Context.ClearCookiesAsync(new() { Name = "session-id" });
+  // 新增: 清除特定域名的 cookies。
+  await Context.ClearCookiesAsync(new() { Domain = "my-origin.com" });
+  ```
+
+- 新屬性 [Locator.ContentFrame](/api/class-locator#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。這在你已經獲得一個 [Locator] 物件，並且稍後想要與框架內的內容互動時非常有用。
+
+  ```csharp
+  var locator = Page.Locator("iframe[name='embedded']");
+  // ...
+  var frameLocator = locator.ContentFrame;
+  await frameLocator.GetByRole(AriaRole.Button).ClickAsync();
+  ```
+
+- 新屬性 [FrameLocator.Owner](/api/class-framelocator#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。這在你已經獲得一個 [FrameLocator] 物件，並且稍後想要與 `iframe` 元素互動時非常有用。
+
+  ```csharp
+  var frameLocator = page.FrameLocator("iframe[name='embedded']");
+  // ...
+  var locator = frameLocator.Owner;
+  await Expect(locator).ToBeVisibleAsync();
+  ```

@@ -1,0 +1,9 @@
+- [Playwright Inspector](./debug.mdx) 是一個**新的 GUI 工具**來編寫和除錯你的測試。
+  - **逐行除錯**你的 Playwright 腳本，具有播放、暫停和逐步執行功能。
+  - 透過**錄製使用者操作**來編寫新腳本。
+  - 透過懸停在元素上來**產生元素選擇器**。
+  - 設定 `PWDEBUG=1` 環境變數來啟動 Inspector
+- 在有頭模式下使用 [page.pause()](./api/class-page.mdx#page-pause) **暫停腳本執行**。暫停頁面會啟動 [Playwright Inspector](./debug.mdx) 進行除錯。
+- CSS 選擇器的**新 has-text 偽類**。`:has-text("example")` 匹配任何包含 `"example"` 的元素，可能在子元素或後代元素內。查看[更多範例](./other-locators.mdx#css-matching-by-text)。
+- **頁面對話框在執行期間現在會自動關閉**，除非配置了 `dialog` 事件的監聽器。了解[更多資訊](./dialogs.mdx)。
+- [Playwright for Python](https://github.com/microsoft/playwright-python) 現在**穩定**，具有慣用的蛇形命名法 API 和預建的 [Docker 映像](./docker.mdx) 來在 CI/CD 中執行測試。

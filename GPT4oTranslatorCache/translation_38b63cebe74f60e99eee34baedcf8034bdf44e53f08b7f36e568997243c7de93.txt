@@ -1,0 +1,19 @@
+- `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-parallel-only-option-title"/><a href="#test-describe-parallel-only-option-title" class="list-anchor">#</a>
+
+  群組標題。
+- `details` [物件] *(optional)* <font size="2">新增於: v1.42</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-parallel-only-option-details"/><a href="#test-describe-parallel-only-option-details" class="list-anchor">#</a>
+  - `tag` [string] | [Array]&lt;[string]&gt; *(optional)*
+
+
+  - `annotation` [物件] | [Array]&lt;[物件]&gt; *(optional)*
+    - `type` [string]
+
+
+    - `description` [string] *(optional)*
+
+
+
+  詳見 [test.describe()](/api/class-test#test-describe)。
+- `callback` [函式]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-parallel-only-option-callback"/><a href="#test-describe-parallel-only-option-callback" class="list-anchor">#</a>
+
+  呼叫 [test.describe.parallel.only()](/api/class-test#test-describe-parallel-only) 時立即執行的回呼函式。在此回呼函式中新增的任何測試將屬於該群組。

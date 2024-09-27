@@ -1,0 +1,1 @@
+[test.beforeAll()](/api/class-test.mdx#test-before-all) 和 [test.afterAll()](/api/class-test.mdx#test-after-all) 鉤子在同一個檔案和同一個 [test.describe()](/api/class-test.mdx#test-describe) 區塊（如果有的話）中宣告的所有測試之前/之後執行，每個 worker process 執行一次。如果你想宣告在每個檔案中的所有測試之前/之後執行的鉤子，你可以將它們宣告為 `scope: 'worker'` 的自動 fixtures，如下所示：

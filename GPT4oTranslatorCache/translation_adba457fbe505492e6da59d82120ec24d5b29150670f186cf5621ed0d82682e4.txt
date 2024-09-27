@@ -1,0 +1,5 @@
+- 新的選項用於方法 [Page.screenshot()](/api/class-page#page-screenshot), [Locator.screenshot()](/api/class-locator#locator-screenshot) 和 [ElementHandle.screenshot()](/api/class-elementhandle#element-handle-screenshot):
+  * 選項 `ScreenshotAnimations.DISABLED` 將所有 CSS 動畫和過渡倒帶到一致的狀態
+  * 選項 `mask: Locator[]` 遮罩給定的元素，並用粉紅色 `#FF00FF` 框覆蓋它們。
+- [Trace Viewer](https://playwright.dev/trace-viewer) 現在顯示 [API 測試請求](https://playwright.dev/api-testing)。
+- [Locator.highlight()](/api/class-locator#locator-highlight) 視覺上顯示元素以便於偵錯。

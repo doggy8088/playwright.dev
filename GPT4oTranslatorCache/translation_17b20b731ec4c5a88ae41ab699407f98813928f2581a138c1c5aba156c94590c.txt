@@ -1,0 +1,3 @@
+:::note
+對話框會自動消失，除非有 [page.on("dialog")](https://ollama.com/library) 監聽器。當監聽器存在時，它 **必須** [dialog.accept()](https://ollama.com/library) 或 [dialog.dismiss()](https://ollama.com/library) 對話框 - 否則頁面將 [freeze](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#never_blocking) 等待對話框，並且像點擊這樣的操作將永遠無法完成。
+:::

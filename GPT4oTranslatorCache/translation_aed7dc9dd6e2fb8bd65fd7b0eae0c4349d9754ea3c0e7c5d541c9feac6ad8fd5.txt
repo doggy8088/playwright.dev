@@ -1,0 +1,1 @@
+當伺服器回應重定向時，Playwright 建立一個新的 [Request] 物件。這兩個請求通過 `redirectedFrom()` 和 `redirectedTo()` 方法連接在一起。當發生多次伺服器重定向時，可以通過反覆調用 `redirectedFrom()` 來構建整個重定向鏈。

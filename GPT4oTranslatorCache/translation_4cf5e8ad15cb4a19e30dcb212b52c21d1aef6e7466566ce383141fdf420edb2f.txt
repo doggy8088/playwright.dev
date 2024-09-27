@@ -1,0 +1,20 @@
+- `title` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-call-option-title"/><a href="#test-call-option-title" class="list-anchor">#</a>
+  
+  測試標題。
+- `details` [物件] *(optional)* <font size="2">新增於: v1.42</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-call-option-details"/><a href="#test-call-option-details" class="list-anchor">#</a>
+  - `tag` [string] | [Array]&lt;[string]&gt; *(optional)*
+    
+    
+  - `annotation` [物件] | [Array]&lt;[物件]&gt; *(optional)*
+    - `type` [string]
+      
+      註釋類型，例如 `'issue'`。
+    - `description` [string] *(optional)*
+      
+      可選的註釋描述，例如一個問題的 url。
+    
+    
+  其他測試細節。
+- `body` [函式]\([Fixtures], [TestInfo]\)<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-call-option-body"/><a href="#test-call-option-body" class="list-anchor">#</a>
+  
+  測試主體，接受一個或兩個參數: 一個包含 fixtures 的物件和可選的 [TestInfo]。

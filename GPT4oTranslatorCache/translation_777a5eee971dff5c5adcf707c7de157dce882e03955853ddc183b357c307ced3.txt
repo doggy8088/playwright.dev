@@ -1,0 +1,41 @@
+- [string] | [物件]
+  - `cookies` [Array]<[物件]>
+    - `name` [string]
+      
+      
+    - `value` [string]
+      
+      
+    - `domain` [string]
+      
+      Domain 和 path 是必需的。若要讓 cookie 也適用於所有子網域，請在 domain 前加上點，如 ".example.com"
+    - `path` [string]
+      
+      Domain 和 path 是必需的
+    - `expires` [number]
+      
+      Unix 時間（秒）。
+    - `httpOnly` [boolean]
+      
+      
+    - `secure` [boolean]
+      
+      
+    - `sameSite` "Strict" | "Lax" | "None"
+      
+      sameSite 標誌
+    
+    要為 context 設定的 Cookies
+  - `origins` [Array]<[物件]>
+    - `origin` [string]
+      
+      
+    - `localStorage` [Array]<[物件]>
+      - `name` [string]
+        
+        
+      - `value` [string]
+        
+        
+      
+    要為 context 設定的 localStorage

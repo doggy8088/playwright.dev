@@ -1,0 +1,7 @@
+- `options` `LocatorSelectTextOptions?` *(optional)*
+  - `Force` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-select-text-option-force"/><a href="#locator-select-text-option-force" class="list-anchor">#</a>
+    
+    Whether to bypass the [actionability](../actionability.mdx) checks. Defaults to `false`。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-select-text-option-timeout"/><a href="#locator-select-text-option-timeout" class="list-anchor">#</a>
+    
+    Maximum time in milliseconds. Defaults to `30000` (30 seconds)。Pass `0` to disable timeout。The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](api/class-page.mdx#page-set-default-timeout) methods。

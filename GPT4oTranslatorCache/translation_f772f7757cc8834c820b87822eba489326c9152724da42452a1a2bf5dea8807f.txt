@@ -1,0 +1,16 @@
+- `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-swipe-option-selector"/><a href="#android-device-swipe-option-selector" class="list-anchor">#</a>
+
+  用於滑動的選擇器。
+- `direction` "down" | "up" | "left" | "right"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-swipe-option-direction"/><a href="#android-device-swipe-option-direction" class="list-anchor">#</a>
+
+  滑動方向。
+- `percent` [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-swipe-option-percent"/><a href="#android-device-swipe-option-percent" class="list-anchor">#</a>
+
+  滑動距離，作為 widget 大小的百分比。
+- `options` [Object] *(optional)*
+  - `speed` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-swipe-option-speed"/><a href="#android-device-swipe-option-speed" class="list-anchor">#</a>
+
+    可選的滑動速度，以每秒像素為單位。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-swipe-option-timeout"/><a href="#android-device-swipe-option-timeout" class="list-anchor">#</a>
+
+    最大時間，以毫秒為單位，預設為 30 秒，傳遞 `0` 以禁用超時。可以使用 [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) 方法更改預設值。

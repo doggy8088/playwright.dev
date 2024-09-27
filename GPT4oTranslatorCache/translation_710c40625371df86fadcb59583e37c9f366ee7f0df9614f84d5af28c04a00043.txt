@@ -1,0 +1,11 @@
+* 這將會找到兩個按鈕並拋出一個[嚴格性](./locators.mdx#strictness)違規錯誤：
+
+  ```java
+  page.locator("button").click();
+  ```
+
+* 這將只會找到第二個按鈕，因為它是可見的，然後點擊它。
+
+  ```java
+  page.locator("button:visible").click();
+  ```

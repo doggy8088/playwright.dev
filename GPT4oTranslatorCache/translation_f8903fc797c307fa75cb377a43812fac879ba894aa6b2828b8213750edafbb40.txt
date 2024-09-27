@@ -1,0 +1,1 @@
+儲存狀態在 [BrowserContext] 和 [APIRequestContext] 之間是可互換的。你可以使用它通過 API 呼叫登入，然後建立一個已經包含 cookies 的新 context。以下程式碼片段從已驗證的 [APIRequestContext] 中檢索狀態，並使用該狀態建立一個新的 [BrowserContext]。

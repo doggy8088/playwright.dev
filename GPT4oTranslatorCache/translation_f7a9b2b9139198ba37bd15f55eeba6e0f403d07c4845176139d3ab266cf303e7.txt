@@ -1,0 +1,15 @@
+* [test.step()](https://api/class-test.mdx#test-step) 現在返回 step 函式的值:
+
+  ```ts
+  test('should work', async ({ page }) => {
+    const pageTitle = await test.step('get title', async () => {
+      await page.goto('https://playwright.dev');
+      return await page.title();
+    });
+    console.log(pageTitle);
+  });
+  ```
+  
+* 新增 [test.describe.fixme()](https://api/class-test.mdx#test-describe-fixme)。
+* 新的 `'interrupted'` 測試狀態。
+* 通過 CLI 標誌啟用追蹤: `npx playwright test --trace=on`。

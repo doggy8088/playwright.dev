@@ -1,0 +1,1 @@
+幕後，[`request` fixture](./api/class-fixtures#fixtures-request) 實際上會呼叫 [apiRequest.newContext()]( /api/class-apirequest.mdx#api-request-new-context)。如果你想要更多控制權，你可以手動執行。以下是一個獨立的腳本，它與上面的 `beforeAll` 和 `afterAll` 做同樣的事情。

@@ -1,0 +1,1 @@
+每個 Playwright 瀏覽器上下文都與其關聯 [APIRequestContext] 實例共享 cookie 儲存與瀏覽器上下文，並且可以通過 [BrowserContext.request()](/api/class-browsercontext.mdx#browser-context-request) 或 [Page.request()](/api/class-page.mdx#page-request) 訪問。也可以通過呼叫 [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 手動建立一個新的 APIRequestContext 實例。

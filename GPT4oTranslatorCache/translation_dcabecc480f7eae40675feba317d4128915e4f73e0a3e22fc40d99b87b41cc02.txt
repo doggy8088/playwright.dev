@@ -1,0 +1,23 @@
+* 如果有一個 service worker 擋住了你的路，你現在可以使用新的上下文選項 `serviceWorkers` 輕鬆禁用它：
+  
+  ```java
+  BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+      .setServiceWorkers(ServiceWorkerPolicy.BLOCK));
+  ```
+  
+* 使用 `.zip` 路徑作為 `recordHar` 上下文選項會自動壓縮生成的 HAR：
+  
+  ```java
+  BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+      .setRecordHarPath(Paths.get("example.har.zip")));
+  ```
+  
+* 如果你打算手動編輯 HAR，考慮使用 `"minimal"` HAR 錄製模式，它只記錄對重播至關重要的資訊：
+  
+  ```java
+  BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+      .setRecordHarPath(Paths.get("example.har"))
+      .setRecordHarMode(HarMode.MINIMAL));
+  ```
+  
+* Playwright 現在可以在 Ubuntu 22 amd64 和 Ubuntu 22 arm64 上執行。

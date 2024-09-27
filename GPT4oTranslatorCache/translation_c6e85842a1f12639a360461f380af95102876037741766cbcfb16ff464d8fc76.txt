@@ -1,0 +1,18 @@
+- Method [locator.setInputFiles()](https://api/class-locator.mdx#locator-set-input-files) now supports uploading a directory for `<input type=file webkitdirectory>` elements。
+
+  ```ts
+  await page.getByLabel('Upload directory').setInputFiles(path.join(__dirname, 'mydir'));
+  ```
+
+- Multiple methods like [locator.click()](https://api/class-locator.mdx#locator-click) or [locator.press()](https://api/class-locator.mdx#locator-press) now support a `ControlOrMeta` modifier key. This key maps to `Meta` on macOS and maps to `Control` on Windows and Linux。
+
+  ```ts
+  // Press the common keyboard shortcut Control+S or Meta+S to trigger a "Save" operation.
+  await page.keyboard.press('ControlOrMeta+S');
+  ```
+
+- New property `httpCredentials.send` in [apiRequest.newContext()](https://api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`。
+- New option `reason` in [apiRequestContext.dispose()](https://api/class-apirequestcontext.mdx#api-request-context-dispose) that will be included in the error message of ongoing operations interrupted by the context disposal。
+- New option `host` in [browserType.launchServer()](https://api/class-browsertype.mdx#browser-type-launch-server) allows to accept websocket connections on a specific address instead of unspecified `0.0.0.0`。
+- Playwright now supports Chromium, Firefox and WebKit on Ubuntu 24.04。
+- v1.45 is the last release to receive WebKit update for macOS 12 Monterey。Please update macOS to keep using the latest WebKit。

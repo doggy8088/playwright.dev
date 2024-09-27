@@ -1,0 +1,1 @@
+- 新模式 `retain-on-first-failure` 用於 [testOptions.trace](/api/class-testoptions#test-options-trace)。在此模式下，每個測試的第一次執行會記錄 trace，但不會在重試時記錄。當測試執行失敗時，trace 檔案會被保留，否則會被刪除。

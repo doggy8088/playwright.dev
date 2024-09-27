@@ -1,0 +1,13 @@
+- [Array]&lt;[物件]&gt;
+  - `name` [string]
+    
+    附件名稱。
+  - `contentType` [string]
+    
+    此附件的內容類型，以便在報告中正確顯示，例如 `'application/json'` 或 `'image/png'`。
+  - `path` [string] *(optional)*
+    
+    文件系統中附加檔案的可選路徑。
+  - `body` [Buffer] *(optional)*
+    
+    可選的附件正文，用於替代檔案。

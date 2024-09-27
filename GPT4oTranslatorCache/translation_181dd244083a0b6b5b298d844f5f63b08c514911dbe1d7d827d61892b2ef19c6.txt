@@ -1,0 +1,10 @@
+- `options` `Page.WaitForFileChooserOptions` *(optional)*
+  - `setPredicate` [Predicate]&lt;[FileChooser]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-file-chooser-option-predicate"/><a href="#page-wait-for-file-chooser-option-predicate" class="list-anchor">#</a>
+
+    接收 [FileChooser] 物件並在等待應該解決時解析為真值。
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-file-chooser-option-timeout"/><a href="#page-wait-for-file-chooser-option-timeout" class="list-anchor">#</a>
+
+    等待的最長時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultTimeout()](/api/class-browsercontext#browser-context-set-default-timeout) 更改預設值。
+- `callback` [Runnable]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-file-chooser-option-callback"/><a href="#page-wait-for-file-chooser-option-callback" class="list-anchor">#</a>
+
+  執行觸發事件操作的回調。

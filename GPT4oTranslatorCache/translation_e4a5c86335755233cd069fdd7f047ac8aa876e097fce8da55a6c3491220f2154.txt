@@ -1,0 +1,5 @@
+- 新屬性 `httpCredentials.send` 在 [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 中允許總是發送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時發送。
+- 新選項 `reason` 在 [apiRequestContext.dispose()](/api/class-apirequestcontext.mdx#api-request-context-dispose) 中，將包含在由上下文處置中斷的進行中操作的錯誤訊息中。
+- 新選項 `host` 在 [browserType.launchServer()](/api/class-browsertype.mdx#browser-type-launch-server) 中允許在特定地址上接受 websocket 連接，而不是未指定的 `0.0.0.0`。
+- Playwright 現在支援 Ubuntu 24.04 上的 Chromium、Firefox 和 WebKit。
+- v1.45 是最後一個接收 macOS 12 Monterey 的 WebKit 更新的版本。請更新 macOS 以繼續使用最新的 WebKit。

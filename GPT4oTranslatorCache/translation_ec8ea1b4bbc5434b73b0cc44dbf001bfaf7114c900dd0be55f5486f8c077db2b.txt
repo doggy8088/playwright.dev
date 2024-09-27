@@ -1,0 +1,1 @@
+主要的區別在於通過 [browserContext.request](/api/class-browsercontext.mdx#browser-context-request) 和 [page.request](/api/class-page.mdx#page-request) 訪問的 [APIRequestContext] 會從瀏覽器 context 填充請求的 `Cookie` 標頭，並且如果 [APIResponse] 有 `Set-Cookie` 標頭，則會自動更新瀏覽器 cookies：

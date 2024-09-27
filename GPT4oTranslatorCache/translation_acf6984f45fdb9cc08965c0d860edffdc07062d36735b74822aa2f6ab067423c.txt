@@ -1,0 +1,24 @@
+| Puppeteer                                          | Playwright Library                          |
+|----------------------------------------------------|---------------------------------------------|
+| `await puppeteer.launch()`                         | `await playwright.chromium.launch()`        |
+| `puppeteer.launch({product: 'firefox'})`           | `await playwright.firefox.launch()`         |
+|  WebKit is not supported by Puppeteer              | `await playwright.webkit.launch()`          |
+| `await browser.createIncognitoBrowserContext(...)` | `await browser.newContext(...)`             |
+| `await page.setViewport(...)`                      | `await page.setViewportSize(...)`           |
+| `await page.waitForXPath(XPathSelector)`           | `await page.waitForSelector(XPathSelector)` |
+| `await page.waitForNetworkIdle(...)`               | `await page.waitForLoadState('networkidle')` |
+| `await page.$eval(...)`                            | [Assertions](./test-assertions) can often be used instead to verify text, attribute, class... |
+| `await page.$(...)`                                | Discouraged, use [Locators](./api/class-locator) instead |
+| `await page.$x(xpath_selector)`                    | Discouraged, use [Locators](./api/class-locator) instead |
+| No methods dedicated to checkbox or radio input    | `await page.locator(selector).check()`<br/>`await page.locator(selector).uncheck()` |
+| `await page.click(selector)`                       | `await page.locator(selector).click()`      |
+| `await page.focus(selector)`                       | `await page.locator(selector).focus()`      |
+| `await page.hover(selector)`                       | `await page.locator(selector).hover()`      |
+| `await page.select(selector, values)`              | `await page.locator(selector).selectOption(values)` |
+| `await page.tap(selector)`                         | `await page.locator(selector).tap()`        |
+| `await page.type(selector, ...)`                   | `await page.locator(selector).fill(...)` |
+| `await page.waitForFileChooser(...)`<br/>`await elementHandle.uploadFile(...)` | `await page.locator(selector).setInputFiles(...)` |
+| `await page.cookies([...urls])`                    | `await browserContext.cookies([urls])`      |
+| `await page.deleteCookie(...cookies)`              | `await browserContext.clearCookies()`       |
+| `await page.setCookie(...cookies)`                 | `await browserContext.addCookies(cookies)`  |
+| `page.on(...)`                                     | `page.on(...)`<br/>In order to intercept and mutate requests, see [page.route](/api/class-page.mdx#page-route) |

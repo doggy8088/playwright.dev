@@ -1,0 +1,20 @@
+- 新方法 [FormData.Append()](/api/class-formdata.mdx#form-data-append) 允許在 `APIRequestContext.FetchAsync()` 的 [`Multipart`](./api/class-apirequestcontext#api-request-context-fetch-option-multipart) 選項中指定具有相同名稱的重複字段:
+
+  ```csharp
+  var formData = Context.APIRequest.CreateFormData();
+  formData.Append("file", new FilePayload()
+  {
+      Name = "f1.js",
+      MimeType = "text/javascript",
+      Buffer = System.Text.Encoding.UTF8.GetBytes("var x = 2024;")
+  });
+  formData.Append("file", new FilePayload()
+  {
+      Name = "f2.txt",
+      MimeType = "text/plain",
+      Buffer = System.Text.Encoding.UTF8.GetBytes("hello")
+  });
+  var response = await Context.APIRequest.PostAsync("https://example.com/uploadFiles", new() { Multipart = formData });
+  ```
+
+- [Expect(Page).ToHaveURLAsync()](/api/class-pageassertions.mdx#page-assertions-to-have-url) 現在支持 `IgnoreCase` [選項](./api/class-pageassertions#page-assertions-to-have-url-option-ignore-case)。

@@ -1,0 +1,7 @@
+- `state` "visible" | "hidden" | "stable" | "enabled" | "disabled" | "editable"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-element-state-option-state"/><a href="#element-handle-wait-for-element-state-option-state" class="list-anchor">#</a>
+
+  等待的狀態，詳情見下文。
+- `options` [物件] *(可選)*
+  - `timeout` [數字] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-element-state-option-timeout"/><a href="#element-handle-wait-for-element-state-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `0` - 無超時。預設值可以通過配置中的 `actionTimeout` 選項更改，或使用 [browserContext.setDefaultTimeout()](https://ollama.com/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.setDefaultTimeout()](https://ollama.com/api/class-page.mdx#page-set-default-timeout) 方法更改。

@@ -1,0 +1,1 @@
+請注意，任何覆蓋（例如 `url` 或 `headers`）僅適用於正在路由的請求。如果此請求導致重定向，則覆蓋將不會應用於新的重定向請求。如果您希望通過重定向傳播標頭，請改用 [Route.fetch()](https://ollama.com/api/class-route.mdx#route-fetch) 和 [Route.fulfill()](https://ollama.com/api/class-route.mdx#route-fulfill) 的組合。

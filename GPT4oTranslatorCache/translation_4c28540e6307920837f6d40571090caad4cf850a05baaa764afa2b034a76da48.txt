@@ -1,0 +1,30 @@
+1. 建立一個 [Azure Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create)。
+1. 為該 storage account 啟用 [Static website hosting](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-how-to#enable-static-website-hosting)。
+1. 在 Azure 中建立一個 Service Principal 並授予其 Azure Blob storage 的訪問權限。成功執行後，命令將顯示在下一步中使用的憑證。
+   
+   ```bash
+   az ad sp create-for-rbac --name "github-actions" --role "Storage Blob Data Contributor" --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE_ACCOUNT_NAME>
+   ```
+   
+1. 使用上一步中的憑證在你的 GitHub repository 中設定加密的 secrets。前往你的 repository 的設定，在 [GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) 下，添加以下 secrets：
+   - `AZCOPY_SPA_APPLICATION_ID`
+   - `AZCOPY_SPA_CLIENT_SECRET`
+   - `AZCOPY_TENANT_ID`
+   
+   有關如何使用 client secret 授權 service principal 的詳細指南，請參閱[此 Microsoft 文件](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-authorize-azure-active-directory#authorize-a-service-principal-by-using-a-client-secret-1)。
+1. 添加一個步驟，將 HTML 報告上傳到 Azure Storage。
+   
+   ```yaml title=".github/workflows/playwright.yml"
+   ...
+       - name: Upload HTML report to Azure
+         shell: bash
+         run: |
+           REPORT_DIR='run-${{ github.run_id }}-${{ github.run_attempt }}'
+           azcopy cp --recursive "./playwright-report/*" "https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/\$web/$REPORT_DIR"
+           echo "::notice title=HTML report url::https://<STORAGE_ACCOUNT_NAME>.z1.web.core.windows.net/$REPORT_DIR/index.html"
+         env:
+           AZCOPY_AUTO_LOGIN_TYPE: SPN
+           AZCOPY_SPA_APPLICATION_ID: '${{ secrets.AZCOPY_SPA_APPLICATION_ID }}'
+           AZCOPY_SPA_CLIENT_SECRET: '${{ secrets.AZCOPY_SPA_CLIENT_SECRET }}'
+           AZCOPY_TENANT_ID: '${{ secrets.AZCOPY_TENANT_ID }}'
+   ```

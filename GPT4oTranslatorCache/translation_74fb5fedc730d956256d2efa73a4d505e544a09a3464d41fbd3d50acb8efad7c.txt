@@ -1,0 +1,9 @@
+- `expression` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-evaluate-handle-option-expression"/><a href="#locator-evaluate-handle-option-expression" class="list-anchor">#</a>
+  
+  在瀏覽器上下文中評估的 JavaScript 表達式。如果該表達式評估為一個函式，該函式將自動被呼叫。
+- `arg` [EvaluationArgument] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-evaluate-handle-option-arg"/><a href="#locator-evaluate-handle-option-arg" class="list-anchor">#</a>
+  
+  傳遞給 `expression` 的可選參數。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-evaluate-handle-option-timeout"/><a href="#locator-evaluate-handle-option-timeout" class="list-anchor">#</a>
+  
+  最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.set_default_timeout](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

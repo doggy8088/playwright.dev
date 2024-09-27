@@ -1,0 +1,12 @@
+- `script` [function] | [string] | [物件]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-add-init-script-option-script"/><a href="#browser-context-add-init-script-option-script" class="list-anchor">#</a>
+  - `path` [string] *(optional)*
+    
+    JavaScript 文件的路徑。如果 `path` 是相對路徑，則相對於當前工作目錄解析。可選。
+  - `content` [string] *(optional)*
+    
+    原始腳本內容。可選。
+  
+  要在瀏覽器上下文中的所有頁面中評估的腳本。
+- `arg` [Serializable] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-add-init-script-option-arg"/><a href="#browser-context-add-init-script-option-arg" class="list-anchor">#</a>
+  
+  傳遞給 `script` 的可選參數（僅在傳遞函式時支持）。

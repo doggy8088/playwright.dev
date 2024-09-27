@@ -1,0 +1,1 @@
+例如，`text="Log"` 不符合 `<button>Log in</button>`，因為 `<button>` 包含一個單一的文字節點 `"Log in"`，這不等於 `"Log"`。然而，`text="Log"` 符合 `<button> Log <span>in</span></button>`，因為 `<button>` 包含一個文字節點 `" Log "`。這種精確模式意味著區分大小寫的匹配，因此 `text="Download"` 不會符合 `<button>download</button>`。

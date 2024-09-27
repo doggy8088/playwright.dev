@@ -1,0 +1,1 @@
+執行動作並等待新的 [Worker]。如果提供了謂詞，它會將 [Worker] 值傳遞給 `predicate` 函式並等待 `predicate(worker)` 返回真值。如果在 worker 事件觸發之前頁面關閉，將拋出錯誤。

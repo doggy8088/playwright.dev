@@ -1,0 +1,9 @@
+- `selector` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-inner-html-option-selector"/><a href="#frame-inner-html-option-selector" class="list-anchor">#</a>
+
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `strict` [bool] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-inner-html-option-strict"/><a href="#frame-inner-html-option-strict" class="list-anchor">#</a>
+
+  當為 true 時，呼叫需要選擇器解析為單一元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-inner-html-option-timeout"/><a href="#frame-inner-html-option-timeout" class="list-anchor">#</a>
+
+  最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

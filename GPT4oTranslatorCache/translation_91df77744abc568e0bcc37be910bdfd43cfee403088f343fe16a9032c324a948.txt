@@ -1,0 +1,18 @@
+- `text` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-option-text"/><a href="#element-handle-type-option-text" class="list-anchor">#</a>
+
+  要輸入到焦點元素中的文本。
+- `options` `ElementHandleTypeOptions?` *(可選)*
+  - `Delay` [float]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-option-delay"/><a href="#element-handle-type-option-delay" class="list-anchor">#</a>
+
+    按鍵之間等待的時間（毫秒）。預設為 0。
+  - `NoWaitAfter` [bool]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-option-no-wait-after"/><a href="#element-handle-type-option-no-wait-after" class="list-anchor">#</a>
+
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+
+
+    此選項無效。
+  - `Timeout` [float]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-option-timeout"/><a href="#element-handle-type-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext#browser-context-set-default-timeout) 或 [Page.SetDefaultTimeout()](/api/class-page#page-set-default-timeout) 方法更改預設值。

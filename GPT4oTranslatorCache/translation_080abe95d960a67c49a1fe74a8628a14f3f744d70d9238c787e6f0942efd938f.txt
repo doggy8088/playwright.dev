@@ -1,0 +1,20 @@
+- [Expect(Locator).ToHaveAccessibleNameAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的可存取名稱:
+
+  ```csharp
+  var locator = Page.GetByRole(AriaRole.Button);
+  await Expect(locator).ToHaveAccessibleNameAsync("Submit");
+  ```
+
+- [Expect(Locator).ToHaveAccessibleDescriptionAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的可存取描述:
+
+  ```csharp
+  var locator = Page.GetByRole(AriaRole.Button);
+  await Expect(locator).ToHaveAccessibleDescriptionAsync("Upload a photo");
+  ```
+
+- [Expect(Locator).ToHaveRoleAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色:
+
+  ```csharp
+  var locator = Page.GetByTestId("save-button");
+  await Expect(locator).ToHaveRoleAsync(AriaRole.Button);
+  ```

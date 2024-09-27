@@ -1,0 +1,21 @@
+- `har` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-from-har-option-har"/><a href="#browser-context-route-from-har-option-har" class="list-anchor">#</a>
+
+  指向具有預錄網路資料的 [HAR](http://www.softwareishard.com/blog/har-12-spec) 檔案的路徑。如果 `path` 是相對路徑，則相對於當前工作目錄解析。
+- `options` `BrowserContextRouteFromHAROptions?` *(可選)*
+  - `NotFound` `enum HarNotFound { Abort, Fallback }?` *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-from-har-option-not-found"/><a href="#browser-context-route-from-har-option-not-found" class="list-anchor">#</a>
+    * 如果設置為 'abort'，任何在 HAR 檔案中找不到的請求將被中止。
+    * 如果設置為 'fallback'，則會通過處理鏈中的下一個路由處理程序。
+
+    預設為 abort。
+  - `Update` [bool]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-from-har-option-update"/><a href="#browser-context-route-from-har-option-update" class="list-anchor">#</a>
+
+    如果指定，則使用實際的網路資訊更新給定的 HAR，而不是從檔案中提供。當 [BrowserContext.CloseAsync](/api/class-browsercontext.mdx#browser-context-close)() 被呼叫時，檔案將寫入磁碟。
+  - `UpdateContent` `enum RouteFromHarUpdateContentPolicy { Embed, Attach }?` *(可選)* <font size="2">新增於: v1.32</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-from-har-option-update-content"/><a href="#browser-context-route-from-har-option-update-content" class="list-anchor">#</a>
+
+    控制資源內容管理的可選設定。如果指定為 `attach`，資源將作為單獨的檔案或 ZIP 檔案中的條目持久化。如果指定為 `embed`，內容將內嵌在 HAR 檔案中。
+  - `UpdateMode` `enum HarMode { Full, Minimal }?` *(可選)* <font size="2">新增於: v1.32</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-from-har-option-update-mode"/><a href="#browser-context-route-from-har-option-update-mode" class="list-anchor">#</a>
+
+    當設置為 `minimal` 時，只記錄從 HAR 路由所需的資訊。這會省略大小、時間、頁面、cookies、安全性和其他在從 HAR 重播時不使用的 HAR 資訊。預設為 `minimal`。
+  - `Url|UrlRegex` [string]? | [Regex]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-from-har-option-url-url-regex"/><a href="#browser-context-route-from-har-option-url-url-regex" class="list-anchor">#</a>
+
+    用於匹配請求 URL 的全域模式、正則表達式或謂詞。只有 URL 匹配模式的請求才會從 HAR 檔案中提供。如果未指定，則所有請求都將從 HAR 檔案中提供。

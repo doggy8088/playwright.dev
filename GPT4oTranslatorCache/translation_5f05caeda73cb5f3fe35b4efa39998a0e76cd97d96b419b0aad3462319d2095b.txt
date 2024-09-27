@@ -1,0 +1,48 @@
+* 執行測試在平行處理。
+
+  ```js
+  // 使用平行處理工作者平行執行文件中的所有測試。
+  test.describe.configure({ mode: 'parallel' });
+  test('平行執行 1', async ({ page }) => {});
+  test('平行執行 2', async ({ page }) => {});
+  ```
+  
+* 串行執行測試，從頭開始重試。
+
+  :::note
+  不建議串行執行。通常最好使您的測試獨立，以便它們可以獨立執行。
+  :::
+
+  ```js
+  // 將測試註釋為相互依賴。
+  test.describe.configure({ mode: 'serial' });
+  test('首先執行', async ({ page }) => {});
+  test('其次執行', async ({ page }) => {});
+  ```
+  
+* 配置每個測試的重試次數和超時時間。
+
+  ```js
+  // 文件中的每個測試將重試兩次，並且有 20 秒的超時時間。
+  test.describe.configure({ retries: 2, timeout: 20_000 });
+  test('首先執行', async ({ page }) => {});
+  test('其次執行', async ({ page }) => {});
+  ```
+  
+* 平行執行多個描述，但每個描述內的測試按順序執行。
+
+  ```js
+  test.describe.configure({ mode: 'parallel' });
+  
+  test.describe('A，與 B 平行執行', () => {
+    test.describe.configure({ mode: 'default' });
+    test('按順序 A1', async ({ page }) => {});
+    test('按順序 A2', async ({ page }) => {});
+  });
+  
+  test.describe('B，與 A 平行執行', () => {
+    test.describe.configure({ mode: 'default' });
+    test('按順序 B1', async ({ page }) => {});
+    test('按順序 B2', async ({ page }) => {});
+  });
+  ```

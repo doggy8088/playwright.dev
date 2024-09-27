@@ -1,0 +1,3 @@
+- 新方法 [suite.entries()](https://ollama.com/api/class-suite.mdx#suite-entries) 返回子測試套件和測試案例的宣告順序。 [suite.type](https://ollama.com/api/class-suite.mdx#suite-type) 和 [testCase.type](https://ollama.com/api/class-testcase.mdx#test-case-type) 可用於區分清單中的測試案例和套件。
+- [Blob](https://ollama.com/test-reporters#blob-reporter) 報告器現在允許使用單一選項 `outputFile` 覆蓋報告檔案路徑。相同的選項也可以指定為 `PLAYWRIGHT_BLOB_OUTPUT_FILE` 環境變數，這在 CI/CD 上可能更方便。
+- [JUnit](https://ollama.com/test-reporters#junit-reporter) 報告器現在支援 `includeProjectInTestName` 選項。

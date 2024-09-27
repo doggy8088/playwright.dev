@@ -1,0 +1,1 @@
+根據預設，NUnit 會平行執行所有測試檔案，同時在每個檔案內部順序執行測試（`ParallelScope.Self`）。它會建立與主機系統上核心數量相同的進程。您可以使用 NUnit.NumberOfTestWorkers 參數來調整此行為。僅支援 `ParallelScope.Self`。

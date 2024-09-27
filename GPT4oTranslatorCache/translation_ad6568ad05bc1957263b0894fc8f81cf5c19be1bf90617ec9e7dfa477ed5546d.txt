@@ -1,0 +1,1 @@
+預設情況下，MSTest 會平行處理所有類別，同時在每個類別內部依序執行測試（`ExecutionScope.ClassLevel`）。它會建立與主機系統上的核心數量相同的進程。您可以使用以下 CLI 參數或使用 `.runsettings` 文件來調整此行為，請參見下文。在方法層級（`ExecutionScope.MethodLevel`）平行處理測試是不支援的。

@@ -1,0 +1,1 @@
+當 JavaScript 對話框出現時觸發，例如 `alert`、`prompt`、`confirm` 或 `beforeunload`。監聽器**必須**要麼 [dialog.accept()](https://api/class-dialog.mdx#dialog-accept) 要麼 [dialog.dismiss()](https://api/class-dialog.mdx#dialog-dismiss) 對話框 - 否則頁面將 [freeze](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#never_blocking) 等待對話框，並且像點擊這樣的操作將永遠不會完成。

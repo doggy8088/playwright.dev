@@ -1,0 +1,41 @@
+- Playwright Test v1.19 現在支援*軟性斷言*。失敗的軟性斷言
+
+  **不會**終止測試執行，但會標記測試為失敗。
+
+  ```js
+  // 進行一些檢查，即使失敗也不會停止測試...
+  await expect.soft(page.locator('#status')).toHaveText('Success');
+  await expect.soft(page.locator('#eta')).toHaveText('1 day');
+  
+  // ... 並繼續測試以檢查更多內容。
+  await page.locator('#next-page').click();
+  await expect.soft(page.locator('#title')).toHaveText('Make another order');
+  ```
+
+  閱讀更多 [我們的文件](./test-assertions#soft-assertions)。
+- 現在您可以將**自訂的期望訊息**作為第二個參數傳遞給 `expect` 和 `expect.soft` 函式，例如：
+
+  ```js
+  await expect(page.locator('text=Name'), 'should be logged in').toBeVisible();
+  ```
+
+  錯誤訊息會如下所示：
+
+  ```bash
+      Error: should be logged in
+  
+      Call log:
+        - expect.toBeVisible with timeout 5000ms
+        - waiting for "getByText('Name')"
+  
+  
+        2 |
+        3 | test('example test', async({ page }) => {
+      > 4 |   await expect(page.locator('text=Name'), 'should be logged in').toBeVisible();
+          |                                                                  ^
+        5 | });
+        6 |
+  ```
+
+  閱讀更多 [我們的文件](./test-assertions#custom-expect-message)。
+- 預設情況下，單個文件中的測試會按順序執行。如果您在單個文件中有許多獨立的測試，現在可以使用 [test.describe.configure()](./api/class-test.mdx#test-describe-configure) 並行執行它們。

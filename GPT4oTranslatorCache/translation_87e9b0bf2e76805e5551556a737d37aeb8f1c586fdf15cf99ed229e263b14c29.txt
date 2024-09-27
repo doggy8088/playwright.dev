@@ -1,0 +1,7 @@
+|Fixture       |Type               |Description                      |
+|:-------------|:------------------|:--------------------------------|
+|page          |[Page]             |此測試執行的獨立頁面。|
+|browserContext|[BrowserContext]   |此測試執行的獨立上下文。`page` 物件也屬於此上下文。|
+|browser       |[Browser]          |瀏覽器在測試間共享以優化資源。|
+|playwright    |[Playwright]       |Playwright 實例在同一執行緒上的測試間共享。|
+|request       |[APIRequestContext]|此測試執行的獨立 APIRequestContext。了解如何進行 [API 測試](./api-testing)。|

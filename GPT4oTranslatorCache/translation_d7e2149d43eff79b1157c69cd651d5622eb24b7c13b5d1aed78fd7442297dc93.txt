@@ -1,0 +1,21 @@
+- `text=Log in` - 預設匹配不區分大小寫，修剪空白並搜索子字串。例如，`text=Log` 匹配 `<button>Log in</button>`。
+
+  ```js
+  await page.locator('text=Log in').click();
+  ```
+
+- `text="Log in"` - 文字內容可以用單引號或雙引號來轉義，以搜索修剪空白後具有精確內容的文字節點。
+
+  例如，`text="Log"` 不匹配 `<button>Log in</button>`，因為 `<button>` 包含的單個文字節點 `"Log in"` 不等於 `"Log"`。然而，`text="Log"` 匹配 `<button> Log <span>in</span></button>`，因為 `<button>` 包含一個文字節點 `" Log "`。這種精確模式意味著區分大小寫匹配，因此 `text="Download"` 不會匹配 `<button>download</button>`。
+
+  引號內容遵循通常的轉義規則，例如在雙引號字串中使用 `\"` 來轉義雙引號：`text="foo\"bar"`。
+
+  ```js
+  await page.locator('text="Log in"').click();
+  ```
+
+- `/Log\s*in/i` - 內容可以是用 `/` 符號包裹的 [類似 JavaScript 的正則表達式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)。例如，`text=/Log\s*in/i` 匹配 `<button>Login</button>` 和 `<button>log IN</button>`。
+
+  ```js
+  await page.locator('text=/Log\\s*in/i').click();
+  ```

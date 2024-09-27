@@ -1,0 +1,10 @@
+- `--headed`: 在 headed 模式下執行測試 (預設: headless)。
+- `--browser`: 在不同的瀏覽器 `chromium`、`firefox` 或 `webkit` 中執行測試。可以多次指定 (預設: `chromium`)。
+- `--browser-channel` 要使用的 [Browser channel](./browsers.mdx)。
+- `--slowmo` 將 Playwright 操作減慢指定的毫秒數。這樣可以看到發生了什麼 (預設: 0)。
+- `--device` 要模擬的 [Device](./emulation.mdx)。
+- `--output` 測試產生的工件目錄 (預設: `test-results`)。
+- `--tracing` 是否為每個測試記錄 [trace](./trace-viewer.mdx)。`on`、`off` 或 `retain-on-failure` (預設: `off`)。
+- `--video` 是否為每個測試錄製影片。`on`、`off` 或 `retain-on-failure` (預設: `off`)。
+- `--screenshot` 是否在每次測試後自動截取螢幕截圖。`on`、`off` 或 `only-on-failure` (預設: `off`)。
+- `--full-page-screenshot` 是否在失敗時截取整頁截圖。預設情況下，僅捕獲視口。需要啟用 `--screenshot` (預設: `off`)。

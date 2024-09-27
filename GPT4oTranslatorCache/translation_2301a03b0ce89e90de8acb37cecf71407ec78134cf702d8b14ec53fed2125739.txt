@@ -1,0 +1,5 @@
+- 新的 [locator.page()](/api/class-locator.mdx#locator-page)
+- [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 現在會自動隱藏閃爍的插入點
+- Playwright Codegen 現在會產生定位器和框架定位器
+- 在 [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) 中新增選項 `url` 以確保您的網頁伺服器在執行測試前已準備就緒
+- 新的 [testInfo.errors](/api/class-testinfo.mdx#test-info-errors) 和 [testResult.errors](/api/class-testresult.mdx#test-result-errors) 包含所有失敗的斷言和軟斷言。

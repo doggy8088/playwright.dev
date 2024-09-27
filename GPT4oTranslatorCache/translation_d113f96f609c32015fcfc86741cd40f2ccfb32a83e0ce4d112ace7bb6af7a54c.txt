@@ -1,0 +1,5 @@
+1. 匯入 [`com.deque.html.axe-core/playwright`](https://mvnrepository.com/artifact/com.deque.html.axe-core/playwright) 套件
+1. 使用標準 JUnit 5 `@Test` 語法來定義一個測試案例
+1. 使用標準 Playwright 語法來開啟瀏覽器並導航到測試頁面
+1. 呼叫 `AxeBuilder.analyze()` 來對頁面進行無障礙掃描
+1. 使用標準 JUnit 5 測試斷言來驗證返回的掃描結果中沒有違規

@@ -1,0 +1,5 @@
+| Option | Description |
+| :- | :- |
+| [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) | [Web first assertions](./test-assertions.mdx) like `expect(locator).toHaveText()` 有一個預設為 5 秒的單獨超時時間。這是 `expect()` 應等待條件滿足的最長時間。了解更多關於 [test and expect timeouts](./test-timeouts.mdx) 以及如何為單個測試設置它們。 |
+| [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) | `expect(locator).toHaveScreenshot()` 方法的配置。 |
+| [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1)| `expect(locator).toMatchSnapshot()` 方法的配置。|

@@ -1,0 +1,18 @@
+- 允許通過其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素的角色選擇器。
+  
+  ```java
+  // 點擊具有可訪問名稱 "log in" 的按鈕
+  page.locator("role=button[name='log in']").click();
+  ```
+  
+  閱讀更多在 [我們的文件](./locators.mdx#locate-by-role)。
+- 新的 [Locator.filter()](/api/class-locator.mdx#locator-filter) API 用於篩選現有的定位器
+  
+  ```java
+  Locator buttonsLocator = page.locator("role=button");
+  // ...
+  Locator submitButton = buttonsLocator.filter(new Locator.FilterOptions().setHasText("Submit"));
+  submitButton.click();
+  ```
+  
+- Playwright for Java 現在支援 **Ubuntu 20.04 ARM64** 和 **Apple M1**。你現在可以在 Apple M1 上、Apple M1 的 Docker 內以及 Raspberry Pi 上執行 Playwright for Java 測試。

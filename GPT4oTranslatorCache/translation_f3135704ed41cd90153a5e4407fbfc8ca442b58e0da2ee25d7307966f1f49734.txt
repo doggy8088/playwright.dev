@@ -1,0 +1,9 @@
+- `type` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dispatch-event-option-type"/><a href="#locator-dispatch-event-option-type" class="list-anchor">#</a>
+
+  DOM 事件類型: `"click"`, `"dragstart"` 等等。
+- `event_init` [EvaluationArgument] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dispatch-event-option-event-init"/><a href="#locator-dispatch-event-option-event-init" class="list-anchor">#</a>
+
+  可選的事件特定初始化屬性。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dispatch-event-option-timeout"/><a href="#locator-dispatch-event-option-timeout" class="list-anchor">#</a>
+
+  最大時間（毫秒）。預設為 `30000` (30 秒)。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout](https://api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.set_default_timeout](https://api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

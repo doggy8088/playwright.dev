@@ -1,0 +1,13 @@
+- `wsEndpoint` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-ws-endpoint"/><a href="#android-connect-option-ws-endpoint" class="list-anchor">#</a>
+
+  瀏覽器 websocket 端點以進行連接。
+- `options` [物件] *(可選)*
+  - `headers` [物件]&lt;[string], [string]&gt; *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-headers"/><a href="#android-connect-option-headers" class="list-anchor">#</a>
+
+    與 web socket 連接請求一起發送的額外 HTTP 標頭。可選。
+  - `slowMo` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-slow-mo"/><a href="#android-connect-option-slow-mo" class="list-anchor">#</a>
+
+    以指定的毫秒數減慢 Playwright 操作。這樣可以方便地看到發生了什麼。預設為 `0`。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-timeout"/><a href="#android-connect-option-timeout" class="list-anchor">#</a>
+
+    等待連接建立的最長時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。

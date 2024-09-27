@@ -1,0 +1,11 @@
+| Property | Description |
+| :- | :- |
+| [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) | 在測試期間啟動一個開發 web 伺服器（或多個）。 |
+| `command`| 啟動應用程式本地開發伺服器的 Shell 指令。 |
+| `url`| 當伺服器準備接受連接時，預期返回 2xx、3xx、400、401、402 或 403 狀態碼的 http 伺服器 URL。 |
+| `reuseExistingServer`| 如果為 `true`，則在可用時重新使用該 url 上的現有伺服器。如果該 url 上沒有伺服器在執行，則會執行指令啟動新伺服器。如果為 `false`，則如果有現有進程在該 url 上監聽，則會拋出錯誤。要查看 stdout，可以設置 `DEBUG=pw:webserver` 環境變數。 |
+| `ignoreHTTPSErrors` | 在獲取 `url` 時是否忽略 HTTPS 錯誤。預設為 `false`。 |
+| `cwd` | 啟動進程的當前工作目錄，預設為配置文件的目錄。 |
+| `stdout` | 如果為 `"pipe"`，則會將指令的 stdout 管道到進程 stdout。如果為 `"ignore"`，則會忽略指令的 stdout。預設為 `"ignore"`。 |
+| `stderr` | 是否將指令的 stderr 管道到進程 stderr 或忽略它。預設為 `"pipe"`。 |
+| `timeout` | 等待進程啟動並可用的時間（以毫秒為單位）。預設為 60000。 |

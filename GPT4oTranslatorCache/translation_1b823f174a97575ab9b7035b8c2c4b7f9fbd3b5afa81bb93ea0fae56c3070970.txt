@@ -1,0 +1,1 @@
+您可以通過告訴 Playwright 當多個元素匹配時使用哪個元素，明確選擇退出嚴格性檢查，通過 [locator.first()](https://api/class-locator.mdx#locator-first)、[locator.last()](https://api/class-locator.mdx#locator-last) 和 [locator.nth()](https://api/class-locator.mdx#locator-nth)。這些方法**不推薦**，因為當您的頁面發生變化時，Playwright 可能會點擊您不打算點擊的元素。相反，請遵循上述最佳實踐來建立唯一識別目標元素的定位器。

@@ -1,0 +1,49 @@
+- [物件]
+  - `timeout` [number] *(optional)*
+
+    非同步 expect 匹配器的預設超時時間（以毫秒為單位），預設為 5000ms。
+  - `toHaveScreenshot` [物件] *(optional)*
+    - `threshold` [number] *(optional)*
+
+      比較圖像中相同像素之間可接受的感知色差，範圍從 `0`（嚴格）到 `1`（寬鬆）。`"pixelmatch"` 比較器在 [YIQ 色彩空間](https://en.wikipedia.org/wiki/YIQ) 中計算色差，並將 `threshold` 值預設為 `0.2`。
+    - `maxDiffPixels` [number] *(optional)*
+
+      可接受的不同像素數量，預設未設置。
+    - `maxDiffPixelRatio` [number] *(optional)*
+
+      不同像素與總像素數量的可接受比例，範圍在 `0` 到 `1` 之間，預設未設置。
+    - `animations` "allow" | "disabled" *(optional)*
+
+      參見 [page.screenshot()](/api/class-page#page-screenshot) 中的 `animations`。預設為 `"disabled"`。
+    - `caret` "hide" | "initial" *(optional)*
+
+      參見 [page.screenshot()](/api/class-page#page-screenshot) 中的 `caret`。預設為 `"hide"`。
+    - `scale` "css" | "device" *(optional)*
+
+      參見 [page.screenshot()](/api/class-page#page-screenshot) 中的 `scale`。預設為 `"css"`。
+    - `stylePath` [string] | [Array]<[string]> *(optional)*
+
+      參見 [page.screenshot()](/api/class-page#page-screenshot) 中的 `style`。
+
+    [expect(page).toHaveScreenshot()](/api/class-pageassertions#page-assertions-to-have-screenshot-1) 方法的配置。
+  - `toMatchSnapshot` [物件] *(optional)*
+    - `threshold` [number] *(optional)*
+
+      比較圖像中相同像素之間可接受的感知色差，範圍從 `0`（嚴格）到 `1`（寬鬆）。`"pixelmatch"` 比較器在 [YIQ 色彩空間](https://en.wikipedia.org/wiki/YIQ) 中計算色差，並將 `threshold` 值預設為 `0.2`。
+    - `maxDiffPixels` [number] *(optional)*
+
+      可接受的不同像素數量，預設未設置。
+    - `maxDiffPixelRatio` [number] *(optional)*
+
+      不同像素與總像素數量的可接受比例，範圍在 `0` 到 `1` 之間，預設未設置。
+
+    [expect(value).toMatchSnapshot()](/api/class-snapshotassertions#snapshot-assertions-to-match-snapshot-1) 方法的配置。
+  - `toPass` [物件] *(optional)*
+    - `timeout` [number] *(optional)*
+
+      toPass 方法的超時時間（以毫秒為單位）。
+    - `intervals` [Array]<[number]> *(optional)*
+
+      toPass 方法的探測間隔時間（以毫秒為單位）。
+
+    [expect(value).toPass()](https://playwright.dev/docs/test-assertions) 方法的配置。

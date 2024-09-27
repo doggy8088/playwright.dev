@@ -1,0 +1,10 @@
+- `color_scheme` "light" | "dark" | "no-preference" | "null" *(optional)* <font size="2">Added in: v1.9</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-emulate-media-option-color-scheme"/><a href="#page-emulate-media-option-color-scheme" class="list-anchor">#</a>
+  
+  模擬 `'prefers-colors-scheme'` 媒體功能，支持的值為 `'light'`、`'dark'`、`'no-preference'`。傳遞 `'Null'` 將禁用顏色方案模擬。
+- `forced_colors` "active" | "none" | "null" *(optional)* <font size="2">Added in: v1.15</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-emulate-media-option-forced-colors"/><a href="#page-emulate-media-option-forced-colors" class="list-anchor">#</a>
+- `media` "screen" | "print" | "null" *(optional)* <font size="2">Added in: v1.9</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-emulate-media-option-media"/><a href="#page-emulate-media-option-media" class="list-anchor">#</a>
+  
+  更改頁面的 CSS 媒體類型。唯一允許的值是 `'Screen'`、`'Print'` 和 `'Null'`。傳遞 `'Null'` 將禁用 CSS 媒體模擬。
+- `reduced_motion` "reduce" | "no-preference" | "null" *(optional)* <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-emulate-media-option-reduced-motion"/><a href="#page-emulate-media-option-reduced-motion" class="list-anchor">#</a>
+  
+  模擬 `'prefers-reduced-motion'` 媒體功能，支持的值為 `'reduce'`、`'no-preference'`。傳遞 `null` 將禁用減少動作模擬。

@@ -1,0 +1,18 @@
+- `text` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-option-text"/><a href="#element-handle-type-option-text" class="list-anchor">#</a>
+
+  要輸入到焦點元素中的文字。
+- `options` `ElementHandle.TypeOptions` *(可選)*
+  - `setDelay` [double] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-option-delay"/><a href="#element-handle-type-option-delay" class="list-anchor">#</a>
+
+    按鍵之間等待的時間（以毫秒為單位）。預設為 0。
+  - `setNoWaitAfter` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-option-no-wait-after"/><a href="#element-handle-type-option-no-wait-after" class="list-anchor">#</a>
+
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+
+
+    此選項無效。
+  - `setTimeout` [double] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-option-timeout"/><a href="#element-handle-type-option-timeout" class="list-anchor">#</a>
+
+    最大時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultTimeout()](https://api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.setDefaultTimeout()](https://api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

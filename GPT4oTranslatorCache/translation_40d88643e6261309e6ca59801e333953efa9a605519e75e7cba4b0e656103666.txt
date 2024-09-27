@@ -1,0 +1,1 @@
+GitHub Actions 支援[在容器中執行作業](https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container)，使用[`jobs.<job_id>.container`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer)選項。這對於不污染主機環境與相依套件並在不同作業系統中進行一致的環境，例如截圖/視覺回歸測試，非常有用。

@@ -1,0 +1,14 @@
+- `options` `FrameRunAndWaitForNavigationOptions?` *(optional)*
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-navigation-option-timeout"/><a href="#frame-wait-for-navigation-option-timeout" class="list-anchor">#</a>
+
+    最大操作時間（毫秒），預設為 30 秒，傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultNavigationTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout)、[BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout)、[Page.SetDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout) 或 [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。
+  - `Url|UrlRegex|UrlFunc` [string]? | [Regex]? | [Func]&lt;[string]?, bool&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-navigation-option-url-url-regex-url-func"/><a href="#frame-wait-for-navigation-option-url-url-regex-url-func" class="list-anchor">#</a>
+
+    一個 glob 模式、正則表達式模式或接收 [URL] 的謂詞，用於在等待導航時匹配。請注意，如果參數是一個沒有通配符字符的字串，則該方法將等待導航到與該字串完全相等的 URL。
+  - `WaitUntil` `enum WaitUntilState { Load, DOMContentLoaded, NetworkIdle, Commit }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-navigation-option-wait-until"/><a href="#frame-wait-for-navigation-option-wait-until" class="list-anchor">#</a>
+
+    何時認為操作成功，預設為 `load`。事件可以是：
+    * `'domcontentloaded'` - 當 `DOMContentLoaded` 事件被觸發時，認為操作已完成。
+    * `'load'` - 當 `load` 事件被觸發時，認為操作已完成。
+    * `'networkidle'` - **不建議** 當至少 `500` 毫秒內沒有網路連接時，認為操作已完成。不要使用此方法進行測試，而應依賴網頁斷言來評估準備情況。
+    * `'commit'` - 當接收到網路響應並且文件開始加載時，認為操作已完成。

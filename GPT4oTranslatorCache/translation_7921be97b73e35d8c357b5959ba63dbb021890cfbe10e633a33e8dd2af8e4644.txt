@@ -1,0 +1,21 @@
+- 新的角色選擇器允許通過其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素。
+
+  ```js
+  // 點擊一個可訪問名稱為 "log in" 的按鈕
+  await page.locator('role=button[name="log in"]').click();
+  ```
+
+  閱讀更多在 [我們的文件](./locators.mdx#locate-by-role)。
+- [page.screenshot()](./api/class-page.mdx#page-screenshot) 中的新 `scale` 選項，用於較小尺寸的截圖。
+- [page.screenshot()](./api/class-page.mdx#page-screenshot) 中的新 `caret` 選項，用於控制文本插入符號。預設為 `"hide"`。
+- 新方法 `expect.poll` 用於等待任意條件：
+
+  ```js
+  // 輪詢該方法直到返回預期結果。
+  await expect.poll(async () => {
+    const response = await page.request.get('https://api.example.com');
+    return response.status();
+  }).toBe(200);
+  ```
+
+  `expect.poll` 支持大多數同步匹配器，如 `.toBe()`、`.toContain()` 等。閱讀更多在 [我們的文件](./test-assertions.mdx#expectpoll)。

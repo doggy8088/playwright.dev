@@ -1,0 +1,10 @@
+- `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-enabled-option-selector"/><a href="#page-is-enabled-option-selector" class="list-anchor">#</a>
+
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `options` `PageIsEnabledOptions?` *(optional)*
+  - `Strict` [bool]? *(optional)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-enabled-option-strict"/><a href="#page-is-enabled-option-strict" class="list-anchor">#</a>
+
+    當為 true 時，呼叫要求選擇器解析為單一元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-enabled-option-timeout"/><a href="#page-is-enabled-option-timeout" class="list-anchor">#</a>
+
+    最大時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

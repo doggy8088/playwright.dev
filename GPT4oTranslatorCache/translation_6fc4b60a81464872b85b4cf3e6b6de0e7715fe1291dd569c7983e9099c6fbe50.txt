@@ -1,0 +1,28 @@
+- `cookies` [IEnumerable]<`Cookie`><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-add-cookies-option-cookies"/><a href="#browser-context-add-cookies-option-cookies" class="list-anchor">#</a>
+  - `Name` [string]
+    
+    
+  - `Value` [string]
+    
+    
+  - `Url` [string]? *(optional)*
+    
+    必須提供 url 或 domain / path 其中之一。可選。
+  - `Domain` [string]? *(optional)*
+    
+    若要將 cookie 應用於所有子域，請在 domain 前加上點，如 ".example.com"。必須提供 url 或 domain / path 其中之一。可選。
+  - `Path` [string]? *(optional)*
+    
+    必須提供 url 或 domain / path 其中之一。可選。
+  - `Expires` [float]? *(optional)*
+    
+    Unix 時間（以秒為單位）。可選。
+  - `HttpOnly` [bool]? *(optional)*
+    
+    可選。
+  - `Secure` [bool]? *(optional)*
+    
+    可選。
+  - `SameSite` `enum SameSiteAttribute { Strict, Lax, None }?` *(optional)*
+    
+    可選。

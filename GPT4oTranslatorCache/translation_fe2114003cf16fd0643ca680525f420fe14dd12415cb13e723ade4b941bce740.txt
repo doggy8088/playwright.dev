@@ -1,0 +1,9 @@
+- 支援 **非同步謂詞** 在 API 中的方法，如 [Page.waitForRequest](/api/class-page#page-wait-for-request) 和其他方法
+- 新的 **模擬裝置**: Galaxy S8, Galaxy S9+, Galaxy Tab S4, Pixel 3, Pixel 4
+- 新的方法:
+  * [Page.waitForURL](/api/class-page#page-wait-for-url) 等待導航到 URL
+  * [Video.delete](/api/class-video#video-delete) 和 [Video.saveAs](/api/class-video#video-save-as) 管理螢幕錄影
+- 新的選項:
+  * `screen` 選項在 [Browser.newContext](/api/class-browser#browser-new-context) 方法中模擬 `window.screen` 的尺寸
+  * `position` 選項在 [Page.check](/api/class-page#page-check) 和 [Page.uncheck](/api/class-page#page-uncheck) 方法中
+  * `trial` 選項在 [Page.check](/api/class-page#page-check), [Page.uncheck](/api/class-page#page-uncheck), [Page.click](/api/class-page#page-click), [Page.dblclick](/api/class-page#page-dblclick), [Page.hover](/api/class-page#page-hover) 和 [Page.tap](/api/class-page#page-tap) 方法中進行乾跑操作

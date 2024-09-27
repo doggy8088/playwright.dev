@@ -1,0 +1,28 @@
+- `cookies` [Array]<[物件]><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-add-cookies-option-cookies"/><a href="#browser-context-add-cookies-option-cookies" class="list-anchor">#</a>
+  - `name` [string]
+    
+    
+  - `value` [string]
+    
+    
+  - `url` [string] *(optional)*
+    
+    Either url or domain / path are required. Optional.
+  - `domain` [string] *(optional)*
+    
+    For the cookie to apply to all subdomains as well, prefix domain with a dot, like this: ".example.com". Either url or domain / path are required. Optional.
+  - `path` [string] *(optional)*
+    
+    Either url or domain / path are required Optional.
+  - `expires` [number] *(optional)*
+    
+    Unix time in seconds. Optional.
+  - `httpOnly` [boolean] *(optional)*
+    
+    Optional.
+  - `secure` [boolean] *(optional)*
+    
+    Optional.
+  - `sameSite` "Strict" | "Lax" | "None" *(optional)*
+    
+    Optional.

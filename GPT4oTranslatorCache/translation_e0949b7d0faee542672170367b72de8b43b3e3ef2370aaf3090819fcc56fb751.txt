@@ -1,0 +1,1 @@
+每個頁面下載的附件都會觸發 [page.on("download")](/api/class-page#page-event-download) 事件。所有這些附件都會下載到一個臨時文件夾中。您可以使用事件中的 [Download] 物件獲取下載的 URL、文件名和有效負載流。

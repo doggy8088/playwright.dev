@@ -1,0 +1,7 @@
+- `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-text-option-text"/><a href="#page-get-by-text-option-text" class="list-anchor">#</a>
+  
+  要定位元素的文字。
+- `options` `PageGetByTextOptions?` *(optional)*
+  - `Exact` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-text-option-exact"/><a href="#page-get-by-text-option-exact" class="list-anchor">#</a>
+    
+    是否找到完全匹配：區分大小寫和整個字串。預設為 false。使用正則表達式定位時忽略。請注意，完全匹配仍會修剪空白。

@@ -1,0 +1,1 @@
+`port`（但不是 `url`）會傳遞給 Playwright 作為 [testOptions.baseURL](/api/class-testoptions.mdx#test-options-base-url)。例如，port `8080` 產生的 `baseURL` 等於 `http://localhost:8080`。如果 `webServer` 被指定為一個陣列，你必須明確地設定 `baseURL`（即使它只有一個條目）。

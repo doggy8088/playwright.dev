@@ -1,0 +1,41 @@
+- `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-selector"/><a href="#frame-dblclick-option-selector" class="list-anchor">#</a>
+  
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `options` `Frame.DblclickOptions` *(可選)*
+  - `setButton` `enum MouseButton { LEFT, RIGHT, MIDDLE }` *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-button"/><a href="#frame-dblclick-option-button" class="list-anchor">#</a>
+    
+    預設為 `left`。
+  - `setDelay` [double] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-delay"/><a href="#frame-dblclick-option-delay" class="list-anchor">#</a>
+    
+    `mousedown` 和 `mouseup` 之間的等待時間，以毫秒為單位。預設為 0。
+  - `setForce` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-force"/><a href="#frame-dblclick-option-force" class="list-anchor">#</a>
+    
+    是否繞過[actionability](../actionability.mdx)檢查。預設為 `false`。
+  - `setModifiers` [List]&lt;`enum KeyboardModifier { ALT, CONTROL, CONTROLORMETA, META, SHIFT }`&gt; *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-modifiers"/><a href="#frame-dblclick-option-modifiers" class="list-anchor">#</a>
+    
+    要按下的修飾鍵。確保在操作期間僅按下這些修飾鍵，然後恢復當前的修飾鍵。如果未指定，則使用當前按下的修飾鍵。"ControlOrMeta" 在 Windows 和 Linux 上解析為 "Control"，在 macOS 上解析為 "Meta"。
+  - `setNoWaitAfter` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-no-wait-after"/><a href="#frame-dblclick-option-no-wait-after" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+    
+    
+    此選項無效。
+  - `setPosition` Position *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-position"/><a href="#frame-dblclick-option-position" class="list-anchor">#</a>
+    - `setX` [double]
+      
+      
+    - `setY` [double]
+      
+      
+    相對於元素填充框左上角的點。如果未指定，則使用元素的某個可見點。
+  - `setStrict` [boolean] *(可選)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-strict"/><a href="#frame-dblclick-option-strict" class="list-anchor">#</a>
+    
+    當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，則呼叫拋出異常。
+  - `setTimeout` [double] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-timeout"/><a href="#frame-dblclick-option-timeout" class="list-anchor">#</a>
+    
+    最大時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用[BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。
+  - `setTrial` [boolean] *(可選)* <font size="2">新增於: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-trial"/><a href="#frame-dblclick-option-trial" class="list-anchor">#</a>
+    
+    設置時，此方法僅執行[actionability](../actionability.mdx)檢查並跳過操作。預設為 `false`。有助於在元素準備好操作之前等待而不執行操作。

@@ -1,0 +1,2 @@
+- `mcr.microsoft.com/playwright` docker 映像檔不再包含 Python。請使用 `mcr.microsoft.com/playwright/python` 作為預先安裝 Python 的 Playwright-ready docker 映像檔。
+- Playwright 現在支援通過 [locator.set_input_files()](/api/class-locator#locator-set-input-files) API 上傳大型檔案（數百 MB）。

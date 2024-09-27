@@ -1,0 +1,30 @@
+- 方法 [browser_context.clear_cookies](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援過濾器來僅移除某些 cookies。
+  
+  ```python
+  # 清除所有 cookies。
+  context.clear_cookies()
+  # 新增: 清除具有特定名稱的 cookies。
+  context.clear_cookies(name="session-id")
+  # 新增: 清除特定域名的 cookies。
+  context.clear_cookies(domain="my-origin.com")
+  ```
+  
+- 新方法 [locator.content_frame](/api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。這在您已獲得 [Locator] 物件，並且稍後想與框架內的內容互動時非常有用。
+  
+  ```python
+  locator = page.locator("iframe[name='embedded']")
+  # ...
+  frame_locator = locator.content_frame
+  frame_locator.getByRole("button").click()
+  ```
+  
+- 新方法 [frame_locator.owner](/api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。這在您已獲得 [FrameLocator] 物件，並且稍後想與 `iframe` 元素互動時非常有用。
+  
+  ```python
+  frame_locator = page.frame_locator("iframe[name='embedded']")
+  # ...
+  locator = frame_locator.owner
+  expect(locator).to_be_visible()
+  ```
+  
+- Conda 構建現在發布適用於 macOS-arm64 和 Linux-arm64。

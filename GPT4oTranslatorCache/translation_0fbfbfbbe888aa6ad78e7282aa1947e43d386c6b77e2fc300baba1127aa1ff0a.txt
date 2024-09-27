@@ -1,0 +1,2 @@
+1. Playwright Test 現在尊重 `tsconfig.json` 的 [`baseUrl`](https://www.typescriptlang.org/tsconfig#baseUrl) 和 [`paths`](https://www.typescriptlang.org/tsconfig#paths)，所以你可以使用別名
+1. 有一個新的環境變數 `PW_EXPERIMENTAL_TS_ESM`，允許在你的 TS 程式碼中匯入 ESM 模組，無需編譯步驟。匯入 esm 模組時不要忘記 `.js` 後綴。按如下方式執行你的測試:

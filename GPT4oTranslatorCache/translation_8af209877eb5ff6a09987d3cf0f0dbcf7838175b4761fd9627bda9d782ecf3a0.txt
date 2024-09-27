@@ -1,0 +1,7 @@
+- `options` [物件] *(optional)*
+  - `reason` [string] *(optional)* <font size="2">新增於: v1.40</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-close-option-reason"/><a href="#page-close-option-reason" class="list-anchor">#</a>
+    
+    報告因頁面關閉而中斷的操作原因。
+  - `runBeforeUnload` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-close-option-run-before-unload"/><a href="#page-close-option-run-before-unload" class="list-anchor">#</a>
+    
+    預設為 `false`。是否執行 [before unload](https://developer.mozilla.org/en-US/docs/Web/Events/beforeunload) 頁面處理程序。

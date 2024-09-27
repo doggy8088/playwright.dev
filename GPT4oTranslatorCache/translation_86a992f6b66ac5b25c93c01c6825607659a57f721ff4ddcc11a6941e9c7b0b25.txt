@@ -1,0 +1,154 @@
+- `options` `BrowserNewContextOptions?` *(optional)*
+  - `AcceptDownloads` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-accept-downloads"/><a href="#browser-new-context-option-accept-downloads" class="list-anchor">#</a>
+
+    是否自動下載所有附件。預設為 `true`，接受所有下載。
+  - `BaseURL` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-base-url"/><a href="#browser-new-context-option-base-url" class="list-anchor">#</a>
+
+    使用 [Page.GotoAsync()](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 時，會考慮使用 [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 建構對應的 URL。預設未設置。範例:
+    * baseURL: `http://localhost:3000` 並導航到 `/bar.html` 結果為 `http://localhost:3000/bar.html`
+    * baseURL: `http://localhost:3000/foo/` 並導航到 `./bar.html` 結果為 `http://localhost:3000/foo/bar.html`
+    * baseURL: `http://localhost:3000/foo` (不帶斜線) 並導航到 `./bar.html` 結果為 `http://localhost:3000/bar.html`
+  - `BypassCSP` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-bypass-csp"/><a href="#browser-new-context-option-bypass-csp" class="list-anchor">#</a>
+
+    切換是否繞過頁面的內容安全政策。預設為 `false`。
+  - `ClientCertificates` [IEnumerable]?&lt;ClientCertificates&gt; *(optional)* <font size="2">新增於: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-client-certificates"/><a href="#browser-new-context-option-client-certificates" class="list-anchor">#</a>
+    - `Origin` [string]
+
+      憑證有效的確切來源。來源包括 `https` 協議、主機名和可選的端口。
+    - `CertPath` [string]? *(optional)*
+
+      憑證文件的 PEM 格式路徑。
+    - `Cert` [byte]&#91;&#93;? *(optional)*
+
+      憑證的 PEM 格式直接值。
+    - `KeyPath` [string]? *(optional)*
+
+      私鑰文件的 PEM 格式路徑。
+    - `Key` [byte]&#91;&#93;? *(optional)*
+
+      私鑰的 PEM 格式直接值。
+    - `PfxPath` [string]? *(optional)*
+
+      PFX 或 PKCS12 編碼的私鑰和憑證鏈的路徑。
+    - `Pfx` [byte]&#91;&#93;? *(optional)*
+
+      PFX 或 PKCS12 編碼的私鑰和憑證鏈的直接值。
+    - `Passphrase` [string]? *(optional)*
+
+      私鑰的密碼（PEM 或 PFX）。
+
+    TLS 客戶端驗證允許服務器請求客戶端憑證並驗證它。
+
+    **詳細資訊**
+
+    要使用的客戶端憑證數組。每個憑證物件必須有 `certPath` 和 `keyPath`，單個 `pfxPath`，或其對應的直接值（`cert` 和 `key`，或 `pfx`）。如果憑證已加密，應提供 `passphrase` 屬性。應提供 `origin` 屬性，與請求來源完全匹配。
+
+    :::note
+    不支持將客戶端憑證與代理服務器結合使用。
+    :::
+
+    :::note
+    在 macOS 上使用 WebKit 時，訪問 `localhost` 不會拾取客戶端憑證。您可以通過將 `localhost` 替換為 `local.playwright` 來使其工作。
+    :::
+
+  - `ColorScheme` `enum ColorScheme { Light, Dark, NoPreference, Null }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-color-scheme"/><a href="#browser-new-context-option-color-scheme" class="list-anchor">#</a>
+
+    模擬 `'prefers-colors-scheme'` 媒體功能，支持的值為 `'light'`、`'dark'`、`'no-preference'`。詳情請參見 [Page.EmulateMediaAsync()](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL)。傳遞 `'null'` 將重置模擬為系統預設值。預設為 `'light'`。
+  - `DeviceScaleFactor` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-device-scale-factor"/><a href="#browser-new-context-option-device-scale-factor" class="list-anchor">#</a>
+
+    指定設備比例因子（可以視為 dpr）。預設為 `1`。了解更多關於 [模擬設備與設備比例因子](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL)。
+  - `ExtraHTTPHeaders` [IDictionary]?&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-extra-http-headers"/><a href="#browser-new-context-option-extra-http-headers" class="list-anchor">#</a>
+
+    包含要隨每個請求發送的額外 HTTP 標頭的物件。預設為無。
+  - `ForcedColors` `enum ForcedColors { Active, None, Null }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-forced-colors"/><a href="#browser-new-context-option-forced-colors" class="list-anchor">#</a>
+
+    模擬 `'forced-colors'` 媒體功能，支持的值為 `'active'`、`'none'`。詳情請參見 [Page.EmulateMediaAsync()](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL)。傳遞 `'null'` 將重置模擬為系統預設值。預設為 `'none'`。
+  - `Geolocation` Geolocation? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-geolocation"/><a href="#browser-new-context-option-geolocation" class="list-anchor">#</a>
+    - `Latitude` [float]
+
+      緯度在 -90 和 90 之間。
+    - `Longitude` [float]
+
+      經度在 -180 和 180 之間。
+    - `Accuracy` [float]? *(optional)*
+
+      非負的精度值。預設為 `0`。
+  - `HasTouch` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-has-touch"/><a href="#browser-new-context-option-has-touch" class="list-anchor">#</a>
+
+    指定視口是否支持觸摸事件。預設為 false。了解更多關於 [移動模擬](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL)。
+  - `HttpCredentials` HttpCredentials? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-http-credentials"/><a href="#browser-new-context-option-http-credentials" class="list-anchor">#</a>
+    - `Username` [string]
+
+
+    - `Password` [string]
+
+
+    - `Origin` [string]? *(optional)*
+
+      限制在特定來源（scheme://host:port）上發送 http 憑證。
+    - `Send` `enum HttpCredentialsSend { Unauthorized, Always }?` *(optional)*
+
+      此選項僅適用於從相應 [APIRequestContext] 發送的請求，不影響從瀏覽器發送的請求。`'always'` - 每個 API 請求都會發送帶有基本身份驗證憑證的 `Authorization` 標頭。`'unauthorized` - 憑證僅在收到帶有 `WWW-Authenticate` 標頭的 401（未授權）響應時發送。預設為 `'unauthorized'`。
+
+    [HTTP 身份驗證](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) 的憑證。如果未指定來源，則用戶名和密碼會在未授權響應時發送到任何服務器。
+  - `IgnoreHTTPSErrors` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-ignore-https-errors"/><a href="#browser-new-context-option-ignore-https-errors" class="list-anchor">#</a>
+
+    發送網絡請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+  - `IsMobile` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-is-mobile"/><a href="#browser-new-context-option-is-mobile" class="list-anchor">#</a>
+
+    是否考慮 `meta viewport` 標籤並啟用觸摸事件。isMobile 是設備的一部分，因此實際上不需要手動設置。預設為 `false`，在 Firefox 中不支持。了解更多關於 [移動模擬](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL)。
+  - `JavaScriptEnabled` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-java-script-enabled"/><a href="#browser-new-context-option-java-script-enabled" class="list-anchor">#</a>
+
+    是否在上下文中啟用 JavaScript。預設為 `true`。了解更多關於 [禁用 JavaScript](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL)。
+  - `Locale` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-locale"/><a href="#browser-new-context-option-locale" class="list-anchor">#</a>
+
+    指定用戶區域，例如 `en-GB`、`de-DE` 等。區域將影響 `navigator.language` 值、`Accept-Language` 請求標頭值以及數字和日期格式規則。預設為系統預設區域。了解更多關於我們的 [模擬指南](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL)。
+  - `Offline` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-offline"/><a href="#browser-new-context-option-offline" class="list-anchor">#</a>
+
+    是否模擬網絡離線。預設為 `false`。了解更多關於 [網絡模擬](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL)。
+  - `Permissions` [IEnumerable]?&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-permissions"/><a href="#browser-new-context-option-permissions" class="list-anchor">#</a>
+
+    授予此上下文中所有頁面的權限列表。詳情請參見 [BrowserContext.GrantPermissionsAsync()](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL)。預設為無。
+  - `Proxy` Proxy? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-proxy"/><a href="#browser-new-context-option-proxy" class="list-anchor">#</a>
+    - `Server` [string]
+
+      用於所有請求的代理。支持 HTTP 和 SOCKS 代理，例如 `http://myproxy.com:3128` 或 `socks5://myproxy.com:3128`。簡短形式 `myproxy.com:3128` 被視為 HTTP 代理。
+    - `Bypass` [string]? *(optional)*
+
+      可選的逗號分隔的域名以繞過代理，例如 `".com, chromium.org, .domain.com"`。
+    - `Username` [string]? *(optional)*
+
+      如果 HTTP 代理需要身份驗證，則使用的可選用戶名。
+    - `Password` [string]? *(optional)*
+
+      如果 HTTP 代理需要身份驗證，則使用的可選密碼。
+
+    用於此上下文的網絡代理設置。預設為無。
+  - `RecordHarContent` `enum HarContentPolicy { Omit, Embed, Attach }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-record-har-content"/><a href="#browser-new-context-option-record-har-content" class="list-anchor">#</a>
+
+    控制資源內容管理的可選設置。如果指定為 `omit`，則不會持久化內容。如果指定為 `attach`，則資源將作為單獨的文件持久化，並且所有這些文件將與 HAR 文件一起存檔。預設為 `embed`，根據 HAR 規範將內容內聯存儲在 HAR 文件中。
+  - `RecordHarMode` `enum HarMode { Full, Minimal }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-record-har-mode"/><a href="#browser-new-context-option-record-har-mode" class="list-anchor">#</a>
+
+    當設置為 `minimal` 時，只記錄路由所需的資訊。這省略了大小、時間、頁面、cookie、安全性和其他在從 HAR 重播時不使用的 HAR 資訊。預設為 `full`。
+  - `RecordHarOmitContent` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-record-har-omit-content"/><a href="#browser-new-context-option-record-har-omit-content" class="list-anchor">#</a>
+
+    控制是否從 HAR 中省略請求內容的可選設置。預設為 `false`。
+  - `RecordHarPath` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-record-har-path"/><a href="#browser-new-context-option-record-har-path" class="list-anchor">#</a>
+
+    啟用 [HAR](http://www.softwareishard.com/blog/har-12-spec) 記錄到文件系統上的指定 HAR 文件中。如果未指定，則不會記錄 HAR。確保調用 [BrowserContext.CloseAsync()](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 以保存 HAR。
+  - `RecordHarUrlFilter|RecordHarUrlFilterRegex` [string]? | [Regex]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-record-har-url-filter-record-har-url-filter-regex"/><a href="#browser-new-context-option-record-har-url-filter-record-har-url-filter-regex" class="list-anchor">#</a>
+  - `RecordVideoDir` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-record-video-dir"/><a href="#browser-new-context-option-record-video-dir" class="list-anchor">#</a>
+
+    啟用所有頁面的影片記錄到指定目錄中。如果未指定，則不會記錄影片。確保調用 [BrowserContext.CloseAsync()](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 以保存影片。
+  - `RecordVideoSize` RecordVideoSize? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-record-video-size"/><a href="#browser-new-context-option-record-video-size" class="list-anchor">#</a>
+    - `Width` [int]
+
+      影片幀寬度。
+    - `Height` [int]
+
+      影片幀高度。
+
+    記錄影片的尺寸。如果未指定，則尺寸將等於 `viewport` 縮小以適應 800x800。如果未明確配置 `viewport`，則影片尺寸預設為 800x450。如果需要，將縮小每個頁面的實際圖片以適應指定的尺寸。
+  - `ReducedMotion` `enum ReducedMotion { Reduce, NoPreference, Null }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-reduced-motion"/><a href="#browser-new-context-option-reduced-motion" class="list-anchor">#</a>
+
+    模擬 `'prefers-reduced-motion'` 媒體功能，支持的值為 `'reduce'`、`'no-preference'`。詳情請參見 [Page.EmulateMediaAsync()](https://developer.mozilla.org/en-US/docs

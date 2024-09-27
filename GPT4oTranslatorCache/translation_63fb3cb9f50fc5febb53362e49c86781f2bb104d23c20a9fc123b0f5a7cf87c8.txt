@@ -1,0 +1,1 @@
+當使用 [VS Code 擴充功能](./getting-started-vscode.mdx) 或 `npm init playwright@latest` [安裝 Playwright](./intro.mdx) 時，你可以選擇添加一個 [GitHub Actions](https://docs.github.com/en/actions) 工作流程。這會在 `.github/workflows` 資料夾內建立一個 `playwright.yml` 檔案，包含所有你需要的內容，以便你的測試在每次推送和拉取請求到 main/master 分支時執行。這是該檔案的樣子：

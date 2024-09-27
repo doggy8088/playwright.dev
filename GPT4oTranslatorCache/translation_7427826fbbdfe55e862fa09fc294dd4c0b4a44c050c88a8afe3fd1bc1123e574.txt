@@ -1,0 +1,37 @@
+- `target` [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-drag-to-option-target"/><a href="#locator-drag-to-option-target" class="list-anchor">#</a>
+  
+  要拖動到的元素的 Locator。
+- `options` [物件] *(可選)*
+  - `force` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-drag-to-option-force"/><a href="#locator-drag-to-option-force" class="list-anchor">#</a>
+    
+    是否繞過[actionability](../actionability.mdx)檢查。預設為 `false`。
+  - `noWaitAfter` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-drag-to-option-no-wait-after"/><a href="#locator-drag-to-option-no-wait-after" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+    
+    
+    此選項無效。
+  - `sourcePosition` [物件] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-drag-to-option-source-position"/><a href="#locator-drag-to-option-source-position" class="list-anchor">#</a>
+    - `x` [number]
+      
+      
+    - `y` [number]
+      
+      
+    在相對於元素填充框左上角的這一點點擊源元素。如果未指定，則使用元素的某個可見點。
+  - `targetPosition` [物件] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-drag-to-option-target-position"/><a href="#locator-drag-to-option-target-position" class="list-anchor">#</a>
+    - `x` [number]
+      
+      
+    - `y` [number]
+      
+      
+    在相對於元素填充框左上角的這一點放置目標元素。如果未指定，則使用元素的某個可見點。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-drag-to-option-timeout"/><a href="#locator-drag-to-option-timeout" class="list-anchor">#</a>
+    
+    最大時間（以毫秒為單位）。預設為 `0` - 無超時。可以通過配置中的 `actionTimeout` 選項更改預設值，或使用[browserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout)或[page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout)方法。
+  - `trial` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-drag-to-option-trial"/><a href="#locator-drag-to-option-trial" class="list-anchor">#</a>
+    
+    設置此選項時，此方法僅執行[actionability](../actionability.mdx)檢查並跳過操作。預設為 `false`。在不執行操作的情況下等待元素準備就緒時非常有用。

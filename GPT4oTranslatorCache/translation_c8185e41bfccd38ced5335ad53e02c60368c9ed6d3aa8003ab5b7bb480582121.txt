@@ -1,0 +1,10 @@
+- `action` [Func]&lt;[Task]&gt; <font size="2">新增於: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-console-message-option-action"/><a href="#page-wait-for-console-message-option-action" class="list-anchor">#</a>
+
+  觸發事件的動作。
+- `options` `PageRunAndWaitForConsoleMessageOptions?` *(可選)*
+  - `Predicate` [Func]&lt;[ConsoleMessage]?, bool&gt; *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-console-message-option-predicate"/><a href="#page-wait-for-console-message-option-predicate" class="list-anchor">#</a>
+
+    接收 [ConsoleMessage] 物件，當等待應該解析時解析為真值。
+  - `Timeout` [float]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-console-message-option-timeout"/><a href="#page-wait-for-console-message-option-timeout" class="list-anchor">#</a>
+
+    最長等待時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 更改預設值。

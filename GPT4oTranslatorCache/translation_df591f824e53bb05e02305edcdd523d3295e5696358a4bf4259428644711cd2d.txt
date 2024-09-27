@@ -1,0 +1,14 @@
+- `url` [String] | [Pattern] | [Predicate]<[String]><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-url-option-url"/><a href="#page-wait-for-url-option-url" class="list-anchor">#</a>
+
+  一個 glob 模式、正則表達式模式或接收 [URL] 的謂詞，用於在等待導航時匹配。請注意，如果參數是一個沒有通配符字符的字串，該方法將等待導航到與該字串完全相等的 URL。
+- `options` `Page.WaitForURLOptions` *(optional)*
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-url-option-timeout"/><a href="#page-wait-for-url-option-timeout" class="list-anchor">#</a>
+
+    最大操作時間（以毫秒為單位），預設為 30 秒，傳遞 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultNavigationTimeout](https://api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout)、[BrowserContext.setDefaultTimeout](https://api/class-browsercontext.mdx#browser-context-set-default-timeout)、[Page.setDefaultNavigationTimeout](https://api/class-page.mdx#page-set-default-navigation-timeout) 或 [Page.setDefaultTimeout](https://api/class-page.mdx#page-set-default-timeout) 方法更改預設值。
+  - `setWaitUntil` `enum WaitUntilState { LOAD, DOMCONTENTLOADED, NETWORKIDLE, COMMIT }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-url-option-wait-until"/><a href="#page-wait-for-url-option-wait-until" class="list-anchor">#</a>
+
+    何時認為操作成功，預設為 `load`。事件可以是：
+    * `'domcontentloaded'` - 當 `DOMContentLoaded` 事件被觸發時，認為操作完成。
+    * `'load'` - 當 `load` 事件被觸發時，認為操作完成。
+    * `'networkidle'` - **不建議** 當至少 `500` 毫秒內沒有網絡連接時，認為操作完成。不要使用此方法進行測試，請依賴網頁斷言來評估準備狀態。
+    * `'commit'` - 當收到網絡響應並且文件開始加載時，認為操作完成。

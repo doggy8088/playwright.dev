@@ -1,0 +1,19 @@
+- `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-option-title"/><a href="#test-describe-option-title" class="list-anchor">#</a>
+  
+  群組標題。
+- `details` [物件] *(optional)* <font size="2">新增於: v1.42</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-option-details"/><a href="#test-describe-option-details" class="list-anchor">#</a>
+  - `tag` [string] | [Array]&lt;[string]&gt; *(optional)*
+    
+    
+  - `annotation` [物件] | [Array]&lt;[物件]&gt; *(optional)*
+    - `type` [string]
+      
+      
+    - `description` [string] *(optional)*
+      
+      
+    
+  群組中所有測試的附加詳細資訊。
+- `callback` [函式]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-option-callback"/><a href="#test-describe-option-callback" class="list-anchor">#</a>
+  
+  一個在呼叫 [test.describe()](https://api/class-test.mdx#test-describe) 時立即執行的回呼。在此回呼中宣告的任何測試將屬於該群組。

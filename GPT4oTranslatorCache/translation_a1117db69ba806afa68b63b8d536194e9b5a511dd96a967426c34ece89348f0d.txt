@@ -1,0 +1,28 @@
+- `cookies` [List]\[[Dict]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-add-cookies-option-cookies"/><a href="#browser-context-add-cookies-option-cookies" class="list-anchor">#</a>
+  - `name` [str]
+    
+    
+  - `value` [str]
+    
+    
+  - `url` [str] *(optional)*
+    
+    必須提供 url 或 domain / path。可選。
+  - `domain` [str] *(optional)*
+    
+    若要讓 cookie 應用於所有子域，請在 domain 前加上點，如這樣: ".example.com"。必須提供 url 或 domain / path。可選。
+  - `path` [str] *(optional)*
+    
+    必須提供 url 或 domain / path。可選。
+  - `expires` [float] *(optional)*
+    
+    Unix 時間（秒）。可選。
+  - `httpOnly` [bool] *(optional)*
+    
+    可選。
+  - `secure` [bool] *(optional)*
+    
+    可選。
+  - `sameSite` "Strict" | "Lax" | "None" *(optional)*
+    
+    可選。

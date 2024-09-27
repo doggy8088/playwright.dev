@@ -1,0 +1,1 @@
+GitLab CI 也支援使用 [parallel:matrix](https://docs.gitlab.com/ee/ci/yaml/index.html#parallelmatrix) 選項在多個作業之間分片測試。測試作業將在單個管道中多次平行執行，但每個作業實例具有不同的變數值。在下面的範例中，我們有 2 個 `PROJECT` 值和 10 個 `SHARD` 值，總共需要執行 20 個作業。

@@ -1,0 +1,1 @@
+在 Linux 代理上，帶頭執行需要安裝 [Xvfb](https://en.wikipedia.org/wiki/Xvfb)。我們的 [Docker image](./docker.mdx) 和 GitHub Action 已經預先安裝了 Xvfb。要在帶頭模式下使用 Xvfb 執行瀏覽器，請在實際命令前添加 `xvfb-run`。

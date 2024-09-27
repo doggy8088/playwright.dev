@@ -1,0 +1,55 @@
+- 元件測試（預覽）
+
+  Playwright Test 現在可以測試你的 [React](https://reactjs.org/)、[Vue.js](https://vuejs.org/) 或 [Svelte](https://svelte.dev/) 元件。你可以在真實瀏覽器中執行元件時，使用 Playwright Test 的所有功能（例如平行化、模擬和除錯）。
+
+  這是一個典型的元件測試範例：
+
+  ```ts title="App.spec.tsx"
+  import { test, expect } from '@playwright/experimental-ct-react';
+  import App from './App';
+
+  // 讓我們在深色模式下測試元件！
+  test.use({ colorScheme: 'dark' });
+
+  test('should render', async ({ mount }) => {
+    const component = await mount(<App></App>);
+
+    // 與任何 Playwright 測試一樣，斷言定位器文本。
+    await expect(component).toContainText('React');
+    // 或者截圖 🚀
+    await expect(component).toHaveScreenshot();
+    // 或使用任何 Playwright 方法
+    await component.click();
+  });
+  ```
+
+  閱讀更多在[我們的文件](./test-components)。
+- 角色選擇器允許通過其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素。
+
+  ```js
+  // 點擊一個可訪問名稱為 "log in" 的按鈕
+  await page.locator('role=button[name="log in"]').click();
+  ```
+
+  閱讀更多在[我們的文件](./locators.mdx#locate-by-role)。
+- 新的 [locator.filter()](/api/class-locator.mdx#locator-filter) API 用於篩選現有定位器
+
+  ```js
+  const buttons = page.locator('role=button');
+  // ...
+  const submitButton = buttons.filter({ hasText: 'Submit' });
+  await submitButton.click();
+  ```
+
+- 新的 web-first 斷言 [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) 等待截圖穩定並增強測試可靠性。
+
+  新的斷言具有截圖特定的預設值，例如：
+  * 禁用動畫
+  * 使用 CSS 縮放選項
+
+  ```js
+  await page.goto('https://playwright.dev');
+  await expect(page).toHaveScreenshot();
+  ```
+
+  新的 [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 將截圖保存到與 [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1) 相同的位置。

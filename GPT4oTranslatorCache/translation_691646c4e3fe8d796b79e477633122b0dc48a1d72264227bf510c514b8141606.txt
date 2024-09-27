@@ -1,0 +1,3 @@
+:::warning[斷言文字]
+如果你需要在頁面上斷言文字，請優先使用 [expect(locator).toHaveText()](/api/class-locatorassertions#locator-assertions-to-have-text) 並搭配 `useInnerText` 選項以避免不穩定性。詳情請參閱 [斷言指南](https://playwright.dev/test-assertions)。
+:::

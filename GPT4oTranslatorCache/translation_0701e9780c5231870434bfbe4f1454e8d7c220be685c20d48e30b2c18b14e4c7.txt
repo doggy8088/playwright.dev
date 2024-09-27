@@ -1,0 +1,1 @@
+[Page.SetViewportSizeAsync()](/api/class-page.mdx#page-set-viewport-size) 會調整頁面的大小。很多網站不期望手機改變大小，所以你應該在導航到頁面之前設定視口大小。[Page.SetViewportSizeAsync()](/api/class-page.mdx#page-set-viewport-size) 也會重置 `screen` 大小，如果你需要更好地控制這些屬性，請使用帶有 `screen` 和 `viewport` 參數的 [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context)。

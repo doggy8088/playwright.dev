@@ -1,0 +1,7 @@
+- `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-text-option-text"/><a href="#frame-locator-get-by-text-option-text" class="list-anchor">#</a>
+  
+  用來定位元素的文字。
+- `options` `FrameLocator.GetByTextOptions` *(optional)*
+  - `setExact` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-text-option-exact"/><a href="#frame-locator-get-by-text-option-exact" class="list-anchor">#</a>
+    
+    是否尋找精確匹配：區分大小寫和整個字串。預設為 false。當使用正則表達式定位時會被忽略。請注意，精確匹配仍會修剪空白。

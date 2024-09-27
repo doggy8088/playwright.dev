@@ -1,0 +1,8 @@
+* `npx playwright test` 如果你安裝了 `playwright` 和 `@playwright/test` 兩者將不再有效。沒有必要同時安裝兩者，因為你可以直接從 `@playwright/test` 導入瀏覽器自動化 API:
+
+  ```js title="automation.ts"
+  import { chromium, firefox, webkit } from '@playwright/test';
+  /* ... */
+  ```
+
+* Node.js 14 不再受支援，因為它在 2023 年 4 月 30 日[達到生命週期終點](https://nodejs.dev/en/about/releases/)。

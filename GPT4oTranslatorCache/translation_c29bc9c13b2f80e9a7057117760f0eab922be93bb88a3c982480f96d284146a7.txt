@@ -1,0 +1,3 @@
+:::note
+[locator.all()](/api/class-locator.mdx#locator-all) 不會等待元素與定位器匹配，而是立即返回頁面中存在的任何內容。當元素列表動態變化時，[locator.all()](/api/class-locator.mdx#locator-all) 會產生不可預測且不穩定的結果。當元素列表穩定但動態加載時，請等待完整列表加載完成後再呼叫 [locator.all()](/api/class-locator.mdx#locator-all)。
+:::

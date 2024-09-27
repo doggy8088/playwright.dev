@@ -1,0 +1,7 @@
+* `playwright-core` 二進位檔已從 `playwright` 重新命名為 `playwright-core`。所以如果你使用 `playwright-core` CLI，請確保更新名稱：
+  
+  ```bash
+  $ npx playwright-core install # 使用 playwright-core 時安裝瀏覽器的新方式
+  ```
+  
+  此變更 **不會** 影響 `@playwright/test` 和 `playwright` 套件使用者。

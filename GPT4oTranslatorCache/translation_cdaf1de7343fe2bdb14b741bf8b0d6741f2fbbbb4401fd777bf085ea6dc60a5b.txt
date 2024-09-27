@@ -1,0 +1,5 @@
+1. 每個 Playwright 測試文件都有明確匯入 `test` 和 `expect` 函式
+1. 測試函式標記為 `async`
+1. Playwright 測試將 `page` 作為其參數之一。這是 Playwright 測試中許多[有用的 fixtures](./api/class-fixtures)之一。Playwright 測試為每個測試建立一個獨立的 [Page] 物件。但是，如果您想在多個測試之間重複使用單個 [Page] 物件，您可以在 [test.beforeAll()](./api/class-test.mdx#test-before-all) 中建立自己的物件，並在 [test.afterAll()](./api/class-test.mdx#test-after-all) 中關閉它。
+1. 使用 [page.locator()](./api/class-page.mdx#page-locator) 建立 Locator 是少數同步方法之一。
+1. 使用[斷言](./test-assertions)來驗證狀態，而不是 `page.$eval()`。

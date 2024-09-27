@@ -1,0 +1,20 @@
+- [assertThat(locator).hasAccessibleName()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的可存取名稱:
+
+  ```java
+  Locator locator = page.getByRole(AriaRole.BUTTON);
+  assertThat(locator).hasAccessibleName("Submit");
+  ```
+
+- [assertThat(locator).hasAccessibleDescription()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的可存取描述:
+
+  ```java
+  Locator locator = page.getByRole(AriaRole.BUTTON);
+  assertThat(locator).hasAccessibleDescription("Upload a photo");
+  ```
+
+- [assertThat(locator).hasRole()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色:
+
+  ```java
+  Locator locator = page.getByTestId("save-button");
+  assertThat(locator).hasRole(AriaRole.BUTTON);
+  ```

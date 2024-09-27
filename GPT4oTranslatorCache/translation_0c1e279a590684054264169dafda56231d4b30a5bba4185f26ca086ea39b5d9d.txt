@@ -1,0 +1,10 @@
+- `options` [物件] *(optional)*
+  - `host` [string] *(optional)* <font size="2">Added in: v1.22</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-option-host"/><a href="#android-devices-option-host" class="list-anchor">#</a>
+    
+    選擇性 host 以建立 ADB 伺服器連線。預設為 `127.0.0.1`。
+  - `omitDriverInstall` [boolean] *(optional)* <font size="2">Added in: v1.21</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-option-omit-driver-install"/><a href="#android-devices-option-omit-driver-install" class="list-anchor">#</a>
+    
+    防止在附加時自動安裝 Playwright 驅動程式。假設驅動程式已經安裝。
+  - `port` [number] *(optional)* <font size="2">Added in: v1.20</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-option-port"/><a href="#android-devices-option-port" class="list-anchor">#</a>
+    
+    選擇性 port 以建立 ADB 伺服器連線。預設為 `5037`。

@@ -1,0 +1,9 @@
+- [根據佈局選擇元素](./other-locators.mdx#css-matching-elements-based-on-layout) 使用 `:left-of()`, `:right-of()`, `:above()` 和 `:below()`。
+- Playwright 現在包括命令列介面，前稱 playwright-cli。
+  
+  ```bash
+  playwright --help
+  ```
+  
+- [page.select_option()](/api/class-page.mdx#page-select-option) 現在會等待選項出現。
+- 新的方法來[斷言元素狀態](./actionability#assertions) 如 [page.is_editable()](/api/class-page.mdx#page-is-editable)。

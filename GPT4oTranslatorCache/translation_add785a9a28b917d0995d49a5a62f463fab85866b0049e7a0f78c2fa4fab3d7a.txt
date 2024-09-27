@@ -1,0 +1,18 @@
+- `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-selector"/><a href="#android-device-drag-option-selector" class="list-anchor">#</a>
+
+  要拖動的選擇器。
+- `dest` [物件]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-dest"/><a href="#android-device-drag-option-dest" class="list-anchor">#</a>
+  - `x` [數字]
+
+
+  - `y` [數字]
+
+
+  要拖動到的點。
+- `options` [物件] *(可選)*
+  - `speed` [數字] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-speed"/><a href="#android-device-drag-option-speed" class="list-anchor">#</a>
+
+    拖動的可選速度，以每秒像素為單位。
+  - `timeout` [數字] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-timeout"/><a href="#android-device-drag-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒），預設為30秒，傳遞 `0` 以禁用超時。預設值可以通過使用 [androidDevice.setDefaultTimeout()](https://ollama.com/library) 方法進行更改。

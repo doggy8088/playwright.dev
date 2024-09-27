@@ -1,0 +1,1 @@
+例如，`:text-is("Log")` 不符合 `<button>Log in</button>`，因為 `<button>` 包含一個文字節點 `"Log in"`，這不等於 `"Log"`。然而，`:text-is("Log")` 符合 `<button> Log <span>in</span></button>`，因為 `<button>` 包含一個文字節點 `" Log "`。

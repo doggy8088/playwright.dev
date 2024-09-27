@@ -1,0 +1,4 @@
+- 執行使用 [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 添加的處理程式後，Playwright 現在將等待觸發處理程式的覆蓋層不再可見。你可以使用新的 `noWaitAfter` 選項選擇退出此行為。
+- 你可以在 [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `times` 選項來指定處理程式應該執行的最大次數。
+- [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中的處理程式現在接受定位器作為參數。
+- 新的 [page.removeLocatorHandler()](/api/class-page.mdx#page-remove-locator-handler) 方法用於移除先前添加的定位器處理程式。

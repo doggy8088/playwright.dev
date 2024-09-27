@@ -1,0 +1,26 @@
+- `options` [物件] *(optional)*
+  - `force` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-uncheck-option-force"/><a href="#locator-uncheck-option-force" class="list-anchor">#</a>
+    
+    Whether to bypass the [actionability](../actionability.mdx) checks. Defaults to `false`.
+  - `noWaitAfter` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-uncheck-option-no-wait-after"/><a href="#locator-uncheck-option-no-wait-after" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    This option has no effect.
+    :::
+    
+    
+    This option has no effect.
+  - `position` [物件] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-uncheck-option-position"/><a href="#locator-uncheck-option-position" class="list-anchor">#</a>
+    - `x` [number]
+      
+      
+    - `y` [number]
+      
+      
+    A point to use relative to the top-left corner of element padding box. If not specified, uses some visible point of the element.
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-uncheck-option-timeout"/><a href="#locator-uncheck-option-timeout" class="list-anchor">#</a>
+    
+    Maximum time in milliseconds. Defaults to `0` - no timeout. The default value can be changed via `actionTimeout` option in the config, or by using the [browserContext.setDefaultTimeout](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.setDefaultTimeout](/api/class-page.mdx#page-set-default-timeout) methods。
+  - `trial` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-uncheck-option-trial"/><a href="#locator-uncheck-option-trial" class="list-anchor">#</a>
+    
+    When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.

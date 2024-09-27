@@ -1,0 +1,7 @@
+- `options` `TracingStartChunkOptions?` *(optional)*
+  - `Name` [string]? *(optional)* <font size="2">Added in: v1.32</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-name"/><a href="#tracing-start-chunk-option-name" class="list-anchor">#</a>
+
+    如果指定，中間追蹤檔案將會被儲存到 `tracesDir` 資料夾中具有給定名稱前綴的檔案內，該資料夾是在 [BrowserType.LaunchAsync()](/api/class-browsertype.mdx#browser-type-launch) 中指定的。要指定最終追蹤 zip 檔案名稱，你需要將 `path` 選項傳遞給 [Tracing.StopChunkAsync()](/api/class-tracing.mdx#tracing-stop-chunk)。
+  - `Title` [string]? *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-title"/><a href="#tracing-start-chunk-option-title" class="list-anchor">#</a>
+
+    要在 Trace Viewer 中顯示的追蹤名稱。

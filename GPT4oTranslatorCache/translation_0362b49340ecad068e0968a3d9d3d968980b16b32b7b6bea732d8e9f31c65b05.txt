@@ -1,0 +1,1 @@
+預設情況下，報告會寫入 package.json 目錄或當前工作目錄（如果未找到 package.json）中的 `blob-report` 目錄。報告文件名看起來像 `report-<hash>.zip` 或 `report-<hash>-<shard_number>.zip`，當使用 [sharding](./test-sharding.mdx) 時。hash 是一個可選值，從 `--grep`、`--grepInverted`、`--project` 和作為命令行參數傳遞的文件過濾器計算得出。hash 保證了使用不同命令行選項執行 Playwright 時會產生不同但在多次執行之間穩定的報告名稱。輸出文件名可以在配置文件中被覆蓋，或作為 `'PLAYWRIGHT_BLOB_OUTPUT_FILE'` 環境變數傳遞。

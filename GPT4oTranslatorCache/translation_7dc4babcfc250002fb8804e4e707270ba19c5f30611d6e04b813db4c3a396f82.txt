@@ -1,0 +1,1 @@
+這個方法在遠端伺服器返回任何有效的 HTTP 狀態碼時不會拋出錯誤，包括 404 "Not Found" 和 500 "Internal Server Error"。這類回應的狀態碼可以通過呼叫 [Response.status()](https://ollama.com/api/class-response.mdx#response-status) 來檢索。

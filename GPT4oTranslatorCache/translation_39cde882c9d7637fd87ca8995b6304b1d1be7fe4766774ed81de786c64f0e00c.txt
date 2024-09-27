@@ -1,0 +1,1 @@
+* 以下方法已被棄用: [Page.type()](/api/class-page#page-type), [Frame.type()](/api/class-frame#frame-type), [Locator.type()](/api/class-locator#locator-type) 和 [ElementHandle.type()](/api/class-elementhandle#element-handle-type)。請改用 [Locator.fill()](/api/class-locator#locator-fill)，它更快。僅在頁面上有特殊鍵盤處理且需要逐個按鍵時使用 [Locator.pressSequentially()](/api/class-locator#locator-press-sequentially)。

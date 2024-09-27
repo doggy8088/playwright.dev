@@ -1,0 +1,16 @@
+- 方法 [Locator.SetInputFilesAsync()](https://api/class-locator.mdx#locator-set-input-files) 現在支援上傳目錄給 `<input type=file webkitdirectory>` 元素。
+
+  ```csharp
+  await page.GetByLabel("Upload directory").SetInputFilesAsync("mydir");
+  ```
+
+- 多個方法如 [Locator.ClickAsync()](https://api/class-locator.mdx#locator-click) 或 [Locator.PressAsync()](https://api/class-locator.mdx#locator-press) 現在支援 `ControlOrMeta` 修飾鍵。此鍵在 macOS 上對應 `Meta`，在 Windows 和 Linux 上對應 `Control`。
+
+  ```csharp
+  // 按下常見的鍵盤快捷鍵 Control+S 或 Meta+S 來觸發 "Save" 操作。
+  await page.Keyboard.PressAsync("ControlOrMeta+S");
+  ```
+
+- 新屬性 `httpCredentials.send` 在 [ApiRequest.NewContextAsync()](https://api/class-apirequest.mdx#api-request-new-context) 中允許選擇總是發送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時發送。
+- Playwright 現在支援 Ubuntu 24.04 上的 Chromium、Firefox 和 WebKit。
+- v1.45 是最後一個為 macOS 12 Monterey 接收 WebKit 更新的版本。請更新 macOS 以繼續使用最新的 WebKit。

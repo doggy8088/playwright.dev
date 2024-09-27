@@ -1,0 +1,11 @@
+- `options` `Page.GoBackOptions` *(optional)*
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-go-back-option-timeout"/><a href="#page-go-back-option-timeout" class="list-anchor">#</a>
+
+    最大操作時間（毫秒），預設為 30 秒，傳入 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultNavigationTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout)、[BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout)、[Page.setDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout) 或 [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。
+  - `setWaitUntil` `enum WaitUntilState { LOAD, DOMCONTENTLOADED, NETWORKIDLE, COMMIT }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-go-back-option-wait-until"/><a href="#page-go-back-option-wait-until" class="list-anchor">#</a>
+
+    何時認為操作成功，預設為 `load`。事件可以是：
+    * `'domcontentloaded'` - 當 `DOMContentLoaded` 事件觸發時認為操作完成。
+    * `'load'` - 當 `load` 事件觸發時認為操作完成。
+    * `'networkidle'` - **不建議** 當至少 `500` 毫秒內沒有網絡連接時認為操作完成。不要在測試中使用此方法，應依賴網頁斷言來評估準備情況。
+    * `'commit'` - 當收到網絡響應並開始載入文件時認為操作完成。

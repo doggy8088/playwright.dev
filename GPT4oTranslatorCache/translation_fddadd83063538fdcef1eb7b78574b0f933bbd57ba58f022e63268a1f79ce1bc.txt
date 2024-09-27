@@ -1,0 +1,1 @@
+Playwright Test 將會重新測試具有選擇器 `.status` 的節點，直到獲取的節點具有 `"Submitted"` 文本。它將會重新獲取節點並反覆檢查，直到滿足條件或達到超時。你可以傳遞這個超時時間，或者在測試配置中通過 [`testProject.expect`](./api/class-testproject#test-project-expect) 值進行配置。

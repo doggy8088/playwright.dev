@@ -1,0 +1,14 @@
+- `force` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-clear-option-force"/><a href="#locator-clear-option-force" class="list-anchor">#</a>
+  
+  是否繞過[actionability](../actionability.mdx)檢查。預設為 `false`。
+- `no_wait_after` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-clear-option-no-wait-after"/><a href="#locator-clear-option-no-wait-after" class="list-anchor">#</a>
+  
+  :::warning[Deprecated]
+  此選項無效。
+  :::
+  
+  
+  此選項無效。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-clear-option-timeout"/><a href="#locator-clear-option-timeout" class="list-anchor">#</a>
+  
+  最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用[browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout)或[page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout)方法更改預設值。

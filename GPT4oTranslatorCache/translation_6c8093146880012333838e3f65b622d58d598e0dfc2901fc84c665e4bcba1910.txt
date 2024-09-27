@@ -1,0 +1,16 @@
+- `url` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-goto-option-url"/><a href="#frame-goto-option-url" class="list-anchor">#</a>
+  
+  導向框架的 URL。URL 應包括方案，例如 `https://`。
+- `referer` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-goto-option-referer"/><a href="#frame-goto-option-referer" class="list-anchor">#</a>
+  
+  Referer 標頭值。如果提供，它將優先於 [page.set_extra_http_headers](https://api/class-page.mdx#page-set-extra-http-headers) 設定的 referer 標頭值。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-goto-option-timeout"/><a href="#frame-goto-option-timeout" class="list-anchor">#</a>
+  
+  最大操作時間（毫秒），預設為 30 秒，傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_navigation_timeout](https://api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout)、[browser_context.set_default_timeout](https://api/class-browsercontext.mdx#browser-context-set-default-timeout)、[page.set_default_navigation_timeout](https://api/class-page.mdx#page-set-default-navigation-timeout) 或 [page.set_default_timeout](https://api/class-page.mdx#page-set-default-timeout) 方法更改預設值。
+- `wait_until` "load" | "domcontentloaded" | "networkidle" | "commit" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-goto-option-wait-until"/><a href="#frame-goto-option-wait-until" class="list-anchor">#</a>
+  
+  何時認為操作成功，預設為 `load`。事件可以是：
+  * `'domcontentloaded'` - 當 `DOMContentLoaded` 事件觸發時，認為操作完成。
+  * `'load'` - 當 `load` 事件觸發時，認為操作完成。
+  * `'networkidle'` - **不推薦** 當至少 `500` 毫秒沒有網絡連接時，認為操作完成。不要使用此方法進行測試，而應依賴網頁斷言來評估準備狀態。
+  * `'commit'` - 當接收到網絡響應並且文件開始加載時，認為操作完成。

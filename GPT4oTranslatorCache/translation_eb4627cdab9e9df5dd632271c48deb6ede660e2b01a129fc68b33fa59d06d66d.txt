@@ -1,0 +1,1 @@
+1. 當所有分片完成後，你可以執行一個獨立的工作來合併報告並生成一個合併的 [HTML report](./test-reporters.mdx#html-reporter)。為了確保執行順序，我們通過添加 `needs: [playwright-tests]` 使 `merge-reports` 工作 [depend](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs) 於我們的分片 `playwright-tests` 工作。

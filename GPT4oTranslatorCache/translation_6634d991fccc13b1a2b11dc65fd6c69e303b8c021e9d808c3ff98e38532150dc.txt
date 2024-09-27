@@ -1,0 +1,1 @@
+所有由 [api_request_context.get()](https://ollama.com/library) 和類似方法返回的回應都儲存在記憶體中，以便您之後可以呼叫 [api_response.body()](https://ollama.com/library)。此方法會丟棄其所有資源，在已處置的 [APIRequestContext] 上呼叫任何方法都會拋出異常。

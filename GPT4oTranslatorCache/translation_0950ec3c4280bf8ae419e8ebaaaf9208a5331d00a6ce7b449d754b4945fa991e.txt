@@ -1,0 +1,23 @@
+* 如果有一個 service worker 擋住了你的路，現在可以使用新的 context 選項 `serviceWorkers` 輕鬆禁用它：
+
+  ```csharp
+  var context = await Browser.NewContextAsync(new()
+  {
+      ServiceWorkers = ServiceWorkerPolicy.Block
+  });
+  ```
+
+* 使用 `.zip` 路徑作為 `recordHar` context 選項會自動壓縮生成的 HAR：
+
+  ```csharp
+  var context = await Browser.NewContextAsync(new() { RecordHarPath = "example.har.zip" });
+  ```
+
+* 如果你打算手動編輯 HAR，請考慮使用僅記錄重播所需資訊的 `"minimal"` HAR 記錄模式：
+
+  ```csharp
+  var context = await Browser.NewContextAsync(new() { RecordHarPath = "example.har", RecordHarMode = HarMode.Minimal });
+  ```
+
+* Playwright 現在可以在 Ubuntu 22 amd64 和 Ubuntu 22 arm64 上執行。
+* Playwright for .NET 現在支援 **linux-arm64** 並為其提供 **arm64 Ubuntu 20.04 Docker image**。

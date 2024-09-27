@@ -1,0 +1,1 @@
+JSHandle 防止被參考的 JavaScript 物件被垃圾回收，除非該 handle 被 [jsHandle.dispose()](/api/class-jshandle.mdx#js-handle-dispose) 曝露。當它們的原始框架被導航或父上下文被銷毀時，JSHandles 會自動處置。

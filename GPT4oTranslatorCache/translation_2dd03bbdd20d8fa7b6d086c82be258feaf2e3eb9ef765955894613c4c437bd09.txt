@@ -1,0 +1,7 @@
+- `urlOrPredicate` [string] | [RegExp] | [function]\([Response]\):[boolean] | [Promise]&lt;[boolean]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-response-option-url-or-predicate"/><a href="#page-wait-for-response-option-url-or-predicate" class="list-anchor">#</a>
+
+  請求 URL 字串、正則表達式或接收 [Response] 物件的謂詞。當通過 context 選項提供了 `baseURL` 並且傳遞的 URL 是一個路徑時，它會通過 [`new URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 建構函式合併。
+- `options` [Object] *(可選)*
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-response-option-timeout"/><a href="#page-wait-for-response-option-timeout" class="list-anchor">#</a>
+
+    最大等待時間（毫秒），預設為 30 秒，傳遞 `0` 以禁用超時。可以使用 [browserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

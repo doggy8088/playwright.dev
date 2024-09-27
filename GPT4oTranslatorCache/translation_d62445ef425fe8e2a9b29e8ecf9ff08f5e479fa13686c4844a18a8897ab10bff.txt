@@ -1,0 +1,3 @@
+:::warning
+執行 handler 會在測試中途改變你的頁面狀態。例如，它會改變當前聚焦的元素並移動滑鼠。確保在 handler 之後執行的動作是自包含的，且不依賴於聚焦和滑鼠狀態保持不變。 <br /> <br /> 例如，考慮一個呼叫 [Locator.FocusAsync()](/api/class-locator#locator-focus) 然後呼叫 [Keyboard.PressAsync()](/api/class-keyboard#keyboard-press) 的測試。如果你的 handler 在這兩個動作之間點擊了一個按鈕，聚焦的元素很可能會錯誤，按鍵操作會發生在意外的元素上。使用 [Locator.PressAsync()](/api/class-locator#locator-press) 來避免這個問題。 <br /> <br /> 另一個例子是一系列滑鼠操作，其中 [Mouse.MoveAsync()](/api/class-mouse#mouse-move) 之後是 [Mouse.DownAsync()](/api/class-mouse#mouse-down)。同樣地，當 handler 在這兩個動作之間執行時，滑鼠按下時的位置會錯誤。偏好使用像 [Locator.ClickAsync()](/api/class-locator#locator-click) 這樣的自包含動作，不依賴於狀態被 handler 改變。
+:::

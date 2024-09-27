@@ -1,0 +1,3 @@
+:::note
+如果您的頁面依賴於 `dragover` 事件被分派，您需要至少兩次滑鼠移動來在所有瀏覽器中觸發它。為了可靠地發出第二次滑鼠移動，重複您的 [Mouse.move()](/api/class-mouse.mdx#mouse-move) 或 [Locator.hover()](/api/class-locator.mdx#locator-hover) 兩次。操作順序將是：懸停拖動元素，按下滑鼠，懸停放置元素，再次懸停放置元素，放開滑鼠。
+:::

@@ -1,0 +1,10 @@
+- `urlOrRegExp` [string] | [Regex] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-url-option-url-or-reg-exp"/><a href="#page-assertions-to-have-url-option-url-or-reg-exp" class="list-anchor">#</a>
+
+  預期的 URL 字串或正則表達式。
+- `options` `PageAssertionsToHaveURLOptions?` *(optional)*
+  - `IgnoreCase` [bool]? *(optional)* <font size="2">Added in: v1.44</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-url-option-ignore-case"/><a href="#page-assertions-to-have-url-option-ignore-case" class="list-anchor">#</a>
+
+    是否執行不區分大小寫的匹配。`ignoreCase` 選項優先於對應的正則表達式標誌（如果有指定）。
+  - `Timeout` [float]? *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-url-option-timeout"/><a href="#page-assertions-to-have-url-option-timeout" class="list-anchor">#</a>
+
+    重新嘗試斷言的時間（以毫秒為單位）。預設為 `5000`。

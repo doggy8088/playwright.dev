@@ -1,0 +1,1 @@
+我們建議在 CI 環境中將 [workers](./api/class-testconfig.mdx#test-config-workers) 設定為 "1" 以優先考慮穩定性和可重現性。順序執行測試可確保每個測試獲得完整的系統資源，避免潛在的衝突。然而，如果您有強大的自託管 CI 系統，您可以啟用 [parallel](./test-parallel.mdx) 測試。對於更廣泛的平行化，考慮 [sharding](./test-parallel.mdx#shard-tests-between-multiple-machines) - 將測試分佈在多個 CI 任務中。

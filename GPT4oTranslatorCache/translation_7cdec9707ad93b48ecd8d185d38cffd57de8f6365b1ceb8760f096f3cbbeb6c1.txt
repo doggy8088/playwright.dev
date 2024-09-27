@@ -1,0 +1,7 @@
+- `options` `BrowserContextRunAndWaitForConsoleMessageOptions?` *(optional)*
+  - `Predicate` [Func]<[ConsoleMessage]?, bool> *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-wait-for-console-message-option-predicate"/><a href="#browser-context-wait-for-console-message-option-predicate" class="list-anchor">#</a>
+    
+    接收 [ConsoleMessage] 物件並在應該解析等待時解析為真值。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-wait-for-console-message-option-timeout"/><a href="#browser-context-wait-for-console-message-option-timeout" class="list-anchor">#</a>
+    
+    最長等待時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 更改預設值。

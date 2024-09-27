@@ -1,0 +1,10 @@
+- `action` [Func]&lt;[Task]&gt; <font size="2">新增於: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-popup-option-action"/><a href="#page-wait-for-popup-option-action" class="list-anchor">#</a>
+
+  觸發事件的動作。
+- `options` `PageRunAndWaitForPopupOptions?` *(選擇性)*
+  - `Predicate` [Func]&lt;[Page]?, bool&gt; *(選擇性)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-popup-option-predicate"/><a href="#page-wait-for-popup-option-predicate" class="list-anchor">#</a>
+
+    接收 [Page] 物件並在等待應解決時解析為真值。
+  - `Timeout` [float]? *(選擇性)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-popup-option-timeout"/><a href="#page-wait-for-popup-option-timeout" class="list-anchor">#</a>
+
+    最長等待時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 更改預設值。

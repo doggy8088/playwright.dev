@@ -1,0 +1,1 @@
+例如，考慮以下 DOM 結構: `<label for="password">Password:</label><input id="password" type="password">`。你可以使用 [page.getByText()](/api/class-page.mdx#page-get-by-text) 透過 "Password" 文字來定位標籤。然而，以下操作將在輸入框上執行而不是標籤上:

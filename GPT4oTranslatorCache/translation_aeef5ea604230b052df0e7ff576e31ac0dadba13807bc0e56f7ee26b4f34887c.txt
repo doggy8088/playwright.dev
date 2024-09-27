@@ -1,0 +1,1 @@
+過濾僅執行標題符合其中一個模式的測試。例如，傳遞 `grep: /cart/` 應僅執行標題中包含 "cart" 的測試。也可在全域和 [command line](../test-cli.mdx) 中使用 `-g` 選項。正則表達式將針對由專案名稱、測試檔案名稱、`test.describe` 名稱（如果有的話）、測試名稱和測試標籤組成的字串進行測試，例如 `chromium my-test.spec.ts my-suite my-test`。

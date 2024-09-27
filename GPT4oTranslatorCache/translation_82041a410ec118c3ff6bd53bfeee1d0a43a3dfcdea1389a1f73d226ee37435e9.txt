@@ -1,0 +1,29 @@
+* UI mode is now available in VSCode Playwright extension via a new "Show trace viewer" button:
+
+  ![Playwright UI Mode](https://github.com/microsoft/playwright/assets/746130/13094128-259b-477a-8bbb-c1181178e8a2)
+* UI mode and trace viewer mark network requests handled with [page.route()](/api/class-page.mdx#page-route) and [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) handlers, as well as those issued via the [API testing](https://playwright.dev/docs/api-testing):
+
+  ![Trace Viewer](https://github.com/microsoft/playwright/assets/746130/0df2d4b6-faa3-465c-aff3-c435b430bfe1)
+* New option `maskColor` for methods [page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot), [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) and [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) to change default masking color:
+
+  ```js
+  await page.goto('https://playwright.dev');
+  await expect(page).toHaveScreenshot({
+    mask: [page.locator('img')],
+    maskColor: '#00FF00', // green
+  });
+  ```
+
+* New `uninstall` CLI command to uninstall browser binaries:
+
+  ```bash
+  $ npx playwright uninstall # remove browsers installed by this installation
+  $ npx playwright uninstall --all # remove all ever-install Playwright browsers
+  ```
+
+* Both UI mode and trace viewer now could be opened in a browser tab:
+
+  ```bash
+  $ npx playwright test --ui-port 0 # open UI mode in a tab on a random port
+  $ npx playwright show-trace --port 0 # open trace viewer in tab on a random port
+  ```

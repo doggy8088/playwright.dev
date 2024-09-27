@@ -1,0 +1,1 @@
+測試 id 測試是最具彈性的測試方式，即使您的文字或屬性角色發生變化，測試仍然會通過。QA 和開發人員應該定義明確的測試 id 並使用 [page.get_by_test_id()](https://ollama.com/library#page-get-by-test-id) 來查詢它們。然而，通過測試 id 測試並不是面向用戶的。如果角色或文字值對您很重要，請考慮使用面向用戶的定位器，例如 [role](#locate-by-role) 和 [text locators](#locate-by-text)。

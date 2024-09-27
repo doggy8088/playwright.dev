@@ -1,0 +1,24 @@
+- `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-type-option-selector"/><a href="#page-type-option-selector" class="list-anchor">#</a>
+
+  用於搜尋元素的選擇器。如果有多個元素滿足選擇器，將使用第一個。
+- `text` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-type-option-text"/><a href="#page-type-option-text" class="list-anchor">#</a>
+
+  要輸入到焦點元素的文字。
+- `options` [物件] *(可選)*
+  - `delay` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-type-option-delay"/><a href="#page-type-option-delay" class="list-anchor">#</a>
+
+    按鍵之間等待的時間（以毫秒為單位）。預設為 0。
+  - `noWaitAfter` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-type-option-no-wait-after"/><a href="#page-type-option-no-wait-after" class="list-anchor">#</a>
+
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+
+
+    此選項無效。
+  - `strict` [boolean] *(可選)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-type-option-strict"/><a href="#page-type-option-strict" class="list-anchor">#</a>
+
+    當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-type-option-timeout"/><a href="#page-type-option-timeout" class="list-anchor">#</a>
+
+    最大時間（以毫秒為單位）。預設為 `0` - 無超時。預設值可以通過配置中的 `actionTimeout` 選項更改，或使用 [browserContext.setDefaultTimeout](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.setDefaultTimeout](/api/class-page.mdx#page-set-default-timeout) 方法更改。

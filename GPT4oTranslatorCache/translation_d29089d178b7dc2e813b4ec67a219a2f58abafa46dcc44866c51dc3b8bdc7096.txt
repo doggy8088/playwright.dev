@@ -1,0 +1,1 @@
+預設情況下，使用 Playwright 啟動的瀏覽器是無頭模式，這意味著在執行程式碼時不會打開瀏覽器 UI。要更改這一點，您可以在啟動瀏覽器時傳遞 `new BrowserType.LaunchOptions().setHeadless(false)`。

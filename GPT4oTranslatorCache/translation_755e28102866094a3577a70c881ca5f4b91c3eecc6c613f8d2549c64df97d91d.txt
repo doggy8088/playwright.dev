@@ -1,0 +1,13 @@
+- [Promise]&lt;[物件]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-sizes-return"/><a href="#request-sizes-return" class="list-anchor">#</a>
+  - `requestBodySize` [number]
+    
+    請求主體（POST 資料負載）的大小，以位元組為單位。如果沒有主體，則設為 0。
+  - `requestHeadersSize` [number]
+    
+    從 HTTP 請求訊息開始到主體之前（包括）雙 CRLF 的總位元組數。
+  - `responseBodySize` [number]
+    
+    接收到的回應主體（編碼）的大小，以位元組為單位。
+  - `responseHeadersSize` [number]
+    
+    從 HTTP 回應訊息開始到主體之前（包括）雙 CRLF 的總位元組數。

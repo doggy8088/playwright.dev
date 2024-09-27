@@ -1,0 +1,28 @@
+- `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-selector"/><a href="#frame-set-input-files-option-selector" class="list-anchor">#</a>
+  
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `files` [string] | [Array]<[string]> | [物件] | [Array]<[物件]><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-files"/><a href="#frame-set-input-files-option-files" class="list-anchor">#</a>
+  - `name` [string]
+    
+    檔案名稱
+  - `mimeType` [string]
+    
+    檔案類型
+  - `buffer` [Buffer]
+    
+    檔案內容
+- `options` [物件] *(optional)*
+  - `noWaitAfter` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-no-wait-after"/><a href="#frame-set-input-files-option-no-wait-after" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+    
+    
+    此選項無效。
+  - `strict` [boolean] *(optional)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-strict"/><a href="#frame-set-input-files-option-strict" class="list-anchor">#</a>
+    
+    當為 true 時，呼叫要求選擇器解析為單一元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-timeout"/><a href="#frame-set-input-files-option-timeout" class="list-anchor">#</a>
+    
+    最大時間（毫秒）。預設為 `0` - 無超時。可以通過配置中的 `actionTimeout` 選項更改預設值，或使用 [browserContext.setDefaultTimeout](https://api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.setDefaultTimeout](https://api/class-page.mdx#page-set-default-timeout) 方法。

@@ -1,0 +1,13 @@
+- `name` [string] | [Array]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="snapshot-assertions-to-match-snapshot-1-option-name"/><a href="#snapshot-assertions-to-match-snapshot-1-option-name" class="list-anchor">#</a>
+  
+  Snapshot 名稱。
+- `options` [物件] *(選填)*
+  - `maxDiffPixelRatio` [number] *(選填)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="snapshot-assertions-to-match-snapshot-1-option-max-diff-pixel-ratio"/><a href="#snapshot-assertions-to-match-snapshot-1-option-max-diff-pixel-ratio" class="list-anchor">#</a>
+    
+    可接受的像素差異比例，介於 `0` 和 `1` 之間。預設值可用 `TestConfig.expect` 配置。預設未設定。
+  - `maxDiffPixels` [number] *(選填)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="snapshot-assertions-to-match-snapshot-1-option-max-diff-pixels"/><a href="#snapshot-assertions-to-match-snapshot-1-option-max-diff-pixels" class="list-anchor">#</a>
+    
+    可接受的像素差異數量。預設值可用 `TestConfig.expect` 配置。預設未設定。
+  - `threshold` [number] *(選填)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="snapshot-assertions-to-match-snapshot-1-option-threshold"/><a href="#snapshot-assertions-to-match-snapshot-1-option-threshold" class="list-anchor">#</a>
+    
+    在[ YIQ 色彩空間](https://en.wikipedia.org/wiki/YIQ)中，相同像素在比較圖像中的可接受感知色差，介於零（嚴格）和一（寬鬆）之間，預設值可用 `TestConfig.expect` 配置。預設為 `0.2`。

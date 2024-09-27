@@ -1,0 +1,28 @@
+- `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-selector"/><a href="#frame-set-input-files-option-selector" class="list-anchor">#</a>
+  
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `files` [Path] | [Path]&#91;&#93; | `FilePayload` | `FilePayload`&#91;&#93;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-files"/><a href="#frame-set-input-files-option-files" class="list-anchor">#</a>
+  - `setName` [String]
+    
+    檔案名稱
+  - `setMimeType` [String]
+    
+    檔案類型
+  - `setBuffer` [byte&#91;&#93;]
+    
+    檔案內容
+- `options` `Frame.SetInputFilesOptions` *(optional)*
+  - `setNoWaitAfter` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-no-wait-after"/><a href="#frame-set-input-files-option-no-wait-after" class="list-anchor">#</a>
+    
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+    
+    
+    此選項無效。
+  - `setStrict` [boolean] *(optional)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-strict"/><a href="#frame-set-input-files-option-strict" class="list-anchor">#</a>
+    
+    當為 true 時，呼叫需要選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-timeout"/><a href="#frame-set-input-files-option-timeout" class="list-anchor">#</a>
+    
+    最長時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

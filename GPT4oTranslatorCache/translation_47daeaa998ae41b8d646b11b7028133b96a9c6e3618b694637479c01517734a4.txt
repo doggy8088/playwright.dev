@@ -1,0 +1,3 @@
+* baseURL: `http://localhost:3000` 和導航到 `/bar.html` 結果為 `http://localhost:3000/bar.html`
+* baseURL: `http://localhost:3000/foo/` 和導航到 `./bar.html` 結果為 `http://localhost:3000/foo/bar.html`
+* baseURL: `http://localhost:3000/foo` (沒有結尾斜線) 和導航到 `./bar.html` 結果為 `http://localhost:3000/bar.html`

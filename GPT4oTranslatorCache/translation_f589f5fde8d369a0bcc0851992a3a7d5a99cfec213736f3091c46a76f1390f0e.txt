@@ -1,0 +1,7 @@
+- `condition` [BooleanSupplier]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-condition-option-condition"/><a href="#page-wait-for-condition-option-condition" class="list-anchor">#</a>
+  
+  等待的條件。
+- `options` `Page.WaitForConditionOptions` *(optional)*
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-condition-option-timeout"/><a href="#page-wait-for-condition-option-timeout" class="list-anchor">#</a>
+    
+    等待的最長時間（毫秒）。預設為 `30000`（30 秒）。傳入 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultTimeout()](https://ollama.com/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [Page.setDefaultTimeout()](https://ollama.com/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

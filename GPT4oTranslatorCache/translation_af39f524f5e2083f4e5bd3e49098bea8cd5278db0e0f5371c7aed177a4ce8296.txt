@@ -1,0 +1,1 @@
+在某些情況下，捕捉全域設定期間遇到的失敗追蹤可能會很有用。為了做到這一點，你必須在你的設定中[開始追蹤](./api/class-tracing.mdx#tracing-start)，並且你必須確保在錯誤被拋出之前[停止追蹤](./api/class-tracing.mdx#tracing-stop)。這可以通過將你的設定包裹在一個 `try...catch` 區塊中來實現。這裡是一個擴展全域設定範例以捕捉追蹤的範例。

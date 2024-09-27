@@ -1,0 +1,1 @@
+要記錄 HAR 檔案，我們使用 [Page.RouteFromHARAsync()](https://api/class-page.mdx#page-route-from-har) 或 [BrowserContext.RouteFromHARAsync()](https://api/class-browsercontext.mdx#browser-context-route-from-har) 方法。此方法需要 HAR 檔案的路徑和一個可選的選項物件。選項物件可以包含 URL，以便只有符合指定 glob 模式的 URL 請求會從 HAR 檔案中提供。如果未指定，所有請求都會從 HAR 檔案中提供。

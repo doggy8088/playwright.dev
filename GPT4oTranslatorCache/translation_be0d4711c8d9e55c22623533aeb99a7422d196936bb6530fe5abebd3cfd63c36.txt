@@ -1,0 +1,23 @@
+- `selector` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-press-option-selector"/><a href="#frame-press-option-selector" class="list-anchor">#</a>
+
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `key` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-press-option-key"/><a href="#frame-press-option-key" class="list-anchor">#</a>
+
+  要按下的鍵名或生成的字符，例如 `ArrowLeft` 或 `a`。
+- `delay` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-press-option-delay"/><a href="#frame-press-option-delay" class="list-anchor">#</a>
+
+  `keydown` 和 `keyup` 之間等待的時間，以毫秒為單位。預設為 0。
+- `no_wait_after` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-press-option-no-wait-after"/><a href="#frame-press-option-no-wait-after" class="list-anchor">#</a>
+
+  :::warning[Deprecated]
+  此選項未來將預設為 `true`。
+  :::
+
+
+  發起導航的操作會等待這些導航發生並且頁面開始加載。你可以通過設定此標誌來選擇不等待。你只需要在特殊情況下使用此選項，例如導航到無法訪問的頁面。預設為 `false`。
+- `strict` [bool] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-press-option-strict"/><a href="#frame-press-option-strict" class="list-anchor">#</a>
+
+  當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-press-option-timeout"/><a href="#frame-press-option-timeout" class="list-anchor">#</a>
+
+  最大時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](/api/class-browsercontext#browser-context-set-default-timeout) 或 [page.set_default_timeout()](/api/class-page#page-set-default-timeout) 方法更改預設值。

@@ -1,0 +1,1 @@
+如果傳遞給 [Worker.evaluate()](/api/class-worker.mdx#worker-evaluate) 的函式返回一個非 [Serializable] 的值，那麼 [Worker.evaluate()](/api/class-worker.mdx#worker-evaluate) 返回 `undefined`。Playwright 也支援傳輸一些無法被 `JSON` 序列化的額外值: `-0`, `NaN`, `Infinity`, `-Infinity`。

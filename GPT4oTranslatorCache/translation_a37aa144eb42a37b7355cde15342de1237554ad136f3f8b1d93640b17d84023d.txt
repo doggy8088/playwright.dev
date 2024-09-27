@@ -1,0 +1,1 @@
+請注意，結果匹配項是按與錨點元素的距離排序的，因此您可以使用 [Locator.first()](https://ollama.com/api/class-locator.mdx#locator-first) 來選擇最近的一個。這只有在您有類似元素列表時才有用，因為最近的顯然是正確的。然而，在其他情況下使用 [Locator.first()](https://ollama.com/api/class-locator.mdx#locator-first) 很可能不會如預期般工作——它不會定位到您正在搜尋的元素，而是一些其他碰巧是最近的元素，如隨機的空 `<div>`，或是已滾動出視野且當前不可見的元素。

@@ -1,0 +1,24 @@
+* 使用 [Locator.or()](/api/class-locator.mdx#locator-or) 建立一個符合兩個定位器之一的定位器。考慮一個情境，你想點擊 "New email" 按鈕，但有時會彈出一個安全設定對話框。在這種情況下，你可以等待 "New email" 按鈕或對話框並相應地操作：
+
+  ```java
+  Locator newEmail = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("New email"));
+  Locator dialog = page.getByText("Confirm security settings");
+  assertThat(newEmail.or(dialog)).isVisible();
+  if (dialog.isVisible())
+    page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Dismiss")).click();
+  newEmail.click();
+  ```
+
+* 在 [Locator.filter()](/api/class-locator.mdx#locator-filter) 中使用新的選項 `hasNot` 和 `hasNotText` 來找到**不符合**某些條件的元素。
+
+  ```java
+  Locator rowLocator = page.locator("tr");
+  rowLocator
+      .filter(new Locator.FilterOptions().setHasNotText("text in column 1"))
+      .filter(new Locator.FilterOptions().setHasNot(
+        page.getByRole(AriaRole.BUTTON,
+          new Page.GetByRoleOptions().setName("column 2 button" )))
+      .screenshot();
+  ```
+
+* 使用新的網頁優先斷言 [assertThat(locator).isAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 來確保元素存在於頁面的 DOM 中。不要與 [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既已附加又可見。

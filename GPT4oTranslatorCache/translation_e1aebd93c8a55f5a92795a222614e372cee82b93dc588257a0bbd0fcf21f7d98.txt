@@ -1,0 +1,9 @@
+- 支援 **async predicates** 在 API 中的方法，如 [page.expect_request()](/api/class-page#page-wait-for-request) 和其他方法
+- 新的 **模擬裝置**: Galaxy S8, Galaxy S9+, Galaxy Tab S4, Pixel 3, Pixel 4
+- 新的方法:
+  * [page.wait_for_url()](/api/class-page#page-wait-for-url) 以等待導航到 URL
+  * [video.delete()](/api/class-video#video-delete) 和 [video.save_as()](/api/class-video#video-save-as) 以管理螢幕錄影
+- 新的選項:
+  * 在 [browser.new_context()](/api/class-browser#browser-new-context) 方法中的 `screen` 選項以模擬 `window.screen` 尺寸
+  * 在 [page.check()](/api/class-page#page-check) 和 [page.uncheck()](/api/class-page#page-uncheck) 方法中的 `position` 選項
+  * 在 [page.check()](/api/class-page#page-check), [page.uncheck()](/api/class-page#page-uncheck), [page.click()](/api/class-page#page-click), [page.dblclick()](/api/class-page#page-dblclick), [page.hover()](/api/class-page#page-hover) 和 [page.tap()](/api/class-page#page-tap) 方法中的 `trial` 選項以進行乾跑操作

@@ -1,0 +1,13 @@
+- `pageFunction` [function] | [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-function-option-expression"/><a href="#page-wait-for-function-option-expression" class="list-anchor">#</a>
+
+  要在頁面上下文中評估的函式。
+- `arg` [EvaluationArgument] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-function-option-arg"/><a href="#page-wait-for-function-option-arg" class="list-anchor">#</a>
+
+  傳遞給 `pageFunction` 的可選參數。
+- `options` [Object] *(optional)*
+  - `polling` [number] | "raf" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-function-option-polling"/><a href="#page-wait-for-function-option-polling" class="list-anchor">#</a>
+
+    如果 `polling` 是 `'raf'`，那麼 `pageFunction` 將在 `requestAnimationFrame` 回調中不斷執行。如果 `polling` 是一個數字，那麼它將被視為函式執行的毫秒間隔。預設為 `raf`。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-function-option-timeout"/><a href="#page-wait-for-function-option-timeout" class="list-anchor">#</a>
+
+    最大等待時間（毫秒）。預設為 `0` - 無超時。可以通過配置中的 `actionTimeout` 選項或使用 [browserContext.setDefaultTimeout](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.setDefaultTimeout](/api/class-page.mdx#page-set-default-timeout) 方法來更改預設值。

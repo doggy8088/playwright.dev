@@ -1,0 +1,10 @@
+- `name` [string] | [RegExp]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-name-option-name"/><a href="#locator-assertions-to-have-accessible-name-option-name" class="list-anchor">#</a>
+
+  預期的可存取名稱。
+- `options` [物件] *(可選)*
+  - `ignoreCase` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-name-option-ignore-case"/><a href="#locator-assertions-to-have-accessible-name-option-ignore-case" class="list-anchor">#</a>
+
+    是否執行不區分大小寫的匹配。`ignoreCase` 選項優先於相應的正則表達式標誌（如果指定）。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-name-option-timeout"/><a href="#locator-assertions-to-have-accessible-name-option-timeout" class="list-anchor">#</a>
+
+    重試斷言的時間（以毫秒為單位）。預設為 `TestConfig.expect` 中的 `timeout`。

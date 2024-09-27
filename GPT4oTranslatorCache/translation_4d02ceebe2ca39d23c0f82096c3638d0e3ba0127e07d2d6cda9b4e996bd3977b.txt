@@ -1,0 +1,13 @@
+- `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-attach-option-name"/><a href="#test-info-attach-option-name" class="list-anchor">#</a>
+  
+  附件名稱。名稱也會被清理並在儲存到磁碟時用作檔案名稱的前綴。
+- `options` [Object] *(optional)*
+  - `body` [string] | [Buffer] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-attach-option-body"/><a href="#test-info-attach-option-body" class="list-anchor">#</a>
+    
+    附件內容。與 `path` 互斥。
+  - `contentType` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-attach-option-content-type"/><a href="#test-info-attach-option-content-type" class="list-anchor">#</a>
+    
+    此附件在報告中正確呈現的內容類型，例如 `'application/json'` 或 `'image/png'`。如果省略，內容類型將根據 `path` 推斷，或對於 [string] 附件預設為 `text/plain`，對於 [Buffer] 附件預設為 `application/octet-stream`。
+  - `path` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-attach-option-path"/><a href="#test-info-attach-option-path" class="list-anchor">#</a>
+    
+    附件檔案在檔案系統中的路徑。與 `body` 互斥。

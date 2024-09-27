@@ -1,0 +1,17 @@
+- `key` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-press-option-key"/><a href="#element-handle-press-option-key" class="list-anchor">#</a>
+
+  要按下的鍵名稱或生成的字符，例如 `ArrowLeft` 或 `a`。
+- `delay` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-press-option-delay"/><a href="#element-handle-press-option-delay" class="list-anchor">#</a>
+
+  `keydown` 和 `keyup` 之間等待的時間（以毫秒為單位）。預設為 0。
+- `no_wait_after` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-press-option-no-wait-after"/><a href="#element-handle-press-option-no-wait-after" class="list-anchor">#</a>
+
+  :::warning[Deprecated]
+  此選項將來預設為 `true`。
+  :::
+
+
+  發起導航的操作會等待這些導航發生並等待頁面開始加載。您可以通過設置此標誌來選擇不等待。您只需在特殊情況下使用此選項，例如導航到無法訪問的頁面。預設為 `false`。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-press-option-timeout"/><a href="#element-handle-press-option-timeout" class="list-anchor">#</a>
+
+  最長時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout](https://api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.set_default_timeout](https://api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

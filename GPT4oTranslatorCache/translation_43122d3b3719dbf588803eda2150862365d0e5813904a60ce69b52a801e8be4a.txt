@@ -1,0 +1,9 @@
+- [Locator.dragTo()](/api/class-locator.mdx#locator-drag-to)
+- 每個定位器現在可以選擇性地根據其包含的文本進行過濾:
+
+  ```java
+  page.locator("li", new Page.LocatorOptions().setHasText("my item"))
+      .locator("button").click();
+  ```
+
+  閱讀更多在 [定位器文件](./api/class-locator#locator-locator)。

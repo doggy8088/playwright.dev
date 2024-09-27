@@ -1,0 +1,1 @@
+預設情況下，JUnit 將在單個執行緒上順序執行所有測試。自 JUnit 5.3 起，您可以更改此行為以平行執行測試以加快執行速度（請參閱[此頁面](https://junit.org/junit5/docs/snapshot/user-guide/index.html#writing-tests-parallel-execution)）。由於在沒有額外同步的情況下，從多個執行緒使用相同的 Playwright 物件是不安全的，我們建議您為每個執行緒建立 Playwright 實例，並在該執行緒上專門使用它。以下是一個如何平行執行多個測試類別的範例。

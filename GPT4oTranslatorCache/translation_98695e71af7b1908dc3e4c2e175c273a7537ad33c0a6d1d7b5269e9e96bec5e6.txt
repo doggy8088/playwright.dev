@@ -1,0 +1,95 @@
+- `options` `ApiRequest.NewContextOptions` *(optional)*
+  - `setBaseURL` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-base-url"/><a href="#api-request-new-context-option-base-url" class="list-anchor">#</a>
+
+    方法如 [APIRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) 使用 [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 建構對應的 URL 時會考慮 base URL。範例:
+    * baseURL: `http://localhost:3000` 並發送請求到 `/bar.html` 結果是 `http://localhost:3000/bar.html`
+    * baseURL: `http://localhost:3000/foo/` 並發送請求到 `./bar.html` 結果是 `http://localhost:3000/foo/bar.html`
+    * baseURL: `http://localhost:3000/foo` (沒有結尾斜線) 並導航到 `./bar.html` 結果是 `http://localhost:3000/bar.html`
+  - `setClientCertificates` [List]&lt;ClientCertificates&gt; *(optional)* <font size="2">新增於: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-client-certificates"/><a href="#api-request-new-context-option-client-certificates" class="list-anchor">#</a>
+    - `setOrigin` [String]
+
+      憑證有效的精確來源。來源包括 `https` 協議、主機名和可選的端口。
+    - `setCertPath` [Path] *(optional)*
+
+      憑證文件的 PEM 格式路徑。
+    - `setCert` [byte&#91;&#93;] *(optional)*
+
+      憑證的 PEM 格式直接值。
+    - `setKeyPath` [Path] *(optional)*
+
+      私鑰文件的 PEM 格式路徑。
+    - `setKey` [byte&#91;&#93;] *(optional)*
+
+      私鑰的 PEM 格式直接值。
+    - `setPfxPath` [Path] *(optional)*
+
+      PFX 或 PKCS12 編碼的私鑰和憑證鏈的路徑。
+    - `setPfx` [byte&#91;&#93;] *(optional)*
+
+      PFX 或 PKCS12 編碼的私鑰和憑證鏈的直接值。
+    - `setPassphrase` [String] *(optional)*
+
+      私鑰（PEM 或 PFX）的密碼。
+
+    TLS 客戶端身份驗證允許服務器請求並驗證客戶端憑證。
+
+    **詳細信息**
+
+    要使用的客戶端憑證數組。每個憑證物件必須具有 `certPath` 和 `keyPath`，單個 `pfxPath` 或其對應的直接值（`cert` 和 `key` 或 `pfx`）。如果憑證已加密，應提供 `passphrase` 屬性。應提供 `origin` 屬性，並與請求來源精確匹配。
+
+    :::note
+    不支持將客戶端憑證與代理服務器結合使用。
+    :::
+
+    :::note
+    在 macOS 上使用 WebKit 時，訪問 `localhost` 不會拾取客戶端憑證。您可以通過將 `localhost` 替換為 `local.playwright` 來使其工作。
+    :::
+
+  - `setExtraHTTPHeaders` [Map]&lt;[String], [String]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-extra-http-headers"/><a href="#api-request-new-context-option-extra-http-headers" class="list-anchor">#</a>
+
+    包含要隨每個請求一起發送的額外 HTTP 標頭的物件。預設為無。
+  - `setHttpCredentials` HttpCredentials *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-http-credentials"/><a href="#api-request-new-context-option-http-credentials" class="list-anchor">#</a>
+    - `setUsername` [String]
+
+
+    - `setPassword` [String]
+
+
+    - `setOrigin` [String] *(optional)*
+
+      限制在特定來源（scheme://host:port）上發送 http 憑證。
+    - `setSend` `enum HttpCredentialsSend { UNAUTHORIZED, ALWAYS }` *(optional)*
+
+      此選項僅適用於從相應 [APIRequestContext] 發送的請求，不影響從瀏覽器發送的請求。`'always'` - 每個 API 請求都會發送帶有基本身份驗證憑證的 `Authorization` 標頭。`'unauthorized` - 只有在收到帶有 `WWW-Authenticate` 標頭的 401（未經授權）響應時才發送憑證。預設為 `'unauthorized'`。
+
+    [HTTP 身份驗證](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) 的憑證。如果未指定來源，則在未經授權的響應時將用戶名和密碼發送到任何服務器。
+  - `setIgnoreHTTPSErrors` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-ignore-https-errors"/><a href="#api-request-new-context-option-ignore-https-errors" class="list-anchor">#</a>
+
+    發送網絡請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+  - `setProxy` Proxy *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-proxy"/><a href="#api-request-new-context-option-proxy" class="list-anchor">#</a>
+    - `setServer` [String]
+
+      用於所有請求的代理。支持 HTTP 和 SOCKS 代理，例如 `http://myproxy.com:3128` 或 `socks5://myproxy.com:3128`。簡短形式 `myproxy.com:3128` 被視為 HTTP 代理。
+    - `setBypass` [String] *(optional)*
+
+      可選的逗號分隔域以繞過代理，例如 `".com, chromium.org, .domain.com"`。
+    - `setUsername` [String] *(optional)*
+
+      如果 HTTP 代理需要身份驗證，則使用的可選用戶名。
+    - `setPassword` [String] *(optional)*
+
+      如果 HTTP 代理需要身份驗證，則使用的可選密碼。
+
+    網絡代理設置。
+  - `setStorageState` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-storage-state"/><a href="#api-request-new-context-option-storage-state" class="list-anchor">#</a>
+
+    使用給定的存儲狀態填充上下文。此選項可用於使用通過 [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 或 [APIRequestContext.storageState()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) 獲得的登錄資訊初始化上下文。要么是保存的存儲文件的路徑，要么是 [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 或 [APIRequestContext.storageState()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) 方法返回的值。
+  - `setStorageStatePath` [Path] *(optional)* <font size="2">新增於: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-storage-state-path"/><a href="#api-request-new-context-option-storage-state-path" class="list-anchor">#</a>
+
+    使用給定的存儲狀態填充上下文。此選項可用於使用通過 [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 獲得的登錄資訊初始化上下文。保存的存儲狀態文件的路徑。
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-timeout"/><a href="#api-request-new-context-option-timeout" class="list-anchor">#</a>
+
+    等待響應的最長時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。
+  - `setUserAgent` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-user-agent"/><a href="#api-request-new-context-option-user-agent" class="list-anchor">#</a>
+
+    在此上下文中使用的特定用戶代理。

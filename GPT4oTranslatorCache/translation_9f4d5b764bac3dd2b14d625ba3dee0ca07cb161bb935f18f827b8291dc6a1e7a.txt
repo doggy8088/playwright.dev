@@ -1,0 +1,27 @@
+- `values` [null] | [string] | [ElementHandle] | [Array]&lt;[string]&gt; | [Object] | [Array]&lt;[ElementHandle]&gt; | [Array]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-select-option-option-values"/><a href="#locator-select-option-option-values" class="list-anchor">#</a>
+  - `value` [string] *(optional)*
+
+    通過 `option.value` 匹配。可選。
+  - `label` [string] *(optional)*
+
+    通過 `option.label` 匹配。可選。
+  - `index` [number] *(optional)*
+
+    通過索引匹配。可選。
+
+  選擇的選項。如果 `<select>` 具有 `multiple` 屬性，則選擇所有匹配的選項，否則僅選擇第一個匹配的選項。字符串值同時匹配值和標籤。如果所有指定屬性都匹配，則認為選項匹配。
+- `options` [Object] *(optional)*
+  - `force` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-select-option-option-force"/><a href="#locator-select-option-option-force" class="list-anchor">#</a>
+
+    是否繞過 [actionability](../actionability.mdx) 檢查。預設為 `false`。
+  - `noWaitAfter` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-select-option-option-no-wait-after"/><a href="#locator-select-option-option-no-wait-after" class="list-anchor">#</a>
+
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+
+
+    此選項無效。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-select-option-option-timeout"/><a href="#locator-select-option-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `0` - 無超時。可以通過配置中的 `actionTimeout` 選項更改預設值，或使用 [browserContext.setDefaultTimeout()](https://api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.setDefaultTimeout()](https://api/class-page.mdx#page-set-default-timeout) 方法更改。

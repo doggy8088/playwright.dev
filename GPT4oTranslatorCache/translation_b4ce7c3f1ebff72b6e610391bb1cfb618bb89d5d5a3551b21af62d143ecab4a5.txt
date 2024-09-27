@@ -1,0 +1,40 @@
+- 新方法 [Route.FetchAsync()](https://ollama.com/api/class-route.mdx#route-fetch) 和 [Route.FulfillAsync()](https://ollama.com/api/class-route.mdx#route-fulfill) 的新選項 `Json`:
+
+  ```csharp
+  await Page.RouteAsync("**/api/settings", async route => {
+    // 獲取原始設定。
+    var response = await route.FetchAsync();
+  
+    // 強制設定主題為預定值。
+    var json = await response.JsonAsync<MyDataType>();
+    json.Theme = "Solarized";
+  
+    // 使用修改後的資料完成。
+    await route.FulfillAsync(new() {
+      Json = json
+    });
+  });
+  ```
+  
+- 新方法 [Locator.AllAsync()](https://ollama.com/api/class-locator.mdx#locator-all) 用於遍歷所有匹配的元素:
+
+  ```csharp
+  // 檢查所有的複選框！
+  var checkboxes = Page.GetByRole(AriaRole.Checkbox);
+  foreach (var checkbox in await checkboxes.AllAsync())
+    await checkbox.CheckAsync();
+  ```
+  
+- [Locator.SelectOptionAsync()](https://ollama.com/api/class-locator.mdx#locator-select-option) 現在可以通過值或標籤匹配:
+
+  ```html
+  <select multiple>
+    <option value="red">Red</div>
+    <option value="green">Green</div>
+    <option value="blue">Blue</div>
+  </select>
+  ```
+  
+  ```csharp
+  await element.SelectOptionAsync("Red");
+  ```

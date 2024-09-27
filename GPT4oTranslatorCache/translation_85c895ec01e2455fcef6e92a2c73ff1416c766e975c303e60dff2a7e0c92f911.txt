@@ -1,0 +1,18 @@
+- `text` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-sequentially-option-text"/><a href="#locator-press-sequentially-option-text" class="list-anchor">#</a>
+
+  要依序按入聚焦元素的字串。
+- `options` [物件] *(optional)*
+  - `delay` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-sequentially-option-delay"/><a href="#locator-press-sequentially-option-delay" class="list-anchor">#</a>
+
+    按鍵之間等待的時間（以毫秒為單位）。預設為 0。
+  - `noWaitAfter` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-sequentially-option-no-wait-after"/><a href="#locator-press-sequentially-option-no-wait-after" class="list-anchor">#</a>
+
+    :::warning[Deprecated]
+    此選項無效。
+    :::
+
+
+    此選項無效。
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-sequentially-option-timeout"/><a href="#locator-press-sequentially-option-timeout" class="list-anchor">#</a>
+
+    最大時間（以毫秒為單位）。預設為 `0` - 無超時。可以通過配置中的 `actionTimeout` 選項更改預設值，或者使用 [browserContext.setDefaultTimeout](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.setDefaultTimeout](/api/class-page.mdx#page-set-default-timeout) 方法。

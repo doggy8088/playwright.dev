@@ -1,0 +1,2 @@
+* 有兩個 [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request) 事件針對 `data.json`; 一個是 [Frame] 擁有的，另一個是 Service [Worker] 擁有的。
+* 只有 Service [Worker] 擁有的資源請求可以通過 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 進行路由; 針對 `data.json` 的 [Frame] 擁有事件是無法路由的，因為它們甚至沒有可能訪問外部網絡，因為 Service Worker 已經註冊了一個 fetch 處理器。

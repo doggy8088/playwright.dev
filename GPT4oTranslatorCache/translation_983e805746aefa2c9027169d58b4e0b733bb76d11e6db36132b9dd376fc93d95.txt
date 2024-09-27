@@ -1,0 +1,9 @@
+- `condition` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-slow-option-condition"/><a href="#test-slow-option-condition" class="list-anchor">#</a>
+  
+  當條件為 `true` 時，測試被標記為「慢」。
+- `callback` [function]\([Fixtures]\):[boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-slow-option-callback"/><a href="#test-slow-option-callback" class="list-anchor">#</a>
+  
+  一個函式，根據測試夾具返回是否標記為「慢」。當返回值為 `true` 時，測試或測試被標記為「慢」。
+- `description` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-slow-option-description"/><a href="#test-slow-option-description" class="list-anchor">#</a>
+  
+  將在測試報告中反映的可選描述。

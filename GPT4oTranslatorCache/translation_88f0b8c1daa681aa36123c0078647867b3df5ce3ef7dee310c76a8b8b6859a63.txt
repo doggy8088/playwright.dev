@@ -1,0 +1,1 @@
+[browserContext.on('serviceworker')](https://api/class-browsercontext.mdx#browser-context-event-service-worker) 是在 Service Worker 的主腳本被評估***之前***觸發的，所以在呼叫 service[worker.evaluate()](https://api/class-worker.mdx#worker-evaluate) 之前，你應該等待它的啟動。

@@ -1,0 +1,20 @@
+- 允許通過其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素的角色選擇器。
+  
+  ```py
+  # 點擊具有可訪問名稱 "log in" 的按鈕
+  page.locator("role=button[name='log in']").click()
+  ```
+  
+  閱讀更多在 [我們的文件](./locators.mdx#locate-by-role)。
+- 新的 [locator.filter()](/api/class-locator.mdx#locator-filter) API 用於過濾現有的定位器
+  
+  ```py
+  buttons = page.locator("role=button")
+  # ...
+  submit_button = buttons.filter(has_text="Submit")
+  submit_button.click()
+  ```
+  
+- 程式碼產生器現在支持生成 Pytest 測試
+  
+  ![Graphics](https://user-images.githubusercontent.com/746130/168098384-40784024-6c26-4426-8255-e714862af6fc.png)

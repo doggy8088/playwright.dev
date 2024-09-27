@@ -1,0 +1,10 @@
+* Worker process #1 starts
+* `beforeAll` hook 執行
+* `first good` 通過
+* `second flaky` 失敗
+* `afterAll` hook 執行
+* Worker process #2 starts
+* `beforeAll` hook 再次執行
+* `second flaky` 重試並通過
+* `third good` 通過
+* `afterAll` hook 執行

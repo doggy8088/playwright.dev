@@ -1,0 +1,16 @@
+- `event` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-event-option-event"/><a href="#web-socket-wait-for-event-option-event" class="list-anchor">#</a>
+
+  事件名稱，與傳入 `webSocket.on(event)` 的相同。
+- `optionsOrPredicate` [function] | [物件] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-event-option-options-or-predicate"/><a href="#web-socket-wait-for-event-option-options-or-predicate" class="list-anchor">#</a>
+  - `predicate` [function]
+
+    接收事件資料並在等待應該解決時解析為真值。
+  - `timeout` [number] *(optional)*
+
+    最長等待時間（毫秒）。預設為 `0` - 無超時。預設值可以通過配置中的 `actionTimeout` 選項更改，或使用 [browserContext.setDefaultTimeout](/api/class-browsercontext#browser-context-set-default-timeout) 或 [page.setDefaultTimeout](/api/class-page#page-set-default-timeout) 方法更改。
+
+  接收事件的 predicate 或選項物件。可選。
+- `options` [物件] *(optional)*
+  - `predicate` [function] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-event-option-predicate"/><a href="#web-socket-wait-for-event-option-predicate" class="list-anchor">#</a>
+
+    接收事件資料並在等待應該解決時解析為真值。

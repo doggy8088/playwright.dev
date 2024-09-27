@@ -1,0 +1,1 @@
+您可以上傳在您的 CI（如 GitHub Actions）上建立的 Traces 作為 artifacts。這需要[開始和停止 trace](./trace-viewer-intro#recording-a-trace)。我們建議僅記錄失敗測試的 traces。一旦您的 traces 已上傳到 CI，它們可以使用 [trace.playwright.dev](https://trace.playwright.dev) 下載並打開，這是一個靜態託管的 Trace Viewer 變體。您可以使用拖放上傳 trace 文件。

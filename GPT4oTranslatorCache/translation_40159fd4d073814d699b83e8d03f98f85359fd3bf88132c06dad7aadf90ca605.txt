@@ -1,0 +1,5 @@
+1. 找到符合 `selector` 的元素。如果沒有，則等待直到符合的元素附加到 DOM。
+1. 等待匹配元素的[可操作性](../actionability.mdx)檢查，除非設定了 `force` 選項。如果元素在檢查過程中被分離，整個操作將重試。
+1. 如果需要，將元素滾動到視圖中。
+1. 使用 [Page.Mouse](/api/class-page.mdx#page-mouse) 點擊元素的中心或指定的 `position`。
+1. 等待啟動的導航成功或失敗，除非設定了 `noWaitAfter` 選項。

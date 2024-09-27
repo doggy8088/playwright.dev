@@ -1,0 +1,3 @@
+:::note
+HTTP Error responses, such as 404 or 503, are still successful responses from HTTP standpoint, so request will complete with [page.on("requestfinished")](/api/class-page#page-event-request-finished) event and not with [page.on("requestfailed")](/api/class-page#page-event-request-failed)。A request will only be considered failed when the client cannot get an HTTP response from the server, e.g. due to network error net::ERR_FAILED.
+:::

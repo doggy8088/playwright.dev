@@ -1,0 +1,17 @@
+- `url` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-goto-option-url"/><a href="#page-goto-option-url" class="list-anchor">#</a>
+
+  導航頁面的 URL。該 url 應包括 scheme，例如 `https://`。當通過 context options 提供了 `baseURL` 並且傳遞的 URL 是一個路徑時，它會通過 [`new URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 構造函式合併。
+- `options` `Page.NavigateOptions` *(可選)*
+  - `setReferer` [String] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-goto-option-referer"/><a href="#page-goto-option-referer" class="list-anchor">#</a>
+
+    Referer 標頭值。如果提供，它將優先於 [Page.setExtraHTTPHeaders()](/api/class-page.mdx#page-set-extra-http-headers) 設定的 referer 標頭值。
+  - `setTimeout` [double] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-goto-option-timeout"/><a href="#page-goto-option-timeout" class="list-anchor">#</a>
+
+    最大操作時間（毫秒），預設為 30 秒，傳遞 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultNavigationTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout)、[BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout)、[Page.setDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout) 或 [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。
+  - `setWaitUntil` `enum WaitUntilState { LOAD, DOMCONTENTLOADED, NETWORKIDLE, COMMIT }` *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-goto-option-wait-until"/><a href="#page-goto-option-wait-until" class="list-anchor">#</a>
+
+    何時認為操作成功，預設為 `load`。事件可以是：
+    * `'domcontentloaded'` - 當 `DOMContentLoaded` 事件被觸發時，認為操作完成。
+    * `'load'` - 當 `load` 事件被觸發時，認為操作完成。
+    * `'networkidle'` - **不推薦** 當至少 `500` 毫秒內沒有網絡連接時，認為操作完成。不要使用此方法進行測試，應依賴 web 斷言來評估就緒狀態。
+    * `'commit'` - 當收到網絡響應並且文件開始加載時，認為操作完成。

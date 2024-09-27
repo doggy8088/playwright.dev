@@ -1,0 +1,12 @@
+- `expression` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-function-option-expression"/><a href="#frame-wait-for-function-option-expression" class="list-anchor">#</a>
+
+  在瀏覽器上下文中評估的 JavaScript 表達式。如果表達式評估為函式，則函式會自動被呼叫。
+- `arg` [EvaluationArgument] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-function-option-arg"/><a href="#frame-wait-for-function-option-arg" class="list-anchor">#</a>
+
+  傳遞給 `expression` 的可選參數。
+- `polling` [float] | "raf" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-function-option-polling"/><a href="#frame-wait-for-function-option-polling" class="list-anchor">#</a>
+
+  如果 `polling` 是 `'raf'`，則 `expression` 會在 `requestAnimationFrame` 回調中不斷執行。如果 `polling` 是一個數字，則將其視為函式執行的毫秒間隔。預設為 `raf`。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-function-option-timeout"/><a href="#frame-wait-for-function-option-timeout" class="list-anchor">#</a>
+
+  最長等待時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改預設值。

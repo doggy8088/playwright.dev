@@ -1,0 +1,23 @@
+- `--last-failed` CLI 選項，用於只執行上一次失敗的測試。
+
+  首先執行所有測試:
+
+  ```sh
+  $ npx playwright test
+  
+  執行 103 個測試，使用 5 個工作者
+  ...
+  2 個失敗
+    [chromium] › my-test.spec.ts:8:5 › two ─────────────────────────────────────────────────────────
+    [chromium] › my-test.spec.ts:13:5 › three ──────────────────────────────────────────────────────
+  101 個通過 (30.0s)
+  ```
+  
+  現在修復失敗的測試並再次使用 `--last-failed` 選項執行 Playwright:
+
+  ```sh
+  $ npx playwright test --last-failed
+  
+  執行 2 個測試，使用 2 個工作者
+    2 個通過 (1.2s)
+  ```

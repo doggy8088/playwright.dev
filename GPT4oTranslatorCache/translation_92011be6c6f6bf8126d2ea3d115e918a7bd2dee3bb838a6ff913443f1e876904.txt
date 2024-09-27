@@ -1,0 +1,28 @@
+- Method [BrowserContext.clearCookies()](https://playwright.dev/java/docs/api/class-browsercontext#browser-context-clear-cookies) now supports filters to remove only some cookies。
+  
+  ```java
+  // 清除所有 cookies。
+  context.clearCookies();
+  // 新增: 清除具有特定名稱的 cookies。
+  context.clearCookies(new BrowserContext.ClearCookiesOptions().setName("session-id"));
+  // 新增: 清除特定域的 cookies。
+  context.clearCookies(new BrowserContext.ClearCookiesOptions().setDomain("my-origin.com"));
+  ```
+  
+- New method [Locator.contentFrame()](https://playwright.dev/java/docs/api/class-locator#locator-content-frame) converts a [Locator] 物件 to a [FrameLocator]。This can be useful when you have a [Locator] 物件 obtained somewhere, and later on would like to interact with the content inside the frame。
+  
+  ```java
+  Locator locator = page.locator("iframe[name='embedded']");
+  // ...
+  FrameLocator frameLocator = locator.contentFrame();
+  frameLocator.getByRole(AriaRole.BUTTON).click();
+  ```
+  
+- New method [FrameLocator.owner()](https://playwright.dev/java/docs/api/class-framelocator#frame-locator-owner) converts a [FrameLocator] 物件 to a [Locator]。This can be useful when you have a [FrameLocator] 物件 obtained somewhere, and later on would like to interact with the `iframe` element。
+  
+  ```java
+  FrameLocator frameLocator = page.frameLocator("iframe[name='embedded']");
+  // ...
+  Locator locator = frameLocator.owner();
+  assertThat(locator).isVisible();
+  ```

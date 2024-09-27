@@ -1,0 +1,34 @@
+- `button` "left" | "right" | "middle" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dblclick-option-button"/><a href="#locator-dblclick-option-button" class="list-anchor">#</a>
+  
+  預設為 `left`.
+- `delay` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dblclick-option-delay"/><a href="#locator-dblclick-option-delay" class="list-anchor">#</a>
+  
+  在 `mousedown` 和 `mouseup` 之間等待的時間，以毫秒為單位。預設為 0.
+- `force` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dblclick-option-force"/><a href="#locator-dblclick-option-force" class="list-anchor">#</a>
+  
+  是否繞過 [actionability](../actionability.mdx) 檢查。預設為 `false`.
+- `modifiers` [List]\["Alt" | "Control" | "ControlOrMeta" | "Meta" | "Shift"\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dblclick-option-modifiers"/><a href="#locator-dblclick-option-modifiers" class="list-anchor">#</a>
+  
+  要按下的修飾鍵。確保在操作期間僅按下這些修飾鍵，然後恢復當前的修飾鍵。如果未指定，則使用當前按下的修飾鍵。"ControlOrMeta" 在 Windows 和 Linux 上解析為 "Control"，在 macOS 上解析為 "Meta".
+- `no_wait_after` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dblclick-option-no-wait-after"/><a href="#locator-dblclick-option-no-wait-after" class="list-anchor">#</a>
+  
+  :::warning[Deprecated]
+  此選項無效。
+  :::
+  
+  
+  此選項無效。
+- `position` [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dblclick-option-position"/><a href="#locator-dblclick-option-position" class="list-anchor">#</a>
+  - `x` [float]
+    
+    
+  - `y` [float]
+    
+    
+  相對於元素填充框左上角的點。如果未指定，則使用元素的某個可見點。
+- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dblclick-option-timeout"/><a href="#locator-dblclick-option-timeout" class="list-anchor">#</a>
+  
+  最大時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [browser_context.set_default_timeout()](https://api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.set_default_timeout()](https://api/class-page.mdx#page-set-default-timeout) 方法更改預設值。
+- `trial` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dblclick-option-trial"/><a href="#locator-dblclick-option-trial" class="list-anchor">#</a>
+  
+  設置時，此方法僅執行 [actionability](../actionability.mdx) 檢查並跳過操作。預設為 `false`. 有助於在元素準備好操作之前等待。

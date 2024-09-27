@@ -1,0 +1,1 @@
+如果傳遞給 [page.evaluate()](https://ollama.com/library) 的函式返回一個非 [Serializable] 的值，那麼 [page.evaluate()](https://ollama.com/library) 會解析為 `undefined`。Playwright 也支援傳輸一些 `JSON` 無法序列化的額外值: `-0`, `NaN`, `Infinity`, `-Infinity`。

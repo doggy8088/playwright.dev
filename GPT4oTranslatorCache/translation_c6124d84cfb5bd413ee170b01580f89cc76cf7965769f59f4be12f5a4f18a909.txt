@@ -1,0 +1,11 @@
+- `options` [物件] *(optional)*
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-reload-option-timeout"/><a href="#page-reload-option-timeout" class="list-anchor">#</a>
+    
+    最大操作時間（毫秒）。預設為 `0` - 無超時。預設值可以通過配置中的 `navigationTimeout` 選項更改，或使用 [browserContext.setDefaultNavigationTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout), [browserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout), [page.setDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout) 或 [page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改。
+  - `waitUntil` "load" | "domcontentloaded" | "networkidle" | "commit" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-reload-option-wait-until"/><a href="#page-reload-option-wait-until" class="list-anchor">#</a>
+    
+    何時認為操作成功，預設為 `load`。事件可以是：
+    * `'domcontentloaded'` - 當 `DOMContentLoaded` 事件被觸發時認為操作完成。
+    * `'load'` - 當 `load` 事件被觸發時認為操作完成。
+    * `'networkidle'` - **不推薦** 當至少 `500` 毫秒內無網路連接時認為操作完成。不要在測試中使用此方法，應依賴網頁斷言來評估準備狀態。
+    * `'commit'` - 當接收到網路回應並且文件開始加載時認為操作完成。

@@ -1,0 +1,10 @@
+- `options` [物件] *(optional)*
+  - `mode` "default" | "parallel" | "serial" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-configure-option-mode"/><a href="#test-describe-configure-option-mode" class="list-anchor">#</a>
+    
+    執行模式。了解更多關於執行模式的資訊 [here](../test-parallel.mdx)。
+  - `retries` [number] *(optional)* <font size="2">Added in: v1.28</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-configure-option-retries"/><a href="#test-describe-configure-option-retries" class="list-anchor">#</a>
+    
+    每個測試的重試次數。
+  - `timeout` [number] *(optional)* <font size="2">Added in: v1.28</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-configure-option-timeout"/><a href="#test-describe-configure-option-timeout" class="list-anchor">#</a>
+    
+    每個測試的超時時間（毫秒）。覆蓋 [testProject.timeout](/api/class-testproject.mdx#test-project-timeout) 和 [testConfig.timeout](/api/class-testconfig.mdx#test-config-timeout)。

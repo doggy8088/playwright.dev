@@ -1,0 +1,40 @@
+- 新方法 [route.fetch()](/api/class-route.mdx#route-fetch) 和 [route.fulfill()](/api/class-route.mdx#route-fulfill) 的新選項 `json`:
+
+  ```python
+  def handle_route(route: Route):
+    # Fetch original settings.
+    response = route.fetch()
+
+    # Force settings theme to a predefined value.
+    json = response.json()
+    json["theme"] = "Solorized"
+
+    # Fulfill with modified data.
+    route.fulfill(json=json)
+
+
+  page.route("**/api/settings", handle_route)
+  ```
+
+- 新方法 [locator.all()](/api/class-locator.mdx#locator-all) 來遍歷所有匹配的元素:
+
+  ```python
+  # Check all checkboxes!
+  checkboxes = page.get_by_role("checkbox")
+  for checkbox in checkboxes.all():
+    checkbox.check()
+  ```
+
+- [locator.select_option()](/api/class-locator.mdx#locator-select-option) 現在可以通過值或標籤匹配:
+
+  ```html
+  <select multiple>
+    <option value="red">Red</div>
+    <option value="green">Green</div>
+    <option value="blue">Blue</div>
+  </select>
+  ```
+
+  ```python
+  element.select_option("Red")
+  ```

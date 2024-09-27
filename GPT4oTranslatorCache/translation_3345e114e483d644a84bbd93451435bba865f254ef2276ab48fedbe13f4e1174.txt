@@ -1,0 +1,1 @@
+為了符合 web 規範，`WaitUntilState.DOMCONTENTLOADED` 值僅等待目標框架觸發 `'DOMContentLoaded'` 事件。使用 `setWaitUntil(WaitUntilState.LOAD)` 等待所有 iframes。

@@ -1,0 +1,7 @@
+- `options` [物件] *(optional)*
+  - `behavior` "wait" | "ignoreErrors" | "default" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-unroute-all-option-behavior"/><a href="#browser-context-unroute-all-option-behavior" class="list-anchor">#</a>
+    
+    指定是否等待已經在執行的處理程序以及在它們拋出錯誤時該怎麼做:
+    * `'default'` - 不等待當前的處理程序呼叫（如果有的話）完成，如果未路由的處理程序拋出錯誤，可能會導致未處理的錯誤
+    * `'wait'` - 等待當前的處理程序呼叫（如果有的話）完成
+    * `'ignoreErrors'` - 不等待當前的處理程序呼叫（如果有的話）完成，所有在未路由後由處理程序拋出的錯誤都會被靜默捕捉

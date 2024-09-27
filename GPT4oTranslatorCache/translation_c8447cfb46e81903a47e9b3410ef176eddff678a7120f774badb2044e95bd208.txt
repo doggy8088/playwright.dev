@@ -1,0 +1,5 @@
+| Environment Variable Name | Reporter Config Option| Description | Default
+|---|---|---|---|
+| `PLAYWRIGHT_BLOB_OUTPUT_DIR` | `outputDir` | 儲存輸出的目錄。寫入新報告前會刪除現有內容。 | `blob-report`
+| `PLAYWRIGHT_BLOB_OUTPUT_NAME` | `fileName` | 報告檔案名稱。 | `report-<project>-<hash>-<shard_number>.zip`
+| `PLAYWRIGHT_BLOB_OUTPUT_FILE` | `outputFile` | 輸出檔案的完整路徑。如果已定義，`outputDir` 和 `fileName` 將被忽略。 | `undefined`

@@ -1,0 +1,48 @@
+- 方法 [browserContext.clearCookies()](https://api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援過濾器，只移除部分 cookies。
+  
+  ```js
+  // 清除所有 cookies。
+  await context.clearCookies();
+  // 新增: 清除具有特定名稱的 cookies。
+  await context.clearCookies({ name: 'session-id' });
+  // 新增: 清除特定域名的 cookies。
+  await context.clearCookies({ domain: 'my-origin.com' });
+  ```
+  
+- 新模式 `retain-on-first-failure` 用於 [testOptions.trace](https://api/class-testoptions.mdx#test-options-trace)。在此模式下，trace 會在每次測試的第一次執行時記錄，但不會在重試時記錄。當測試執行失敗時，trace 檔案會被保留，否則會被移除。
+  
+  ```js
+  import { defineConfig } from '@playwright/test';
+  
+  export default defineConfig({
+    use: {
+      trace: 'retain-on-first-failure',
+    },
+  });
+  ```
+  
+- 新屬性 [testInfo.tags](https://api/class-testinfo.mdx#test-info-tags) 在測試執行期間暴露測試標籤。
+  
+  ```js
+  test('example', async ({ page }) => {
+    console.log(test.info().tags);
+  });
+  ```
+  
+- 新方法 [locator.contentFrame()](https://api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。當你已經獲得一個 [Locator] 物件，並且稍後希望與框架內的內容互動時，這會很有用。
+  
+  ```js
+  const locator = page.locator('iframe[name="embedded"]');
+  // ...
+  const frameLocator = locator.contentFrame();
+  await frameLocator.getByRole('button').click();
+  ```
+  
+- 新方法 [frameLocator.owner()](https://api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。當你已經獲得一個 [FrameLocator] 物件，並且稍後希望與 `iframe` 元素互動時，這會很有用。
+  
+  ```js
+  const frameLocator = page.frameLocator('iframe[name="embedded"]');
+  // ...
+  const locator = frameLocator.owner();
+  await expect(locator).toBeVisible();
+  ```

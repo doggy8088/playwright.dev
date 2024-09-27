@@ -1,0 +1,1 @@
+如果你希望 API 請求不干擾瀏覽器 cookies，你應該呼叫 [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 建立一個新的 [APIRequestContext]。這樣的 `APIRequestContext` 物件將會有自己獨立的 cookie 儲存區。

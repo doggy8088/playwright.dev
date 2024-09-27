@@ -1,0 +1,2 @@
+- `expect(callback).toPass()` timeout 現在可以透過 `expect.toPass.timeout` 選項在[全域](./api/class-testconfig#test-config-expect)或在[專案設定](./api/class-testproject#test-project-expect)中配置
+- [electronApplication.on('console')](./api/class-electronapplication.mdx#electron-application-event-console) 事件在 Electron 主進程呼叫 console API 方法時觸發。

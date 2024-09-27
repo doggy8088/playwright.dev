@@ -1,0 +1,7 @@
+* 新的 [Locator.and()](/api/class-locator.mdx#locator-and) 用於建立同時匹配兩個定位器的定位器。
+
+  ```java
+  Locator button = page.getByRole(AriaRole.BUTTON).and(page.getByTitle("Subscribe"));
+  ```
+
+* 新的事件 [BrowserContext.onConsoleMessage(handler)](/api/class-browsercontext.mdx#browser-context-event-console) 和 [BrowserContext.onDialog(handler)](/api/class-browsercontext.mdx#browser-context-event-dialog) 用於訂閱來自給定瀏覽器上下文的任何頁面上的任何對話框和控制台訊息。使用新方法 [ConsoleMessage.page()](/api/class-consolemessage.mdx#console-message-page) 和 [Dialog.page()](/api/class-dialog.mdx#dialog-page) 來精確定位事件來源。

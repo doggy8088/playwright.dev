@@ -1,0 +1,1 @@
+注意: 當使用 docker 代理定義時，你正在將 Playwright 執行的資源類別指定為 'medium' 級別 [此處](https://circleci.com/docs/configuration-reference?#docker-execution-environment)。Playwright 的預設行為是將工作者數量設置為檢測到的核心數量（在 medium 級別的情況下為 2）。將工作者數量覆蓋設定為大於這個數字將導致不必要的超時和失敗。

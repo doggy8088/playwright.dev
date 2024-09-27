@@ -1,0 +1,6 @@
+- `url` [string] | [Regex] | [Func]<[string], bool>(<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-unroute-option-url"/><a href="#browser-context-unroute-option-url" class="list-anchor">#</a>
+
+  一個 glob 模式、regex 模式或接收 [URL] 的謂詞，用於使用 [BrowserContext.RouteAsync()](/api/class-browsercontext#browser-context-route) 註冊路由。
+- `handler` [Action]<[Route]?> *(optional)*(<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-unroute-option-handler"/><a href="#browser-context-unroute-option-handler" class="list-anchor">#</a>
+
+  可選的處理函式，用於使用 [BrowserContext.RouteAsync()](/api/class-browsercontext#browser-context-route) 註冊路由。

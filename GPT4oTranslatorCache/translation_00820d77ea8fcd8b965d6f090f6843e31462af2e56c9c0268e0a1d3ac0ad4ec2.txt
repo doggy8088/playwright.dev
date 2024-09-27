@@ -1,0 +1,1 @@
+[page.set_viewport_size()](/api/class-page.mdx#page-set-viewport-size) 會調整頁面的大小。許多網站不期望手機改變大小，因此您應該在導航到頁面之前設定視窗大小。[page.set_viewport_size()](/api/class-page.mdx#page-set-viewport-size) 也會重置 `screen` 大小，如果您需要更好地控制這些屬性，請使用帶有 `screen` 和 `viewport` 參數的 [browser.new_context()](/api/class-browser.mdx#browser-new-context)。

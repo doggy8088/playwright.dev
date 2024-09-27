@@ -1,0 +1,1 @@
+Web apps 使用基於 cookie 或基於 token 的身份驗證，已驗證的狀態存儲為 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)。Playwright 提供 [api_request_context.storage_state()](/api/class-apirequestcontext#api-request-context-storage-state) 方法，可以用來從已驗證的上下文中檢索存儲狀態，然後使用該狀態建立新的上下文。

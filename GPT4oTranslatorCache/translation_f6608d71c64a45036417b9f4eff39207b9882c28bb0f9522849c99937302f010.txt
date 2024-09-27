@@ -1,0 +1,40 @@
+- `options` [物件] *(optional)*
+  - `animations` "disabled" | "allow" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-animations"/><a href="#element-handle-screenshot-option-animations" class="list-anchor">#</a>
+
+    當設置為 `"disabled"` 時，停止 CSS 動畫、CSS 過渡和 Web 動畫。動畫根據其持續時間得到不同的處理:
+    * 有限動畫會快速轉到完成，因此它們會觸發 `transitionend` 事件。
+    * 無限動畫會取消到初始狀態，然後在截圖後重新播放。
+
+    預設為 `"allow"`，保持動畫不變。
+  - `caret` "hide" | "initial" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-caret"/><a href="#element-handle-screenshot-option-caret" class="list-anchor">#</a>
+
+    當設置為 `"hide"` 時，截圖將隱藏文本插入點。當設置為 `"initial"` 時，文本插入點行為不會改變。預設為 `"hide"`。
+  - `mask` [陣列]&lt;[Locator]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-mask"/><a href="#element-handle-screenshot-option-mask" class="list-anchor">#</a>
+
+    指定在截圖時應該被遮罩的定位器。被遮罩的元素將被覆蓋一個粉紅色的框 `#FF00FF`（由 `maskColor` 自定義），完全覆蓋其邊界框。
+  - `maskColor` [字串] *(optional)* <font size="2">新增於: v1.35</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-mask-color"/><a href="#element-handle-screenshot-option-mask-color" class="list-anchor">#</a>
+
+    指定遮罩元素的覆蓋框的顏色，使用 [CSS 顏色格式](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)。預設顏色為粉紅色 `#FF00FF`。
+  - `omitBackground` [布林值] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-omit-background"/><a href="#element-handle-screenshot-option-omit-background" class="list-anchor">#</a>
+
+    隱藏預設的白色背景，允許捕捉透明背景的截圖。不適用於 `jpeg` 圖像。預設為 `false`。
+  - `path` [字串] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-path"/><a href="#element-handle-screenshot-option-path" class="list-anchor">#</a>
+
+    保存圖像的文件路徑。截圖類型將從文件擴展名推斷。如果 `path` 是相對路徑，則相對於當前工作目錄解析。如果未提供路徑，圖像將不會保存到磁碟。
+  - `quality` [數字] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-quality"/><a href="#element-handle-screenshot-option-quality" class="list-anchor">#</a>
+
+    圖像的品質，介於 0-100 之間。不適用於 `png` 圖像。
+  - `scale` "css" | "device" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-scale"/><a href="#element-handle-screenshot-option-scale" class="list-anchor">#</a>
+
+    當設置為 `"css"` 時，截圖將每個 css 像素對應一個像素。對於高 dpi 設備，這將保持截圖較小。使用 `"device"` 選項將為每個設備像素生成一個像素，因此高 dpi 設備的截圖將大兩倍或更大。
+
+    預設為 `"device"`。
+  - `style` [字串] *(optional)* <font size="2">新增於: v1.41</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-style"/><a href="#element-handle-screenshot-option-style" class="list-anchor">#</a>
+
+    截圖時應用的樣式表文本。這是你可以隱藏動態元素、使元素不可見或更改其屬性以幫助你創建可重複截圖的地方。此樣式表穿透 Shadow DOM 並應用於內部框架。
+  - `timeout` [數字] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-timeout"/><a href="#element-handle-screenshot-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `0` - 無超時。預設值可以通過配置中的 `actionTimeout` 選項更改，或使用 [browserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 或 [page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) 方法更改。
+  - `type` "png" | "jpeg" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-type"/><a href="#element-handle-screenshot-option-type" class="list-anchor">#</a>
+
+    指定截圖類型，預設為 `png`。

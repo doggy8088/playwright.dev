@@ -1,0 +1,13 @@
+- `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-attribute-option-selector"/><a href="#frame-get-attribute-option-selector" class="list-anchor">#</a>
+
+  用於搜尋元素的選擇器。如果有多個元素符合選擇器，將使用第一個。
+- `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-attribute-option-name"/><a href="#frame-get-attribute-option-name" class="list-anchor">#</a>
+
+  要獲取其值的屬性名稱。
+- `options` [物件] *(可選)*
+  - `strict` [boolean] *(可選)* <font size="2">新增於: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-attribute-option-strict"/><a href="#frame-get-attribute-option-strict" class="list-anchor">#</a>
+
+    當為 true 時，呼叫要求選擇器解析為單個元素。如果給定的選擇器解析為多個元素，呼叫將拋出異常。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-attribute-option-timeout"/><a href="#frame-get-attribute-option-timeout" class="list-anchor">#</a>
+
+    最大時間（以毫秒為單位）。預設為 `0` - 無超時。可以通過配置中的 `actionTimeout` 選項更改預設值，或使用 [browserContext.setDefaultTimeout()](/api/class-browsercontext#browser-context-set-default-timeout) 或 [page.setDefaultTimeout()](/api/class-page#page-set-default-timeout) 方法。

@@ -1,0 +1,23 @@
+- `permissions` [IEnumerable]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-grant-permissions-option-permissions"/><a href="#browser-context-grant-permissions-option-permissions" class="list-anchor">#</a>
+  
+  一個或一組要授予的權限。權限可以是以下值之一:
+  * `'accelerometer'`
+  * `'accessibility-events'`
+  * `'ambient-light-sensor'`
+  * `'background-sync'`
+  * `'camera'`
+  * `'clipboard-read'`
+  * `'clipboard-write'`
+  * `'geolocation'`
+  * `'gyroscope'`
+  * `'magnetometer'`
+  * `'microphone'`
+  * `'midi-sysex'` (system-exclusive midi)
+  * `'midi'`
+  * `'notifications'`
+  * `'payment-handler'`
+  * `'storage-access'`
+- `options` `BrowserContextGrantPermissionsOptions?` *(optional)*
+  - `Origin` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-grant-permissions-option-origin"/><a href="#browser-context-grant-permissions-option-origin" class="list-anchor">#</a>
+    
+    要授予權限的[origin]，例如 "https://example.com"。

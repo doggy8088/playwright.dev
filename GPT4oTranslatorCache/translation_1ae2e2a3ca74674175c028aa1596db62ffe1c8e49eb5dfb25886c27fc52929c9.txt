@@ -1,0 +1,10 @@
+- `description` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-description-option-description"/><a href="#locator-assertions-to-have-accessible-description-option-description" class="list-anchor">#</a>
+
+  預期的可存取描述。
+- `options` `LocatorAssertionsToHaveAccessibleDescriptionOptions?` *(optional)*
+  - `IgnoreCase` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-description-option-ignore-case"/><a href="#locator-assertions-to-have-accessible-description-option-ignore-case" class="list-anchor">#</a>
+
+    是否執行不區分大小寫的匹配。`ignoreCase` 選項優先於對應的正則表達式標誌（如果有指定）。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-description-option-timeout"/><a href="#locator-assertions-to-have-accessible-description-option-timeout" class="list-anchor">#</a>
+
+    以毫秒為單位重試斷言的時間。預設為 `5000`。

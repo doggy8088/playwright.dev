@@ -1,0 +1,1 @@
+如果代理的請求被攔截並使用自定義的不受信任證書授權機構（CA），並且在下載瀏覽器時產生 `Error: self signed certificate in certificate chain`，則必須在安裝瀏覽器之前通過 [`NODE_EXTRA_CA_CERTS`](https://nodejs.org/api/cli.html#node_extra_ca_certsfile) 環境變數設置自定義根證書:

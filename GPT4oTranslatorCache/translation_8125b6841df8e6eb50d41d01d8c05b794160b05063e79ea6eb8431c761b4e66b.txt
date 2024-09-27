@@ -1,0 +1,13 @@
+* Root suite 有一個 child suite 給每個 [FullProject]。
+  * Project suite #1。有一個 child suite 給專案中的每個測試檔案。
+    * File suite #1
+      * [TestCase] #1
+      * [TestCase] #2
+      * 對應於 [test.describe()](https://ollama.com/library#test-describe) 群組的 Suite
+        * 群組中的 [TestCase] #1
+        * 群組中的 [TestCase] #2
+      * < 更多測試案例 ... >
+    * File suite #2
+    * < 更多文件套件 ... >
+  * Project suite #2
+  * < 更多專案套件 ... >

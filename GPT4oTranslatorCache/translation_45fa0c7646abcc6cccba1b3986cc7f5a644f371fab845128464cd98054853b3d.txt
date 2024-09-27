@@ -1,0 +1,16 @@
+- `event` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-wait-for-event-option-event"/><a href="#browser-context-wait-for-event-option-event" class="list-anchor">#</a>
+  
+  事件名稱，與 `browserContext.on(event)` 中傳入的名稱相同。
+- `optionsOrPredicate` [function] | [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-wait-for-event-option-options-or-predicate"/><a href="#browser-context-wait-for-event-option-options-or-predicate" class="list-anchor">#</a>
+  - `predicate` [function]
+    
+    接收事件資料並在等待應該解決時解析為真值。
+  - `timeout` [number] *(optional)*
+    
+    最大等待時間（毫秒）。預設為 `0` - 無超時。可以通過配置中的 `actionTimeout` 選項更改預設值，或使用 [browserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 方法更改。
+  
+  接收事件的斷言或選項物件。可選。
+- `options` [Object] *(optional)*
+  - `predicate` [function] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-wait-for-event-option-predicate"/><a href="#browser-context-wait-for-event-option-predicate" class="list-anchor">#</a>
+    
+    接收事件資料並在等待應該解決時解析為真值。

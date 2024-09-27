@@ -1,0 +1,10 @@
+- [物件] | "off" | "on" | "only-on-failure"
+  - `mode` "off" | "on" | "only-on-failure"
+    
+    自動截圖模式。
+  - `fullPage` [boolean] *(optional)*
+    
+    當為 true 時，截取整個可滾動頁面的截圖，而不是當前可見的視窗。預設為 `false`。
+  - `omitBackground` [boolean] *(optional)*
+    
+    隱藏預設的白色背景，允許截取透明背景的截圖。不適用於 `jpeg` 圖片。預設為 `false`。

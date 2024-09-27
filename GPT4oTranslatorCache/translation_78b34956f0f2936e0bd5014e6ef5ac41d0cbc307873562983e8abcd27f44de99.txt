@@ -1,0 +1,1 @@
+有兩種方式可以配置全域設定和拆卸: 使用全域設定檔案並在配置中設定[`globalSetup`](#option-2-configure-globalsetup-and-globalteardown)或使用[專案相依性](#option-1-project-dependencies)。使用專案相依性時，你可以定義一個在所有其他專案之前執行的專案。這是配置全域設定的推薦方式，因為使用專案相依性時，你的 HTML 報告將顯示全域設定，追蹤檢視器將記錄設定的追蹤，並且可以使用 fixtures。

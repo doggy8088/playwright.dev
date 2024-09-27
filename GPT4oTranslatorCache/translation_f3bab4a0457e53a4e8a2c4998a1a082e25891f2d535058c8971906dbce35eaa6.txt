@@ -1,0 +1,12 @@
+- `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-wait-option-selector"/><a href="#android-device-wait-option-selector" class="list-anchor">#</a>
+
+  等待的選擇器。
+- `options` [物件] *(可選)*
+  - `state` "gone" *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-wait-option-state"/><a href="#android-device-wait-option-state" class="list-anchor">#</a>
+
+    可選的狀態。可以是：
+    * 預設 - 等待元素出現。
+    * `'gone'` - 等待元素消失。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-wait-option-timeout"/><a href="#android-device-wait-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒），預設為30秒，傳遞 `0` 以禁用超時。可以使用 [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) 方法更改預設值。

@@ -1,0 +1,5 @@
+- [Expect(Locator).ToHaveAttributeAsync()](https://api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) 與空值不再匹配缺失的屬性。例如，當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
+
+  ```csharp
+  await Expect(Page.GetByRole(AriaRole.Button)).ToHaveAttribute("disabled", "");
+  ```

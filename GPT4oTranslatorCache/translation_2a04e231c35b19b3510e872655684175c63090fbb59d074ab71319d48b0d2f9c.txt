@@ -1,0 +1,1 @@
+如果使用 `--grep/--grep-invert` 或 `--shard` [option](./test-cli.mdx#reference)，在[命令列](./test-cli.mdx)中指定測試檔案名稱篩選器，或使用 [test.only()](./api/class-test.mdx#test-only)，它將僅適用於專案相依鏈中最深層專案的測試。換句話說，如果匹配的測試屬於具有專案相依性的專案，Playwright 將執行專案相依性中的所有測試，忽略篩選器。

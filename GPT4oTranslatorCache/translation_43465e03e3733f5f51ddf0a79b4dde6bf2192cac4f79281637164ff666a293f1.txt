@@ -1,0 +1,1 @@
+JSHandle 防止被參考的 JavaScript 物件被垃圾回收，除非通過 [JSHandle.dispose()](https://ollama.com/api/class-jshandle.mdx#js-handle-dispose) 來釋放該 handle。當它們的原始框架被導航或父上下文被銷毀時，JSHandles 會自動釋放。

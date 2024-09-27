@@ -1,0 +1,11 @@
+- `options` `Locator.WaitForOptions` *(optional)*
+  - `setState` `enum WaitForSelectorState { ATTACHED, DETACHED, VISIBLE, HIDDEN }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-wait-for-option-state"/><a href="#locator-wait-for-option-state" class="list-anchor">#</a>
+
+    預設為 `'visible'`。可以是以下之一:
+    * `'attached'` - 等待元素出現在 DOM 中。
+    * `'detached'` - 等待元素不在 DOM 中。
+    * `'visible'` - 等待元素有非空的邊界框且沒有 `visibility:hidden`。注意，沒有任何內容或 `display:none` 的元素有一個空的邊界框，並且不被認為是可見的。
+    * `'hidden'` - 等待元素從 DOM 中分離，或有一個空的邊界框或 `visibility:hidden`。這與 `'visible'` 選項相反。
+  - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-wait-for-option-timeout"/><a href="#locator-wait-for-option-timeout" class="list-anchor">#</a>
+
+    最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.setDefaultTimeout](/api/class-browsercontext#browser-context-set-default-timeout) 或 [Page.setDefaultTimeout](/api/class-page#page-set-default-timeout) 方法更改預設值。

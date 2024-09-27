@@ -1,0 +1,7 @@
+- `example-test-1.png` - 自動生成的快照名稱。或者，您可以將快照名稱指定為 `toHaveScreenshot()` 方法的第一個參數:
+
+  ```js
+  await expect(page).toHaveScreenshot('landing.png');
+  ```
+
+- `chromium-darwin` - 瀏覽器名稱和平台。由於不同的渲染、字體等原因，瀏覽器和平台之間的截圖會有所不同，因此您需要為它們準備不同的快照。如果您在 [configuration file](./test-configuration.mdx) 中使用多個專案，專案名稱將取代 `chromium`。

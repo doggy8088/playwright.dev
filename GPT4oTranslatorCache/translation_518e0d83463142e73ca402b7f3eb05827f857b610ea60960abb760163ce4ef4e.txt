@@ -1,0 +1,79 @@
+- [Promise]<[null] | [物件]><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-return"/><a href="#accessibility-snapshot-return" class="list-anchor">#</a>
+  - `role` [string]
+    
+    這個 [role](https://www.w3.org/TR/wai-aria/#usage_intro)。
+  - `name` [string]
+    
+    節點的可讀名稱。
+  - `value` [string] | [number]
+    
+    節點的當前值（如果適用）。
+  - `description` [string]
+    
+    節點的額外可讀描述（如果適用）。
+  - `keyshortcuts` [string]
+    
+    與此節點關聯的鍵盤快捷鍵（如果適用）。
+  - `roledescription` [string]
+    
+    角色的可讀替代描述（如果適用）。
+  - `valuetext` [string]
+    
+    當前值的描述（如果適用）。
+  - `disabled` [boolean]
+    
+    節點是否被禁用（如果適用）。
+  - `expanded` [boolean]
+    
+    節點是否展開或折疊（如果適用）。
+  - `focused` [boolean]
+    
+    節點是否被聚焦（如果適用）。
+  - `modal` [boolean]
+    
+    節點是否為 [modal](https://en.wikipedia.org/wiki/Modal_window)（如果適用）。
+  - `multiline` [boolean]
+    
+    節點文本輸入是否支持多行（如果適用）。
+  - `multiselectable` [boolean]
+    
+    是否可以選擇多個子節點（如果適用）。
+  - `readonly` [boolean]
+    
+    節點是否為只讀（如果適用）。
+  - `required` [boolean]
+    
+    節點是否為必填（如果適用）。
+  - `selected` [boolean]
+    
+    節點是否在其父節點中被選中（如果適用）。
+  - `checked` [boolean] | "mixed"
+    
+    複選框是否被選中，或為 "mixed"（如果適用）。
+  - `pressed` [boolean] | "mixed"
+    
+    切換按鈕是否被選中，或為 "mixed"（如果適用）。
+  - `level` [number]
+    
+    標題的層級（如果適用）。
+  - `valuemin` [number]
+    
+    節點中的最小值（如果適用）。
+  - `valuemax` [number]
+    
+    節點中的最大值（如果適用）。
+  - `autocomplete` [string]
+    
+    控件支持的自動完成類型（如果適用）。
+  - `haspopup` [string]
+    
+    節點當前顯示的彈出類型（如果適用）。
+  - `invalid` [string]
+    
+    此節點的值是否無效以及無效的方式（如果適用）。
+  - `orientation` [string]
+    
+    節點是水平還是垂直排列（如果適用）。
+  - `children` [Array]<[物件]>
+    
+    子節點（如果有的話，如果適用）。

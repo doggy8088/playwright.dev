@@ -1,0 +1,7 @@
+- `options` `PageRunAndWaitForRequestFinishedOptions?` *(optional)*
+  - `Predicate` [Func]&lt;[Request]?, bool&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-request-finished-option-predicate"/><a href="#page-wait-for-request-finished-option-predicate" class="list-anchor">#</a>
+    
+    接收 [Request] 物件，並在等待應該解決時解析為真值。
+  - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-request-finished-option-timeout"/><a href="#page-wait-for-request-finished-option-timeout" class="list-anchor">#</a>
+    
+    最長等待時間（以毫秒為單位）。預設為 `30000`（30 秒）。傳遞 `0` 以禁用超時。可以使用 [BrowserContext.SetDefaultTimeout](/api/class-browsercontext.mdx#browser-context-set-default-timeout) 更改預設值。

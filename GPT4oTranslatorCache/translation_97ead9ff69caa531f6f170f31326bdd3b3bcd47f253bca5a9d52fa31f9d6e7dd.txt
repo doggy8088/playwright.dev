@@ -1,0 +1,4 @@
+- `mcr.microsoft.com/playwright-python:v1.47.0` 現在提供基於 Ubuntu 24.04 Noble 的 Playwright 映像。要使用基於 22.04 jammy 的映像，請使用 `mcr.microsoft.com/playwright-python:v1.47.0-jammy`。
+- 現在可以通過將 `cert` 和 `key` 以位元組形式傳遞來從記憶體中傳遞 TLS 用戶端證書，而不是文件路徑。
+- [locator.select_option()](https://playwright.dev/python/docs/api/class-locator#locator-select-option) 中的 `no_wait_after` 已被棄用。
+- 我們收到報告稱 WebGL 在 GitHub Actions 的 `macos-13` 上的 Webkit 表現異常。我們建議將 GitHub Actions 升級到 `macos-14`。

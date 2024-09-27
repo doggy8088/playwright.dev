@@ -1,0 +1,1 @@
+您可以使用 [Locator.SetInputFilesAsync()](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) 方法選擇要上傳的輸入檔案。它期望第一個參數指向類型為 `"file"` 的 [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)。可以在陣列中傳遞多個檔案。如果某些檔案路徑是相對的，它們將相對於當前工作目錄解析。空陣列會清除選擇的檔案。

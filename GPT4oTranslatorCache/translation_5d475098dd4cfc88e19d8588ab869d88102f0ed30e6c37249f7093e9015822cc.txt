@@ -1,0 +1,3 @@
+:::note
+HTTP 錯誤回應，例如 404 或 503，從 HTTP 角度來看仍然是成功的回應，因此請求將會完成並觸發 [BrowserContext.onRequestFinished(handler)](/api/class-browsercontext.mdx#browser-context-event-request-finished) 事件，而不是 [BrowserContext.onRequestFailed(handler)](/api/class-browsercontext.mdx#browser-context-event-request-failed)。
+:::

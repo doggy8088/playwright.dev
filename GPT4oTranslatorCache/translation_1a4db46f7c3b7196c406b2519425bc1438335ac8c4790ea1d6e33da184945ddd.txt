@@ -1,0 +1,4 @@
+1. 等待 [actionability](../actionability.mdx) 檢查元素，除非設置了 `force` 選項。
+1. 如果需要，將元素滾動到視圖中。
+1. 使用 [Page.mouse()](/api/class-page.mdx#page-mouse) 在元素的中心或指定的 `position` 點擊。
+1. 等待啟動的導航成功或失敗，除非設置了 `noWaitAfter` 選項。
