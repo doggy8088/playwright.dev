@@ -1,53 +1,53 @@
 ---
 id: test-assertions
-title: "Assertions"
+title: "斷言"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright includes test assertions in the form of `expect` function. To make an assertion, call `expect(value)` and choose a matcher that reflects the expectation. There are many [generic matchers](./api/class-genericassertions.mdx) like `toEqual`, `toContain`, `toBeTruthy` that can be used to assert any conditions.
+Playwright 以 `expect` 函式的形式包含測試斷言。要進行斷言，請呼叫 `expect(value)` 並選擇反映預期的比對器。有許多[通用比對器](./api/class-genericassertions.mdx)如 `toEqual`、`toContain`、`toBeTruthy` 可用來斷言任何條件。
 
 ```js
 expect(success).toBeTruthy();
 ```
 
-Playwright also includes web-specific [async matchers](./api/class-locatorassertions.mdx) that will wait until the expected condition is met. Consider the following example:
+Playwright 也包含網頁特定的[非同步比對器](./api/class-locatorassertions.mdx)，會等待直到預期條件滿足。考慮以下範例：
 
 ```js
 await expect(page.getByTestId('status')).toHaveText('Submitted');
 ```
 
-Playwright will be re-testing the element with the test id of `status` until the fetched element has the `"Submitted"` text. It will re-fetch the element and check it over and over, until the condition is met or until the timeout is reached. You can either pass this timeout or configure it once via the [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) value in the test config.
+Playwright 會重新測試具有 `status` 測試 ID 的元素，直到獲取的元素具有 `"Submitted"` 文字。它會重新獲取元素並一遍又一遍地檢查，直到滿足條件或達到逾時。您可以傳遞此逾時，或透過測試組態中的 [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) 值一次性設定。
 
-By default, the timeout for assertions is set to 5 seconds. Learn more about [various timeouts](./test-timeouts.mdx).
+預設情況下，斷言的逾時設定為 5 秒。了解更多[各種逾時](./test-timeouts.mdx)。
 
-## Auto-retrying assertions
+## 自動重試斷言
 
-The following assertions will retry until the assertion passes, or the assertion timeout is reached. Note that retrying assertions are async, so you must `await` them.
+以下斷言會重試直到斷言通過，或達到斷言逾時。請注意重試斷言是非同步的，所以您必須 `await` 它們。
 
-| Assertion | Description |
+| 斷言 | 描述 |
 | :- | :- |
-| [await expect(locator).toBeAttached()](./api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | Element is attached |
-| [await expect(locator).toBeChecked()](./api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox is checked |
-| [await expect(locator).toBeDisabled()](./api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | Element is disabled |
-| [await expect(locator).toBeEditable()](./api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | Element is editable |
-| [await expect(locator).toBeEmpty()](./api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | Container is empty |
-| [await expect(locator).toBeEnabled()](./api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | Element is enabled |
-| [await expect(locator).toBeFocused()](./api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | Element is focused |
-| [await expect(locator).toBeHidden()](./api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | Element is not visible |
-| [await expect(locator).toBeInViewport()](./api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | Element intersects viewport |
-| [await expect(locator).toBeVisible()](./api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | Element is visible |
-| [await expect(locator).toContainText()](./api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | Element contains text |
-| [await expect(locator).toContainClass()](./api/class-locatorassertions.mdx#locator-assertions-to-contain-class) | Element has specified CSS classes |
-| [await expect(locator).toHaveAccessibleDescription()](./api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) | Element has a matching [accessible description](https://w3c.github.io/accname/#dfn-accessible-description) |
-| [await expect(locator).toHaveAccessibleName()](./api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) | Element has a matching [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) |
-| [await expect(locator).toHaveAttribute()](./api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | Element has a DOM attribute |
-| [await expect(locator).toHaveClass()](./api/class-locatorassertions.mdx#locator-assertions-to-have-class) | Element has specified CSS class property |
-| [await expect(locator).toHaveCount()](./api/class-locatorassertions.mdx#locator-assertions-to-have-count) | List has exact number of children |
+| [await expect(locator).toBeAttached()](./api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | 元素已附加 |
+| [await expect(locator).toBeChecked()](./api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 核取方塊已選取 |
+| [await expect(locator).toBeDisabled()](./api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已停用 |
+| [await expect(locator).toBeEditable()](./api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | 元素可編輯 |
+| [await expect(locator).toBeEmpty()](./api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | 容器為空 |
+| [await expect(locator).toBeEnabled()](./api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 元素已啟用 |
+| [await expect(locator).toBeFocused()](./api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | 元素已聚焦 |
+| [await expect(locator).toBeHidden()](./api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | 元素不可見 |
+| [await expect(locator).toBeInViewport()](./api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | 元素與檢視區相交 |
+| [await expect(locator).toBeVisible()](./api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
+| [await expect(locator).toContainText()](./api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
+| [await expect(locator).toContainClass()](./api/class-locatorassertions.mdx#locator-assertions-to-contain-class) | 元素具有指定的 CSS 類別 |
+| [await expect(locator).toHaveAccessibleDescription()](./api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) | 元素具有相符的[無障礙描述](https://w3c.github.io/accname/#dfn-accessible-description) |
+| [await expect(locator).toHaveAccessibleName()](./api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) | 元素具有相符的[無障礙名稱](https://w3c.github.io/accname/#dfn-accessible-name) |
+| [await expect(locator).toHaveAttribute()](./api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有 DOM 屬性 |
+| [await expect(locator).toHaveClass()](./api/class-locatorassertions.mdx#locator-assertions-to-have-class) | 元素具有指定的 CSS 類別屬性 |
+| [await expect(locator).toHaveCount()](./api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 清單具有確切的子項目數量 |
 | [await expect(locator).toHaveCSS()](./api/class-locatorassertions.mdx#locator-assertions-to-have-css) | Element has CSS property |
 | [await expect(locator).toHaveId()](./api/class-locatorassertions.mdx#locator-assertions-to-have-id) | Element has an ID |
 | [await expect(locator).toHaveJSProperty()](./api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | Element has a JavaScript property |

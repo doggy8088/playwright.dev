@@ -1,26 +1,26 @@
 ---
 id: running-tests
-title: "Running and debugging tests"
+title: "執行和偵錯測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-With Playwright you can run a single test, a set of tests, or all tests. Tests can be run on one browser or multiple browsers using the `--project` flag. Tests run in parallel by default and in headless mode, meaning no browser window opens while running the tests and results appear in the terminal. You can run tests in headed mode using the `--headed` CLI argument, or run your tests in [UI mode](./test-ui-mode.mdx) using the `--ui` flag to see a full trace of your tests.
+使用 Playwright，您可以執行單一測試、一組測試或所有測試。可使用 `--project` 旗標在一個瀏覽器或多個瀏覽器上執行測試。測試預設以平行方式在無頭模式下執行，意即在執行測試時不會開啟瀏覽器視窗，結果顯示在終端機中。您可以使用 `--headed` CLI 參數在有頭模式下執行測試，或使用 `--ui` 旗標在 [UI 模式](./test-ui-mode.mdx)下執行測試，以查看完整的測試追蹤。
 
-**You will learn**
-- [How to run tests from the command line](/running-tests.mdx#command-line)
-- [How to debug tests](/running-tests.mdx#debugging-tests)
-- [How to open the HTML test reporter](/running-tests.mdx#test-reports)
+**您將學習**
+- [如何從命令列執行測試](/running-tests.mdx#command-line)
+- [如何偵錯測試](/running-tests.mdx#debugging-tests)
+- [如何開啟 HTML 測試報告器](/running-tests.mdx#test-reports)
 
-## Running tests
+## 執行測試
 
-### Command line
+### 命令列
 
-You can run your tests with the `playwright test` command. This runs your tests on all browsers as configured in the `playwright.config` file, and results appear in the terminal. Tests run in headless mode by default, meaning no browser window opens while running the tests.
+您可以使用 `playwright test` 指令執行測試。這會在 `playwright.config` 檔案中設定的所有瀏覽器上執行測試，結果顯示在終端機中。測試預設在無頭模式下執行，意即在執行測試時不會開啟瀏覽器視窗。
 
 ```bash
 npx playwright test
@@ -28,9 +28,9 @@ npx playwright test
 
 <ProgressiveImage image={require("../images/getting-started/run-tests-cli.png")} alt="tests running in command line" />
 
-### Run tests in UI mode
+### 在 UI 模式下執行測試
 
-We highly recommend running your tests with [UI Mode](./test-ui-mode.mdx) for a better developer experience where you can easily walk through each step of the test and visually see what was happening before, during and after each step. UI mode also comes with many other features such as the locator picker, watch mode and more.
+我們強烈建議使用 [UI 模式](./test-ui-mode.mdx)執行測試，提供更好的開發者體驗，您可以輕鬆瀏覽測試的每個步驟，並視覺化查看每個步驟之前、期間和之後發生的情況。UI 模式還提供許多其他功能，如定位器選擇器、監看模式等。
 
 ```bash
 npx playwright test --ui
@@ -38,11 +38,11 @@ npx playwright test --ui
 
 <ProgressiveImage image={require("../images/getting-started/ui-mode.png")} alt="UI Mode" />
 
-Check out our [detailed guide on UI Mode](./test-ui-mode.mdx) to learn more about its features.
+查看我們的 [UI 模式詳細指南](./test-ui-mode.mdx)以了解更多功能。
 
-### Run tests in headed mode
+### 在有頭模式下執行測試
 
-To run your tests in headed mode, use the `--headed` flag. This gives you the ability to visually see how Playwright interacts with the website.
+要在有頭模式下執行測試，請使用 `--headed` 旗標。這讓您能夠視覺化查看 Playwright 如何與網站互動。
 
 ```bash
 npx playwright test --headed

@@ -1,26 +1,26 @@
 ---
 id: locators
-title: "Locators"
+title: "定位器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-[Locator]s are the central piece of Playwright's auto-waiting and retry-ability. In a nutshell, locators represent a way to find element(s) on the page at any moment.
+[定位器][Locator]是 Playwright 自動等待和重試能力的核心部分。簡而言之，定位器代表在頁面上任何時刻尋找元素的方法。
 
-### Quick Guide
+### 快速指南
 
-These are the recommended built-in locators.
-- [page.getByRole()](#locate-by-role) to locate by explicit and implicit accessibility attributes.
-- [page.getByText()](#locate-by-text) to locate by text content.
-- [page.getByLabel()](#locate-by-label) to locate a form control by associated label's text.
-- [page.getByPlaceholder()](#locate-by-placeholder) to locate an input by placeholder.
-- [page.getByAltText()](#locate-by-alt-text) to locate an element, usually image, by its text alternative.
-- [page.getByTitle()](#locate-by-title) to locate an element by its title attribute.
-- [page.getByTestId()](#locate-by-test-id) to locate an element based on its `data-testid` attribute (other attributes can be configured).
+這些是建議的內建定位器。
+- [page.getByRole()](#locate-by-role) 使用明確和隱含的無障礙屬性定位。
+- [page.getByText()](#locate-by-text) 使用文字內容定位。
+- [page.getByLabel()](#locate-by-label) 使用關聯標籤的文字定位表單控制項。
+- [page.getByPlaceholder()](#locate-by-placeholder) 使用預留位置文字定位輸入欄位。
+- [page.getByAltText()](#locate-by-alt-text) 使用替代文字定位元素，通常是圖片。
+- [page.getByTitle()](#locate-by-title) 使用 title 屬性定位元素。
+- [page.getByTestId()](#locate-by-test-id) 基於 `data-testid` 屬性定位元素（可設定其他屬性）。
 
 ```js
 await page.getByLabel('User Name').fill('John');
@@ -32,11 +32,11 @@ await page.getByRole('button', { name: 'Sign in' }).click();
 await expect(page.getByText('Welcome, John!')).toBeVisible();
 ```
 
-## Locating elements
+## 定位元素
 
-Playwright comes with multiple built-in locators. To make tests resilient, we recommend prioritizing user-facing attributes and explicit contracts such as [page.getByRole()](/api/class-page.mdx#page-get-by-role).
+Playwright 提供多種內建定位器。為了讓測試更具彈性，我們建議優先使用面向使用者的屬性和明確契約，如 [page.getByRole()](/api/class-page.mdx#page-get-by-role)。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構。
 
 <HTMLCard>
 <div>
