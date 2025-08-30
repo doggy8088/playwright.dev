@@ -48,67 +48,67 @@ npx playwright test --ui
 npx playwright test --headed
 ```
 
-### Run tests on different browsers
+### 在不同瀏覽器上執行測試
 
-To specify which browser you would like to run your tests on, use the `--project` flag followed by the browser name.
+要指定您想要執行測試的瀏覽器，請使用 `--project` 旗標加上瀏覽器名稱。
 
 ```bash
 npx playwright test --project webkit
 ```
 
-To specify multiple browsers to run your tests on, use the `--project` flag multiple times followed by each browser name.
+要指定在多個瀏覽器上執行測試，請多次使用 `--project` 旗標，每次加上一個瀏覽器名稱。
 
 ```bash
 npx playwright test --project webkit --project firefox
 ```
 
-### Run specific tests
+### 執行特定測試
 
-To run a single test file, pass in the test file name that you want to run.
+要執行單一測試檔案，傳入您想執行的測試檔案名稱。
 
 ```bash
 npx playwright test landing-page.spec.ts
 ```
 
-To run a set of test files from different directories, pass in the directory names that you want to run the tests in.
+要執行來自不同目錄的一組測試檔案，傳入您想在其中執行測試的目錄名稱。
 
 ```bash
 npx playwright test tests/todo-page/ tests/landing-page/
 ```
 
-To run files that have `landing` or `login` in the file name, simply pass in these keywords to the CLI.
+要執行檔案名稱中包含 `landing` 或 `login` 的檔案，只需將這些關鍵字傳遞給 CLI。
 
 ```bash
 npx playwright test landing login
 ```
 
-To run a test with a specific title, use the `-g` flag followed by the title of the test.
+要執行具有特定標題的測試，請使用 `-g` 旗標加上測試標題。
 
 ```bash
 npx playwright test -g "add a todo item"
 ```
 
-### Run last failed tests
+### 執行上次失敗的測試
 
-To run only the tests that failed in the last test run, first run your tests and then run them again with the `--last-failed` flag.
+要只執行上次測試執行中失敗的測試，請先執行您的測試，然後使用 `--last-failed` 旗標再次執行。
 
 ```bash
 npx playwright test --last-failed
 ```
 
-### Run tests in VS Code
+### 在 VS Code 中執行測試
 
-Tests can be run right from VS Code using the [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright). Once installed you can simply click the green triangle next to the test you want to run or run all tests from the testing sidebar. Check out our [Getting Started with VS Code](./getting-started-vscode.mdx) guide for more details.
+可以使用 [VS Code 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)直接從 VS Code 執行測試。安裝後，您只需點擊想要執行的測試旁邊的綠色三角形，或從測試側邊欄執行所有測試。查看我們的 [VS Code 入門指南](./getting-started-vscode.mdx)以了解更多詳細資訊。
 
 <ProgressiveImage image={require("../images/getting-started/vscode-extension.png")} alt="install playwright extension" />
 
-## Debugging tests
+## 偵錯測試
 
-Since Playwright runs in Node.js, you can debug it with your debugger of choice, e.g. using `console.log`, inside your IDE, or directly in VS Code with the [VS Code Extension](./getting-started-vscode.mdx). Playwright comes with [UI Mode](./test-ui-mode.mdx), where you can easily walk through each step of the test, see logs, errors, network requests, inspect the DOM snapshot, and more. You can also use the [Playwright Inspector](./debug.mdx#playwright-inspector), which allows you to step through Playwright API calls, see their debug logs, and explore [locators](./locators.mdx).
+由於 Playwright 在 Node.js 中執行，您可以使用您選擇的偵錯器進行偵錯，例如使用 `console.log`、在您的 IDE 中，或直接在 VS Code 中使用 [VS Code 擴充功能](./getting-started-vscode.mdx)。Playwright 提供 [UI 模式](./test-ui-mode.mdx)，您可以輕鬆瀏覽測試的每個步驟，查看日誌、錯誤、網路請求、檢查 DOM 快照等等。您也可以使用 [Playwright Inspector](./debug.mdx#playwright-inspector)，它允許您逐步執行 Playwright API 呼叫，查看其偵錯日誌，並探索[定位器](./locators.mdx)。
 
-### Debug tests in UI mode
+### 在 UI 模式下偵錯測試
 
-We highly recommend debugging your tests with [UI Mode](./test-ui-mode.mdx) for a better developer experience where you can easily walk through each step of the test and visually see what was happening before, during, and after each step. UI mode also comes with many other features such as the locator picker, watch mode, and more.
+我們強烈建議使用 [UI 模式](./test-ui-mode.mdx)偵錯您的測試，提供更好的開發者體驗，您可以輕鬆瀏覽測試的每個步驟，並視覺化查看每個步驟之前、期間和之後發生的情況。UI 模式還提供許多其他功能，如定位器選擇器、監看模式等。
 
 ```bash
 npx playwright test --ui
@@ -116,15 +116,15 @@ npx playwright test --ui
 
 <ProgressiveImage image={require("../images/getting-started/ui-mode-error.png")} alt="showing errors in ui mode" />
 
-While debugging you can use the Pick Locator button to select an element on the page and see the locator that Playwright would use to find that element. You can also edit the locator in the locator playground and see it highlighting live in the browser window. Use the Copy Locator button to copy the locator to your clipboard and then paste it into your test.
+偵錯時，您可以使用「選擇定位器」按鈕選擇頁面上的元素，並查看 Playwright 用來尋找該元素的定位器。您也可以在定位器遊樂場中編輯定位器，並在瀏覽器視窗中即時查看它的突出顯示。使用「複製定位器」按鈕將定位器複製到剪貼簿，然後貼到您的測試中。
 
 <ProgressiveImage image={require("../images/getting-started/ui-mode-pick-locator.png")} alt="pick locator in ui mode" />
 
-Check out our [detailed guide on UI Mode](./test-ui-mode.mdx) to learn more about its features.
+查看我們的 [UI 模式詳細指南](./test-ui-mode.mdx)以了解更多功能。
 
-### Debug tests with the Playwright Inspector
+### 使用 Playwright Inspector 偵錯測試
 
-To debug all tests, run the Playwright test command followed by the `--debug` flag.
+要偵錯所有測試，請執行 Playwright 測試指令，後面加上 `--debug` 旗標。
 
 ```bash
 npx playwright test --debug
@@ -132,29 +132,29 @@ npx playwright test --debug
 
 <ProgressiveImage image={require("../images/getting-started/run-tests-debug.png")} alt="Debugging Tests with the Playwright inspector" />
 
-This command opens a browser window as well as the Playwright Inspector. You can use the step over button at the top of the inspector to step through your test. Or, press the play button to run your test from start to finish. Once the test finishes, the browser window closes.
+此指令會開啟瀏覽器視窗以及 Playwright Inspector。您可以使用檢查器頂部的「逐步執行」按鈕來逐步執行您的測試。或者，按下播放按鈕從頭到尾執行您的測試。測試完成後，瀏覽器視窗會關閉。
 
-To debug one test file, run the Playwright test command with the test file name that you want to debug followed by the `--debug` flag.
+要偵錯一個測試檔案，請執行 Playwright 測試指令，加上您想要偵錯的測試檔案名稱，後面加上 `--debug` 旗標。
 
 ```bash
 npx playwright test example.spec.ts --debug
 ```
 
-To debug a specific test from the line number where the `test(..` is defined, add a colon followed by the line number at the end of the test file name, followed by the `--debug` flag.
+要從定義 `test(..)` 的行號偵錯特定測試，請在測試檔案名稱後面加上冒號和行號，再加上 `--debug` 旗標。
 
 ```bash
 npx playwright test example.spec.ts:10 --debug
 ```
 
-While debugging you can use the Pick Locator button to select an element on the page and see the locator that Playwright would use to find that element. You can also edit the locator and see it highlighting live in the browser window. Use the Copy Locator button to copy the locator to your clipboard and then paste it into your test.
+偵錯時，您可以使用「選擇定位器」按鈕選擇頁面上的元素，並查看 Playwright 用來尋找該元素的定位器。您也可以編輯定位器並在瀏覽器視窗中即時查看它的突出顯示。使用「複製定位器」按鈕將定位器複製到剪貼簿，然後貼到您的測試中。
 
 <ProgressiveImage image={require("../images/getting-started/run-tests-pick-locator.png")} alt="Locator picker in the Playwright Inspector" />
 
-Check out our [debugging guide](./debug.mdx) to learn more about debugging with the [VS Code debugger](./debug.mdx#vs-code-debugger), UI Mode, and the [Playwright Inspector](./debug.mdx#playwright-inspector) as well as debugging with [Browser Developer tools](./debug.mdx#browser-developer-tools).
+查看我們的[偵錯指南](./debug.mdx)以了解更多關於使用 [VS Code 偵錯器](./debug.mdx#vs-code-debugger)、UI 模式和 [Playwright Inspector](./debug.mdx#playwright-inspector) 以及使用[瀏覽器開發者工具](./debug.mdx#browser-developer-tools)進行偵錯的資訊。
 
-## Test reports
+## 測試報告
 
-The [HTML Reporter](./test-reporters.mdx#html-reporter) shows you a full report of your tests allowing you to filter the report by browsers, passed tests, failed tests, skipped tests, and flaky tests. By default, the HTML report opens automatically if some tests failed, otherwise you can open it with the following command.
+[HTML 報告器](./test-reporters.mdx#html-reporter)顯示您測試的完整報告，允許您按瀏覽器、通過測試、失敗測試、跳過測試和不穩定測試篩選報告。預設情況下，如果有些測試失敗，HTML 報告會自動開啟，否則您可以使用以下指令開啟它。
 
 ```bash
 npx playwright show-report
@@ -162,15 +162,15 @@ npx playwright show-report
 
 <ProgressiveImage image={require("../images/getting-started/html-report.png")} alt="HTML Report" />
 
-You can filter and search for tests as well as click on each test to see the test errors and explore each step of the test.
+您可以篩選和搜尋測試，以及點擊每個測試來查看測試錯誤並探索測試的每個步驟。
 
 <ProgressiveImage image={require("../images/getting-started/html-report-detail.png")} alt="HTML Reporter detail view" />
 
-## What's next
-- [Generate tests with Codegen](./codegen-intro.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
-- [Explore all the features of UI Mode](./test-ui-mode.mdx)
-- [Run your tests on CI with GitHub Actions](./ci-intro.mdx)
+## 接下來做什麼
+- [使用 Codegen 產生測試](./codegen-intro.mdx)
+- [檢視測試追蹤](./trace-viewer-intro.mdx)
+- [探索 UI 模式的所有功能](./test-ui-mode.mdx)
+- [在 CI 上使用 GitHub Actions 執行測試](./ci-intro.mdx)
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"
