@@ -1,28 +1,28 @@
 ---
 id: writing-tests
-title: "Writing tests"
+title: "撰寫測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright tests are simple: they **perform actions** and **assert the state** against expectations.
+Playwright 測試很簡單：它們**執行動作**並**斷言狀態**符合預期。
 
-Playwright automatically waits for [actionability](./actionability.mdx) checks to pass before performing each action. You don't need to add manual waits or deal with race conditions. Playwright assertions are designed to describe expectations that will eventually be met, eliminating flaky timeouts and racy checks.
+Playwright 會在執行每個動作前自動等待[可動作性](./actionability.mdx)檢查通過。您不需要加入手動等待或處理競爭條件。Playwright 斷言設計用來描述最終會滿足的預期，消除不穩定的逾時和競爭檢查。
 
-**You will learn**
-- [How to write the first test](/writing-tests.mdx#first-test)
-- [How to perform actions](/writing-tests.mdx#actions)
-- [How to use assertions](/writing-tests.mdx#assertions)
-- [How tests run in isolation](/writing-tests.mdx#test-isolation)
-- [How to use test hooks](/writing-tests.mdx#using-test-hooks)
+**您將學習**
+- [如何撰寫第一個測試](/writing-tests.mdx#first-test)
+- [如何執行動作](/writing-tests.mdx#actions)
+- [如何使用斷言](/writing-tests.mdx#assertions)
+- [測試如何在隔離環境中執行](/writing-tests.mdx#test-isolation)
+- [如何使用測試掛勾](/writing-tests.mdx#using-test-hooks)
 
-## First test
+## 第一個測試
 
-Take a look at the following example to see how to write a test.
+查看以下範例了解如何撰寫測試。
 
 ```js title="tests/example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -46,14 +46,14 @@ test('get started link', async ({ page }) => {
 ```
 
 :::note
-Add `// @ts-check` at the start of each test file when using JavaScript in VS Code to get automatic type checking.
+在 VS Code 中使用 JavaScript 時，請在每個測試檔案開頭加入 `// @ts-check` 以獲得自動型別檢查。
 :::
 
-## Actions
+## 動作
 
-### Navigation
+### 導航
 
-Most tests start by navigating to a URL. After that, the test interacts with page elements.
+大多數測試從導航到 URL 開始。之後，測試與頁面元素互動。
 
 ```js
 await page.goto('https://playwright.dev/');
