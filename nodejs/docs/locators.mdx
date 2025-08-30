@@ -368,7 +368,7 @@ All locators in Playwright **by default** work with elements in Shadow DOM. The 
 - Locating by XPath does not pierce shadow roots.
 - [Closed-mode shadow roots](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#parameters) are not supported.
 
-Consider the following example with a custom web component:
+考慮以下自訂網頁元件的範例：
 
 ```html
 <x-details role=button aria-expanded=true aria-controls=inner-details>
@@ -380,7 +380,7 @@ Consider the following example with a custom web component:
 
 您可以像 shadow root 不存在一樣進行定位。
 
-To click `<div>Details</div>`:
+要點擊 `<div>Details</div>`：
 
 ```js
 await page.getByText('Details').click();
@@ -394,7 +394,7 @@ await page.getByText('Details').click();
 </x-details>
 ```
 
-To click `<x-details>`:
+要點擊 `<x-details>`：
 
 ```js
 await page.locator('x-details', { hasText: 'Details' }).click();
@@ -458,7 +458,7 @@ await page
     .click();
 ```
 
-Use a regular expression:
+使用正規表示式：
 
 ```js
 await page
@@ -582,7 +582,7 @@ await dialog.locator(saveButton).click();
 const button = page.getByRole('button').and(page.getByTitle('Subscribe'));
 ```
 
-### Matching one of the two alternative locators
+### 匹配兩個替代定位器之一
 
 如果您想要鎖定兩個或更多元素中的一個，且不知道會是哪一個，請使用 [locator.or()](/api/class-locator.mdx#locator-or) 建立符合任一個或兩個替代方案的定位器。
 
@@ -602,7 +602,7 @@ if (await dialog.isVisible())
 await newEmail.click();
 ```
 
-### Matching only visible elements
+### 只匹配可見元素
 
 :::note
 
@@ -750,7 +750,7 @@ For example, consider the following DOM structure:
 ```
 </HTMLCard>
 
-Locate an item by the role of "listitem" and then filter by the text of "orange" and then click it.
+透過 "listitem" 角色定位項目，然後依 "orange" 文字篩選並點擊。
 
 ```js
 await page
@@ -761,7 +761,7 @@ await page
 
 #### Get by test id
 
-Use the [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) method to locate an element in a list. You may need to modify the html and add a test id if you don't already have a test id.
+使用 [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 方法定位清單中的元素。如果您還沒有測試 ID，可能需要修改 HTML 並加入測試 ID。
 
 For example, consider the following DOM structure:
 
@@ -783,7 +783,7 @@ For example, consider the following DOM structure:
 ```
 </HTMLCard>
 
-Locate an item by its test id of "orange" and then click it.
+透過測試 ID "orange" 定位項目並點擊。
 
 ```js
 await page.getByTestId('orange').click();
@@ -791,17 +791,17 @@ await page.getByTestId('orange').click();
 
 #### Get by nth item
 
-If you have a list of identical elements, and the only way to distinguish between them is the order, you can choose a specific element from a list with [locator.first()](/api/class-locator.mdx#locator-first), [locator.last()](/api/class-locator.mdx#locator-last) or [locator.nth()](/api/class-locator.mdx#locator-nth).
+如果您有一個相同元素的清單，而唯一能區別它們的方式是順序，您可以使用 [locator.first()](/api/class-locator.mdx#locator-first)、[locator.last()](/api/class-locator.mdx#locator-last) 或 [locator.nth()](/api/class-locator.mdx#locator-nth) 從清單中選擇特定元素。
 
 ```js
 const banana = await page.getByRole('listitem').nth(1);
 ```
 
-However, use this method with caution. Often times, the page might change, and the locator will point to a completely different element from the one you expected. Instead, try to come up with a unique locator that will pass the [strictness criteria](#strictness).
+然而，使用此方法時要小心。通常頁面可能會變更，定位器會指向與您預期完全不同的元素。相反地，嘗試想出通過[嚴格性條件](#strictness)的唯一定位器。
 
 ### Chaining filters
 
-When you have elements with various similarities, you can use the [locator.filter()](/api/class-locator.mdx#locator-filter) method to select the right one. You can also chain multiple filters to narrow down the selection.
+當您有具有各種相似性的元素時，可以使用 [locator.filter()](/api/class-locator.mdx#locator-filter) 方法選擇正確的元素。您也可以鏈接多個篩選器以縮小選擇範圍。
 
 For example, consider the following DOM structure:
 
@@ -860,7 +860,7 @@ await rowLocator
     .screenshot({ path: 'screenshot.png' });
 ```
 
-You should now have a "screenshot.png" file in your project's root directory.
+現在您的專案根目錄中應該有一個 "screenshot.png" 檔案。
 
 ### Rare use cases
 
@@ -884,7 +884,7 @@ for (let i = 0; i < count; ++i)
 
 #### Evaluate in the page
 
-The code inside [locator.evaluateAll()](/api/class-locator.mdx#locator-evaluate-all) runs in the page, you can call any DOM apis there.
+[locator.evaluateAll()](/api/class-locator.mdx#locator-evaluate-all) 內的程式碼在頁面中執行，您可以在那裡呼叫任何 DOM API。
 
 ```js
 const rows = page.getByRole('listitem');
@@ -892,29 +892,29 @@ const texts = await rows.evaluateAll(
     list => list.map(element => element.textContent));
 ```
 
-## Strictness
+## 嚴格性
 
-Locators are strict. This means that all operations on locators that imply some target DOM element will throw an exception if more than one element matches. For example, the following call throws if there are several buttons in the DOM:
+定位器是嚴格的。這意味著對定位器執行的所有暗示某個目標 DOM 元素的操作，如果有多個元素匹配，會拋出例外。例如，如果 DOM 中有多個按鈕，以下呼叫會拋出例外：
 
-#### Throws an error if more than one
+#### 如果有多個會拋出錯誤
 
 ```js
 await page.getByRole('button').click();
 ```
 
-On the other hand, Playwright understands when you perform a multiple-element operation, so the following call works perfectly fine when the locator resolves to multiple elements.
+另一方面，Playwright 會理解您何時執行多元素操作，所以當定位器解析為多個元素時，以下呼叫運作完全正常。
 
-#### Works fine with multiple elements
+#### 對多個元素運作正常
 
 ```js
 await page.getByRole('button').count();
 ```
 
-You can explicitly opt-out from strictness check by telling Playwright which element to use when multiple elements match, through [locator.first()](/api/class-locator.mdx#locator-first), [locator.last()](/api/class-locator.mdx#locator-last), and [locator.nth()](/api/class-locator.mdx#locator-nth). These methods are **not recommended** because when your page changes, Playwright may click on an element you did not intend. Instead, follow best practices above to create a locator that uniquely identifies the target element.
+您可以透過 [locator.first()](/api/class-locator.mdx#locator-first)、[locator.last()](/api/class-locator.mdx#locator-last) 和 [locator.nth()](/api/class-locator.mdx#locator-nth) 告訴 Playwright 當多個元素匹配時要使用哪個元素，明確選擇退出嚴格性檢查。這些方法**不建議使用**，因為當您的頁面變更時，Playwright 可能會點擊您無意的元素。相反地，請遵循上述最佳實踐建立唯一識別目標元素的定位器。
 
-## More Locators
+## 更多定位器
 
-For less commonly used locators, look at the [other locators](./other-locators.mdx) guide.
+對於較少使用的定位器，請查看[其他定位器](./other-locators.mdx)指南。
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

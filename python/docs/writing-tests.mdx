@@ -98,7 +98,7 @@ page.get_by_role("link", name="Get started").click()
 
 ## Assertions
 
-Playwright includes [assertions](./test-assertions.mdx) that will wait until the expected condition is met. Using these assertions allows making the tests non-flaky and resilient. For example, this code will wait until the page gets the title containing "Playwright":
+Playwright 包含會等待直到預期條件滿足的[斷言](./test-assertions.mdx)。使用這些斷言可以讓測試變得不脆弱且具有彈性。例如，此程式碼會等待直到頁面獲得包含 "Playwright" 的標題：
 
 ```python
 import re
@@ -107,7 +107,7 @@ from playwright.sync_api import expect
 expect(page).to_have_title(re.compile("Playwright"))
 ```
 
-Here is the list of the most popular async assertions. Note that there are [many more](./test-assertions.mdx) to get familiar with:
+以下是最受歡迎的非同步斷言清單。請注意還有[更多](./test-assertions.mdx)斷言可以熟悉：
 
 | Assertion | Description |
 | :- | :- |
