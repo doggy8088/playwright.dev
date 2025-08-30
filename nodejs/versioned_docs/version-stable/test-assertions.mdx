@@ -222,7 +222,7 @@ await expect.poll(async () => {
 }).toBe(200);
 ```
 
-You can combine `expect.configure({ soft: true })` with expect.poll to perform soft assertions in polling logic.
+您可以將 `expect.configure({ soft: true })` 與 expect.poll 結合，在輪詢邏輯中執行軟斷言。
 
 ```js
 const softExpect = expect.configure({ soft: true });
@@ -232,11 +232,11 @@ await softExpect.poll(async () => {
 }, {}).toBe(200);
 ```
 
-This allows the test to continue even if the assertion inside poll fails.
+這讓測試即使在輪詢內的斷言失敗時也能繼續進行。
 
 ## expect.toPass
 
-You can retry blocks of code until they are passing successfully.
+您可以重試程式碼區塊直到它們成功通過。
 
 ```js
 await expect(async () => {
@@ -259,13 +259,13 @@ await expect(async () => {
 });
 ```
 
-Note that by default `toPass` has timeout 0 and does not respect custom [expect timeout](./test-timeouts.mdx#expect-timeout).
+注意，預設情況下 `toPass` 的逾時為 0，且不會遵循自訂的 [expect 逾時](./test-timeouts.mdx#expect-timeout)。
 
 ## Add custom matchers using expect.extend
 
-You can extend Playwright assertions by providing custom matchers. These matchers will be available on the `expect` object.
+您可以透過提供自訂比對器來擴充 Playwright 斷言。這些比對器將在 `expect` 物件上可用。
 
-In this example we add a custom `toHaveAmount` function. Custom matcher should return a `pass` flag indicating whether the assertion passed, and a `message` callback that's used when the assertion fails.
+在此範例中，我們新增自訂的 `toHaveAmount` 函式。自訂比對器應傳回 `pass` 旗標，指示斷言是否通過，以及在斷言失敗時使用的 `message` 回呼。
 
 ```js title="fixtures.ts"
 import { expect as baseExpect } from '@playwright/test';

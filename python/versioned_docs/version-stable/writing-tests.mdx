@@ -54,17 +54,17 @@ def test_get_started_link(page: Page):
 
 ### Navigation
 
-Most of the tests will start with navigating page to the URL. After that, test will be able to interact with the page elements.
+大部分的測試會先導航到 URL。之後，測試能夠與頁面元素互動。
 
 ```python
 page.goto("https://playwright.dev/")
 ```
 
-Playwright will wait for page to reach the load state prior to moving forward. Learn more about the [page.goto()](/api/class-page.mdx#page-goto) options.
+Playwright 會等待頁面達到載入狀態後再繼續。了解更多關於 [page.goto()](/api/class-page.mdx#page-goto) 選項的資訊。
 
 ### Interactions
 
-Performing actions starts with locating the elements. Playwright uses [Locators API](./locators.mdx) for that. Locators represent a way to find element(s) on the page at any moment, learn more about the [different types](./locators.mdx) of locators available. Playwright will wait for the element to be [actionable](./actionability.mdx) prior to performing the action, so there is no need to wait for it to become available.
+執行動作始於定位元素。Playwright 使用[定位器 API](./locators.mdx) 來達成此目的。定位器代表在任何時刻尋找頁面上元素的方法，了解更多關於可用的[不同類型](./locators.mdx)定位器。Playwright 會在執行動作前等待元素變成[可動作](./actionability.mdx)狀態，因此不需要等待它變成可用狀態。
 
 ```python
 # Create a locator.
@@ -82,7 +82,7 @@ page.get_by_role("link", name="Get started").click()
 
 ### Basic actions
 
-This is the list of the most popular Playwright actions. Note that there are many more, so make sure to check the [Locator API](./api/class-locator.mdx) section to learn more about them.
+這是最受歡迎的 Playwright 動作清單。注意還有更多動作，請務必查看[定位器 API](./api/class-locator.mdx) 部分以了解更多。
 
 | Action | Description |
 | :- | :- |
@@ -124,7 +124,7 @@ Here is the list of the most popular async assertions. Note that there are [many
 
 ### Test isolation
 
-The Playwright Pytest plugin is based on the concept of test fixtures such as the [built in page fixture](./test-runners.mdx), which is passed into your test. Pages are [isolated between tests due to the Browser Context](./browser-contexts), which is equivalent to a brand new browser profile, where every test gets a fresh environment, even when multiple tests run in a single Browser.
+Playwright Pytest 外掛基於測試佈置的概念，例如傳遞給測試的[內建頁面佈置](./test-runners.mdx)。由於[瀏覽器情境](./browser-contexts)，頁面在測試之間是[隔離的](./browser-contexts)，這相當於全新的瀏覽器設定檔，每個測試都獲得新的環境，即使多個測試在單一瀏覽器中執行也是如此。
 
 ```python title="test_example.py"
 from playwright.sync_api import Page
@@ -140,7 +140,7 @@ def test_another_test(page: Page):
 
 ### Using fixtures
 
-You can use various [fixtures](https://docs.pytest.org/en/6.2.x/fixture.html#autouse-fixtures-fixtures-you-don-t-have-to-request) to execute code before or after your tests and to share objects between them. A `function` scoped fixture e.g. with autouse behaves like a beforeEach/afterEach. And a `module` scoped fixture with autouse behaves like a beforeAll/afterAll which runs before all and after all the tests.
+您可以使用各種[佈置](https://docs.pytest.org/en/6.2.x/fixture.html#autouse-fixtures-fixtures-you-don-t-have-to-request)在測試前後執行程式碼，並在測試之間共享物件。例如，具有自動使用功能的 `function` 範圍佈置表現得像 beforeEach/afterEach。而具有自動使用功能的 `module` 範圍佈置表現得像 beforeAll/afterAll，會在所有測試之前和之後執行。
 
 ```python title="test_example.py"
 import pytest
