@@ -1,6 +1,6 @@
 ---
 id: trace-viewer-intro
-title: "Trace viewer"
+title: "追蹤檢視器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,20 +9,20 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Introduction
+## 簡介
 
-Playwright Trace Viewer is a GUI tool that lets you explore recorded Playwright traces of your tests, meaning you can go back and forward through each action of your test and visually see what was happening during each action.
+Playwright 追蹤檢視器是一個 GUI 工具，讓您探索測試的已錄製 Playwright 追蹤，意即您可以在測試的每個動作之間前後移動，並視覺化查看每個動作期間發生的情況。
 
-**You will learn**
-- [How to record a trace](/trace-viewer-intro.mdx#recording-a-trace)
-- [How to open the HTML report](/trace-viewer-intro.mdx#opening-the-html-report)
-- [How to open and view the trace](/trace-viewer-intro.mdx#opening-the-trace)
+**您將學習**
+- [如何錄製追蹤](/trace-viewer-intro.mdx#recording-a-trace)
+- [如何開啟 HTML 報告](/trace-viewer-intro.mdx#opening-the-html-report)
+- [如何開啟和檢視追蹤](/trace-viewer-intro.mdx#opening-the-trace)
 
 <LiteYouTube id="yP6AnTxC34s" title="Viewing Playwright Traces" />
 
-## Recording a Trace
+## 錄製追蹤
 
-By default the [playwright.config](./trace-viewer.mdx#tracing-on-ci) file contains the configuration needed to create a `trace.zip` file for each test. Traces are setup to run `on-first-retry`, meaning they run on the first retry of a failed test. Also `retries` are set to 2 when running on CI and 0 locally. This means the traces are recorded on the first retry of a failed test but not on the first run and not on the second retry.
+預設情況下，[playwright.config](./trace-viewer.mdx#tracing-on-ci) 檔案包含為每個測試建立 `trace.zip` 檔案所需的組態。追蹤設定為在 `on-first-retry` 執行，意即它們在失敗測試的第一次重試時執行。此外，在 CI 上執行時 `retries` 設定為 2，本機則為 0。這意味著追蹤在失敗測試的第一次重試時錄製，但不在第一次執行時錄製，也不在第二次重試時錄製。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -35,17 +35,17 @@ export default defineConfig({
 });
 ```
 
-To learn more about available options to record a trace check out our detailed guide on [Trace Viewer](/trace-viewer.mdx).
+要了解更多錄製追蹤的可用選項，請查看我們的[追蹤檢視器](/trace-viewer.mdx)詳細指南。
 
-Traces are normally run in a Continuous Integration (CI) environment, because locally you can use [UI Mode](/test-ui-mode.mdx) for developing and debugging tests. However, if you want to run traces locally without using [UI Mode](/test-ui-mode.mdx), you can force tracing to be on with `--trace on`.
+追蹤通常在持續整合 (CI) 環境中執行，因為在本機您可以使用 [UI 模式](/test-ui-mode.mdx)來開發和偵錯測試。但是，如果您想在本機執行追蹤而不使用 [UI 模式](/test-ui-mode.mdx)，您可以使用 `--trace on` 強制開啟追蹤。
 
 ```bash
 npx playwright test --trace on
 ```
 
-## Opening the HTML report
+## 開啟 HTML 報告
 
-The HTML report shows you a report of all your tests that have been run and on which browsers as well as how long they took. Tests can be filtered by passed tests, failed, flaky, or skipped tests. You can also search for a particular test. Clicking on a test opens the detailed view where you can see more information on your tests such as the errors, the test steps, and the trace.
+HTML 報告顯示所有已執行測試的報告，包括在哪些瀏覽器上執行以及執行時間。測試可以依通過、失敗、不穩定或跳過的測試進行篩選。您也可以搜尋特定測試。點擊測試會開啟詳細檢視，您可以在其中查看測試的更多資訊，如錯誤、測試步驟和追蹤。
 
 ```bash
 npx playwright show-report
