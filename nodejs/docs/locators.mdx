@@ -48,17 +48,17 @@ Playwright 提供多種內建定位器。為了讓測試更具彈性，我們建
 ```
 </HTMLCard>
 
-Locate the element by its role of `button` with name "Sign in".
+透過名稱為 "Sign in" 的 `button` 角色定位元素。
 
 ```js
 await page.getByRole('button', { name: 'Sign in' }).click();
 ```
 
 :::note
-Use the [code generator](./codegen.mdx) to generate a locator, and then edit it as you'd like.
+使用[程式碼產生器](./codegen.mdx)產生定位器，然後依需要進行編輯。
 :::
 
-Every time a locator is used for an action, an up-to-date DOM element is located in the page. In the snippet below, the underlying DOM element will be located twice, once prior to every action. This means that if the DOM changes in between the calls due to re-render, the new element corresponding to the locator will be used.
+每次使用定位器執行動作時，都會在頁面中定位到最新的 DOM 元素。在下面的程式碼片段中，底層的 DOM 元素會被定位兩次，每個動作之前各一次。這意味著如果 DOM 因為重新渲染而在呼叫之間發生改變，將會使用對應定位器的新元素。
 
 ```js
 const locator = page.getByRole('button', { name: 'Sign in' });
@@ -67,7 +67,7 @@ await locator.hover();
 await locator.click();
 ```
 
-Note that all methods that create a locator, such as [page.getByLabel()](/api/class-page.mdx#page-get-by-label), are also available on the [Locator] and [FrameLocator] classes, so you can chain them and iteratively narrow down your locator.
+請注意，所有建立定位器的方法，如 [page.getByLabel()](/api/class-page.mdx#page-get-by-label)，也可在 [Locator] 和 [FrameLocator] 類別上使用，因此您可以鏈接它們並反覆縮小定位器範圍。
 
 ```js
 const locator = page
@@ -77,11 +77,11 @@ const locator = page
 await locator.click();
 ```
 
-### Locate by role
+### 透過角色定位
 
-The [page.getByRole()](/api/class-page.mdx#page-get-by-role) locator reflects how users and assistive technology perceive the page, for example whether some element is a button or a checkbox. When locating by role, you should usually pass the accessible name as well, so that the locator pinpoints the exact element.
+[page.getByRole()](/api/class-page.mdx#page-get-by-role) 定位器反映使用者和輔助技術如何認知頁面，例如某個元素是按鈕還是核取方塊。透過角色定位時，通常也應該傳遞可存取名稱，以便定位器精確指向特定元素。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構。
 
 <HTMLCard>
 <div>
@@ -103,7 +103,7 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can locate each element by its implicit role:
+您可以透過隱含角色定位每個元素：
 
 ```js
 await expect(page.getByRole('heading', { name: 'Sign up' })).toBeVisible();
@@ -113,20 +113,20 @@ await page.getByRole('checkbox', { name: 'Subscribe' }).check();
 await page.getByRole('button', { name: /submit/i }).click();
 ```
 
-Role locators include [buttons, checkboxes, headings, links, lists, tables, and many more](https://www.w3.org/TR/html-aria/#docconformance) and follow W3C specifications for [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name). Note that many html elements like `<button>` have an [implicitly defined role](https://w3c.github.io/html-aam/#html-element-role-mappings) that is recognized by the role locator.
+角色定位器包括[按鈕、核取方塊、標題、連結、清單、表格等等](https://www.w3.org/TR/html-aria/#docconformance)，並遵循 [ARIA 角色](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA 屬性](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes)和[可存取名稱](https://w3c.github.io/accname/#dfn-accessible-name)的 W3C 規範。請注意，許多 HTML 元素如 `<button>` 都有[隱含定義的角色](https://w3c.github.io/html-aam/#html-element-role-mappings)，可被角色定位器識別。
 
-Note that role locators **do not replace** accessibility audits and conformance tests, but rather give early feedback about the ARIA guidelines.
+請注意，角色定位器**不能取代**無障礙稽核和符合性測試，而是提供關於 ARIA 指引的早期回饋。
 
-:::note[When to use role locators]
+:::note[何時使用角色定位器]
 
-We recommend prioritizing role locators to locate elements, as it is the closest way to how users and assistive technology perceive the page.
+我們建議優先使用角色定位器來定位元素，因為這是最接近使用者和輔助技術感知頁面的方式。
 :::
 
-### Locate by label
+### 透過標籤定位
 
-Most form controls usually have dedicated labels that could be conveniently used to interact with the form. In this case, you can locate the control by its associated label using [page.getByLabel()](/api/class-page.mdx#page-get-by-label).
+大多數表單控制項通常都有專用標籤，可以方便地用來與表單互動。在這種情況下，您可以使用 [page.getByLabel()](/api/class-page.mdx#page-get-by-label) 透過其關聯標籤定位控制項。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構。
 
 <HTMLCard>
 <div>
@@ -140,21 +140,21 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can fill the input after locating it by the label text:
+您可以透過標籤文字定位輸入欄位後填入：
 
 ```js
 await page.getByLabel('Password').fill('secret');
 ```
 
-:::note[When to use label locators]
-Use this locator when locating form fields.
+:::note[何時使用標籤定位器]
+在定位表單欄位時使用此定位器。
 :::
 
-### Locate by placeholder
+### 透過預留位置定位
 
-Inputs may have a placeholder attribute to hint to the user what value should be entered. You can locate such an input using [page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder).
+輸入欄位可能有預留位置屬性來提示使用者應該輸入什麼值。您可以使用 [page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder) 定位這類輸入欄位。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構。
 
 <HTMLCard>
 <div>
@@ -166,7 +166,7 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can fill the input after locating it by the placeholder text:
+您可以透過預留位置文字定位輸入欄位後填入：
 
 ```js
 await page
@@ -174,15 +174,15 @@ await page
     .fill('playwright@microsoft.com');
 ```
 
-:::note[When to use placeholder locators]
-Use this locator when locating form elements that do not have labels but do have placeholder texts.
+:::note[何時使用預留位置定位器]
+在定位沒有標籤但有預留位置文字的表單元素時使用此定位器。
 :::
 
-### Locate by text
+### 透過文字定位
 
-Find an element by the text it contains. You can match by a substring, exact string, or a regular expression when using [page.getByText()](/api/class-page.mdx#page-get-by-text).
+透過元素包含的文字尋找元素。使用 [page.getByText()](/api/class-page.mdx#page-get-by-text) 時，您可以透過子字串、完全字串或正規表示式進行配對。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構。
 
 <HTMLCard>
 <div>
@@ -194,39 +194,39 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can locate the element by the text it contains:
+您可以透過元素包含的文字定位元素：
 
 ```js
 await expect(page.getByText('Welcome, John')).toBeVisible();
 ```
 
-Set an exact match:
+設定完全配對：
 
 ```js
 await expect(page.getByText('Welcome, John', { exact: true })).toBeVisible();
 ```
 
-Match with a regular expression:
+使用正規表示式配對：
 
 ```js
 await expect(page.getByText(/welcome, [A-Za-z]+$/i)).toBeVisible();
 ```
 
 :::note
-Matching by text always normalizes whitespace, even with exact match. For example, it turns multiple spaces into one, turns line breaks into spaces and ignores leading and trailing whitespace.
+透過文字配對始終會正規化空白字元，即使在完全配對的情況下也是如此。例如，它會將多個空格轉換為一個，將換行符轉換為空格，並忽略前導和後置空白字元。
 :::
 
-:::note[When to use text locators]
-We recommend using text locators to find non interactive elements like `div`, `span`, `p`, etc. For interactive elements like `button`, `a`, `input`, etc. use [role locators](#locate-by-role).
+:::note[何時使用文字定位器]
+我們建議使用文字定位器來尋找非互動元素，如 `div`、`span`、`p` 等。對於互動元素如 `button`、`a`、`input` 等，請使用[角色定位器](#locate-by-role)。
 :::
 
-You can also [filter by text](#filter-by-text) which can be useful when trying to find a particular item in a list.
+您也可以[透過文字篩選](#filter-by-text)，這在嘗試在清單中尋找特定項目時很有用。
 
-### Locate by alt text
+### 透過替代文字定位
 
-All images should have an `alt` attribute that describes the image. You can locate an image based on the text alternative using [page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text).
+所有圖片都應該有描述圖片的 `alt` 屬性。您可以使用 [page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text) 根據文字替代內容定位圖片。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構。
 
 <HTMLCard>
 <div>
@@ -238,21 +238,21 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can click on the image after locating it by the text alternative:
+您可以透過文字替代內容定位圖片後點擊：
 
 ```js
 await page.getByAltText('playwright logo').click();
 ```
 
-:::note[When to use alt locators]
-Use this locator when your element supports alt text such as `img` and `area` elements.
+:::note[何時使用替代文字定位器]
+當您的元素支援替代文字（如 `img` 和 `area` 元素）時使用此定位器。
 :::
 
-### Locate by title
+### 透過標題定位
 
-Locate an element with a matching title attribute using [page.getByTitle()](/api/class-page.mdx#page-get-by-title).
+使用 [page.getByTitle()](/api/class-page.mdx#page-get-by-title) 定位具有配對標題屬性的元素。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構。
 
 <HTMLCard>
 <div>
@@ -264,21 +264,21 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can check the issues count after locating it by the title text:
+您可以透過標題文字定位後檢查問題計數：
 
 ```js
 await expect(page.getByTitle('Issues count')).toHaveText('25 issues');
 ```
 
-:::note[When to use title locators]
-Use this locator when your element has the `title` attribute.
+:::note[何時使用標題定位器]
+當您的元素有 `title` 屬性時使用此定位器。
 :::
 
-### Locate by test id
+### 透過測試 ID 定位
 
-Testing by test ids is the most resilient way of testing as even if your text or role of the attribute changes, the test will still pass. QA's and developers should define explicit test ids and query them with [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id). However testing by test ids is not user facing. If the role or text value is important to you then consider using user facing locators such as [role](#locate-by-role) and [text locators](#locate-by-text).
+透過測試 ID 進行測試是最穩固的測試方式，因為即使文字或屬性的角色改變，測試仍會通過。QA 和開發人員應該定義明確的測試 ID，並使用 [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 查詢它們。然而，透過測試 ID 測試不是面向使用者的。如果角色或文字值對您很重要，那麼考慮使用面向使用者的定位器，如[角色](#locate-by-role)和[文字定位器](#locate-by-text)。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構。
 
 <HTMLCard>
 <div>
@@ -290,21 +290,21 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can locate the element by its test id:
+您可以透過測試 ID 定位元素：
 
 ```js
 await page.getByTestId('directions').click();
 ```
 
-:::note[When to use testid locators]
-You can also use test ids when you choose to use the test id methodology or when you can't locate by [role](#locate-by-role) or [text](#locate-by-text).
+:::note[何時使用測試 ID 定位器]
+當您選擇使用測試 ID 方法論或無法透過[角色](#locate-by-role)或[文字](#locate-by-text)定位時，您也可以使用測試 ID。
 :::
 
-#### Set a custom test id attribute
+#### 設定自訂測試 ID 屬性
 
-By default, [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) will locate elements based on the `data-testid` attribute, but you can configure it in your test config or by calling [selectors.setTestIdAttribute()](/api/class-selectors.mdx#selectors-set-test-id-attribute).
+預設情況下，[page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 將根據 `data-testid` 屬性定位元素，但您可以在測試組態中設定或透過呼叫 [selectors.setTestIdAttribute()](/api/class-selectors.mdx#selectors-set-test-id-attribute) 進行設定。
 
-Set the test id to use a custom data attribute for your tests.
+設定測試 ID 為您的測試使用自訂資料屬性。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -316,7 +316,7 @@ export default defineConfig({
 });
 ```
 
-In your html you can now use `data-pw` as your test id instead of the default `data-testid`.
+在您的 HTML 中，您現在可以使用 `data-pw` 作為測試 ID，而不是預設的 `data-testid`。
 
 <HTMLCard>
 <div>
