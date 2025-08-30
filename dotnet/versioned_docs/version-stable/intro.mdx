@@ -1,18 +1,18 @@
 ---
 id: intro
-title: "Installation"
+title: "安裝"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation.
+Playwright 專為滿足端對端測試需求而建立。Playwright 支援所有現代渲染引擎，包括 Chromium、WebKit 和 Firefox。在 Windows、Linux 和 macOS 上測試，無論是本機或在 CI 上，支援無頭或有頭模式，並提供原生行動裝置模擬。
 
-You can choose to use MSTest, NUnit, or xUnit [base classes](./test-runners.mdx) that Playwright provides to write end-to-end tests. These classes support running tests on multiple browser engines, parallelizing tests, adjusting launch/context options and getting a [Page]/[BrowserContext] instance per test out of the box. Alternatively you can use the [library](./library.mdx) to manually write the testing infrastructure.
-1. Start by creating a new project with `dotnet new`. This will create the `PlaywrightTests` directory which includes a `UnitTest1.cs` file:
+您可以選擇使用 Playwright 提供的 MSTest、NUnit 或 xUnit [基底類別](./test-runners.mdx)來撰寫端對端測試。這些類別支援在多個瀏覽器引擎上執行測試、平行處理測試、調整啟動/情境選項，並立即取得每個測試的 [Page]/[BrowserContext] 執行個體。或者，您可以使用[程式庫](./library.mdx)手動撰寫測試基礎架構。
+1. 首先使用 `dotnet new` 建立新專案。這會建立包含 `UnitTest1.cs` 檔案的 `PlaywrightTests` 目錄：
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, {label: 'xUnit', value: 'xunit'}, {label: 'xUnit v3', value: 'xunit-v3'}, ] }>
 
@@ -54,7 +54,7 @@ cd PlaywrightTests
 
 </Tabs>
 
-2. Install the necessary Playwright dependencies:
+2. 安裝必要的 Playwright 相依套件：
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, {label: 'xUnit', value: 'xunit'}, {label: 'xUnit v3', value: 'xunit-v3'}, ] }>
 
@@ -92,23 +92,23 @@ dotnet add package Microsoft.Playwright.Xunit.v3
 
 </Tabs>
 
-3. Build the project so the `playwright.ps1` is available inside the `bin` directory:
+3. 建置專案，使 `playwright.ps1` 在 `bin` 目錄中可用：
 
 ```bash
 dotnet build
 ```
 
-1. Install required browsers. This example uses `net8.0`, if you are using a different version of .NET you will need to adjust the command and change `net8.0` to your version.
+4. 安裝所需的瀏覽器。此範例使用 `net8.0`，如果您使用不同版本的 .NET，您需要調整指令並將 `net8.0` 變更為您的版本。
 
 ```bash
 pwsh bin/Debug/net8.0/playwright.ps1 install
 ```
 
-If `pwsh` is not available, you will have to [install PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+如果 `pwsh` 不可用，您需要[安裝 PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)。
 
-## Add Example Tests
+## 新增範例測試
 
-Edit the `UnitTest1.cs` file with the code below to create an example end-to-end test:
+使用下列程式碼編輯 `UnitTest1.cs` 檔案，以建立範例端對端測試：
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, {label: 'xUnit', value: 'xunit'}, {label: 'xUnit v3', value: 'xunit-v3'}, ] }>
 
@@ -132,7 +132,7 @@ public class ExampleTest : PageTest
     {
         await Page.GotoAsync("https://playwright.dev");
 
-        // Expect a title "to contain" a substring.
+        // 期望標題「包含」子字串。
         await Expect(Page).ToHaveTitleAsync(new Regex("Playwright"));
     }
 
@@ -141,10 +141,10 @@ public class ExampleTest : PageTest
     {
         await Page.GotoAsync("https://playwright.dev");
 
-        // Click the get started link.
+        // 點擊開始使用連結。
         await Page.GetByRole(AriaRole.Link, new() { Name = "Get started" }).ClickAsync();
 
-        // Expects page to have a heading with the name of Installation.
+        // 期望頁面有名為 Installation 的標題。
         await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Installation" })).ToBeVisibleAsync();
     } 
 }
@@ -169,7 +169,7 @@ public class ExampleTest : PageTest
     {
         await Page.GotoAsync("https://playwright.dev");
 
-        // Expect a title "to contain" a substring.
+        // 期望標題「包含」子字串。
         await Expect(Page).ToHaveTitleAsync(new Regex("Playwright"));
     }
 
@@ -178,10 +178,10 @@ public class ExampleTest : PageTest
     {
         await Page.GotoAsync("https://playwright.dev");
 
-        // Click the get started link.
+        // 點擊開始使用連結。
         await Page.GetByRole(AriaRole.Link, new() { Name = "Get started" }).ClickAsync();
 
-        // Expects page to have a heading with the name of Installation.
+        // 期望頁面有名為 Installation 的標題。
         await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Installation" })).ToBeVisibleAsync();
     } 
 }
@@ -205,7 +205,7 @@ public class UnitTest1: PageTest
     {
         await Page.GotoAsync("https://playwright.dev");
 
-        // Expect a title "to contain" a substring.
+        // 期望標題「包含」子字串。
         await Expect(Page).ToHaveTitleAsync(new Regex("Playwright"));
     }
 
@@ -214,10 +214,10 @@ public class UnitTest1: PageTest
     {
         await Page.GotoAsync("https://playwright.dev");
 
-        // Click the get started link.
+        // 點擊開始使用連結。
         await Page.GetByRole(AriaRole.Link, new() { Name = "Get started" }).ClickAsync();
 
-        // Expects page to have a heading with the name of Installation.
+        // 期望頁面有名為 Installation 的標題。
         await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Installation" })).ToBeVisibleAsync();
     } 
 }
@@ -241,7 +241,7 @@ public class UnitTest1: PageTest
     {
         await Page.GotoAsync("https://playwright.dev");
 
-        // Expect a title "to contain" a substring.
+        // 期望標題「包含」子字串。
         await Expect(Page).ToHaveTitleAsync(new Regex("Playwright"));
     }
 
@@ -250,10 +250,10 @@ public class UnitTest1: PageTest
     {
         await Page.GotoAsync("https://playwright.dev");
 
-        // Click the get started link.
+        // 點擊開始使用連結。
         await Page.GetByRole(AriaRole.Link, new() { Name = "Get started" }).ClickAsync();
 
-        // Expects page to have a heading with the name of Installation.
+        // 期望頁面有名為 Installation 的標題。
         await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Installation" })).ToBeVisibleAsync();
     } 
 }
@@ -263,29 +263,29 @@ public class UnitTest1: PageTest
 
 </Tabs>
 
-## Running the Example Tests
+## 執行範例測試
 
-By default tests will be run on Chromium. This can be configured via the `BROWSER` environment variable, or by adjusting the [launch configuration options](./running-tests.mdx). Tests are run in headless mode meaning no browser will open up when running the tests. Results of the tests and test logs will be shown in the terminal.
+預設情況下，測試會在 Chromium 上執行。您可以透過 `BROWSER` 環境變數或調整[啟動組態選項](./running-tests.mdx)來設定此行為。測試以無頭模式執行，這意味著執行測試時不會開啟瀏覽器。測試結果和測試記錄將顯示在終端機中。
 
 ```bash
 dotnet test
 ```
 
-See our doc on [Running and Debugging Tests](./running-tests.mdx) to learn more about running tests in headed mode, running multiple tests, running specific configurations etc.
+請參閱我們的[執行和偵錯測試](./running-tests.mdx)文件，了解更多關於在有頭模式下執行測試、執行多個測試、執行特定組態等。
 
-## System requirements
-- Playwright is distributed as a .NET Standard 2.0 library. We recommend .NET 8.
-- Windows 10+, Windows Server 2016+ or Windows Subsystem for Linux (WSL).
-- macOS 14 Ventura, or later.
-- Debian 12, Debian 13, Ubuntu 22.04, Ubuntu 24.04, on x86-64 and arm64 architecture.
+## 系統需求
+- Playwright 以 .NET Standard 2.0 程式庫分發。我們建議使用 .NET 8。
+- Windows 11+、Windows Server 2019+ 或適用於 Linux 的 Windows 子系統（WSL）。
+- macOS 14 Ventura 或更新版本。
+- Debian 12、Debian 13、Ubuntu 22.04、Ubuntu 24.04，在 x86-64 和 arm64 架構上。
 
-## What's next
-- [Write tests using web first assertions, page fixtures and locators](./writing-tests.mdx)
-- [Run single test, multiple tests, headed mode](./running-tests.mdx)
-- [Generate tests with Codegen](./codegen-intro.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
-- [Run tests on CI](./ci-intro.mdx)
-- [Learn more about the MSTest, NUnit, xUnit and xUnit v3 base classes](./test-runners.mdx)
+## 下一步
+- [使用 Web 優先斷言、頁面佈置和定位器撰寫測試](./writing-tests.mdx)
+- [執行單一測試、多個測試、有頭模式](./running-tests.mdx)
+- [使用 Codegen 產生測試](./codegen-intro.mdx)
+- [查看您測試的追蹤](./trace-viewer-intro.mdx)
+- [在 CI 上執行測試](./ci-intro.mdx)
+- [了解更多關於 MSTest、NUnit、xUnit 和 xUnit v3 基底類別](./test-runners.mdx)
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"
