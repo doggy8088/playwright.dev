@@ -37,16 +37,16 @@ from playwright.sync_api import Page, expect
 def test_has_title(page: Page):
     page.goto("https://playwright.dev/")
 
-    # Expect a title "to contain" a substring.
+    # 期望標題「包含」子字串。
     expect(page).to_have_title(re.compile("Playwright"))
 
 def test_get_started_link(page: Page):
     page.goto("https://playwright.dev/")
 
-    # Click the get started link.
+    # 點擊開始使用連結。
     page.get_by_role("link", name="Get started").click()
 
-    # Expects page to have a heading with the name of Installation.
+    # 期望頁面有名為 Installation 的標題。
     expect(page.get_by_role("heading", name="Installation")).to_be_visible()
 ```
 
@@ -74,7 +74,7 @@ get_started = page.get_by_role("link", name="Get started")
 get_started.click()
 ```
 
-In most cases, it'll be written in one line:
+在大多數情況下，它會被寫成一行：
 
 ```python
 page.get_by_role("link", name="Get started").click()
@@ -86,15 +86,15 @@ page.get_by_role("link", name="Get started").click()
 
 | Action | Description |
 | :- | :- |
-| [locator.check()](/api/class-locator.mdx#locator-check) | Check the input checkbox |
-| [locator.click()](/api/class-locator.mdx#locator-click) | Click the element |
-| [locator.uncheck()](/api/class-locator.mdx#locator-uncheck) | Uncheck the input checkbox |
-| [locator.hover()](/api/class-locator.mdx#locator-hover) | Hover mouse over the element |
-| [locator.fill()](/api/class-locator.mdx#locator-fill) | Fill the form field, input text |
-| [locator.focus()](/api/class-locator.mdx#locator-focus) | Focus the element |
-| [locator.press()](/api/class-locator.mdx#locator-press) | Press single key |
-| [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) | Pick files to upload |
-| [locator.select_option()](/api/class-locator.mdx#locator-select-option) | Select option in the drop down |
+| [locator.check()](/api/class-locator.mdx#locator-check) | 勾選輸入核取方塊 |
+| [locator.click()](/api/class-locator.mdx#locator-click) | 點擊元素 |
+| [locator.uncheck()](/api/class-locator.mdx#locator-uncheck) | 取消勾選輸入核取方塊 |
+| [locator.hover()](/api/class-locator.mdx#locator-hover) | 將滑鼠懸停在元素上 |
+| [locator.fill()](/api/class-locator.mdx#locator-fill) | 填寫表單欄位、輸入文字 |
+| [locator.focus()](/api/class-locator.mdx#locator-focus) | 聚焦元素 |
+| [locator.press()](/api/class-locator.mdx#locator-press) | 按下單一按鍵 |
+| [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) | 選擇要上傳的檔案 |
+| [locator.select_option()](/api/class-locator.mdx#locator-select-option) | 在下拉式選單中選擇選項 |
 
 ## Assertions
 
@@ -162,10 +162,10 @@ def test_main_navigation(page: Page):
     expect(page).to_have_url("https://playwright.dev/")
 ```
 
-## What's next
-- [Run single test, multiple tests, headed mode](./running-tests.mdx)
-- [Generate tests with Codegen](./codegen-intro.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
+## 接下來做什麼
+- [執行單一測試、多個測試、有頭模式](./running-tests.mdx)
+- [使用 Codegen 產生測試](./codegen-intro.mdx)
+- [查看測試的追蹤](./trace-viewer-intro.mdx)
 - [在 CI 上使用 GitHub Actions 執行測試](./ci-intro.mdx)
 
 

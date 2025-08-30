@@ -185,7 +185,7 @@ expect.soft(value, 'my soft assertion').toBe(56);
 const slowExpect = expect.configure({ timeout: 10000 });
 await slowExpected(locator).toHaveText('Submit');
 
-// Always do soft assertions.
+// 始終使用軟斷言。
 const softExpect = expect.configure({ soft: true });
 await softExpect(locator).toHaveText('Submit');
 ```
