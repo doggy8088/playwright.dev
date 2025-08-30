@@ -40,7 +40,7 @@ test('get started link', async ({ page }) => {
   // Click the get started link.
   await page.getByRole('link', { name: 'Get started' }).click();
 
-  // Expects page to have a heading with the name of Installation.
+  // 期望頁面有名為 Installation 的標題。
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
 ```
@@ -136,11 +136,11 @@ Playwright Test 基於[測試固件](./test-fixtures.mdx)的概念，如[內建�
 import { test } from '@playwright/test';
 
 test('example test', async ({ page }) => {
-  // "page" belongs to an isolated BrowserContext, created for this specific test.
+  // "page" 屬於一個隔離的 BrowserContext，專為此特定測試建立。
 });
 
 test('another test', async ({ page }) => {
-  // "page" in this second test is completely isolated from the first test.
+  // 第二個測試中的 "page" 與第一個測試完全隔離。
 });
 ```
 
@@ -153,7 +153,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('navigation', () => {
   test.beforeEach(async ({ page }) => {
-    // Go to the starting url before each test.
+    // 在每個測試之前前往起始 URL。
     await page.goto('https://playwright.dev/');
   });
 

@@ -115,11 +115,11 @@ await expect(locator).not.toContainText('some text');
 預設情況下，失敗的斷言會終止測試執行。Playwright 也支援*軟斷言*：失敗的軟斷言**不會**終止測試執行，但會將測試標記為失敗。
 
 ```js
-// Make a few checks that will not stop the test when failed...
+// 進行一些檢查，失敗時不會停止測試...
 await expect.soft(page.getByTestId('status')).toHaveText('Success');
 await expect.soft(page.getByTestId('eta')).toHaveText('1 day');
 
-// ... and continue the test to check more things.
+// ...並繼續測試以檢查更多內容。
 await page.getByRole('link', { name: 'next page' }).click();
 await expect.soft(page.getByRole('heading', { name: 'Make another order' })).toBeVisible();
 ```
@@ -127,11 +127,11 @@ await expect.soft(page.getByRole('heading', { name: 'Make another order' })).toB
 在測試執行期間的任何時候，您可以檢查是否有任何軟斷言失敗：
 
 ```js
-// Make a few checks that will not stop the test when failed...
+// 進行一些檢查，失敗時不會停止測試...
 await expect.soft(page.getByTestId('status')).toHaveText('Success');
 await expect.soft(page.getByTestId('eta')).toHaveText('1 day');
 
-// Avoid running further if there were soft assertion failures.
+// 如果有軟斷言失敗，避免繼續執行。
 expect(test.info().errors).toHaveLength(0);
 ```
 
@@ -203,7 +203,7 @@ await expect.poll(async () => {
 }, {
   // Custom expect message for reporting, optional.
   message: 'make sure API eventually succeeds',
-  // Poll for 10 seconds; defaults to 5 seconds. Pass 0 to disable timeout.
+  // 輪詢 10 秒；預設為 5 秒。傳遞 0 以停用逾時。
   timeout: 10000,
 }).toBe(200);
 ```

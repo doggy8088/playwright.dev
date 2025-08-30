@@ -144,7 +144,7 @@ public class ExampleTest : PageTest
         // Click the get started link.
         await Page.GetByRole(AriaRole.Link, new() { Name = "Get started" }).ClickAsync();
 
-        // Expects page to have a heading with the name of Installation.
+        // 期望頁面有名為 Installation 的標題。
         await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Installation" })).ToBeVisibleAsync();
     } 
 }
@@ -181,7 +181,7 @@ public class ExampleTest : PageTest
         // Click the get started link.
         await Page.GetByRole(AriaRole.Link, new() { Name = "Get started" }).ClickAsync();
 
-        // Expects page to have a heading with the name of Installation.
+        // 期望頁面有名為 Installation 的標題。
         await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Installation" })).ToBeVisibleAsync();
     } 
 }
@@ -217,7 +217,7 @@ public class UnitTest1: PageTest
         // Click the get started link.
         await Page.GetByRole(AriaRole.Link, new() { Name = "Get started" }).ClickAsync();
 
-        // Expects page to have a heading with the name of Installation.
+        // 期望頁面有名為 Installation 的標題。
         await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Installation" })).ToBeVisibleAsync();
     } 
 }
@@ -253,7 +253,7 @@ public class UnitTest1: PageTest
         // Click the get started link.
         await Page.GetByRole(AriaRole.Link, new() { Name = "Get started" }).ClickAsync();
 
-        // Expects page to have a heading with the name of Installation.
+        // 期望頁面有名為 Installation 的標題。
         await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Installation" })).ToBeVisibleAsync();
     } 
 }

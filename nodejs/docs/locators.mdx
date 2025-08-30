@@ -328,7 +328,7 @@ export default defineConfig({
 ```
 </HTMLCard>
 
-And then locate the element as you would normally do:
+然後像正常情況一樣定位元素：
 
 ```js
 await page.getByTestId('directions').click();
@@ -346,7 +346,7 @@ await page.locator('button').click();
 await page.locator('//button').click();
 ```
 
-XPath and CSS selectors can be tied to the DOM structure or implementation. These selectors can break when the DOM structure changes. Long CSS or XPath chains below are an example of a **bad practice** that leads to unstable tests:
+XPath 和 CSS 選擇器可能與 DOM 結構或實作緊密相關。當 DOM 結構改變時，這些選擇器可能會失效。下面的長 CSS 或 XPath 鏈是導致不穩定測試的**不良實踐**範例：
 
 ```js
 await page.locator(
@@ -362,11 +362,11 @@ await page
 不建議使用 CSS 和 XPath，因為 DOM 經常變更可能導致測試不穩定。相反地，請嘗試想出更接近使用者感知頁面方式的定位器，例如[角色定位器](#locate-by-role)或使用測試 ID [定義明確的測試契約](#locate-by-test-id)。
 :::
 
-## Locate in Shadow DOM
+## 在 Shadow DOM 中定位
 
-All locators in Playwright **by default** work with elements in Shadow DOM. The exceptions are:
-- Locating by XPath does not pierce shadow roots.
-- [Closed-mode shadow roots](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#parameters) are not supported.
+Playwright 中的所有定位器**預設**都能與 Shadow DOM 中的元素一起使用。例外情況如下：
+- 使用 XPath 定位不會穿透 shadow root。
+- 不支援 [Closed-mode shadow roots](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#parameters)。
 
 考慮以下自訂網頁元件的範例：
 
@@ -408,7 +408,7 @@ await page.locator('x-details', { hasText: 'Details' }).click();
 </x-details>
 ```
 
-To ensure that `<x-details>` contains the text "Details":
+要確保 `<x-details>` 包含文字 "Details"：
 
 ```js
 await expect(page.locator('x-details')).toContainText('Details');
@@ -616,13 +616,13 @@ await newEmail.click();
 <button>Visible</button>
 ```
 
-* This will find both buttons and throw a [strictness](./locators.mdx#strictness) violation error:
+* 這會找到兩個按鈕並拋出[嚴格性](./locators.mdx#strictness)違規錯誤：
   
   ```js
   await page.locator('button').click();
   ```
   
-* This will only find a second button, because it is visible, and then click it.
+* 這只會找到第二個按鈕，因為它是可見的，然後點擊它。
   
   ```js
   await page.locator('button').filter({ visible: true }).click();
@@ -634,7 +634,7 @@ await newEmail.click();
 
 您可以對定位器進行斷言來計算清單中的項目數量。
 
-For example, consider the following DOM structure:
+例如，請考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -664,7 +664,7 @@ await expect(page.getByRole('listitem')).toHaveCount(3);
 
 您可以對定位器進行斷言來尋找清單中的所有文字。
 
-For example, consider the following DOM structure:
+例如，請考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -700,7 +700,7 @@ await expect(page
 
 使用 [page.getByText()](/api/class-page.mdx#page-get-by-text) 方法透過文字內容在清單中定位元素，然後點擊它。
 
-For example, consider the following DOM structure:
+例如，請考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -730,7 +730,7 @@ await page.getByText('orange').click();
 
 使用 [locator.filter()](/api/class-locator.mdx#locator-filter) 定位清單中的特定項目。
 
-For example, consider the following DOM structure:
+例如，請考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -763,7 +763,7 @@ await page
 
 使用 [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 方法定位清單中的元素。如果您還沒有測試 ID，可能需要修改 HTML 並加入測試 ID。
 
-For example, consider the following DOM structure:
+例如，請考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -803,7 +803,7 @@ const banana = await page.getByRole('listitem').nth(1);
 
 當您有具有各種相似性的元素時，可以使用 [locator.filter()](/api/class-locator.mdx#locator-filter) 方法選擇正確的元素。您也可以鏈接多個篩選器以縮小選擇範圍。
 
-For example, consider the following DOM structure:
+例如，請考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -849,7 +849,7 @@ For example, consider the following DOM structure:
 ```
 </HTMLCard>
 
-To take a screenshot of the row with "Mary" and "Say goodbye":
+要截取含有 "Mary" 和 "Say goodbye" 的列的螢幕截圖：
 
 ```js
 const rowLocator = page.getByRole('listitem');
@@ -862,18 +862,18 @@ await rowLocator
 
 現在您的專案根目錄中應該有一個 "screenshot.png" 檔案。
 
-### Rare use cases
+### 罕見使用案例
 
-#### Do something with each element in the list
+#### 對清單中的每個元素執行某個操作
 
-Iterate elements:
+迭代元素：
 
 ```js
 for (const row of await page.getByRole('listitem').all())
   console.log(await row.textContent());
 ```
 
-Iterate using regular for loop:
+使用一般 for 迴圈迭代：
 
 ```js
 const rows = page.getByRole('listitem');
@@ -882,7 +882,7 @@ for (let i = 0; i < count; ++i)
   console.log(await rows.nth(i).textContent());
 ```
 
-#### Evaluate in the page
+#### 在頁面中執行評估
 
 [locator.evaluateAll()](/api/class-locator.mdx#locator-evaluate-all) 內的程式碼在頁面中執行，您可以在那裡呼叫任何 DOM API。
 
