@@ -51,15 +51,15 @@ conda install pytest-playwright
 
 </Tabs>
 
-Install the required browsers:
+安裝所需的瀏覽器：
 
 ```bash
 playwright install
 ```
 
-## Add Example Test
+## 新增範例測試
 
-Create a file that follows the `test_` prefix convention, such as `test_example.py`, inside the current working directory or in a sub-directory with the code below. Make sure your test name also follows the `test_` prefix convention.
+在當前工作目錄或子目錄中建立一個遵循 `test_` 字首慣例的檔案，例如 `test_example.py`，並使用下列程式碼。請確保您的測試名稱也遵循 `test_` 字首慣例。
 
 ```py title="test_example.py"
 import re
@@ -81,33 +81,33 @@ def test_get_started_link(page: Page):
     expect(page.get_by_role("heading", name="Installation")).to_be_visible()
 ```
 
-## Running the Example Test
+## 執行範例測試
 
-By default tests will be run on chromium. This can be configured via the [CLI options](./running-tests.mdx). Tests are run in headless mode meaning no browser UI will open up when running the tests. Results of the tests and test logs will be shown in the terminal.
+預設情況下，測試會在 Chromium 上執行。您可以透過 [CLI 選項](./running-tests.mdx)進行設定。測試以無頭模式執行，這意味著執行測試時不會開啟瀏覽器 UI。測試結果和測試記錄將顯示在終端機中。
 
 ```bash
 pytest
 ```
 
-## Updating Playwright
+## 更新 Playwright
 
-To update Playwright to the latest version run the following command:
+若要將 Playwright 更新到最新版本，請執行以下指令：
 
 ```bash
 pip install pytest-playwright playwright -U
 ```
 
-## System requirements
-- Python 3.8 or higher.
-- Windows 11+, Windows Server 2019+ or Windows Subsystem for Linux (WSL).
-- macOS 14 Ventura, or later.
-- Debian 12, Debian 13, Ubuntu 22.04, Ubuntu 24.04, on x86-64 and arm64 architecture.
+## 系統需求
+- Python 3.8 或更高版本。
+- Windows 11+、Windows Server 2019+ 或適用於 Linux 的 Windows 子系統（WSL）。
+- macOS 14 Ventura 或更新版本。
+- Debian 12、Debian 13、Ubuntu 22.04、Ubuntu 24.04，在 x86-64 和 arm64 架構上。
 
-## What's next
-- [Write tests using web first assertions, page fixtures and locators](./writing-tests.mdx)
-- [Run single test, multiple tests, headed mode](./running-tests.mdx)
-- [Generate tests with Codegen](./codegen.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
+## 下一步
+- [使用 Web 優先斷言、頁面佈置和定位器撰寫測試](./writing-tests.mdx)
+- [執行單一測試、多個測試、有頭模式](./running-tests.mdx)
+- [使用 Codegen 產生測試](./codegen.mdx)
+- [查看您測試的追蹤](./trace-viewer-intro.mdx)
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"
