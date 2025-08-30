@@ -31,7 +31,8 @@
     "version-python": "npm run prepare-python && docusaurus docs:version stable && cp -r docs/* python/docs/ && cp -r versioned_docs/* python/versioned_docs/ && cp -r images python/versioned_docs/ && cp -r versioned_sidebars/* python/versioned_sidebars/ && cp versions.json python/",
     "cleanup": "rimraf -g docs versioned_docs versioned_sidebars docusaurus.config.ts versions.json sidebars.js",
     "version-all": "npm run version-python && npm run version-node && npm run version-java && npm run version-dotnet",
-    "serve": "docusaurus serve"
+  "serve": "docusaurus serve",
+  "gen-translation-todo": "node scripts/generate-translation-todo.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.8.1",
