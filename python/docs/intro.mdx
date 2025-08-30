@@ -1,35 +1,35 @@
 ---
 id: intro
-title: "Installation"
+title: "安裝"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation.
+Playwright 專為滿足端對端測試需求而建立。Playwright 支援所有現代渲染引擎，包括 Chromium、WebKit 和 Firefox。在 Windows、Linux 和 macOS 上測試，無論是本機或在 CI 上，支援無頭或有頭模式，並提供原生行動裝置模擬。
 
-The [Playwright library](./library.mdx) can be used as a general purpose browser automation tool, providing a powerful set of APIs to automate web applications, for both sync and async Python.
+[Playwright 程式庫](./library.mdx)可作為通用瀏覽器自動化工具使用，為同步和非同步 Python 提供強大的 API 集來自動化 Web 應用程式。
 
-This introduction describes the Playwright Pytest plugin, which is the recommended way to write end-to-end tests.
+本簡介描述 Playwright Pytest 外掛，這是撰寫端對端測試的建議方法。
 
-**You will learn**
-- [How to install Playwright Pytest](/intro.mdx#installing-playwright-pytest)
-- [How to run the example test](/intro.mdx#running-the-example-test)
+**您將學習**
+- [如何安裝 Playwright Pytest](/intro.mdx#installing-playwright-pytest)
+- [如何執行範例測試](/intro.mdx#running-the-example-test)
 
-## Installing Playwright Pytest
+## 安裝 Playwright Pytest
 
-Playwright recommends using the official [Playwright Pytest plugin](./test-runners.mdx) to write end-to-end tests. It provides context isolation, running it on multiple browser configurations out of the box.
+Playwright 建議使用官方 [Playwright Pytest 外掛](./test-runners.mdx)來撰寫端對端測試。它提供情境隔離，並在多種瀏覽器組態上立即可用。
 
-Get started by installing Playwright and running the example test to see it in action.
+透過安裝 Playwright 並執行範例測試來開始使用，親自體驗其功能。
 
 <Tabs groupId="package-managers" defaultValue="pypi" values={[ {label: 'PyPI', value: 'pypi'}, {label: 'Anaconda', value: 'anaconda'} ] }>
 
 <TabItem value="pypi">
 
-Install the [Pytest plugin](https://pypi.org/project/pytest-playwright/):
+安裝 [Pytest 外掛](https://pypi.org/project/pytest-playwright/)：
 
 ```bash
 pip install pytest-playwright
@@ -39,7 +39,7 @@ pip install pytest-playwright
 
 <TabItem value="anaconda">
 
-Install the [Pytest plugin](https://anaconda.org/Microsoft/pytest-playwright):
+安裝 [Pytest 外掛](https://anaconda.org/Microsoft/pytest-playwright)：
 
 ```bash
 conda config --add channels conda-forge

@@ -1,34 +1,34 @@
 ---
 id: writing-tests
-title: "Writing tests"
+title: "撰寫測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright tests are simple, they
-- **perform actions**, and
-- **assert the state** against expectations.
+Playwright 測試很簡單，它們
+- **執行動作**，以及
+- **斷言狀態**符合預期。
 
-There is no need to wait for anything prior to performing an action: Playwright automatically waits for the wide range of [actionability](./actionability.mdx) checks to pass prior to performing each action.
+執行動作前無需等待任何事項：Playwright 會在執行每個動作前自動等待各種[可動作性](./actionability.mdx)檢查通過。
 
-There is also no need to deal with the race conditions when performing the checks - Playwright assertions are designed in a way that they describe the expectations that need to be eventually met.
+執行檢查時也無需處理競爭條件 - Playwright 斷言的設計方式是描述最終需要滿足的預期。
 
-That's it! These design choices allow Playwright users to forget about flaky timeouts and racy checks in their tests altogether.
+就是這樣！這些設計選擇讓 Playwright 使用者能夠完全忘記測試中的不穩定逾時和競爭檢查。
 
-**You will learn**
-- [How to write the first test](/writing-tests.mdx#first-test)
-- [How to perform actions](/writing-tests.mdx#actions)
-- [How to use assertions](/writing-tests.mdx#assertions)
-- [How tests run in isolation](/writing-tests.mdx#test-isolation)
-- [How to use test hooks](/writing-tests.mdx#using-fixtures)
+**您將學習**
+- [如何撰寫第一個測試](/writing-tests.mdx#first-test)
+- [如何執行動作](/writing-tests.mdx#actions)
+- [如何使用斷言](/writing-tests.mdx#assertions)
+- [測試如何在隔離環境中執行](/writing-tests.mdx#test-isolation)
+- [如何使用測試掛勾](/writing-tests.mdx#using-fixtures)
 
-## First test
+## 第一個測試
 
-Take a look at the following example to see how to write a test. Note how the file name follows the `test_` prefix convention as well as each test name.
+查看以下範例了解如何撰寫測試。注意檔案名稱遵循 `test_` 前綴慣例，每個測試名稱也是如此。
 
 ```python title="test_example.py"
 import re
