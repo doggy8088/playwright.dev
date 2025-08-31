@@ -146,3 +146,40 @@
 - block → 區塊
 - triangle → 三角形
 - strict mode → 嚴格模式
+
+## 新增術語（test-reporters 相關）
+- reporter → 報告器
+- built-in → 內建
+- custom → 自訂
+- verbosity → 詳細程度
+- terminal → 終端機
+- output → 輸出
+- inline → 內嵌
+- self-contained → 自包含
+- automatically → 自動
+- override → 覆寫
+- upload → 上傳
+- attachment → 附件
+- sharded → 分片的
+- facilitate → 促進
+- merge → 合併
+- hash → 雜湊值
+- stable → 穩定
+- comprehensive → 全面的
+- stdout → stdout（保留原文）
+- relative to → 相對於
+- ANSI control sequences → ANSI 控制序列
+- by default → 預設情況下
+- name prefix → 名稱前綴
+- failure annotations → 失敗註解
+- stack trace → 堆疊追蹤
+- matrix strategy → 矩陣策略
+- obscure → 遮蔽
+- file view → 檔案檢視
+- implement → 實作
+- open source → 開放原始碼
+- spam → 產生過多輸出
+- concise → 簡潔
+- character → 字元
+- flaky → 不穩定（測試）
+- retry → 重試

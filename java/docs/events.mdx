@@ -1,45 +1,43 @@
 ---
 id: events
-title: "Events"
+title: "事件"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright allows listening to various types of events happening on the web page, such as network requests, creation of child pages, dedicated workers etc. There are several ways to subscribe to such events, such as waiting for events or adding or removing event listeners.
+Playwright 允許監聽網頁上發生的各種類型事件，例如網路請求、子頁面的建立、專用工作者等。有幾種方式可以訂閱此類事件，例如等待事件或添加或移除事件監聽器。
 
-## Waiting for event
+## 等待事件
 
-Most of the time, scripts will need to wait for a particular event to happen. Below are some of the typical event awaiting patterns.
+大多數時候，腳本需要等待特定事件發生。以下是一些典型的事件等待模式。
 
-Wait for a request with the specified url using [Page.waitForRequest()](/api/class-page.mdx#page-wait-for-request):
+使用 [Page.waitForRequest()](/api/class-page.mdx#page-wait-for-request) 等待指定 URL 的請求：
 
 ```java
-// The callback lambda defines scope of the code that is expected to
-// trigger request.
+// 回調 lambda 定義預期觸發請求的程式碼範圍。
 Request request = page.waitForRequest("**/*logo*.png", () -> {
   page.navigate("https://wikipedia.org");
 });
 System.out.println(request.url());
 ```
 
-Wait for popup window:
+等待彈出視窗：
 
 ```java
-// The callback lambda defines scope of the code that is expected to
-// create popup window.
+// 回調 lambda 定義預期建立彈出視窗的程式碼範圍。
 Page popup = page.waitForPopup(() -> {
   page.getByText("open the popup").click();
 });
 popup.navigate("https://wikipedia.org");
 ```
 
-## Adding/removing event listener
+## 添加/移除事件監聽器
 
-Sometimes, events happen in random time and instead of waiting for them, they need to be handled. Playwright supports traditional language mechanisms for subscribing and unsubscribing from the events:
+有時，事件會隨機發生，與其等待它們，不如處理它們。Playwright 支援傳統語言機制來訂閱和取消訂閱事件：
 
 ```java
 page.onRequest(request -> System.out.println("Request sent: " + request.url()));
@@ -47,14 +45,14 @@ Consumer<Request> listener = request -> System.out.println("Request finished: " 
 page.onRequestFinished(listener);
 page.navigate("https://wikipedia.org");
 
-// Remove previously added listener, each on* method has corresponding off*
+// 移除先前添加的監聽器，每個 on* 方法都有對應的 off*
 page.offRequestFinished(listener);
 page.navigate("https://www.openstreetmap.org/");
 ```
 
-## Adding one-off listeners
+## 添加一次性監聽器
 
-If a certain event needs to be handled once, there is a convenience API for that:
+如果某個事件需要處理一次，有一個方便的 API 可以使用：
 
 ```java
 page.onceDialog(dialog -> dialog.accept("2021"));

@@ -106,7 +106,7 @@
 - [x] nodejs/docs/downloads.mdx
 - [x] nodejs/docs/emulation.mdx
 - [ ] nodejs/docs/evaluating.mdx
-- [ ] nodejs/docs/events.mdx
+- [x] nodejs/docs/events.mdx
 - [x] nodejs/docs/extensibility.mdx
 - [x] nodejs/docs/frames.mdx
 - [x] nodejs/docs/getting-started-vscode.mdx
@@ -128,7 +128,7 @@
 - [ ] nodejs/docs/release-notes.mdx
 - [x] nodejs/docs/running-tests.mdx
 - [x] nodejs/docs/screenshots.mdx
-- [ ] nodejs/docs/selenium-grid.mdx
+- [x] nodejs/docs/selenium-grid.mdx
 - [x] nodejs/docs/service-workers-experimental-network-events.mdx
 - [ ] nodejs/docs/test-annotations.mdx
 - [x] nodejs/docs/test-assertions.mdx
@@ -140,7 +140,7 @@
 - [ ] nodejs/docs/test-parallel.mdx
 - [ ] nodejs/docs/test-parameterize.mdx
 - [x] nodejs/docs/test-projects.mdx
-- [ ] nodejs/docs/test-reporters.mdx
+- [x] nodejs/docs/test-reporters.mdx
 - [ ] nodejs/docs/test-retries.mdx
 - [ ] nodejs/docs/test-sharding.mdx
 - [ ] nodejs/docs/test-snapshots.mdx
@@ -270,7 +270,7 @@
 - [ ] nodejs/versioned_docs/version-stable/release-notes.mdx
 - [x] nodejs/versioned_docs/version-stable/running-tests.mdx
 - [x] nodejs/versioned_docs/version-stable/screenshots.mdx
-- [ ] nodejs/versioned_docs/version-stable/selenium-grid.mdx
+- [x] nodejs/versioned_docs/version-stable/selenium-grid.mdx
 - [x] nodejs/versioned_docs/version-stable/service-workers-experimental-network-events.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-annotations.mdx
 - [x] nodejs/versioned_docs/version-stable/test-assertions.mdx
@@ -282,7 +282,7 @@
 - [ ] nodejs/versioned_docs/version-stable/test-parallel.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-parameterize.mdx
 - [x] nodejs/versioned_docs/version-stable/test-projects.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-reporters.mdx
+- [x] nodejs/versioned_docs/version-stable/test-reporters.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-retries.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-sharding.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-snapshots.mdx
@@ -357,7 +357,7 @@
 - [x] python/docs/downloads.mdx
 - [x] python/docs/emulation.mdx
 - [ ] python/docs/evaluating.mdx
-- [ ] python/docs/events.mdx
+- [x] python/docs/events.mdx
 - [x] python/docs/extensibility.mdx
 - [x] python/docs/frames.mdx
 - [ ] python/docs/handles.mdx
@@ -375,7 +375,7 @@
 - [ ] python/docs/release-notes.mdx
 - [ ] python/docs/running-tests.mdx
 - [x] python/docs/screenshots.mdx
-- [ ] python/docs/selenium-grid.mdx
+- [x] python/docs/selenium-grid.mdx
 - [ ] python/docs/test-assertions.mdx
 - [ ] python/docs/test-runners.mdx
 - [x] python/docs/touch-events.mdx
@@ -461,7 +461,7 @@
 - [ ] python/versioned_docs/version-stable/release-notes.mdx
 - [ ] python/versioned_docs/version-stable/running-tests.mdx
 - [x] python/versioned_docs/version-stable/screenshots.mdx
-- [ ] python/versioned_docs/version-stable/selenium-grid.mdx
+- [x] python/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] python/versioned_docs/version-stable/test-assertions.mdx
 - [ ] python/versioned_docs/version-stable/test-runners.mdx
 - [x] python/versioned_docs/version-stable/touch-events.mdx
@@ -532,7 +532,7 @@
 - [x] java/docs/downloads.mdx
 - [x] java/docs/emulation.mdx
 - [ ] java/docs/evaluating.mdx
-- [ ] java/docs/events.mdx
+- [x] java/docs/events.mdx
 - [x] java/docs/extensibility.mdx
 - [x] java/docs/frames.mdx
 - [ ] java/docs/handles.mdx
@@ -550,7 +550,7 @@
 - [ ] java/docs/release-notes.mdx
 - [ ] java/docs/running-tests.mdx
 - [x] java/docs/screenshots.mdx
-- [ ] java/docs/selenium-grid.mdx
+- [x] java/docs/selenium-grid.mdx
 - [ ] java/docs/test-assertions.mdx
 - [ ] java/docs/test-runners.mdx
 - [ ] java/docs/threading.mdx
@@ -640,7 +640,7 @@
 - [ ] java/versioned_docs/version-stable/release-notes.mdx
 - [ ] java/versioned_docs/version-stable/running-tests.mdx
 - [x] java/versioned_docs/version-stable/screenshots.mdx
-- [ ] java/versioned_docs/version-stable/selenium-grid.mdx
+- [x] java/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] java/versioned_docs/version-stable/test-assertions.mdx
 - [ ] java/versioned_docs/version-stable/test-runners.mdx
 - [ ] java/versioned_docs/version-stable/threading.mdx
@@ -711,7 +711,7 @@
 - [x] dotnet/docs/downloads.mdx
 - [x] dotnet/docs/emulation.mdx
 - [ ] dotnet/docs/evaluating.mdx
-- [ ] dotnet/docs/events.mdx
+- [x] dotnet/docs/events.mdx
 - [x] dotnet/docs/extensibility.mdx
 - [x] dotnet/docs/frames.mdx
 - [ ] dotnet/docs/handles.mdx
@@ -729,7 +729,7 @@
 - [ ] dotnet/docs/release-notes.mdx
 - [ ] dotnet/docs/running-tests.mdx
 - [x] dotnet/docs/screenshots.mdx
-- [ ] dotnet/docs/selenium-grid.mdx
+- [x] dotnet/docs/selenium-grid.mdx
 - [ ] dotnet/docs/test-assertions.mdx
 - [ ] dotnet/docs/test-runners.mdx
 - [x] dotnet/docs/touch-events.mdx
@@ -817,7 +817,7 @@
 - [ ] dotnet/versioned_docs/version-stable/release-notes.mdx
 - [ ] dotnet/versioned_docs/version-stable/running-tests.mdx
 - [x] dotnet/versioned_docs/version-stable/screenshots.mdx
-- [ ] dotnet/versioned_docs/version-stable/selenium-grid.mdx
+- [x] dotnet/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] dotnet/versioned_docs/version-stable/test-assertions.mdx
 - [ ] dotnet/versioned_docs/version-stable/test-runners.mdx
 - [x] dotnet/versioned_docs/version-stable/touch-events.mdx

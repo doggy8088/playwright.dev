@@ -1,105 +1,105 @@
 ---
 id: selenium-grid
-title: "Selenium Grid (experimental)"
+title: "Selenium Grid (實驗性)"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright can connect to [Selenium Grid Hub](https://www.selenium.dev/documentation/grid/) that runs Selenium 4 to launch **Google Chrome** or **Microsoft Edge** browser, instead of running browser on the local machine. Note this feature is **experimental** and is prioritized accordingly.
+Playwright 可以連接到執行 Selenium 4 的 [Selenium Grid Hub](https://www.selenium.dev/documentation/grid/) 來啟動 **Google Chrome** 或 **Microsoft Edge** 瀏覽器，而不是在本地機器上執行瀏覽器。請注意，此功能是**實驗性**的，並且會相應地優先處理。
 
 :::warning
 
-There is a risk of Playwright integration with Selenium Grid Hub breaking in the future. Make sure you weight risks against benefits before using it.
+Playwright 與 Selenium Grid Hub 的整合在未來有中斷的風險。在使用之前，請確保您權衡風險與效益。
 
 <details>
 
 <summary>
 
-<span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.6'}}>More details</span>
+<span style={{textTransform:'uppercase',fontSize:'smaller',fontWeight:'bold',opacity:'0.6'}}>更多詳細資訊</span>
 
 </summary>
 
-Internally, Playwright connects to the browser using [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) websocket. Selenium 4 currently exposes this capability. However, this [might not be the case in the future](https://github.com/SeleniumHQ/selenium/issues/11590#issuecomment-1436113950). If Selenium drops this capability, Playwright will stop working with it.
+在內部，Playwright 使用 [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) websocket 連接到瀏覽器。Selenium 4 目前公開此功能。然而，[未來可能不會是這種情況](https://github.com/SeleniumHQ/selenium/issues/11590#issuecomment-1436113950)。如果 Selenium 停止支援此功能，Playwright 將無法與其一起工作。
 
 </details>
 :::
 
-Before connecting Playwright to your Selenium Grid, make sure that grid works with [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/). For example, run [one of the examples](https://github.com/SeleniumHQ/selenium/tree/trunk/javascript/selenium-webdriver/example) and pass `SELENIUM_REMOTE_URL` environment variable. If webdriver example does not work, look for any errors at your Selenium hub/node/standalone output and search [Selenium issues](https://github.com/SeleniumHQ/selenium/issues) for a possible solution.
+在將 Playwright 連接到你的 Selenium Grid 之前，請確保該 grid 能夠與 [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) 一起工作。例如，執行[其中一個範例](https://github.com/SeleniumHQ/selenium/tree/trunk/javascript/selenium-webdriver/example)並傳遞 `SELENIUM_REMOTE_URL` 環境變數。如果 webdriver 範例無法執行，請查看你的 Selenium hub/node/standalone 輸出中的任何錯誤，並搜索 [Selenium issues](https://github.com/SeleniumHQ/selenium/issues) 以尋找可能的解決方案。
 
-## Starting Selenium Grid
+## 開始 Selenium Grid
 
-If you run distributed Selenium Grid, Playwright needs selenium nodes to be registered with an accessible address, so that it could connect to the browsers. To make sure it works as expected, set `SE_NODE_GRID_URL` environment variable pointing to the hub when running selenium nodes.
+如果你執行分散式 Selenium Grid，Playwright 需要將 selenium 節點註冊到可訪問的地址，以便它能夠連接到瀏覽器。為了確保它按預期工作，請在執行 selenium 節點時設置 `SE_NODE_GRID_URL` 環境變數指向 hub。
 
 ```bash
 # Start selenium node
 SE_NODE_GRID_URL="http://<selenium-hub-ip>:4444" java -jar selenium-server-<version>.jar node
 ```
 
-## Connecting Playwright to Selenium Grid
+## 連接 Playwright 到 Selenium Grid
 
-To connect Playwright to **Selenium Grid 4**, set `SELENIUM_REMOTE_URL` environment variable pointing to your Selenium Grid Hub. Note that this only works for Google Chrome and Microsoft Edge.
+要將 Playwright 連接到 **Selenium Grid 4**，請設置 `SELENIUM_REMOTE_URL` 環境變數指向你的 Selenium Grid Hub。請注意，這僅適用於 Google Chrome 和 Microsoft Edge。
 
 ```bash
 SELENIUM_REMOTE_URL=http://<selenium-hub-ip>:4444 npx playwright test
 ```
 
-You don't have to change your code, just use your testing harness or [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) as usual.
+你不需要更改程式碼，只需像往常一樣使用你的測試框架或 [`browserType.launch()`](/api/class-browsertype.mdx#browser-type-launch)。
 
-### Passing additional capabilities
+### 傳遞額外的功能
 
-If your grid requires additional capabilities to be set (for example, you use an external service), you can set `SELENIUM_REMOTE_CAPABILITIES` environment variable to provide JSON-serialized capabilities.
+如果你的網格需要設定額外的功能（例如，你使用外部服務），你可以設定 `SELENIUM_REMOTE_CAPABILITIES` 環境變數來提供 JSON 序列化的功能。
 
 ```bash
 SELENIUM_REMOTE_URL=http://<selenium-hub-ip>:4444 SELENIUM_REMOTE_CAPABILITIES="{'mygrid:options':{os:'windows',username:'John',password:'secure'}}" npx playwright test
 ```
 
-### Passing additional headers
+### 傳遞額外的標頭
 
-If your grid requires additional headers to be set (for example, you should provide authorization token to use browsers in your cloud), you can set `SELENIUM_REMOTE_HEADERS` environment variable to provide JSON-serialized headers.
+如果你的網格需要設定額外的標頭（例如，你應該提供授權令牌以在雲端中使用瀏覽器），你可以設定 `SELENIUM_REMOTE_HEADERS` 環境變數來提供 JSON 序列化的標頭。
 
 ```bash
 SELENIUM_REMOTE_URL=http://<selenium-hub-ip>:4444 SELENIUM_REMOTE_HEADERS="{'Authorization':'Basic b64enc'}" npx playwright test
 ```
 
-### Detailed logs
+### 詳細日誌
 
-Run with `DEBUG=pw:browser*` environment variable to see how Playwright is connecting to Selenium Grid.
+使用 `DEBUG=pw:browser*` 環境變數執行，以查看 Playwright 如何連接到 Selenium Grid。
 
 ```bash
 DEBUG=pw:browser* SELENIUM_REMOTE_URL=http://internal.grid:4444 npx playwright test
 ```
 
-If you file an issue, please include this log.
+如果你提交問題，請包含此日誌。
 
-## Using Selenium Docker
+## 使用 Selenium Docker
 
-One easy way to use Selenium Grid is to run official docker containers. Read more in [selenium docker images](https://github.com/SeleniumHQ/docker-selenium) documentation. For image tagging convention, [read more](https://github.com/SeleniumHQ/docker-selenium/wiki/Tagging-Convention#selenium-grid-4x-and-above).
+使用 Selenium Grid 的一種簡單方法是執行官方 docker 容器。請查閱 [selenium docker images](https://github.com/SeleniumHQ/docker-selenium) 文件以了解更多資訊。關於映像標記約定，[閱讀更多](https://github.com/SeleniumHQ/docker-selenium/wiki/Tagging-Convention#selenium-grid-4x-and-above)。
 
-### Standalone mode
+### 獨立模式
 
-Here is an example of running selenium standalone and connecting Playwright to it. Note that hub and node are on the same `localhost`, and we pass `SE_NODE_GRID_URL` environment variable pointing to it.
+以下是執行 selenium standalone 並將 Playwright 連接到它的範例。請注意，hub 和 node 在同一個 `localhost` 上，我們傳遞 `SE_NODE_GRID_URL` 環境變數指向它。
 
-First start Selenium.
+首先啟動 Selenium。
 
 ```bash
 docker run -d -p 4444:4444 --shm-size="2g" -e SE_NODE_GRID_URL="http://localhost:4444" selenium/standalone-chromium:latest
 ```
 
-Then run Playwright.
+然後執行 Playwright。
 
 ```bash
 SELENIUM_REMOTE_URL=http://localhost:4444 npx playwright test
 ```
 
-### Hub and nodes mode
+### Hub 和節點模式
 
-Here is an example of running selenium hub and a single selenium node, and connecting Playwright to the hub. Note that hub and node have different IPs, and we pass `SE_NODE_GRID_URL` environment variable pointing to the hub when starting node containers.
+以下是執行 selenium hub 和單個 selenium 節點，並將 Playwright 連接到 hub 的範例。請注意，hub 和 node 有不同的 IP，我們在啟動節點容器時傳遞 `SE_NODE_GRID_URL` 環境變數指向 hub。
 
-First start the hub container and one or more node containers.
+首先啟動 hub 容器和一個或多個節點容器。
 
 ```bash
 docker run -d -p 4442-4444:4442-4444 --name selenium-hub selenium/hub:4.25.0
@@ -112,7 +112,7 @@ docker run -d -p 5555:5555 \
     selenium/node-chromium:4.25.0
 ```
 
-Then run Playwright.
+然後執行 Playwright。
 
 ```bash
 SELENIUM_REMOTE_URL=http://<selenium-hub-ip>:4444 npx playwright test
@@ -120,9 +120,9 @@ SELENIUM_REMOTE_URL=http://<selenium-hub-ip>:4444 npx playwright test
 
 ## Selenium 3
 
-Internally, Playwright connects to the browser using [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) websocket. Selenium 4 exposes this capability, while Selenium 3 does not.
+在內部，Playwright 使用 [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) websocket 連接到瀏覽器。Selenium 4 公開此功能，而 Selenium 3 則沒有。
 
-This means that Selenium 3 is supported in a best-effort manner, where Playwright tries to connect to the grid node directly. Grid nodes must be directly accessible from the machine that runs Playwright.
+這意味著 Selenium 3 以盡力而為的方式支援，其中 Playwright 嘗試直接連接到網格節點。網格節點必須可以從執行 Playwright 的機器直接訪問。
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"
