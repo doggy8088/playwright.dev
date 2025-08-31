@@ -540,7 +540,7 @@ await page.removeLocatorHandler(locator);
   });
   ```
   
-- 新屬性 [testInfo.tags](/api/class-testinfo.mdx#test-info-tags) exposes test tags during test execution.
+- 新屬性 [testInfo.tags](/api/class-testinfo.mdx#test-info-tags) 在測試執行期間公開測試標籤。
   
   ```js
   test('example', async ({ page }) => {
@@ -2098,7 +2098,7 @@ npm init playwright@latest new-project
 這將建立一個 Playwright Test 配置檔案，可選擇新增範例、GitHub Action 工作流程和第一個測試 `example.spec.ts`。
 
 ### 新的 API 與變更
-- new [`testCase.repeatEachIndex`](./api/class-testcase#test-case-repeat-each-index) API
+- 新的 [`testCase.repeatEachIndex`](./api/class-testcase#test-case-repeat-each-index) API
 - [`acceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在預設為 `true`
 
 ### 重大變更：自定義配置選項
@@ -2200,11 +2200,11 @@ Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace
 ### 新的 API
 - 追蹤現在支援 [`'title'`](./api/class-tracing#tracing-start-選項-title) 選項
 - 頁面導覽支援新的 [`'commit'`](./api/class-page#page-goto) 等待選項
-- HTML reporter got [new configuration options](./test-reporters#html-reporter)
+- HTML 報告獲得了[新的配置選項](./test-reporters#html-reporter)
 - [`testConfig.snapshotDir` 選項](./api/class-testconfig#test-config-snapshot-dir)
 - [`testInfo.parallelIndex`](./api/class-testinfo#test-info-parallel-index)
 - [`testInfo.titlePath`](./api/class-testinfo#test-info-title-path)
-- [`testOptions.trace`](./api/class-testoptions#test-options-trace) has new options
+- [`testOptions.trace`](./api/class-testoptions#test-options-trace) 具有新選項
 - [`expect.toMatchSnapshot`](./api/class-genericassertions.mdx) 支援子目錄
 - [`reporter.printsToStdio()`](./api/class-reporter#reporter-prints-to-stdio)
 
@@ -2358,10 +2358,10 @@ Its now possible to emulate the `forced-colors` CSS media feature by passing it 
 
 #### 新的 API
 - [page.route()](/api/class-page.mdx#page-route) 接受新的 `times` 選項來指定此路由應匹配多少次。
-- [page.setChecked()](/api/class-page.mdx#page-set-checked) 和 [locator.setChecked()](/api/class-locator.mdx#locator-set-checked) 被引入以設定the checked state of a checkbox.
-- [request.sizes()](/api/class-request.mdx#request-sizes) 回傳 resource size information for given http request.
-- [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) - Start a new trace chunk.
-- [tracing.stopChunk()](/api/class-tracing.mdx#tracing-stop-chunk) - Stops a new trace chunk.
+- [page.setChecked()](/api/class-page.mdx#page-set-checked) 和 [locator.setChecked()](/api/class-locator.mdx#locator-set-checked) 被引入以設定核取方塊的已選取狀態。
+- [request.sizes()](/api/class-request.mdx#request-sizes) 回傳給定 HTTP 要求的資源大小資訊。
+- [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) - 開始新的追蹤區塊。
+- [tracing.stopChunk()](/api/class-tracing.mdx#tracing-stop-chunk) - 停止新的追蹤區塊。
 
 ### 🎭 Playwright Test
 
@@ -2544,7 +2544,7 @@ export default defineConfig({
 
 #### Playwright
 - **🖖 Programmatic drag-and-drop support** via the [page.dragAndDrop()](/api/class-page.mdx#page-drag-and-drop) API.
-- **🔎 Enhanced HAR**具有請求和回應的主體大小. 透過 `recordHar` 選項 in [browser.newContext()](/api/class-browser.mdx#browser-new-context). 使用
+- **🔎 Enhanced HAR** 具有請求和回應的主體大小。透過 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 中的 `recordHar` 選項使用。
 
 #### 工具
 - Playwright 追蹤檢視器現在顯示參數、回傳值和 `console.log()` 呼叫。
@@ -2564,7 +2564,7 @@ export default defineConfig({
 - WebKit 14.2
 
 #### 新的 Playwright API
-- new `baseURL` 選項 in [browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [browser.newPage()](/api/class-browser.mdx#browser-new-page)
+- 新的 `baseURL` 選項在 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [browser.newPage()](/api/class-browser.mdx#browser-new-page) 中
 - [response.securityDetails()](/api/class-response.mdx#response-security-details) 和 [response.serverAddr()](/api/class-response.mdx#response-server-addr)
 - [page.dragAndDrop()](/api/class-page.mdx#page-drag-and-drop) 和 [frame.dragAndDrop()](/api/class-frame.mdx#frame-drag-and-drop)
 - [download.cancel()](/api/class-download.mdx#download-cancel)

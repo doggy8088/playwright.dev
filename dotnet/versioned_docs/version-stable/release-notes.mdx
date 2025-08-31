@@ -250,8 +250,8 @@ dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Channel=
 ```
 
 ### 其他
-- 將no more updates for WebKit on Ubuntu 20.04 and Debian 11. 我們建議updating your OS to a later version.
-- `<canvas>` elements inside a snapshot現在draw a preview.
+- Ubuntu 20.04 和 Debian 11 上的 WebKit 將不再有更新。我們建議將您的作業系統更新到較新版本。
+- `<canvas>` 元素在快照內現在會繪製預覽。
 
 ### 瀏覽器版本
 - Chromium 131.0.6778.33
@@ -309,10 +309,10 @@ The Network tab in the trace viewer has several nice improvements:
 ![Network tab now has filters](https://github.com/user-attachments/assets/4bd1b67d-90bd-438b-a227-00b9e86872e2)
 
 ### 其他
-- The `mcr.microsoft.com/playwright/dotnet:v1.47.0`現在serves a Playwright image based on Ubuntu 24.04 Noble. To use the 22.04 jammy-based image, please use `mcr.microsoft.com/playwright/dotnet:v1.47.0-jammy` instead.
-- The `:latest`/`:focal`/`:jammy` tag for Playwright Docker images is no longer being published. Pin to a specific version for better stability and reproducibility.
+- `mcr.microsoft.com/playwright/dotnet:v1.47.0` 現在提供基於 Ubuntu 24.04 Noble 的 Playwright 映像。要使用基於 22.04 jammy 的映像，請改用 `mcr.microsoft.com/playwright/dotnet:v1.47.0-jammy`。
+- Playwright Docker 映像的 `:latest`/`:focal`/`:jammy` 標籤不再發布。請固定到特定版本以獲得更好的穩定性和可重現性。
 - TLS 用戶端憑證現在可以透過傳遞 [ClientCertificates.Cert](/api/class-browser.mdx#browser-new-context-選項-client-certificates) 和 [ClientCertificates.Key](/api/class-browser.mdx#browser-new-context-選項-client-certificates) 作為位元組陣列而非檔案路徑從記憶體傳遞。
-- [NoWaitAfter](/api/class-locator.mdx#locator-select-選項-選項-no-wait-after) in [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-選項) was deprecated.
+- [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-選項) 中的 [NoWaitAfter](/api/class-locator.mdx#locator-select-選項-選項-no-wait-after) 已被棄用。
 - We've seen reports of WebGL in Webkit misbehaving on GitHub Actions `macos-13`. 我們建議upgrading GitHub Actions to `macos-14`.
 
 ### 瀏覽器版本
@@ -450,7 +450,7 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
   ```
   
 **定位器處理器**
-- After executing the handler added with [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. 您可以opt-out of this behavior with the new `NoWaitAfter` 選項.
+- 執行透過 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 新增的處理器後，Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `NoWaitAfter` 選項來選擇退出此行為。
 - 您可以在 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `Times` 選項來指定處理器應執行的最大次數。
 - [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
 - New [Page.RemoveLocatorHandlerAsync()](/api/class-page.mdx#page-remove-locator-handler) 方法 for removing previously added locator handlers.
@@ -467,7 +467,7 @@ await Page.RemoveLocatorHandlerAsync(locator);
 ```
 
 **其他選項**
-- 新方法 [FormData.Append()](/api/class-formdata.mdx#form-data-append) 允許 specify repeating fields with the same name in [`Multipart`](./api/class-apirequestcontext#api-request-context-fetch-選項-multipart) 選項 in `APIRequestContext.FetchAsync()`:
+- 新方法 [FormData.Append()](/api/class-formdata.mdx#form-data-append) 允許在 `APIRequestContext.FetchAsync()` 的 [`Multipart`](./api/class-apirequestcontext#api-request-context-fetch-選項-multipart) 選項中指定相同名稱的重複欄位：
   
   ```csharp
   var formData = Context.APIRequest.CreateFormData();

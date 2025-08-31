@@ -241,7 +241,7 @@ page.context().tracing().groupEnd();
   
 - 新屬性 `httpCredentials.send` 在 [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 中，允許永遠傳送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時傳送。
 - Playwright 現在支援 Chromium, Firefox and WebKit on Ubuntu 24.04.
-- v1.45是最後一個接收receive WebKit update for macOS 12 Monterey. 請更新macOS以繼續使用the latest WebKit.
+- v1.45 是最後一個接收 macOS 12 Monterey WebKit 更新的版本。請更新 macOS 以繼續使用最新的 WebKit。
 
 ### 瀏覽器版本
 * Chromium 127.0.6533.5
@@ -279,7 +279,7 @@ page.context().tracing().groupEnd();
   ```
   
 **定位器處理器**
-- After executing the handler added with [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `setNoWaitAfter` 選項來選擇退出此行為。
+- 執行透過 [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 新增的處理器後，Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `setNoWaitAfter` 選項來選擇退出此行為。
 - 您可以在 [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `setTimes` 選項來指定處理器應執行的最大次數。
 - [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
 - 新的 [Page.removeLocatorHandler()](/api/class-page.mdx#page-remove-locator-handler) 方法，用於移除先前新增的定位器處理器。
@@ -474,8 +474,8 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [Page.unrouteAll()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [Page.route()](/api/class-page.mdx#page-route) 和 [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har).
-- 新方法 [BrowserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har).
+- 新方法 [Page.unrouteAll()](/api/class-page.mdx#page-unroute-all) 移除所有由 [Page.route()](/api/class-page.mdx#page-route) 和 [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 註冊的路由。
+- 新方法 [BrowserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除所有由 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的路由。
 - 新選項s [setStyle](/api/class-page.mdx#page-screenshot-選項-style) in [Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [setStyle](/api/class-locator.mdx#locator-screenshot-選項-style) in [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot)以新增custom CSS to the page在執行...之前a screenshot.
 
 ### 瀏覽器版本
@@ -566,7 +566,7 @@ Evergreen browsers update.
 ## 版本 1.37
 
 ### 新的 API
-- 新方法s [BrowserContext.newCDPSession()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) 和 [Browser.newBrowserCDPSession()](/api/class-browser.mdx#browser-new-browser-cdp-session) create a [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) session for the page and browser respectively.
+- 新方法 [BrowserContext.newCDPSession()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) 和 [Browser.newBrowserCDPSession()](/api/class-browser.mdx#browser-new-browser-cdp-session) 分別為頁面和瀏覽器建立 [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) 會話。
   
   ```java
   CDPSession cdpSession = page.context().newCDPSession(page);
@@ -709,7 +709,7 @@ Linux support looks like this:
 
 ### 新的 API
 - 新選項s [setUpdateMode](/api/class-page.mdx#page-route-from-har-選項-update-mode) 和 [setUpdateContent](/api/class-page.mdx#page-route-from-har-選項-update-content) in [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 和 [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har).
-- Chaining existing locator objects, see [locator docs](./locators.mdx#matching-inside-a-locator) for details.
+- 鏈結現有的定位器物件，詳情請參閱[定位器文件](./locators.mdx#matching-inside-a-locator)。
 - 新選項 [setName](/api/class-tracing.mdx#tracing-start-chunk-選項-name) in 方法 [Tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk).
 
 ### 瀏覽器版本
@@ -881,9 +881,9 @@ All the same methods are also available on [Locator], [FrameLocator] 和 [Frame]
 ## 版本 1.26
 
 ### 斷言
-- 新選項 `enabled` for [assertThat(locator).isEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled).
+- 新選項 `enabled` 用於 [assertThat(locator).isEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled)。
 - [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text)現在pierces open shadow roots.
-- 新選項 `editable` for [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable).
+- 新選項 `editable` 用於 [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable)。
 - 新選項 `visible` for [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
 
 ### 其他重點

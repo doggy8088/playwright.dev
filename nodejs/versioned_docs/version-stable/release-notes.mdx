@@ -325,8 +325,8 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
 在 [aria 快照指南](./aria-snapshots)中了解更多。
 
 ### 測試執行器
-- 新選項 [testConfig.tsconfig](/api/class-testconfig.mdx#test-config-tsconfig) 允許 specify a single `tsconfig` to be used for all tests.
-- 新方法 [test.fail.only()](/api/class-test.mdx#test-fail-only) to focus on a failing test.
+- 新選項 [testConfig.tsconfig](/api/class-testconfig.mdx#test-config-tsconfig) 允許指定單一 `tsconfig` 供所有測試使用。
+- 新方法 [test.fail.only()](/api/class-test.mdx#test-fail-only) 專注於失敗的測試。
 - 選項 [testConfig.globalSetup](/api/class-testconfig.mdx#test-config-global-setup) 和 [testConfig.globalTeardown](/api/class-testconfig.mdx#test-config-global-teardown) 現在支援多個設定/拆除。
 - [testOptions.screenshot](/api/class-testoptions.mdx#test-options-screenshot) 的新值 `'on-first-failure'`。
 - 在 HTML 報告中新增「上一個」和「下一個」按鈕，可快速切換測試案例。
@@ -343,7 +343,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
 更新到 Playwright v1.49 後，執行您的測試套件。如果仍然通過，您就可以繼續。如果沒有，您可能需要更新快照，並調整一些關於 PDF 檢視器和擴充功能的測試程式碼。請參閱 [issue #33566](https://github.com/microsoft/playwright/issues/33566) 以取得更多詳細資訊。
 
 ### 其他重大變更
-- 將no more updates for WebKit on Ubuntu 20.04 and Debian 11. 我們建議updating your OS to a later version.
+- Ubuntu 20.04 和 Debian 11 上的 WebKit 將不再有更新。我們建議將您的作業系統更新到較新版本。
 - 套件 `@playwright/experimental-ct-vue2` 將不再更新。
 - 套件 `@playwright/experimental-ct-solid` 將不再更新。
 
@@ -367,7 +367,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
   PLAYWRIGHT_FORCE_TTY=80 npx playwright test
   ```
   
-- 新選項s [testConfig.respectGitIgnore](/api/class-testconfig.mdx#test-config-respect-git-ignore) 和 [testProject.respectGitIgnore](/api/class-testproject.mdx#test-project-respect-git-ignore) control whether files matching `.gitignore` patterns are excluded when searching for tests.
+- 新選項 [testConfig.respectGitIgnore](/api/class-testconfig.mdx#test-config-respect-git-ignore) 和 [testProject.respectGitIgnore](/api/class-testproject.mdx#test-project-respect-git-ignore) 控制在搜尋測試時是否排除符合 `.gitignore` 模式的檔案。
 - 新屬性 `timeout` 現在可用於自訂 expect 比對器。此屬性會考慮 `playwright.config.ts` 和 `expect.configure()`。
   
   ```js
@@ -383,7 +383,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
   ```
   
 ### 其他
-- 方法 [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) 現在支援 uploading a directory for `<input type=file webkitdirectory>` elements.
+- 方法 [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) 現在支援為 `<input type=file webkitdirectory>` 元素上傳目錄。
   
   ```js
   await page.getByLabel('Upload directory').setInputFiles(path.join(__dirname, 'mydir'));
@@ -397,10 +397,10 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
   ```
   
 - 新屬性 `httpCredentials.send` 在 [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 中，允許永遠傳送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時傳送。
-- 新選項 `reason` in [apiRequestContext.dispose()](/api/class-apirequestcontext.mdx#api-request-context-dispose) that will be included in the error message of ongoing operations interrupted by the context disposal.
-- 新選項 `host` in [browserType.launchServer()](/api/class-browsertype.mdx#browser-type-launch-server) 允許 accept websocket connections on a specific address instead of unspecified `0.0.0.0`.
+- 新選項 `reason` 在 [apiRequestContext.dispose()](/api/class-apirequestcontext.mdx#api-request-context-dispose) 中，將被包含在因內容處置而中斷的進行中作業的錯誤訊息中。
+- 新選項 `host` 在 [browserType.launchServer()](/api/class-browsertype.mdx#browser-type-launch-server) 中，允許在特定位址上接受 websocket 連線，而不是未指定的 `0.0.0.0`。
 - Playwright 現在支援 Chromium, Firefox and WebKit on Ubuntu 24.04.
-- v1.45是最後一個接收receive WebKit update for macOS 12 Monterey. 請更新macOS以繼續使用the latest WebKit.
+- v1.45 是最後一個接收 macOS 12 Monterey WebKit 更新的版本。請更新 macOS 以繼續使用最新的 WebKit。
 
 ### 瀏覽器版本
 * Chromium 127.0.6533.5
@@ -536,7 +536,7 @@ await page.removeLocatorHandler(locator);
   });
   ```
   
-- 新屬性 [testInfo.tags](/api/class-testinfo.mdx#test-info-tags) exposes test tags during test execution.
+- 新屬性 [testInfo.tags](/api/class-testinfo.mdx#test-info-tags) 在測試執行期間公開測試標籤。
   
   ```js
   test('example', async ({ page }) => {

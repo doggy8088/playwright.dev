@@ -53,7 +53,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### Trace Viewer and HTML Reporter Updates
 - 追蹤檢視器中的新步驟：![新的追蹤檢視器步驟](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
-- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) to describe a locator. Used for trace viewer.
+- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器。用於追蹤檢視器。
   
   ```python
   button = page.get_by_test_id("btn-sub").describe("Subscribe button")
@@ -74,13 +74,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ## 版本 1.52
 
 ### 重點
-- 新方法 [expect(locator).to_contain_class()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) to ergonomically assert individual class names on the element.
+- 新方法 [expect(locator).to_contain_class()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) 用於人體工學地斷言元素上的個別類別名稱。
   
   ```python
     expect(page.get_by_role('listitem', name='Ship v1.52')).to_contain_class('done')
   ```
   
-- [Aria Snapshots](./aria-snapshots.mdx) got two new properties: [`/children`](./aria-snapshots.mdx#strict-matching) for strict matching and `/url` for links.
+- [Aria 快照](./aria-snapshots.mdx) 獲得了兩個新屬性：[`/children`](./aria-snapshots.mdx#strict-matching) 用於嚴格比對，以及 `/url` 用於連結。
   
   ```python
   expect(locator).to_match_aria_snapshot("""
@@ -94,11 +94,11 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   ```
   
 ### 其他
-- 新選項 [max_redirects](/api/class-apirequest.mdx#api-request-new-context-選項-max-redirects) in [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) 控制 the maximum number of redirects.
+- 新選項 [max_redirects](/api/class-apirequest.mdx#api-request-new-context-選項-max-redirects) 在 [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) 中控制重定向的最大次數。
 
 ### 重大變更
 - [page.route()](/api/class-page.mdx#page-route) 等方法中的 Glob URL 模式不再支援 `?` 和 `[]`。我們建議改用正規表示式。
-- 方法 [route.continue_()](/api/class-route.mdx#route-continue) does not 允許 override the `Cookie` header anymore. If a `Cookie` header is provided, it will be ignored, and the cookie will be loaded from the browser's cookie store. To set custom cookies, use [browser_context.add_cookies()](/api/class-browsercontext.mdx#browser-context-add-cookies).
+- 方法 [route.continue_()](/api/class-route.mdx#route-continue) 不再允許覆寫 `Cookie` 標頭。如果提供了 `Cookie` 標頭，它將被忽略，而 cookie 將從瀏覽器的 cookie 儲存中載入。要設定自訂 cookie，請使用 [browser_context.add_cookies()](/api/class-browsercontext.mdx#browser-context-add-cookies)。
 - macOS 13 現已棄用，將不再接收 WebKit 更新。請升級到更新的 macOS 版本以繼續受益於最新的 WebKit 改進。
 
 ### 瀏覽器版本
@@ -278,7 +278,7 @@ This change affects you if you're using one of the following channels in your `p
   ```
   
 **定位器處理器**
-- After executing the handler added with [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `no_wait_after` 選項來選擇退出此行為。
+- 執行透過 [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) 新增的處理器後，Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `no_wait_after` 選項來選擇退出此行為。
 - 您可以在 [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `times` 選項來指定處理器應執行的最大次數。
 - [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
 - 新方法 [page.remove_locator_handler()](/api/class-page.mdx#page-remove-locator-handler) 用於移除先前新增的定位器處理器。
@@ -317,7 +317,7 @@ page.remove_locator_handler(locator)
   context.clear_cookies(domain="my-origin.com")
   ```
   
-- 新方法 [locator.content_frame](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
+- 新方法 [locator.content_frame](/api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。當您在某處獲得了 [Locator] 物件，稍後想要與框架內的內容互動時，這會很有用。
   
   ```python
   locator = page.locator("iframe[name='embedded']")
@@ -326,7 +326,7 @@ page.remove_locator_handler(locator)
   frame_locator.getByRole("button").click()
   ```
   
-- 新方法 [frame_locator.owner](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
+- 新方法 [frame_locator.owner](/api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。當您在某處獲得了 [FrameLocator] 物件，稍後想要與 `iframe` 元素互動時，這會很有用。
   
   ```python
   frame_locator = page.frame_locator("iframe[name='embedded']")
