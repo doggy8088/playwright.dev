@@ -248,7 +248,7 @@ test('some test', async ({ page, isMobile }) => {
   });
   ```
   
-* 新方法 [test.step.skip()](/api/class-test.mdx#test-step-skip) to disable execution of a test step.
+* 新方法 [test.step.skip()](/api/class-test.mdx#test-step-skip) 可停用測試步驟的執行。
   
   ```js
   test('some test', async ({ page }) => {
@@ -266,9 +266,9 @@ test('some test', async ({ page, isMobile }) => {
   });
   ```
   
-* Expanded [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot-2) to allow storing of aria snapshots in separate YAML files.
-* Added 方法 [expect(locator).toHaveAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
-* 選項 [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) added the configuration enum `changed`. `changed` updates only the snapshots that have changed, whereas `all` now updates all snapshots, regardless of whether there are any differences.
+* 擴展了 [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot-2) 以允許將 aria 快照儲存在獨立的 YAML 檔案中。
+* 新增方法 [expect(locator).toHaveAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) 用來斷言定位器指向具有指定 [aria errormessage](https://w3c.github.io/aria/#aria-errormessage) 的元素。
+* 選項 [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) 新增了設定列舉值 `changed`。`changed` 只更新已變更的快照，而 `all` 現在會更新所有快照，無論是否有任何差異。
 * 新選項 [testConfig.updateSourceMethod](/api/class-testconfig.mdx#test-config-update-source-方法) 定義當配置 [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) 時更新原始碼的方式。新增了將變更寫入原始碼的 `overwrite` 和 `3-way` 模式，除了現有建立補丁檔案的 `patch` 模式。
   
   ```bash
@@ -442,7 +442,7 @@ This change affects you if you're using one of the following channels in your `p
 **定位器處理器**
 - After executing the handler added with [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `noWaitAfter` 選項.
 - You can use new `times` 選項 in [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
-- The handler in [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
+- [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
 - New [page.removeLocatorHandler()](/api/class-page.mdx#page-remove-locator-handler) 方法 for removing previously added locator handlers.
 
 ```js

@@ -98,7 +98,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### 重大變更
 - 像 [Page.route()](/api/class-page.mdx#page-route) 這樣的方法中的全域 URL 模式不再支援 `?` 和 `[]`。我們建議改用正規表達式。
-- 方法 [Route.resume()](/api/class-route.mdx#route-continue) does not 允許 override the `Cookie` header anymore. If a `Cookie` header is provided, it will be ignored, and the cookie will be loaded from the browser's cookie store. To set custom cookies, use [BrowserContext.addCookies()](/api/class-browsercontext.mdx#browser-context-add-cookies).
+- 方法 [Route.resume()](/api/class-route.mdx#route-continue) 不再允許覆寫 `Cookie` 標頭。如果提供了 `Cookie` 標頭，它將被忽略，cookie 將從瀏覽器的 cookie 儲存區載入。若要設定自訂 cookie，請使用 [BrowserContext.addCookies()](/api/class-browsercontext.mdx#browser-context-add-cookies)。
 - macOS 13 is now deprecated and will no longer receive WebKit updates. Please upgrade to a more recent macOS version to continue benefiting from the latest WebKit improvements.
 
 ### 瀏覽器版本
@@ -113,7 +113,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ## 版本 1.51
 
 ### 重點
-* 新選項 [setIndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-選項-indexed-db) for [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 允許 save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
+* 新選項 [setIndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-選項-indexed-db) 用於 [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 允許儲存和還原 IndexedDB 內容。當您的應用程式使用 [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 儲存身份驗證權杖（如 Firebase Authentication）時很有用。
   
   Here is an example following the [authentication guide](./auth.mdx#reusing-signed-in-state):
   
@@ -138,8 +138,8 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   assertThat(todoItems).hasCount(3);
   ```
   
-* 新選項 `setContrast` for methods [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media) and [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 允許 emulate the `prefers-contrast` media feature.
-* 新選項 [setFailOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-選項-fail-on-status-code) 讓所有 fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
+* 新選項 `setContrast` 用於方法 [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media) 和 [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 允許模擬 `prefers-contrast` 媒體功能。
+* 新選項 [setFailOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-選項-fail-on-status-code) 讓所有透過 [APIRequestContext] 發出的 fetch 請求在回應代碼不是 2xx 和 3xx 時拋出例外。
 
 ### 瀏覽器版本
 * Chromium 134.0.6998.35
@@ -153,7 +153,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ## 版本 1.50
 
 ### 其他
-* Added 方法 [assertThat(locator).hasAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
+* 新增方法 [assertThat(locator).hasAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) 用來斷言定位器指向具有指定 [aria errormessage](https://w3c.github.io/aria/#aria-errormessage) 的元素。
 
 ### UI 更新
 * New button in Codegen for picking elements to produce aria snapshots.
@@ -280,8 +280,8 @@ This change affects you if you're using one of the following channels in your `p
   
 **定位器處理器**
 - After executing the handler added with [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `setNoWaitAfter` 選項.
-- You can use new `setTimes` 選項 in [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
-- The handler in [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
+- 您可以在 [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `setTimes` 選項來指定處理器應執行的最大次數。
+- [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
 - New [Page.removeLocatorHandler()](/api/class-page.mdx#page-remove-locator-handler) 方法 for removing previously added locator handlers.
 
 ```java
@@ -441,7 +441,7 @@ Learn more about the fixtures in our [JUnit guide](./junit.mdx).
 
 ### 新的定位器處理器
 
-新方法 [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) registers a callback that will be invoked when specified element becomes visible and may block Playwright actions. The callback can get rid of the overlay. Here is an example that closes a cookie dialog when it appears.
+新方法 [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 註冊一個回呼函數，當指定元素變為可見且可能阻擋 Playwright 動作時會被調用。回呼函數可以移除覆蓋層。以下是一個當 cookie 對話框出現時關閉它的範例。
 
 ```java
 // Setup the handler.

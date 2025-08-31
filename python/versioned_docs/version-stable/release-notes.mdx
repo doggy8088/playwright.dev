@@ -350,7 +350,7 @@ page.remove_locator_handler(locator)
 
 ### 新的定位器處理器
 
-新方法 [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) registers a callback that will be invoked when specified element becomes visible and may block Playwright actions. The callback can get rid of the overlay. Here is an example that closes a cookie dialog when it appears.
+新方法 [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) 註冊一個回呼函數，當指定元素變為可見且可能阻擋 Playwright 動作時會被調用。回呼函數可以移除覆蓋層。以下是一個當 cookie 對話框出現時關閉它的範例。
 
 ```python
 # Setup the handler.

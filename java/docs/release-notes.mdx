@@ -153,7 +153,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ## 版本 1.50
 
 ### 其他
-* Added 方法 [assertThat(locator).hasAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
+* 新增方法 [assertThat(locator).hasAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) 用來斷言定位器指向具有指定 [aria errormessage](https://w3c.github.io/aria/#aria-errormessage) 的元素。
 
 ### UI 更新
 * New button in Codegen for picking elements to produce aria snapshots.
@@ -162,7 +162,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * `Call` and `Network` panels now display additional time information.
 
 ### 重大變更
-* [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) and [Locator.isEditable()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
+* [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.isEditable()](/api/class-locator.mdx#locator-is-editable) 現在如果目標元素不是 `<input>`、`<select>` 或其他可編輯元素會拋出例外。
 
 ### 瀏覽器版本
 * Chromium 133.0.6943.16
@@ -441,7 +441,7 @@ Learn more about the fixtures in our [JUnit guide](./junit.mdx).
 
 ### 新的定位器處理器
 
-新方法 [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) registers a callback that will be invoked when specified element becomes visible and may block Playwright actions. The callback can get rid of the overlay. Here is an example that closes a cookie dialog when it appears.
+新方法 [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 註冊一個回呼函數，當指定元素變為可見且可能阻擋 Playwright 動作時會被調用。回呼函數可以移除覆蓋層。以下是一個當 cookie 對話框出現時關閉它的範例。
 
 ```java
 // Setup the handler.
@@ -724,7 +724,7 @@ Linux support looks like this:
 ## 版本 1.31
 
 ### 新的 API
-- New assertion [assertThat(locator).isInViewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) ensures that locator points to an element that intersects viewport, according to the [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+- 新斷言 [assertThat(locator).isInViewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) 確保定位器指向與視窗區域相交的元素，根據 [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)。
   
   ```java
   Locator locator = page.getByRole(AriaRole.BUTTON);
@@ -1297,7 +1297,7 @@ Previously it was not possible to get multiple header values of a response. This
 Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [Browser.newContext()](/api/class-browser.mdx#browser-new-context) or calling [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
 
 ### 新的 API
-- [Page.route()](/api/class-page.mdx#page-route) accepts new `times` 選項 to specify how many times this route should be matched.
+- [Page.route()](/api/class-page.mdx#page-route) 接受新的 `times` 選項來指定此路由應匹配多少次。
 - [Page.setChecked()](/api/class-page.mdx#page-set-checked) and [Locator.setChecked()](/api/class-locator.mdx#locator-set-checked) were introduced to set the checked state of a checkbox.
 - [Request.sizes()](/api/class-request.mdx#request-sizes) 回傳 resource size information for given http request.
 - [Tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) - Start a new trace chunk.

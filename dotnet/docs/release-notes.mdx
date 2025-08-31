@@ -143,8 +143,8 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   await Expect(todoItems).ToHaveCountAsync(3);
   ```
   
-* 新選項 `Contrast` for methods [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media) and [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 允許 emulate the `prefers-contrast` media feature.
-* 新選項 [FailOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-選項-fail-on-status-code) 讓所有 fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
+* 新選項 `Contrast` 用於方法 [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media) 和 [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 允許模擬 `prefers-contrast` 媒體功能。
+* 新選項 [FailOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-選項-fail-on-status-code) 讓所有透過 [APIRequestContext] 發出的 fetch 請求在回應代碼不是 2xx 和 3xx 時拋出例外。
 
 ### 瀏覽器版本
 * Chromium 134.0.6998.35
@@ -164,10 +164,10 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * Added 方法 [Expect(Locator).ToHaveAccessibleErrorMessageAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
 
 ### UI 更新
-* New button in Codegen for picking elements to produce aria snapshots.
-* Additional details (such as keys pressed) are now displayed alongside action API calls in traces.
+* Codegen 中用於選擇元素以產生 aria 快照的新按鈕。
+* 現在在追蹤中的動作 API 呼叫旁邊顯示額外的詳細資訊（例如按下的按鍵）。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
-* `Call` and `Network` panels now display additional time information.
+* `Call` 和 `Network` 面板現在顯示額外的時間資訊。
 
 ### 重大變更
 * [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) and [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
@@ -348,7 +348,7 @@ var context = await Browser.NewContextAsync(new() {
 - Content of text attachments is now rendered inline in the attachments pane.
 - New setting to show/hide routing actions like [Route.ContinueAsync()](/api/class-route.mdx#route-continue).
 - Request 方法 and status are shown in the network details tab.
-- New button to copy source file location to clipboard.
+- 複製來源檔案位置到剪貼簿的新按鈕。
 - Metadata pane now displays the `BaseURL`.
 
 ### 其他
@@ -542,7 +542,7 @@ await Page.RemoveLocatorHandlerAsync(locator);
 
 ### 新的定位器處理器
 
-新方法 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) registers a callback that will be invoked when specified element becomes visible and may block Playwright actions. The callback can get rid of the overlay. Here is an example that closes a cookie dialog when it appears.
+新方法 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 註冊一個回呼函數，當指定元素變為可見且可能阻擋 Playwright 動作時會被調用。回呼函數可以移除覆蓋層。以下是一個當 cookie 對話框出現時關閉它的範例。
 
 ```csharp
 // Setup the handler.
@@ -1428,7 +1428,7 @@ Previously it was not possible to get multiple header values of a response. This
 Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) or calling [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media).
 
 ### 新的 API
-- [Page.RouteAsync()](/api/class-page.mdx#page-route) accepts new `times` 選項 to specify how many times this route should be matched.
+- [Page.RouteAsync()](/api/class-page.mdx#page-route) 接受新的 `times` 選項來指定此路由應匹配多少次。
 - [Page.SetCheckedAsync()](/api/class-page.mdx#page-set-checked) and [Locator.SetCheckedAsync()](/api/class-locator.mdx#locator-set-checked) were introduced to set the checked state of a checkbox.
 - [Request.SizesAsync()](/api/class-request.mdx#request-sizes) 回傳 resource size information for given http request.
 - [Tracing.StartChunkAsync()](/api/class-tracing.mdx#tracing-start-chunk) - Start a new trace chunk.

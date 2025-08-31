@@ -252,7 +252,7 @@ test('some test', async ({ page, isMobile }) => {
   });
   ```
   
-* 新方法 [test.step.skip()](/api/class-test.mdx#test-step-skip) to disable execution of a test step.
+* 新方法 [test.step.skip()](/api/class-test.mdx#test-step-skip) 可停用測試步驟的執行。
   
   ```js
   test('some test', async ({ page }) => {
@@ -270,28 +270,28 @@ test('some test', async ({ page, isMobile }) => {
   });
   ```
   
-* Expanded [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot-2) to allow storing of aria snapshots in separate YAML files.
-* Added 方法 [expect(locator).toHaveAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
-* 選項 [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) added the configuration enum `changed`. `changed` updates only the snapshots that have changed, whereas `all` now updates all snapshots, regardless of whether there are any differences.
+* 擴展了 [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot-2) 以允許將 aria 快照儲存在獨立的 YAML 檔案中。
+* 新增方法 [expect(locator).toHaveAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) 用來斷言定位器指向具有指定 [aria errormessage](https://w3c.github.io/aria/#aria-errormessage) 的元素。
+* 選項 [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) 新增了設定列舉值 `changed`。`changed` 只更新已變更的快照，而 `all` 現在會更新所有快照，無論是否有任何差異。
 * 新選項 [testConfig.updateSourceMethod](/api/class-testconfig.mdx#test-config-update-source-方法) 定義當配置 [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) 時更新原始碼的方式。新增了將變更寫入原始碼的 `overwrite` 和 `3-way` 模式，除了現有建立補丁檔案的 `patch` 模式。
   
   ```bash
   npx playwright test --update-snapshots=changed --update-source-方法=3way
   ```
   
-* 選項 [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) added a `gracefulShutdown` field for specifying a process kill signal other than the default `SIGKILL`.
-* Exposed [testStep.attachments](/api/class-teststep.mdx#test-step-attachments) from the reporter API to allow retrieval of all attachments created by that step.
-* 新選項 `pathTemplate` for `toHaveScreenshot` and `toMatchAriaSnapshot` assertions in the [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) configuration.
+* 選項 [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) 新增了 `gracefulShutdown` 欄位，用於指定除預設 `SIGKILL` 之外的程序終止信號。
+* 從報告器 API 公開了 [testStep.attachments](/api/class-teststep.mdx#test-step-attachments)，以允許檢索該步驟建立的所有附件。
+* 新選項 `pathTemplate` 用於 [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) 設定中的 `toHaveScreenshot` 和 `toMatchAriaSnapshot` 斷言。
 
 ### UI 更新
-* Updated default HTML reporter to improve display of attachments.
-* New button in Codegen for picking elements to produce aria snapshots.
-* Additional details (such as keys pressed) are now displayed alongside action API calls in traces.
+* 更新了預設 HTML 報告器以改善附件的顯示。
+* Codegen 中用於選擇元素以產生 aria 快照的新按鈕。
+* 現在在追蹤中的動作 API 呼叫旁邊顯示額外的詳細資訊（例如按下的按鍵）。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
-* `Call` and `Network` panels now display additional time information.
+* `Call` 和 `Network` 面板現在顯示額外的時間資訊。
 
 ### 重大變更
-* [expect(locator).toBeEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) and [locator.isEditable()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
+* [expect(locator).toBeEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [locator.isEditable()](/api/class-locator.mdx#locator-is-editable) 現在如果目標元素不是 `<input>`、`<select>` 或其他可編輯元素會拋出例外。
 * 選項 [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) 當設定為 `all` 時現在會更新所有快照，而不是只更新失敗/變更的快照。使用新的枚舉 `changed` 來保持只更新變更快照的舊功能。
 
 ### 瀏覽器版本
@@ -309,7 +309,7 @@ test('some test', async ({ page, isMobile }) => {
 
 ### Aria 快照
 
-New assertion [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) verifies page structure by comparing to an expected accessibility tree, represented as YAML.
+新斷言 [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) 透過與預期的無障礙樹（以 YAML 表示）比較來驗證頁面結構。
 
 ```js
 await page.goto('https://playwright.dev');
@@ -324,7 +324,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
 `);
 ```
 
-You can generate this assertion with [Test Generator](./codegen) and update the expected snapshot with `--update-snapshots` command line flag.
+您可以使用 [Test Generator](./codegen) 產生這個斷言，並使用 `--update-snapshots` 命令列參數更新預期的快照。
 
 Learn more in the [aria snapshots guide](./aria-snapshots).
 
@@ -338,7 +338,7 @@ Learn more in the [aria snapshots guide](./aria-snapshots).
 
 ### Breaking: `chrome` 和 `msedge` 頻道切換到新的無頭模式
 
-This change affects you if you're using one of the following channels in your `playwright.config.ts`:
+如果您在 `playwright.config.ts` 中使用以下任一通道，此變更會影響您：
 - `chrome`, `chrome-dev`, `chrome-beta`, or `chrome-canary`
 - `msedge`, `msedge-dev`, `msedge-beta`, or `msedge-canary`
 
@@ -401,7 +401,7 @@ This change affects you if you're using one of the following channels in your `p
   ```
   
 - 新屬性 `httpCredentials.send` in [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that 允許 either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
-- 新選項 `reason` in [apiRequestContext.dispose()](/api/class-apirequestcontext.mdx#api-request-context-dispose) that will be included in the error message of ongoing operations interrupted by the context disposal.
+- 新選項 `reason` 在 [apiRequestContext.dispose()](/api/class-apirequestcontext.mdx#api-request-context-dispose) 中會包含在因內容處置中斷的持續操作的錯誤訊息中。
 - 新選項 `host` in [browserType.launchServer()](/api/class-browsertype.mdx#browser-type-launch-server) 允許 accept websocket connections on a specific address instead of unspecified `0.0.0.0`.
 - Playwright 現在支援 Chromium, Firefox and WebKit on Ubuntu 24.04.
 - v1.45 is the last release to receive WebKit update for macOS 12 Monterey. Please update macOS to keep using the latest WebKit.
@@ -460,7 +460,7 @@ await page.removeLocatorHandler(locator);
 ```
 
 **其他選項**
-- [`multipart`](./api/class-apirequestcontext#api-request-context-fetch-選項-multipart) 選項 in `apiRequestContext.fetch()` now accepts [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) and supports repeating fields with the same name.
+- [`multipart`](./api/class-apirequestcontext#api-request-context-fetch-選項-multipart) 選項在 `apiRequestContext.fetch()` 中現在接受 [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) 並支援具有相同名稱的重複欄位。
   
   ```js
   const formData = new FormData();
@@ -590,7 +590,7 @@ await page.removeLocatorHandler(locator);
 <LiteYouTube id="KjSaIQLlgns" title="Playwright 1.41 & 1.42" />
 
 ### 新的 API
-- 新方法 [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) registers a callback that will be invoked when specified element becomes visible and may block Playwright actions. The callback can get rid of the overlay. Here is an example that closes a cookie dialog when it appears:
+- 新方法 [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 註冊一個回呼函數，當指定元素變為可見且可能阻擋 Playwright 動作時會被調用。回呼函數可以移除覆蓋層。以下是一個當 cookie 對話框出現時關閉它的範例：
 
 ```js
 // Setup the handler.
@@ -653,7 +653,7 @@ test('test full report', {
 });
 ```
 
-- [page.pdf()](/api/class-page.mdx#page-pdf) accepts two new options [`tagged`](./api/class-page#page-pdf-選項-tagged) and [`outline`](./api/class-page#page-pdf-選項-outline).
+- [page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [`tagged`](./api/class-page#page-pdf-選項-tagged) 和 [`outline`](./api/class-page#page-pdf-選項-outline)。
 
 ### 公告
 * ⚠️ Ubuntu 18 is not supported anymore.
@@ -674,7 +674,7 @@ test('test full report', {
 - 新方法 [browserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
 - 新選項 [style](/api/class-page.mdx#page-screenshot-選項-style) in [page.screenshot()](/api/class-page.mdx#page-screenshot) and [style](/api/class-locator.mdx#locator-screenshot-選項-style) in [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
 - 新選項 `stylePath` for methods [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) and [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) to apply a custom stylesheet while making the screenshot.
-- New `fileName` 選項 for [Blob reporter](./test-reporters#blob-reporter), to specify the name of the report to be created.
+- 新的 `fileName` 選項用於 [Blob reporter](./test-reporters#blob-reporter)，以指定要建立的報告名稱。
 
 ### 瀏覽器版本
 * Chromium 121.0.6167.57
@@ -737,7 +737,7 @@ test('test', async ({ page }) => {
 
 ### 為您的 expect 新增自定義比對器
 
-You can extend Playwright assertions by providing custom matchers. These matchers will be available on the expect object.
+您可以透過提供自訂匹配器來擴展 Playwright 斷言。這些匹配器將可在 expect 物件上使用。
 
 ```js title="test.spec.ts"
 import { expect as baseExpect } from '@playwright/test';
@@ -942,7 +942,7 @@ Linux support looks like this:
 
 ### UI 模式更新
 - UI Mode now respects project dependencies. You can control which dependencies to respect by checking/unchecking them in a projects list.
-- Console logs from the test are now displayed in the Console tab.
+- 測試的主控台日誌現在顯示在 Console 頁籤中。
 
 ### 瀏覽器版本
 * Chromium 116.0.5845.82
@@ -1025,7 +1025,7 @@ Linux support looks like this:
 
 ### 重點
 * UI Mode now shows steps, fixtures and attachments: ![UI Mode attachments](https://github.com/microsoft/playwright/assets/746130/1d280419-d79a-4a56-b2dc-54d631281d56)
-* 新屬性 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) to specify a project that needs to run after this and all dependent projects have finished. Teardown is useful to cleanup any resources acquired by this project.
+* 新屬性 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) 用於指定在此專案和所有相依專案完成後需要執行的專案。清理對於清理此專案取得的任何資源很有用。
   
   A common pattern would be a `setup` dependency with a corresponding `teardown`:
   
@@ -2357,7 +2357,7 @@ Previously it was not possible to get multiple header values of a response. This
 Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [browser.newContext()](/api/class-browser.mdx#browser-new-context) or calling [page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
 
 #### 新的 API
-- [page.route()](/api/class-page.mdx#page-route) accepts new `times` 選項 to specify how many times this route should be matched.
+- [page.route()](/api/class-page.mdx#page-route) 接受新的 `times` 選項來指定此路由應匹配多少次。
 - [page.setChecked()](/api/class-page.mdx#page-set-checked) and [locator.setChecked()](/api/class-locator.mdx#locator-set-checked) were introduced to set the checked state of a checkbox.
 - [request.sizes()](/api/class-request.mdx#request-sizes) 回傳 resource size information for given http request.
 - [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) - Start a new trace chunk.
