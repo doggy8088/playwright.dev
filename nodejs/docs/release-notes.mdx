@@ -1,6 +1,6 @@
 ---
 id: release-notes
-title: "Release notes"
+title: "發行說明"
 toc_max_heading_level: 2
 ---
 import Tabs from '@theme/Tabs';
@@ -10,34 +10,34 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Version 1.55
+## 版本 1.55
 
-### New APIs
-- New Property [testStepInfo.titlePath](/api/class-teststepinfo.mdx#test-step-info-title-path) Returns the full title path starting from the test file, including test and step titles.
+### 新的 API
+- 新屬性 [testStepInfo.titlePath](/api/class-teststepinfo.mdx#test-step-info-title-path) 回傳從測試檔案開始的完整標題路徑，包含測試和步驟標題。
 
 ### Codegen
-- Automatic `toBeVisible()` assertions: Codegen can now generate automatic `toBeVisible()` assertions for common UI interactions. This feature can be enabled in the Codegen settings UI.
+- 自動 `toBeVisible()` 斷言：Codegen 現在可以為常見的 UI 互動產生自動 `toBeVisible()` 斷言。此功能可以在 Codegen 設定 UI 中啟用。
 
-### Breaking Changes
-- ⚠️ Dropped support for Chromium extension manifest v2.
+### 重大變更
+- ⚠️ 已移除對 Chromium 擴充功能 manifest v2 的支援。
 
-### Miscellaneous
-- Added support for Debian 13 "Trixie".
+### 其他
+- 新增對 Debian 13 "Trixie" 的支援。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 140.0.7339.16
 - Mozilla Firefox 141.0
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 139
 - Microsoft Edge 139
 
-## Version 1.54
+## 版本 1.54
 
-### Highlights
-- New cookie property `partitionKey` in [browserContext.cookies()](/api/class-browsercontext.mdx#browser-context-cookies) and [browserContext.addCookies()](/api/class-browsercontext.mdx#browser-context-add-cookies). This property allows to save and restore partitioned cookies. See [CHIPS MDN article](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) for more information. Note that browsers have different support and defaults for cookie partitioning.
-- New option `noSnippets` to disable code snippets in the html report.
+### 重點
+- 在 [browserContext.cookies()](/api/class-browsercontext.mdx#browser-context-cookies) 和 [browserContext.addCookies()](/api/class-browsercontext.mdx#browser-context-add-cookies) 中新增 cookie 屬性 `partitionKey`。此屬性允許儲存和還原分割的 cookies。請參閱 [CHIPS MDN 文章](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) 以取得更多資訊。請注意，瀏覽器對 cookie 分割有不同的支援和預設值。
+- 新選項 `noSnippets` 用於在 html 報告中停用程式碼片段。
   
   ```js
   import { defineConfig } from '@playwright/test';
@@ -47,36 +47,36 @@ This version was also tested against the following stable channels:
   });
   ```
   
-- New property `location` in test annotations, for example in [testResult.annotations](/api/class-testresult.mdx#test-result-annotations) and [testInfo.annotations](/api/class-testinfo.mdx#test-info-annotations). It shows where the annotation like `test.skip` or `test.fixme` was added.
+- 測試註釋中的新屬性 `location`，例如在 [testResult.annotations](/api/class-testresult.mdx#test-result-annotations) 和 [testInfo.annotations](/api/class-testinfo.mdx#test-info-annotations) 中。它顯示像 `test.skip` 或 `test.fixme` 這樣的註釋是在何處新增的。
 
-### Command Line
-- New option `--user-data-dir` in multiple commands. You can specify the same user data dir to reuse browsing state, like authentication, between sessions.
+### 命令列
+- 在多個指令中新增選項 `--user-data-dir`。您可以指定相同的使用者資料目錄來重複使用瀏覽狀態，例如驗證，在不同的會話之間。
   
   ```bash
   npx playwright codegen --user-data-dir=./user-data
   ```
   
-- Option `-gv` has been removed from the `npx playwright test` command. Use `--grep-invert` instead.
-- `npx playwright open` does not open the test recorder anymore. Use `npx playwright codegen` instead.
+- 選項 `-gv` 已從 `npx playwright test` 指令中移除。請改用 `--grep-invert`。
+- `npx playwright open` 不再開啟測試錄製器。請改用 `npx playwright codegen`。
 
-### Miscellaneous
-- Support for Node.js 16 has been removed.
-- Support for Node.js 18 has been deprecated, and will be removed in the future.
+### 其他
+- 已移除對 Node.js 16 的支援。
+- 已棄用對 Node.js 18 的支援，將來會移除。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 139.0.7258.5
 - Mozilla Firefox 140.0.2
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 140
 - Microsoft Edge 140
 
-## Version 1.53
+## 版本 1.53
 
-### Trace Viewer and HTML Reporter Updates
-- New Steps in Trace Viewer and HTML reporter: ![New Trace Viewer Steps](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
-- New option in `'html'` reporter to set the title of a specific test run:
+### 追蹤檢視器和 HTML 報告器更新
+- 追蹤檢視器和 HTML 報告器中的新步驟：![新的追蹤檢視器步驟](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
+- `'html'` 報告器中的新選項用於設定特定測試執行的標題：
   
   ```js
   import { defineConfig } from '@playwright/test';
@@ -86,36 +86,36 @@ This version was also tested against the following stable channels:
   });
   ```
   
-### Miscellaneous
-- New option [kind](/api/class-testinfo.mdx#test-info-snapshot-path-option-kind) in [testInfo.snapshotPath()](/api/class-testinfo.mdx#test-info-snapshot-path) controls which snapshot path template is used.
-- New method [locator.describe()](/api/class-locator.mdx#locator-describe) to describe a locator. Used for trace viewer and reports.
+### 其他
+- [testInfo.snapshotPath()](/api/class-testinfo.mdx#test-info-snapshot-path) 中的新選項 [kind](/api/class-testinfo.mdx#test-info-snapshot-path-option-kind) 控制使用哪個快照路徑範本。
+- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器。用於追蹤檢視器和報告。
   
   ```js
   const button = page.getByTestId('btn-sub').describe('Subscribe button');
   await button.click();
   ```
   
-- `npx playwright install --list` will now list all installed browsers, versions and locations.
+- `npx playwright install --list` 現在會列出所有已安裝的瀏覽器、版本和位置。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 138.0.7204.4
 - Mozilla Firefox 139.0
 - WebKit 18.5
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 137
 - Microsoft Edge 137
 
-## Version 1.52
+## 版本 1.52
 
-### Highlights
-- New method [expect(locator).toContainClass()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) to ergonomically assert individual class names on the element.
+### 重點
+- 新方法 [expect(locator).toContainClass()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) 用於人體工學地斷言元素上的個別類別名稱。
   
   ```ts
   await expect(page.getByRole('listitem', { name: 'Ship v1.52' })).toContainClass('done');
   ```
   
-- [Aria Snapshots](./aria-snapshots.mdx) got two new properties: [`/children`](./aria-snapshots.mdx#strict-matching) for strict matching and `/url` for links.
+- [Aria 快照](./aria-snapshots.mdx) 獲得了兩個新屬性：[`/children`](./aria-snapshots.mdx#strict-matching) 用於嚴格比對，以及 `/url` 用於連結。
   
   ```ts
   await expect(locator).toMatchAriaSnapshot(`
@@ -128,35 +128,35 @@ This version was also tested against the following stable channels:
   `);
   ```
   
-### Test Runner
-- New property [testProject.workers](/api/class-testproject.mdx#test-project-workers) allows to specify the number of concurrent worker processes to use for a test project. The global limit of property [testConfig.workers](/api/class-testconfig.mdx#test-config-workers) still applies.
-- New [testConfig.failOnFlakyTests](/api/class-testconfig.mdx#test-config-fail-on-flaky-tests) option to fail the test run if any flaky tests are detected, similarly to `--fail-on-flaky-tests`. This is useful for CI/CD environments where you want to ensure that all tests are stable before deploying.
-- New property [testResult.annotations](/api/class-testresult.mdx#test-result-annotations) contains annotations for each test retry.
+### 測試執行器
+- 新屬性 [testProject.workers](/api/class-testproject.mdx#test-project-workers) 允許指定用於測試專案的並行工作程序數量。屬性 [testConfig.workers](/api/class-testconfig.mdx#test-config-workers) 的全域限制仍然適用。
+- 新選項 [testConfig.failOnFlakyTests](/api/class-testconfig.mdx#test-config-fail-on-flaky-tests) 如果檢測到任何不穩定測試，則測試執行失敗，類似於 `--fail-on-flaky-tests`。這對於您希望在部署前確保所有測試穩定的 CI/CD 環境很有用。
+- 新屬性 [testResult.annotations](/api/class-testresult.mdx#test-result-annotations) 包含每次測試重試的註釋。
 
-### Miscellaneous
-- New option [maxRedirects](/api/class-apirequest.mdx#api-request-new-context-option-max-redirects) in [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) to control the maximum number of redirects.
-- HTML reporter now supports *NOT filtering* via `!@my-tag` or `!my-file.spec.ts` or `!p:my-project`.
+### 其他
+- [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 中的新選項 [maxRedirects](/api/class-apirequest.mdx#api-request-new-context-option-max-redirects) 用於控制重新導向的最大數量。
+- HTML 報告器現在支援透過 `!@my-tag` 或 `!my-file.spec.ts` 或 `!p:my-project` 進行 *反向篩選*。
 
-### Breaking Changes
-- Glob URL patterns in methods like [page.route()](/api/class-page.mdx#page-route) do not support `?` and `[]` anymore. We recommend using regular expressions instead.
-- Method [route.continue()](/api/class-route.mdx#route-continue) does not allow to override the `Cookie` header anymore. If a `Cookie` header is provided, it will be ignored, and the cookie will be loaded from the browser's cookie store. To set custom cookies, use [browserContext.addCookies()](/api/class-browsercontext.mdx#browser-context-add-cookies).
-- macOS 13 is now deprecated and will no longer receive WebKit updates. Please upgrade to a more recent macOS version to continue benefiting from the latest WebKit improvements.
+### 重大變更
+- 方法如 [page.route()](/api/class-page.mdx#page-route) 中的 Glob URL 模式不再支援 `?` 和 `[]`。我們建議改用正規表示式。
+- 方法 [route.continue()](/api/class-route.mdx#route-continue) 不再允許覆寫 `Cookie` 標頭。如果提供了 `Cookie` 標頭，它將被忽略，cookie 將從瀏覽器的 cookie 儲存載入。要設定自訂 cookies，請使用 [browserContext.addCookies()](/api/class-browsercontext.mdx#browser-context-add-cookies)。
+- macOS 13 現在已棄用，將不再接收 WebKit 更新。請升級到更新的 macOS 版本，以繼續受益於最新的 WebKit 改進。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 136.0.7103.25
 - Mozilla Firefox 137.0
 - WebKit 18.4
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 135
 - Microsoft Edge 135
 
-## Version 1.51
+## 版本 1.51
 
-### StorageState for indexedDB
-* New option [indexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) allows to save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
+### IndexedDB 的 StorageState
+* [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 的新選項 [indexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) 允許儲存和還原 IndexedDB 內容。當您的應用程式使用 [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 儲存驗證權杖（如 Firebase 驗證）時很有用。
   
-  Here is an example following the [authentication guide](./auth.mdx#basic-shared-account-in-all-tests):
+  這是一個遵循[驗證指南](./auth.mdx#basic-shared-account-in-all-tests)的範例：
   
   ```js title="tests/auth.setup.ts"
   import { test as setup, expect } from '@playwright/test';
@@ -173,28 +173,28 @@ This version was also tested against the following stable channels:
   });
   ```
   
-### Copy as prompt
+### 複製為提示
 
-New "Copy prompt" button on errors in the HTML report, trace viewer and UI mode. Click to copy a pre-filled LLM prompt that contains the error message and useful context for fixing the error.
+HTML 報告、追蹤檢視器和 UI 模式中錯誤上的新「複製提示」按鈕。點擊以複製包含錯誤訊息和修復錯誤有用內容的預填充 LLM 提示。
 
-![Copy prompt](https://github.com/user-attachments/assets/f3654407-dd6d-4240-9845-0d96df2bf30a)
+![複製提示](https://github.com/user-attachments/assets/f3654407-dd6d-4240-9845-0d96df2bf30a)
 
-### Filter visible elements
+### 篩選可見元素
 
-New option [visible](/api/class-locator.mdx#locator-filter-option-visible) for [locator.filter()](/api/class-locator.mdx#locator-filter) allows matching only visible elements.
+[locator.filter()](/api/class-locator.mdx#locator-filter) 的新選項 [visible](/api/class-locator.mdx#locator-filter-option-visible) 允許僅比對可見元素。
 
 ```js title="example.spec.ts"
 test('some test', async ({ page }) => {
-  // Ignore invisible todo items.
+  // 忽略不可見的待辦事項。
   const todoItems = page.getByTestId('todo-item').filter({ visible: true });
-  // Check there are exactly 3 visible ones.
+  // 檢查確實有 3 個可見的項目。
   await expect(todoItems).toHaveCount(3);
 });
 ```
 
-### Git information in HTML report
+### HTML 報告中的 Git 資訊
 
-Set option [testConfig.captureGitInfo](/api/class-testconfig.mdx#test-config-capture-git-info) to capture git information into [testConfig.metadata](/api/class-testconfig.mdx#test-config-metadata).
+設定選項 [testConfig.captureGitInfo](/api/class-testconfig.mdx#test-config-capture-git-info) 以將 git 資訊擷取到 [testConfig.metadata](/api/class-testconfig.mdx#test-config-metadata) 中。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
