@@ -122,6 +122,31 @@
 - viewport → 檢視區
 - profile → 設定檔
 
+## 新增術語（UI Mode 相關）
+- UI Mode → UI 模式
+- timeline → 時間軸
+- sidebar → 側邊欄
+- attachment → 附件
+- metadata → 元資料 (Metadata 類別名保留原文)
+- watch mode → 觀看模式
+- time travel → 時光旅行
+- pop out → 彈出
+- pick locator → 選擇定位器
+- DevTools → DevTools（產品名不翻譯）
+- playground → 操作區
+- tab → 分頁標籤
+- slider → 滑桿
+- icon → 圖示
+- endpoint → 端點
+- interface → 介面
+- container → 容器
+- terminal → 終端機
+- hover → 懸停
+- expand → 展開
+- block → 區塊
+- triangle → 三角形
+- strict mode → 嚴格模式
+
 ## 新增術語（test-reporters 相關）
 - reporter → 報告器
 - built-in → 內建
