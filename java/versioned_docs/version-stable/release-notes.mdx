@@ -177,7 +177,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### Aria 快照
 
-New assertion [assertThat(locator).matchesAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) verifies page structure by comparing to an expected accessibility tree, represented as YAML.
+新斷言 [assertThat(locator).matchesAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) 透過與預期的無障礙樹狀結構（以 YAML 表示）進行比較來驗證頁面結構。
 
 ```java
 page.navigate("https://playwright.dev");
@@ -493,7 +493,7 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
-New tools to generate assertions:
+新的產生斷言工具：
 - "Assert visibility" tool generates [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
 - "Assert value" tool generates [assertThat(locator).hasValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
 - "Assert text" tool generates [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).
@@ -1132,7 +1132,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
 
 ### API 測試
 
-Playwright for Java 1.18 introduces new [API Testing](./api/class-apirequestcontext) that lets you send requests to the server directly from Java! Now you can:
+Playwright for Java 1.18 引入新的 [API 測試](./api/class-apirequestcontext)，讓您可以直接從 Java 向伺服器發送請求！現在您可以：
 - test your server API
 - prepare server side state before visiting the web application in a test
 - validate server side post-conditions after running some actions in the browser

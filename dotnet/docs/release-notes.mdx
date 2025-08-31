@@ -595,7 +595,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
-New tools to generate assertions:
+新的產生斷言工具：
 - "Assert visibility" tool generates [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
 - "Assert value" tool generates [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
 - "Assert text" tool generates [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).
@@ -1072,7 +1072,7 @@ Linux support looks like this:
 
 ### API 測試
 
-Playwright for .NET 1.23 introduces new [API Testing](./api/class-apirequestcontext) that lets you send requests to the server directly from .NET! Now you can:
+Playwright for .NET 1.23 引入新的 [API 測試](./api/class-apirequestcontext)，讓您可以直接從 .NET 向伺服器發送請求！現在您可以：
 - test your server API
 - prepare server side state before visiting the web application in a test
 - validate server side post-conditions after running some actions in the browser

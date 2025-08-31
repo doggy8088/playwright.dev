@@ -176,7 +176,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### Aria 快照
 
-New assertion [expect(locator).to_match_aria_snapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) verifies page structure by comparing to an expected accessibility tree, represented as YAML.
+新斷言 [expect(locator).to_match_aria_snapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) 透過與預期的無障礙樹狀結構（以 YAML 表示）進行比較來驗證頁面結構。
 
 ```python
 page.goto("https://playwright.dev")
@@ -401,7 +401,7 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
-New tools to generate assertions:
+新的產生斷言工具：
 - "Assert visibility" tool generates [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
 - "Assert value" tool generates [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
 - "Assert text" tool generates [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).
@@ -1214,7 +1214,7 @@ await page.route("**/*", abort_images_handler)
 
 ### API 測試
 
-Playwright for Python 1.18 introduces new [API Testing](./api/class-apirequestcontext) that lets you send requests to the server directly from Python! Now you can:
+Playwright for Python 1.18 引入新的 [API 測試](./api/class-apirequestcontext)，讓您可以直接從 Python 向伺服器發送請求！現在您可以：
 - test your server API
 - prepare server side state before visiting the web application in a test
 - validate server side post-conditions after running some actions in the browser
