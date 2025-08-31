@@ -134,7 +134,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   });
   ```
   
-* 新選項 [Visible](/api/class-locator.mdx#locator-filter-選項-visible) for [Locator.Filter()](/api/class-locator.mdx#locator-filter) allows matching only visible elements.
+* 新選項 [Visible](/api/class-locator.mdx#locator-filter-選項-visible) 用於 [Locator.Filter()](/api/class-locator.mdx#locator-filter) 允許只匹配可見元素。
   
   ```csharp
   // Ignore invisible todo items.
@@ -206,7 +206,7 @@ await Expect(page.Locator("body")).ToMatchAriaSnapshotAsync(@"
 
 ### 追蹤群組
 
-新方法 [Tracing.GroupAsync()](/api/class-tracing.mdx#tracing-group) allows you to visually group actions in the trace viewer.
+新方法 [Tracing.GroupAsync()](/api/class-tracing.mdx#tracing-group) 允許您在追蹤檢視器中視覺化地群組動作。
 
 ```csharp
 // All actions between GroupAsync and GroupEndAsync

@@ -450,9 +450,9 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
   ```
   
 **定位器處理器**
-- After executing the handler added with [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `NoWaitAfter` 選項.
-- You can use new `Times` 選項 in [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
-- The handler in [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
+- After executing the handler added with [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `NoWaitAfter` 選項來選擇退出此行為。
+- 您可以在 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `Times` 選項來指定處理器應執行的最大次數。
+- [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
 - New [Page.RemoveLocatorHandlerAsync()](/api/class-page.mdx#page-remove-locator-handler) 方法 for removing previously added locator handlers.
 
 ```csharp
@@ -559,7 +559,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 ```
 
 ### 新的 API
-- [Page.PdfAsync()](/api/class-page.mdx#page-pdf) accepts two new options [Tagged](/api/class-page.mdx#page-pdf-選項-tagged) and [Outline](/api/class-page.mdx#page-pdf-選項-outline).
+- [Page.PdfAsync()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [Tagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [Outline](/api/class-page.mdx#page-pdf-選項-outline)。
 
 ### 公告
 * ⚠️ Ubuntu 18 is not supported anymore.
@@ -731,7 +731,7 @@ Linux support looks like this:
   var button = page.GetByRole(AriaRole.BUTTON).And(page.GetByTitle("Subscribe"));
   ```
   
-* New events [BrowserContext.Console](/api/class-browsercontext.mdx#browser-context-event-console) and [BrowserContext.Dialog](/api/class-browsercontext.mdx#browser-context-event-dialog) to subscribe to any dialogs and console messages from any page from the given browser context. Use the new methods [ConsoleMessage.Page](/api/class-consolemessage.mdx#console-message-page) and [Dialog.Page](/api/class-dialog.mdx#dialog-page) to pin-point event source.
+* 新事件 [BrowserContext.Console](/api/class-browsercontext.mdx#browser-context-event-console) 和 [BrowserContext.Dialog](/api/class-browsercontext.mdx#browser-context-event-dialog) 用於訂閱來自指定瀏覽器上下文中任何頁面的對話框和控制台訊息。使用新方法 [ConsoleMessage.Page](/api/class-consolemessage.mdx#console-message-page) 和 [Dialog.Page](/api/class-dialog.mdx#dialog-page) 來精確定位事件來源。
 
 ### 瀏覽器版本
 * Chromium 114.0.5735.26
@@ -1117,7 +1117,7 @@ var context = await browser.NewContextAsync(new()
 context.CloseAsync();
 ```
 
-Use the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) or [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) to serve matching responses from the [HAR](http://www.softwareishard.com/blog/har-12-spec/) file:
+使用新方法 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 或 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) 來從 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 檔案提供匹配的回應：
 
 ```csharp
 await context.RouteFromHARAsync("example.har");

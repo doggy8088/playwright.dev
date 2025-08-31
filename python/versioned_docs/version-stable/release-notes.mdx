@@ -990,8 +990,8 @@ await page.route("**/*", abort_images_handler)
 請注意新方法 [page.route_from_har()](/api/class-page.mdx#page-route-from-har) 和 [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har) 也參與路由並可以被延遲執行。
 
 ### Web-First 斷言更新
-* 新方法 [expect(locator).to_have_values()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
-* Methods [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) and [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignore_case` 選項.
+* 新方法 [expect(locator).to_have_values()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選定值。
+* Methods [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在接受 `ignore_case` 選項。
 
 ### 其他
 * If there's a service worker that's in your way, you 現在可以 easily disable it with a new context 選項 `service_workers`:
