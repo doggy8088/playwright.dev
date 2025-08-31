@@ -108,7 +108,7 @@
 - [ ] nodejs/docs/emulation.mdx
 - [ ] nodejs/docs/evaluating.mdx
 - [ ] nodejs/docs/events.mdx
-- [ ] nodejs/docs/extensibility.mdx
+- [x] nodejs/docs/extensibility.mdx
 - [ ] nodejs/docs/frames.mdx
 - [ ] nodejs/docs/getting-started-vscode.mdx
 - [ ] nodejs/docs/handles.mdx
@@ -250,7 +250,7 @@
 - [ ] nodejs/versioned_docs/version-stable/emulation.mdx
 - [ ] nodejs/versioned_docs/version-stable/evaluating.mdx
 - [ ] nodejs/versioned_docs/version-stable/events.mdx
-- [ ] nodejs/versioned_docs/version-stable/extensibility.mdx
+- [x] nodejs/versioned_docs/version-stable/extensibility.mdx
 - [ ] nodejs/versioned_docs/version-stable/frames.mdx
 - [ ] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
 - [ ] nodejs/versioned_docs/version-stable/handles.mdx
@@ -359,7 +359,7 @@
 - [ ] python/docs/emulation.mdx
 - [ ] python/docs/evaluating.mdx
 - [ ] python/docs/events.mdx
-- [ ] python/docs/extensibility.mdx
+- [x] python/docs/extensibility.mdx
 - [ ] python/docs/frames.mdx
 - [ ] python/docs/handles.mdx
 - [ ] python/docs/input.mdx
@@ -445,7 +445,7 @@
 - [ ] python/versioned_docs/version-stable/emulation.mdx
 - [ ] python/versioned_docs/version-stable/evaluating.mdx
 - [ ] python/versioned_docs/version-stable/events.mdx
-- [ ] python/versioned_docs/version-stable/extensibility.mdx
+- [x] python/versioned_docs/version-stable/extensibility.mdx
 - [ ] python/versioned_docs/version-stable/frames.mdx
 - [ ] python/versioned_docs/version-stable/handles.mdx
 - [ ] python/versioned_docs/version-stable/input.mdx
@@ -534,7 +534,7 @@
 - [ ] java/docs/emulation.mdx
 - [ ] java/docs/evaluating.mdx
 - [ ] java/docs/events.mdx
-- [ ] java/docs/extensibility.mdx
+- [x] java/docs/extensibility.mdx
 - [ ] java/docs/frames.mdx
 - [ ] java/docs/handles.mdx
 - [ ] java/docs/input.mdx
@@ -624,7 +624,7 @@
 - [ ] java/versioned_docs/version-stable/emulation.mdx
 - [ ] java/versioned_docs/version-stable/evaluating.mdx
 - [ ] java/versioned_docs/version-stable/events.mdx
-- [ ] java/versioned_docs/version-stable/extensibility.mdx
+- [x] java/versioned_docs/version-stable/extensibility.mdx
 - [ ] java/versioned_docs/version-stable/frames.mdx
 - [ ] java/versioned_docs/version-stable/handles.mdx
 - [ ] java/versioned_docs/version-stable/input.mdx
@@ -713,7 +713,7 @@
 - [ ] dotnet/docs/emulation.mdx
 - [ ] dotnet/docs/evaluating.mdx
 - [ ] dotnet/docs/events.mdx
-- [ ] dotnet/docs/extensibility.mdx
+- [x] dotnet/docs/extensibility.mdx
 - [ ] dotnet/docs/frames.mdx
 - [ ] dotnet/docs/handles.mdx
 - [ ] dotnet/docs/input.mdx
@@ -801,7 +801,7 @@
 - [ ] dotnet/versioned_docs/version-stable/emulation.mdx
 - [ ] dotnet/versioned_docs/version-stable/evaluating.mdx
 - [ ] dotnet/versioned_docs/version-stable/events.mdx
-- [ ] dotnet/versioned_docs/version-stable/extensibility.mdx
+- [x] dotnet/versioned_docs/version-stable/extensibility.mdx
 - [ ] dotnet/versioned_docs/version-stable/frames.mdx
 - [ ] dotnet/versioned_docs/version-stable/handles.mdx
 - [ ] dotnet/versioned_docs/version-stable/input.mdx
