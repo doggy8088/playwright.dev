@@ -93,23 +93,23 @@
 - [x] nodejs/docs/best-practices.mdx
 - [x] nodejs/docs/browser-contexts.mdx
 - [x] nodejs/docs/browsers.mdx
-- [ ] nodejs/docs/canary-releases.mdx
+- [x] nodejs/docs/canary-releases.mdx
 - [ ] nodejs/docs/chrome-extensions.mdx
 - [ ] nodejs/docs/ci-intro.mdx
-- [ ] nodejs/docs/ci.mdx
+- [x] nodejs/docs/ci.mdx
 - [ ] nodejs/docs/clock.mdx
 - [x] nodejs/docs/codegen-intro.mdx
 - [ ] nodejs/docs/codegen.mdx
 - [ ] nodejs/docs/codegen.mdx
-- [ ] nodejs/docs/debug.mdx
+- [x] nodejs/docs/debug.mdx
 - [ ] nodejs/docs/dialogs.mdx
 - [ ] nodejs/docs/docker.mdx
 - [ ] nodejs/docs/downloads.mdx
-- [ ] nodejs/docs/emulation.mdx
+- [x] nodejs/docs/emulation.mdx
 - [ ] nodejs/docs/evaluating.mdx
 - [ ] nodejs/docs/events.mdx
 - [x] nodejs/docs/extensibility.mdx
-- [ ] nodejs/docs/frames.mdx
+- [x] nodejs/docs/frames.mdx
 - [x] nodejs/docs/getting-started-vscode.mdx
 - [ ] nodejs/docs/handles.mdx
 - [ ] nodejs/docs/input.mdx
@@ -117,7 +117,7 @@
 - [ ] nodejs/docs/languages.mdx
 - [ ] nodejs/docs/library.mdx
 - [x] nodejs/docs/locators.mdx
-- [ ] nodejs/docs/mock-browser.mdx
+- [x] nodejs/docs/mock-browser.mdx
 - [ ] nodejs/docs/mock.mdx
 - [ ] nodejs/docs/navigations.mdx
 - [ ] nodejs/docs/network.mdx
@@ -128,19 +128,19 @@
 - [ ] nodejs/docs/puppeteer.mdx
 - [ ] nodejs/docs/release-notes.mdx
 - [x] nodejs/docs/running-tests.mdx
-- [ ] nodejs/docs/screenshots.mdx
+- [x] nodejs/docs/screenshots.mdx
 - [ ] nodejs/docs/selenium-grid.mdx
 - [x] nodejs/docs/service-workers-experimental-network-events.mdx
 - [ ] nodejs/docs/test-annotations.mdx
 - [x] nodejs/docs/test-assertions.mdx
 - [ ] nodejs/docs/test-cli.mdx
-- [ ] nodejs/docs/test-components.mdx
+- [x] nodejs/docs/test-components.mdx
 - [ ] nodejs/docs/test-configuration.mdx
 - [ ] nodejs/docs/test-fixtures.mdx
 - [ ] nodejs/docs/test-global-setup-teardown.mdx
 - [ ] nodejs/docs/test-parallel.mdx
 - [ ] nodejs/docs/test-parameterize.mdx
-- [ ] nodejs/docs/test-projects.mdx
+- [x] nodejs/docs/test-projects.mdx
 - [ ] nodejs/docs/test-reporters.mdx
 - [ ] nodejs/docs/test-retries.mdx
 - [ ] nodejs/docs/test-sharding.mdx
@@ -148,13 +148,13 @@
 - [ ] nodejs/docs/test-timeouts.mdx
 - [ ] nodejs/docs/test-typescript.mdx
 - [ ] nodejs/docs/test-ui-mode.mdx
-- [ ] nodejs/docs/test-use-options.mdx
+- [x] nodejs/docs/test-use-options.mdx
 - [ ] nodejs/docs/test-webserver.mdx
-- [ ] nodejs/docs/testing-library.mdx
-- [ ] nodejs/docs/touch-events.mdx
+- [x] nodejs/docs/testing-library.mdx
+- [x] nodejs/docs/touch-events.mdx
 - [x] nodejs/docs/trace-viewer-intro.mdx
 - [ ] nodejs/docs/trace-viewer.mdx
-- [ ] nodejs/docs/videos.mdx
+- [x] nodejs/docs/videos.mdx
 - [x] nodejs/docs/webview2.mdx
 - [x] nodejs/docs/writing-tests.mdx
 
@@ -236,22 +236,22 @@
 - [x] nodejs/versioned_docs/version-stable/best-practices.mdx
 - [x] nodejs/versioned_docs/version-stable/browser-contexts.mdx
 - [x] nodejs/versioned_docs/version-stable/browsers.mdx
-- [ ] nodejs/versioned_docs/version-stable/canary-releases.mdx
+- [x] nodejs/versioned_docs/version-stable/canary-releases.mdx
 - [ ] nodejs/versioned_docs/version-stable/chrome-extensions.mdx
 - [ ] nodejs/versioned_docs/version-stable/ci-intro.mdx
-- [ ] nodejs/versioned_docs/version-stable/ci.mdx
+- [x] nodejs/versioned_docs/version-stable/ci.mdx
 - [ ] nodejs/versioned_docs/version-stable/clock.mdx
 - [x] nodejs/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/codegen.mdx
-- [ ] nodejs/versioned_docs/version-stable/debug.mdx
+- [x] nodejs/versioned_docs/version-stable/debug.mdx
 - [ ] nodejs/versioned_docs/version-stable/dialogs.mdx
 - [ ] nodejs/versioned_docs/version-stable/docker.mdx
 - [ ] nodejs/versioned_docs/version-stable/downloads.mdx
-- [ ] nodejs/versioned_docs/version-stable/emulation.mdx
+- [x] nodejs/versioned_docs/version-stable/emulation.mdx
 - [ ] nodejs/versioned_docs/version-stable/evaluating.mdx
 - [ ] nodejs/versioned_docs/version-stable/events.mdx
 - [x] nodejs/versioned_docs/version-stable/extensibility.mdx
-- [ ] nodejs/versioned_docs/version-stable/frames.mdx
+- [x] nodejs/versioned_docs/version-stable/frames.mdx
 - [x] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
 - [ ] nodejs/versioned_docs/version-stable/handles.mdx
 - [ ] nodejs/versioned_docs/version-stable/input.mdx
@@ -259,7 +259,7 @@
 - [ ] nodejs/versioned_docs/version-stable/languages.mdx
 - [ ] nodejs/versioned_docs/version-stable/library.mdx
 - [x] nodejs/versioned_docs/version-stable/locators.mdx
-- [ ] nodejs/versioned_docs/version-stable/mock-browser.mdx
+- [x] nodejs/versioned_docs/version-stable/mock-browser.mdx
 - [ ] nodejs/versioned_docs/version-stable/mock.mdx
 - [ ] nodejs/versioned_docs/version-stable/navigations.mdx
 - [ ] nodejs/versioned_docs/version-stable/network.mdx
@@ -270,19 +270,19 @@
 - [ ] nodejs/versioned_docs/version-stable/puppeteer.mdx
 - [ ] nodejs/versioned_docs/version-stable/release-notes.mdx
 - [x] nodejs/versioned_docs/version-stable/running-tests.mdx
-- [ ] nodejs/versioned_docs/version-stable/screenshots.mdx
+- [x] nodejs/versioned_docs/version-stable/screenshots.mdx
 - [ ] nodejs/versioned_docs/version-stable/selenium-grid.mdx
 - [x] nodejs/versioned_docs/version-stable/service-workers-experimental-network-events.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-annotations.mdx
 - [x] nodejs/versioned_docs/version-stable/test-assertions.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-cli.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-components.mdx
+- [x] nodejs/versioned_docs/version-stable/test-components.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-configuration.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-fixtures.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-global-setup-teardown.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-parallel.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-parameterize.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-projects.mdx
+- [x] nodejs/versioned_docs/version-stable/test-projects.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-reporters.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-retries.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-sharding.mdx
@@ -290,13 +290,13 @@
 - [ ] nodejs/versioned_docs/version-stable/test-timeouts.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-typescript.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-ui-mode.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-use-options.mdx
+- [x] nodejs/versioned_docs/version-stable/test-use-options.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-webserver.mdx
-- [ ] nodejs/versioned_docs/version-stable/testing-library.mdx
-- [ ] nodejs/versioned_docs/version-stable/touch-events.mdx
+- [x] nodejs/versioned_docs/version-stable/testing-library.mdx
+- [x] nodejs/versioned_docs/version-stable/touch-events.mdx
 - [x] nodejs/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/trace-viewer.mdx
-- [ ] nodejs/versioned_docs/version-stable/videos.mdx
+- [x] nodejs/versioned_docs/version-stable/videos.mdx
 - [x] nodejs/versioned_docs/version-stable/webview2.mdx
 - [x] nodejs/versioned_docs/version-stable/writing-tests.mdx
 
@@ -348,19 +348,19 @@
 - [x] python/docs/browsers.mdx
 - [ ] python/docs/chrome-extensions.mdx
 - [ ] python/docs/ci-intro.mdx
-- [ ] python/docs/ci.mdx
+- [x] python/docs/ci.mdx
 - [ ] python/docs/clock.mdx
 - [ ] python/docs/codegen-intro.mdx
 - [ ] python/docs/codegen.mdx
-- [ ] python/docs/debug.mdx
+- [x] python/docs/debug.mdx
 - [ ] python/docs/dialogs.mdx
 - [ ] python/docs/docker.mdx
 - [ ] python/docs/downloads.mdx
-- [ ] python/docs/emulation.mdx
+- [x] python/docs/emulation.mdx
 - [ ] python/docs/evaluating.mdx
 - [ ] python/docs/events.mdx
 - [x] python/docs/extensibility.mdx
-- [ ] python/docs/frames.mdx
+- [x] python/docs/frames.mdx
 - [ ] python/docs/handles.mdx
 - [ ] python/docs/input.mdx
 - [x] python/docs/intro.mdx
@@ -375,14 +375,14 @@
 - [x] python/docs/pom.mdx
 - [ ] python/docs/release-notes.mdx
 - [ ] python/docs/running-tests.mdx
-- [ ] python/docs/screenshots.mdx
+- [x] python/docs/screenshots.mdx
 - [ ] python/docs/selenium-grid.mdx
 - [ ] python/docs/test-assertions.mdx
 - [ ] python/docs/test-runners.mdx
-- [ ] python/docs/touch-events.mdx
+- [x] python/docs/touch-events.mdx
 - [ ] python/docs/trace-viewer-intro.mdx
 - [ ] python/docs/trace-viewer.mdx
-- [ ] python/docs/videos.mdx
+- [x] python/docs/videos.mdx
 - [x] python/docs/webview2.mdx
 - [x] python/docs/writing-tests.mdx
 
@@ -434,19 +434,19 @@
 - [x] python/versioned_docs/version-stable/browsers.mdx
 - [ ] python/versioned_docs/version-stable/chrome-extensions.mdx
 - [ ] python/versioned_docs/version-stable/ci-intro.mdx
-- [ ] python/versioned_docs/version-stable/ci.mdx
+- [x] python/versioned_docs/version-stable/ci.mdx
 - [ ] python/versioned_docs/version-stable/clock.mdx
 - [ ] python/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] python/versioned_docs/version-stable/codegen.mdx
-- [ ] python/versioned_docs/version-stable/debug.mdx
+- [x] python/versioned_docs/version-stable/debug.mdx
 - [ ] python/versioned_docs/version-stable/dialogs.mdx
 - [ ] python/versioned_docs/version-stable/docker.mdx
 - [ ] python/versioned_docs/version-stable/downloads.mdx
-- [ ] python/versioned_docs/version-stable/emulation.mdx
+- [x] python/versioned_docs/version-stable/emulation.mdx
 - [ ] python/versioned_docs/version-stable/evaluating.mdx
 - [ ] python/versioned_docs/version-stable/events.mdx
 - [x] python/versioned_docs/version-stable/extensibility.mdx
-- [ ] python/versioned_docs/version-stable/frames.mdx
+- [x] python/versioned_docs/version-stable/frames.mdx
 - [ ] python/versioned_docs/version-stable/handles.mdx
 - [ ] python/versioned_docs/version-stable/input.mdx
 - [x] python/versioned_docs/version-stable/intro.mdx
@@ -461,14 +461,14 @@
 - [x] python/versioned_docs/version-stable/pom.mdx
 - [ ] python/versioned_docs/version-stable/release-notes.mdx
 - [ ] python/versioned_docs/version-stable/running-tests.mdx
-- [ ] python/versioned_docs/version-stable/screenshots.mdx
+- [x] python/versioned_docs/version-stable/screenshots.mdx
 - [ ] python/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] python/versioned_docs/version-stable/test-assertions.mdx
 - [ ] python/versioned_docs/version-stable/test-runners.mdx
-- [ ] python/versioned_docs/version-stable/touch-events.mdx
+- [x] python/versioned_docs/version-stable/touch-events.mdx
 - [ ] python/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] python/versioned_docs/version-stable/trace-viewer.mdx
-- [ ] python/versioned_docs/version-stable/videos.mdx
+- [x] python/versioned_docs/version-stable/videos.mdx
 - [x] python/versioned_docs/version-stable/webview2.mdx
 - [x] python/versioned_docs/version-stable/writing-tests.mdx
 
@@ -523,19 +523,19 @@
 - [x] java/docs/browser-contexts.mdx
 - [x] java/docs/browsers.mdx
 - [ ] java/docs/ci-intro.mdx
-- [ ] java/docs/ci.mdx
+- [x] java/docs/ci.mdx
 - [ ] java/docs/clock.mdx
 - [ ] java/docs/codegen-intro.mdx
 - [ ] java/docs/codegen.mdx
-- [ ] java/docs/debug.mdx
+- [x] java/docs/debug.mdx
 - [ ] java/docs/dialogs.mdx
 - [ ] java/docs/docker.mdx
 - [ ] java/docs/downloads.mdx
-- [ ] java/docs/emulation.mdx
+- [x] java/docs/emulation.mdx
 - [ ] java/docs/evaluating.mdx
 - [ ] java/docs/events.mdx
 - [x] java/docs/extensibility.mdx
-- [ ] java/docs/frames.mdx
+- [x] java/docs/frames.mdx
 - [ ] java/docs/handles.mdx
 - [ ] java/docs/input.mdx
 - [x] java/docs/intro.mdx
@@ -550,15 +550,15 @@
 - [x] java/docs/pom.mdx
 - [ ] java/docs/release-notes.mdx
 - [ ] java/docs/running-tests.mdx
-- [ ] java/docs/screenshots.mdx
+- [x] java/docs/screenshots.mdx
 - [ ] java/docs/selenium-grid.mdx
 - [ ] java/docs/test-assertions.mdx
 - [ ] java/docs/test-runners.mdx
 - [ ] java/docs/threading.mdx
-- [ ] java/docs/touch-events.mdx
+- [x] java/docs/touch-events.mdx
 - [ ] java/docs/trace-viewer-intro.mdx
 - [ ] java/docs/trace-viewer.mdx
-- [ ] java/docs/videos.mdx
+- [x] java/docs/videos.mdx
 - [x] java/docs/webview2.mdx
 - [ ] java/docs/writing-tests.mdx
 
@@ -613,19 +613,19 @@
 - [x] java/versioned_docs/version-stable/browser-contexts.mdx
 - [x] java/versioned_docs/version-stable/browsers.mdx
 - [ ] java/versioned_docs/version-stable/ci-intro.mdx
-- [ ] java/versioned_docs/version-stable/ci.mdx
+- [x] java/versioned_docs/version-stable/ci.mdx
 - [ ] java/versioned_docs/version-stable/clock.mdx
 - [ ] java/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] java/versioned_docs/version-stable/codegen.mdx
-- [ ] java/versioned_docs/version-stable/debug.mdx
+- [x] java/versioned_docs/version-stable/debug.mdx
 - [ ] java/versioned_docs/version-stable/dialogs.mdx
 - [ ] java/versioned_docs/version-stable/docker.mdx
 - [ ] java/versioned_docs/version-stable/downloads.mdx
-- [ ] java/versioned_docs/version-stable/emulation.mdx
+- [x] java/versioned_docs/version-stable/emulation.mdx
 - [ ] java/versioned_docs/version-stable/evaluating.mdx
 - [ ] java/versioned_docs/version-stable/events.mdx
 - [x] java/versioned_docs/version-stable/extensibility.mdx
-- [ ] java/versioned_docs/version-stable/frames.mdx
+- [x] java/versioned_docs/version-stable/frames.mdx
 - [ ] java/versioned_docs/version-stable/handles.mdx
 - [ ] java/versioned_docs/version-stable/input.mdx
 - [x] java/versioned_docs/version-stable/intro.mdx
@@ -640,15 +640,15 @@
 - [x] java/versioned_docs/version-stable/pom.mdx
 - [ ] java/versioned_docs/version-stable/release-notes.mdx
 - [ ] java/versioned_docs/version-stable/running-tests.mdx
-- [ ] java/versioned_docs/version-stable/screenshots.mdx
+- [x] java/versioned_docs/version-stable/screenshots.mdx
 - [ ] java/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] java/versioned_docs/version-stable/test-assertions.mdx
 - [ ] java/versioned_docs/version-stable/test-runners.mdx
 - [ ] java/versioned_docs/version-stable/threading.mdx
-- [ ] java/versioned_docs/version-stable/touch-events.mdx
+- [x] java/versioned_docs/version-stable/touch-events.mdx
 - [ ] java/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] java/versioned_docs/version-stable/trace-viewer.mdx
-- [ ] java/versioned_docs/version-stable/videos.mdx
+- [x] java/versioned_docs/version-stable/videos.mdx
 - [x] java/versioned_docs/version-stable/webview2.mdx
 - [ ] java/versioned_docs/version-stable/writing-tests.mdx
 
@@ -702,19 +702,19 @@
 - [x] dotnet/docs/browser-contexts.mdx
 - [x] dotnet/docs/browsers.mdx
 - [ ] dotnet/docs/ci-intro.mdx
-- [ ] dotnet/docs/ci.mdx
+- [x] dotnet/docs/ci.mdx
 - [ ] dotnet/docs/clock.mdx
 - [ ] dotnet/docs/codegen-intro.mdx
 - [ ] dotnet/docs/codegen.mdx
-- [ ] dotnet/docs/debug.mdx
+- [x] dotnet/docs/debug.mdx
 - [ ] dotnet/docs/dialogs.mdx
 - [ ] dotnet/docs/docker.mdx
 - [ ] dotnet/docs/downloads.mdx
-- [ ] dotnet/docs/emulation.mdx
+- [x] dotnet/docs/emulation.mdx
 - [ ] dotnet/docs/evaluating.mdx
 - [ ] dotnet/docs/events.mdx
 - [x] dotnet/docs/extensibility.mdx
-- [ ] dotnet/docs/frames.mdx
+- [x] dotnet/docs/frames.mdx
 - [ ] dotnet/docs/handles.mdx
 - [ ] dotnet/docs/input.mdx
 - [x] dotnet/docs/intro.mdx
@@ -729,14 +729,14 @@
 - [x] dotnet/docs/pom.mdx
 - [ ] dotnet/docs/release-notes.mdx
 - [ ] dotnet/docs/running-tests.mdx
-- [ ] dotnet/docs/screenshots.mdx
+- [x] dotnet/docs/screenshots.mdx
 - [ ] dotnet/docs/selenium-grid.mdx
 - [ ] dotnet/docs/test-assertions.mdx
 - [ ] dotnet/docs/test-runners.mdx
-- [ ] dotnet/docs/touch-events.mdx
+- [x] dotnet/docs/touch-events.mdx
 - [ ] dotnet/docs/trace-viewer-intro.mdx
 - [ ] dotnet/docs/trace-viewer.mdx
-- [ ] dotnet/docs/videos.mdx
+- [x] dotnet/docs/videos.mdx
 - [x] dotnet/docs/webview2.mdx
 - [ ] dotnet/docs/writing-tests.mdx
 
@@ -790,19 +790,19 @@
 - [x] dotnet/versioned_docs/version-stable/browser-contexts.mdx
 - [x] dotnet/versioned_docs/version-stable/browsers.mdx
 - [ ] dotnet/versioned_docs/version-stable/ci-intro.mdx
-- [ ] dotnet/versioned_docs/version-stable/ci.mdx
+- [x] dotnet/versioned_docs/version-stable/ci.mdx
 - [ ] dotnet/versioned_docs/version-stable/clock.mdx
 - [ ] dotnet/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/codegen.mdx
-- [ ] dotnet/versioned_docs/version-stable/debug.mdx
+- [x] dotnet/versioned_docs/version-stable/debug.mdx
 - [ ] dotnet/versioned_docs/version-stable/dialogs.mdx
 - [ ] dotnet/versioned_docs/version-stable/docker.mdx
 - [ ] dotnet/versioned_docs/version-stable/downloads.mdx
-- [ ] dotnet/versioned_docs/version-stable/emulation.mdx
+- [x] dotnet/versioned_docs/version-stable/emulation.mdx
 - [ ] dotnet/versioned_docs/version-stable/evaluating.mdx
 - [ ] dotnet/versioned_docs/version-stable/events.mdx
 - [x] dotnet/versioned_docs/version-stable/extensibility.mdx
-- [ ] dotnet/versioned_docs/version-stable/frames.mdx
+- [x] dotnet/versioned_docs/version-stable/frames.mdx
 - [ ] dotnet/versioned_docs/version-stable/handles.mdx
 - [ ] dotnet/versioned_docs/version-stable/input.mdx
 - [x] dotnet/versioned_docs/version-stable/intro.mdx
@@ -817,13 +817,13 @@
 - [x] dotnet/versioned_docs/version-stable/pom.mdx
 - [ ] dotnet/versioned_docs/version-stable/release-notes.mdx
 - [ ] dotnet/versioned_docs/version-stable/running-tests.mdx
-- [ ] dotnet/versioned_docs/version-stable/screenshots.mdx
+- [x] dotnet/versioned_docs/version-stable/screenshots.mdx
 - [ ] dotnet/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] dotnet/versioned_docs/version-stable/test-assertions.mdx
 - [ ] dotnet/versioned_docs/version-stable/test-runners.mdx
-- [ ] dotnet/versioned_docs/version-stable/touch-events.mdx
+- [x] dotnet/versioned_docs/version-stable/touch-events.mdx
 - [ ] dotnet/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/trace-viewer.mdx
-- [ ] dotnet/versioned_docs/version-stable/videos.mdx
+- [x] dotnet/versioned_docs/version-stable/videos.mdx
 - [x] dotnet/versioned_docs/version-stable/webview2.mdx
 - [ ] dotnet/versioned_docs/version-stable/writing-tests.mdx
