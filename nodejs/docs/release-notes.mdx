@@ -845,7 +845,7 @@ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
 ### 新的 API
 - [browserContext.on('weberror')](/api/class-browsercontext.mdx#browser-context-event-web-error)
 - [locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially)
-- The [reporter.onEnd()](/api/class-reporter.mdx#reporter-on-end) now reports `startTime` and total run `duration`.
+- [reporter.onEnd()](/api/class-reporter.mdx#reporter-on-end) 現在回報 `startTime` 和總執行 `duration`。
 
 ### 棄用
 * 以下方法已棄用：[page.type()](/api/class-page.mdx#page-type)、[frame.type()](/api/class-frame.mdx#frame-type)、[locator.type()](/api/class-locator.mdx#locator-type) 和 [elementHandle.type()](/api/class-elementhandle.mdx#element-handle-type)。請改用 [locator.fill()](/api/class-locator.mdx#locator-fill)，它快得多。只有當頁面上有特殊的鍵盤處理，並且您需要逐個按鍵時，才使用 [locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially)。
@@ -918,7 +918,7 @@ Playwright 建議使用 `@playwright/test` 套件並透過 `npx playwright insta
    });
    ```
    
-   The "blob" reporter will produce ".zip" files that contain all the information about the test run.
+   「blob」報告器會產生包含測試執行所有資訊的「.zip」檔案。
 
 2. Copying all "blob" reports in a single shared location and running `npx playwright merge-reports`:
 
@@ -1008,7 +1008,7 @@ Linux 支援如下所示：
   $ npx playwright-core install # the new way to install browsers when using playwright-core
   ```
   
-  This change **does not** affect `@playwright/test` and `playwright` package users.
+  此變更**不會**影響 `@playwright/test` 和 `playwright` 套件使用者。
 
 ### 瀏覽器版本
 * Chromium 115.0.5790.13
@@ -1153,7 +1153,7 @@ Linux 支援如下所示：
 - [reporter.onExit()](/api/class-reporter.mdx#reporter-on-exit)
 
 ### ⚠️ Breaking change
-* The `mcr.microsoft.com/playwright:v1.33.0` now serves a Playwright image based on Ubuntu Jammy. To use the focal-based image, please use `mcr.microsoft.com/playwright:v1.33.0-focal` instead.
+* `mcr.microsoft.com/playwright:v1.33.0` 現在提供基於 Ubuntu Jammy 的 Playwright 映像。若要使用基於 focal 的映像，請改用 `mcr.microsoft.com/playwright:v1.33.0-focal`。
 
 ### 瀏覽器版本
 * Chromium 113.0.5672.53
@@ -1865,7 +1865,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   
 - 新的網頁優先斷言 [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) 等待螢幕截圖穩定並增強測試可靠性。
   
-  The new assertions has screenshot-specific defaults, such as:
+  新的斷言具有螢幕截圖特定的預設值，例如：
   * disables animations
   * uses CSS scale 選項
   
@@ -1874,7 +1874,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   await expect(page).toHaveScreenshot();
   ```
   
-  The new [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) saves screenshots at the same location as [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1).
+  新的 [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 會將螢幕截圖儲存在與 [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1) 相同的位置。
 
 ## Version 1.21
 
@@ -1965,7 +1965,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 - [locator.highlight()](/api/class-locator.mdx#locator-highlight) visually reveals element(s) for easier debugging.
 
 ### 公告
-- We now ship a designated Python docker image `mcr.microsoft.com/playwright/python`. Please switch over to it if you use Python. This is the last release that includes Python inside our javascript `mcr.microsoft.com/playwright` docker image.
+- 我們現在提供專用的 Python Docker 映像 `mcr.microsoft.com/playwright/python`。如果您使用 Python，請切換到此映像。這是最後一個在我們的 JavaScript `mcr.microsoft.com/playwright` Docker 映像中包含 Python 的版本。
 - v1.20 is the last release to receive WebKit update for macOS 10.15 Catalina. Please update macOS to keep using latest & greatest WebKit!
 
 ### 瀏覽器版本
@@ -2003,7 +2003,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   await expect(page.locator('text=Name'), 'should be logged in').toBeVisible();
   ```
   
-  The error would look like this:
+  錯誤會看起來像這樣：
   
   ```bash
       Error: should be logged in
@@ -2068,7 +2068,7 @@ We've noticed that in rare cases, the set of tests to be executed was configured
   await page.locator('li', { hasText: 'my item' }).locator('button').click();
   ```
   
-  Read more in [locator documentation](./api/class-locator#locator-locator)
+  在[定位器文件](./api/class-locator#locator-locator)中閱讀更多
 
 ### 測試 API 改進
 - [`expect(response).toBeOK()`](./test-assertions)
@@ -2205,7 +2205,7 @@ Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace
 - [`testInfo.parallelIndex`](./api/class-testinfo#test-info-parallel-index)
 - [`testInfo.titlePath`](./api/class-testinfo#test-info-title-path)
 - [`testOptions.trace`](./api/class-testoptions#test-options-trace) has new options
-- [`expect.toMatchSnapshot`](./api/class-genericassertions.mdx) supports subdirectories
+- [`expect.toMatchSnapshot`](./api/class-genericassertions.mdx) 支援子目錄
 - [`reporter.printsToStdio()`](./api/class-reporter#reporter-prints-to-stdio)
 
 ## Version 1.16
@@ -2282,7 +2282,7 @@ test('response interception', async ({ page }) => {
 $ npx playwright test --reporter=html
 ```
 
-The HTML reporter has all the information about tests and their failures, including surfacing trace and image artifacts.
+HTML 報告器包含關於測試及其失敗的所有資訊，包括顯示追蹤和圖像工件。
 
 ![html reporter](https://user-images.githubusercontent.com/746130/138324311-94e68b39-b51a-4776-a446-f60037a77f32.png)
 
@@ -2327,7 +2327,7 @@ Playwright Docker 映像現在發佈用於 Arm64，因此可以在 Apple Silicon
 - Mozilla Firefox 93.0
 - WebKit 15.4
 
-This version of Playwright was also tested against the following stable channels:
+此版本的 Playwright 也已針對以下穩定通道進行測試：
 - Google Chrome 94
 - Microsoft Edge 94
 
@@ -2343,7 +2343,7 @@ By using [mouse.wheel()](/api/class-mouse.mdx#mouse-wheel) you are now able to s
 
 #### 📜 新的 Headers API
 
-Previously it was not possible to get multiple header values of a response. This is now  possible and additional helper functions are available:
+以前無法取得回應的多個標頭值。現在這是可能的，並且提供了額外的輔助函數：
 - [request.allHeaders()](/api/class-request.mdx#request-all-headers)
 - [request.headersArray()](/api/class-request.mdx#request-headers-array)
 - [request.headerValue()](/api/class-request.mdx#request-header-value)
