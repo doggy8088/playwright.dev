@@ -642,16 +642,16 @@ test('no base url', async ({ page }) => {
 });
 ```
 
-## Execution order
+## 執行順序
 
-Each fixture has a setup and teardown phase before and after the `await use()` call in the fixture. Setup is executed before the test/hook requiring it is run, and teardown is executed when the fixture is no longer being used by the test/hook.
+每個佈置在佈置中的 `await use()` 呼叫之前和之後都有設定和拆除階段。設定在需要它的測試/掛勾執行之前執行，拆除在佈置不再被測試/掛勾使用時執行。
 
-Fixtures follow these rules to determine the execution order:
-* When fixture A depends on fixture B: B is always set up before A and torn down after A.
-* Non-automatic fixtures are executed lazily, only when the test/hook needs them.
-* Test-scoped fixtures are torn down after each test, while worker-scoped fixtures are only torn down when the worker process executing tests is torn down.
+佈置遵循以下規則來決定執行順序：
+* 當佈置 A 依賴於佈置 B 時：B 總是在 A 之前設定並在 A 之後拆除。
+* 非自動佈置是延遲執行的，只有當測試/掛勾需要它們時才執行。
+* 測試範圍的佈置在每個測試後拆除，而工作程序範圍的佈置只有在執行測試的工作程序拆除時才拆除。
 
-Consider the following example:
+考慮以下範例：
 
 ```js
 import { test as base } from '@playwright/test';
@@ -740,9 +740,9 @@ A few observations:
 * `workerFixture` is lazily set up before the second test, but torn down once during worker shutdown, as a worker-scoped fixture.
 * `autoWorkerFixture` is set up for `beforeAll` hook, but `autoTestFixture` is not.
 
-## Combine custom fixtures from multiple modules
+## 結合來自多個模組的自訂佈置
 
-You can merge test fixtures from multiple files or modules:
+您可以合併來自多個檔案或模組的測試佈置：
 
 ```js title="fixtures.ts"
 import { mergeTests } from '@playwright/test';
@@ -760,9 +760,9 @@ test('passes', async ({ database, page, a11y }) => {
 });
 ```
 
-## Box fixtures
+## 盒子佈置
 
-Usually, custom fixtures are reported as separate steps in the UI mode, Trace Viewer and various test reports. They also appear in error messages from the test runner. For frequently used fixtures, this can mean lots of noise. You can stop the fixtures steps from being shown in the UI by "boxing" it.
+通常，自訂佈置在 UI 模式、追蹤檢視器和各種測試報告中報告為單獨的步驟。它們也出現在測試執行器的錯誤訊息中。對於經常使用的佈置，這可能意味著大量的雜訊。您可以通過「裝箱」來阻止佈置步驟顯示在 UI 中。
 
 ```js
 import { test as base } from '@playwright/test';
@@ -776,9 +776,9 @@ export const test = base.extend({
 
 This is useful for non-interesting helper fixtures. For example, an [automatic](./test-fixtures.mdx#automatic-fixtures) fixture that sets up some common data can be safely hidden from a test report.
 
-## Custom fixture title
+## 自訂佈置標題
 
-Instead of the usual fixture name, you can give fixtures a custom title that will be shown in test reports and error messages.
+您可以為佈置提供自訂標題，而不是使用常見的佈置名稱，該標題將顯示在測試報告和錯誤訊息中。
 
 ```js
 import { test as base } from '@playwright/test';
@@ -790,9 +790,9 @@ export const test = base.extend({
 });
 ```
 
-## Adding global beforeEach/afterEach hooks
+## 新增全域 beforeEach/afterEach 掛勾
 
-[test.beforeEach()](/api/class-test.mdx#test-before-each) and [test.afterEach()](/api/class-test.mdx#test-after-each) hooks run before/after each test declared in the same file and same [test.describe()](/api/class-test.mdx#test-describe) block (if any). If you want to declare hooks that run before/after each test globally, you can declare them as auto fixtures like this:
+[test.beforeEach()](/api/class-test.mdx#test-before-each) 和 [test.afterEach()](/api/class-test.mdx#test-after-each) 掛勾在同一檔案和同一 [test.describe()](/api/class-test.mdx#test-describe) 區塊（如果有的話）中宣告的每個測試之前/之後執行。如果您想宣告在全域每個測試之前/之後執行的掛勾，您可以將它們宣告為自動佈置，如下所示：
 
 ```js title="fixtures.ts"
 import { test as base } from '@playwright/test';
@@ -820,9 +820,9 @@ test('basic', async ({ page }) => {
 });
 ```
 
-## Adding global beforeAll/afterAll hooks
+## 新增全域 beforeAll/afterAll 掛勾
 
-[test.beforeAll()](/api/class-test.mdx#test-before-all) and [test.afterAll()](/api/class-test.mdx#test-after-all) hooks run before/after all tests declared in the same file and same [test.describe()](/api/class-test.mdx#test-describe) block (if any), once per worker process. If you want to declare hooks that run before/after all tests in every file, you can declare them as auto fixtures with `scope: 'worker'` as follows:
+[test.beforeAll()](/api/class-test.mdx#test-before-all) 和 [test.afterAll()](/api/class-test.mdx#test-after-all) 掛勾在同一檔案和同一 [test.describe()](/api/class-test.mdx#test-describe) 區塊（如果有的話）中宣告的所有測試之前/之後執行，每個工作程序一次。如果您想宣告在每個檔案中所有測試之前/之後執行的掛勾，您可以將它們宣告為具有 `scope: 'worker'` 的自動佈置，如下所示：
 
 ```js title="fixtures.ts"
 import { test as base } from '@playwright/test';
