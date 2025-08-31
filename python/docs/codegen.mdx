@@ -1,6 +1,6 @@
 ---
 id: codegen
-title: "Test generator"
+title: "測試產生器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,59 +9,59 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Introduction
+## 簡介
 
-Playwright comes with the ability to generate tests for you as you perform actions in the browser and is a great way to quickly get started with testing. Playwright will look at your page and figure out the best locator, prioritizing [role, text and test id locators](./locators.mdx). If the generator finds multiple elements matching the locator, it will improve the locator to make it resilient that uniquely identify the target element.
+Playwright 能夠在您於瀏覽器中執行操作時為您產生測試，是快速開始測試的絕佳方式。Playwright 會檢視您的頁面並找出最佳的定位器，優先考慮 [角色、文字和測試 ID 定位器](./locators.mdx)。如果產生器找到多個符合該定位器的元素，它會改善定位器，使其更具韌性且能唯一識別目標元素。
 
-## Generate tests with the Playwright Inspector
+## 使用 Playwright Inspector 產生測試
 
-When running the `codegen` command two windows will be opened, a browser window where you interact with the website you wish to test and the Playwright Inspector window where you can record your tests and then copy them into your editor.
+執行 `codegen` 指令時會開啟兩個視窗，一個是您與要測試的網站互動的瀏覽器視窗，另一個是 Playwright Inspector 視窗，您可以在其中錄製測試然後將它們複製到編輯器中。
 
-### Running Codegen
+### 執行 Codegen
 
-Use the `codegen` command to run the test generator followed by the URL of the website you want to generate tests for. The URL is optional and you can always run the command without it and then add the URL directly into the browser window instead.
+使用 `codegen` 指令執行測試產生器，後面接您想要為其產生測試的網站 URL。URL 是可選的，您總是可以在不使用它的情況下執行指令，然後直接將 URL 新增到瀏覽器視窗中。
 
 ```bash
 playwright codegen demo.playwright.dev/todomvc
 ```
 
-### Recording a test
+### 錄製測試
 
-Run the `codegen` command and perform actions in the browser window. Playwright will generate the code for the user interactions which you can see in the Playwright Inspector window. Once you have finished recording your test stop the recording and press the **copy** button to copy your generated test into your editor.
+執行 `codegen` 指令並在瀏覽器視窗中執行操作。Playwright 會為使用者互動產生程式碼，您可以在 Playwright Inspector 視窗中看到。錄製完測試後，停止錄製並按 **copy** 按鈕將產生的測試複製到編輯器中。
 
-With the test generator you can record:
-* Actions like click or fill by simply interacting with the page
-* Assertions by clicking on one of the icons in the toolbar and then clicking on an element on the page to assert against. You can choose:
-  * `'assert visibility'` to assert that an element is visible
-  * `'assert text'` to assert that an element contains specific text
-  * `'assert value'` to assert that an element has a specific value
+使用測試產生器您可以錄製：
+* 透過與頁面互動來執行點擊或填寫等操作
+* 透過點選工具列中的圖示之一，然後點選頁面上的元素來進行斷言。您可以選擇：
+  * `'assert visibility'` 用於斷言元素是可見的
+  * `'assert text'` 用於斷言元素包含特定文字
+  * `'assert value'` 用於斷言元素具有特定值
 
 ###### 
 ![recording a test](https://github.com/microsoft/playwright/assets/13063165/9751b609-6e4c-486b-a961-f86f177b1d58)
 
 ###### 
-When you have finished interacting with the page, press the **record** button to stop the recording and use the **copy** button to copy the generated code to your editor.
+完成與頁面的互動後，按 **record** 按鈕停止錄製，並使用 **copy** 按鈕將產生的程式碼複製到編輯器中。
 
-Use the **clear** button to clear the code to start recording again. Once finished, close the Playwright inspector window or stop the terminal command.
+使用 **clear** 按鈕清除程式碼以重新開始錄製。完成後，關閉 Playwright inspector 視窗或停止終端指令。
 
-### Generating locators
+### 產生定位器
 
-You can generate [locators](/locators.mdx) with the test generator.
-* Press the `'Record'` button to stop the recording and the `'Pick Locator'` button will appear.
-* Click on the `'Pick Locator'` button and then hover over elements in the browser window to see the locator highlighted underneath each element.
-* To choose a locator, click on the element you would like to locate and the code for that locator will appear in the field next to the Pick Locator button.
-* You can then edit the locator in this field to fine tune it or use the copy button to copy it and paste it into your code.
+您可以使用測試產生器產生[定位器](/locators.mdx)。
+* 按 `'Record'` 按鈕停止錄製，會出現 `'Pick Locator'` 按鈕。
+* 點選 `'Pick Locator'` 按鈕，然後在瀏覽器視窗中懸停在元素上，以查看每個元素下方反白的定位器。
+* 要選擇定位器，請點選您想要定位的元素，該定位器的程式碼會出現在 Pick Locator 按鈕旁邊的欄位中。
+* 然後您可以在此欄位中編輯定位器以進行微調，或使用複製按鈕將其複製並貼到您的程式碼中。
 
 ###### 
 ![picking a locator](https://github.com/microsoft/playwright/assets/13063165/95d11f48-96a4-46b9-9c2a-63c3aa4fdce7)
 
-## Emulation
+## 模擬
 
-You can use the test generator to generate tests using emulation so as to generate a test for a specific viewport, device, color scheme, as well as emulate the geolocation, language or timezone. The test generator can also generate a test while preserving authenticated state.
+您可以使用測試產生器透過模擬來產生測試，以便為特定的檢視區、裝置、配色方案產生測試，並模擬地理位置、語言或時區。測試產生器還可以在保留身份驗證狀態的同時產生測試。
 
-### Emulate viewport size
+### 模擬檢視區大小
 
-Playwright opens a browser window with its viewport set to a specific width and height and is not responsive as tests need to be run under the same conditions. Use the `--viewport` option to generate tests with a different viewport size.
+Playwright 開啟瀏覽器視窗時，其檢視區設定為特定的寬度和高度，且不具響應式設計，因為測試需要在相同條件下執行。使用 `--viewport` 選項可產生具有不同檢視區大小的測試。
 
 ```bash
 playwright codegen --viewport-size="800,600" playwright.dev
@@ -70,9 +70,9 @@ playwright codegen --viewport-size="800,600" playwright.dev
 ###### 
 <img width="870" alt="Codegen generating code for tests for playwright.dev website with a specific viewport python" src="https://user-images.githubusercontent.com/13063165/220403118-7704b708-dea3-44b3-97a4-04c2b9d1d0fa.png" />
 
-### Emulate devices
+### 模擬裝置
 
-Record scripts and tests while emulating a mobile device using the `--device` option which sets the viewport size and user agent among others.
+使用 `--device` 選項在模擬行動裝置的同時錄製腳本和測試，該選項會設定檢視區大小和使用者代理等。
 
 ```bash
 playwright codegen --device="iPhone 13" playwright.dev
@@ -81,9 +81,9 @@ playwright codegen --device="iPhone 13" playwright.dev
 ###### 
 <img width="1300" alt="Codegen generating code for tests for playwright.dev website emulated for iPhone 13 python" src="https://user-images.githubusercontent.com/13063165/220922790-5c5a4d1a-e27d-4c9b-90ac-13cf9c925706.png" />
 
-### Emulate color scheme
+### 模擬配色方案
 
-Record scripts and tests while emulating the color scheme with the `--color-scheme` option.
+使用 `--color-scheme` 選項在模擬配色方案的同時錄製腳本和測試。
 
 ```bash
 playwright codegen --color-scheme=dark playwright.dev
@@ -92,11 +92,11 @@ playwright codegen --color-scheme=dark playwright.dev
 ###### 
 <img width="1394" alt="Codegen generating code for tests for playwright.dev website in dark mode python" src="https://user-images.githubusercontent.com/13063165/220930714-737647fd-ae99-4dd3-b7a4-4f3eb4fe712d.png" />
 
-### Emulate geolocation, language and timezone
+### 模擬地理位置、語言和時區
 
-Record scripts and tests while emulating timezone, language & location using the `--timezone`, `--geolocation` and `--lang` options. Once the page opens:
-1. Accept the cookies
-1. On the top right, click on the locate me button to see geolocation in action.
+使用 `--timezone`、`--geolocation` 和 `--lang` 選項在模擬時區、語言和位置的同時錄製腳本和測試。頁面開啟後：
+1. 接受 cookies
+1. 在右上角，點選定位我按鈕以查看地理位置的運作。
 
 ```bash
 playwright codegen --timezone="Europe/Rome" --geolocation="41.890221,12.492348" --lang="it-IT" bing.com/maps
@@ -105,9 +105,9 @@ playwright codegen --timezone="Europe/Rome" --geolocation="41.890221,12.492348" 
 ###### 
 <img width="1394" alt="Codegen generating code for tests for bing maps showing timezone, geolocation as Rome, Italy and in Italian language python" src="https://user-images.githubusercontent.com/13063165/220932413-f2943956-dd38-4560-94b9-51968076210d.png" />
 
-### Preserve authenticated state
+### 保留身份驗證狀態
 
-Run `codegen` with `--save-storage` to save [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies), [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) data at the end of the session. This is useful to separately record an authentication step and reuse it later when recording more tests.
+使用 `--save-storage` 執行 `codegen` 可在會話結束時儲存 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)、[localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) 和 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 資料。這對於單獨錄製身份驗證步驟並在稍後錄製更多測試時重複使用非常有用。
 
 ```bash
 playwright codegen github.com/microsoft/playwright --save-storage=auth.json
@@ -116,17 +116,17 @@ playwright codegen github.com/microsoft/playwright --save-storage=auth.json
 ###### 
 <img width="1394" alt="github page before logging in python" src="https://user-images.githubusercontent.com/13063165/220929429-8756ec49-fbf2-46e0-8f41-d25f5f5a6623.png" />
 
-#### Login
+#### 登入
 
-After performing authentication and closing the browser, `auth.json` will contain the storage state which you can then reuse in your tests.
+執行身份驗證並關閉瀏覽器後，`auth.json` 將包含儲存狀態，您可以在測試中重複使用。
 
 <img width="1394" alt="login to GitHub screen" src="https://user-images.githubusercontent.com/13063165/220561688-04b2b984-4ba6-4446-8b0a-8058876e2a02.png" />
 
-Make sure you only use the `auth.json` locally as it contains sensitive information. Add it to your `.gitignore` or delete it once you have finished generating your tests.
+請確保您僅在本機使用 `auth.json`，因為它包含敏感資訊。將其新增到您的 `.gitignore` 中或在完成產生測試後將其刪除。
 
-#### Load authenticated state
+#### 載入身份驗證狀態
 
-Run with `--load-storage` to consume the previously loaded storage from the `auth.json`. This way, all [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies), [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) data will be restored, bringing most web apps to the authenticated state without the need to login again. This means you can continue generating tests from the logged in state.
+使用 `--load-storage` 執行以從 `auth.json` 載入先前儲存的儲存狀態。這樣，所有 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)、[localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) 和 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 資料都會被還原，使大多數 Web 應用程式進入身份驗證狀態，而無需再次登入。這意味著您可以從登入狀態繼續產生測試。
 
 ```bash
 playwright codegen --load-storage=auth.json github.com/microsoft/playwright
@@ -135,22 +135,22 @@ playwright codegen --load-storage=auth.json github.com/microsoft/playwright
 ###### 
 <img width="1394" alt="github signed in showing use of load storage python" src="https://user-images.githubusercontent.com/13063165/220928211-ca1d4dc9-9966-414e-ab23-a3ef1d2d5ed9.png" />
 
-#### Use existing userDataDir
+#### 使用現有的 userDataDir
 
-Run `codegen` with `--user-data-dir` to set a fixed [user data directory](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context-option-user-data-dir) for the browser session. If you create a custom browser user data directory, codegen will use this existing browser profile and have access to any authentication state present in that profile.
+使用 `--user-data-dir` 執行 `codegen` 可為瀏覽器會話設定固定的[使用者資料目錄](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context-option-user-data-dir)。如果您建立自訂瀏覽器使用者資料目錄，codegen 會使用此現有瀏覽器設定檔，並可存取該設定檔中存在的任何身份驗證狀態。
 
 :::warning
 
-[As of Chrome 136, the default user data directory cannot be accessed via automated tooling](https://developer.chrome.com/blog/remote-debugging-port), such as Playwright. You must create a separate user data directory for use in testing.
+[從 Chrome 136 開始，預設使用者資料目錄無法透過自動化工具存取](https://developer.chrome.com/blog/remote-debugging-port)，例如 Playwright。您必須建立單獨的使用者資料目錄供測試使用。
 :::
 
 ```bash
 playwright codegen --user-data-dir=/path/to/your/browser/data/ github.com/microsoft/playwright
 ```
 
-## Record using custom setup
+## 使用自訂設定錄製
 
-If you would like to use codegen in some non-standard setup (for example, use [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route)), it is possible to call [page.pause()](/api/class-page.mdx#page-pause) that will open a separate window with codegen controls.
+如果您想在某些非標準設定中使用 codegen（例如，使用 [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route)），可以呼叫 [page.pause()](/api/class-page.mdx#page-pause) 來開啟一個包含 codegen 控制項的單獨視窗。
 
 <Tabs
   groupId="python-flavor"
