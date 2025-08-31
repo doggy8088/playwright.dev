@@ -88,7 +88,7 @@
 - [ ] nodejs/docs/api/class-websocketroute.mdx
 - [ ] nodejs/docs/api/class-worker.mdx
 - [ ] nodejs/docs/api/class-workerinfo.mdx
-- [ ] nodejs/docs/aria-snapshots.mdx
+- [x] nodejs/docs/aria-snapshots.mdx
 - [x] nodejs/docs/auth.mdx
 - [x] nodejs/docs/best-practices.mdx
 - [ ] nodejs/docs/browser-contexts.mdx
@@ -231,7 +231,7 @@
 - [ ] nodejs/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-worker.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-workerinfo.mdx
-- [ ] nodejs/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] nodejs/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] nodejs/versioned_docs/version-stable/auth.mdx
 - [x] nodejs/versioned_docs/version-stable/best-practices.mdx
 - [ ] nodejs/versioned_docs/version-stable/browser-contexts.mdx
@@ -342,7 +342,7 @@
 - [ ] python/docs/api/class-websocket.mdx
 - [ ] python/docs/api/class-websocketroute.mdx
 - [ ] python/docs/api/class-worker.mdx
-- [ ] python/docs/aria-snapshots.mdx
+- [x] python/docs/aria-snapshots.mdx
 - [x] python/docs/auth.mdx
 - [ ] python/docs/browser-contexts.mdx
 - [ ] python/docs/browsers.mdx
@@ -428,7 +428,7 @@
 - [ ] python/versioned_docs/version-stable/api/class-websocket.mdx
 - [ ] python/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] python/versioned_docs/version-stable/api/class-worker.mdx
-- [ ] python/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] python/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] python/versioned_docs/version-stable/auth.mdx
 - [ ] python/versioned_docs/version-stable/browser-contexts.mdx
 - [ ] python/versioned_docs/version-stable/browsers.mdx
@@ -518,7 +518,7 @@
 - [ ] java/docs/api/class-websocketframe.mdx
 - [ ] java/docs/api/class-websocketroute.mdx
 - [ ] java/docs/api/class-worker.mdx
-- [ ] java/docs/aria-snapshots.mdx
+- [x] java/docs/aria-snapshots.mdx
 - [x] java/docs/auth.mdx
 - [ ] java/docs/browser-contexts.mdx
 - [ ] java/docs/browsers.mdx
@@ -608,7 +608,7 @@
 - [ ] java/versioned_docs/version-stable/api/class-websocketframe.mdx
 - [ ] java/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] java/versioned_docs/version-stable/api/class-worker.mdx
-- [ ] java/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] java/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] java/versioned_docs/version-stable/auth.mdx
 - [ ] java/versioned_docs/version-stable/browser-contexts.mdx
 - [ ] java/versioned_docs/version-stable/browsers.mdx
@@ -697,7 +697,7 @@
 - [ ] dotnet/docs/api/class-websocketframe.mdx
 - [ ] dotnet/docs/api/class-websocketroute.mdx
 - [ ] dotnet/docs/api/class-worker.mdx
-- [ ] dotnet/docs/aria-snapshots.mdx
+- [x] dotnet/docs/aria-snapshots.mdx
 - [x] dotnet/docs/auth.mdx
 - [ ] dotnet/docs/browser-contexts.mdx
 - [ ] dotnet/docs/browsers.mdx
@@ -785,7 +785,7 @@
 - [ ] dotnet/versioned_docs/version-stable/api/class-websocketframe.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-worker.mdx
-- [ ] dotnet/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] dotnet/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] dotnet/versioned_docs/version-stable/auth.mdx
 - [ ] dotnet/versioned_docs/version-stable/browser-contexts.mdx
 - [ ] dotnet/versioned_docs/version-stable/browsers.mdx
