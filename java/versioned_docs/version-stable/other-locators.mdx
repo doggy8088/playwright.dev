@@ -1,51 +1,51 @@
 ---
 id: other-locators
-title: "Other locators"
+title: "其他定位器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
 :::note
 
-Check out the main [locators guide](./locators) for most common and recommended locators.
+請查看主要的[定位器指南](./locators)以了解最常用和推薦的定位器。
 :::
 
-In addition to recommended locators like [Page.getByRole()](/api/class-page.mdx#page-get-by-role) and [Page.getByText()](/api/class-page.mdx#page-get-by-text), Playwright supports a variety of other locators described in this guide.
+除了推薦的定位器如 [`Page.getByRole()`](/api/class-page.mdx#page-get-by-role) 和 [`Page.getByText()`](/api/class-page.mdx#page-get-by-text) 之外，Playwright 還支援本指南中描述的各種其他定位器。
 
-## CSS locator
+## CSS 定位器
 
 :::note
 
-We recommend prioritizing [user-visible locators](./locators.mdx#quick-guide) like text or accessible role instead of using CSS that is tied to the implementation and could break when the page changes.
+我們建議優先使用[使用者可見的定位器](./locators.mdx#quick-guide)，如文字或無障礙角色，而非使用與實作細節綁定且在頁面變更時可能失效的 CSS。
 :::
 
-Playwright can locate an element by CSS selector.
+Playwright 可以透過 CSS 選擇器定位元素。
 
 ```java
 page.locator("css=button").click();
 ```
 
-Playwright augments standard CSS selectors in two ways:
-* CSS selectors pierce open shadow DOM.
-* Playwright adds custom pseudo-classes like `:visible`, `:has-text()`, `:has()`, `:is()`, `:nth-match()` and more.
+Playwright 以兩種方式增強標準 CSS 選擇器：
+* CSS 選擇器可穿透開放的 shadow DOM。
+* Playwright 新增自訂偽類別，如 `:visible`、`:has-text()`、`:has()`、`:is()`、`:nth-match()` 等等。
 
-### CSS: matching by text
+### CSS：依文字比對
 
-Playwright include a number of CSS pseudo-classes to match elements by their text content.
-- `article:has-text("Playwright")` - the `:has-text()` matches any element containing specified text somewhere inside, possibly in a child or a descendant element. Matching is case-insensitive, trims whitespace and searches for a substring.
+Playwright 包含多個 CSS 偽類別來依文字內容比對元素。
+- `article:has-text("Playwright")` - `:has-text()` 比對在內部某處（可能在子元素或後代元素中）包含指定文字的任何元素。比對不區分大小寫，會修剪空白字元並搜尋子字串。
   
-  For example, `article:has-text("Playwright")` matches `<article><div>Playwright</div></article>`.
+  例如，`article:has-text("Playwright")` 比對 `<article><div>Playwright</div></article>`。
   
-  Note that `:has-text()` should be used together with other CSS specifiers, otherwise it will match all the elements containing specified text, including the `<body>`.
+  請注意，`:has-text()` 應該與其他 CSS 指定符一起使用，否則將比對所有包含指定文字的元素，包括 `<body>`。
   
   ```java
-  // Wrong, will match many elements including <body>
+  // 錯誤，將比對包括 <body> 在內的許多元素
   page.locator(":has-text(\"Playwright\")").click();
-  // Correct, only matches the <article> element
+  // 正確，只比對 <article> 元素
   page.locator("article:has-text(\"Playwright\")").click();
   ```
   
@@ -187,28 +187,28 @@ page.locator(":nth-match(:text('Buy'), 3)").waitFor();
 Unlike [`:nth-child()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child), elements do not have to be siblings, they could be anywhere on the page. In the snippet above, all three buttons match `:text("Buy")` selector, and `:nth-match()` selects the third button.
 :::
 
-## N-th element locator
+## 第 n 個元素定位器
 
-You can narrow down query to the n-th match using the `nth=` locator passing a zero-based index.
+您可以使用 `nth=` 定位器並傳遞從零開始的索引，將查詢縮小到第 n 個比對。
 
 ```java
-// Click first button
+// 點擊第一個按鈕
 page.locator("button").locator("nth=0").click();
 
-// Click last button
+// 點擊最後一個按鈕
 page.locator("button").locator("nth=-1").click();
 ```
 
-## Parent element locator
+## 父元素定位器
 
-When you need to target a parent element of some other element, most of the time you should [Locator.filter()](/api/class-locator.mdx#locator-filter) by the child locator. For example, consider the following DOM structure:
+當您需要定位某個其他元素的父元素時，大多數時候您應該使用 [`Locator.filter()`](/api/class-locator.mdx#locator-filter) 依子定位器進行篩選。例如，考慮以下 DOM 結構：
 
 ```html
 <li><label>Hello</label></li>
 <li><label>World</label></li>
 ```
 
-If you'd like to target the parent `<li>` of a label with text `"Hello"`, using [Locator.filter()](/api/class-locator.mdx#locator-filter) works best:
+如果您想要定位包含文字 `"Hello"` 的標籤的父 `<li>`，使用 [`Locator.filter()`](/api/class-locator.mdx#locator-filter) 效果最好：
 
 ```java
 Locator child = page.getByText("Hello");
@@ -221,16 +221,16 @@ Alternatively, if you cannot find a suitable locator for the parent element, use
 Locator parent = page.getByText("Hello").locator("xpath=..");
 ```
 
-## React locator
+## React 定位器
 
 :::note
 
-React locator is experimental and prefixed with `_`. The functionality might change in future.
+React 定位器是實驗性的，前綴為 `_`。功能可能在未來會變更。
 :::
 
-React locator allows finding elements by their component name and property values. The syntax is very similar to [CSS attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) and supports all CSS attribute selector operators.
+React 定位器允許依組件名稱和屬性值尋找元素。語法與 [CSS 屬性選擇器](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)非常相似，並支援所有 CSS 屬性選擇器運算子。
 
-In React locator, component names are transcribed with **CamelCase**.
+在 React 定位器中，組件名稱以 **CamelCase** 轉錄。
 
 ```java
 page.locator("_react=BookItem").click();
@@ -261,16 +261,16 @@ React locator supports React 15 and above.
 React locator, as well as [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), only work against **unminified** application builds.
 :::
 
-## Vue locator
+## Vue 定位器
 
 :::note
 
-Vue locator is experimental and prefixed with `_`. The functionality might change in future.
+Vue 定位器是實驗性的，前綴為 `_`。功能可能在未來會變更。
 :::
 
-Vue locator allows finding elements by their component name and property values. The syntax is very similar to [CSS attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) and supports all CSS attribute selector operators.
+Vue 定位器允許依組件名稱和屬性值尋找元素。語法與 [CSS 屬性選擇器](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)非常相似，並支援所有 CSS 屬性選擇器運算子。
 
-In Vue locator, component names are transcribed with **kebab-case**.
+在 Vue 定位器中，組件名稱以 **kebab-case** 轉錄。
 
 ```java
 page.locator("_vue=book-item").click();
@@ -300,14 +300,14 @@ Vue locator supports Vue2 and above.
 Vue locator, as well as [Vue DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), only work against **unminified** application builds.
 :::
 
-## XPath locator
+## XPath 定位器
 
 :::warning
 
-We recommend prioritizing [user-visible locators](./locators.mdx#quick-guide) like text or accessible role instead of using XPath that is tied to the implementation and easily break when the page changes.
+我們建議優先使用[使用者可見的定位器](./locators.mdx#quick-guide)，如文字或無障礙角色，而非使用與實作細節綁定且在頁面變更時容易失效的 XPath。
 :::
 
-XPath locators are equivalent to calling [`Document.evaluate`](https://developer.mozilla.org/en/docs/Web/API/Document/evaluate).
+XPath 定位器等同於呼叫 [`Document.evaluate`](https://developer.mozilla.org/en/docs/Web/API/Document/evaluate)。
 
 ```java
 page.locator("xpath=//button").click();
@@ -330,7 +330,7 @@ Pipe operator (`|`) can be used to specify multiple selectors in XPath. It will 
 page.locator("//span[contains(@class, 'spinner__loading')]|//div[@id='confirmation']").waitFor();
 ```
 
-## Label to form control retargeting
+## 標籤到表單控制項重新定位
 
 :::warning
 
@@ -359,7 +359,7 @@ However, other methods will target the label itself, for example [assertThat(loc
 assertThat(page.locator("label")).hasText("Password");
 ```
 
-## Legacy text locator
+## 舊版文字定位器
 
 :::warning
 
@@ -408,7 +408,7 @@ Matching always normalizes whitespace. For example, it turns multiple spaces int
 Input elements of the type `button` and `submit` are matched by their `value` instead of text content. For example, `text=Log in` matches `<input type=button value="Log in">`.
 :::
 
-## id, data-testid, data-test-id, data-test selectors
+## id、data-testid、data-test-id、data-test 選擇器
 
 :::warning
 
@@ -433,7 +433,7 @@ page.locator("data-test-id=submit").click();
 Attribute selectors are not CSS selectors, so anything CSS-specific like `:enabled` is not supported. For more features, use a proper [css](#css-locator) selector, e.g. `css=[data-test="login"]:enabled`.
 :::
 
-## Chaining selectors
+## 選擇器鏈結
 
 :::warning
 

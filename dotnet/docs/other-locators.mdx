@@ -1,29 +1,29 @@
 ---
 id: other-locators
-title: "Other locators"
+title: "其他定位器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
 :::note
 
-Check out the main [locators guide](./locators) for most common and recommended locators.
+請查看主要的[定位器指南](./locators)以了解最常用和推薦的定位器。
 :::
 
-In addition to recommended locators like [Page.GetByRole()](/api/class-page.mdx#page-get-by-role) and [Page.GetByText()](/api/class-page.mdx#page-get-by-text), Playwright supports a variety of other locators described in this guide.
+除了推薦的定位器如 [`Page.GetByRole()`](/api/class-page.mdx#page-get-by-role) 和 [`Page.GetByText()`](/api/class-page.mdx#page-get-by-text) 之外，Playwright 還支援本指南中描述的各種其他定位器。
 
-## CSS locator
+## CSS 定位器
 
 :::note
 
-We recommend prioritizing [user-visible locators](./locators.mdx#quick-guide) like text or accessible role instead of using CSS that is tied to the implementation and could break when the page changes.
+我們建議優先使用[使用者可見的定位器](./locators.mdx#quick-guide)，如文字或無障礙角色，而非使用與實作細節綁定且在頁面變更時可能失效的 CSS。
 :::
 
-Playwright can locate an element by CSS selector.
+Playwright 可以透過 CSS 選擇器定位元素。
 
 ```csharp
 await page.Locator("css=button").ClickAsync();
@@ -187,7 +187,7 @@ await page.Locator(":nth-match(:text('Buy'), 3)").WaitForAsync();
 Unlike [`:nth-child()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child), elements do not have to be siblings, they could be anywhere on the page. In the snippet above, all three buttons match `:text("Buy")` selector, and `:nth-match()` selects the third button.
 :::
 
-## N-th element locator
+## 第 n 個元素定位器
 
 You can narrow down query to the n-th match using the `nth=` locator passing a zero-based index.
 
@@ -199,7 +199,7 @@ await page.Locator("button").Locator("nth=0").ClickAsync();
 await page.Locator("button").Locator("nth=-1").ClickAsync();
 ```
 
-## Parent element locator
+## 父元素定位器
 
 When you need to target a parent element of some other element, most of the time you should [Locator.Filter()](/api/class-locator.mdx#locator-filter) by the child locator. For example, consider the following DOM structure:
 
@@ -221,7 +221,7 @@ Alternatively, if you cannot find a suitable locator for the parent element, use
 var parent = page.GetByText("Hello").Locator("xpath=..");
 ```
 
-## React locator
+## React 定位器
 
 :::note
 
@@ -261,7 +261,7 @@ React locator supports React 15 and above.
 React locator, as well as [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), only work against **unminified** application builds.
 :::
 
-## Vue locator
+## Vue 定位器
 
 :::note
 
@@ -300,7 +300,7 @@ Vue locator supports Vue2 and above.
 Vue locator, as well as [Vue DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), only work against **unminified** application builds.
 :::
 
-## XPath locator
+## XPath 定位器
 
 :::warning
 
@@ -330,7 +330,7 @@ Pipe operator (`|`) can be used to specify multiple selectors in XPath. It will 
 await page.Locator("//span[contains(@class, 'spinner__loading')]|//div[@id='confirmation']").WaitForAsync();
 ```
 
-## Label to form control retargeting
+## 標籤到表單控制項重新定位
 
 :::warning
 
@@ -359,7 +359,7 @@ However, other methods will target the label itself, for example [Expect(Locator
 await Expect(Page.Locator("label")).ToHaveTextAsync("Password");
 ```
 
-## Legacy text locator
+## 舊版文字定位器
 
 :::warning
 
@@ -408,7 +408,7 @@ Matching always normalizes whitespace. For example, it turns multiple spaces int
 Input elements of the type `button` and `submit` are matched by their `value` instead of text content. For example, `text=Log in` matches `<input type=button value="Log in">`.
 :::
 
-## id, data-testid, data-test-id, data-test selectors
+## id、data-testid、data-test-id、data-test 選擇器
 
 :::warning
 
@@ -433,7 +433,7 @@ await page.Locator("data-test-id=submit").ClickAsync();
 Attribute selectors are not CSS selectors, so anything CSS-specific like `:enabled` is not supported. For more features, use a proper [css](#css-locator) selector, e.g. `css=[data-test="login"]:enabled`.
 :::
 
-## Chaining selectors
+## 選擇器鏈結
 
 :::warning
 
