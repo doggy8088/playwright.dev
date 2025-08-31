@@ -1,29 +1,29 @@
 ---
 id: other-locators
-title: "Other locators"
+title: "其他定位器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
 :::note
 
-Check out the main [locators guide](./locators) for most common and recommended locators.
+請查看主要的[定位器指南](./locators)以了解最常用和推薦的定位器。
 :::
 
-In addition to recommended locators like [page.get_by_role()](/api/class-page.mdx#page-get-by-role) and [page.get_by_text()](/api/class-page.mdx#page-get-by-text), Playwright supports a variety of other locators described in this guide.
+除了推薦的定位器如 [`page.get_by_role()`](/api/class-page.mdx#page-get-by-role) 和 [`page.get_by_text()`](/api/class-page.mdx#page-get-by-text) 之外，Playwright 還支援本指南中描述的各種其他定位器。
 
-## CSS locator
+## CSS 定位器
 
 :::note
 
-We recommend prioritizing [user-visible locators](./locators.mdx#quick-guide) like text or accessible role instead of using CSS that is tied to the implementation and could break when the page changes.
+我們建議優先使用[使用者可見的定位器](./locators.mdx#quick-guide)，如文字或無障礙角色，而非使用與實作細節綁定且在頁面變更時可能失效的 CSS。
 :::
 
-Playwright can locate an element by CSS selector.
+Playwright 可以透過 CSS 選擇器定位元素。
 
 <Tabs
   groupId="python-flavor"
@@ -49,18 +49,18 @@ await page.locator("css=button").click()
 </TabItem>
 </Tabs>
 
-Playwright augments standard CSS selectors in two ways:
-* CSS selectors pierce open shadow DOM.
-* Playwright adds custom pseudo-classes like `:visible`, `:has-text()`, `:has()`, `:is()`, `:nth-match()` and more.
+Playwright 以兩種方式增強標準 CSS 選擇器：
+* CSS 選擇器可穿透開放的 shadow DOM。
+* Playwright 新增自訂偽類別，如 `:visible`、`:has-text()`、`:has()`、`:is()`、`:nth-match()` 等等。
 
-### CSS: matching by text
+### CSS：依文字比對
 
-Playwright include a number of CSS pseudo-classes to match elements by their text content.
-- `article:has-text("Playwright")` - the `:has-text()` matches any element containing specified text somewhere inside, possibly in a child or a descendant element. Matching is case-insensitive, trims whitespace and searches for a substring.
+Playwright 包含多個 CSS 偽類別來依文字內容比對元素。
+- `article:has-text("Playwright")` - `:has-text()` 比對在內部某處（可能在子元素或後代元素中）包含指定文字的任何元素。比對不區分大小寫，會修剪空白字元並搜尋子字串。
   
-  For example, `article:has-text("Playwright")` matches `<article><div>Playwright</div></article>`.
+  例如，`article:has-text("Playwright")` 比對 `<article><div>Playwright</div></article>`。
   
-  Note that `:has-text()` should be used together with other CSS specifiers, otherwise it will match all the elements containing specified text, including the `<body>`.
+  請注意，`:has-text()` 應該與其他 CSS 指定符一起使用，否則將比對所有包含指定文字的元素，包括 `<body>`。
   
   <Tabs
     groupId="python-flavor"
@@ -73,9 +73,9 @@ Playwright include a number of CSS pseudo-classes to match elements by their tex
   <TabItem value="sync">
   
   ```py
-  # Wrong, will match many elements including <body>
+  # 錯誤，將比對包括 <body> 在內的許多元素
   page.locator(':has-text("Playwright")').click()
-  # Correct, only matches the <article> element
+  # 正確，只比對 <article> 元素
   page.locator('article:has-text("All products")').click()
   ```
   
@@ -83,17 +83,17 @@ Playwright include a number of CSS pseudo-classes to match elements by their tex
   <TabItem value="async">
   
   ```py
-  # Wrong, will match many elements including <body>
+  # 錯誤，將比對包括 <body> 在內的許多元素
   await page.locator(':has-text("Playwright")').click()
-  # Correct, only matches the <article> element
+  # 正確，只比對 <article> 元素
   await page.locator('article:has-text("Playwright")').click()
   ```
   
   </TabItem>
   </Tabs>
-- `#nav-bar :text("Home")` - the `:text()` pseudo-class matches the smallest element containing specified text. Matching is case-insensitive, trims whitespace and searches for a substring.
+- `#nav-bar :text("Home")` - `:text()` 偽類別比對包含指定文字的最小元素。比對不區分大小寫，會修剪空白字元並搜尋子字串。
   
-  For example, this will find an element with text "Home" somewhere inside the `#nav-bar` element:
+  例如，這將在 `#nav-bar` 元素內部某處找到包含文字 "Home" 的元素：
   
   <Tabs
     groupId="python-flavor"
