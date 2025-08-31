@@ -106,7 +106,7 @@
 - [x] nodejs/docs/downloads.mdx
 - [x] nodejs/docs/emulation.mdx
 - [ ] nodejs/docs/evaluating.mdx
-- [ ] nodejs/docs/events.mdx
+- [x] nodejs/docs/events.mdx
 - [x] nodejs/docs/extensibility.mdx
 - [x] nodejs/docs/frames.mdx
 - [x] nodejs/docs/getting-started-vscode.mdx
@@ -357,7 +357,7 @@
 - [x] python/docs/downloads.mdx
 - [x] python/docs/emulation.mdx
 - [ ] python/docs/evaluating.mdx
-- [ ] python/docs/events.mdx
+- [x] python/docs/events.mdx
 - [x] python/docs/extensibility.mdx
 - [x] python/docs/frames.mdx
 - [ ] python/docs/handles.mdx
@@ -532,7 +532,7 @@
 - [x] java/docs/downloads.mdx
 - [x] java/docs/emulation.mdx
 - [ ] java/docs/evaluating.mdx
-- [ ] java/docs/events.mdx
+- [x] java/docs/events.mdx
 - [x] java/docs/extensibility.mdx
 - [x] java/docs/frames.mdx
 - [ ] java/docs/handles.mdx
@@ -711,7 +711,7 @@
 - [x] dotnet/docs/downloads.mdx
 - [x] dotnet/docs/emulation.mdx
 - [ ] dotnet/docs/evaluating.mdx
-- [ ] dotnet/docs/events.mdx
+- [x] dotnet/docs/events.mdx
 - [x] dotnet/docs/extensibility.mdx
 - [x] dotnet/docs/frames.mdx
 - [ ] dotnet/docs/handles.mdx
