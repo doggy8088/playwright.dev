@@ -145,7 +145,7 @@
 - [ ] nodejs/docs/test-sharding.mdx
 - [x] nodejs/docs/test-snapshots.mdx
 - [ ] nodejs/docs/test-timeouts.mdx
-- [ ] nodejs/docs/test-typescript.mdx
+- [x] nodejs/docs/test-typescript.mdx
 - [x] nodejs/docs/test-ui-mode.mdx
 - [x] nodejs/docs/test-use-options.mdx
 - [x] nodejs/docs/test-webserver.mdx
@@ -287,7 +287,7 @@
 - [ ] nodejs/versioned_docs/version-stable/test-sharding.mdx
 - [x] nodejs/versioned_docs/version-stable/test-snapshots.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-timeouts.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-typescript.mdx
+- [x] nodejs/versioned_docs/version-stable/test-typescript.mdx
 - [x] nodejs/versioned_docs/version-stable/test-ui-mode.mdx
 - [x] nodejs/versioned_docs/version-stable/test-use-options.mdx
 - [x] nodejs/versioned_docs/version-stable/test-webserver.mdx
