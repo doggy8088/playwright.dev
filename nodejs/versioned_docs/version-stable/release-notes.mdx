@@ -1085,7 +1085,7 @@ See [test.step()](/api/class-test.mdx#test-step) documentation for a full exampl
 ### Deprecations
 * The following methods were deprecated: [page.type()](/api/class-page.mdx#page-type), [frame.type()](/api/class-frame.mdx#frame-type), [locator.type()](/api/class-locator.mdx#locator-type) and [elementHandle.type()](/api/class-elementhandle.mdx#element-handle-type). Please use [locator.fill()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
 
-### Breaking Changes: Playwright no longer downloads browsers automatically
+### 重大變更：Playwright 不再自動下載瀏覽器
 
 > **Note**: If you are using `@playwright/test` package, this change does not affect you.
 
@@ -2332,7 +2332,7 @@ npm init playwright@latest new-project
 
 This will create a Playwright Test configuration file, optionally add examples, a GitHub Action workflow and a first test `example.spec.ts`.
 
-### New APIs & changes
+### 新的 API 與變更
 - new [`testCase.repeatEachIndex`](./api/class-testcase#test-case-repeat-each-index) API
 - [`acceptDownloads`](./api/class-browser#browser-new-context-option-accept-downloads) option now defaults to `true`
 
@@ -2591,7 +2591,7 @@ Previously it was not possible to get multiple header values of a response. This
 
 Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [browser.newContext()](/api/class-browser.mdx#browser-new-context) or calling [page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
 
-#### New APIs
+#### 新的 API
 - [page.route()](/api/class-page.mdx#page-route) accepts new `times` option to specify how many times this route should be matched.
 - [page.setChecked()](/api/class-page.mdx#page-set-checked) and [locator.setChecked()](/api/class-locator.mdx#locator-set-checked) were introduced to set the checked state of a checkbox.
 - [request.sizes()](/api/class-request.mdx#request-sizes) Returns resource size information for given http request.
@@ -2888,7 +2888,7 @@ This version of Playwright was also tested against the following stable channels
 - Google Chrome 91
 - Microsoft Edge 91
 
-#### New APIs
+#### 新的 API
 - `reducedMotion` option in [page.emulateMedia()](/api/class-page.mdx#page-emulate-media), [browserType.launchPersistentContext()](/api/class-browsertype.mdx#browser-type-launch-persistent-context), [browser.newContext()](/api/class-browser.mdx#browser-new-context) and [browser.newPage()](/api/class-browser.mdx#browser-new-page)
 - [browserContext.on('request')](/api/class-browsercontext.mdx#browser-context-event-request)
 - [browserContext.on('requestfailed')](/api/class-browsercontext.mdx#browser-context-event-request-failed)
@@ -2911,7 +2911,7 @@ This version of Playwright was also tested against the following stable channels
 - Mozilla Firefox 89.0b6
 - WebKit 14.2
 
-#### New APIs
+#### 新的 API
 - support for **async predicates** across the API in methods such as [page.waitForRequest()](/api/class-page.mdx#page-wait-for-request) and others
 - new **emulation devices**: Galaxy S8, Galaxy S9+, Galaxy Tab S4, Pixel 3, Pixel 4
 - new methods:
@@ -2936,7 +2936,7 @@ This version of Playwright was also tested against the following stable channels
 - Google Chrome 89
 - Microsoft Edge 89
 
-#### New APIs
+#### 新的 API
 - [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) now accepts the new `'channel'` option. Read more in [our documentation](./browsers).
 
 ## 版本 1.9
@@ -2955,7 +2955,7 @@ This version of Playwright was also tested against the following stable channels
 - Mozilla Firefox 86.0b10
 - WebKit 14.1
 
-#### New APIs
+#### 新的 API
 - [page.pause()](/api/class-page.mdx#page-pause).
 
 ## 版本 1.8
@@ -2969,7 +2969,7 @@ This version of Playwright was also tested against the following stable channels
 - [page.selectOption()](/api/class-page.mdx#page-select-option) now waits for the options to be present.
 - 新方法s to [assert element state](./actionability#assertions) like [page.isEditable()](/api/class-page.mdx#page-is-editable).
 
-#### New APIs
+#### 新的 API
 - [elementHandle.isChecked()](/api/class-elementhandle.mdx#element-handle-is-checked).
 - [elementHandle.isDisabled()](/api/class-elementhandle.mdx#element-handle-is-disabled).
 - [elementHandle.isEditable()](/api/class-elementhandle.mdx#element-handle-is-editable).
@@ -2996,7 +2996,7 @@ This version of Playwright was also tested against the following stable channels
 - **New website**: The docs website at [playwright.dev](https://playwright.dev/) has been updated and is now built with [Docusaurus](https://v2.docusaurus.io/).
 - **Support for Apple Silicon**: Playwright browser binaries for WebKit and Chromium are now built for Apple Silicon.
 
-#### New APIs
+#### 新的 API
 - [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) to get current state for later reuse.
 - `storageState` option in [browser.newContext()](/api/class-browser.mdx#browser-new-context) and [browser.newPage()](/api/class-browser.mdx#browser-new-page) to setup browser context state.
 

@@ -185,7 +185,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### Aria snapshots
 
-New assertion [Expect(Locator).ToMatchAriaSnapshotAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) verifies page structure by comparing to an expected accessibility tree, represented as YAML.
+新斷言 [Expect(Locator).ToMatchAriaSnapshotAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) verifies page structure by comparing to an expected accessibility tree, represented as YAML.
 
 ```csharp
 await page.GotoAsync("https://playwright.dev");
@@ -200,9 +200,9 @@ await Expect(page.Locator("body")).ToMatchAriaSnapshotAsync(@"
 ");
 ```
 
-You can generate this assertion with [Test Generator](./codegen) or by calling [Locator.AriaSnapshotAsync()](/api/class-locator.mdx#locator-aria-snapshot).
+您可以使用 [測試產生器](./codegen) 或呼叫 [Locator.AriaSnapshotAsync()](/api/class-locator.mdx#locator-aria-snapshot).
 
-Learn more in the [aria snapshots guide](./aria-snapshots).
+在 [aria snapshots 指南](./aria-snapshots).
 
 ### Tracing groups
 
@@ -223,7 +223,7 @@ This change affects you if you're using one of the following channels in your `p
 - `chrome`, `chrome-dev`, `chrome-beta`, or `chrome-canary`
 - `msedge`, `msedge-dev`, `msedge-beta`, or `msedge-canary`
 
-After updating to Playwright v1.49, run your test suite. If it still passes, you're good to go. If not, you will probably need to update your snapshots, and adapt some of your test code around PDF viewers and extensions. See [issue #33566](https://github.com/microsoft/playwright/issues/33566) for more details.
+更新到 Playwright v1.49 後，執行您的測試套件。如果仍然通過，您就可以繼續使用。如果不是，您可能需要更新您的快照，並調整一些關於 PDF 檢視器和擴充功能的測試程式碼。 See [issue #33566](https://github.com/microsoft/playwright/issues/33566) for more details.
 
 ### Try new Chromium headless
 
@@ -277,7 +277,7 @@ await page.RouteWebSocketAsync("/ws", ws => {
 });
 ```
 
-See [WebSocketRoute] for more details.
+請參閱 [WebSocketRoute] 以取得更多詳細資訊。
 
 ### UI updates
 - New "copy" buttons for annotations and test location in the HTML report.
@@ -394,7 +394,7 @@ await Page.Clock.FastForwardAsync("30:00");
 await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:00 AM");
 ```
 
-See [the clock guide](./clock.mdx) for more details.
+請參閱 [時鐘指南](./clock.mdx) 以取得更多詳細資訊。
 
 ### 其他
 - Method [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) now supports uploading a directory for `<input type=file webkitdirectory>` elements.
@@ -631,7 +631,7 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 
 ## 版本 1.39
 
-Evergreen browsers update.
+長青瀏覽器更新。
 
 ### 瀏覽器版本
 * Chromium 119.0.6045.9
@@ -945,7 +945,7 @@ await page.GetByRole(AriaRole.Button, new() { NameString = "Sign in" }).ClickAsy
 await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 ```
 
-All the same methods are also available on [Locator], [FrameLocator] and [Frame] classes.
+所有相同的方法在 [Locator]、[FrameLocator] 和 [Frame] 類別中也都可以使用。
 
 ### Other highlights
 - As announced in v1.25, Ubuntu 18 will not be supported as of Dec 2022. In addition to that, there will be no WebKit updates on Ubuntu 18 starting from the next Playwright release.
@@ -988,7 +988,7 @@ A bunch of Playwright APIs already support the `WaitUntil: WaitUntilState.DOMCon
 await Page.GotoAsync("https://playwright.dev", new() { WaitUntil = WaitUntilState.DOMContentLoaded });
 ```
 
-Prior to 1.26, this would wait for all iframes to fire the `DOMContentLoaded` event.
+在 1.26 之前，這將等待所有 iframe 觸發 `DOMContentLoaded` 事件。
 
 To align with web specification, the `WaitUntilState.DOMContentLoaded` value only waits for the target frame to fire the `'DOMContentLoaded'` event. Use `WaitUntil: WaitUntilState.Load` to wait for all iframes.
 
@@ -1066,7 +1066,7 @@ Linux support looks like this:
 
 ### New introduction docs
 
-We rewrote our Getting Started docs to be more end-to-end testing focused. Check them out on [playwright.dev](./intro).
+我們重寫了入門文件，使其更專注於端對端測試。請在 [playwright.dev](./intro).
 
 ## 版本 1.23
 
@@ -1090,11 +1090,11 @@ Console.WriteLine(await response.TextAsync());
 Console.WriteLine((await response.JsonAsync())?.GetProperty("foo").GetString());
 ```
 
-Read more about it in our [API testing guide](./api-testing).
+在我們的 [API 測試指南](./api-testing).
 
 ### Network Replay
 
-Now you can record network traffic into a HAR file and re-use this traffic in your tests.
+現在您可以將網路流量錄製到 HAR 檔案中，並在測試中重複使用此流量。
 
 To record network into HAR file:
 
@@ -1123,11 +1123,11 @@ Use the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-fr
 await context.RouteFromHARAsync("example.har");
 ```
 
-Read more in [our documentation](./mock.mdx#mocking-with-har-files).
+在 [我們的文件](./mock.mdx#mocking-with-har-files).
 
 ### Advanced Routing
 
-You 現在可以 use [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
+您現在可以使用 [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
 
 Consider the following example:
 
@@ -1195,7 +1195,7 @@ Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-ro
   await page.Locator("role=button[name='log in']").ClickAsync();
   ```
   
-  Read more in [our documentation](./locators.mdx#locate-by-role).
+  在 [我們的文件](./locators.mdx#locate-by-role).
 - New [Locator.Filter()](/api/class-locator.mdx#locator-filter) API to filter an existing locator
   
   ```csharp
@@ -1215,10 +1215,10 @@ Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-ro
   await page.Locator("role=button[name='log in']").ClickAsync();
   ```
   
-  Read more in [our documentation](./locators.mdx#locate-by-role).
+  在 [我們的文件](./locators.mdx#locate-by-role).
 - New `scale` option in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
 - New `caret` option in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
-- We now ship a designated .NET docker image `mcr.microsoft.com/playwright/dotnet`. Read more in [our documentation](./docker).
+- We now ship a designated .NET docker image `mcr.microsoft.com/playwright/dotnet`. 在 [我們的文件](./docker).
 
 ### Behavior Changes
 - Playwright now supports large file uploads (100s of MBs) via [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) API.
@@ -1236,7 +1236,7 @@ Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-ro
 
 ### Web-First Assertions
 
-Playwright for .NET 1.20 introduces [Web-First Assertions](./test-assertions).
+Playwright for .NET 1.20 引入了 [Web-First 斷言](./test-assertions).
 
 Consider the following example:
 
@@ -1260,7 +1260,7 @@ public class ExampleTests : PageTest
 
 Playwright will be re-testing the node with the selector `.status` until fetched Node has the `"Submitted"` text. It will be re-fetching the node and checking it over and over, until the condition is met or until the timeout is reached. You can pass this timeout as an option.
 
-Read more in [our documentation](./test-assertions).
+在 [我們的文件](./test-assertions).
 
 ### Other Updates
 - 新選項s for methods [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot), [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) and [ElementHandle.ScreenshotAsync()](/api/class-elementhandle.mdx#element-handle-screenshot):
@@ -1316,7 +1316,7 @@ Read more in [our documentation](./test-assertions).
   
   Read more in [locator documentation](./api/class-locator#locator-locator)
 
-### New APIs & changes
+### 新的 API 與變更
 - [`AcceptDownloads`](./api/class-browser#browser-new-context-option-accept-downloads) option now defaults to `true`.
 - [`Sources`](./api/class-tracing#tracing-start-option-sources) option to embed sources into traces.
 
@@ -1529,7 +1529,7 @@ await button.ClickAsync("button >> visible=true");
 
 ## 版本 1.12
 
-#### Highlights
+#### 重點
 - Playwright for .NET v1.12 is now stable!
 - Ships with the [codegen](./codegen.mdx) and [trace viewer](./trace-viewer.mdx) tools out-of-the-box
 

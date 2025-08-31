@@ -185,7 +185,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### Aria snapshots
 
-New assertion [Expect(Locator).ToMatchAriaSnapshotAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) verifies page structure by comparing to an expected accessibility tree, represented as YAML.
+新斷言 [Expect(Locator).ToMatchAriaSnapshotAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) 透過與預期的可存取性樹狀結構（以 YAML 表示）進行比較來驗證頁面結構。
 
 ```csharp
 await page.GotoAsync("https://playwright.dev");
@@ -200,9 +200,9 @@ await Expect(page.Locator("body")).ToMatchAriaSnapshotAsync(@"
 ");
 ```
 
-You can generate this assertion with [Test Generator](./codegen) or by calling [Locator.AriaSnapshotAsync()](/api/class-locator.mdx#locator-aria-snapshot).
+您可以使用 [測試產生器](./codegen) 或呼叫 [Locator.AriaSnapshotAsync()](/api/class-locator.mdx#locator-aria-snapshot) 來產生此斷言。
 
-Learn more in the [aria snapshots guide](./aria-snapshots).
+在 [aria snapshots 指南](./aria-snapshots) 中了解更多。
 
 ### Tracing groups
 
@@ -223,7 +223,7 @@ This change affects you if you're using one of the following channels in your `p
 - `chrome`, `chrome-dev`, `chrome-beta`, or `chrome-canary`
 - `msedge`, `msedge-dev`, `msedge-beta`, or `msedge-canary`
 
-After updating to Playwright v1.49, run your test suite. If it still passes, you're good to go. If not, you will probably need to update your snapshots, and adapt some of your test code around PDF viewers and extensions. See [issue #33566](https://github.com/microsoft/playwright/issues/33566) for more details.
+更新到 Playwright v1.49 後，執行您的測試套件。如果仍然通過，您就可以繼續使用。如果不是，您可能需要更新您的快照，並調整一些關於 PDF 檢視器和擴充功能的測試程式碼。請參閱 [issue #33566](https://github.com/microsoft/playwright/issues/33566) 以取得更多詳細資訊。
 
 ### Try new Chromium headless
 
@@ -231,7 +231,7 @@ You can opt into the new headless mode by using `'chromium'` channel. As [offici
 
 > New Headless on the other hand is the real Chrome browser, and is thus more authentic, reliable, and offers more features. This makes it more suitable for high-accuracy end-to-end web app testing or browser extension testing.
 
-See [issue #33566](https://github.com/microsoft/playwright/issues/33566) for the list of possible breakages you could encounter and more details on Chromium headless. Please file an issue if you see any problems after opting in.
+請參閱 [issue #33566](https://github.com/microsoft/playwright/issues/33566) 以查看您可能遇到的破壞性變更清單以及有關 Chromium headless 的更多詳細資訊。如果您在選擇加入後看到任何問題，請提交 issue。
 
 ```xml title="runsettings.xml"
 <?xml version="1.0" encoding="utf-8"?>
@@ -277,7 +277,7 @@ await page.RouteWebSocketAsync("/ws", ws => {
 });
 ```
 
-See [WebSocketRoute] for more details.
+請參閱 [WebSocketRoute] 以取得更多詳細資訊。
 
 ### UI updates
 - New "copy" buttons for annotations and test location in the HTML report.
@@ -328,7 +328,7 @@ The Network tab in the trace viewer has several nice improvements:
 
 ### TLS Client Certificates
 
-Playwright now 允許 supply client-side certificates, so that server can verify them, as specified by TLS Client Authentication.
+Playwright 現在允許提供用戶端憑證，以便伺服器可以根據 TLS 用戶端驗證的規定來驗證它們。
 
 You can provide client certificates as a parameter of [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) and [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context). The following snippet sets up a client certificate for `https://example.com`:
 
@@ -394,7 +394,7 @@ await Page.Clock.FastForwardAsync("30:00");
 await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:00 AM");
 ```
 
-See [the clock guide](./clock.mdx) for more details.
+請參閱 [時鐘指南](./clock.mdx) 以取得更多詳細資訊。
 
 ### 其他
 - Method [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) now supports uploading a directory for `<input type=file webkitdirectory>` elements.
@@ -631,7 +631,7 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 
 ## 版本 1.39
 
-Evergreen browsers update.
+長青瀏覽器更新。
 
 ### 瀏覽器版本
 * Chromium 119.0.6045.9
@@ -945,7 +945,7 @@ await page.GetByRole(AriaRole.Button, new() { NameString = "Sign in" }).ClickAsy
 await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 ```
 
-All the same methods are also available on [Locator], [FrameLocator] and [Frame] classes.
+所有相同的方法在 [Locator]、[FrameLocator] 和 [Frame] 類別中也都可以使用。
 
 ### Other highlights
 - As announced in v1.25, Ubuntu 18 will not be supported as of Dec 2022. In addition to that, there will be no WebKit updates on Ubuntu 18 starting from the next Playwright release.
@@ -988,9 +988,9 @@ A bunch of Playwright APIs already support the `WaitUntil: WaitUntilState.DOMCon
 await Page.GotoAsync("https://playwright.dev", new() { WaitUntil = WaitUntilState.DOMContentLoaded });
 ```
 
-Prior to 1.26, this would wait for all iframes to fire the `DOMContentLoaded` event.
+在 1.26 之前，這將等待所有 iframe 觸發 `DOMContentLoaded` 事件。
 
-To align with web specification, the `WaitUntilState.DOMContentLoaded` value only waits for the target frame to fire the `'DOMContentLoaded'` event. Use `WaitUntil: WaitUntilState.Load` to wait for all iframes.
+為了與 Web 規範保持一致，`WaitUntilState.DOMContentLoaded` 值只等待目標框架觸發 `'DOMContentLoaded'` 事件。使用 `WaitUntil: WaitUntilState.Load` 來等待所有 iframe。
 
 ### 瀏覽器版本
 * Chromium 106.0.5249.30
@@ -1066,7 +1066,7 @@ Linux support looks like this:
 
 ### New introduction docs
 
-We rewrote our Getting Started docs to be more end-to-end testing focused. Check them out on [playwright.dev](./intro).
+我們重寫了入門文件，使其更專注於端對端測試。請在 [playwright.dev](./intro) 查看。
 
 ## 版本 1.23
 
@@ -1090,11 +1090,11 @@ Console.WriteLine(await response.TextAsync());
 Console.WriteLine((await response.JsonAsync())?.GetProperty("foo").GetString());
 ```
 
-Read more about it in our [API testing guide](./api-testing).
+在我們的 [API 測試指南](./api-testing) 中了解更多。
 
 ### Network Replay
 
-Now you can record network traffic into a HAR file and re-use this traffic in your tests.
+現在您可以將網路流量錄製到 HAR 檔案中，並在測試中重複使用此流量。
 
 To record network into HAR file:
 
@@ -1123,11 +1123,11 @@ Use the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-fr
 await context.RouteFromHARAsync("example.har");
 ```
 
-Read more in [our documentation](./mock.mdx#mocking-with-har-files).
+在 [我們的文件](./mock.mdx#mocking-with-har-files) 中了解更多。
 
 ### Advanced Routing
 
-You 現在可以 use [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
+您現在可以使用 [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) 將路由延遲到其他處理程序。
 
 Consider the following example:
 
@@ -1154,7 +1154,7 @@ await page.RouteAsync("**/*", async route =>
 });
 ```
 
-Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) and [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) also participate in routing and could be deferred to.
+請注意，新方法 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 和 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) 也參與路由，並且可以被延遲到。
 
 ### Web-First Assertions Update
 * 新方法 [Expect(Locator).ToHaveValuesAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
@@ -1236,7 +1236,7 @@ Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-ro
 
 ### Web-First Assertions
 
-Playwright for .NET 1.20 introduces [Web-First Assertions](./test-assertions).
+Playwright for .NET 1.20 引入了 [Web-First 斷言](./test-assertions)。
 
 Consider the following example:
 
@@ -1258,9 +1258,9 @@ public class ExampleTests : PageTest
 }
 ```
 
-Playwright will be re-testing the node with the selector `.status` until fetched Node has the `"Submitted"` text. It will be re-fetching the node and checking it over and over, until the condition is met or until the timeout is reached. You can pass this timeout as an option.
+Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節點包含 `"Submitted"` 文字。它將重新取得節點並一再檢查，直到滿足條件或達到逾時為止。您可以將此逾時作為選項傳遞。
 
-Read more in [our documentation](./test-assertions).
+在 [我們的文件](./test-assertions) 中了解更多。
 
 ### Other Updates
 - 新選項s for methods [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot), [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) and [ElementHandle.ScreenshotAsync()](/api/class-elementhandle.mdx#element-handle-screenshot):
@@ -1316,7 +1316,7 @@ Read more in [our documentation](./test-assertions).
   
   Read more in [locator documentation](./api/class-locator#locator-locator)
 
-### New APIs & changes
+### 新的 API 與變更
 - [`AcceptDownloads`](./api/class-browser#browser-new-context-option-accept-downloads) option now defaults to `true`.
 - [`Sources`](./api/class-tracing#tracing-start-option-sources) option to embed sources into traces.
 
@@ -1333,22 +1333,22 @@ Read more in [our documentation](./test-assertions).
 
 ### Frame Locators
 
-Playwright 1.17 introduces [frame locators](./api/class-framelocator) - a locator to the iframe on the page. Frame locators capture the logic sufficient to retrieve the `iframe` and then locate elements in that iframe. Frame locators are strict by default, will wait for `iframe` to appear and can be used in Web-First assertions.
+Playwright 1.17 引入了 [frame locators](./api/class-framelocator) - 頁面上 iframe 的定位器。Frame locators 擷取足夠的邏輯來取得 `iframe` 然後在該 iframe 中定位元素。Frame locators 預設為嚴格模式，將等待 `iframe` 出現，並可用於 Web-First 斷言。
 
 ![Graphics](https://user-images.githubusercontent.com/746130/142082759-2170db38-370d-43ec-8d41-5f9941f57d83.png)
 
-Frame locators can be created with either [Page.FrameLocator()](/api/class-page.mdx#page-frame-locator) or [Locator.FrameLocator()](/api/class-locator.mdx#locator-frame-locator) method.
+Frame locators 可以使用 [Page.FrameLocator()](/api/class-page.mdx#page-frame-locator) 或 [Locator.FrameLocator()](/api/class-locator.mdx#locator-frame-locator) 方法建立。
 
 ```csharp
 var locator = page.FrameLocator("#my-frame").Locator("text=Submit");
 await locator.ClickAsync();
 ```
 
-Read more at [our documentation](./api/class-framelocator).
+在 [我們的文件](./api/class-framelocator) 中了解更多。
 
 ### Trace Viewer Update
 
-Playwright Trace Viewer is now **available online** at https://trace.playwright.dev! Just drag-and-drop your `trace.zip` file to inspect its contents.
+Playwright Trace Viewer 現在 **可在線上使用**，網址為 https://trace.playwright.dev！只需拖放您的 `trace.zip` 檔案即可檢查其內容。
 
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
 - Playwright Test traces now include sources by default (these could be turned off with tracing option)
@@ -1529,7 +1529,7 @@ await button.ClickAsync("button >> visible=true");
 
 ## 版本 1.12
 
-#### Highlights
+#### 重點
 - Playwright for .NET v1.12 is now stable!
 - Ships with the [codegen](./codegen.mdx) and [trace viewer](./trace-viewer.mdx) tools out-of-the-box
 
