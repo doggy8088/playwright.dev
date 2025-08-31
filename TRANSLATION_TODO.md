@@ -119,7 +119,7 @@
 - [x] nodejs/docs/mock-browser.mdx
 - [x] nodejs/docs/mock.mdx
 - [ ] nodejs/docs/navigations.mdx
-- [ ] nodejs/docs/network.mdx
+- [x] nodejs/docs/network.mdx
 - [x] nodejs/docs/other-locators.mdx
 - [x] nodejs/docs/pages.mdx
 - [x] nodejs/docs/pom.mdx
