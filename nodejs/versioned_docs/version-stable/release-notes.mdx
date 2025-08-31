@@ -349,15 +349,15 @@ This change affects you if you're using one of the following channels in your `p
 
 ### 嘗試新的 Chromium 無頭模式
 
-You can opt into the new headless mode by using `'chromium'` channel. As [official Chrome documentation puts it](https://developer.chrome.com/blog/chrome-headless-shell):
+您可以透過使用 `'chromium'` 頻道選擇新的無頭模式。如 [官方 Chrome 文件所述](https://developer.chrome.com/blog/chrome-headless-shell)：
 
-> New Headless on the other hand is the real Chrome browser, and is thus more authentic, reliable, and offers more features. This makes it more suitable for high-accuracy end-to-end web app testing or browser extension testing.
+> 另一方面，新的無頭模式是真正的 Chrome 瀏覽器，因此更真實、可靠，並提供更多功能。這使其更適合高精度的端到端網頁應用程式測試或瀏覽器擴充功能測試。
 
 請參閱...以取得更多詳細資訊.
 
 ### 測試執行器
-- New CLI 選項 `--fail-on-flaky-tests` that sets exit code to `1` upon any flaky tests. Note that by default, the test runner exits with code `0` when all failed tests recovered upon a retry. With this 選項, the test run will fail in such case.
-- New environment variable `PLAYWRIGHT_FORCE_TTY` controls whether built-in `list`, `line` and `dot` reporters assume a live terminal. For example, this could be useful to disable tty behavior when your CI environment does not handle ANSI control sequences well. Alternatively, you can enable tty behavior even when to live terminal is present, if you plan to post-process the output and handle control sequences.
+- 新的 CLI 選項 `--fail-on-flaky-tests` 會在任何不穩定測試時將結束代碼設為 `1`。請注意，預設情況下，當所有失敗的測試在重試後恢復時，測試執行器會以代碼 `0` 結束。使用此選項時，在這種情況下測試執行將失敗。
+- 新的環境變數 `PLAYWRIGHT_FORCE_TTY` 控制內建 `list`、`line` 和 `dot` 報告器是否假設為即時終端。例如，當您的 CI 環境無法良好處理 ANSI 控制序列時，這可能有助於停用 tty 行為。或者，即使沒有即時終端存在，如果您計劃後處理輸出並處理控制序列，您也可以啟用 tty 行為。
   
   ```sh
   # Avoid TTY features that output ANSI control sequences
@@ -417,7 +417,7 @@ You can opt into the new headless mode by using `'chromium'` channel. As [offici
 
 ### 新的 API
 
-**Accessibility assertions**
+**無障礙斷言**
 - [expect(locator).toHaveAccessibleName()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
   
   ```js
@@ -439,7 +439,7 @@ You can opt into the new headless mode by using `'chromium'` channel. As [offici
   await expect(locator).toHaveRole('button');
   ```
   
-**Locator handler**
+**定位器處理器**
 - After executing the handler added with [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `noWaitAfter` 選項.
 - You can use new `times` 選項 in [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
 - The handler in [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
@@ -455,7 +455,7 @@ await page.addLocatorHandler(locator, async overlay => {
 await page.removeLocatorHandler(locator);
 ```
 
-**Miscellaneous options**
+**其他選項**
 - [`multipart`](./api/class-apirequestcontext#api-request-context-fetch-選項-multipart) 選項 in `apiRequestContext.fetch()` now accepts [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) and supports repeating fields with the same name.
   
   ```js
@@ -471,12 +471,12 @@ await page.removeLocatorHandler(locator);
 - `expect(page).toHaveURL(url)` 現在支援 `ignoreCase` [選項](./api/class-pageassertions#page-assertions-to-have-url-選項-ignore-case).
 - [testProject.ignoreSnapshots](./api/class-testproject#test-project-ignore-snapshots) 允許 configure  per project whether to skip screenshot expectations.
 
-**Reporter API**
+**報告器 API**
 - 新方法 [suite.entries()](/api/class-suite.mdx#suite-entries) 回傳 child test suites and test cases in their declaration order. [suite.type](/api/class-suite.mdx#suite-type) and [testCase.type](/api/class-testcase.mdx#test-case-type) 可以使用 to tell apart test cases and suites in the list.
 - [Blob](./test-reporters#blob-reporter) reporter now allows overriding report file path with a single 選項 `outputFile`. The same 選項 can also be specified as `PLAYWRIGHT_BLOB_OUTPUT_FILE` environment variable that might be more convenient on CI/CD.
 - [JUnit](./test-reporters#junit-reporter) reporter 現在支援 `includeProjectInTestName` 選項.
 
-**Command line**
+**命令列**
 - `--last-failed` CLI 選項 to for running only tests that failed in the previous run.
   
   First run all tests:

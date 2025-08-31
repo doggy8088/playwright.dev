@@ -219,14 +219,14 @@ This change affects you if you're using one of the following channels in your `p
 
 ### 嘗試新的 Chromium 無頭模式
 
-You can opt into the new headless mode by using `'chromium'` channel. As [official Chrome documentation puts it](https://developer.chrome.com/blog/chrome-headless-shell):
+您可以透過使用 `'chromium'` 頻道選擇新的無頭模式。如 [官方 Chrome 文件所述](https://developer.chrome.com/blog/chrome-headless-shell)：
 
-> New Headless on the other hand is the real Chrome browser, and is thus more authentic, reliable, and offers more features. This makes it more suitable for high-accuracy end-to-end web app testing or browser extension testing.
+> 另一方面，新的無頭模式是真正的 Chrome 瀏覽器，因此更真實、可靠，並提供更多功能。這使其更適合高精度的端到端網頁應用程式測試或瀏覽器擴充功能測試。
 
 請參閱...以取得更多詳細資訊.
 
 ### 其他
-- 方法 [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) 現在支援 uploading a directory for `<input type=file webkitdirectory>` elements.
+- 方法 [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) 現在支援為 `<input type=file webkitdirectory>` 元素上傳目錄。
   
   ```java
   page.getByLabel("Upload directory").setInputFiles(Paths.get("mydir"));
@@ -256,7 +256,7 @@ You can opt into the new headless mode by using `'chromium'` channel. As [offici
 
 ### 新的 API
 
-**Accessibility assertions**
+**無障礙斷言**
 - [assertThat(locator).hasAccessibleName()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
   
   ```java
@@ -278,7 +278,7 @@ You can opt into the new headless mode by using `'chromium'` channel. As [offici
   assertThat(locator).hasRole(AriaRole.BUTTON);
   ```
   
-**Locator handler**
+**定位器處理器**
 - After executing the handler added with [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `setNoWaitAfter` 選項.
 - You can use new `setTimes` 選項 in [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
 - The handler in [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
@@ -294,7 +294,7 @@ page.addLocatorHandler(locator, overlay -> {
 page.removeLocatorHandler(locator);
 ```
 
-**Miscellaneous options**
+**其他選項**
 - 新方法 [FormData.append()](/api/class-formdata.mdx#form-data-append) 允許 specify repeating fields with the same name in [`setMultipart`](./api/class-requestoptions#request-options-set-multipart) 選項 in `RequestOptions`:
   
   ```java
@@ -402,7 +402,7 @@ public class TestExample {
 
 In the example above, all three test methods use the same [Browser]. Each test uses its own [BrowserContext] and [Page].
 
-**Custom options**
+**自訂選項**
 
 Implement your own `OptionsFactory` to initialize the fixtures with custom configuration.
 
@@ -817,7 +817,7 @@ Linux support looks like this:
 ## 版本 1.28
 
 ### Playwright 工具
-* **Live Locators in CodeGen.** Generate a locator for any element on the page using "Explore" tool.
+* **CodeGen 中的即時定位器。** 使用「探索」工具為頁面上的任何元素產生定位器。
 
 ![Locator Explorer](https://user-images.githubusercontent.com/9798949/202293631-2f402cc2-35fb-4877-8ea1-82265fbbc232.png)
 

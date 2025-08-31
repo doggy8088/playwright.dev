@@ -1208,7 +1208,7 @@ Note: **component tests only**, does not affect end-to-end tests.
 ### 新的 API
 - 新屬性 [testProject.dependencies](/api/class-testproject.mdx#test-project-dependencies) to configure dependencies between projects.
   
-  Using dependencies allows global setup to produce traces and other artifacts, see the setup steps in the test report and more.
+  使用依賴項允許全域設定產生追蹤和其他工件，請查看測試報告中的設定步驟等等。
   
   ```js title="playwright.config.ts"
   import { defineConfig } from '@playwright/test';
@@ -1394,10 +1394,10 @@ export default defineConfig({
 <LiteYouTube id="tVSq-0n-TY4" title="Playwright 1.28" />
 
 ### Playwright 工具
-* **Record at Cursor in VSCode.** You can run the test, position the cursor at the end of the test and continue generating the test.
+* **在 VSCode 中游標處錄製。** 您可以執行測試，將游標置於測試末尾並繼續產生測試。
 
 ![New VSCode Extension](https://user-images.githubusercontent.com/746130/202005839-aba2eeba-217b-424d-8496-8b4f5fa72f41.png)
-* **Live Locators in VSCode.** You can hover and edit locators in VSCode to get them  highlighted in the opened browser.
+* **VSCode 中的即時定位器。** 您可以在 VSCode 中懸停並編輯定位器，使其在開啟的瀏覽器中被突顯顯示。
 * **Live Locators in CodeGen.** Generate a locator for any element on the page using "Explore" tool.
 
 ![Locator Explorer](https://user-images.githubusercontent.com/746130/201796876-01567a0b-ca61-4a9d-b12b-04786c471671.png)
@@ -1517,8 +1517,8 @@ All the same methods are also available on [Locator], [FrameLocator] and [Frame]
 
 ### 其他重點
 - 新選項 `maxRedirects` for [apiRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
-- New command-line flag `--pass-with-no-tests` that allows the test suite to pass when no files are found.
-- New command-line flag `--ignore-snapshots` to skip snapshot expectations, such as `expect(value).toMatchSnapshot()` and `expect(page).toHaveScreenshot()`.
+- 新的命令列旗標 `--pass-with-no-tests` 允許測試套件在找不到檔案時通過。
+- 新的命令列旗標 `--ignore-snapshots` 用於跳過快照預期，例如 `expect(value).toMatchSnapshot()` 和 `expect(page).toHaveScreenshot()`。
 
 ### 行為變更
 
