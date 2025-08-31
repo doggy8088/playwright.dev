@@ -128,7 +128,7 @@
 - [ ] nodejs/docs/puppeteer.mdx
 - [ ] nodejs/docs/release-notes.mdx
 - [x] nodejs/docs/running-tests.mdx
-- [ ] nodejs/docs/screenshots.mdx
+- [x] nodejs/docs/screenshots.mdx
 - [ ] nodejs/docs/selenium-grid.mdx
 - [x] nodejs/docs/service-workers-experimental-network-events.mdx
 - [ ] nodejs/docs/test-annotations.mdx
@@ -270,7 +270,7 @@
 - [ ] nodejs/versioned_docs/version-stable/puppeteer.mdx
 - [ ] nodejs/versioned_docs/version-stable/release-notes.mdx
 - [x] nodejs/versioned_docs/version-stable/running-tests.mdx
-- [ ] nodejs/versioned_docs/version-stable/screenshots.mdx
+- [x] nodejs/versioned_docs/version-stable/screenshots.mdx
 - [ ] nodejs/versioned_docs/version-stable/selenium-grid.mdx
 - [x] nodejs/versioned_docs/version-stable/service-workers-experimental-network-events.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-annotations.mdx
@@ -375,7 +375,7 @@
 - [x] python/docs/pom.mdx
 - [ ] python/docs/release-notes.mdx
 - [ ] python/docs/running-tests.mdx
-- [ ] python/docs/screenshots.mdx
+- [x] python/docs/screenshots.mdx
 - [ ] python/docs/selenium-grid.mdx
 - [ ] python/docs/test-assertions.mdx
 - [ ] python/docs/test-runners.mdx
@@ -461,7 +461,7 @@
 - [x] python/versioned_docs/version-stable/pom.mdx
 - [ ] python/versioned_docs/version-stable/release-notes.mdx
 - [ ] python/versioned_docs/version-stable/running-tests.mdx
-- [ ] python/versioned_docs/version-stable/screenshots.mdx
+- [x] python/versioned_docs/version-stable/screenshots.mdx
 - [ ] python/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] python/versioned_docs/version-stable/test-assertions.mdx
 - [ ] python/versioned_docs/version-stable/test-runners.mdx
@@ -550,7 +550,7 @@
 - [x] java/docs/pom.mdx
 - [ ] java/docs/release-notes.mdx
 - [ ] java/docs/running-tests.mdx
-- [ ] java/docs/screenshots.mdx
+- [x] java/docs/screenshots.mdx
 - [ ] java/docs/selenium-grid.mdx
 - [ ] java/docs/test-assertions.mdx
 - [ ] java/docs/test-runners.mdx
@@ -640,7 +640,7 @@
 - [x] java/versioned_docs/version-stable/pom.mdx
 - [ ] java/versioned_docs/version-stable/release-notes.mdx
 - [ ] java/versioned_docs/version-stable/running-tests.mdx
-- [ ] java/versioned_docs/version-stable/screenshots.mdx
+- [x] java/versioned_docs/version-stable/screenshots.mdx
 - [ ] java/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] java/versioned_docs/version-stable/test-assertions.mdx
 - [ ] java/versioned_docs/version-stable/test-runners.mdx
@@ -729,7 +729,7 @@
 - [x] dotnet/docs/pom.mdx
 - [ ] dotnet/docs/release-notes.mdx
 - [ ] dotnet/docs/running-tests.mdx
-- [ ] dotnet/docs/screenshots.mdx
+- [x] dotnet/docs/screenshots.mdx
 - [ ] dotnet/docs/selenium-grid.mdx
 - [ ] dotnet/docs/test-assertions.mdx
 - [ ] dotnet/docs/test-runners.mdx
@@ -817,7 +817,7 @@
 - [x] dotnet/versioned_docs/version-stable/pom.mdx
 - [ ] dotnet/versioned_docs/version-stable/release-notes.mdx
 - [ ] dotnet/versioned_docs/version-stable/running-tests.mdx
-- [ ] dotnet/versioned_docs/version-stable/screenshots.mdx
+- [x] dotnet/versioned_docs/version-stable/screenshots.mdx
 - [ ] dotnet/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] dotnet/versioned_docs/version-stable/test-assertions.mdx
 - [ ] dotnet/versioned_docs/version-stable/test-runners.mdx
