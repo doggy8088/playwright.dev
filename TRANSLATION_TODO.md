@@ -110,7 +110,7 @@
 - [ ] nodejs/docs/events.mdx
 - [x] nodejs/docs/extensibility.mdx
 - [x] nodejs/docs/frames.mdx
-- [ ] nodejs/docs/getting-started-vscode.mdx
+- [x] nodejs/docs/getting-started-vscode.mdx
 - [ ] nodejs/docs/handles.mdx
 - [ ] nodejs/docs/input.mdx
 - [x] nodejs/docs/intro.mdx
@@ -252,7 +252,7 @@
 - [ ] nodejs/versioned_docs/version-stable/events.mdx
 - [x] nodejs/versioned_docs/version-stable/extensibility.mdx
 - [x] nodejs/versioned_docs/version-stable/frames.mdx
-- [ ] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
+- [x] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
 - [ ] nodejs/versioned_docs/version-stable/handles.mdx
 - [ ] nodejs/versioned_docs/version-stable/input.mdx
 - [x] nodejs/versioned_docs/version-stable/intro.mdx
