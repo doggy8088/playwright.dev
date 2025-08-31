@@ -134,7 +134,7 @@
 - [ ] nodejs/docs/test-annotations.mdx
 - [x] nodejs/docs/test-assertions.mdx
 - [ ] nodejs/docs/test-cli.mdx
-- [ ] nodejs/docs/test-components.mdx
+- [x] nodejs/docs/test-components.mdx
 - [ ] nodejs/docs/test-configuration.mdx
 - [ ] nodejs/docs/test-fixtures.mdx
 - [ ] nodejs/docs/test-global-setup-teardown.mdx
@@ -276,7 +276,7 @@
 - [ ] nodejs/versioned_docs/version-stable/test-annotations.mdx
 - [x] nodejs/versioned_docs/version-stable/test-assertions.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-cli.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-components.mdx
+- [x] nodejs/versioned_docs/version-stable/test-components.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-configuration.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-fixtures.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-global-setup-teardown.mdx
