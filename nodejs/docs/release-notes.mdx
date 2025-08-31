@@ -415,7 +415,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
 * Google Chrome 126
 * Microsoft Edge 126
 
-## Version 1.44
+## 版本 1.44
 
 <LiteYouTube id="avjSahFWdCI" title="Playwright 1.44" />
 
@@ -514,10 +514,10 @@ await page.removeLocatorHandler(locator);
 * Google Chrome 124
 * Microsoft Edge 124
 
-## Version 1.43
+## 版本 1.43
 
 ### 新的 API
-- 方法 [browserContext.clearCookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援 filters to remove only some cookies.
+- 方法 [browserContext.clearCookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援篩選器以僅移除部分 cookies。
   
   ```js
   // Clear all cookies.
@@ -585,7 +585,7 @@ await page.removeLocatorHandler(locator);
 * Google Chrome 123
 * Microsoft Edge 123
 
-## Version 1.42
+## 版本 1.42
 
 <LiteYouTube id="KjSaIQLlgns" title="Playwright 1.41 & 1.42" />
 
@@ -667,7 +667,7 @@ test('test full report', {
 * Google Chrome 122
 * Microsoft Edge 123
 
-## Version 1.41
+## 版本 1.41
 
 ### 新的 API
 - 新方法 [page.unrouteAll()](/api/class-page.mdx#page-unroute-all) 移除所有由 [page.route()](/api/class-page.mdx#page-route) 和 [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
@@ -685,7 +685,7 @@ test('test full report', {
 * Google Chrome 120
 * Microsoft Edge 120
 
-## Version 1.40
+## 版本 1.40
 
 <LiteYouTube id="mn892dV81_8" title="Playwright 1.40" />
 
@@ -731,7 +731,7 @@ test('test', async ({ page }) => {
 * Google Chrome 119
 * Microsoft Edge 119
 
-## Version 1.39
+## 版本 1.39
 
 <LiteYouTube id="KqVuRAlOkm0" title="Playwright 1.39" />
 
@@ -832,7 +832,7 @@ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
 * Google Chrome 118
 * Microsoft Edge 118
 
-## Version 1.38
+## 版本 1.38
 
 <LiteYouTube id="YGJTeXaZDTM" title="Playwright 1.38" />
 
@@ -900,7 +900,7 @@ Playwright 建議使用 `@playwright/test` 套件並透過 `npx playwright insta
 * Google Chrome 116
 * Microsoft Edge 116
 
-## Version 1.37
+## 版本 1.37
 
 <LiteYouTube id="cEd4SH_Xf5U" title="Playwright 1.36 & 1.37" />
 
@@ -909,7 +909,7 @@ Playwright 建議使用 `@playwright/test` 套件並透過 `npx playwright insta
 如果您在多個分片上執行測試，您現在可以使用新的 `merge-reports` CLI 工具將所有報告合併為單一 HTML 報告（或任何其他報告）。
 
 使用 `merge-reports` 工具需要以下步驟：
-1. Adding a new "blob" reporter to the config when running on CI:
+1. 在 CI 上執行時將新的「blob」報告器新增至配置：
    
    ```js title="playwright.config.ts"
    export default defineConfig({
@@ -920,7 +920,7 @@ Playwright 建議使用 `@playwright/test` 套件並透過 `npx playwright insta
    
    「blob」報告器會產生包含測試執行所有資訊的「.zip」檔案。
 
-2. Copying all "blob" reports in a single shared location and running `npx playwright merge-reports`:
+2. 將所有「blob」報告複製到單一共享位置並執行 `npx playwright merge-reports`：
 
 ```bash
 npx playwright merge-reports --reporter html ./all-blob-reports
@@ -953,7 +953,7 @@ Linux 支援如下所示：
 * Google Chrome 115
 * Microsoft Edge 115
 
-## Version 1.36
+## 版本 1.36
 
 🏝️ Summer maintenance release.
 
@@ -966,7 +966,7 @@ Linux 支援如下所示：
 * Google Chrome 114
 * Microsoft Edge 114
 
-## Version 1.35
+## 版本 1.35
 
 <LiteYouTube id="pJiirfyJwcA" title="Playwright 1.35" />
 
@@ -1019,7 +1019,7 @@ Linux 支援如下所示：
 * Google Chrome 114
 * Microsoft Edge 114
 
-## Version 1.34
+## 版本 1.34
 
 <LiteYouTube id="JeFD6rqDbBo" title="Playwright 1.34" />
 
@@ -1116,7 +1116,7 @@ Linux 支援如下所示：
 * Google Chrome 113
 * Microsoft Edge 113
 
-## Version 1.33
+## 版本 1.33
 
 <LiteYouTube id="JeFD6rqDbBo" title="Playwright 1.33" />
 
@@ -1164,7 +1164,7 @@ Linux 支援如下所示：
 * Google Chrome 112
 * Microsoft Edge 112
 
-## Version 1.32
+## 版本 1.32
 
 <LiteYouTube id="jF0yA-JLQW0" title="Playwright 1.32" />
 
@@ -1201,7 +1201,7 @@ Note: **component tests only**, does not affect end-to-end tests.
 * Google Chrome 111
 * Microsoft Edge 111
 
-## Version 1.31
+## 版本 1.31
 
 <LiteYouTube id="PI50YAPTAs4" title="Playwright 1.31" />
 
@@ -1296,7 +1296,7 @@ export default defineConfig({
 * Google Chrome 110
 * Microsoft Edge 110
 
-## Version 1.30
+## 版本 1.30
 
 ### 瀏覽器版本
 * Chromium 110.0.5481.38
@@ -1307,7 +1307,7 @@ export default defineConfig({
 * Google Chrome 109
 * Microsoft Edge 109
 
-## Version 1.29
+## 版本 1.29
 
 <LiteYouTube id="VbVlz61VtNo" title="Playwright 1.29" />
 
@@ -1389,7 +1389,7 @@ export default defineConfig({
 * Google Chrome 108
 * Microsoft Edge 108
 
-## Version 1.28
+## 版本 1.28
 
 <LiteYouTube id="tVSq-0n-TY4" title="Playwright 1.28" />
 
@@ -1440,7 +1440,7 @@ export default defineConfig({
 * Google Chrome 107
 * Microsoft Edge 107
 
-## Version 1.27
+## 版本 1.27
 
 <LiteYouTube id="b84eqab3kwc" title="Playwright 1.27" />
 
@@ -1505,7 +1505,7 @@ await expect(page.getByText('Welcome, John!')).toBeVisible();
 * Google Chrome 106
 * Microsoft Edge 106
 
-## Version 1.26
+## 版本 1.26
 
 <LiteYouTube id="b84eqab3kwc" title="Playwright 1.26" />
 
@@ -1543,7 +1543,7 @@ await page.goto('https://playwright.dev', {
 * Google Chrome 105
 * Microsoft Edge 105
 
-## Version 1.25
+## 版本 1.25
 
 <LiteYouTube id="NFLHA57a-so" title="Playwright 1.25" />
 
@@ -1586,7 +1586,7 @@ await page.goto('https://playwright.dev', {
 * Google Chrome 104
 * Microsoft Edge 104
 
-## Version 1.24
+## 版本 1.24
 
 <LiteYouTube id="9F05o1shxcY" title="Playwright 1.24" />
 
@@ -1704,7 +1704,7 @@ beforeMount(async ({ hooksConfig }) => {
 });
 ```
 
-## Version 1.23
+## 版本 1.23
 
 <LiteYouTube id="NRGOV46P3kU" title="Playwright 1.23" />
 
@@ -1815,7 +1815,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 * `300-399` (new)
 * `400`, `401`, `402`, `403` (new)
 
-## Version 1.22
+## 版本 1.22
 
 <LiteYouTube id="keV2CIgtBlg" title="Playwright 1.22" />
 
@@ -1876,7 +1876,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   
   新的 [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 會將螢幕截圖儲存在與 [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1) 相同的位置。
 
-## Version 1.21
+## 版本 1.21
 
 <LiteYouTube id="45HZdbmgEw8" title="Playwright 1.21" />
 
@@ -1917,7 +1917,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 - Google Chrome 100
 - Microsoft Edge 100
 
-## Version 1.20
+## 版本 1.20
 
 <LiteYouTube id="6vV-XXKsrbA" title="Playwright 1.20" />
 
@@ -1977,7 +1977,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 - Google Chrome 99
 - Microsoft Edge 99
 
-## Version 1.19
+## 版本 1.19
 
 <LiteYouTube id="z0EOFvlf14U" title="Playwright 1.19" />
 
@@ -2055,7 +2055,7 @@ We've noticed that in rare cases, the set of tests to be executed was configured
 - Google Chrome 98
 - Microsoft Edge 98
 
-## Version 1.18
+## 版本 1.18
 
 <LiteYouTube id="ABLYpw2BN_g" title="Playwright 1.18" />
 
@@ -2152,7 +2152,7 @@ module.exports = {
 - Google Chrome 97
 - Microsoft Edge 97
 
-## Version 1.17
+## 版本 1.17
 
 <LiteYouTube id="7iyIdeoAP04" title="Playwright 1.17" />
 
@@ -2208,7 +2208,7 @@ Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace
 - [`expect.toMatchSnapshot`](./api/class-genericassertions.mdx) 支援子目錄
 - [`reporter.printsToStdio()`](./api/class-reporter#reporter-prints-to-stdio)
 
-## Version 1.16
+## 版本 1.16
 
 <LiteYouTube id="OQKwFDmY64g" title="Playwright 1.16" />
 
@@ -2331,7 +2331,7 @@ Playwright Docker 映像現在發佈用於 Arm64，因此可以在 Apple Silicon
 - Google Chrome 94
 - Microsoft Edge 94
 
-## Version 1.15
+## 版本 1.15
 
 <LiteYouTube id="6RwzsDeEj7Y" title="Playwright 1.15" />
 
@@ -2387,7 +2387,7 @@ By using `npx playwright test --debug` it will enable the [Playwright Inspector]
 - Mozilla Firefox 92.0
 - WebKit 15.0
 
-## Version 1.14
+## 版本 1.14
 
 <LiteYouTube id="LczBDR0gOhk" title="Playwright 1.14" />
 
@@ -2536,7 +2536,7 @@ export default defineConfig({
 - Mozilla Firefox 91.0
 - WebKit 15.0
 
-## Version 1.13
+## 版本 1.13
 
 #### Playwright Test
 - **⚡️ 介紹 [Reporter API](https://github.com/microsoft/playwright/blob/65a9037461ffc15d70cdc2055832a0c5512b227c/packages/playwright-test/types/testReporter.d.ts)**，已用於建立 [Allure Playwright reporter](https://github.com/allure-framework/allure-js/pull/297)。
@@ -2572,7 +2572,7 @@ export default defineConfig({
 - new `force` 選項 in [page.fill()](/api/class-page.mdx#page-fill), [frame.fill()](/api/class-frame.mdx#frame-fill), and [elementHandle.fill()](/api/class-elementhandle.mdx#element-handle-fill)
 - new `force` 選項 in [page.selectOption()](/api/class-page.mdx#page-select-選項), [frame.selectOption()](/api/class-frame.mdx#frame-select-選項), and [elementHandle.selectOption()](/api/class-elementhandle.mdx#element-handle-select-選項)
 
-## Version 1.12
+## 版本 1.12
 
 #### ⚡️ Introducing Playwright Test
 
@@ -2607,7 +2607,7 @@ Running:
 npx playwright test
 ```
 
-👉  Read more in [Playwright Test documentation](./intro.mdx).
+👉  在 [Playwright Test 文件](./intro.mdx) 中閱讀更多。
 
 #### 🧟‍♂️ Introducing Playwright Trace Viewer
 
@@ -2642,7 +2642,7 @@ That will open the following GUI:
 
 ![image](https://user-images.githubusercontent.com/746130/121109654-d66c4480-c7c0-11eb-8d4d-eb70d2b03811.png)
 
-👉 Read more in [trace viewer documentation](./trace-viewer.mdx).
+👉 在[追蹤檢視器文件](./trace-viewer.mdx)中閱讀更多。
 
 #### 瀏覽器版本
 - Chromium 93.0.4530.0
@@ -2663,7 +2663,7 @@ This version of Playwright was also tested against the following stable channels
 - new [browserContext.tracing](/api/class-browsercontext.mdx#browser-context-tracing) API namespace
 - new [download.page()](/api/class-download.mdx#download-page) 方法
 
-## Version 1.11
+## 版本 1.11
 
 🎥  新影片：[Playwright: A New Test Automation Framework for the Modern Web](https://youtu.be/_Jla6DyuEu4) ([投影片](https://docs.google.com/presentation/d/1xFhZIJrdHkVe2CuMKOrni92HoG2SWslo0DhJJQMR1DI/edit?usp=sharing))
 - We talked about Playwright
@@ -2687,7 +2687,7 @@ This version of Playwright was also tested against the following stable channels
   * `position` 選項 in [page.check()](/api/class-page.mdx#page-check) and [page.uncheck()](/api/class-page.mdx#page-uncheck) methods
   * `trial` 選項 to dry-run actions in [page.check()](/api/class-page.mdx#page-check), [page.uncheck()](/api/class-page.mdx#page-uncheck), [page.click()](/api/class-page.mdx#page-click), [page.dblclick()](/api/class-page.mdx#page-dblclick), [page.hover()](/api/class-page.mdx#page-hover) and [page.tap()](/api/class-page.mdx#page-tap)
 
-## Version 1.10
+## 版本 1.10
 - [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) is **now stable**!
 - Run Playwright against **Google Chrome** and **Microsoft Edge** stable channels with the [new channels API](./browsers).
 - Chromium screenshots are **fast** on Mac & Windows.
@@ -2702,9 +2702,9 @@ This version of Playwright was also tested against the following stable channels
 - Microsoft Edge 89
 
 #### 新的 API
-- [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) now accepts the new `'channel'` 選項. Read more in [our documentation](./browsers).
+- [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 現在接受新的 `'channel'` 選項。在[我們的文件](./browsers)中閱讀更多。
 
-## Version 1.9
+## 版本 1.9
 - [Playwright Inspector](./debug.mdx) is a **new GUI tool** to author and debug your tests.
   - **Line-by-line debugging** of your Playwright scripts, with play, pause and step-through.
   - Author new scripts by **recording user actions**.
@@ -2723,7 +2723,7 @@ This version of Playwright was also tested against the following stable channels
 #### 新的 API
 - [page.pause()](/api/class-page.mdx#page-pause).
 
-## Version 1.8
+## 版本 1.8
 - [Selecting elements based on layout](./other-locators.mdx#css-matching-elements-based-on-layout) with `:left-of()`, `:right-of()`, `:above()` and `:below()`.
 - Playwright 現在包含[命令列介面](./test-cli.mdx)，以前稱為 playwright-cli。
   
@@ -2754,7 +2754,7 @@ This version of Playwright was also tested against the following stable channels
 - Mozilla Firefox 85.0b5
 - WebKit 14.1
 
-## Version 1.7
+## 版本 1.7
 - **新 Java SDK**：[Playwright for Java](https://github.com/microsoft/playwright-java) 現在與 [JavaScript](https://github.com/microsoft/playwright)、[Python](https://github.com/microsoft/playwright-python) 和 [.NET 綁定](https://github.com/microsoft/playwright-dotnet)同步。
 - **瀏覽器儲存 API**：新的便利 API 用於儲存和載入瀏覽器儲存狀態（cookies、本機儲存），以簡化需要驗證的自動化情境。
 - **新的 CSS 選擇器**：我們聽取了您對更靈活選擇器的回饋，並重新設計了選擇器實作。Playwright 1.7 引入[新的 CSS 擴充功能](./other-locators.mdx#css-locator)，更多功能即將推出。
