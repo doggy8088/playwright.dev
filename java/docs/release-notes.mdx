@@ -156,7 +156,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * 新增方法 [assertThat(locator).hasAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) 用來斷言定位器指向具有指定 [aria errormessage](https://w3c.github.io/aria/#aria-errormessage) 的元素。
 
 ### UI 更新
-* New button in Codegen for picking elements to produce aria snapshots.
+* Codegen 中新增用於選取元素以產生 aria 快照的按鈕。
 * Additional details (such as keys pressed) are now displayed alongside action API calls in traces.
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
 * `Call` and `Network` panels now display additional time information.
@@ -177,7 +177,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### Aria 快照
 
-New assertion [assertThat(locator).matchesAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) verifies page structure by comparing to an expected accessibility tree, represented as YAML.
+新斷言 [assertThat(locator).matchesAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) 透過與以 YAML 表示的預期無障礙樹進行比較來驗證頁面結構。
 
 ```java
 page.navigate("https://playwright.dev");
@@ -493,7 +493,7 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
-New tools to generate assertions:
+新的產生斷言工具：
 - "Assert visibility" tool generates [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
 - "Assert value" tool generates [assertThat(locator).hasValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
 - "Assert text" tool generates [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).

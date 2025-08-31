@@ -281,7 +281,7 @@ test('some test', async ({ page, isMobile }) => {
 
 ### UI 更新
 * Updated default HTML reporter to improve display of attachments.
-* New button in Codegen for picking elements to produce aria snapshots.
+* Codegen 中新增用於選取元素以產生 aria 快照的按鈕。
 * Additional details (such as keys pressed) are now displayed alongside action API calls in traces.
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
 * `Call` and `Network` panels now display additional time information.
@@ -305,7 +305,7 @@ test('some test', async ({ page, isMobile }) => {
 
 ### Aria 快照
 
-New assertion [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) verifies page structure by comparing to an expected accessibility tree, represented as YAML.
+新斷言 [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) 透過與以 YAML 表示的預期無障礙樹進行比較來驗證頁面結構。
 
 ```js
 await page.goto('https://playwright.dev');
