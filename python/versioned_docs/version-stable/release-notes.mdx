@@ -155,7 +155,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * Added 方法 [expect(locator).to_have_accessible_error_message()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
 
 ### UI 更新
-* New button in Codegen for picking elements to produce aria snapshots.
+* 錄製測試中用於挑選元素以產生 aria 快照的新按鈕。
 * 其他詳細資訊（如按下的按鍵）現在會與追蹤中的動作 API 呼叫一起顯示。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
 * `Call` and `Network` panels now display additional time information.
@@ -281,7 +281,7 @@ This change affects you if you're using one of the following channels in your `p
 - After executing the handler added with [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `no_wait_after` 選項來選擇退出此行為。
 - 您可以在 [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `times` 選項來指定處理器應執行的最大次數。
 - [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
-- New [page.remove_locator_handler()](/api/class-page.mdx#page-remove-locator-handler) 方法 for removing previously added locator handlers.
+- 新方法 [page.remove_locator_handler()](/api/class-page.mdx#page-remove-locator-handler) 用於移除先前新增的定位器處理器。
 
 ```python
 locator = page.get_by_text("This interstitial covers the button")

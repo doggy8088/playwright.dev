@@ -524,7 +524,7 @@ await page.removeLocatorHandler(locator);
   await context.clearCookies({ domain: 'my-origin.com' });
   ```
   
-- New mode `retain-on-first-failure` for [testOptions.trace](/api/class-testoptions.mdx#test-options-trace). In this mode, trace is recorded for the first run of each test, but not for retires. When test run fails, the trace file is retained, otherwise it is removed.
+- [testOptions.trace](/api/class-testoptions.mdx#test-options-trace) 的新模式 `retain-on-first-failure`。在此模式下，會記錄每個測試的首次執行追蹤，但不記錄重試。當測試執行失敗時，保留追蹤檔案，否則移除。
   
   ```js
   import { defineConfig } from '@playwright/test';
@@ -567,7 +567,7 @@ await page.removeLocatorHandler(locator);
 ![Playwright UI Mode](https://github.com/microsoft/playwright/assets/9881434/61ca7cfc-eb7a-4305-8b62-b6c9f098f300)
 * See tags in the test list.
 * Filter by tags by typing `@fast` or clicking on the tag itself.
-* New shortcuts:
+* 新的快捷鍵：
   - "F5" to run tests.
   - "Shift F5" to stop running tests.
   - "Ctrl `" to toggle test output.

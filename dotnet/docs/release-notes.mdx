@@ -806,7 +806,7 @@ Linux support looks like this:
 ## 版本 1.31
 
 ### 新的 API
-- New assertion [Expect(Locator).ToBeInViewportAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) ensures that locator points to an element that intersects viewport, according to the [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+- 新斷言 [Expect(Locator).ToBeInViewportAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) 確保定位器指向與視窗相交的元素，根據 [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)。
   
   ```csharp
   var locator = Page.GetByRole(AriaRole.Button);
@@ -1446,9 +1446,9 @@ Its now possible to emulate the `forced-colors` CSS media feature by passing it 
 
 #### ⚡️ New "strict" mode
 
-Selector ambiguity is a common problem in automation testing. **"strict" mode** ensures that your selector points to a single element and throws otherwise.
+選擇器模糊性是自動化測試中的常見問題。**「嚴格」模式**確保您的選擇器指向單一元素，否則會拋出例外。
 
-Set `setStrict(true)` in your action calls to opt in.
+在您的動作呼叫中設定 `setStrict(true)` 以啟用。
 
 ```csharp
 // This will throw if you have more than one button!
