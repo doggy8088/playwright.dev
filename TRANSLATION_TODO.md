@@ -151,7 +151,7 @@
 - [ ] nodejs/docs/test-use-options.mdx
 - [ ] nodejs/docs/test-webserver.mdx
 - [ ] nodejs/docs/testing-library.mdx
-- [ ] nodejs/docs/touch-events.mdx
+- [x] nodejs/docs/touch-events.mdx
 - [x] nodejs/docs/trace-viewer-intro.mdx
 - [ ] nodejs/docs/trace-viewer.mdx
 - [ ] nodejs/docs/videos.mdx
@@ -293,7 +293,7 @@
 - [ ] nodejs/versioned_docs/version-stable/test-use-options.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-webserver.mdx
 - [ ] nodejs/versioned_docs/version-stable/testing-library.mdx
-- [ ] nodejs/versioned_docs/version-stable/touch-events.mdx
+- [x] nodejs/versioned_docs/version-stable/touch-events.mdx
 - [x] nodejs/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] nodejs/versioned_docs/version-stable/videos.mdx
@@ -379,7 +379,7 @@
 - [ ] python/docs/selenium-grid.mdx
 - [ ] python/docs/test-assertions.mdx
 - [ ] python/docs/test-runners.mdx
-- [ ] python/docs/touch-events.mdx
+- [x] python/docs/touch-events.mdx
 - [ ] python/docs/trace-viewer-intro.mdx
 - [ ] python/docs/trace-viewer.mdx
 - [ ] python/docs/videos.mdx
@@ -465,7 +465,7 @@
 - [ ] python/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] python/versioned_docs/version-stable/test-assertions.mdx
 - [ ] python/versioned_docs/version-stable/test-runners.mdx
-- [ ] python/versioned_docs/version-stable/touch-events.mdx
+- [x] python/versioned_docs/version-stable/touch-events.mdx
 - [ ] python/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] python/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] python/versioned_docs/version-stable/videos.mdx
@@ -555,7 +555,7 @@
 - [ ] java/docs/test-assertions.mdx
 - [ ] java/docs/test-runners.mdx
 - [ ] java/docs/threading.mdx
-- [ ] java/docs/touch-events.mdx
+- [x] java/docs/touch-events.mdx
 - [ ] java/docs/trace-viewer-intro.mdx
 - [ ] java/docs/trace-viewer.mdx
 - [ ] java/docs/videos.mdx
@@ -645,7 +645,7 @@
 - [ ] java/versioned_docs/version-stable/test-assertions.mdx
 - [ ] java/versioned_docs/version-stable/test-runners.mdx
 - [ ] java/versioned_docs/version-stable/threading.mdx
-- [ ] java/versioned_docs/version-stable/touch-events.mdx
+- [x] java/versioned_docs/version-stable/touch-events.mdx
 - [ ] java/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] java/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] java/versioned_docs/version-stable/videos.mdx
@@ -733,7 +733,7 @@
 - [ ] dotnet/docs/selenium-grid.mdx
 - [ ] dotnet/docs/test-assertions.mdx
 - [ ] dotnet/docs/test-runners.mdx
-- [ ] dotnet/docs/touch-events.mdx
+- [x] dotnet/docs/touch-events.mdx
 - [ ] dotnet/docs/trace-viewer-intro.mdx
 - [ ] dotnet/docs/trace-viewer.mdx
 - [ ] dotnet/docs/videos.mdx
@@ -821,7 +821,7 @@
 - [ ] dotnet/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] dotnet/versioned_docs/version-stable/test-assertions.mdx
 - [ ] dotnet/versioned_docs/version-stable/test-runners.mdx
-- [ ] dotnet/versioned_docs/version-stable/touch-events.mdx
+- [x] dotnet/versioned_docs/version-stable/touch-events.mdx
 - [ ] dotnet/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] dotnet/versioned_docs/version-stable/videos.mdx
