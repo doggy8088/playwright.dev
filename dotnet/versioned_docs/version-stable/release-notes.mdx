@@ -101,7 +101,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ### 重大變更
 - Glob URL patterns in methods like [Page.RouteAsync()](/api/class-page.mdx#page-route) do not support `?` and `[]` anymore. We recommend using regular expressions instead.
 - 方法 [Route.ContinueAsync()](/api/class-route.mdx#route-continue) 不再允許覆寫 `Cookie` 標頭。如果提供了 `Cookie` 標頭，它將被忽略，cookie 將從瀏覽器的 cookie 儲存區載入。若要設定自訂 cookie，請使用 [BrowserContext.AddCookiesAsync()](/api/class-browsercontext.mdx#browser-context-add-cookies)。
-- macOS 13 is now deprecated and will no longer receive WebKit updates. Please upgrade to a more recent macOS version to continue benefiting from the latest WebKit improvements.
+- macOS 13 現已棄用，將不再接收 WebKit 更新。請升級到更新的 macOS 版本以繼續受益於最新的 WebKit 改進。
 
 ### 瀏覽器版本
 - Chromium 136.0.7103.25
@@ -165,7 +165,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### UI 更新
 * New button in Codegen for picking elements to produce aria snapshots.
-* Additional details (such as keys pressed) are now displayed alongside action API calls in traces.
+* 其他詳細資訊（如按下的按鍵）現在會與追蹤中的動作 API 呼叫一起顯示。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
 * `Call` and `Network` panels now display additional time information.
 
@@ -345,7 +345,7 @@ var context = await Browser.NewContextAsync(new() {
 ```
 
 ### 追蹤檢視器更新
-- Content of text attachments is now rendered inline in the attachments pane.
+- 文字附件的內容現在會在附件窗格中內嵌呈現。
 - New setting to show/hide routing actions like [Route.ContinueAsync()](/api/class-route.mdx#route-continue).
 - Request 方法 and status are shown in the network details tab.
 - New button to copy source file location to clipboard.
@@ -428,21 +428,21 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
 ### 新的 API
 
 **無障礙斷言**
-- [Expect(Locator).ToHaveAccessibleNameAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
+- [Expect(Locator).ToHaveAccessibleNameAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的無障礙名稱：
   
   ```csharp
   var locator = Page.GetByRole(AriaRole.Button);
   await Expect(locator).ToHaveAccessibleNameAsync("Submit");
   ```
   
-- [Expect(Locator).ToHaveAccessibleDescriptionAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) checks if the element has the specified accessible description:
+- [Expect(Locator).ToHaveAccessibleDescriptionAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的無障礙描述：
   
   ```csharp
   var locator = Page.GetByRole(AriaRole.Button);
   await Expect(locator).ToHaveAccessibleDescriptionAsync("Upload a photo");
   ```
   
-- [Expect(Locator).ToHaveRoleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) checks if the element has the specified ARIA role:
+- [Expect(Locator).ToHaveRoleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色：
   
   ```csharp
   var locator = Page.GetByTestId("save-button");
@@ -978,7 +978,7 @@ await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 ### 其他重點
 - 新選項 `MaxRedirects` for [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
 - Codegen 現在支援 MSTest and NUnit frameworks.
-- ASP .NET is now supported.
+- 現在支援 ASP .NET。
 
 ### 行為變更
 
@@ -1033,7 +1033,7 @@ The following does now work:
 
 ### 公告
 * 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
-* ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
+* ⚠️ Ubuntu 18 現已棄用，將從 2022 年 12 月起不再受支援。
 
 ### 瀏覽器版本
 * Chromium 105.0.5195.19
@@ -1348,7 +1348,7 @@ Read more at [our documentation](./api/class-framelocator).
 
 ### 追蹤檢視器更新
 
-Playwright Trace Viewer is now **available online** at https://trace.playwright.dev! Just drag-and-drop your `trace.zip` file to inspect its contents.
+Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace.playwright.dev！只需拖放您的 `trace.zip` 檔案即可檢查其內容。
 
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
 - Playwright Test traces now include sources by default (these could be turned off with tracing 選項)
@@ -1360,7 +1360,7 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 
 ### HTML Report Update
 - HTML report 現在支援 dynamic filtering
-- Report is now a **single static HTML file** that could be sent by e-mail or as a slack attachment.
+- 報告現在是**單一靜態 HTML 檔案**，可透過電子郵件傳送或作為 slack 附件。
 
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 

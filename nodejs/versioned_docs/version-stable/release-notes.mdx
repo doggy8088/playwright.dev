@@ -282,7 +282,7 @@ test('some test', async ({ page, isMobile }) => {
 ### UI 更新
 * Updated default HTML reporter to improve display of attachments.
 * Codegen 中新增用於選取元素以產生 aria 快照的按鈕。
-* Additional details (such as keys pressed) are now displayed alongside action API calls in traces.
+* 其他詳細資訊（如按下的按鍵）現在會與追蹤中的動作 API 呼叫一起顯示。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
 * `Call` and `Network` panels now display additional time information.
 
@@ -418,21 +418,21 @@ This change affects you if you're using one of the following channels in your `p
 ### 新的 API
 
 **無障礙斷言**
-- [expect(locator).toHaveAccessibleName()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
+- [expect(locator).toHaveAccessibleName()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的無障礙名稱：
   
   ```js
   const locator = page.getByRole('button');
   await expect(locator).toHaveAccessibleName('Submit');
   ```
   
-- [expect(locator).toHaveAccessibleDescription()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) checks if the element has the specified accessible description:
+- [expect(locator).toHaveAccessibleDescription()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的無障礙描述：
   
   ```js
   const locator = page.getByRole('button');
   await expect(locator).toHaveAccessibleDescription('Upload a photo');
   ```
   
-- [expect(locator).toHaveRole()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) checks if the element has the specified ARIA role:
+- [expect(locator).toHaveRole()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色：
   
   ```js
   const locator = page.getByTestId('save-button');
@@ -938,7 +938,7 @@ Linux support looks like this:
 
 ### UI 模式更新
 - UI Mode now respects project dependencies. You can control which dependencies to respect by checking/unchecking them in a projects list.
-- Console logs from the test are now displayed in the Console tab.
+- 來自測試的控制台日誌現在會顯示在控制台標籤中。
 
 ### 瀏覽器版本
 * Chromium 116.0.5845.82
@@ -1571,7 +1571,7 @@ To align with web specification, the `'domcontentloaded'` value only waits for t
 * 🎁 We now ship Ubuntu 22.04 Jammy Jellyfish docker image: `mcr.microsoft.com/playwright:v1.34.0-jammy`.
 * 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
 * 🪦 This is the last release with Node.js 12 support, we recommend upgrading to Node.js LTS (16).
-* ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
+* ⚠️ Ubuntu 18 現已棄用，將從 2022 年 12 月起不再受支援。
 
 ### 瀏覽器版本
 * Chromium 105.0.5195.19
@@ -1627,7 +1627,7 @@ Linux support looks like this:
 
 ### 🕵️ Anonymous Describe
 
-It is now possible to call [test.describe()](/api/class-test.mdx#test-describe) to create suites without a title. This is useful for giving a group of tests a common 選項 with [test.use()](/api/class-test.mdx#test-use).
+現在可以呼叫 [test.describe()](/api/class-test.mdx#test-describe) 來建立沒有標題的測試套件。這對於使用 [test.use()](/api/class-test.mdx#test-use) 為一組測試提供共同選項很有用。
 
 ```js
 test.describe(() => {
@@ -1806,7 +1806,7 @@ Read more about [component testing with Playwright](./test-components).
 
 ### ⚠️ Breaking Changes ⚠️
 
-WebServer is now considered "ready" if request to the specified url has any of the following HTTP status codes:
+WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼，就被視為「準備就緒」：
 * `200-299`
 * `300-399` (new)
 * `400`, `401`, `402`, `403` (new)
@@ -1900,7 +1900,7 @@ WebServer is now considered "ready" if request to the specified url has any of t
   `expect.poll` supports most synchronous matchers, like `.toBe()`, `.toContain()`, etc. Read more in [our documentation](./test-assertions.mdx#expectpoll).
 
 ### 行為變更
-- ESM support when running TypeScript tests is now enabled by default. The `PLAYWRIGHT_EXPERIMENTAL_TS_ESM` env variable is no longer required.
+- 在執行 TypeScript 測試時，ESM 支援現在預設啟用。不再需要 `PLAYWRIGHT_EXPERIMENTAL_TS_ESM` 環境變數。
 - The `mcr.microsoft.com/playwright` docker image no longer contains Python. Please use `mcr.microsoft.com/playwright/python` as a Playwright-ready docker image with pre-installed Python.
 - Playwright 現在支援 large file uploads (100s of MBs) via [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) API.
 
@@ -1944,7 +1944,7 @@ WebServer is now considered "ready" if request to the specified url has any of t
   };
   ```
   
-- [testProject.grep](/api/class-testproject.mdx#test-project-grep) and [testProject.grepInvert](/api/class-testproject.mdx#test-project-grep-invert) are now configurable per project. For example, you 現在可以 configure smoke tests project using `grep`:
+- [testProject.grep](/api/class-testproject.mdx#test-project-grep) 和 [testProject.grepInvert](/api/class-testproject.mdx#test-project-grep-invert) 現在可按專案配置。例如，您現在可以使用 `grep` 配置冒煙測試專案：
   
   ```js title="playwright.config.ts"
   export default {

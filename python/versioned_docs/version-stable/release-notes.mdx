@@ -99,7 +99,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ### 重大變更
 - Glob URL patterns in methods like [page.route()](/api/class-page.mdx#page-route) do not support `?` and `[]` anymore. We recommend using regular expressions instead.
 - 方法 [route.continue_()](/api/class-route.mdx#route-continue) does not 允許 override the `Cookie` header anymore. If a `Cookie` header is provided, it will be ignored, and the cookie will be loaded from the browser's cookie store. To set custom cookies, use [browser_context.add_cookies()](/api/class-browsercontext.mdx#browser-context-add-cookies).
-- macOS 13 is now deprecated and will no longer receive WebKit updates. Please upgrade to a more recent macOS version to continue benefiting from the latest WebKit improvements.
+- macOS 13 現已棄用，將不再接收 WebKit 更新。請升級到更新的 macOS 版本以繼續受益於最新的 WebKit 改進。
 
 ### 瀏覽器版本
 - Chromium 136.0.7103.25
@@ -156,7 +156,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### UI 更新
 * New button in Codegen for picking elements to produce aria snapshots.
-* Additional details (such as keys pressed) are now displayed alongside action API calls in traces.
+* 其他詳細資訊（如按下的按鍵）現在會與追蹤中的動作 API 呼叫一起顯示。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
 * `Call` and `Network` panels now display additional time information.
 
@@ -256,21 +256,21 @@ This change affects you if you're using one of the following channels in your `p
 ### 新的 API
 
 **無障礙斷言**
-- [expect(locator).to_have_accessible_name()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
+- [expect(locator).to_have_accessible_name()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的無障礙名稱：
   
   ```python
   locator = page.get_by_role("button")
   expect(locator).to_have_accessible_name("Submit")
   ```
   
-- [expect(locator).to_have_accessible_description()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) checks if the element has the specified accessible description:
+- [expect(locator).to_have_accessible_description()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的無障礙描述：
   
   ```python
   locator = page.get_by_role("button")
   expect(locator).to_have_accessible_description("Upload a photo")
   ```
   
-- [expect(locator).to_have_role()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) checks if the element has the specified ARIA role:
+- [expect(locator).to_have_role()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色：
   
   ```python
   locator = page.get_by_test_id("save-button")
@@ -335,7 +335,7 @@ page.remove_locator_handler(locator)
   expect(locator).to_be_visible()
   ```
   
-- Conda builds are now published for macOS-arm64 and Linux-arm64.
+- 現在發佈用於 macOS-arm64 和 Linux-arm64 的 Conda 建置。
 
 ### 瀏覽器版本
 * Chromium 124.0.6367.8
@@ -478,8 +478,8 @@ Evergreen browsers update.
 
 ### 重點
 * 新的 [--full-page-screenshot](./test-runners.mdx#cli-arguments) 命令列標誌允許在失敗時擷取全頁面截圖。
-* It is now possible to override the context options for a single test by using the [browser_context_args](./test-runners.mdx#fixtures) marker.
-* `pytest-playwright` is now also getting published [on Anaconda](https://anaconda.org/Microsoft/pytest-playwright/)
+* 現在可以透過使用 [browser_context_args](./test-runners.mdx#fixtures) 標記來覆寫單個測試的上下文選項。
+* `pytest-playwright` 現在也發佈[在 Anaconda 上](https://anaconda.org/Microsoft/pytest-playwright/)
 
 ### 📚 Debian 12 Bookworm Support
 
@@ -792,7 +792,7 @@ All the same methods are also available on [Locator], [FrameLocator] and [Frame]
 
 ### 其他重點
 - 新選項 `max_redirects` for [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
-- Python 3.11 is now supported.
+- 現在支援 Python 3.11。
 
 ### 行為變更
 
@@ -820,7 +820,7 @@ To align with web specification, the `'domcontentloaded'` value only waits for t
 ### 公告
 * 🎁 We now ship Ubuntu 22.04 Jammy Jellyfish docker image: `mcr.microsoft.com/playwright/python:v1.34.0-jammy`.
 * 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
-* ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
+* ⚠️ Ubuntu 18 現已棄用，將從 2022 年 12 月起不再受支援。
 
 ### 瀏覽器版本
 * Chromium 105.0.5195.19

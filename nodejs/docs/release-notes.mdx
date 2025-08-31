@@ -326,7 +326,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
 
 您可以使用 [Test Generator](./codegen) 產生這個斷言，並使用 `--update-snapshots` 命令列參數更新預期的快照。
 
-Learn more in the [aria snapshots guide](./aria-snapshots).
+在[aria 快照指南](./aria-snapshots)中了解更多。
 
 ### 測試執行器
 - 新選項 [testConfig.tsconfig](/api/class-testconfig.mdx#test-config-tsconfig) 允許指定單一 `tsconfig` 供所有測試使用。
@@ -926,7 +926,7 @@ Using `merge-reports` tool requires the following steps:
 npx playwright merge-reports --reporter html ./all-blob-reports
 ```
 
-Read more in [our documentation](./test-sharding.mdx).
+在[我們的文件](./test-sharding.mdx)中閱讀更多。
 
 ### 📚 Debian 12 Bookworm Support
 
@@ -1360,7 +1360,7 @@ export default defineConfig({
   }).toPass();
   ```
   
-  Read more in [our documentation](./test-assertions.mdx#expecttopass).
+在[我們的文件](./test-assertions.mdx#expecttopass)中閱讀更多。
 - Automatically capture **full page screenshot** on test failure:
   
   ```js title="playwright.config.ts"
@@ -1734,7 +1734,7 @@ await context.close();
 await context.routeFromHAR('github.har.zip');
 ```
 
-Read more in [our documentation](./mock.mdx#mocking-with-har-files).
+在[我們的文件](./mock.mdx#mocking-with-har-files)中閱讀更多。
 
 ### 進階路由
 
@@ -1772,7 +1772,7 @@ Note that the new methods [page.routeFromHAR()](/api/class-page.mdx#page-route-f
 * Support for Vue2 via the [`@playwright/experimental-ct-vue2`](https://www.npmjs.com/package/@playwright/experimental-ct-vue2) package.
 * Support for component tests for [create-react-app](https://www.npmjs.com/package/create-react-app) with components in `.js` files.
 
-Read more about [component testing with Playwright](./test-components).
+在[使用 Playwright 進行元件測試](./test-components)中閱讀更多。
 
 ### 其他
 * If there's a service worker that's in your way, 您現在可以 easily disable it with a new context 選項 `serviceWorkers`:
@@ -1845,7 +1845,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   });
   ```
   
-  Read more in [our documentation](./test-components).
+  在[我們的文件](./test-components)中閱讀更多。
 - Role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
   
   ```js
