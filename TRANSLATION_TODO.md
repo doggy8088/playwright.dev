@@ -121,7 +121,7 @@
 - [ ] nodejs/docs/navigations.mdx
 - [ ] nodejs/docs/network.mdx
 - [x] nodejs/docs/other-locators.mdx
-- [ ] nodejs/docs/pages.mdx
+- [x] nodejs/docs/pages.mdx
 - [x] nodejs/docs/pom.mdx
 - [ ] nodejs/docs/protractor.mdx
 - [ ] nodejs/docs/puppeteer.mdx
@@ -263,7 +263,7 @@
 - [ ] nodejs/versioned_docs/version-stable/navigations.mdx
 - [ ] nodejs/versioned_docs/version-stable/network.mdx
 - [x] nodejs/versioned_docs/version-stable/other-locators.mdx
-- [ ] nodejs/versioned_docs/version-stable/pages.mdx
+- [x] nodejs/versioned_docs/version-stable/pages.mdx
 - [x] nodejs/versioned_docs/version-stable/pom.mdx
 - [ ] nodejs/versioned_docs/version-stable/protractor.mdx
 - [ ] nodejs/versioned_docs/version-stable/puppeteer.mdx
@@ -370,7 +370,7 @@
 - [ ] python/docs/navigations.mdx
 - [ ] python/docs/network.mdx
 - [x] python/docs/other-locators.mdx
-- [ ] python/docs/pages.mdx
+- [x] python/docs/pages.mdx
 - [x] python/docs/pom.mdx
 - [ ] python/docs/release-notes.mdx
 - [ ] python/docs/running-tests.mdx
@@ -456,7 +456,7 @@
 - [ ] python/versioned_docs/version-stable/navigations.mdx
 - [ ] python/versioned_docs/version-stable/network.mdx
 - [x] python/versioned_docs/version-stable/other-locators.mdx
-- [ ] python/versioned_docs/version-stable/pages.mdx
+- [x] python/versioned_docs/version-stable/pages.mdx
 - [x] python/versioned_docs/version-stable/pom.mdx
 - [ ] python/versioned_docs/version-stable/release-notes.mdx
 - [ ] python/versioned_docs/version-stable/running-tests.mdx
@@ -545,7 +545,7 @@
 - [ ] java/docs/navigations.mdx
 - [ ] java/docs/network.mdx
 - [x] java/docs/other-locators.mdx
-- [ ] java/docs/pages.mdx
+- [x] java/docs/pages.mdx
 - [x] java/docs/pom.mdx
 - [ ] java/docs/release-notes.mdx
 - [ ] java/docs/running-tests.mdx
@@ -635,7 +635,7 @@
 - [ ] java/versioned_docs/version-stable/navigations.mdx
 - [ ] java/versioned_docs/version-stable/network.mdx
 - [x] java/versioned_docs/version-stable/other-locators.mdx
-- [ ] java/versioned_docs/version-stable/pages.mdx
+- [x] java/versioned_docs/version-stable/pages.mdx
 - [x] java/versioned_docs/version-stable/pom.mdx
 - [ ] java/versioned_docs/version-stable/release-notes.mdx
 - [ ] java/versioned_docs/version-stable/running-tests.mdx
@@ -724,7 +724,7 @@
 - [ ] dotnet/docs/navigations.mdx
 - [ ] dotnet/docs/network.mdx
 - [x] dotnet/docs/other-locators.mdx
-- [ ] dotnet/docs/pages.mdx
+- [x] dotnet/docs/pages.mdx
 - [x] dotnet/docs/pom.mdx
 - [ ] dotnet/docs/release-notes.mdx
 - [ ] dotnet/docs/running-tests.mdx
@@ -812,7 +812,7 @@
 - [ ] dotnet/versioned_docs/version-stable/navigations.mdx
 - [ ] dotnet/versioned_docs/version-stable/network.mdx
 - [x] dotnet/versioned_docs/version-stable/other-locators.mdx
-- [ ] dotnet/versioned_docs/version-stable/pages.mdx
+- [x] dotnet/versioned_docs/version-stable/pages.mdx
 - [x] dotnet/versioned_docs/version-stable/pom.mdx
 - [ ] dotnet/versioned_docs/version-stable/release-notes.mdx
 - [ ] dotnet/versioned_docs/version-stable/running-tests.mdx

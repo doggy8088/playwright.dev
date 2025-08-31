@@ -1,15 +1,15 @@
 ---
 id: pages
-title: "Pages"
+title: "頁面"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Pages
+## 頁面
 
-Each [BrowserContext] can have multiple pages. A [Page] refers to a single tab or a popup window within a browser context. It should be used to navigate to URLs and interact with the page content.
+每個 [BrowserContext] 可以有多個頁面。 [Page] 指的是瀏覽器情境中的單個分頁或彈出視窗。它應該用於導航到 URL 並與頁面內容進行互動。
 
 ```js
 // Create a page.
@@ -26,11 +26,11 @@ await page.locator('#submit').click();
 console.log(page.url());
 ```
 
-## Multiple pages
+## 多個頁面
 
-Each browser context can host multiple pages (tabs).
-* Each page behaves like a focused, active page. Bringing the page to front is not required.
-* Pages inside a context respect context-level emulation, like viewport sizes, custom network routes or browser locale.
+每個瀏覽器情境可以承載多個頁面（分頁）。
+* 每個頁面都像一個專注的、活躍的頁面。不需要將頁面帶到前面。
+* 情境內的頁面遵循情境級別的模擬，例如檢視區大小、自訂網路路由或瀏覽器語言環境。
 
 ```js
 // Create two pages
@@ -41,9 +41,9 @@ const pageTwo = await context.newPage();
 const allPages = context.pages();
 ```
 
-## Handling new pages
+## 處理新頁面
 
-The `page` event on browser contexts can be used to get new pages that are created in the context. This can be used to handle new pages opened by `target="_blank"` links.
+瀏覽器情境上的 `page` 事件可以用來獲取在該情境中建立的新頁面。這可以用來處理由 `target="_blank"` 連結打開的新頁面。
 
 ```js
 // Start waiting for new page before clicking. Note no await.
@@ -55,7 +55,7 @@ await newPage.getByRole('button').click();
 console.log(await newPage.title());
 ```
 
-If the action that triggers the new page is unknown, the following pattern can be used.
+如果觸發新頁面的動作未知，可以使用以下模式。
 
 ```js
 // Get all new pages (including popups) in the context
@@ -65,11 +65,11 @@ context.on('page', async page => {
 });
 ```
 
-## Handling popups
+## 處理彈出視窗
 
-If the page opens a pop-up (e.g. pages opened by `target="_blank"` links), you can get a reference to it by listening to the `popup` event on the page.
+如果頁面打開一個彈出視窗（例如由 `target="_blank"` 連結打開的頁面），您可以透過監聽頁面上的 `popup` 事件來獲取對它的參考。
 
-This event is emitted in addition to the `browserContext.on('page')` event, but only for popups relevant to this page.
+此事件除了 `browserContext.on('page')` 事件之外也會發出，但僅針對與此頁面相關的彈出視窗。
 
 ```js
 // Start waiting for popup before clicking. Note no await.
@@ -81,7 +81,7 @@ await popup.getByRole('button').click();
 console.log(await popup.title());
 ```
 
-If the action that triggers the popup is unknown, the following pattern can be used.
+如果觸發彈出視窗的動作未知，可以使用以下模式。
 
 ```js
 // Get all popups when they open
