@@ -45,7 +45,7 @@ await expect(page.getByRole('banner')).toMatchAriaSnapshot(`
 
 ### 快照測試
 
-Snapshot testing captures a “snapshot” or representation of the entire state of an element, component, or data at a given moment, which is then saved for future comparisons. When re-running tests, the current state is compared to the snapshot, and if there are differences, the test fails. This approach is especially useful for complex or dynamic structures, where manually asserting each detail would be too time-consuming. Snapshot testing is broader and more holistic than assertion testing, allowing you to track more complex changes over time.
+快照測試會在特定時刻捕獲元素、元件或資料的整個狀態的「快照」或表示法，然後儲存以供未來比較。重新執行測試時，會將當前狀態與快照進行比較，如果有差異，測試就會失敗。這種方法對於複雜或動態結構特別有用，因為手動斷言每個細節會過於耗時。快照測試比斷言測試更廣泛、更全面，讓您能夠追蹤更複雜的變更。
 
 **優點**
 - **簡化複雜輸出**：例如，使用傳統斷言測試 UI 元件的渲染輸出可能很繁瑣。快照可以捕獲整個輸出以便輕鬆比較。
@@ -128,7 +128,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
 
 <hr/>
 
-For elements with ARIA attributes like `checked` or `disabled`, omitting these attributes allows partial matching, focusing solely on role and hierarchy.
+對於具有 ARIA 屬性（如 `checked` 或 `disabled`）的元素，省略這些屬性允許部分比對，僅專注於角色和階層。
 
 ```html
 <input type="checkbox" checked>
@@ -140,11 +140,11 @@ For elements with ARIA attributes like `checked` or `disabled`, omitting these a
 - checkbox
 ```
 
-In this partial match, the `checked` attribute is ignored, so the test will pass regardless of the checkbox state.
+在此部分比對中，會忽略 `checked` 屬性，因此測試會通過，無論核取方塊的狀態如何。
 
 <hr/>
 
-Similarly, you can partially match children in lists or groups by omitting specific list items or nested elements.
+同樣地，您可以透過省略特定清單項目或巢狀元素來部分比對清單或群組中的子項目。
 
 ```html
 <ul>
@@ -161,11 +161,11 @@ Similarly, you can partially match children in lists or groups by omitting speci
   - listitem: Feature B
 ```
 
-Partial matches let you create flexible snapshot tests that verify essential page structure without enforcing specific content or attributes.
+部分比對讓您能夠建立靈活的快照測試，驗證基本頁面結構而無需強制執行特定內容或屬性。
 
 ### 嚴格比對
 
-By default, a template containing the subset of children will be matched:
+預設情況下，包含子元素子集的範本將會被比對：
 
 ```html
 <ul>
@@ -182,10 +182,10 @@ By default, a template containing the subset of children will be matched:
   - listitem: Feature B
 ```
 
-The `/children` property can be used to control how child elements are matched:
-- `contain` (default): Matches if all specified children are present in order
-- `equal`: Matches if the children exactly match the specified list in order
-- `deep-equal`: Matches if the children exactly match the specified list in order, including nested children
+`/children` 屬性可用於控制子元素的比對方式：
+- `contain`（預設）：如果所有指定的子元素按順序存在則比對
+- `equal`：如果子元素完全按順序符合指定清單則比對
+- `deep-equal`：如果子元素完全按順序符合指定清單（包括巢狀子元素）則比對
 
 ```html
 <ul>
@@ -206,7 +206,7 @@ The `/children` property can be used to control how child elements are matched:
 
 ### 使用正規表示式比對
 
-Regular expressions allow flexible matching for elements with dynamic or variable text. Accessible names and text can support regex patterns.
+正規表示式允許對具有動態或可變文字的元素進行靈活比對。無障礙名稱和文字可以支援正規表示式模式。
 
 ```html
 <h1>Issues 12</h1>
@@ -224,40 +224,40 @@ Regular expressions allow flexible matching for elements with dynamic or variabl
 
 ### 使用 Playwright 程式碼產生器產生快照
 
-If you're using Playwright's [Code Generator](./codegen.mdx), generating aria snapshots is streamlined with its interactive interface:
-- **"Assert snapshot" Action**: In the code generator, you can use the "Assert snapshot" action to automatically create a snapshot assertion for the selected elements. This is a quick way to capture the aria snapshot as part of your recorded test flow.
-- **"Aria snapshot" Tab**: The "Aria snapshot" tab within the code generator interface visually represents the aria snapshot for a selected locator, letting you explore, inspect, and verify element roles, attributes, and accessible names to aid snapshot creation and review.
+如果您使用 Playwright 的 [程式碼產生器](./codegen.mdx)，透過其互動式介面產生 aria 快照會變得非常簡潔：
+- **「Assert snapshot」動作**：在程式碼產生器中，您可以使用「Assert snapshot」動作為選定的元素自動建立快照斷言。這是將 aria 快照作為錄製測試流程一部分捕獲的快速方法。
+- **「Aria snapshot」分頁**：程式碼產生器介面中的「Aria snapshot」分頁會視覺化地表示選定定位器的 aria 快照，讓您探索、檢查和驗證元素角色、屬性和無障礙名稱，以協助快照建立和檢閱。
 
 ### 使用 `@playwright/test` 和 `--update-snapshots` 旗標更新快照
 
-When using the Playwright test runner (`@playwright/test`), you can automatically update snapshots with the `--update-snapshots` flag, `-u` for short.
+使用 Playwright 測試執行器（`@playwright/test`）時，您可以使用 `--update-snapshots` 旗標（簡寫為 `-u`）自動更新快照。
 
-Running tests with the `--update-snapshots` flag will update snapshots that did not match. Matching snapshots will not be updated.
+執行帶有 `--update-snapshots` 旗標的測試將會更新不符合的快照。符合的快照不會被更新。
 
 ```bash
 npx playwright test --update-snapshots
 ```
 
-Updating snapshots is useful when application structure changes require new snapshots as a baseline. Note that Playwright will wait for the maximum expect timeout specified in the test runner configuration to ensure the page is settled before taking the snapshot. It might be necessary to adjust the `--timeout` if the test hits the timeout while generating snapshots.
+更新快照對於應用程式結構變更需要新快照作為基準時很有用。請注意，Playwright 會等待測試執行器設定中指定的最大預期逾時時間，以確保頁面在擷取快照前已穩定。如果測試在產生快照時逾時，可能需要調整 `--timeout`。
 
 #### 用於快照產生的空範本
 
-Passing an empty string as the template in an assertion generates a snapshot on-the-fly:
+在斷言中傳遞空字串作為範本會即時產生快照：
 
 ```js
 await expect(locator).toMatchAriaSnapshot('');
 ```
 
-Note that Playwright will wait for the maximum expect timeout specified in the test runner configuration to ensure the page is settled before taking the snapshot. It might be necessary to adjust the `--timeout` if the test hits the timeout while generating snapshots.
+請注意，Playwright 會等待測試執行器設定中指定的最大預期逾時時間，以確保頁面在擷取快照前已穩定。如果測試在產生快照時逾時，可能需要調整 `--timeout`。
 
 #### 快照修補檔案
 
-When updating snapshots, Playwright creates patch files that capture differences. These patch files can be reviewed, applied, and committed to source control, allowing teams to track structural changes over time and ensure updates are consistent with application requirements.
+更新快照時，Playwright 會建立捕獲差異的修補檔案。這些修補檔案可以被檢閱、套用並提交到版本控制系統，讓團隊能夠追蹤隨時間變化的結構變更，並確保更新與應用程式需求保持一致。
 
-The way source code is updated can be changed using the `--update-source-method` flag. There are several options available:
-- **"patch"** (default): Generates a unified diff file that can be applied to the source code using `git apply`.
-- **"3way"**: Generates merge conflict markers in your source code, allowing you to choose whether to accept changes.
-- **"overwrite"**: Overwrites the source code with the new snapshot values.
+可以使用 `--update-source-method` 旗標變更原始碼更新方式。有幾個可用選項：
+- **"patch"**（預設）：產生可使用 `git apply` 套用到原始碼的統一差異檔案。
+- **"3way"**：在您的原始碼中產生合併衝突標記，讓您選擇是否接受變更。
+- **"overwrite"**：使用新的快照值覆寫原始碼。
 
 ```bash
 npx playwright test --update-snapshots --update-source-method=3way
@@ -265,13 +265,13 @@ npx playwright test --update-snapshots --update-source-method=3way
 
 #### 快照作為獨立檔案
 
-To store your snapshots in a separate file, use the `toMatchAriaSnapshot` method with the `name` option, specifying a `.aria.yml` file extension.
+要將快照儲存在獨立檔案中，請使用 `toMatchAriaSnapshot` 方法搭配 `name` 選項，指定 `.aria.yml` 副檔名。
 
 ```js
 await expect(page.getByRole('main')).toMatchAriaSnapshot({ name: 'main.aria.yml' });
 ```
 
-By default, snapshots from a test file `example.spec.ts` are placed in the `example.spec.ts-snapshots` directory. As snapshots should be the same across browsers, only one snapshot is saved even if testing with multiple browsers. Should you wish, you can customize the [snapshot path template](./api/class-testconfig#test-config-snapshot-path-template) using the following configuration:
+預設情況下，來自測試檔案 `example.spec.ts` 的快照會放置在 `example.spec.ts-snapshots` 目錄中。由於快照在不同瀏覽器間應該相同，即使使用多個瀏覽器進行測試，也只會儲存一個快照。如果您希望，可以使用以下設定自訂[快照路徑範本](./api/class-testconfig#test-config-snapshot-path-template)：
 
 ```js
 export default defineConfig({
@@ -285,7 +285,7 @@ export default defineConfig({
 
 ### 使用 `Locator.ariaSnapshot` 方法
 
-The [locator.ariaSnapshot()](/api/class-locator.mdx#locator-aria-snapshot) method allows you to programmatically create a YAML representation of accessible elements within a locator's scope, especially helpful for generating snapshots dynamically during test execution.
+[locator.ariaSnapshot()](/api/class-locator.mdx#locator-aria-snapshot) 方法讓您能夠以程式化方式建立定位器範圍內無障礙元素的 YAML 表示法，這對於在測試執行期間動態產生快照特別有幫助。
 
 **Example**:
 
@@ -294,13 +294,13 @@ const snapshot = await page.locator('body').ariaSnapshot();
 console.log(snapshot);
 ```
 
-This command outputs the aria snapshot within the specified locator's scope in YAML format, which you can validate or store as needed.
+此指令會以 YAML 格式輸出指定定位器範圍內的 aria 快照，您可以根據需要進行驗證或儲存。
 
 ## 無障礙樹範例
 
 ### 具有層級屬性的標題
 
-Headings can include a `level` attribute indicating their heading level.
+標題可以包含指示其標題層級的 `level` 屬性。
 
 ```html
 <h1>Title</h1>
@@ -316,7 +316,7 @@ Headings can include a `level` attribute indicating their heading level.
 
 ### 文字節點
 
-Standalone or descriptive text elements appear as text nodes.
+獨立或描述性文字元素會顯示為文字節點。
 
 ```html
 <div>Sample accessible name</div>
@@ -330,7 +330,7 @@ Standalone or descriptive text elements appear as text nodes.
 
 ### 行內多行文字
 
-Multiline text, such as paragraphs, is normalized in the aria snapshot.
+多行文字（如段落）在 aria 快照中會被正規化。
 
 ```html
 <p>Line 1<br>Line 2</p>
@@ -344,7 +344,7 @@ Multiline text, such as paragraphs, is normalized in the aria snapshot.
 
 ### 連結
 
-Links display their text or composed content from pseudo-elements.
+連結會顯示其文字或由偽元素組成的內容。
 
 ```html
 <a href="#more-info">Read more about Accessibility</a>
@@ -358,7 +358,7 @@ Links display their text or composed content from pseudo-elements.
 
 ### 文字方塊
 
-Input elements of type `text` show their `value` attribute content.
+類型為 `text` 的輸入元素會顯示其 `value` 屬性內容。
 
 ```html
 <input type="text" value="Enter your name">
@@ -372,7 +372,7 @@ Input elements of type `text` show their `value` attribute content.
 
 ### 含項目的清單
 
-Ordered and unordered lists include their list items.
+有序和無序清單包含其清單項目。
 
 ```html
 <ul aria-label="Main Features">
@@ -391,7 +391,7 @@ Ordered and unordered lists include their list items.
 
 ### 群組元素
 
-Groups capture nested elements, such as `<details>` elements with summary content.
+群組會捕獲巢狀元素，例如包含摘要內容的 `<details>` 元素。
 
 ```html
 <details>
@@ -408,7 +408,7 @@ Groups capture nested elements, such as `<details>` elements with summary conten
 
 ### 屬性和狀態
 
-Commonly used ARIA attributes, like `checked`, `disabled`, `expanded`, `level`, `pressed`, and `selected`, represent control states.
+常用的 ARIA 屬性，如 `checked`、`disabled`、`expanded`、`level`、`pressed` 和 `selected`，代表控制項狀態。
 
 #### 帶有 `checked` 屬性的核取方塊
 
