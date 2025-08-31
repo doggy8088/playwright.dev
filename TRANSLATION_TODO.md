@@ -92,7 +92,7 @@
 - [x] nodejs/docs/auth.mdx
 - [x] nodejs/docs/best-practices.mdx
 - [x] nodejs/docs/browser-contexts.mdx
-- [ ] nodejs/docs/browsers.mdx
+- [x] nodejs/docs/browsers.mdx
 - [ ] nodejs/docs/canary-releases.mdx
 - [ ] nodejs/docs/chrome-extensions.mdx
 - [ ] nodejs/docs/ci-intro.mdx
@@ -235,7 +235,7 @@
 - [x] nodejs/versioned_docs/version-stable/auth.mdx
 - [x] nodejs/versioned_docs/version-stable/best-practices.mdx
 - [x] nodejs/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] nodejs/versioned_docs/version-stable/browsers.mdx
+- [x] nodejs/versioned_docs/version-stable/browsers.mdx
 - [ ] nodejs/versioned_docs/version-stable/canary-releases.mdx
 - [ ] nodejs/versioned_docs/version-stable/chrome-extensions.mdx
 - [ ] nodejs/versioned_docs/version-stable/ci-intro.mdx
@@ -345,7 +345,7 @@
 - [x] python/docs/aria-snapshots.mdx
 - [x] python/docs/auth.mdx
 - [x] python/docs/browser-contexts.mdx
-- [ ] python/docs/browsers.mdx
+- [x] python/docs/browsers.mdx
 - [ ] python/docs/chrome-extensions.mdx
 - [ ] python/docs/ci-intro.mdx
 - [ ] python/docs/ci.mdx
@@ -431,7 +431,7 @@
 - [x] python/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] python/versioned_docs/version-stable/auth.mdx
 - [x] python/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] python/versioned_docs/version-stable/browsers.mdx
+- [x] python/versioned_docs/version-stable/browsers.mdx
 - [ ] python/versioned_docs/version-stable/chrome-extensions.mdx
 - [ ] python/versioned_docs/version-stable/ci-intro.mdx
 - [ ] python/versioned_docs/version-stable/ci.mdx
@@ -521,7 +521,7 @@
 - [x] java/docs/aria-snapshots.mdx
 - [x] java/docs/auth.mdx
 - [x] java/docs/browser-contexts.mdx
-- [ ] java/docs/browsers.mdx
+- [x] java/docs/browsers.mdx
 - [ ] java/docs/ci-intro.mdx
 - [ ] java/docs/ci.mdx
 - [ ] java/docs/clock.mdx
@@ -611,7 +611,7 @@
 - [x] java/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] java/versioned_docs/version-stable/auth.mdx
 - [x] java/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] java/versioned_docs/version-stable/browsers.mdx
+- [x] java/versioned_docs/version-stable/browsers.mdx
 - [ ] java/versioned_docs/version-stable/ci-intro.mdx
 - [ ] java/versioned_docs/version-stable/ci.mdx
 - [ ] java/versioned_docs/version-stable/clock.mdx
@@ -700,7 +700,7 @@
 - [x] dotnet/docs/aria-snapshots.mdx
 - [x] dotnet/docs/auth.mdx
 - [x] dotnet/docs/browser-contexts.mdx
-- [ ] dotnet/docs/browsers.mdx
+- [x] dotnet/docs/browsers.mdx
 - [ ] dotnet/docs/ci-intro.mdx
 - [ ] dotnet/docs/ci.mdx
 - [ ] dotnet/docs/clock.mdx
@@ -788,7 +788,7 @@
 - [x] dotnet/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] dotnet/versioned_docs/version-stable/auth.mdx
 - [x] dotnet/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] dotnet/versioned_docs/version-stable/browsers.mdx
+- [x] dotnet/versioned_docs/version-stable/browsers.mdx
 - [ ] dotnet/versioned_docs/version-stable/ci-intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/ci.mdx
 - [ ] dotnet/versioned_docs/version-stable/clock.mdx
