@@ -148,7 +148,7 @@
 - [ ] nodejs/docs/test-timeouts.mdx
 - [ ] nodejs/docs/test-typescript.mdx
 - [ ] nodejs/docs/test-ui-mode.mdx
-- [ ] nodejs/docs/test-use-options.mdx
+- [x] nodejs/docs/test-use-options.mdx
 - [ ] nodejs/docs/test-webserver.mdx
 - [ ] nodejs/docs/testing-library.mdx
 - [x] nodejs/docs/touch-events.mdx
@@ -290,7 +290,7 @@
 - [ ] nodejs/versioned_docs/version-stable/test-timeouts.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-typescript.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-ui-mode.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-use-options.mdx
+- [x] nodejs/versioned_docs/version-stable/test-use-options.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-webserver.mdx
 - [ ] nodejs/versioned_docs/version-stable/testing-library.mdx
 - [x] nodejs/versioned_docs/version-stable/touch-events.mdx
