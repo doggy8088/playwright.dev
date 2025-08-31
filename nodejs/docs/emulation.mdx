@@ -511,7 +511,7 @@ await page.emulateMedia({ media: 'print' });
 
 ## User Agent
 
-The User Agent is included in the device and therefore you  will rarely need to change it however if you do need to test a different user agent you can override it with the `userAgent` property.
+`User Agent` 包含在裝置中，因此您很少需要變更它，但如果您需要測試不同的使用者代理，可以使用 `userAgent` 屬性覆寫它。
 
 <Tabs
   groupId="js-flavor"
@@ -528,7 +528,7 @@ import { test, expect } from '@playwright/test';
 
 test.use({ userAgent: 'My user agent' });
 
-test('my user agent test', async ({ page }) => {
+test('我的使用者代理測試', async ({ page }) => {
   // ...
 });
 ```
@@ -545,9 +545,9 @@ const context = await browser.newContext({
 </TabItem>
 </Tabs>
 
-## Offline
+## 離線
 
-Emulate the network being offline.
+模擬網路離線。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -559,9 +559,9 @@ export default defineConfig({
 });
 ```
 
-## JavaScript Enabled
+## JavaScript 啟用
 
-Emulate a user scenario where JavaScript is disabled.
+模擬停用 JavaScript 的使用者情境。
 
 <Tabs
   groupId="js-flavor"
@@ -578,7 +578,7 @@ import { test, expect } from '@playwright/test';
 
 test.use({ javaScriptEnabled: false });
 
-test('test with no JavaScript', async ({ page }) => {
+test('沒有 JavaScript 的測試', async ({ page }) => {
   // ...
 });
 ```
