@@ -9,15 +9,15 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Introduction
+## 簡介
 
-Playwright Test can now test your components.
+Playwright Test 現在可以測試您的元件。
 
 <LiteYouTube id="y3YxX4sFJbM" title="Component testing" />
 
-## Example
+## 範例
 
-Here is what a typical component test looks like:
+以下是一個典型的元件測試範例：
 
 ```js
 test('event should work', async ({ mount }) => {
@@ -39,11 +39,11 @@ test('event should work', async ({ mount }) => {
 });
 ```
 
-## How to get started
+## 如何開始
 
-Adding Playwright Test to an existing project is easy. Below are the steps to enable Playwright Test for a React, Vue or Svelte project.
+將 Playwright Test 加入現有專案很簡單。以下是為 React、Vue 或 Svelte 專案啟用 Playwright Test 的步驟。
 
-### Step 1: Install Playwright Test for components for your respective framework
+### 步驟 1：為您各自的框架安裝 Playwright Test 元件
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'}, ] }>
 
@@ -73,7 +73,7 @@ pnpm create playwright --ct
 
 </Tabs>
 
-This step creates several files in your workspace:
+此步驟會在您的工作區中建立數個檔案：
 
 ```html title="playwright/index.html"
 <html lang="en">
@@ -84,15 +84,15 @@ This step creates several files in your workspace:
 </html>
 ```
 
-This file defines an html file that will be used to render components during testing. It must contain element with `id="root"`, that's where components are mounted. It must also link the script called `playwright/index.{js,ts,jsx,tsx}`.
+此檔案定義了一個 HTML 檔案，將用於在測試期間渲染元件。它必須包含 `id="root"` 的元素，這是元件掛載的位置。它還必須連結名為 `playwright/index.{js,ts,jsx,tsx}` 的腳本。
 
-You can include stylesheets, apply theme and inject code into the page where component is mounted using this script. It can be either a `.js`, `.ts`, `.jsx` or `.tsx` file.
+您可以使用此腳本包含樣式表、套用主題，並將程式碼注入到掛載元件的頁面中。它可以是 `.js`、`.ts`、`.jsx` 或 `.tsx` 檔案。
 
 ```js title="playwright/index.ts"
 // Apply theme here, add anything your component needs at runtime here.
 ```
 
-### Step 2. Create a test file `src/App.spec.{ts,tsx}`
+### 步驟 2. 建立一個測試檔案 `src/App.spec.{ts,tsx}`
 
 <Tabs groupId="js-framework" defaultValue="react" values={[ {label: 'React', value: 'react'}, {label: 'Svelte', value: 'svelte'}, {label: 'Vue', value: 'vue'}, ] }>
 
@@ -132,7 +132,7 @@ test('should work', async ({ mount }) => {
 });
 ```
 
-If using TypeScript and Vue make sure to add a `vue.d.ts` file to your project:
+如果使用 TypeScript 和 Vue，請確保將 `vue.d.ts` 檔案加入您的專案：
 
 ```js
 declare module '*.vue';
@@ -156,24 +156,24 @@ test('should work', async ({ mount }) => {
 
 </Tabs>
 
-### Step 3. Run the tests
+### 步驟 3. 執行測試
 
-You can run tests using the [VS Code extension](./getting-started-vscode.mdx) or the command line.
+您可以使用 [VS Code 擴充套件](./getting-started-vscode.mdx) 或命令列來執行測試。
 
 ```sh
 npm run test-ct
 ```
 
-### Further reading: configure reporting, browsers, tracing
+### 進一步閱讀：設定報告、瀏覽器、追蹤
 
-Refer to [Playwright config](./test-configuration.mdx) for configuring your project.
+請參考 [Playwright config](./test-configuration.mdx) 設定您的專案。
 
-## Test stories
+## 測試故事
 
-When Playwright Test is used to test web components, tests run in Node.js, while components run in the real browser. This brings together the best of both worlds: components run in the real browser environment, real clicks are triggered, real layout is executed, visual regression is possible. At the same time, test can use all the powers of Node.js as well as all the Playwright Test features. As a result, the same parallel, parametrized tests with the same post-mortem Tracing story are available during component testing.
+當使用 Playwright Test 來測試網頁元件時，測試在 Node.js 中執行，而元件在真實瀏覽器中執行。這結合了兩個世界的優點：元件在真實瀏覽器環境中執行，觸發真實點擊，執行真實佈局，可能進行視覺回歸測試。同時，測試可以使用 Node.js 的所有功能以及所有 Playwright Test 功能。因此，在元件測試期間，可以使用相同的平行、參數化測試以及相同的事後追蹤功能。
 
-This however, is introducing a number of limitations:
-- You can't pass complex live objects to your component. Only plain JavaScript objects and built-in types like strings, numbers, dates etc. can be passed.
+然而，這會帶來一些限制：
+- 您無法將複雜的活動物件傳遞給元件。只能傳遞純 JavaScript 物件和內建類型，如字串、數字、日期等。
 
 ```js
 test('this will work', async ({ mount }) => {
