@@ -93,7 +93,7 @@
 - [x] nodejs/docs/best-practices.mdx
 - [x] nodejs/docs/browser-contexts.mdx
 - [x] nodejs/docs/browsers.mdx
-- [ ] nodejs/docs/canary-releases.mdx
+- [x] nodejs/docs/canary-releases.mdx
 - [ ] nodejs/docs/chrome-extensions.mdx
 - [ ] nodejs/docs/ci-intro.mdx
 - [ ] nodejs/docs/ci.mdx
@@ -236,7 +236,7 @@
 - [x] nodejs/versioned_docs/version-stable/best-practices.mdx
 - [x] nodejs/versioned_docs/version-stable/browser-contexts.mdx
 - [x] nodejs/versioned_docs/version-stable/browsers.mdx
-- [ ] nodejs/versioned_docs/version-stable/canary-releases.mdx
+- [x] nodejs/versioned_docs/version-stable/canary-releases.mdx
 - [ ] nodejs/versioned_docs/version-stable/chrome-extensions.mdx
 - [ ] nodejs/versioned_docs/version-stable/ci-intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/ci.mdx
