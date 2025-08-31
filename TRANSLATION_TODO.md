@@ -90,7 +90,7 @@
 - [ ] nodejs/docs/api/class-workerinfo.mdx
 - [ ] nodejs/docs/aria-snapshots.mdx
 - [x] nodejs/docs/auth.mdx
-- [ ] nodejs/docs/best-practices.mdx
+- [x] nodejs/docs/best-practices.mdx
 - [ ] nodejs/docs/browser-contexts.mdx
 - [ ] nodejs/docs/browsers.mdx
 - [ ] nodejs/docs/canary-releases.mdx
@@ -233,7 +233,7 @@
 - [ ] nodejs/versioned_docs/version-stable/api/class-workerinfo.mdx
 - [ ] nodejs/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] nodejs/versioned_docs/version-stable/auth.mdx
-- [ ] nodejs/versioned_docs/version-stable/best-practices.mdx
+- [x] nodejs/versioned_docs/version-stable/best-practices.mdx
 - [ ] nodejs/versioned_docs/version-stable/browser-contexts.mdx
 - [ ] nodejs/versioned_docs/version-stable/browsers.mdx
 - [ ] nodejs/versioned_docs/version-stable/canary-releases.mdx
