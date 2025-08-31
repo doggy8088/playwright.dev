@@ -1,19 +1,19 @@
 ---
 id: test-configuration
-title: "Test configuration"
+title: "測試組態設定"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright has many options to configure how your tests are run. You can specify these options in the configuration file. Note that test runner options are **top-level**, do not put them into the `use` section.
+Playwright 提供許多選項來組態設定測試的執行方式。您可以在組態設定檔案中指定這些選項。請注意，測試執行器選項應位於**頂層**，不要將它們放入 `use` 區段中。
 
-## Basic Configuration
+## 基本組態設定
 
-Here are some of the most common configuration options.
+以下是一些最常見的組態設定選項。
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
