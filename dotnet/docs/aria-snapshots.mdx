@@ -1,6 +1,6 @@
 ---
 id: aria-snapshots
-title: "Snapshot testing"
+title: "快照測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,9 +9,9 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Overview
+## 概述
 
-With Playwright's Snapshot testing you can assert the accessibility tree of a page against a predefined snapshot template.
+透過 Playwright 的快照測試，您可以針對預定義的快照範本斷言頁面的無障礙樹。
 
 ```csharp
 await page.GotoAsync("https://playwright.dev/");
@@ -26,11 +26,11 @@ await Expect(page.Locator("banner")).ToMatchAriaSnapshotAsync(@"
 
 <LiteYouTube id="P4R6hnsE0UY" title="Getting started with ARIA Snapshots" />
 
-## Assertion testing vs Snapshot testing
+## 斷言測試 vs 快照測試
 
 Snapshot testing and assertion testing serve different purposes in test automation:
 
-### Assertion testing
+### 斷言測試
 
 Assertion testing is a targeted approach where you assert specific values or conditions about elements or components. For instance, with Playwright, [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) verifies that an element contains the expected text, and [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) confirms that an input field has the expected value. Assertion tests are specific and generally check the current state of an element or property against an expected, predefined state. They work well for predictable, single-value checks but are limited in scope when testing the broader structure or variations.
 
@@ -43,7 +43,7 @@ Assertion testing is a targeted approach where you assert specific values or con
 - **Verbose for complex outputs**: Writing assertions for complex data structures or large outputs can be cumbersome and error-prone.
 - **Maintenance overhead**: As code evolves, manually updating assertions can be time-consuming.
 
-### Snapshot testing
+### 快照測試
 
 Snapshot testing captures a “snapshot” or representation of the entire state of an element, component, or data at a given moment, which is then saved for future comparisons. When re-running tests, the current state is compared to the snapshot, and if there are differences, the test fails. This approach is especially useful for complex or dynamic structures, where manually asserting each detail would be too time-consuming. Snapshot testing is broader and more holistic than assertion testing, allowing you to track more complex changes over time.
 
@@ -57,7 +57,7 @@ Snapshot testing captures a “snapshot” or representation of the entire state
 - **Granularity**: Large snapshots may be hard to interpret when differences arise, especially if minor changes affect large portions of the output.
 - **Suitability**: Not ideal for highly dynamic content where outputs change frequently or unpredictably.
 
-### When to use
+### 何時使用
 - **Snapshot testing** is ideal for:
   - UI testing of whole pages and components.
   - Broad structural checks for complex UI components.
@@ -69,7 +69,7 @@ Snapshot testing captures a “snapshot” or representation of the entire state
 
 By combining snapshot testing for broad, structural checks and assertion testing for specific functionality, you can achieve a well-rounded testing strategy.
 
-## Aria snapshots
+## Aria 快照
 
 In Playwright, aria snapshots provide a YAML representation of the accessibility tree of a page. These snapshots can be stored and compared later to verify if the page structure remains consistent or meets defined expectations.
 
@@ -87,7 +87,7 @@ Each accessible element in the tree is represented as a YAML node:
 
 These values are derived from ARIA attributes or calculated based on HTML semantics. To inspect the accessibility tree structure of a page, use the [Chrome DevTools Accessibility Tab](https://developer.chrome.com/docs/devtools/accessibility/reference#tab).
 
-## Snapshot matching
+## 快照比對
 
 The [Expect(Locator).ToMatchAriaSnapshotAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) assertion method in Playwright compares the accessible structure of the locator scope with a predefined aria snapshot template, helping validate the page's state against testing requirements.
 
@@ -110,7 +110,7 @@ When matching, the snapshot template is compared to the current accessibility tr
 * The comparison is case-sensitive and collapses whitespace, so indentation and line breaks are ignored.
 * The comparison is order-sensitive, meaning the order of elements in the snapshot template must match the order in the page's accessibility tree.
 
-### Partial matching
+### 部分比對
 
 You can perform partial matches on nodes by omitting attributes or accessible names, enabling verification of specific parts of the accessibility tree without requiring exact matches. This flexibility is helpful for dynamic or irrelevant attributes.
 
@@ -163,7 +163,7 @@ Similarly, you can partially match children in lists or groups by omitting speci
 
 Partial matches let you create flexible snapshot tests that verify essential page structure without enforcing specific content or attributes.
 
-### Strict matching
+### 嚴格比對
 
 By default, a template containing the subset of children will be matched:
 
@@ -204,7 +204,7 @@ The `/children` property can be used to control how child elements are matched:
   - listitem: Feature B
 ```
 
-### Matching with regular expressions
+### 使用正規表示式比對
 
 Regular expressions allow flexible matching for elements with dynamic or variable text. Accessible names and text can support regex patterns.
 
@@ -218,17 +218,17 @@ Regular expressions allow flexible matching for elements with dynamic or variabl
 - heading /Issues \d+/
 ```
 
-## Generating snapshots
+## 產生快照
 
 Creating aria snapshots in Playwright helps ensure and maintain your application's structure. You can generate snapshots in various ways depending on your testing setup and workflow.
 
-### Generating snapshots with the Playwright code generator
+### 使用 Playwright 程式碼產生器產生快照
 
 If you're using Playwright's [Code Generator](./codegen.mdx), generating aria snapshots is streamlined with its interactive interface:
 - **"Assert snapshot" Action**: In the code generator, you can use the "Assert snapshot" action to automatically create a snapshot assertion for the selected elements. This is a quick way to capture the aria snapshot as part of your recorded test flow.
 - **"Aria snapshot" Tab**: The "Aria snapshot" tab within the code generator interface visually represents the aria snapshot for a selected locator, letting you explore, inspect, and verify element roles, attributes, and accessible names to aid snapshot creation and review.
 
-### Using the `Locator.ariaSnapshot` method
+### 使用 `Locator.ariaSnapshot` 方法
 
 The [Locator.AriaSnapshotAsync()](/api/class-locator.mdx#locator-aria-snapshot) method allows you to programmatically create a YAML representation of accessible elements within a locator's scope, especially helpful for generating snapshots dynamically during test execution.
 
@@ -241,9 +241,9 @@ Console.WriteLine(snapshot);
 
 This command outputs the aria snapshot within the specified locator's scope in YAML format, which you can validate or store as needed.
 
-## Accessibility tree examples
+## 無障礙樹範例
 
-### Headings with level attributes
+### 具有層級屬性的標題
 
 Headings can include a `level` attribute indicating their heading level.
 
@@ -259,7 +259,7 @@ Headings can include a `level` attribute indicating their heading level.
 - heading "Subtitle" [level=2]
 ```
 
-### Text nodes
+### 文字節點
 
 Standalone or descriptive text elements appear as text nodes.
 
@@ -273,7 +273,7 @@ Standalone or descriptive text elements appear as text nodes.
 - text: Sample accessible name
 ```
 
-### Inline multiline text
+### 行內多行文字
 
 Multiline text, such as paragraphs, is normalized in the aria snapshot.
 
@@ -287,7 +287,7 @@ Multiline text, such as paragraphs, is normalized in the aria snapshot.
 - paragraph: Line 1 Line 2
 ```
 
-### Links
+### 連結
 
 Links display their text or composed content from pseudo-elements.
 
@@ -301,7 +301,7 @@ Links display their text or composed content from pseudo-elements.
 - link "Read more about Accessibility"
 ```
 
-### Text boxes
+### 文字方塊
 
 Input elements of type `text` show their `value` attribute content.
 
@@ -315,7 +315,7 @@ Input elements of type `text` show their `value` attribute content.
 - textbox: Enter your name
 ```
 
-### Lists with items
+### 含項目的清單
 
 Ordered and unordered lists include their list items.
 
@@ -334,7 +334,7 @@ Ordered and unordered lists include their list items.
   - listitem: Feature 2
 ```
 
-### Grouped elements
+### 群組元素
 
 Groups capture nested elements, such as `<details>` elements with summary content.
 
@@ -351,11 +351,11 @@ Groups capture nested elements, such as `<details>` elements with summary conten
 - group: Summary
 ```
 
-### Attributes and states
+### 屬性和狀態
 
 Commonly used ARIA attributes, like `checked`, `disabled`, `expanded`, `level`, `pressed`, and `selected`, represent control states.
 
-#### Checkbox with `checked` attribute
+#### 帶有 `checked` 屬性的核取方塊
 
 ```html
 <input type="checkbox" checked>
@@ -367,7 +367,7 @@ Commonly used ARIA attributes, like `checked`, `disabled`, `expanded`, `level`, 
 - checkbox [checked]
 ```
 
-#### Button with `pressed` attribute
+#### 帶有 `pressed` 屬性的按鈕
 
 ```html
 <button aria-pressed="true">Toggle</button>
