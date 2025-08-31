@@ -422,7 +422,7 @@ def test_example(page: Page) -> None:
 ```
 
 ### 新的 API
-- Options [reason](/api/class-page.mdx#page-close-選項-reason) in [page.close()](/api/class-page.mdx#page-close), [reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) in [browser_context.close()](/api/class-browsercontext.mdx#browser-context-close) and [reason](/api/class-browser.mdx#browser-close-選項-reason) in [browser.close()](/api/class-browser.mdx#browser-close). Close reason is reported for all operations interrupted by the closure.
+- [page.close()](/api/class-page.mdx#page-close) 中的選項 [reason](/api/class-page.mdx#page-close-選項-reason)、[browser_context.close()](/api/class-browsercontext.mdx#browser-context-close) 中的選項 [reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) 和 [browser.close()](/api/class-browser.mdx#browser-close) 中的選項 [reason](/api/class-browser.mdx#browser-close-選項-reason)。關閉原因會回報給所有因關閉而中斷的操作。
 - 選項 [firefox_user_prefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs) in [browser_type.launch_persistent_context()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
 
 ### 其他變更
@@ -602,9 +602,9 @@ Linux support looks like this:
 ## 版本 1.32
 
 ### 新的 API
-- Custom expect message, see [test assertions documentation](./test-assertions.mdx#custom-expect-message).
+- 自訂預期訊息，請參閱[測試斷言文件](./test-assertions.mdx#custom-expect-message)。
 - 新選項s [update_mode](/api/class-page.mdx#page-route-from-har-選項-update-mode) and [update_content](/api/class-page.mdx#page-route-from-har-選項-update-content) in [page.route_from_har()](/api/class-page.mdx#page-route-from-har) and [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har).
-- Chaining existing locator objects, see [locator docs](./locators.mdx#matching-inside-a-locator) for details.
+- 串連現有的定位器物件，請參閱[定位器文件](./locators.mdx#matching-inside-a-locator)以瞭解詳細資訊。
 - 新選項 [name](/api/class-tracing.mdx#tracing-start-chunk-選項-name) in 方法 [tracing.start_chunk()](/api/class-tracing.mdx#tracing-start-chunk).
 
 ### 瀏覽器版本
@@ -640,7 +640,7 @@ Linux support looks like this:
 - 追蹤檢視器中的 DOM 快照現在可在單獨視窗中開啟。
 - 新選項 [max_redirects](/api/class-route.mdx#route-fetch-選項-max-redirects) for 方法 [route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
-- Official [docker images](./docker.mdx) now include Node 18 instead of Node 16.
+- 官方 [docker images](./docker.mdx) 現在包含 Node 18 而非 Node 16。
 
 ### 瀏覽器版本
 * Chromium 111.0.5563.19
@@ -1076,7 +1076,7 @@ await page.route("**/*", abort_images_handler)
 ## 版本 1.22
 
 ### 重點
-- Role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 角色選擇器，允許依據其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和[無障礙名稱](https://w3c.github.io/accname/#dfn-accessible-name)選取元素。
   
   ```py
   # Click a button with accessible name "log in"
@@ -1093,7 +1093,7 @@ await page.route("**/*", abort_images_handler)
   submit_button.click()
   ```
   
-- Codegen 現在支援 generating Pytest Tests
+- Codegen 現在支援產生 Pytest 測試
   
   ![Graphics](https://user-images.githubusercontent.com/746130/168098384-40784024-6c26-4426-8255-e714862af6fc.png)
 
@@ -1134,7 +1134,7 @@ await page.route("**/*", abort_images_handler)
 
 ### 行為變更
 - `mcr.microsoft.com/playwright` Docker 映像不再包含 Python。請使用 `mcr.microsoft.com/playwright/python` 作為預裝 Python 的 Playwright 就緒 Docker 映像。
-- Playwright 現在支援 large file uploads (100s of MBs) via [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) API.
+- Playwright 現在透過 [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) API 支援大檔案上傳（數百 MB）。
 
 ### 瀏覽器版本
 - Chromium 101.0.4951.26
@@ -1155,7 +1155,7 @@ await page.route("**/*", abort_images_handler)
 - [locator.highlight()](/api/class-locator.mdx#locator-highlight) visually reveals element(s) for easier debugging.
 
 ### 公告
-- We now ship a designated Python docker image `mcr.microsoft.com/playwright/python`. Please switch over to it if you use Python. This is the last release that includes Python inside our javascript `mcr.microsoft.com/playwright` docker image.
+- 我們現在提供專用的 Python docker 映像 `mcr.microsoft.com/playwright/python`。如果您使用 Python，請切換到此映像。這是在我們的 javascript `mcr.microsoft.com/playwright` docker 映像中包含 Python 的最後一個版本。
 - v1.20 is the last release to receive WebKit update for macOS 10.15 Catalina. Please update macOS to keep using latest & greatest WebKit!
 
 ### 瀏覽器版本

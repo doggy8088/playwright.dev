@@ -327,7 +327,7 @@ You can generate this assertion with [Test Generator](./codegen) and update the 
 ### 測試執行器
 - 新選項 [testConfig.tsconfig](/api/class-testconfig.mdx#test-config-tsconfig) 允許 specify a single `tsconfig` to be used for all tests.
 - 新方法 [test.fail.only()](/api/class-test.mdx#test-fail-only) to focus on a failing test.
-- Options [testConfig.globalSetup](/api/class-testconfig.mdx#test-config-global-setup) and [testConfig.globalTeardown](/api/class-testconfig.mdx#test-config-global-teardown) 現在支援 multiple setups/teardowns.
+- 選項 [testConfig.globalSetup](/api/class-testconfig.mdx#test-config-global-setup) 和 [testConfig.globalTeardown](/api/class-testconfig.mdx#test-config-global-teardown) 現在支援多個設定/拆除。
 - [testOptions.screenshot](/api/class-testoptions.mdx#test-options-screenshot) 的新值 `'on-first-failure'`。
 - 在 HTML 報告中新增「上一個」和「下一個」按鈕，可快速切換測試案例。
 - 新屬性 [testInfoError.cause](/api/class-testinfoerror.mdx#test-info-error-cause) 和 [testError.cause](/api/class-testerror.mdx#test-error-cause) 對應 [`Error.cause`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)。
@@ -344,8 +344,8 @@ You can generate this assertion with [Test Generator](./codegen) and update the 
 
 ### 其他重大變更
 - There will be no more updates for WebKit on Ubuntu 20.04 and Debian 11. We recommend updating your OS to a later version.
-- Package `@playwright/experimental-ct-vue2` will no longer be updated.
-- Package `@playwright/experimental-ct-solid` will no longer be updated.
+- 套件 `@playwright/experimental-ct-vue2` 將不再更新。
+- 套件 `@playwright/experimental-ct-solid` 將不再更新。
 
 ### 嘗試新的 Chromium 無頭模式
 
@@ -440,8 +440,8 @@ You can generate this assertion with [Test Generator](./codegen) and update the 
   ```
   
 **定位器處理器**
-- After executing the handler added with [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `noWaitAfter` 選項.
-- You can use new `times` 選項 in [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
+- 執行透過 [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 新增的處理器後，Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `noWaitAfter` 選項退出此行為。
+- 您可以在 [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `times` 選項來指定處理器應執行的最大次數。
 - [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
 - 新方法 [page.removeLocatorHandler()](/api/class-page.mdx#page-remove-locator-handler) 用於移除先前新增的定位器處理器。
 
@@ -670,7 +670,7 @@ test('test full report', {
 - 新方法 [browserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
 - 新選項s [style](/api/class-page.mdx#page-screenshot-選項-style) in [page.screenshot()](/api/class-page.mdx#page-screenshot) and [style](/api/class-locator.mdx#locator-screenshot-選項-style) in [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
 - 新選項 `stylePath` for methods [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) and [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) to apply a custom stylesheet while making the screenshot.
-- New `fileName` 選項 for [Blob reporter](./test-reporters#blob-reporter), to specify the name of the report to be created.
+- [Blob reporter](./test-reporters#blob-reporter) 的新 `fileName` 選項，用於指定要建立的報告名稱。
 
 ### 瀏覽器版本
 * Chromium 121.0.6167.57
@@ -711,12 +711,12 @@ test('test', async ({ page }) => {
 ```
 
 ### 新的 API
-- Options [reason](/api/class-page.mdx#page-close-選項-reason) in [page.close()](/api/class-page.mdx#page-close), [reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) in [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) and [reason](/api/class-browser.mdx#browser-close-選項-reason) in [browser.close()](/api/class-browser.mdx#browser-close). Close reason is reported for all operations interrupted by the closure.
+- [page.close()](/api/class-page.mdx#page-close) 中的選項 [reason](/api/class-page.mdx#page-close-選項-reason)、[browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) 中的選項 [reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) 和 [browser.close()](/api/class-browser.mdx#browser-close) 中的選項 [reason](/api/class-browser.mdx#browser-close-選項-reason)。關閉原因會回報給所有因關閉而中斷的操作。
 - 選項 [firefoxUserPrefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs) in [browserType.launchPersistentContext()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
 
 ### 其他變更
-- Methods [download.path()](/api/class-download.mdx#download-path) and [download.createReadStream()](/api/class-download.mdx#download-create-read-stream) throw an error for failed and cancelled downloads.
-- Playwright [docker image](./docker.mdx) now comes with Node.js v20.
+- 方法 [download.path()](/api/class-download.mdx#download-path) 和 [download.createReadStream()](/api/class-download.mdx#download-create-read-stream) 在失敗和取消的下載時會拋出錯誤。
+- Playwright [docker image](./docker.mdx) 現在包含 Node.js v20。
 
 ### 瀏覽器版本
 * Chromium 120.0.6099.28
@@ -841,7 +841,7 @@ See [test.step()](/api/class-test.mdx#test-step) documentation for a full exampl
 ### 新的 API
 - [browserContext.on('weberror')](/api/class-browsercontext.mdx#browser-context-event-web-error)
 - [locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially)
-- The [reporter.onEnd()](/api/class-reporter.mdx#reporter-on-end) now reports `startTime` and total run `duration`.
+- [reporter.onEnd()](/api/class-reporter.mdx#reporter-on-end) 現在回報 `startTime` 和總執行 `duration`。
 
 ### 棄用
 * The following methods were deprecated: [page.type()](/api/class-page.mdx#page-type), [frame.type()](/api/class-frame.mdx#frame-type), [locator.type()](/api/class-locator.mdx#locator-type) and [elementHandle.type()](/api/class-elementhandle.mdx#element-handle-type). Please use [locator.fill()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
@@ -1513,8 +1513,8 @@ All the same methods are also available on [Locator], [FrameLocator] and [Frame]
 
 ### 其他重點
 - 新選項 `maxRedirects` for [apiRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
-- New command-line flag `--pass-with-no-tests` that allows the test suite to pass when no files are found.
-- New command-line flag `--ignore-snapshots` to skip snapshot expectations, such as `expect(value).toMatchSnapshot()` and `expect(page).toHaveScreenshot()`.
+- 新的命令列旗標 `--pass-with-no-tests`，允許在找不到檔案時讓測試套件通過。
+- 新的命令列旗標 `--ignore-snapshots` 用於跳過快照預期，例如 `expect(value).toMatchSnapshot()` 和 `expect(page).toHaveScreenshot()`。
 
 ### 行為變更
 
@@ -1816,7 +1816,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 <LiteYouTube id="keV2CIgtBlg" title="Playwright 1.22" />
 
 ### 重點
-- Components Testing (preview)
+- 元件測試（預覽）
   
   Playwright Test 現在可以 test your [React](https://reactjs.org/), [Vue.js](https://vuejs.org/) or [Svelte](https://svelte.dev/) components. You can use all the features of Playwright Test (such as parallelization, emulation & debugging) while running components in real browsers.
   
@@ -1842,7 +1842,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   ```
   
   Read more in [our documentation](./test-components).
-- Role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 角色選擇器，允許依據其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和[無障礙名稱](https://w3c.github.io/accname/#dfn-accessible-name)選取元素。
   
   ```js
   // Click a button with accessible name "log in"
@@ -1850,7 +1850,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   ```
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
-- New [locator.filter()](/api/class-locator.mdx#locator-filter) API to filter an existing locator
+- 新的 [locator.filter()](/api/class-locator.mdx#locator-filter) API 用於篩選現有定位器
   
   ```js
   const buttons = page.locator('role=button');
@@ -1859,7 +1859,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   await submitButton.click();
   ```
   
-- New web-first assertions [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) and [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) that wait for screenshot stabilization and enhances test reliability.
+- 新的網頁優先斷言 [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1)，等待螢幕截圖穩定並增強測試可靠性。
   
   The new assertions has screenshot-specific defaults, such as:
   * disables animations
@@ -1877,7 +1877,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 <LiteYouTube id="45HZdbmgEw8" title="Playwright 1.21" />
 
 ### 重點
-- New role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 新的角色選擇器，允許依據其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和[無障礙名稱](https://w3c.github.io/accname/#dfn-accessible-name)選取元素。
   
   ```js
   // Click a button with accessible name "log in"
@@ -1885,8 +1885,8 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   ```
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
-- New `scale` 選項 in [page.screenshot()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
-- New `caret` 選項 in [page.screenshot()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
+- [page.screenshot()](/api/class-page.mdx#page-screenshot) 中的新 `scale` 選項，用於產生較小尺寸的螢幕截圖。
+- [page.screenshot()](/api/class-page.mdx#page-screenshot) 中的新 `caret` 選項控制文字游標。預設為 `"hide"`。
 - 新方法 `expect.poll` to wait for an arbitrary condition:
   
   ```js
@@ -1901,7 +1901,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 
 ### 行為變更
 - 在執行 TypeScript 測試時，ESM 支援現在預設啟用。不再需要 `PLAYWRIGHT_EXPERIMENTAL_TS_ESM` 環境變數。
-- The `mcr.microsoft.com/playwright` docker image no longer contains Python. Please use `mcr.microsoft.com/playwright/python` as a Playwright-ready docker image with pre-installed Python.
+- `mcr.microsoft.com/playwright` docker 映像不再包含 Python。請使用 `mcr.microsoft.com/playwright/python` 作為預先安裝 Python 的 Playwright-ready docker 映像。
 - Playwright 現在支援 large file uploads (100s of MBs) via [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) API.
 
 ### 瀏覽器版本

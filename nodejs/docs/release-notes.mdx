@@ -715,12 +715,12 @@ test('test', async ({ page }) => {
 ```
 
 ### 新的 API
-- Options [reason](/api/class-page.mdx#page-close-選項-reason) in [page.close()](/api/class-page.mdx#page-close), [reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) in [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) and [reason](/api/class-browser.mdx#browser-close-選項-reason) in [browser.close()](/api/class-browser.mdx#browser-close). Close reason is reported for all operations interrupted by the closure.
+- [page.close()](/api/class-page.mdx#page-close) 中的選項 [reason](/api/class-page.mdx#page-close-選項-reason)、[browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) 中的選項 [reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) 和 [browser.close()](/api/class-browser.mdx#browser-close) 中的選項 [reason](/api/class-browser.mdx#browser-close-選項-reason)。關閉原因會回報給所有因關閉而中斷的操作。
 - 選項 [firefoxUserPrefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs) in [browserType.launchPersistentContext()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
 
 ### 其他變更
-- Methods [download.path()](/api/class-download.mdx#download-path) and [download.createReadStream()](/api/class-download.mdx#download-create-read-stream) throw an error for failed and cancelled downloads.
-- Playwright [docker image](./docker.mdx) now comes with Node.js v20.
+- 方法 [download.path()](/api/class-download.mdx#download-path) 和 [download.createReadStream()](/api/class-download.mdx#download-create-read-stream) 在失敗和取消的下載時會拋出錯誤。
+- Playwright [docker image](./docker.mdx) 現在包含 Node.js v20。
 
 ### 瀏覽器版本
 * Chromium 120.0.6099.28
@@ -1182,7 +1182,7 @@ npx playwright test --ui
 
 ### 新的 API
 - 新選項 [updateMode](/api/class-page.mdx#page-route-from-har-選項-update-mode) and [updateContent](/api/class-page.mdx#page-route-from-har-選項-update-content) in [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) and [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har).
-- Chaining existing locator objects, see [locator docs](./locators.mdx#matching-inside-a-locator) for details.
+- 串連現有的定位器物件，請參閱[定位器文件](./locators.mdx#matching-inside-a-locator)以瞭解詳細資訊。
 - 新屬性 [testInfo.testId](/api/class-testinfo.mdx#test-info-test-id).
 - 新選項 [name](/api/class-tracing.mdx#tracing-start-chunk-選項-name) in 方法 [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk).
 
@@ -1258,7 +1258,7 @@ Note: **component tests only**, does not affect end-to-end tests.
 - 新方法 `defineConfig` to be used in `playwright.config`.
 - 新選項 [maxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) for 方法 [route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
-- Official [docker images](./docker.mdx) now include Node 18 instead of Node 16.
+- 官方 [docker images](./docker.mdx) 現在包含 Node 18 而非 Node 16。
 
 ### ⚠️ Breaking change in component tests
 
@@ -1351,7 +1351,7 @@ export default defineConfig({
   await element.selectOption('Red');
   ```
   
-- Retry blocks of code until all assertions pass:
+- 重試程式碼區塊直到所有斷言都通過：
   
   ```js
   await expect(async () => {
@@ -1361,7 +1361,7 @@ export default defineConfig({
   ```
   
 在[我們的文件](./test-assertions.mdx#expecttopass)中閱讀更多。
-- Automatically capture **full page screenshot** on test failure:
+- 在測試失敗時自動擷取**完整頁面螢幕截圖**：
   
   ```js title="playwright.config.ts"
   import { defineConfig } from '@playwright/test';
@@ -1376,7 +1376,7 @@ export default defineConfig({
   ```
   
 ### 其他
-- Playwright Test now respects [`jsconfig.json`](https://code.visualstudio.com/docs/languages/jsconfig).
+- Playwright Test 現在遵循 [`jsconfig.json`](https://code.visualstudio.com/docs/languages/jsconfig)。
 - 新選項 `args` and `proxy` for [androidDevice.launchBrowser()](/api/class-androiddevice.mdx#android-device-launch-browser).
 - 選項 `postData` in 方法 [route.continue()](/api/class-route.mdx#route-continue) 現在支援 [Serializable] values.
 
@@ -1494,7 +1494,7 @@ await expect(page.getByText('Welcome, John!')).toBeVisible();
   await expect(page.getByRole('button')).toHaveAttribute('disabled', '');
   ```
   
-- Command line options `--grep` and `--grep-invert` previously incorrectly ignored `grep` and `grepInvert` options specified in the config. Now all of them are applied together.
+- 命令列選項 `--grep` 和 `--grep-invert` 先前錯誤地忽略了配置中指定的 `grep` 和 `grepInvert` 選項。現在所有選項都會一起套用。
 
 ### 瀏覽器版本
 * Chromium 107.0.5304.18
@@ -1820,7 +1820,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 <LiteYouTube id="keV2CIgtBlg" title="Playwright 1.22" />
 
 ### 重點
-- Components Testing (preview)
+- 元件測試（預覽）
   
   Playwright Test 現在可以測試您的 [React](https://reactjs.org/)、[Vue.js](https://vuejs.org/) 或 [Svelte](https://svelte.dev/) 元件。您可以在真實瀏覽器中運行元件時使用 Playwright Test 的所有功能（如並行化、模擬和除錯）。
   
@@ -1846,7 +1846,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   ```
   
   在[我們的文件](./test-components)中閱讀更多。
-- Role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 角色選擇器，允許依據其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和[無障礙名稱](https://w3c.github.io/accname/#dfn-accessible-name)選取元素。
   
   ```js
   // Click a button with accessible name "log in"
@@ -1940,7 +1940,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   ```
   
   It is most convenient to specify `maxDiffPixels` or `maxDiffPixelRatio` once in [testConfig.expect](/api/class-testconfig.mdx#test-config-expect).
-- Playwright Test now adds [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) mode. By default, Playwright Test parallelizes between files. In fully parallel mode, tests inside a single file are also run in parallel. You can also use `--fully-parallel` command line flag.
+- Playwright Test 現在新增 [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) 模式。預設情況下，Playwright Test 在檔案間平行化。在完全平行模式中，單一檔案內的測試也會平行執行。您也可以使用 `--fully-parallel` 命令列旗標。
   
   ```js title="playwright.config.ts"
   export default {
@@ -2062,7 +2062,7 @@ We've noticed that in rare cases, the set of tests to be executed was configured
 ### 定位器改進
 - [locator.dragTo()](/api/class-locator.mdx#locator-drag-to)
 - [`expect(locator).toBeChecked({ checked })`](./api/class-locatorassertions#locator-assertions-to-be-checked)
-- Each locator 現在可以 optionally filtered by the text it contains:
+- 每個定位器現在可以選擇性地依據其包含的文字進行篩選：
   
   ```js
   await page.locator('li', { hasText: 'my item' }).locator('button').click();
@@ -2176,10 +2176,10 @@ await locator.click();
 Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace.playwright.dev！只需拖放您的 `trace.zip` 檔案即可檢查其內容。
 
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
-- Playwright Test traces now include sources by default (these could be turned off with tracing 選項)
-- Trace Viewer now shows test name
+- Playwright Test 追蹤現在預設包含來源（這些可以透過追蹤選項關閉）
+- 追蹤檢視器現在顯示測試名稱
 - 新的追蹤中繼資料標籤頁，包含瀏覽器詳細資訊
-- Snapshots now have URL bar
+- 快照現在具有 URL 列
 
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)
 
@@ -2190,7 +2190,7 @@ Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
 ### Ubuntu ARM64 支援與更多功能
-- Playwright 現在支援 **Ubuntu 20.04 ARM64**. 您現在可以 run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
+- Playwright 現在支援 **Ubuntu 20.04 ARM64**。您現在可以在 Apple M1 和 Raspberry Pi 上的 Docker 內執行 Playwright 測試。
 - 您現在可以 use Playwright to install stable version of Edge on Linux:
   
   ```bash
@@ -2198,8 +2198,8 @@ Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace
   ```
   
 ### 新的 API
-- Tracing 現在支援 a [`'title'`](./api/class-tracing#tracing-start-選項-title) 選項
-- Page navigations support a new [`'commit'`](./api/class-page#page-goto) waiting 選項
+- 追蹤現在支援 [`'title'`](./api/class-tracing#tracing-start-選項-title) 選項
+- 頁面導覽支援新的 [`'commit'`](./api/class-page#page-goto) 等待選項
 - HTML reporter got [new configuration options](./test-reporters#html-reporter)
 - [`testConfig.snapshotDir` 選項](./api/class-testconfig#test-config-snapshot-dir)
 - [`testInfo.parallelIndex`](./api/class-testinfo#test-info-parallel-index)
@@ -2547,8 +2547,8 @@ export default defineConfig({
 - **🔎 Enhanced HAR** with body sizes for requests and responses. Use via `recordHar` 選項 in [browser.newContext()](/api/class-browser.mdx#browser-new-context).
 
 #### 工具
-- Playwright Trace Viewer now shows parameters, returned values and `console.log()` calls.
-- Playwright Inspector can generate Playwright Test tests.
+- Playwright 追蹤檢視器現在顯示參數、回傳值和 `console.log()` 呼叫。
+- Playwright 檢查器可以產生 Playwright Test 測試。
 
 #### 新增與重新編寫的指南
 - [Intro](./intro.mdx)
@@ -2577,11 +2577,11 @@ export default defineConfig({
 #### ⚡️ Introducing Playwright Test
 
 [Playwright Test](./intro.mdx) is a **new test runner** built from scratch by Playwright team specifically to accommodate end-to-end testing needs:
-- Run tests across all browsers.
-- Execute tests in parallel.
-- Enjoy context isolation and sensible defaults out of the box.
-- Capture videos, screenshots and other artifacts on failure.
-- Integrate your POMs as extensible fixtures.
+- 跨所有瀏覽器執行測試。
+- 平行執行測試。
+- 享受現成的情境隔離和明智的預設值。
+- 在失敗時擷取影片、螢幕截圖和其他製品。
+- 將您的 POM 整合為可擴充的佈置。
 
 Installation:
 
@@ -2668,7 +2668,7 @@ This version of Playwright was also tested against the following stable channels
 🎥  新影片：[Playwright: A New Test Automation Framework for the Modern Web](https://youtu.be/_Jla6DyuEu4) ([投影片](https://docs.google.com/presentation/d/1xFhZIJrdHkVe2CuMKOrni92HoG2SWslo0DhJJQMR1DI/edit?usp=sharing))
 - We talked about Playwright
 - Showed engineering work behind the scenes
-- Did live demos with new features ✨
+- 使用新功能進行實時演示 ✨
 - **Special thanks** to [applitools](http://applitools.com/) for hosting the event and inviting us!
 
 #### 瀏覽器版本
