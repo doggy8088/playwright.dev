@@ -137,7 +137,7 @@
 - [ ] nodejs/docs/test-configuration.mdx
 - [ ] nodejs/docs/test-fixtures.mdx
 - [x] nodejs/docs/test-global-setup-teardown.mdx
-- [ ] nodejs/docs/test-parallel.mdx
+- [x] nodejs/docs/test-parallel.mdx
 - [ ] nodejs/docs/test-parameterize.mdx
 - [x] nodejs/docs/test-projects.mdx
 - [x] nodejs/docs/test-reporters.mdx
@@ -279,7 +279,7 @@
 - [ ] nodejs/versioned_docs/version-stable/test-configuration.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-fixtures.mdx
 - [x] nodejs/versioned_docs/version-stable/test-global-setup-teardown.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-parallel.mdx
+- [x] nodejs/versioned_docs/version-stable/test-parallel.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-parameterize.mdx
 - [x] nodejs/versioned_docs/version-stable/test-projects.mdx
 - [x] nodejs/versioned_docs/version-stable/test-reporters.mdx
