@@ -7,19 +7,19 @@ import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright executes tests in isolated environments called [browser contexts](./browser-contexts.mdx). This isolation model improves reproducibility and prevents cascading test failures. Tests can load existing authenticated state. This eliminates the need to authenticate in every test and speeds up test execution.
+Playwright 在名為[瀏覽器情境](./browser-contexts.mdx)的隔離環境中執行測試。這種隔離模型提高了可重現性並防止連鎖測試失敗。測試可以載入現有的已驗證狀態，這消除了在每個測試中進行驗證的需要，並加快了測試執行速度。
 
-## Core concepts
+## 核心概念
 
-Regardless of the authentication strategy you choose, you are likely to store authenticated browser state on the file system.
+無論您選擇哪種驗證策略，您都可能會將已驗證的瀏覽器狀態儲存在檔案系統上。
 
-We recommend to create `playwright/.auth` directory and add it to your `.gitignore`. Your authentication routine will produce authenticated browser state and save it to a file in this `playwright/.auth` directory. Later on, tests will reuse this state and start already authenticated.
+我們建議建立 `playwright/.auth` 目錄並將其加入您的 `.gitignore`。您的驗證程序將產生已驗證的瀏覽器狀態，並將其儲存到此 `playwright/.auth` 目錄中的檔案。稍後，測試將重用此狀態並以已驗證的方式開始。
 
 :::danger
 
-The browser state file may contain sensitive cookies and headers that could be used to impersonate you or your test account. We strongly discourage checking them into private or public repositories.
+瀏覽器狀態檔案可能包含敏感的 cookies 和標頭，這些可能被用來冒充您或您的測試帳戶。我們強烈建議不要將它們提交到私人或公共儲存庫。
 :::
 
 <Tabs
@@ -58,20 +58,20 @@ echo "playwright/.auth" >> .gitignore
 </TabItem>
 </Tabs>
 
-## Basic: shared account in all tests
+## 基本：所有測試共享帳戶
 
-This is the **recommended** approach for tests **without server-side state**. Authenticate once in the **setup project**, save the authentication state, and then reuse it to bootstrap each test already authenticated.
+這是針對**沒有伺服器端狀態**的測試的**建議**方法。在**設定專案**中進行一次驗證，儲存驗證狀態，然後重用它來引導每個測試，使其已經經過驗證。
 
-**When to use**
-- When you can imagine all your tests running at the same time with the same account, without affecting each other.
+**何時使用**
+- 當您可以想像所有測試同時使用相同帳戶執行，而不會相互影響時。
 
-**When not to use**
-- Your tests modify server-side state. For example, one test checks the rendering of the settings page, while the other test is changing the setting, and you run tests in parallel. In this case, tests must use different accounts.
-- Your authentication is browser-specific.
+**何時不使用**
+- 您的測試會修改伺服器端狀態。例如，一個測試檢查設定頁面的渲染，而另一個測試正在更改設定，且您同時執行測試。在這種情況下，測試必須使用不同的帳戶。
+- 您的驗證是瀏覽器特定的。
 
-**Details**
+**詳細說明**
 
-Create `tests/auth.setup.ts` that will prepare authenticated browser state for all other tests.
+建立 `tests/auth.setup.ts` 檔案，它將為所有其他測試準備已驗證的瀏覽器狀態。
 
 ```js title="tests/auth.setup.ts"
 import { test as setup, expect } from '@playwright/test';
@@ -80,40 +80,40 @@ import path from 'path';
 const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
 setup('authenticate', async ({ page }) => {
-  // Perform authentication steps. Replace these actions with your own.
+  // 執行驗證步驟。將這些操作替換為您自己的。
   await page.goto('https://github.com/login');
   await page.getByLabel('Username or email address').fill('username');
   await page.getByLabel('Password').fill('password');
   await page.getByRole('button', { name: 'Sign in' }).click();
-  // Wait until the page receives the cookies.
+  // 等待頁面接收 cookies。
   //
-  // Sometimes login flow sets cookies in the process of several redirects.
-  // Wait for the final URL to ensure that the cookies are actually set.
+  // 有時登入流程會在幾次重新導向的過程中設定 cookies。
+  // 等待最終 URL 以確保 cookies 實際上已設定。
   await page.waitForURL('https://github.com/');
-  // Alternatively, you can wait until the page reaches a state where all cookies are set.
+  // 或者，您可以等待頁面達到所有 cookies 都已設定的狀態。
   await expect(page.getByRole('button', { name: 'View profile and more' })).toBeVisible();
 
-  // End of authentication steps.
+  // 驗證步驟結束。
 
   await page.context().storageState({ path: authFile });
 });
 ```
 
-Create a new `setup` project in the config and declare it as a [dependency](./test-projects.mdx#dependencies) for all your testing projects. This project will always run and authenticate before all the tests. All testing projects should use the authenticated state as `storageState`.
+在設定中建立一個新的 `setup` 專案，並將其宣告為所有測試專案的[依賴項](./test-projects.mdx#dependencies)。這個專案將始終執行並在所有測試之前進行驗證。所有測試專案都應該使用已驗證的狀態作為 `storageState`。
 
 ```js title="playwright.config.ts"
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   projects: [
-    // Setup project
+    // 設定專案
     { name: 'setup', testMatch: /.*\.setup\.ts/ },
 
     {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        // Use prepared auth state.
+        // 使用準備好的驗證狀態。
         storageState: 'playwright/.auth/user.json',
       },
       dependencies: ['setup'],
@@ -123,7 +123,7 @@ export default defineConfig({
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
-        // Use prepared auth state.
+        // 使用準備好的驗證狀態。
         storageState: 'playwright/.auth/user.json',
       },
       dependencies: ['setup'],
@@ -132,39 +132,39 @@ export default defineConfig({
 });
 ```
 
-Tests start already authenticated because we specified `storageState` in the config.
+測試開始時已經經過驗證，因為我們在設定中指定了 `storageState`。
 
 ```js title="tests/example.spec.ts"
 import { test } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  // page is authenticated
+  // page 已經經過驗證
 });
 ```
 
-Note that you need to delete the stored state when it expires. If you don't need to keep the state between test runs, write the browser state under [testProject.outputDir](/api/class-testproject.mdx#test-project-output-dir), which is automatically cleaned up before every test run.
+請注意，當儲存的狀態過期時，您需要刪除它。如果您不需要在測試執行之間保持狀態，請將瀏覽器狀態寫入[testProject.outputDir](/api/class-testproject.mdx#test-project-output-dir)下，這會在每次測試執行前自動清理。
 
-### Authenticating in UI mode
+### 在 UI 模式中進行驗證
 
-UI mode will not run the `setup` project by default to improve testing speed. We recommend to authenticate by manually running the `auth.setup.ts` from time to time, whenever existing authentication expires.
+預設情況下，UI 模式不會執行 `setup` 專案以提高測試速度。我們建議通過手動執行 `auth.setup.ts` 進行驗證，當現有驗證過期時偶爾執行。
 
-First [enable the `setup` project in the filters](./test-ui-mode#filtering-tests), then click the triangle button next to `auth.setup.ts` file, and then disable the `setup` project in the filters again.
+首先[在篩選器中啟用 `setup` 專案](./test-ui-mode#filtering-tests)，然後點選 `auth.setup.ts` 檔案旁邊的三角形按鈕，然後再次在篩選器中停用 `setup` 專案。
 
-## Moderate: one account per parallel worker
+## 中等：每個平行工作者一個帳戶
 
-This is the **recommended** approach for tests that **modify server-side state**. In Playwright, worker processes run in parallel. In this approach, each parallel worker is authenticated once. All tests ran by worker are reusing the same authentication state. We will need multiple testing accounts, one per each parallel worker.
+這是針對**修改伺服器端狀態**的測試的**建議**方法。在 Playwright 中，工作者程序以平行方式執行。在這種方法中，每個平行工作者都會進行一次驗證。由工作者執行的所有測試都重用相同的驗證狀態。我們需要多個測試帳戶，每個平行工作者一個。
 
-**When to use**
-- Your tests modify shared server-side state. For example, one test checks the rendering of the settings page, while the other test is changing the setting.
+**何時使用**
+- 您的測試修改共享的伺服器端狀態。例如，一個測試檢查設定頁面的渲染，而另一個測試正在更改設定。
 
-**When not to use**
-- Your tests do not modify any shared server-side state. In this case, all tests can use a single shared account.
+**何時不使用**
+- 您的測試不修改任何共享的伺服器端狀態。在這種情況下，所有測試都可以使用單一共享帳戶。
 
-**Details**
+**詳細說明**
 
-We will authenticate once per [worker process](./test-parallel.mdx#worker-processes), each with a unique account.
+我們將為每個[工作者程序](./test-parallel.mdx#worker-processes)進行一次驗證，每個都使用唯一的帳戶。
 
-Create `playwright/fixtures.ts` file that will [override `storageState` fixture](./test-fixtures.mdx#overriding-fixtures) to authenticate once per worker. Use [testInfo.parallelIndex](/api/class-testinfo.mdx#test-info-parallel-index) to differentiate between workers.
+建立 `playwright/fixtures.ts` 檔案，它將[覆寫 `storageState` 佈置](./test-fixtures.mdx#overriding-fixtures)以便每個工作者進行一次驗證。使用 [testInfo.parallelIndex](/api/class-testinfo.mdx#test-info-parallel-index) 來區分工作者。
 
 ```js title="playwright/fixtures.ts"
 import { test as baseTest, expect } from '@playwright/test';
