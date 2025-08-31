@@ -18,7 +18,7 @@
 ## Node.js（nodejs/docs）（139）
 
  - [x] nodejs/docs/accessibility-testing.mdx
-- [ ] nodejs/docs/actionability.mdx
+- [x] nodejs/docs/actionability.mdx
 - [x] nodejs/docs/api-testing.mdx
 - [ ] nodejs/docs/api/class-accessibility.mdx
 - [ ] nodejs/docs/api/class-android.mdx
@@ -161,7 +161,7 @@
 ## Node.js（nodejs/versioned_docs）（139）
 
 - [x] nodejs/versioned_docs/version-stable/accessibility-testing.mdx
-- [ ] nodejs/versioned_docs/version-stable/actionability.mdx
+- [x] nodejs/versioned_docs/version-stable/actionability.mdx
 - [x] nodejs/versioned_docs/version-stable/api-testing.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-accessibility.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-android.mdx
@@ -302,7 +302,7 @@
 
 ## Python（python/docs）（83）
 
-- [ ] python/docs/actionability.mdx
+- [x] python/docs/actionability.mdx
 - [x] python/docs/api-testing.mdx
 - [ ] python/docs/api/class-accessibility.mdx
 - [ ] python/docs/api/class-apirequest.mdx
@@ -388,7 +388,7 @@
 
 ## Python（python/versioned_docs）（83）
 
-- [ ] python/versioned_docs/version-stable/actionability.mdx
+- [x] python/versioned_docs/version-stable/actionability.mdx
 - [x] python/versioned_docs/version-stable/api-testing.mdx
 - [ ] python/versioned_docs/version-stable/api/class-accessibility.mdx
 - [ ] python/versioned_docs/version-stable/api/class-apirequest.mdx
@@ -475,7 +475,7 @@
 ## Java（java/docs）（87）
 
 - [x] java/docs/accessibility-testing.mdx
-- [ ] java/docs/actionability.mdx
+- [x] java/docs/actionability.mdx
 - [x] java/docs/api-testing.mdx
 - [ ] java/docs/api/class-apirequest.mdx
 - [ ] java/docs/api/class-apirequestcontext.mdx
@@ -565,7 +565,7 @@
 ## Java（java/versioned_docs）（87）
 
 - [x] java/versioned_docs/version-stable/accessibility-testing.mdx
-- [ ] java/versioned_docs/version-stable/actionability.mdx
+- [x] java/versioned_docs/version-stable/actionability.mdx
 - [x] java/versioned_docs/version-stable/api-testing.mdx
 - [ ] java/versioned_docs/version-stable/api/class-apirequest.mdx
 - [ ] java/versioned_docs/version-stable/api/class-apirequestcontext.mdx
@@ -654,7 +654,7 @@
 
 ## .NET（dotnet/docs）（85）
 
-- [ ] dotnet/docs/actionability.mdx
+- [x] dotnet/docs/actionability.mdx
 - [x] dotnet/docs/api-testing.mdx
 - [ ] dotnet/docs/api/class-accessibility.mdx
 - [ ] dotnet/docs/api/class-apirequest.mdx
@@ -742,7 +742,7 @@
 
 ## .NET（dotnet/versioned_docs）（85）
 
-- [ ] dotnet/versioned_docs/version-stable/actionability.mdx
+- [x] dotnet/versioned_docs/version-stable/actionability.mdx
 - [x] dotnet/versioned_docs/version-stable/api-testing.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-accessibility.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-apirequest.mdx
