@@ -155,7 +155,7 @@
 - [x] nodejs/docs/trace-viewer-intro.mdx
 - [ ] nodejs/docs/trace-viewer.mdx
 - [ ] nodejs/docs/videos.mdx
-- [ ] nodejs/docs/webview2.mdx
+- [x] nodejs/docs/webview2.mdx
 - [x] nodejs/docs/writing-tests.mdx
 
 ## Node.js（nodejs/versioned_docs）（139）
@@ -297,7 +297,7 @@
 - [x] nodejs/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] nodejs/versioned_docs/version-stable/videos.mdx
-- [ ] nodejs/versioned_docs/version-stable/webview2.mdx
+- [x] nodejs/versioned_docs/version-stable/webview2.mdx
 - [x] nodejs/versioned_docs/version-stable/writing-tests.mdx
 
 ## Python（python/docs）（83）
@@ -383,7 +383,7 @@
 - [ ] python/docs/trace-viewer-intro.mdx
 - [ ] python/docs/trace-viewer.mdx
 - [ ] python/docs/videos.mdx
-- [ ] python/docs/webview2.mdx
+- [x] python/docs/webview2.mdx
 - [x] python/docs/writing-tests.mdx
 
 ## Python（python/versioned_docs）（83）
@@ -469,7 +469,7 @@
 - [ ] python/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] python/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] python/versioned_docs/version-stable/videos.mdx
-- [ ] python/versioned_docs/version-stable/webview2.mdx
+- [x] python/versioned_docs/version-stable/webview2.mdx
 - [x] python/versioned_docs/version-stable/writing-tests.mdx
 
 ## Java（java/docs）（87）
@@ -559,7 +559,7 @@
 - [ ] java/docs/trace-viewer-intro.mdx
 - [ ] java/docs/trace-viewer.mdx
 - [ ] java/docs/videos.mdx
-- [ ] java/docs/webview2.mdx
+- [x] java/docs/webview2.mdx
 - [ ] java/docs/writing-tests.mdx
 
 ## Java（java/versioned_docs）（87）
@@ -649,7 +649,7 @@
 - [ ] java/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] java/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] java/versioned_docs/version-stable/videos.mdx
-- [ ] java/versioned_docs/version-stable/webview2.mdx
+- [x] java/versioned_docs/version-stable/webview2.mdx
 - [ ] java/versioned_docs/version-stable/writing-tests.mdx
 
 ## .NET（dotnet/docs）（85）
@@ -737,7 +737,7 @@
 - [ ] dotnet/docs/trace-viewer-intro.mdx
 - [ ] dotnet/docs/trace-viewer.mdx
 - [ ] dotnet/docs/videos.mdx
-- [ ] dotnet/docs/webview2.mdx
+- [x] dotnet/docs/webview2.mdx
 - [ ] dotnet/docs/writing-tests.mdx
 
 ## .NET（dotnet/versioned_docs）（85）
@@ -825,5 +825,5 @@
 - [ ] dotnet/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] dotnet/versioned_docs/version-stable/videos.mdx
-- [ ] dotnet/versioned_docs/version-stable/webview2.mdx
+- [x] dotnet/versioned_docs/version-stable/webview2.mdx
 - [ ] dotnet/versioned_docs/version-stable/writing-tests.mdx
