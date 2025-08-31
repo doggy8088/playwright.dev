@@ -105,20 +105,20 @@
 - [ ] nodejs/docs/docker.mdx
 - [x] nodejs/docs/downloads.mdx
 - [x] nodejs/docs/emulation.mdx
-- [ ] nodejs/docs/evaluating.mdx
+- [x] nodejs/docs/evaluating.mdx
 - [x] nodejs/docs/events.mdx
 - [x] nodejs/docs/extensibility.mdx
 - [x] nodejs/docs/frames.mdx
 - [x] nodejs/docs/getting-started-vscode.mdx
-- [ ] nodejs/docs/handles.mdx
+- [x] nodejs/docs/handles.mdx
 - [ ] nodejs/docs/input.mdx
 - [x] nodejs/docs/intro.mdx
 - [x] nodejs/docs/languages.mdx
-- [ ] nodejs/docs/library.mdx
+- [x] nodejs/docs/library.mdx
 - [x] nodejs/docs/locators.mdx
 - [x] nodejs/docs/mock-browser.mdx
 - [x] nodejs/docs/mock.mdx
-- [ ] nodejs/docs/navigations.mdx
+- [x] nodejs/docs/navigations.mdx
 - [ ] nodejs/docs/network.mdx
 - [x] nodejs/docs/other-locators.mdx
 - [x] nodejs/docs/pages.mdx
@@ -247,20 +247,20 @@
 - [ ] nodejs/versioned_docs/version-stable/docker.mdx
 - [x] nodejs/versioned_docs/version-stable/downloads.mdx
 - [x] nodejs/versioned_docs/version-stable/emulation.mdx
-- [ ] nodejs/versioned_docs/version-stable/evaluating.mdx
+- [x] nodejs/versioned_docs/version-stable/evaluating.mdx
 - [ ] nodejs/versioned_docs/version-stable/events.mdx
 - [x] nodejs/versioned_docs/version-stable/extensibility.mdx
 - [x] nodejs/versioned_docs/version-stable/frames.mdx
 - [x] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
-- [ ] nodejs/versioned_docs/version-stable/handles.mdx
+- [x] nodejs/versioned_docs/version-stable/handles.mdx
 - [ ] nodejs/versioned_docs/version-stable/input.mdx
 - [x] nodejs/versioned_docs/version-stable/intro.mdx
 - [x] nodejs/versioned_docs/version-stable/languages.mdx
-- [ ] nodejs/versioned_docs/version-stable/library.mdx
+- [x] nodejs/versioned_docs/version-stable/library.mdx
 - [x] nodejs/versioned_docs/version-stable/locators.mdx
 - [x] nodejs/versioned_docs/version-stable/mock-browser.mdx
 - [x] nodejs/versioned_docs/version-stable/mock.mdx
-- [ ] nodejs/versioned_docs/version-stable/navigations.mdx
+- [x] nodejs/versioned_docs/version-stable/navigations.mdx
 - [ ] nodejs/versioned_docs/version-stable/network.mdx
 - [x] nodejs/versioned_docs/version-stable/other-locators.mdx
 - [x] nodejs/versioned_docs/version-stable/pages.mdx
@@ -356,18 +356,18 @@
 - [ ] python/docs/docker.mdx
 - [x] python/docs/downloads.mdx
 - [x] python/docs/emulation.mdx
-- [ ] python/docs/evaluating.mdx
+- [x] python/docs/evaluating.mdx
 - [x] python/docs/events.mdx
 - [x] python/docs/extensibility.mdx
 - [x] python/docs/frames.mdx
-- [ ] python/docs/handles.mdx
+- [x] python/docs/handles.mdx
 - [ ] python/docs/input.mdx
 - [x] python/docs/intro.mdx
 - [x] python/docs/languages.mdx
-- [ ] python/docs/library.mdx
+- [x] python/docs/library.mdx
 - [ ] python/docs/locators.mdx
 - [x] python/docs/mock.mdx
-- [ ] python/docs/navigations.mdx
+- [x] python/docs/navigations.mdx
 - [ ] python/docs/network.mdx
 - [x] python/docs/other-locators.mdx
 - [x] python/docs/pages.mdx
@@ -442,18 +442,18 @@
 - [ ] python/versioned_docs/version-stable/docker.mdx
 - [x] python/versioned_docs/version-stable/downloads.mdx
 - [x] python/versioned_docs/version-stable/emulation.mdx
-- [ ] python/versioned_docs/version-stable/evaluating.mdx
+- [x] python/versioned_docs/version-stable/evaluating.mdx
 - [ ] python/versioned_docs/version-stable/events.mdx
 - [x] python/versioned_docs/version-stable/extensibility.mdx
 - [x] python/versioned_docs/version-stable/frames.mdx
-- [ ] python/versioned_docs/version-stable/handles.mdx
+- [x] python/versioned_docs/version-stable/handles.mdx
 - [ ] python/versioned_docs/version-stable/input.mdx
 - [x] python/versioned_docs/version-stable/intro.mdx
 - [x] python/versioned_docs/version-stable/languages.mdx
-- [ ] python/versioned_docs/version-stable/library.mdx
+- [x] python/versioned_docs/version-stable/library.mdx
 - [ ] python/versioned_docs/version-stable/locators.mdx
 - [x] python/versioned_docs/version-stable/mock.mdx
-- [ ] python/versioned_docs/version-stable/navigations.mdx
+- [x] python/versioned_docs/version-stable/navigations.mdx
 - [ ] python/versioned_docs/version-stable/network.mdx
 - [x] python/versioned_docs/version-stable/other-locators.mdx
 - [x] python/versioned_docs/version-stable/pages.mdx
@@ -531,18 +531,18 @@
 - [ ] java/docs/docker.mdx
 - [x] java/docs/downloads.mdx
 - [x] java/docs/emulation.mdx
-- [ ] java/docs/evaluating.mdx
+- [x] java/docs/evaluating.mdx
 - [x] java/docs/events.mdx
 - [x] java/docs/extensibility.mdx
 - [x] java/docs/frames.mdx
-- [ ] java/docs/handles.mdx
+- [x] java/docs/handles.mdx
 - [ ] java/docs/input.mdx
 - [x] java/docs/intro.mdx
 - [ ] java/docs/junit.mdx
 - [x] java/docs/languages.mdx
 - [ ] java/docs/locators.mdx
 - [x] java/docs/mock.mdx
-- [ ] java/docs/navigations.mdx
+- [x] java/docs/navigations.mdx
 - [ ] java/docs/network.mdx
 - [x] java/docs/other-locators.mdx
 - [x] java/docs/pages.mdx
@@ -621,18 +621,18 @@
 - [ ] java/versioned_docs/version-stable/docker.mdx
 - [x] java/versioned_docs/version-stable/downloads.mdx
 - [x] java/versioned_docs/version-stable/emulation.mdx
-- [ ] java/versioned_docs/version-stable/evaluating.mdx
+- [x] java/versioned_docs/version-stable/evaluating.mdx
 - [ ] java/versioned_docs/version-stable/events.mdx
 - [x] java/versioned_docs/version-stable/extensibility.mdx
 - [x] java/versioned_docs/version-stable/frames.mdx
-- [ ] java/versioned_docs/version-stable/handles.mdx
+- [x] java/versioned_docs/version-stable/handles.mdx
 - [ ] java/versioned_docs/version-stable/input.mdx
 - [x] java/versioned_docs/version-stable/intro.mdx
 - [ ] java/versioned_docs/version-stable/junit.mdx
 - [x] java/versioned_docs/version-stable/languages.mdx
 - [ ] java/versioned_docs/version-stable/locators.mdx
 - [x] java/versioned_docs/version-stable/mock.mdx
-- [ ] java/versioned_docs/version-stable/navigations.mdx
+- [x] java/versioned_docs/version-stable/navigations.mdx
 - [ ] java/versioned_docs/version-stable/network.mdx
 - [x] java/versioned_docs/version-stable/other-locators.mdx
 - [x] java/versioned_docs/version-stable/pages.mdx
@@ -710,18 +710,18 @@
 - [ ] dotnet/docs/docker.mdx
 - [x] dotnet/docs/downloads.mdx
 - [x] dotnet/docs/emulation.mdx
-- [ ] dotnet/docs/evaluating.mdx
+- [x] dotnet/docs/evaluating.mdx
 - [x] dotnet/docs/events.mdx
 - [x] dotnet/docs/extensibility.mdx
 - [x] dotnet/docs/frames.mdx
-- [ ] dotnet/docs/handles.mdx
+- [x] dotnet/docs/handles.mdx
 - [ ] dotnet/docs/input.mdx
 - [x] dotnet/docs/intro.mdx
 - [x] dotnet/docs/languages.mdx
-- [ ] dotnet/docs/library.mdx
+- [x] dotnet/docs/library.mdx
 - [ ] dotnet/docs/locators.mdx
 - [x] dotnet/docs/mock.mdx
-- [ ] dotnet/docs/navigations.mdx
+- [x] dotnet/docs/navigations.mdx
 - [ ] dotnet/docs/network.mdx
 - [x] dotnet/docs/other-locators.mdx
 - [x] dotnet/docs/pages.mdx
@@ -798,18 +798,18 @@
 - [ ] dotnet/versioned_docs/version-stable/docker.mdx
 - [x] dotnet/versioned_docs/version-stable/downloads.mdx
 - [x] dotnet/versioned_docs/version-stable/emulation.mdx
-- [ ] dotnet/versioned_docs/version-stable/evaluating.mdx
+- [x] dotnet/versioned_docs/version-stable/evaluating.mdx
 - [ ] dotnet/versioned_docs/version-stable/events.mdx
 - [x] dotnet/versioned_docs/version-stable/extensibility.mdx
 - [x] dotnet/versioned_docs/version-stable/frames.mdx
-- [ ] dotnet/versioned_docs/version-stable/handles.mdx
+- [x] dotnet/versioned_docs/version-stable/handles.mdx
 - [ ] dotnet/versioned_docs/version-stable/input.mdx
 - [x] dotnet/versioned_docs/version-stable/intro.mdx
 - [x] dotnet/versioned_docs/version-stable/languages.mdx
-- [ ] dotnet/versioned_docs/version-stable/library.mdx
+- [x] dotnet/versioned_docs/version-stable/library.mdx
 - [ ] dotnet/versioned_docs/version-stable/locators.mdx
 - [x] dotnet/versioned_docs/version-stable/mock.mdx
-- [ ] dotnet/versioned_docs/version-stable/navigations.mdx
+- [x] dotnet/versioned_docs/version-stable/navigations.mdx
 - [ ] dotnet/versioned_docs/version-stable/network.mdx
 - [x] dotnet/versioned_docs/version-stable/other-locators.mdx
 - [x] dotnet/versioned_docs/version-stable/pages.mdx
