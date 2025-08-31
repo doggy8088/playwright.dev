@@ -140,7 +140,7 @@
 - [ ] nodejs/docs/test-global-setup-teardown.mdx
 - [ ] nodejs/docs/test-parallel.mdx
 - [ ] nodejs/docs/test-parameterize.mdx
-- [ ] nodejs/docs/test-projects.mdx
+- [x] nodejs/docs/test-projects.mdx
 - [ ] nodejs/docs/test-reporters.mdx
 - [ ] nodejs/docs/test-retries.mdx
 - [ ] nodejs/docs/test-sharding.mdx
@@ -282,7 +282,7 @@
 - [ ] nodejs/versioned_docs/version-stable/test-global-setup-teardown.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-parallel.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-parameterize.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-projects.mdx
+- [x] nodejs/versioned_docs/version-stable/test-projects.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-reporters.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-retries.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-sharding.mdx
