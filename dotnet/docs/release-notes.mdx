@@ -134,7 +134,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   });
   ```
   
-* 新選項 [Visible](/api/class-locator.mdx#locator-filter-選項-visible) for [Locator.Filter()](/api/class-locator.mdx#locator-filter) allows matching only visible elements.
+* 新選項 [Visible](/api/class-locator.mdx#locator-filter-選項-visible) 用於 [Locator.Filter()](/api/class-locator.mdx#locator-filter) 允許僅匹配可見元素。
   
   ```csharp
   // Ignore invisible todo items.
@@ -206,7 +206,7 @@ await Expect(page.Locator("body")).ToMatchAriaSnapshotAsync(@"
 
 ### 追蹤群組
 
-新方法 [Tracing.GroupAsync()](/api/class-tracing.mdx#tracing-group) allows you to visually group actions in the trace viewer.
+新方法 [Tracing.GroupAsync()](/api/class-tracing.mdx#tracing-group) 允許您在追蹤檢視器中視覺化地群組動作。
 
 ```csharp
 // All actions between GroupAsync and GroupEndAsync
@@ -227,9 +227,9 @@ This change affects you if you're using one of the following channels in your `p
 
 ### 嘗試新的 Chromium 無頭模式
 
-You can opt into the new headless mode by using `'chromium'` channel. As [official Chrome documentation puts it](https://developer.chrome.com/blog/chrome-headless-shell):
+您可以透過使用 `'chromium'` 頻道選擇新的無頭模式。如 [官方 Chrome 文件所述](https://developer.chrome.com/blog/chrome-headless-shell)：
 
-> New Headless on the other hand is the real Chrome browser, and is thus more authentic, reliable, and offers more features. This makes it more suitable for high-accuracy end-to-end web app testing or browser extension testing.
+> 另一方面，新的無頭模式是真正的 Chrome 瀏覽器，因此更真實、可靠，並提供更多功能。這使其更適合高精度的端到端網頁應用程式測試或瀏覽器擴充功能測試。
 
 請參閱 [issue #33566](https://github.com/microsoft/playwright/issues/33566) 以查看您可能遇到的破壞性變更清單以及有關 Chromium headless 的更多詳細資訊。如果您在選擇加入後看到任何問題，請提交 issue。
 
@@ -427,7 +427,7 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
 
 ### 新的 API
 
-**Accessibility assertions**
+**無障礙斷言**
 - [Expect(Locator).ToHaveAccessibleNameAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
   
   ```csharp
@@ -449,7 +449,7 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
   await Expect(locator).ToHaveRoleAsync(AriaRole.Button);
   ```
   
-**Locator handler**
+**定位器處理器**
 - After executing the handler added with [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `NoWaitAfter` 選項.
 - You can use new `Times` 選項 in [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
 - The handler in [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
@@ -466,7 +466,7 @@ await Page.AddLocatorHandlerAsync(locator, async (overlay) =>
 await Page.RemoveLocatorHandlerAsync(locator);
 ```
 
-**Miscellaneous options**
+**其他選項**
 - 新方法 [FormData.Append()](/api/class-formdata.mdx#form-data-append) 允許 specify repeating fields with the same name in [`Multipart`](./api/class-apirequestcontext#api-request-context-fetch-選項-multipart) 選項 in `APIRequestContext.FetchAsync()`:
   
   ```csharp
@@ -905,7 +905,7 @@ Linux support looks like this:
 ## 版本 1.28
 
 ### Playwright 工具
-* **Live Locators in CodeGen.** Generate a locator for any element on the page using "Explore" tool.
+* **CodeGen 中的即時定位器。** 使用「探索」工具為頁面上的任何元素產生定位器。
 
 ![Locator Explorer](https://user-images.githubusercontent.com/9798949/202293757-2e3ec0ac-1feb-4d6f-9935-73e08658b76d.png)
 
@@ -1182,8 +1182,8 @@ await page.RouteAsync("**/*", async route =>
   var context = await Browser.NewContextAsync(new() { RecordHarPath = "example.har", RecordHarMode = HarMode.Minimal });
   ```
   
-* Playwright now runs on Ubuntu 22 amd64 and Ubuntu 22 arm64.
-* Playwright for .NET 現在支援 **linux-arm64** and provides a **arm64 Ubuntu 20.04 Docker image** for it.
+* Playwright 現在在 Ubuntu 22 amd64 和 Ubuntu 22 arm64 上執行。
+* Playwright for .NET 現在支援 **linux-arm64** 並提供相應的 **arm64 Ubuntu 20.04 Docker 映像**。
 
 ## 版本 1.22
 
@@ -1283,7 +1283,7 @@ Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節�
 ## 版本 1.19
 
 ### 重點
-- Locator 現在支援 a `has` 選項 that makes sure it contains another locator inside:
+- Locator 現在支援 `has` 選項，確保它在內部包含另一個 locator：
   
   ```csharp
   await Page.Locator("article", new() { Has = Page.Locator(".highlight") }).ClickAsync();

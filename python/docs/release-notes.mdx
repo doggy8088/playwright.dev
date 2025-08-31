@@ -197,7 +197,7 @@ Learn more in the [aria snapshots guide](./aria-snapshots).
 
 ### 追蹤群組
 
-新方法 [tracing.group()](/api/class-tracing.mdx#tracing-group) allows you to visually group actions in the trace viewer.
+新方法 [tracing.group()](/api/class-tracing.mdx#tracing-group) 允許您在追蹤檢視器中視覺化地群組動作。
 
 ```python
 # All actions between group and group_end
@@ -218,14 +218,14 @@ This change affects you if you're using one of the following channels in your `p
 
 ### 嘗試新的 Chromium 無頭模式
 
-You can opt into the new headless mode by using `'chromium'` channel. As [official Chrome documentation puts it](https://developer.chrome.com/blog/chrome-headless-shell):
+您可以透過使用 `'chromium'` 頻道選擇新的無頭模式。如 [官方 Chrome 文件所述](https://developer.chrome.com/blog/chrome-headless-shell)：
 
-> New Headless on the other hand is the real Chrome browser, and is thus more authentic, reliable, and offers more features. This makes it more suitable for high-accuracy end-to-end web app testing or browser extension testing.
+> 另一方面，新的無頭模式是真正的 Chrome 瀏覽器，因此更真實、可靠，並提供更多功能。這使其更適合高精度的端到端網頁應用程式測試或瀏覽器擴充功能測試。
 
 請參閱...以取得更多詳細資訊.
 
 ### 其他
-- 方法 [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) 現在支援 uploading a directory for `<input type=file webkitdirectory>` elements.
+- 方法 [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) 現在支援為 `<input type=file webkitdirectory>` 元素上傳目錄。
   
   ```python
   page.get_by_label("Upload directory").set_input_files('mydir')
@@ -255,15 +255,15 @@ You can opt into the new headless mode by using `'chromium'` channel. As [offici
 
 ### 新的 API
 
-**Accessibility assertions**
-- [expect(locator).to_have_accessible_name()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
+**無障礙斷言**
+- [expect(locator).to_have_accessible_name()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的無障礙名稱：
   
   ```python
   locator = page.get_by_role("button")
   expect(locator).to_have_accessible_name("Submit")
   ```
   
-- [expect(locator).to_have_accessible_description()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) checks if the element has the specified accessible description:
+- [expect(locator).to_have_accessible_description()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的無障礙描述：
   
   ```python
   locator = page.get_by_role("button")
@@ -277,11 +277,11 @@ You can opt into the new headless mode by using `'chromium'` channel. As [offici
   expect(locator).to_have_role("button")
   ```
   
-**Locator handler**
-- After executing the handler added with [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `no_wait_after` 選項.
-- You can use new `times` 選項 in [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
-- The handler in [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
-- New [page.remove_locator_handler()](/api/class-page.mdx#page-remove-locator-handler) 方法 for removing previously added locator handlers.
+**定位器處理器**
+- 執行使用 [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) 新增的處理器後，Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `no_wait_after` 選項退出此行為。
+- 您可以在 [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `times` 選項來指定處理器應執行的最大次數。
+- [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受 locator 作為參數。
+- 新的 [page.remove_locator_handler()](/api/class-page.mdx#page-remove-locator-handler) 方法用於移除先前新增的 locator 處理器。
 
 ```python
 locator = page.get_by_text("This interstitial covers the button")
@@ -291,7 +291,7 @@ page.add_locator_handler(locator, lambda overlay: overlay.locator("#close").clic
 page.remove_locator_handler(locator)
 ```
 
-**Miscellaneous options**
+**其他選項**
 - [expect(page).to_have_url()](/api/class-pageassertions.mdx#page-assertions-to-have-url) 現在支援 `ignore_case` [選項](./api/class-pageassertions#page-assertions-to-have-url-選項-ignore-case).
 
 ### 瀏覽器版本
@@ -477,9 +477,9 @@ Evergreen browsers update.
 ## 版本 1.37
 
 ### 重點
-* New [--full-page-screenshot](./test-runners.mdx#cli-arguments) command line flag allows taking a full page screenshot on failure.
-* It is now possible to override the context options for a single test by using the [browser_context_args](./test-runners.mdx#fixtures) marker.
-* `pytest-playwright` is now also getting published [on Anaconda](https://anaconda.org/Microsoft/pytest-playwright/)
+* 新的 [--full-page-screenshot](./test-runners.mdx#cli-arguments) 命令列旗標允許在失敗時擷取完整頁面螢幕截圖。
+* 現在可以透過使用 [browser_context_args](./test-runners.mdx#fixtures) 標記為單一測試覆寫情境選項。
+* `pytest-playwright` 現在也在 [Anaconda](https://anaconda.org/Microsoft/pytest-playwright/) 上發布
 
 ### 📚 Debian 12 Bookworm Support
 
@@ -721,7 +721,7 @@ Linux support looks like this:
 ## 版本 1.28
 
 ### Playwright 工具
-* **Live Locators in CodeGen.** Generate a locator for any element on the page using "Explore" tool.
+* **CodeGen 中的即時定位器。** 使用「探索」工具為頁面上的任何元素產生定位器。
 
 ![Locator Explorer](https://user-images.githubusercontent.com/9798949/202293514-8e2eade6-c809-4b0a-864b-899dfcee3d84.png)
 
@@ -1170,7 +1170,7 @@ Note that the new methods [page.route_from_har()](/api/class-page.mdx#page-route
 ## 版本 1.19
 
 ### 重點
-- Locator 現在支援 a `has` 選項 that makes sure it contains another locator inside:
+- Locator 現在支援 `has` 選項，確保它在內部包含另一個 locator：
   
   <Tabs
     groupId="python-flavor"
