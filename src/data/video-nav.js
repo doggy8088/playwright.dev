@@ -1,0 +1,29 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var videoNav = [
+    {
+        label: 'Conference Videos',
+        href: '/community/conference-videos'
+    },
+    {
+        label: 'Release Videos',
+        href: '/community/release-videos'
+    },
+    {
+        label: 'Live Streams',
+        href: '/community/live-streams'
+    },
+    {
+        label: 'Feature Videos',
+        href: '/community/feature-videos'
+    },
+    {
+        label: 'Learn Videos',
+        href: '/community/learn-videos'
+    },
+    {
+        label: 'MCP Videos',
+        href: '/community/mcp-videos'
+    }
+];
+exports.default = videoNav;
