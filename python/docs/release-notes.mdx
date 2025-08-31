@@ -365,7 +365,7 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 ```
 
 ### 新的 API
-- [page.pdf()](/api/class-page.mdx#page-pdf) accepts two new options [tagged](/api/class-page.mdx#page-pdf-選項-tagged) and [outline](/api/class-page.mdx#page-pdf-選項-outline).
+- [page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [tagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [outline](/api/class-page.mdx#page-pdf-選項-outline)。
 
 ### 公告
 * ⚠️ Ubuntu 18 is not supported anymore.
@@ -544,7 +544,7 @@ Linux support looks like this:
   button = page.get_by_role("button").and_(page.get_by_title("Subscribe"))
   ```
   
-* New events [browser_context.on("console")](/api/class-browsercontext.mdx#browser-context-event-console) and [browser_context.on("dialog")](/api/class-browsercontext.mdx#browser-context-event-dialog) to subscribe to any dialogs and console messages from any page from the given browser context. Use the new methods [console_message.page](/api/class-consolemessage.mdx#console-message-page) and [dialog.page](/api/class-dialog.mdx#dialog-page) to pin-point event source.
+* 新事件 [browser_context.on("console")](/api/class-browsercontext.mdx#browser-context-event-console) 和 [browser_context.on("dialog")](/api/class-browsercontext.mdx#browser-context-event-dialog) 用於訂閱來自指定瀏覽器上下文中任何頁面的對話框和控制台訊息。使用新方法 [console_message.page](/api/class-consolemessage.mdx#console-message-page) 和 [dialog.page](/api/class-dialog.mdx#dialog-page) 來精確定位事件來源。
 
 ### 瀏覽器版本
 * Chromium 114.0.5735.26
