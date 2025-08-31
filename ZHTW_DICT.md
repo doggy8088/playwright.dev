@@ -80,4 +80,21 @@
 - regular expression → 正規表示式
 - Chrome DevTools → Chrome DevTools（產品名不翻）
 
+## Service Worker 相關術語
+- service worker → Service Worker（專有名詞不翻譯）
+- fetch event → fetch 事件（`FetchEvent` 類別名保留原文）
+- proxy → 代理
+- cache/caching → 快取
+- offline → 離線
+- registration → 註冊
+- activation → 啟動
+- interception → 攔截
+- handler → 處理器
+- listener → 監聽器
+- transparent → 透明
+- optimization → 最佳化
+- main script → 主腳本
+- external network → 外部網路
+- sub-frame → 子框架
+
 如需新增詞條，請於本檔案最後追加，並附上簡短語境說明。
