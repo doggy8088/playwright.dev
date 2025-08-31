@@ -1,21 +1,21 @@
 ---
 id: touch-events
-title: "Touch events (legacy)"
+title: "觸控事件（舊版）"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Web applications that handle legacy [touch events](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events) to respond to gestures like swipe, pinch, and tap can be tested by manually dispatching [TouchEvent](https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent/TouchEvent)s to the page. The examples below demonstrate how to use [locator.dispatchEvent()](/api/class-locator.mdx#locator-dispatch-event) and pass [Touch](https://developer.mozilla.org/en-US/docs/Web/API/Touch) points as arguments.
+處理舊版 [觸控事件](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events) 以回應滑動、縮放和點擊等手勢的網頁應用程式，可以透過手動分派 [TouchEvent](https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent/TouchEvent) 到頁面來進行測試。以下範例說明如何使用 [`locator.dispatchEvent()`](/api/class-locator.mdx#locator-dispatch-event) 並將 [Touch](https://developer.mozilla.org/en-US/docs/Web/API/Touch) 點作為引數傳遞。
 
-Note that [locator.dispatchEvent()](/api/class-locator.mdx#locator-dispatch-event) does not set [`Event.isTrusted`](https://developer.mozilla.org/en-US/docs/Web/API/Event/isTrusted) property. If your web page relies on it, make sure to disable `isTrusted` check during the test.
+請注意，[`locator.dispatchEvent()`](/api/class-locator.mdx#locator-dispatch-event) 不會設定 [`Event.isTrusted`](https://developer.mozilla.org/en-US/docs/Web/API/Event/isTrusted) 屬性。如果您的網頁依賴此屬性，請確保在測試期間停用 `isTrusted` 檢查。
 
-### Emulating pan gesture
+### 模擬平移手勢
 
-In the example below, we emulate pan gesture that is expected to move the map. The app under test only uses `clientX/clientY` coordinates of the touch point, so we initialize just that. In a more complex scenario you may need to also set `pageX/pageY/screenX/screenY`, if your app needs them.
+在以下範例中，我們模擬預期會移動地圖的平移手勢。受測試的應用程式只使用觸控點的 `clientX/clientY` 座標，因此我們只初始化這些項目。在更複雜的情況下，如果您的應用程式需要的話，您可能還需要設定 `pageX/pageY/screenX/screenY`。
 
 ```js
 import { test, expect, devices, type Locator } from '@playwright/test';
@@ -30,7 +30,7 @@ async function pan(locator: Locator, deltaX?: number, deltaY?: number, steps?: n
     return { centerX, centerY };
   });
 
-  // Providing only clientX and clientY as the app only cares about those.
+  // 僅提供 clientX 和 clientY，因為應用程式只關心這些座標。
   const touches = [{
     identifier: 0,
     clientX: centerX,
@@ -55,23 +55,23 @@ async function pan(locator: Locator, deltaX?: number, deltaY?: number, steps?: n
   await locator.dispatchEvent('touchend');
 }
 
-test(`pan gesture to move the map`, async ({ page }) => {
+test(`平移手勢來移動地圖`, async ({ page }) => {
   await page.goto('https://www.google.com/maps/place/@37.4117722,-122.0713234,15z',
       { waitUntil: 'commit' });
   await page.getByRole('button', { name: 'Keep using web' }).click();
   await expect(page.getByRole('button', { name: 'Keep using web' })).not.toBeVisible();
-  // Get the map element.
+  // 取得地圖元素。
   const met = page.locator('[data-test-id="met"]');
   for (let i = 0; i < 5; i++)
     await pan(met, 200, 100);
-  // Ensure the map has been moved.
+  // 確保地圖已被移動。
   await expect(met).toHaveScreenshot();
 });
 ```
 
-### Emulating pinch gesture
+### 模擬縮放手勢
 
-In the example below, we emulate pinch gesture, i.e. two touch points moving closer to each other. It is expected to zoom out the map. The app under test only uses `clientX/clientY` coordinates of touch points, so we initialize just that. In a more complex scenario you may need to also set `pageX/pageY/screenX/screenY`, if your app needs them.
+在以下範例中，我們模擬縮放手勢，也就是兩個觸控點彼此靠近的動作。這預期會縮小地圖。受測試的應用程式只使用觸控點的 `clientX/clientY` 座標，因此我們只初始化這些項目。在更複雜的情況下，如果您的應用程式需要的話，您可能還需要設定 `pageX/pageY/screenX/screenY`。
 
 ```js
 import { test, expect, devices, type Locator } from '@playwright/test';
@@ -91,7 +91,7 @@ async function pinch(locator: Locator,
   const steps = arg.steps ?? 5;
   const stepDeltaX = deltaX / (steps + 1);
 
-  // Two touch points equally distant from the center of the element.
+  // 兩個與元素中心等距的觸控點。
   const touches = [
     {
       identifier: 0,
@@ -107,7 +107,7 @@ async function pinch(locator: Locator,
   await locator.dispatchEvent('touchstart',
       { touches, changedTouches: touches, targetTouches: touches });
 
-  // Move the touch points towards or away from each other.
+  // 將觸控點彼此靠近或遠離。
   for (let i = 1; i <= steps; i++) {
     const offset = (arg.direction === 'in' ? (deltaX - i * stepDeltaX) : (stepDeltaX * (i + 1)));
     const touches = [
@@ -129,16 +129,16 @@ async function pinch(locator: Locator,
   await locator.dispatchEvent('touchend', { touches: [], changedTouches: [], targetTouches: [] });
 }
 
-test(`pinch in gesture to zoom out the map`, async ({ page }) => {
+test(`縮放手勢來縮小地圖`, async ({ page }) => {
   await page.goto('https://www.google.com/maps/place/@37.4117722,-122.0713234,15z',
       { waitUntil: 'commit' });
   await page.getByRole('button', { name: 'Keep using web' }).click();
   await expect(page.getByRole('button', { name: 'Keep using web' })).not.toBeVisible();
-  // Get the map element.
+  // 取得地圖元素。
   const met = page.locator('[data-test-id="met"]');
   for (let i = 0; i < 5; i++)
     await pinch(met, { deltaX: 40, direction: 'in' });
-  // Ensure the map has been zoomed out.
+  // 確保地圖已被縮小。
   await expect(met).toHaveScreenshot();
 });
 ```

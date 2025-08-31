@@ -1,21 +1,21 @@
 ---
 id: touch-events
-title: "Touch events (legacy)"
+title: "觸控事件（舊版）"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Web applications that handle legacy [touch events](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events) to respond to gestures like swipe, pinch, and tap can be tested by manually dispatching [TouchEvent](https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent/TouchEvent)s to the page. The examples below demonstrate how to use [Locator.dispatchEvent()](/api/class-locator.mdx#locator-dispatch-event) and pass [Touch](https://developer.mozilla.org/en-US/docs/Web/API/Touch) points as arguments.
+處理舊版 [觸控事件](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events) 以回應滑動、縮放和點擊等手勢的網頁應用程式，可以透過手動分派 [TouchEvent](https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent/TouchEvent) 到頁面來進行測試。以下範例說明如何使用 [`Locator.dispatchEvent()`](/api/class-locator.mdx#locator-dispatch-event) 並將 [Touch](https://developer.mozilla.org/en-US/docs/Web/API/Touch) 點作為引數傳遞。
 
-Note that [Locator.dispatchEvent()](/api/class-locator.mdx#locator-dispatch-event) does not set [`Event.isTrusted`](https://developer.mozilla.org/en-US/docs/Web/API/Event/isTrusted) property. If your web page relies on it, make sure to disable `isTrusted` check during the test.
+請注意，[`Locator.dispatchEvent()`](/api/class-locator.mdx#locator-dispatch-event) 不會設定 [`Event.isTrusted`](https://developer.mozilla.org/en-US/docs/Web/API/Event/isTrusted) 屬性。如果您的網頁依賴此屬性，請確保在測試期間停用 `isTrusted` 檢查。
 
-### Emulating pan gesture
+### 模擬平移手勢
 
-In the example below, we emulate pan gesture that is expected to move the map. The app under test only uses `clientX/clientY` coordinates of the touch point, so we initialize just that. In a more complex scenario you may need to also set `pageX/pageY/screenX/screenY`, if your app needs them.
+在以下範例中，我們模擬預期會移動地圖的平移手勢。受測試的應用程式只使用觸控點的 `clientX/clientY` 座標，因此我們只初始化這些項目。在更複雜的情況下，如果您的應用程式需要的話，您可能還需要設定 `pageX/pageY/screenX/screenY`。
 
 ```java
 import com.microsoft.playwright.*;
@@ -86,9 +86,9 @@ public class TouchEvents {
 }
 ```
 
-### Emulating pinch gesture
+### 模擬縮放手勢
 
-In the example below, we emulate pinch gesture, i.e. two touch points moving closer to each other. It is expected to zoom out the map. The app under test only uses `clientX/clientY` coordinates of touch points, so we initialize just that. In a more complex scenario you may need to also set `pageX/pageY/screenX/screenY`, if your app needs them.
+在以下範例中，我們模擬縮放手勢，也就是兩個觸控點彼此靠近的動作。這預期會縮小地圖。受測試的應用程式只使用觸控點的 `clientX/clientY` 座標，因此我們只初始化這些項目。在更複雜的情況下，如果您的應用程式需要的話，您可能還需要設定 `pageX/pageY/screenX/screenY`。
 
 ```java
 import com.microsoft.playwright.*;
