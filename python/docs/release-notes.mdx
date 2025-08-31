@@ -193,7 +193,7 @@ expect(page.locator('body')).to_match_aria_snapshot('''
 
 You can generate this assertion with [Test Generator](./codegen) or by calling [locator.aria_snapshot()](/api/class-locator.mdx#locator-aria-snapshot).
 
-Learn more in the [aria snapshots guide](./aria-snapshots).
+在 [aria 快照指南](./aria-snapshots)中了解更多。
 
 ### 追蹤群組
 
@@ -210,7 +210,7 @@ page.context.tracing.group_end()
 
 ### Breaking: `chrome` 和 `msedge` 頻道切換到新的無頭模式
 
-This change affects you if you're using one of the following channels in your `playwright.config.ts`:
+如果您在 `playwright.config.ts` 中使用以下任一通道，此變更會影響您：
 - `chrome`, `chrome-dev`, `chrome-beta`, or `chrome-canary`
 - `msedge`, `msedge-dev`, `msedge-beta`, or `msedge-canary`
 
@@ -463,7 +463,7 @@ Evergreen browsers update.
 - [locator.press_sequentially()](/api/class-locator.mdx#locator-press-sequentially)
 
 ### 棄用
-* The following methods were deprecated: [page.type()](/api/class-page.mdx#page-type), [frame.type()](/api/class-frame.mdx#frame-type), [locator.type()](/api/class-locator.mdx#locator-type) and [element_handle.type()](/api/class-elementhandle.mdx#element-handle-type). Please use [locator.fill()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [locator.press_sequentially()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
+* 以下方法已棄用：[page.type()](/api/class-page.mdx#page-type)、[frame.type()](/api/class-frame.mdx#frame-type)、[locator.type()](/api/class-locator.mdx#locator-type) 和 [element_handle.type()](/api/class-elementhandle.mdx#element-handle-type)。請改用 [locator.fill()](/api/class-locator.mdx#locator-fill)，它快得多。只有當頁面上有特殊的鍵盤處理，並且您需要逐個按鍵時，才使用 [locator.press_sequentially()](/api/class-locator.mdx#locator-press-sequentially)。
 
 ### 瀏覽器版本
 * Chromium 117.0.5938.62
@@ -558,7 +558,7 @@ Linux support looks like this:
 ## 版本 1.33
 
 ### 定位器更新
-* Use [locator.or_()](/api/class-locator.mdx#locator-or) to create a locator that matches either of the two locators. Consider a scenario where you'd like to click on a "New email" button, but sometimes a security settings dialog shows up instead. In this case, you can wait for either a "New email" button, or a dialog and act accordingly:
+* 使用 [locator.or_()](/api/class-locator.mdx#locator-or) 建立符合兩個定位器其中之一的定位器。考慮這樣的情境：您想要點擊「新電子郵件」按鈕，但有時會出現安全性設定對話框。在這種情況下，您可以等待「新電子郵件」按鈕或對話框，並據此採取行動：
   
   ```python
   new_email = page.get_by_role("button", name="New email")
@@ -588,7 +588,7 @@ Linux support looks like this:
 - 新選項 [timeout](/api/class-route.mdx#route-fetch-選項-timeout) in [route.fetch()](/api/class-route.mdx#route-fetch)
 
 ### ⚠️ Breaking change
-* The `mcr.microsoft.com/playwright/python:v1.33.0` now serves a Playwright image based on Ubuntu Jammy. To use the focal-based image, please use `mcr.microsoft.com/playwright/python:v1.33.0-focal` instead.
+* `mcr.microsoft.com/playwright/python:v1.33.0` 現在提供基於 Ubuntu Jammy 的 Playwright 映像。若要使用基於 focal 的映像，請改用 `mcr.microsoft.com/playwright/python:v1.33.0-focal`。
 
 ### 瀏覽器版本
 * Chromium 113.0.5672.53
@@ -923,7 +923,7 @@ await context.route_from_har("github.har.zip")
 </TabItem>
 </Tabs>
 
-Read more in [our documentation](./mock.mdx#mocking-with-har-files).
+在[我們的文件](./mock.mdx#mocking-with-har-files)中閱讀更多。
 
 ### 進階路由
 

@@ -219,7 +219,7 @@ await Page.Context.Tracing.GroupEndAsync();
 
 ### Breaking: `chrome` 和 `msedge` 頻道切換到新的無頭模式
 
-This change affects you if you're using one of the following channels in your `playwright.config.ts`:
+如果您在 `playwright.config.ts` 中使用以下任一通道，此變更會影響您：
 - `chrome`, `chrome-dev`, `chrome-beta`, or `chrome-canary`
 - `msedge`, `msedge-dev`, `msedge-beta`, or `msedge-canary`
 
@@ -301,7 +301,7 @@ await page.RouteWebSocketAsync("/ws", ws => {
 
 ### 網路分頁改進
 
-The Network tab in the trace viewer has several nice improvements:
+追蹤檢視器中的網路索引標籤有幾項良好的改進：
 - filtering by asset type and URL
 - better display of query string parameters
 - preview of font assets
@@ -309,8 +309,8 @@ The Network tab in the trace viewer has several nice improvements:
 ![Network tab now has filters](https://github.com/user-attachments/assets/4bd1b67d-90bd-438b-a227-00b9e86872e2)
 
 ### 其他
-- The `mcr.microsoft.com/playwright/dotnet:v1.47.0` now serves a Playwright image based on Ubuntu 24.04 Noble. To use the 22.04 jammy-based image, please use `mcr.microsoft.com/playwright/dotnet:v1.47.0-jammy` instead.
-- The `:latest`/`:focal`/`:jammy` tag for Playwright Docker images is no longer being published. Pin to a specific version for better stability and reproducibility.
+- `mcr.microsoft.com/playwright/dotnet:v1.47.0` 現在提供基於 Ubuntu 24.04 Noble 的 Playwright 映像。若要使用基於 22.04 jammy 的映像，請改用 `mcr.microsoft.com/playwright/dotnet:v1.47.0-jammy`。
+- Playwright Docker 映像的 `:latest`/`:focal`/`:jammy` 標籤不再發布。為了更好的穩定性和可重現性，請固定到特定版本。
 - TLS client certificates 現在可以 be passed from memory by passing [ClientCertificates.Cert](/api/class-browser.mdx#browser-new-context-選項-client-certificates) and [ClientCertificates.Key](/api/class-browser.mdx#browser-new-context-選項-client-certificates) as byte arrays instead of file paths.
 - [NoWaitAfter](/api/class-locator.mdx#locator-select-選項-選項-no-wait-after) in [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-選項) was deprecated.
 - We've seen reports of WebGL in Webkit misbehaving on GitHub Actions `macos-13`. We recommend upgrading GitHub Actions to `macos-14`.
@@ -330,7 +330,7 @@ The Network tab in the trace viewer has several nice improvements:
 
 Playwright 現在允許提供用戶端憑證，以便伺服器可以根據 TLS 用戶端驗證的規定來驗證它們。
 
-You can provide client certificates as a parameter of [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) and [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context). The following snippet sets up a client certificate for `https://example.com`:
+您可以提供用戶端憑證作為 [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 和 [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 的參數。以下程式碼片段為 `https://example.com` 設定用戶端憑證：
 
 ```csharp
 var context = await Browser.NewContextAsync(new() {
@@ -367,7 +367,7 @@ var context = await Browser.NewContextAsync(new() {
 
 ### 時鐘
 
-Utilizing the new [Clock] API 允許 manipulate and control time within tests to verify time-related behavior. This API covers many common scenarios, including:
+利用新的 [Clock] API 允許在測試中操控和控制時間，以驗證與時間相關的行為。此 API 涵蓋許多常見情境，包括：
 * testing with predefined time;
 * keeping consistent time and timers;
 * monitoring inactivity;
