@@ -111,7 +111,7 @@
 - [x] nodejs/docs/frames.mdx
 - [x] nodejs/docs/getting-started-vscode.mdx
 - [ ] nodejs/docs/handles.mdx
-- [ ] nodejs/docs/input.mdx
+- [x] nodejs/docs/input.mdx
 - [x] nodejs/docs/intro.mdx
 - [x] nodejs/docs/languages.mdx
 - [ ] nodejs/docs/library.mdx
@@ -253,7 +253,7 @@
 - [x] nodejs/versioned_docs/version-stable/frames.mdx
 - [x] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
 - [ ] nodejs/versioned_docs/version-stable/handles.mdx
-- [ ] nodejs/versioned_docs/version-stable/input.mdx
+- [x] nodejs/versioned_docs/version-stable/input.mdx
 - [x] nodejs/versioned_docs/version-stable/intro.mdx
 - [x] nodejs/versioned_docs/version-stable/languages.mdx
 - [ ] nodejs/versioned_docs/version-stable/library.mdx
@@ -361,7 +361,7 @@
 - [x] python/docs/extensibility.mdx
 - [x] python/docs/frames.mdx
 - [ ] python/docs/handles.mdx
-- [ ] python/docs/input.mdx
+- [x] python/docs/input.mdx
 - [x] python/docs/intro.mdx
 - [x] python/docs/languages.mdx
 - [ ] python/docs/library.mdx
@@ -447,7 +447,7 @@
 - [x] python/versioned_docs/version-stable/extensibility.mdx
 - [x] python/versioned_docs/version-stable/frames.mdx
 - [ ] python/versioned_docs/version-stable/handles.mdx
-- [ ] python/versioned_docs/version-stable/input.mdx
+- [x] python/versioned_docs/version-stable/input.mdx
 - [x] python/versioned_docs/version-stable/intro.mdx
 - [x] python/versioned_docs/version-stable/languages.mdx
 - [ ] python/versioned_docs/version-stable/library.mdx
@@ -536,7 +536,7 @@
 - [x] java/docs/extensibility.mdx
 - [x] java/docs/frames.mdx
 - [ ] java/docs/handles.mdx
-- [ ] java/docs/input.mdx
+- [x] java/docs/input.mdx
 - [x] java/docs/intro.mdx
 - [ ] java/docs/junit.mdx
 - [x] java/docs/languages.mdx
@@ -626,7 +626,7 @@
 - [x] java/versioned_docs/version-stable/extensibility.mdx
 - [x] java/versioned_docs/version-stable/frames.mdx
 - [ ] java/versioned_docs/version-stable/handles.mdx
-- [ ] java/versioned_docs/version-stable/input.mdx
+- [x] java/versioned_docs/version-stable/input.mdx
 - [x] java/versioned_docs/version-stable/intro.mdx
 - [ ] java/versioned_docs/version-stable/junit.mdx
 - [x] java/versioned_docs/version-stable/languages.mdx
@@ -715,7 +715,7 @@
 - [x] dotnet/docs/extensibility.mdx
 - [x] dotnet/docs/frames.mdx
 - [ ] dotnet/docs/handles.mdx
-- [ ] dotnet/docs/input.mdx
+- [x] dotnet/docs/input.mdx
 - [x] dotnet/docs/intro.mdx
 - [x] dotnet/docs/languages.mdx
 - [ ] dotnet/docs/library.mdx
@@ -803,7 +803,7 @@
 - [x] dotnet/versioned_docs/version-stable/extensibility.mdx
 - [x] dotnet/versioned_docs/version-stable/frames.mdx
 - [ ] dotnet/versioned_docs/version-stable/handles.mdx
-- [ ] dotnet/versioned_docs/version-stable/input.mdx
+- [x] dotnet/versioned_docs/version-stable/input.mdx
 - [x] dotnet/versioned_docs/version-stable/intro.mdx
 - [x] dotnet/versioned_docs/version-stable/languages.mdx
 - [ ] dotnet/versioned_docs/version-stable/library.mdx
