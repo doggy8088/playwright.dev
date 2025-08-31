@@ -1,33 +1,33 @@
 ---
 id: navigations
-title: "Navigations"
+title: "導航"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright can navigate to URLs and handle navigations caused by the page interactions.
+Playwright 可以導航到 URL 並處理由頁面互動引起的導航。
 
-## Basic navigation
+## 基本導航
 
-Simplest form of a navigation is opening a URL:
+導航的最簡單形式是開啟 URL：
 
 ```csharp
-// Navigate the page
+// 導航頁面
 await page.GotoAsync("https://example.com");
 ```
 
-The code above loads the page and waits for the web page to fire the [load](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event) event. The load event is fired when the whole page has loaded, including all dependent resources such as stylesheets, scripts, iframes, and images.
+上面的程式碼載入頁面並等待網頁觸發 [load](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event) 事件。當整個頁面已載入時觸發 load 事件，包括所有相依資源，如樣式表、腳本、iframe 和圖片。
 
 :::note
 
-If the page does a client-side redirect before `load`, [Page.GotoAsync()](/api/class-page.mdx#page-goto) will wait for the redirected page to fire the `load` event.
+如果頁面在 `load` 之前進行用戶端重新導向，[`Page.GotoAsync()`](/api/class-page.mdx#page-goto) 將等待重新導向的頁面觸發 `load` 事件。
 :::
 
-## When is the page loaded?
+## 頁面何時載入？
 
 Modern pages perform numerous activities after the `load` event was fired. They fetch data lazily, populate UI, load expensive resources, scripts and styles after the `load` event was fired. There is no way to tell that the page is `loaded`, it depends on the page, framework, etc. So when can you start interacting with it?
 
