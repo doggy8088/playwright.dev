@@ -165,7 +165,7 @@ Partial matches let you create flexible snapshot tests that verify essential pag
 
 ### 嚴格比對
 
-By default, a template containing the subset of children will be matched:
+預設情況下，包含子元素子集的範本將會被比對：
 
 ```html
 <ul>
@@ -182,10 +182,10 @@ By default, a template containing the subset of children will be matched:
   - listitem: Feature B
 ```
 
-The `/children` property can be used to control how child elements are matched:
-- `contain` (default): Matches if all specified children are present in order
-- `equal`: Matches if the children exactly match the specified list in order
-- `deep-equal`: Matches if the children exactly match the specified list in order, including nested children
+`/children` 屬性可用於控制子元素的比對方式：
+- `contain`（預設）：如果所有指定的子元素按順序存在則比對
+- `equal`：如果子元素完全按順序符合指定清單則比對
+- `equal`：如果子元素完全按順序符合指定清單則比對
 
 ```html
 <ul>
@@ -206,7 +206,7 @@ The `/children` property can be used to control how child elements are matched:
 
 ### 使用正規表示式比對
 
-Regular expressions allow flexible matching for elements with dynamic or variable text. Accessible names and text can support regex patterns.
+正規表示式允許對具有動態或可變文字的元素進行靈活比對。無障礙名稱和文字可以支援正規表示式模式。
 
 ```html
 <h1>Issues 12</h1>
@@ -220,17 +220,17 @@ Regular expressions allow flexible matching for elements with dynamic or variabl
 
 ## 產生快照
 
-Creating aria snapshots in Playwright helps ensure and maintain your application's structure. You can generate snapshots in various ways depending on your testing setup and workflow.
+在 Playwright 中建立 aria 快照有助於確保和維護您應用程式的結構。您可以根據測試設定和工作流程以各種方式產生快照。
 
 ### 使用 Playwright 程式碼產生器產生快照
 
-If you're using Playwright's [Code Generator](./codegen.mdx), generating aria snapshots is streamlined with its interactive interface:
-- **"Assert snapshot" Action**: In the code generator, you can use the "Assert snapshot" action to automatically create a snapshot assertion for the selected elements. This is a quick way to capture the aria snapshot as part of your recorded test flow.
-- **"Aria snapshot" Tab**: The "Aria snapshot" tab within the code generator interface visually represents the aria snapshot for a selected locator, letting you explore, inspect, and verify element roles, attributes, and accessible names to aid snapshot creation and review.
+如果您使用 Playwright 的 [程式碼產生器](./codegen.mdx)，透過其互動式介面產生 aria 快照會變得非常簡潔：
+- **「Assert snapshot」動作**：在程式碼產生器中，您可以使用「Assert snapshot」動作為選定的元素自動建立快照斷言。這是將 aria 快照作為錄製測試流程一部分捕獲的快速方法。
+- **「Aria snapshot」分頁**：程式碼產生器介面中的「Aria snapshot」分頁會視覺化地表示選定定位器的 aria 快照，讓您探索、檢查和驗證元素角色、屬性和無障礙名稱，以協助快照建立和檢閱。
 
 ### 使用 `Locator.ariaSnapshot` 方法
 
-The [Locator.ariaSnapshot()](/api/class-locator.mdx#locator-aria-snapshot) method allows you to programmatically create a YAML representation of accessible elements within a locator's scope, especially helpful for generating snapshots dynamically during test execution.
+[Locator.ariaSnapshot()].*方法讓您能夠以程式化方式建立定位器範圍內無障礙元素的 YAML 表示法，這對於在測試執行期間動態產生快照特別有幫助。
 
 **Example**:
 
@@ -239,7 +239,7 @@ String snapshot = page.locator("body").ariaSnapshot();
 System.out.println(snapshot);
 ```
 
-This command outputs the aria snapshot within the specified locator's scope in YAML format, which you can validate or store as needed.
+此指令會以 YAML 格式輸出指定定位器範圍內的 aria 快照，您可以根據需要進行驗證或儲存。
 
 ## 無障礙樹範例
 
@@ -261,7 +261,7 @@ Headings can include a `level` attribute indicating their heading level.
 
 ### 文字節點
 
-Standalone or descriptive text elements appear as text nodes.
+獨立或描述性文字元素會顯示為文字節點。
 
 ```html
 <div>Sample accessible name</div>
@@ -275,7 +275,7 @@ Standalone or descriptive text elements appear as text nodes.
 
 ### 行內多行文字
 
-Multiline text, such as paragraphs, is normalized in the aria snapshot.
+多行文字（如段落）在 aria 快照中會被正規化。
 
 ```html
 <p>Line 1<br>Line 2</p>
@@ -289,7 +289,7 @@ Multiline text, such as paragraphs, is normalized in the aria snapshot.
 
 ### 連結
 
-Links display their text or composed content from pseudo-elements.
+連結會顯示其文字或由偽元素組成的內容。
 
 ```html
 <a href="#more-info">Read more about Accessibility</a>
@@ -303,7 +303,7 @@ Links display their text or composed content from pseudo-elements.
 
 ### 文字方塊
 
-Input elements of type `text` show their `value` attribute content.
+類型為 `text` 的輸入元素會顯示其 `value` 屬性內容。
 
 ```html
 <input type="text" value="Enter your name">
@@ -317,7 +317,7 @@ Input elements of type `text` show their `value` attribute content.
 
 ### 含項目的清單
 
-Ordered and unordered lists include their list items.
+有序和無序清單包含其清單項目。
 
 ```html
 <ul aria-label="Main Features">
@@ -336,7 +336,7 @@ Ordered and unordered lists include their list items.
 
 ### 群組元素
 
-Groups capture nested elements, such as `<details>` elements with summary content.
+群組會捕獲巢狀元素，例如包含摘要內容的 `<details>` 元素。
 
 ```html
 <details>
@@ -353,7 +353,7 @@ Groups capture nested elements, such as `<details>` elements with summary conten
 
 ### 屬性和狀態
 
-Commonly used ARIA attributes, like `checked`, `disabled`, `expanded`, `level`, `pressed`, and `selected`, represent control states.
+常用的 ARIA 屬性，如 `checked`、`disabled`、`expanded`、`level`、`pressed` 和 `selected`，代表控制項狀態。
 
 #### 帶有 `checked` 屬性的核取方塊
 
