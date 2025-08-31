@@ -7,19 +7,19 @@ import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright executes tests in isolated environments called [browser contexts](./browser-contexts.mdx). This isolation model improves reproducibility and prevents cascading test failures. Tests can load existing authenticated state. This eliminates the need to authenticate in every test and speeds up test execution.
+Playwright 在名為[瀏覽器情境](./browser-contexts.mdx)的隔離環境中執行測試。這種隔離模型提高了可重現性並防止連鎖測試失敗。測試可以載入現有的已驗證狀態，這消除了在每個測試中進行驗證的需要，並加快了測試執行速度。
 
-## Core concepts
+## 核心概念
 
-Regardless of the authentication strategy you choose, you are likely to store authenticated browser state on the file system.
+無論您選擇哪種驗證策略，您都可能會將已驗證的瀏覽器狀態儲存在檔案系統上。
 
-We recommend to create `playwright/.auth` directory and add it to your `.gitignore`. Your authentication routine will produce authenticated browser state and save it to a file in this `playwright/.auth` directory. Later on, tests will reuse this state and start already authenticated.
+我們建議建立 `playwright/.auth` 目錄並將其加入您的 `.gitignore`。您的驗證程序將產生已驗證的瀏覽器狀態，並將其儲存到此 `playwright/.auth` 目錄中的檔案。稍後，測試將重用此狀態並以已驗證的方式開始。
 
 :::danger
 
-The browser state file may contain sensitive cookies and headers that could be used to impersonate you or your test account. We strongly discourage checking them into private or public repositories.
+瀏覽器狀態檔案可能包含敏感的 cookies 和標頭，這些可能被用來冒充您或您的測試帳戶。我們強烈建議不要將它們提交到私人或公共儲存庫。
 :::
 
 <Tabs
@@ -58,11 +58,11 @@ echo "playwright/.auth" >> .gitignore
 </TabItem>
 </Tabs>
 
-## Signing in before each test
+## 在每個測試前登入
 
-The Playwright API can [automate interaction](./input.mdx) with a login form.
+Playwright API 可以[自動化互動](./input.mdx)登入表單。
 
-The following example logs into GitHub. Once these steps are executed, the browser context will be authenticated.
+以下範例登入 GitHub。一旦執行這些步驟，瀏覽器情境將會被驗證。
 
 <Tabs
   groupId="python-flavor"
@@ -78,11 +78,11 @@ The following example logs into GitHub. Once these steps are executed, the brows
 page = context.new_page()
 page.goto('https://github.com/login')
 
-# Interact with login form
+# 與登入表單互動
 page.get_by_label("Username or email address").fill("username")
 page.get_by_label("Password").fill("password")
 page.get_by_role("button", name="Sign in").click()
-# Continue with the test
+# 繼續進行測試
 ```
 
 </TabItem>
@@ -92,27 +92,27 @@ page.get_by_role("button", name="Sign in").click()
 page = await context.new_page()
 await page.goto('https://github.com/login')
 
-# Interact with login form
+# 與登入表單互動
 await page.get_by_label("Username or email address").fill("username")
 await page.get_by_label("Password").fill("password")
 await page.get_by_role("button", name="Sign in").click()
-# Continue with the test
+# 繼續進行測試
 ```
 
 </TabItem>
 </Tabs>
 
-Redoing login for every test can slow down test execution. To mitigate that, reuse existing authentication state instead.
+為每個測試重新登入可能會減慢測試執行速度。為了減輕這種情況，請重用現有的驗證狀態。
 
-## Reusing signed in state
+## 重用已登入狀態
 
-Playwright provides a way to reuse the signed-in state in the tests. That way you can log in only once and then skip the log in step for all of the tests.
+Playwright 提供了一種在測試中重用已登入狀態的方法。這樣您只需登入一次，然後跳過所有測試的登入步驟。
 
-Web apps use cookie-based or token-based authentication, where authenticated state is stored as [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies), in [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage) or in [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). Playwright provides [browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state) method that can be used to retrieve storage state from authenticated contexts and then create new contexts with prepopulated state.
+Web 應用程式使用基於 cookie 或基於 token 的驗證，其中已驗證狀態儲存為 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)、[本地儲存](https://developer.mozilla.org/en-US/docs/Web/API/Storage)或 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)。Playwright 提供 [browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state) 方法，可用於從已驗證的情境檢索儲存狀態，然後建立具有預填充狀態的新情境。
 
-Cookies, local storage and IndexedDB state can be used across different browsers. They depend on your application's authentication model which may require some combination of cookies, local storage or IndexedDB.
+Cookies、本地儲存和 IndexedDB 狀態可以跨不同瀏覽器使用。它們取決於您應用程式的驗證模型，可能需要 cookies、本地儲存或 IndexedDB 的某種組合。
 
-The following code snippet retrieves state from an authenticated context and creates a new context with that state.
+以下程式碼片段從已驗證的情境檢索狀態並使用該狀態建立新情境。
 
 <Tabs
   groupId="python-flavor"
@@ -125,10 +125,10 @@ The following code snippet retrieves state from an authenticated context and cre
 <TabItem value="sync">
 
 ```py
-# Save storage state into the file.
+# 將儲存狀態儲存到檔案中。
 storage = context.storage_state(path="state.json")
 
-# Create a new context with the saved storage state.
+# 使用已儲存的儲存狀態建立新情境。
 context = browser.new_context(storage_state="state.json")
 ```
 
@@ -136,21 +136,21 @@ context = browser.new_context(storage_state="state.json")
 <TabItem value="async">
 
 ```py
-# Save storage state into the file.
+# 將儲存狀態儲存到檔案中。
 storage = await context.storage_state(path="state.json")
 
-# Create a new context with the saved storage state.
+# 使用已儲存的儲存狀態建立新情境。
 context = await browser.new_context(storage_state="state.json")
 ```
 
 </TabItem>
 </Tabs>
 
-## Advanced scenarios
+## 進階情境
 
 ### Session storage
 
-Reusing authenticated state covers [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies), [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage) and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) based authentication. Rarely, [session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is used for storing information associated with the signed-in state. Session storage is specific to a particular domain and is not persisted across page loads. Playwright does not provide API to persist session storage, but the following snippet can be used to save/load session storage.
+重用已驗證狀態涵蓋基於 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)、[本地儲存](https://developer.mozilla.org/en-US/docs/Web/API/Storage)和 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 的驗證。很少情況下，[session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 用於儲存與已登入狀態相關的資訊。Session storage 特定於特定網域，不會跨頁面載入持續存在。Playwright 不提供持續存儲 session storage 的 API，但可以使用以下程式碼片段來儲存/載入 session storage。
 
 <Tabs
   groupId="python-flavor"
@@ -164,11 +164,11 @@ Reusing authenticated state covers [cookies](https://developer.mozilla.org/en-US
 
 ```py
 import os
-# Get session storage and store as env variable
+# 取得 session storage 並儲存為環境變數
 session_storage = page.evaluate("() => JSON.stringify(sessionStorage)")
 os.environ["SESSION_STORAGE"] = session_storage
 
-# Set session storage in a new context
+# 在新情境中設定 session storage
 session_storage = os.environ["SESSION_STORAGE"]
 context.add_init_script("""(storage => {
   if (window.location.hostname === 'example.com') {
@@ -185,11 +185,11 @@ context.add_init_script("""(storage => {
 
 ```py
 import os
-# Get session storage and store as env variable
+# 取得 session storage 並儲存為環境變數
 session_storage = await page.evaluate("() => JSON.stringify(sessionStorage)")
 os.environ["SESSION_STORAGE"] = session_storage
 
-# Set session storage in a new context
+# 在新情境中設定 session storage
 session_storage = os.environ["SESSION_STORAGE"]
 await context.add_init_script("""(storage => {
   if (window.location.hostname === 'example.com') {
@@ -197,6 +197,7 @@ await context.add_init_script("""(storage => {
     for (const [key, value] of Object.entries(entries)) {
       window.sessionStorage.setItem(key, value)
     }
+  }
   }
 })('""" + session_storage + "')")
 ```
