@@ -8,18 +8,18 @@
 
 總計：790 檔
 
-更新時間：2025-08-31T07:03:06.012Z
+更新時間：2025-08-30T16:00:41.925Z
 
 ## 社群（community）（2）
 
-- [ ] community/0-welcome.mdx
-- [ ] community/ambassadors.mdx
+- [x] community/0-welcome.mdx
+- [x] community/ambassadors.mdx
 
 ## Node.js（nodejs/docs）（139）
 
-- [ ] nodejs/docs/accessibility-testing.mdx
-- [ ] nodejs/docs/actionability.mdx
-- [ ] nodejs/docs/api-testing.mdx
+- [x] nodejs/docs/accessibility-testing.mdx
+- [x] nodejs/docs/actionability.mdx
+- [x] nodejs/docs/api-testing.mdx
 - [ ] nodejs/docs/api/class-accessibility.mdx
 - [ ] nodejs/docs/api/class-android.mdx
 - [ ] nodejs/docs/api/class-androiddevice.mdx
@@ -88,17 +88,18 @@
 - [ ] nodejs/docs/api/class-websocketroute.mdx
 - [ ] nodejs/docs/api/class-worker.mdx
 - [ ] nodejs/docs/api/class-workerinfo.mdx
-- [ ] nodejs/docs/aria-snapshots.mdx
-- [ ] nodejs/docs/auth.mdx
-- [ ] nodejs/docs/best-practices.mdx
-- [ ] nodejs/docs/browser-contexts.mdx
-- [ ] nodejs/docs/browsers.mdx
+- [x] nodejs/docs/aria-snapshots.mdx
+- [x] nodejs/docs/auth.mdx
+- [x] nodejs/docs/best-practices.mdx
+- [x] nodejs/docs/browser-contexts.mdx
+- [x] nodejs/docs/browsers.mdx
 - [ ] nodejs/docs/canary-releases.mdx
 - [ ] nodejs/docs/chrome-extensions.mdx
 - [ ] nodejs/docs/ci-intro.mdx
 - [ ] nodejs/docs/ci.mdx
 - [ ] nodejs/docs/clock.mdx
-- [ ] nodejs/docs/codegen-intro.mdx
+- [x] nodejs/docs/codegen-intro.mdx
+- [ ] nodejs/docs/codegen.mdx
 - [ ] nodejs/docs/codegen.mdx
 - [ ] nodejs/docs/debug.mdx
 - [ ] nodejs/docs/dialogs.mdx
@@ -107,15 +108,15 @@
 - [ ] nodejs/docs/emulation.mdx
 - [ ] nodejs/docs/evaluating.mdx
 - [ ] nodejs/docs/events.mdx
-- [ ] nodejs/docs/extensibility.mdx
+- [x] nodejs/docs/extensibility.mdx
 - [ ] nodejs/docs/frames.mdx
 - [ ] nodejs/docs/getting-started-vscode.mdx
 - [ ] nodejs/docs/handles.mdx
 - [ ] nodejs/docs/input.mdx
-- [ ] nodejs/docs/intro.mdx
+- [x] nodejs/docs/intro.mdx
 - [ ] nodejs/docs/languages.mdx
 - [ ] nodejs/docs/library.mdx
-- [ ] nodejs/docs/locators.mdx
+- [x] nodejs/docs/locators.mdx
 - [x] nodejs/docs/mock-browser.mdx
 - [ ] nodejs/docs/mock.mdx
 - [ ] nodejs/docs/navigations.mdx
@@ -126,12 +127,12 @@
 - [ ] nodejs/docs/protractor.mdx
 - [ ] nodejs/docs/puppeteer.mdx
 - [ ] nodejs/docs/release-notes.mdx
-- [ ] nodejs/docs/running-tests.mdx
+- [x] nodejs/docs/running-tests.mdx
 - [ ] nodejs/docs/screenshots.mdx
 - [ ] nodejs/docs/selenium-grid.mdx
 - [ ] nodejs/docs/service-workers-experimental-network-events.mdx
 - [ ] nodejs/docs/test-annotations.mdx
-- [ ] nodejs/docs/test-assertions.mdx
+- [x] nodejs/docs/test-assertions.mdx
 - [ ] nodejs/docs/test-cli.mdx
 - [ ] nodejs/docs/test-components.mdx
 - [ ] nodejs/docs/test-configuration.mdx
@@ -151,17 +152,17 @@
 - [ ] nodejs/docs/test-webserver.mdx
 - [ ] nodejs/docs/testing-library.mdx
 - [ ] nodejs/docs/touch-events.mdx
-- [ ] nodejs/docs/trace-viewer-intro.mdx
+- [x] nodejs/docs/trace-viewer-intro.mdx
 - [ ] nodejs/docs/trace-viewer.mdx
 - [ ] nodejs/docs/videos.mdx
-- [ ] nodejs/docs/webview2.mdx
-- [ ] nodejs/docs/writing-tests.mdx
+- [x] nodejs/docs/webview2.mdx
+- [x] nodejs/docs/writing-tests.mdx
 
 ## Node.js（nodejs/versioned_docs）（139）
 
-- [ ] nodejs/versioned_docs/version-stable/accessibility-testing.mdx
-- [ ] nodejs/versioned_docs/version-stable/actionability.mdx
-- [ ] nodejs/versioned_docs/version-stable/api-testing.mdx
+- [x] nodejs/versioned_docs/version-stable/accessibility-testing.mdx
+- [x] nodejs/versioned_docs/version-stable/actionability.mdx
+- [x] nodejs/versioned_docs/version-stable/api-testing.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-accessibility.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-android.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-androiddevice.mdx
@@ -230,17 +231,17 @@
 - [ ] nodejs/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-worker.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-workerinfo.mdx
-- [ ] nodejs/versioned_docs/version-stable/aria-snapshots.mdx
-- [ ] nodejs/versioned_docs/version-stable/auth.mdx
-- [ ] nodejs/versioned_docs/version-stable/best-practices.mdx
-- [ ] nodejs/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] nodejs/versioned_docs/version-stable/browsers.mdx
+- [x] nodejs/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] nodejs/versioned_docs/version-stable/auth.mdx
+- [x] nodejs/versioned_docs/version-stable/best-practices.mdx
+- [x] nodejs/versioned_docs/version-stable/browser-contexts.mdx
+- [x] nodejs/versioned_docs/version-stable/browsers.mdx
 - [ ] nodejs/versioned_docs/version-stable/canary-releases.mdx
 - [ ] nodejs/versioned_docs/version-stable/chrome-extensions.mdx
 - [ ] nodejs/versioned_docs/version-stable/ci-intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/ci.mdx
 - [ ] nodejs/versioned_docs/version-stable/clock.mdx
-- [ ] nodejs/versioned_docs/version-stable/codegen-intro.mdx
+- [x] nodejs/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/codegen.mdx
 - [ ] nodejs/versioned_docs/version-stable/debug.mdx
 - [ ] nodejs/versioned_docs/version-stable/dialogs.mdx
@@ -249,15 +250,15 @@
 - [ ] nodejs/versioned_docs/version-stable/emulation.mdx
 - [ ] nodejs/versioned_docs/version-stable/evaluating.mdx
 - [ ] nodejs/versioned_docs/version-stable/events.mdx
-- [ ] nodejs/versioned_docs/version-stable/extensibility.mdx
+- [x] nodejs/versioned_docs/version-stable/extensibility.mdx
 - [ ] nodejs/versioned_docs/version-stable/frames.mdx
 - [ ] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
 - [ ] nodejs/versioned_docs/version-stable/handles.mdx
 - [ ] nodejs/versioned_docs/version-stable/input.mdx
-- [ ] nodejs/versioned_docs/version-stable/intro.mdx
+- [x] nodejs/versioned_docs/version-stable/intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/languages.mdx
 - [ ] nodejs/versioned_docs/version-stable/library.mdx
-- [ ] nodejs/versioned_docs/version-stable/locators.mdx
+- [x] nodejs/versioned_docs/version-stable/locators.mdx
 - [x] nodejs/versioned_docs/version-stable/mock-browser.mdx
 - [ ] nodejs/versioned_docs/version-stable/mock.mdx
 - [ ] nodejs/versioned_docs/version-stable/navigations.mdx
@@ -268,12 +269,12 @@
 - [ ] nodejs/versioned_docs/version-stable/protractor.mdx
 - [ ] nodejs/versioned_docs/version-stable/puppeteer.mdx
 - [ ] nodejs/versioned_docs/version-stable/release-notes.mdx
-- [ ] nodejs/versioned_docs/version-stable/running-tests.mdx
+- [x] nodejs/versioned_docs/version-stable/running-tests.mdx
 - [ ] nodejs/versioned_docs/version-stable/screenshots.mdx
 - [ ] nodejs/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] nodejs/versioned_docs/version-stable/service-workers-experimental-network-events.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-annotations.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-assertions.mdx
+- [x] nodejs/versioned_docs/version-stable/test-assertions.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-cli.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-components.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-configuration.mdx
@@ -293,16 +294,16 @@
 - [ ] nodejs/versioned_docs/version-stable/test-webserver.mdx
 - [ ] nodejs/versioned_docs/version-stable/testing-library.mdx
 - [ ] nodejs/versioned_docs/version-stable/touch-events.mdx
-- [ ] nodejs/versioned_docs/version-stable/trace-viewer-intro.mdx
+- [x] nodejs/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] nodejs/versioned_docs/version-stable/videos.mdx
-- [ ] nodejs/versioned_docs/version-stable/webview2.mdx
-- [ ] nodejs/versioned_docs/version-stable/writing-tests.mdx
+- [x] nodejs/versioned_docs/version-stable/webview2.mdx
+- [x] nodejs/versioned_docs/version-stable/writing-tests.mdx
 
 ## Python（python/docs）（83）
 
-- [ ] python/docs/actionability.mdx
-- [ ] python/docs/api-testing.mdx
+- [x] python/docs/actionability.mdx
+- [x] python/docs/api-testing.mdx
 - [ ] python/docs/api/class-accessibility.mdx
 - [ ] python/docs/api/class-apirequest.mdx
 - [ ] python/docs/api/class-apirequestcontext.mdx
@@ -341,10 +342,10 @@
 - [ ] python/docs/api/class-websocket.mdx
 - [ ] python/docs/api/class-websocketroute.mdx
 - [ ] python/docs/api/class-worker.mdx
-- [ ] python/docs/aria-snapshots.mdx
-- [ ] python/docs/auth.mdx
-- [ ] python/docs/browser-contexts.mdx
-- [ ] python/docs/browsers.mdx
+- [x] python/docs/aria-snapshots.mdx
+- [x] python/docs/auth.mdx
+- [x] python/docs/browser-contexts.mdx
+- [x] python/docs/browsers.mdx
 - [ ] python/docs/chrome-extensions.mdx
 - [ ] python/docs/ci-intro.mdx
 - [ ] python/docs/ci.mdx
@@ -358,11 +359,11 @@
 - [ ] python/docs/emulation.mdx
 - [ ] python/docs/evaluating.mdx
 - [ ] python/docs/events.mdx
-- [ ] python/docs/extensibility.mdx
+- [x] python/docs/extensibility.mdx
 - [ ] python/docs/frames.mdx
 - [ ] python/docs/handles.mdx
 - [ ] python/docs/input.mdx
-- [ ] python/docs/intro.mdx
+- [x] python/docs/intro.mdx
 - [ ] python/docs/languages.mdx
 - [ ] python/docs/library.mdx
 - [ ] python/docs/locators.mdx
@@ -382,13 +383,13 @@
 - [ ] python/docs/trace-viewer-intro.mdx
 - [ ] python/docs/trace-viewer.mdx
 - [ ] python/docs/videos.mdx
-- [ ] python/docs/webview2.mdx
-- [ ] python/docs/writing-tests.mdx
+- [x] python/docs/webview2.mdx
+- [x] python/docs/writing-tests.mdx
 
 ## Python（python/versioned_docs）（83）
 
-- [ ] python/versioned_docs/version-stable/actionability.mdx
-- [ ] python/versioned_docs/version-stable/api-testing.mdx
+- [x] python/versioned_docs/version-stable/actionability.mdx
+- [x] python/versioned_docs/version-stable/api-testing.mdx
 - [ ] python/versioned_docs/version-stable/api/class-accessibility.mdx
 - [ ] python/versioned_docs/version-stable/api/class-apirequest.mdx
 - [ ] python/versioned_docs/version-stable/api/class-apirequestcontext.mdx
@@ -427,10 +428,10 @@
 - [ ] python/versioned_docs/version-stable/api/class-websocket.mdx
 - [ ] python/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] python/versioned_docs/version-stable/api/class-worker.mdx
-- [ ] python/versioned_docs/version-stable/aria-snapshots.mdx
-- [ ] python/versioned_docs/version-stable/auth.mdx
-- [ ] python/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] python/versioned_docs/version-stable/browsers.mdx
+- [x] python/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] python/versioned_docs/version-stable/auth.mdx
+- [x] python/versioned_docs/version-stable/browser-contexts.mdx
+- [x] python/versioned_docs/version-stable/browsers.mdx
 - [ ] python/versioned_docs/version-stable/chrome-extensions.mdx
 - [ ] python/versioned_docs/version-stable/ci-intro.mdx
 - [ ] python/versioned_docs/version-stable/ci.mdx
@@ -444,11 +445,11 @@
 - [ ] python/versioned_docs/version-stable/emulation.mdx
 - [ ] python/versioned_docs/version-stable/evaluating.mdx
 - [ ] python/versioned_docs/version-stable/events.mdx
-- [ ] python/versioned_docs/version-stable/extensibility.mdx
+- [x] python/versioned_docs/version-stable/extensibility.mdx
 - [ ] python/versioned_docs/version-stable/frames.mdx
 - [ ] python/versioned_docs/version-stable/handles.mdx
 - [ ] python/versioned_docs/version-stable/input.mdx
-- [ ] python/versioned_docs/version-stable/intro.mdx
+- [x] python/versioned_docs/version-stable/intro.mdx
 - [ ] python/versioned_docs/version-stable/languages.mdx
 - [ ] python/versioned_docs/version-stable/library.mdx
 - [ ] python/versioned_docs/version-stable/locators.mdx
@@ -468,14 +469,14 @@
 - [ ] python/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] python/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] python/versioned_docs/version-stable/videos.mdx
-- [ ] python/versioned_docs/version-stable/webview2.mdx
-- [ ] python/versioned_docs/version-stable/writing-tests.mdx
+- [x] python/versioned_docs/version-stable/webview2.mdx
+- [x] python/versioned_docs/version-stable/writing-tests.mdx
 
 ## Java（java/docs）（87）
 
-- [ ] java/docs/accessibility-testing.mdx
-- [ ] java/docs/actionability.mdx
-- [ ] java/docs/api-testing.mdx
+- [x] java/docs/accessibility-testing.mdx
+- [x] java/docs/actionability.mdx
+- [x] java/docs/api-testing.mdx
 - [ ] java/docs/api/class-apirequest.mdx
 - [ ] java/docs/api/class-apirequestcontext.mdx
 - [ ] java/docs/api/class-apiresponse.mdx
@@ -517,10 +518,10 @@
 - [ ] java/docs/api/class-websocketframe.mdx
 - [ ] java/docs/api/class-websocketroute.mdx
 - [ ] java/docs/api/class-worker.mdx
-- [ ] java/docs/aria-snapshots.mdx
-- [ ] java/docs/auth.mdx
-- [ ] java/docs/browser-contexts.mdx
-- [ ] java/docs/browsers.mdx
+- [x] java/docs/aria-snapshots.mdx
+- [x] java/docs/auth.mdx
+- [x] java/docs/browser-contexts.mdx
+- [x] java/docs/browsers.mdx
 - [ ] java/docs/ci-intro.mdx
 - [ ] java/docs/ci.mdx
 - [ ] java/docs/clock.mdx
@@ -533,11 +534,11 @@
 - [ ] java/docs/emulation.mdx
 - [ ] java/docs/evaluating.mdx
 - [ ] java/docs/events.mdx
-- [ ] java/docs/extensibility.mdx
+- [x] java/docs/extensibility.mdx
 - [ ] java/docs/frames.mdx
 - [ ] java/docs/handles.mdx
 - [ ] java/docs/input.mdx
-- [ ] java/docs/intro.mdx
+- [x] java/docs/intro.mdx
 - [ ] java/docs/junit.mdx
 - [ ] java/docs/languages.mdx
 - [ ] java/docs/locators.mdx
@@ -558,14 +559,14 @@
 - [ ] java/docs/trace-viewer-intro.mdx
 - [ ] java/docs/trace-viewer.mdx
 - [ ] java/docs/videos.mdx
-- [ ] java/docs/webview2.mdx
+- [x] java/docs/webview2.mdx
 - [ ] java/docs/writing-tests.mdx
 
 ## Java（java/versioned_docs）（87）
 
-- [ ] java/versioned_docs/version-stable/accessibility-testing.mdx
-- [ ] java/versioned_docs/version-stable/actionability.mdx
-- [ ] java/versioned_docs/version-stable/api-testing.mdx
+- [x] java/versioned_docs/version-stable/accessibility-testing.mdx
+- [x] java/versioned_docs/version-stable/actionability.mdx
+- [x] java/versioned_docs/version-stable/api-testing.mdx
 - [ ] java/versioned_docs/version-stable/api/class-apirequest.mdx
 - [ ] java/versioned_docs/version-stable/api/class-apirequestcontext.mdx
 - [ ] java/versioned_docs/version-stable/api/class-apiresponse.mdx
@@ -607,10 +608,10 @@
 - [ ] java/versioned_docs/version-stable/api/class-websocketframe.mdx
 - [ ] java/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] java/versioned_docs/version-stable/api/class-worker.mdx
-- [ ] java/versioned_docs/version-stable/aria-snapshots.mdx
-- [ ] java/versioned_docs/version-stable/auth.mdx
-- [ ] java/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] java/versioned_docs/version-stable/browsers.mdx
+- [x] java/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] java/versioned_docs/version-stable/auth.mdx
+- [x] java/versioned_docs/version-stable/browser-contexts.mdx
+- [x] java/versioned_docs/version-stable/browsers.mdx
 - [ ] java/versioned_docs/version-stable/ci-intro.mdx
 - [ ] java/versioned_docs/version-stable/ci.mdx
 - [ ] java/versioned_docs/version-stable/clock.mdx
@@ -623,11 +624,11 @@
 - [ ] java/versioned_docs/version-stable/emulation.mdx
 - [ ] java/versioned_docs/version-stable/evaluating.mdx
 - [ ] java/versioned_docs/version-stable/events.mdx
-- [ ] java/versioned_docs/version-stable/extensibility.mdx
+- [x] java/versioned_docs/version-stable/extensibility.mdx
 - [ ] java/versioned_docs/version-stable/frames.mdx
 - [ ] java/versioned_docs/version-stable/handles.mdx
 - [ ] java/versioned_docs/version-stable/input.mdx
-- [ ] java/versioned_docs/version-stable/intro.mdx
+- [x] java/versioned_docs/version-stable/intro.mdx
 - [ ] java/versioned_docs/version-stable/junit.mdx
 - [ ] java/versioned_docs/version-stable/languages.mdx
 - [ ] java/versioned_docs/version-stable/locators.mdx
@@ -648,13 +649,13 @@
 - [ ] java/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] java/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] java/versioned_docs/version-stable/videos.mdx
-- [ ] java/versioned_docs/version-stable/webview2.mdx
+- [x] java/versioned_docs/version-stable/webview2.mdx
 - [ ] java/versioned_docs/version-stable/writing-tests.mdx
 
 ## .NET（dotnet/docs）（85）
 
-- [ ] dotnet/docs/actionability.mdx
-- [ ] dotnet/docs/api-testing.mdx
+- [x] dotnet/docs/actionability.mdx
+- [x] dotnet/docs/api-testing.mdx
 - [ ] dotnet/docs/api/class-accessibility.mdx
 - [ ] dotnet/docs/api/class-apirequest.mdx
 - [ ] dotnet/docs/api/class-apirequestcontext.mdx
@@ -696,10 +697,10 @@
 - [ ] dotnet/docs/api/class-websocketframe.mdx
 - [ ] dotnet/docs/api/class-websocketroute.mdx
 - [ ] dotnet/docs/api/class-worker.mdx
-- [ ] dotnet/docs/aria-snapshots.mdx
-- [ ] dotnet/docs/auth.mdx
-- [ ] dotnet/docs/browser-contexts.mdx
-- [ ] dotnet/docs/browsers.mdx
+- [x] dotnet/docs/aria-snapshots.mdx
+- [x] dotnet/docs/auth.mdx
+- [x] dotnet/docs/browser-contexts.mdx
+- [x] dotnet/docs/browsers.mdx
 - [ ] dotnet/docs/ci-intro.mdx
 - [ ] dotnet/docs/ci.mdx
 - [ ] dotnet/docs/clock.mdx
@@ -712,11 +713,11 @@
 - [ ] dotnet/docs/emulation.mdx
 - [ ] dotnet/docs/evaluating.mdx
 - [ ] dotnet/docs/events.mdx
-- [ ] dotnet/docs/extensibility.mdx
+- [x] dotnet/docs/extensibility.mdx
 - [ ] dotnet/docs/frames.mdx
 - [ ] dotnet/docs/handles.mdx
 - [ ] dotnet/docs/input.mdx
-- [ ] dotnet/docs/intro.mdx
+- [x] dotnet/docs/intro.mdx
 - [ ] dotnet/docs/languages.mdx
 - [ ] dotnet/docs/library.mdx
 - [ ] dotnet/docs/locators.mdx
@@ -736,13 +737,13 @@
 - [ ] dotnet/docs/trace-viewer-intro.mdx
 - [ ] dotnet/docs/trace-viewer.mdx
 - [ ] dotnet/docs/videos.mdx
-- [ ] dotnet/docs/webview2.mdx
+- [x] dotnet/docs/webview2.mdx
 - [ ] dotnet/docs/writing-tests.mdx
 
 ## .NET（dotnet/versioned_docs）（85）
 
-- [ ] dotnet/versioned_docs/version-stable/actionability.mdx
-- [ ] dotnet/versioned_docs/version-stable/api-testing.mdx
+- [x] dotnet/versioned_docs/version-stable/actionability.mdx
+- [x] dotnet/versioned_docs/version-stable/api-testing.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-accessibility.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-apirequest.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-apirequestcontext.mdx
@@ -784,10 +785,10 @@
 - [ ] dotnet/versioned_docs/version-stable/api/class-websocketframe.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-worker.mdx
-- [ ] dotnet/versioned_docs/version-stable/aria-snapshots.mdx
-- [ ] dotnet/versioned_docs/version-stable/auth.mdx
-- [ ] dotnet/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] dotnet/versioned_docs/version-stable/browsers.mdx
+- [x] dotnet/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] dotnet/versioned_docs/version-stable/auth.mdx
+- [x] dotnet/versioned_docs/version-stable/browser-contexts.mdx
+- [x] dotnet/versioned_docs/version-stable/browsers.mdx
 - [ ] dotnet/versioned_docs/version-stable/ci-intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/ci.mdx
 - [ ] dotnet/versioned_docs/version-stable/clock.mdx
@@ -800,11 +801,11 @@
 - [ ] dotnet/versioned_docs/version-stable/emulation.mdx
 - [ ] dotnet/versioned_docs/version-stable/evaluating.mdx
 - [ ] dotnet/versioned_docs/version-stable/events.mdx
-- [ ] dotnet/versioned_docs/version-stable/extensibility.mdx
+- [x] dotnet/versioned_docs/version-stable/extensibility.mdx
 - [ ] dotnet/versioned_docs/version-stable/frames.mdx
 - [ ] dotnet/versioned_docs/version-stable/handles.mdx
 - [ ] dotnet/versioned_docs/version-stable/input.mdx
-- [ ] dotnet/versioned_docs/version-stable/intro.mdx
+- [x] dotnet/versioned_docs/version-stable/intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/languages.mdx
 - [ ] dotnet/versioned_docs/version-stable/library.mdx
 - [ ] dotnet/versioned_docs/version-stable/locators.mdx
@@ -824,6 +825,5 @@
 - [ ] dotnet/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/trace-viewer.mdx
 - [ ] dotnet/versioned_docs/version-stable/videos.mdx
-- [ ] dotnet/versioned_docs/version-stable/webview2.mdx
+- [x] dotnet/versioned_docs/version-stable/webview2.mdx
 - [ ] dotnet/versioned_docs/version-stable/writing-tests.mdx
-
