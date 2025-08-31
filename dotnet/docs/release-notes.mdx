@@ -158,7 +158,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ## 版本 1.50
 
 ### 支援 Xunit
-* Support for xUnit 2.8+ via [Microsoft.Playwright.Xunit](https://www.nuget.org/packages/Microsoft.Playwright.Xunit). Follow our [Getting Started](./intro.mdx) guide to learn more.
+* 支援 xUnit 2.8+ via [Microsoft.Playwright.Xunit](https://www.nuget.org/packages/Microsoft.Playwright.Xunit). Follow our [Getting Started](./intro.mdx) guide to learn more.
 
 ### 其他
 * Added 方法 [Expect(Locator).ToHaveAccessibleErrorMessageAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
@@ -170,7 +170,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * `Call` 和 `Network` 面板現在顯示額外的時間資訊。
 
 ### 重大變更
-* [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) and [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
+* [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
 
 ### 瀏覽器版本
 * Chromium 133.0.6943.16
@@ -250,8 +250,8 @@ dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Channel=
 ```
 
 ### 其他
-- There will be no more updates for WebKit on Ubuntu 20.04 and Debian 11. We recommend updating your OS to a later version.
-- `<canvas>` elements inside a snapshot now draw a preview.
+- 將no more updates for WebKit on Ubuntu 20.04 and Debian 11. 我們建議updating your OS to a later version.
+- `<canvas>` elements inside a snapshot現在draw a preview.
 
 ### 瀏覽器版本
 - Chromium 131.0.6778.33
@@ -311,7 +311,7 @@ await page.RouteWebSocketAsync("/ws", ws => {
 ### 其他
 - `mcr.microsoft.com/playwright/dotnet:v1.47.0` 現在提供基於 Ubuntu 24.04 Noble 的 Playwright 映像。若要使用基於 22.04 jammy 的映像，請改用 `mcr.microsoft.com/playwright/dotnet:v1.47.0-jammy`。
 - Playwright Docker 映像的 `:latest`/`:focal`/`:jammy` 標籤不再發布。為了更好的穩定性和可重現性，請固定到特定版本。
-- TLS client certificates 現在可以 be passed from memory by passing [ClientCertificates.Cert](/api/class-browser.mdx#browser-new-context-選項-client-certificates) and [ClientCertificates.Key](/api/class-browser.mdx#browser-new-context-選項-client-certificates) as byte arrays instead of file paths.
+- TLS client certificates 現在可以 be passed from memory by passing [ClientCertificates.Cert](/api/class-browser.mdx#browser-new-context-選項-client-certificates) 和 [ClientCertificates.Key](/api/class-browser.mdx#browser-new-context-選項-client-certificates) as byte arrays instead of file paths.
 - [NoWaitAfter](/api/class-locator.mdx#locator-select-選項-選項-no-wait-after) in [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-選項) was deprecated.
 - 我們在 GitHub Actions `macos-13` 上看到了 Webkit 中 WebGL 的異常行為報告。我們建議將 GitHub Actions 升級到 `macos-14`。
 
@@ -412,7 +412,7 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
   
 - 新屬性 `httpCredentials.send` in [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) that 允許 either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
 - Playwright 現在支援 Chromium, Firefox and WebKit on Ubuntu 24.04.
-- v1.45 is the last release to receive WebKit update for macOS 12 Monterey. Please update macOS to keep using the latest WebKit.
+- v1.45是最後一個接收receive WebKit update for macOS 12 Monterey. 請更新macOS以繼續使用the latest WebKit.
 
 ### 瀏覽器版本
 * Chromium 127.0.6533.5
@@ -578,7 +578,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 ### 新的 API
 - 新方法 [Page.UnrouteAllAsync()](/api/class-page.mdx#page-unroute-all) 移除所有由 [Page.RouteAsync()](/api/class-page.mdx#page-route) 和 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
 - 新方法 [BrowserContext.UnrouteAllAsync()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除所有由 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
-- 新選項s [Style](/api/class-page.mdx#page-screenshot-選項-style) in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) and [Style](/api/class-locator.mdx#locator-screenshot-選項-style) in [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
+- 新選項s [Style](/api/class-page.mdx#page-screenshot-選項-style) in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Style](/api/class-locator.mdx#locator-screenshot-選項-style) in [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot)以新增custom CSS to the page在執行...之前a screenshot.
 
 ### 瀏覽器版本
 * Chromium 121.0.6167.57
@@ -613,7 +613,7 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 ```
 
 ### 新的 API
-- Options [Reason](/api/class-page.mdx#page-close-選項-reason) in [Page.CloseAsync()](/api/class-page.mdx#page-close), [Reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) in [BrowserContext.CloseAsync()](/api/class-browsercontext.mdx#browser-context-close) and [Reason](/api/class-browser.mdx#browser-close-選項-reason) in [Browser.CloseAsync()](/api/class-browser.mdx#browser-close). Close reason is reported for all operations interrupted by the closure.
+- Options [Reason](/api/class-page.mdx#page-close-選項-reason) in [Page.CloseAsync()](/api/class-page.mdx#page-close), [Reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) in [BrowserContext.CloseAsync()](/api/class-browsercontext.mdx#browser-context-close) 和 [Reason](/api/class-browser.mdx#browser-close-選項-reason) in [Browser.CloseAsync()](/api/class-browser.mdx#browser-close). Close reason is reported for all operations interrupted by the closure.
 - 選項 [FirefoxUserPrefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs) in [BrowserType.LaunchPersistentContextAsync()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
 
 ### 其他變更
@@ -655,7 +655,7 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 - [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially)
 
 ### 棄用
-* The following methods were deprecated: [Page.TypeAsync()](/api/class-page.mdx#page-type), [Frame.TypeAsync()](/api/class-frame.mdx#frame-type), [Locator.TypeAsync()](/api/class-locator.mdx#locator-type) and [ElementHandle.TypeAsync()](/api/class-elementhandle.mdx#element-handle-type). Please use [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
+* The following methods were deprecated: [Page.TypeAsync()](/api/class-page.mdx#page-type), [Frame.TypeAsync()](/api/class-frame.mdx#frame-type), [Locator.TypeAsync()](/api/class-locator.mdx#locator-type) 和 [ElementHandle.TypeAsync()](/api/class-elementhandle.mdx#element-handle-type). Please use [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
 
 ### 瀏覽器版本
 * Chromium 117.0.5938.62
@@ -705,7 +705,7 @@ Linux support looks like this:
 ## 版本 1.35
 
 ### 重點
-* 新選項 `MaskColor` for methods [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) and [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
+* 新選項 `MaskColor`用於方法[Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
 * New `uninstall` CLI command to uninstall browser binaries:
   
   ```bash
@@ -756,7 +756,7 @@ Linux support looks like this:
   await newEmail.ClickAsync();
   ```
   
-* Use new options [HasNot](/api/class-locator.mdx#locator-filter-選項-has-not) and [HasNotText|HasNotTextRegex](/api/class-locator.mdx#locator-filter-選項-has-not-text) in [Locator.Filter()](/api/class-locator.mdx#locator-filter) to find elements that **do not match** certain conditions.
+* Use new options [HasNot](/api/class-locator.mdx#locator-filter-選項-has-not) 和 [HasNotText|HasNotTextRegex](/api/class-locator.mdx#locator-filter-選項-has-not-text) in [Locator.Filter()](/api/class-locator.mdx#locator-filter) to find elements that **do not match** certain conditions.
   
   ```csharp
   var rowLocator = Page.Locator("tr");
@@ -790,7 +790,7 @@ Linux support looks like this:
 ## 版本 1.32
 
 ### 新的 API
-- 新選項s [UpdateMode](/api/class-page.mdx#page-route-from-har-選項-update-mode) and [UpdateContent](/api/class-page.mdx#page-route-from-har-選項-update-content) in [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) and [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har).
+- 新選項s [UpdateMode](/api/class-page.mdx#page-route-from-har-選項-update-mode) 和 [UpdateContent](/api/class-page.mdx#page-route-from-har-選項-update-content) in [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 和 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har).
 - Chaining existing locator objects, see [locator docs](./locators.mdx#matching-inside-a-locator) for details.
 - 新選項 [Name](/api/class-tracing.mdx#tracing-start-chunk-選項-name) in 方法 [Tracing.StartChunkAsync()](/api/class-tracing.mdx#tracing-start-chunk).
 
@@ -821,11 +821,11 @@ Linux support looks like this:
   await Expect(locator).ToBeInViewportAsync(new() { Ratio = 0.5 });
   ```
   
-- 新方法s [BrowserContext.NewCDPSessionAsync()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) and [Browser.NewBrowserCDPSessionAsync()](/api/class-browser.mdx#browser-new-browser-cdp-session) create a [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) session for the page and browser respectively.
+- 新方法s [BrowserContext.NewCDPSessionAsync()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) 和 [Browser.NewBrowserCDPSessionAsync()](/api/class-browser.mdx#browser-new-browser-cdp-session) create a [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) session for the page and browser respectively.
 
 ### 其他
 - 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
-- 新選項 [MaxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) for 方法 [Route.FetchAsync()](/api/class-route.mdx#route-fetch).
+- 新選項 [MaxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [Route.FetchAsync()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
 - 官方 [docker images](./docker.mdx) 現在包含 Node 18 而非 Node 16。
 
@@ -852,7 +852,7 @@ Linux support looks like this:
 ## 版本 1.29
 
 ### 新的 API
-- 新方法 [Route.FetchAsync()](/api/class-route.mdx#route-fetch) and new 選項 `Json` for [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill):
+- 新方法 [Route.FetchAsync()](/api/class-route.mdx#route-fetch) 和新選項 `Json` 用於[Route.FulfillAsync()](/api/class-route.mdx#route-fulfill):
   
   ```csharp
   await Page.RouteAsync("**/api/settings", async route => {
@@ -879,7 +879,7 @@ Linux support looks like this:
     await checkbox.CheckAsync();
   ```
   
-- [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-選項) matches now by value or label:
+- [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-選項) matches現在by value or label:
   
   ```html
   <select multiple>
@@ -927,13 +927,13 @@ Linux support looks like this:
 ### 定位器
 
 With these new APIs writing locators is a joy:
-- [Page.GetByText()](/api/class-page.mdx#page-get-by-text) to locate by text content.
-- [Page.GetByRole()](/api/class-page.mdx#page-get-by-role) to locate by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
-- [Page.GetByLabel()](/api/class-page.mdx#page-get-by-label) to locate a form control by associated label's text.
-- [Page.GetByTestId()](/api/class-page.mdx#page-get-by-test-id) to locate an element based on its `data-testid` attribute (other attribute can be configured).
-- [Page.GetByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder) to locate an input by placeholder.
-- [Page.GetByAltText()](/api/class-page.mdx#page-get-by-alt-text) to locate an element, usually image, by its text alternative.
-- [Page.GetByTitle()](/api/class-page.mdx#page-get-by-title) to locate an element by its title.
+- [Page.GetByText()](/api/class-page.mdx#page-get-by-text)以定位by text content.
+- [Page.GetByRole()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- [Page.GetByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
+- [Page.GetByTestId()](/api/class-page.mdx#page-get-by-test-id)以定位an element based on its `data-testid` attribute (other attribute can be configured).
+- [Page.GetByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
+- [Page.GetByAltText()](/api/class-page.mdx#page-get-by-alt-text)以定位an element, usually image, by its text alternative.
+- [Page.GetByTitle()](/api/class-page.mdx#page-get-by-title)以定位an element by its title.
 
 ```csharp
 await page.GetByLabel("User Name").FillAsync("John");
@@ -970,13 +970,13 @@ await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 
 ### 斷言
 - 新選項 `Enabled` for [Expect(Locator).ToBeEnabledAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled).
-- [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now pierces open shadow roots.
+- [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text)現在pierces open shadow roots.
 - 新選項 `Editable` for [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable).
 - 新選項 `Visible` for [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
 - [Expect(Response).ToBeOKAsync()](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) 現在可用.
 
 ### 其他重點
-- 新選項 `MaxRedirects` for [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
+- 新選項 `MaxRedirects` for [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get)和其他方法以limit redirect count.
 - Codegen 現在支援 MSTest and NUnit frameworks.
 - 現在支援 ASP .NET。
 
@@ -1024,7 +1024,7 @@ The following does now work:
   <!-- General run configuration -->
   <RunConfiguration>
     <EnvironmentVariables>
-      <!-- For debugging selectors, it's recommend to set the following environment variable -->
+      <!-- For debugging selectors, it's recommend以設定the following environment variable -->
       <DEBUG>pw:api</DEBUG>
     </EnvironmentVariables>
   </RunConfiguration>
@@ -1158,7 +1158,7 @@ await page.RouteAsync("**/*", async route =>
 
 ### Web-First 斷言更新
 * 新方法 [Expect(Locator).ToHaveValuesAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
-* Methods [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) and [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
+* Methods [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
 
 ### 其他
 * If there's a service worker that's in your way, you 現在可以 easily disable it with a new context 選項 `serviceWorkers`:
@@ -1196,7 +1196,7 @@ await page.RouteAsync("**/*", async route =>
   ```
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
-- New [Locator.Filter()](/api/class-locator.mdx#locator-filter) API to filter an existing locator
+- 新的 [Locator.Filter()](/api/class-locator.mdx#locator-filter) API to filter an existing locator
   
   ```csharp
   var buttons = page.Locator("role=button");
@@ -1263,13 +1263,13 @@ Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節�
 在 [我們的文件](./test-assertions) 中了解更多。
 
 ### 其他更新
-- 新選項s for methods [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot), [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) and [ElementHandle.ScreenshotAsync()](/api/class-elementhandle.mdx#element-handle-screenshot):
+- 新選項s用於方法[Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot), [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) 和 [ElementHandle.ScreenshotAsync()](/api/class-elementhandle.mdx#element-handle-screenshot):
   * 選項 `ScreenshotAnimations.Disabled` rewinds all CSS animations and transitions to a consistent state
   * 選項 `mask: Locator[]` masks given elements, overlaying them with pink `#FF00FF` boxes.
-- [Locator.HighlightAsync()](/api/class-locator.mdx#locator-highlight) visually reveals element(s) for easier debugging.
+- [Locator.HighlightAsync()](/api/class-locator.mdx#locator-highlight)視覺化地顯示element(s)以便更輕鬆地debugging.
 
 ### 公告
-- v1.20 is the last release to receive WebKit update for macOS 10.15 Catalina. Please update macOS to keep using latest & greatest WebKit!
+- v1.20是最後一個接收receive WebKit update for macOS 10.15 Catalina. 請更新macOS以繼續使用latest & greatest WebKit!
 
 ### 瀏覽器版本
 - Chromium 101.0.4921.0
@@ -1291,7 +1291,7 @@ Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節�
   
   Read more in [locator documentation](./api/class-locator#locator-locator)
 - New [Locator.Page](/api/class-locator.mdx#locator-page)
-- [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) and [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) now automatically hide blinking caret
+- [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot)現在automatically hide blinking caret
 - Playwright Codegen 現在會產生定位器和框架定位器
 
 ### 瀏覽器版本
@@ -1317,7 +1317,7 @@ Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節�
   Read more in [locator documentation](./api/class-locator#locator-locator)
 
 ### 新的 API 與變更
-- [`AcceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項 now defaults to `true`.
+- [`AcceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在defaults to `true`.
 - [`Sources`](./api/class-tracing#tracing-start-選項-sources) 選項 to embed sources into traces.
 
 ### 瀏覽器版本
@@ -1412,7 +1412,7 @@ This version of Playwright was also tested against the following stable channels
 
 By using [Mouse.WheelAsync()](/api/class-mouse.mdx#mouse-wheel) you are now able to scroll vertically or horizontally.
 
-### 📜 New Headers API
+### 📜 新的 Headers API
 
 Previously it was not possible to get multiple header values of a response. This is now possible and additional helper functions are available:
 - [Request.AllHeadersAsync()](/api/class-request.mdx#request-all-headers)
@@ -1429,7 +1429,7 @@ Its now possible to emulate the `forced-colors` CSS media feature by passing it 
 
 ### 新的 API
 - [Page.RouteAsync()](/api/class-page.mdx#page-route) 接受新的 `times` 選項來指定此路由應匹配多少次。
-- [Page.SetCheckedAsync()](/api/class-page.mdx#page-set-checked) and [Locator.SetCheckedAsync()](/api/class-locator.mdx#locator-set-checked) were introduced to set the checked state of a checkbox.
+- [Page.SetCheckedAsync()](/api/class-page.mdx#page-set-checked) 和 [Locator.SetCheckedAsync()](/api/class-locator.mdx#locator-set-checked) 被引入以設定the checked state of a checkbox.
 - [Request.SizesAsync()](/api/class-request.mdx#request-sizes) 回傳 resource size information for given http request.
 - [Tracing.StartChunkAsync()](/api/class-tracing.mdx#tracing-start-chunk) - Start a new trace chunk.
 - [Tracing.StopChunkAsync()](/api/class-tracing.mdx#tracing-stop-chunk) - Stops a new trace chunk.
@@ -1455,11 +1455,11 @@ Its now possible to emulate the `forced-colors` CSS media feature by passing it 
 await page.Locator("button", new() { Strict = true });
 ```
 
-#### 📍 New [**Locators API**](./api/class-locator)
+#### 📍 新的 [**Locators API**](./api/class-locator)
 
 Locator represents a view to the element(s) on the page. It captures the logic sufficient to retrieve the element at any given moment.
 
-The difference between the [Locator](./api/class-locator) and [ElementHandle](./api/class-elementhandle) is that the latter points to a particular element, while [Locator](./api/class-locator) captures the logic of how to retrieve that element.
+The difference between the [Locator](./api/class-locator) 和 [ElementHandle](./api/class-elementhandle) is that the latter points to a particular element, while [Locator](./api/class-locator) captures the logic of how to retrieve that element.
 
 Also, locators are **"strict" by default**!
 
@@ -1470,7 +1470,7 @@ await locator.ClickAsync();
 
 Learn more in the [documentation](./api/class-locator).
 
-#### 🧩 Experimental [**React**](./other-locators.mdx#react-locator) and [**Vue**](./other-locators.mdx#vue-locator) selector engines
+#### 🧩 Experimental [**React**](./other-locators.mdx#react-locator) 和 [**Vue**](./other-locators.mdx#vue-locator) selector engines
 
 React and Vue selectors allow selecting elements by its component name and/or 屬性 values. The syntax is very similar to [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) and supports all attribute selector operators.
 
@@ -1481,7 +1481,7 @@ await page.Locator("_vue=submit-button[enabled=true]").ClickAsync();
 
 Learn more in the [react selectors documentation](./other-locators.mdx#react-locator) and the [vue selectors documentation](./other-locators.mdx#vue-locator).
 
-#### ✨ New [**`nth`**](./other-locators.mdx#n-th-element-locator) and [**`visible`**](./other-locators.mdx#css-matching-only-visible-elements) selector engines
+#### ✨ New [**`nth`**](./other-locators.mdx#n-th-element-locator) 和 [**`visible`**](./other-locators.mdx#css-matching-only-visible-elements) selector engines
 - [`nth`](./other-locators.mdx#n-th-element-locator) selector engine is equivalent to the `:nth-match` pseudo class, but could be combined with other selector engines.
 - [`visible`](./other-locators.mdx#css-matching-only-visible-elements) selector engine is equivalent to the `:visible` pseudo class, but could be combined with other selector engines.
 
@@ -1504,7 +1504,7 @@ await button.ClickAsync("button >> visible=true");
 
 #### Playwright
 - **🖖 Programmatic drag-and-drop support** via the [Page.DragAndDropAsync()](/api/class-page.mdx#page-drag-and-drop) API.
-- **🔎 Enhanced HAR** with body sizes for requests and responses. Use via `recordHar` 選項 in [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context).
+- **🔎 Enhanced HAR**具有請求和回應的主體大小. 透過 `recordHar` 選項 in [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context). 使用
 
 #### 工具
 - Playwright 追蹤檢視器現在顯示參數、回傳值和 `console.log()` 呼叫。
@@ -1519,19 +1519,19 @@ await button.ClickAsync("button >> visible=true");
 - WebKit 14.2
 
 #### 新的 Playwright API
-- new `baseURL` 選項 in [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) and [Browser.NewPageAsync()](/api/class-browser.mdx#browser-new-page)
-- [Response.SecurityDetailsAsync()](/api/class-response.mdx#response-security-details) and [Response.ServerAddrAsync()](/api/class-response.mdx#response-server-addr)
-- [Page.DragAndDropAsync()](/api/class-page.mdx#page-drag-and-drop) and [Frame.DragAndDropAsync()](/api/class-frame.mdx#frame-drag-and-drop)
+- new `baseURL` 選項 in [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 和 [Browser.NewPageAsync()](/api/class-browser.mdx#browser-new-page)
+- [Response.SecurityDetailsAsync()](/api/class-response.mdx#response-security-details) 和 [Response.ServerAddrAsync()](/api/class-response.mdx#response-server-addr)
+- [Page.DragAndDropAsync()](/api/class-page.mdx#page-drag-and-drop) 和 [Frame.DragAndDropAsync()](/api/class-frame.mdx#frame-drag-and-drop)
 - [Download.CancelAsync()](/api/class-download.mdx#download-cancel)
-- [Page.InputValueAsync()](/api/class-page.mdx#page-input-value), [Frame.InputValueAsync()](/api/class-frame.mdx#frame-input-value) and [ElementHandle.InputValueAsync()](/api/class-elementhandle.mdx#element-handle-input-value)
-- new `force` 選項 in [Page.FillAsync()](/api/class-page.mdx#page-fill), [Frame.FillAsync()](/api/class-frame.mdx#frame-fill), and [ElementHandle.FillAsync()](/api/class-elementhandle.mdx#element-handle-fill)
-- new `force` 選項 in [Page.SelectOptionAsync()](/api/class-page.mdx#page-select-選項), [Frame.SelectOptionAsync()](/api/class-frame.mdx#frame-select-選項), and [ElementHandle.SelectOptionAsync()](/api/class-elementhandle.mdx#element-handle-select-選項)
+- [Page.InputValueAsync()](/api/class-page.mdx#page-input-value), [Frame.InputValueAsync()](/api/class-frame.mdx#frame-input-value) 和 [ElementHandle.InputValueAsync()](/api/class-elementhandle.mdx#element-handle-input-value)
+- new `force` 選項 in [Page.FillAsync()](/api/class-page.mdx#page-fill), [Frame.FillAsync()](/api/class-frame.mdx#frame-fill), 和 [ElementHandle.FillAsync()](/api/class-elementhandle.mdx#element-handle-fill)
+- new `force` 選項 in [Page.SelectOptionAsync()](/api/class-page.mdx#page-select-選項), [Frame.SelectOptionAsync()](/api/class-frame.mdx#frame-select-選項), 和 [ElementHandle.SelectOptionAsync()](/api/class-elementhandle.mdx#element-handle-select-選項)
 
 ## 版本 1.12
 
 #### 重點
 - Playwright for .NET v1.12 現在穩定！
-- Ships with the [codegen](./codegen.mdx) and [trace viewer](./trace-viewer.mdx) tools out-of-the-box
+- Ships with the [codegen](./codegen.mdx) 和 [trace viewer](./trace-viewer.mdx) tools out-of-the-box
 
 #### 瀏覽器版本
 - Chromium 93.0.4530.0

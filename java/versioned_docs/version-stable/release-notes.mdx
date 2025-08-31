@@ -162,7 +162,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * `Call` and `Network` panels now display additional time information.
 
 ### 重大變更
-* [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) and [Locator.isEditable()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
+* [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.isEditable()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
 
 ### 瀏覽器版本
 * Chromium 133.0.6943.16
@@ -192,7 +192,7 @@ assertThat(page.locator("body")).matchesAriaSnapshot("""
 """);
 ```
 
-You can generate this assertion with [Test Generator](./codegen) or by calling [Locator.ariaSnapshot()](/api/class-locator.mdx#locator-aria-snapshot).
+您可以generate this assertion with [Test Generator](./codegen) or by calling [Locator.ariaSnapshot()](/api/class-locator.mdx#locator-aria-snapshot).
 
 Learn more in the [aria snapshots guide](./aria-snapshots).
 
@@ -241,7 +241,7 @@ This change affects you if you're using one of the following channels in your `p
   
 - 新屬性 `httpCredentials.send` in [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that 允許 either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
 - Playwright 現在支援 Chromium, Firefox and WebKit on Ubuntu 24.04.
-- v1.45 is the last release to receive WebKit update for macOS 12 Monterey. Please update macOS to keep using the latest WebKit.
+- v1.45是最後一個接收receive WebKit update for macOS 12 Monterey. 請更新macOS以繼續使用the latest WebKit.
 
 ### 瀏覽器版本
 * Chromium 127.0.6533.5
@@ -362,7 +362,7 @@ page.removeLocatorHandler(locator);
 
 ### 實驗性 JUnit 整合
 
-Add new [`@UsePlaywright`](./junit.mdx) annotation to your test classes to start using Playwright fixtures for [Page], [BrowserContext], [Browser], [APIRequestContext] and [Playwright] in the test methods.
+Add new [`@UsePlaywright`](./junit.mdx) annotation to your test classes to start using Playwright fixtures for [Page], [BrowserContext], [Browser], [APIRequestContext]和 [Playwright] 在the test methods.
 
 ```java
 package org.example;
@@ -400,7 +400,7 @@ public class TestExample {
 }
 ```
 
-In the example above, all three test methods use the same [Browser]. Each test uses its own [BrowserContext] and [Page].
+In the example above, all three test methods use the same [Browser]. Each test uses its own [BrowserContext] 和 [Page]。
 
 **自訂選項**
 
@@ -457,7 +457,7 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 ```
 
 ### 新的 API
-- [Page.pdf()](/api/class-page.mdx#page-pdf) accepts two new options [setTagged](/api/class-page.mdx#page-pdf-選項-tagged) and [setOutline](/api/class-page.mdx#page-pdf-選項-outline).
+- [Page.pdf()](/api/class-page.mdx#page-pdf) accepts two new options [setTagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [setOutline](/api/class-page.mdx#page-pdf-選項-outline).
 
 ### 公告
 * ⚠️ Ubuntu 18 is not supported anymore.
@@ -474,9 +474,9 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [Page.unrouteAll()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [Page.route()](/api/class-page.mdx#page-route) and [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har).
-- 新方法 [BrowserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har).
-- 新選項s [setStyle](/api/class-page.mdx#page-screenshot-選項-style) in [Page.screenshot()](/api/class-page.mdx#page-screenshot) and [setStyle](/api/class-locator.mdx#locator-screenshot-選項-style) in [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
+- 新方法 [Page.unrouteAll()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [Page.route()](/api/class-page.mdx#page-route) 和 [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har).
+- 新方法 [BrowserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har).
+- 新選項s [setStyle](/api/class-page.mdx#page-screenshot-選項-style) in [Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [setStyle](/api/class-locator.mdx#locator-screenshot-選項-style) in [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot)以新增custom CSS to the page在執行...之前a screenshot.
 
 ### 瀏覽器版本
 * Chromium 121.0.6167.57
@@ -552,7 +552,7 @@ Evergreen browsers update.
 - [Locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially)
 
 ### 棄用
-* The following methods were deprecated: [Page.type()](/api/class-page.mdx#page-type), [Frame.type()](/api/class-frame.mdx#frame-type), [Locator.type()](/api/class-locator.mdx#locator-type) and [ElementHandle.type()](/api/class-elementhandle.mdx#element-handle-type). Please use [Locator.fill()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [Locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
+* The following methods were deprecated: [Page.type()](/api/class-page.mdx#page-type), [Frame.type()](/api/class-frame.mdx#frame-type), [Locator.type()](/api/class-locator.mdx#locator-type) 和 [ElementHandle.type()](/api/class-elementhandle.mdx#element-handle-type). Please use [Locator.fill()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [Locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
 
 ### 瀏覽器版本
 * Chromium 117.0.5938.62
@@ -566,7 +566,7 @@ Evergreen browsers update.
 ## 版本 1.37
 
 ### 新的 API
-- 新方法s [BrowserContext.newCDPSession()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) and [Browser.newBrowserCDPSession()](/api/class-browser.mdx#browser-new-browser-cdp-session) create a [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) session for the page and browser respectively.
+- 新方法s [BrowserContext.newCDPSession()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) 和 [Browser.newBrowserCDPSession()](/api/class-browser.mdx#browser-new-browser-cdp-session) create a [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) session for the page and browser respectively.
   
   ```java
   CDPSession cdpSession = page.context().newCDPSession(page);
@@ -617,7 +617,7 @@ Linux support looks like this:
 ## 版本 1.35
 
 ### 重點
-* 新選項 `maskColor` for methods [Page.screenshot()](/api/class-page.mdx#page-screenshot) and [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
+* 新選項 `maskColor`用於方法[Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
 * New `uninstall` CLI command to uninstall browser binaries:
   
   ```bash
@@ -643,7 +643,7 @@ Linux support looks like this:
   Locator button = page.getByRole(AriaRole.BUTTON).and(page.getByTitle("Subscribe"));
   ```
   
-* New events [BrowserContext.onConsoleMessage(handler)](/api/class-browsercontext.mdx#browser-context-event-console) and [BrowserContext.onDialog(handler)](/api/class-browsercontext.mdx#browser-context-event-dialog) to subscribe to any dialogs and console messages from any page from the given browser context. Use the new methods [ConsoleMessage.page()](/api/class-consolemessage.mdx#console-message-page) and [Dialog.page()](/api/class-dialog.mdx#dialog-page) to pin-point event source.
+* New events [BrowserContext.onConsoleMessage(handler)](/api/class-browsercontext.mdx#browser-context-event-console) 和 [BrowserContext.onDialog(handler)](/api/class-browsercontext.mdx#browser-context-event-dialog) to subscribe to any dialogs and console messages from any page from the given browser context. Use the new methods [ConsoleMessage.page()](/api/class-consolemessage.mdx#console-message-page) 和 [Dialog.page()](/api/class-dialog.mdx#dialog-page) to pin-point event source.
 
 ### 瀏覽器版本
 * Chromium 114.0.5735.26
@@ -668,7 +668,7 @@ Linux support looks like this:
   newEmail.click();
   ```
   
-* Use new options [setHasNot](/api/class-locator.mdx#locator-filter-選項-has-not) and [setHasNotText](/api/class-locator.mdx#locator-filter-選項-has-not-text) in [Locator.filter()](/api/class-locator.mdx#locator-filter) to find elements that **do not match** certain conditions.
+* Use new options [setHasNot](/api/class-locator.mdx#locator-filter-選項-has-not) 和 [setHasNotText](/api/class-locator.mdx#locator-filter-選項-has-not-text) in [Locator.filter()](/api/class-locator.mdx#locator-filter) to find elements that **do not match** certain conditions.
   
   ```java
   Locator rowLocator = page.locator("tr");
@@ -708,7 +708,7 @@ Linux support looks like this:
 ## 版本 1.32
 
 ### 新的 API
-- 新選項s [setUpdateMode](/api/class-page.mdx#page-route-from-har-選項-update-mode) and [setUpdateContent](/api/class-page.mdx#page-route-from-har-選項-update-content) in [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) and [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har).
+- 新選項s [setUpdateMode](/api/class-page.mdx#page-route-from-har-選項-update-mode) 和 [setUpdateContent](/api/class-page.mdx#page-route-from-har-選項-update-content) in [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 和 [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har).
 - Chaining existing locator objects, see [locator docs](./locators.mdx#matching-inside-a-locator) for details.
 - 新選項 [setName](/api/class-tracing.mdx#tracing-start-chunk-選項-name) in 方法 [Tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk).
 
@@ -740,10 +740,10 @@ Linux support looks like this:
   ```
   
 ### 其他
-- DOM snapshots in trace viewer can be now opened in a separate window.
-- 新選項 [setMaxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) for 方法 [Route.fetch()](/api/class-route.mdx#route-fetch).
+- DOM snapshots in trace viewer can be現在opened in a separate window.
+- 新選項 [setMaxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [Route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
-- Official [docker images](./docker.mdx) now include Node 18 instead of Node 16.
+- Official [docker images](./docker.mdx)現在include Node 18 instead of Node 16.
 
 ### 瀏覽器版本
 * Chromium 111.0.5563.19
@@ -791,7 +791,7 @@ Linux support looks like this:
     checkbox.check();
   ```
   
-- [Locator.selectOption()](/api/class-locator.mdx#locator-select-選項) matches now by value or label:
+- [Locator.selectOption()](/api/class-locator.mdx#locator-select-選項) matches現在by value or label:
   
   ```html
   <select multiple>
@@ -839,13 +839,13 @@ Linux support looks like this:
 ### 定位器
 
 With these new APIs writing locators is a joy:
-- [Page.getByText()](/api/class-page.mdx#page-get-by-text) to locate by text content.
-- [Page.getByRole()](/api/class-page.mdx#page-get-by-role) to locate by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
-- [Page.getByLabel()](/api/class-page.mdx#page-get-by-label) to locate a form control by associated label's text.
-- [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) to locate an element based on its `data-testid` attribute (other attribute can be configured).
-- [Page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder) to locate an input by placeholder.
-- [Page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text) to locate an element, usually image, by its text alternative.
-- [Page.getByTitle()](/api/class-page.mdx#page-get-by-title) to locate an element by its title.
+- [Page.getByText()](/api/class-page.mdx#page-get-by-text)以定位by text content.
+- [Page.getByRole()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- [Page.getByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
+- [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id)以定位an element based on its `data-testid` attribute (other attribute can be configured).
+- [Page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
+- [Page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text)以定位an element, usually image, by its text alternative.
+- [Page.getByTitle()](/api/class-page.mdx#page-get-by-title)以定位an element by its title.
 
 ```java
 page.getByLabel("User Name").fill("John");
@@ -857,7 +857,7 @@ page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sign in")).
 assertThat(page.getByText("Welcome, John!")).isVisible();
 ```
 
-All the same methods are also available on [Locator], [FrameLocator] and [Frame] classes.
+All the same methods are also available on [Locator], [FrameLocator] 和 [Frame] classes.
 
 ### 其他重點
 - As announced in v1.25, Ubuntu 18 will not be supported as of Dec 2022. In addition to that, there will be no WebKit updates on Ubuntu 18 starting from the next Playwright release.
@@ -882,12 +882,12 @@ All the same methods are also available on [Locator], [FrameLocator] and [Frame]
 
 ### 斷言
 - 新選項 `enabled` for [assertThat(locator).isEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled).
-- [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now pierces open shadow roots.
+- [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text)現在pierces open shadow roots.
 - 新選項 `editable` for [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable).
 - 新選項 `visible` for [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
 
 ### 其他重點
-- 新選項 `setMaxRedirects` for [APIRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
+- 新選項 `setMaxRedirects` for [APIRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get)和其他方法以limit redirect count.
 - Docker 映像現在使用 OpenJDK 17。
 
 ### 行為變更
@@ -914,7 +914,7 @@ To align with web specification, the `WaitUntilState.DOMCONTENTLOADED` value onl
 ## 版本 1.25
 
 ### 新的 API 與變更
-- Default assertions timeout now can be changed with [`setDefaultAssertionTimeout`](./api/class-playwrightassertions#playwright-assertions-set-default-assertion-timeout).
+- Default assertions timeout現在can be changed with [`setDefaultAssertionTimeout`](./api/class-playwrightassertions#playwright-assertions-set-default-assertion-timeout).
 
 ### 公告
 * 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
@@ -1005,11 +1005,11 @@ page.route("**/*", route -> {
 });
 ```
 
-Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) and [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) also participate in routing and could be deferred to.
+Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 和 [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) also participate in routing and could be deferred to.
 
 ### Web-First 斷言更新
 * 新方法 [assertThat(locator).hasValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
-* Methods [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) and [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
+* Methods [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
 
 ### 其他
 * If there's a service worker that's in your way, you 現在可以 easily disable it with a new context 選項 `serviceWorkers`:
@@ -1039,7 +1039,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
 ## 版本 1.22
 
 ### 重點
-- Role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- Role selectors ，允許selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
   
   ```java
   // Click a button with accessible name "log in"
@@ -1047,7 +1047,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
   ```
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
-- New [Locator.filter()](/api/class-locator.mdx#locator-filter) API to filter an existing locator
+- 新的 [Locator.filter()](/api/class-locator.mdx#locator-filter) API to filter an existing locator
   
   ```java
   Locator buttonsLocator = page.locator("role=button");
@@ -1061,7 +1061,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
 ## 版本 1.21
 
 ### 重點
-- New role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- New role selectors ，允許selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
   
   ```java
   // Click a button with accessible name "log in"
@@ -1087,14 +1087,14 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
 ## 版本 1.20
 
 ### 重點
-- 新選項s for methods [Page.screenshot()](/api/class-page.mdx#page-screenshot), [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) and [ElementHandle.screenshot()](/api/class-elementhandle.mdx#element-handle-screenshot):
+- 新選項s用於方法[Page.screenshot()](/api/class-page.mdx#page-screenshot), [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 和 [ElementHandle.screenshot()](/api/class-elementhandle.mdx#element-handle-screenshot):
   * 選項 `ScreenshotAnimations.DISABLED` rewinds all CSS animations and transitions to a consistent state
   * 選項 `mask: Locator[]` masks given elements, overlaying them with pink `#FF00FF` boxes.
-- [Trace Viewer](./trace-viewer) now shows [API testing requests](./api-testing).
-- [Locator.highlight()](/api/class-locator.mdx#locator-highlight) visually reveals element(s) for easier debugging.
+- [Trace Viewer](./trace-viewer)現在shows [API testing requests](./api-testing).
+- [Locator.highlight()](/api/class-locator.mdx#locator-highlight)視覺化地顯示element(s)以便更輕鬆地debugging.
 
 ### 公告
-- v1.20 is the last release to receive WebKit update for macOS 10.15 Catalina. Please update macOS to keep using latest & greatest WebKit!
+- v1.20是最後一個接收receive WebKit update for macOS 10.15 Catalina. 請更新macOS以繼續使用latest & greatest WebKit!
 
 ### 瀏覽器版本
 - Chromium 101.0.4921.0
@@ -1116,8 +1116,8 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
   
   Read more in [locator documentation](./api/class-locator#locator-locator)
 - New [Locator.page()](/api/class-locator.mdx#locator-page)
-- [Page.screenshot()](/api/class-page.mdx#page-screenshot) and [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) now automatically hide blinking caret
-- Playwright Codegen now generates locators and frame locators
+- [Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot)現在automatically hide blinking caret
+- Playwright Codegen現在generates locators and frame locators
 
 ### 瀏覽器版本
 - Chromium 100.0.4863.0
@@ -1165,7 +1165,7 @@ public class TestExample {
 }
 ```
 
-Playwright will be re-testing the node with the selector `.status` until fetched Node has the `"Submitted"` text. It will be re-fetching the node and checking it over and over, until the condition is met or until the timeout is reached. You can pass this timeout as an 選項.
+Playwright will be re-testing the node with the selector `.status` until fetched Node has the `"Submitted"` text. It will be re-fetching the node and checking it over and over, until the condition is met or until the timeout is reached. 您可以pass this timeout as an 選項.
 
 Read more in [our documentation](./test-assertions).
 
@@ -1187,7 +1187,7 @@ Read more in [our documentation](./test-assertions).
 ![tracing-java-sources](https://user-images.githubusercontent.com/746130/150180856-40a7df71-370c-4597-8665-40c77a5e06ad.png)
 
 ### 新的 API 與變更
-- [`acceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項 now defaults to `true`.
+- [`acceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在defaults to `true`.
 
 ### 瀏覽器版本
 - Chromium 99.0.4812.0
@@ -1220,10 +1220,10 @@ Read more at [our documentation](./api/class-framelocator).
 Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace.playwright.dev！只需拖放您的 `trace.zip` 檔案即可檢查其內容。
 
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
-- Playwright Test traces now include sources by default (these could be turned off with tracing 選項)
-- Trace Viewer now shows test name
+- Playwright Test traces現在include sources by default (these could be turned off with tracing 選項)
+- Trace Viewer現在shows test name
 - New trace metadata tab with browser details
-- Snapshots now have URL bar
+- Snapshots現在have URL bar
 
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)
 
@@ -1281,7 +1281,7 @@ This version of Playwright was also tested against the following stable channels
 
 透過使用 [Mouse.wheel()](/api/class-mouse.mdx#mouse-wheel) 您現在可以垂直或水平捲動。
 
-### 📜 New Headers API
+### 📜 新的 Headers API
 
 Previously it was not possible to get multiple header values of a response. This is now possible and additional helper functions are available:
 - [Request.allHeaders()](/api/class-request.mdx#request-all-headers)
@@ -1297,8 +1297,8 @@ Previously it was not possible to get multiple header values of a response. This
 Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [Browser.newContext()](/api/class-browser.mdx#browser-new-context) or calling [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
 
 ### 新的 API
-- [Page.route()](/api/class-page.mdx#page-route) accepts new `times` 選項 to specify how many times this route should be matched.
-- [Page.setChecked()](/api/class-page.mdx#page-set-checked) and [Locator.setChecked()](/api/class-locator.mdx#locator-set-checked) were introduced to set the checked state of a checkbox.
+- [Page.route()](/api/class-page.mdx#page-route) accepts new `times` 選項以指定how many times this route should be matched.
+- [Page.setChecked()](/api/class-page.mdx#page-set-checked) 和 [Locator.setChecked()](/api/class-locator.mdx#locator-set-checked) 被引入以設定the checked state of a checkbox.
 - [Request.sizes()](/api/class-request.mdx#request-sizes) 回傳 resource size information for given http request.
 - [Tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) - Start a new trace chunk.
 - [Tracing.stopChunk()](/api/class-tracing.mdx#tracing-stop-chunk) - Stops a new trace chunk.
@@ -1321,11 +1321,11 @@ Set `setStrict(true)` in your action calls to opt in.
 page.click("button", new Page.ClickOptions().setStrict(true));
 ```
 
-#### 📍 New [**Locators API**](./api/class-locator)
+#### 📍 新的 [**Locators API**](./api/class-locator)
 
 Locator represents a view to the element(s) on the page. It captures the logic sufficient to retrieve the element at any given moment.
 
-The difference between the [Locator](./api/class-locator) and [ElementHandle](./api/class-elementhandle) is that the latter points to a particular element, while [Locator](./api/class-locator) captures the logic of how to retrieve that element.
+The difference between the [Locator](./api/class-locator) 和 [ElementHandle](./api/class-elementhandle) is that the latter points to a particular element, while [Locator](./api/class-locator) captures the logic of how to retrieve that element.
 
 Also, locators are **"strict" by default**!
 
@@ -1336,7 +1336,7 @@ locator.click();
 
 Learn more in the [documentation](./api/class-locator).
 
-#### 🧩 Experimental [**React**](./other-locators.mdx#react-locator) and [**Vue**](./other-locators.mdx#vue-locator) selector engines
+#### 🧩 Experimental [**React**](./other-locators.mdx#react-locator) 和 [**Vue**](./other-locators.mdx#vue-locator) selector engines
 
 React and Vue selectors allow selecting elements by its component name and/or 屬性 values. The syntax is very similar to [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) and supports all attribute selector operators.
 
@@ -1347,7 +1347,7 @@ page.locator("_vue=submit-button[enabled=true]").click();
 
 Learn more in the [react selectors documentation](./other-locators.mdx#react-locator) and the [vue selectors documentation](./other-locators.mdx#vue-locator).
 
-#### ✨ New [**`nth`**](./other-locators.mdx#n-th-element-locator) and [**`visible`**](./other-locators.mdx#css-matching-only-visible-elements) selector engines
+#### ✨ New [**`nth`**](./other-locators.mdx#n-th-element-locator) 和 [**`visible`**](./other-locators.mdx#css-matching-only-visible-elements) selector engines
 - [`nth`](./other-locators.mdx#n-th-element-locator) selector engine is equivalent to the `:nth-match` pseudo class, but could be combined with other selector engines.
 - [`visible`](./other-locators.mdx#css-matching-only-visible-elements) selector engine is equivalent to the `:visible` pseudo class, but could be combined with other selector engines.
 
@@ -1370,10 +1370,10 @@ button.click("button >> visible=true");
 
 #### Playwright
 - **🖖 Programmatic drag-and-drop support** via the [Page.dragAndDrop()](/api/class-page.mdx#page-drag-and-drop) API.
-- **🔎 Enhanced HAR** with body sizes for requests and responses. Use via `recordHar` 選項 in [Browser.newContext()](/api/class-browser.mdx#browser-new-context).
+- **🔎 Enhanced HAR**具有請求和回應的主體大小. 透過 `recordHar` 選項 in [Browser.newContext()](/api/class-browser.mdx#browser-new-context). 使用
 
 #### 工具
-- Playwright Trace Viewer now shows parameters, returned values and `console.log()` calls.
+- Playwright Trace Viewer現在shows parameters, returned values and `console.log()` calls.
 
 #### 新增與重新編寫的指南
 - [Intro](./intro.mdx)
@@ -1385,13 +1385,13 @@ button.click("button >> visible=true");
 - WebKit 14.2
 
 #### 新的 Playwright API
-- new `baseURL` 選項 in [Browser.newContext()](/api/class-browser.mdx#browser-new-context) and [Browser.newPage()](/api/class-browser.mdx#browser-new-page)
-- [Response.securityDetails()](/api/class-response.mdx#response-security-details) and [Response.serverAddr()](/api/class-response.mdx#response-server-addr)
-- [Page.dragAndDrop()](/api/class-page.mdx#page-drag-and-drop) and [Frame.dragAndDrop()](/api/class-frame.mdx#frame-drag-and-drop)
+- new `baseURL` 選項 in [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [Browser.newPage()](/api/class-browser.mdx#browser-new-page)
+- [Response.securityDetails()](/api/class-response.mdx#response-security-details) 和 [Response.serverAddr()](/api/class-response.mdx#response-server-addr)
+- [Page.dragAndDrop()](/api/class-page.mdx#page-drag-and-drop) 和 [Frame.dragAndDrop()](/api/class-frame.mdx#frame-drag-and-drop)
 - [Download.cancel()](/api/class-download.mdx#download-cancel)
-- [Page.inputValue()](/api/class-page.mdx#page-input-value), [Frame.inputValue()](/api/class-frame.mdx#frame-input-value) and [ElementHandle.inputValue()](/api/class-elementhandle.mdx#element-handle-input-value)
-- new `force` 選項 in [Page.fill()](/api/class-page.mdx#page-fill), [Frame.fill()](/api/class-frame.mdx#frame-fill), and [ElementHandle.fill()](/api/class-elementhandle.mdx#element-handle-fill)
-- new `force` 選項 in [Page.selectOption()](/api/class-page.mdx#page-select-選項), [Frame.selectOption()](/api/class-frame.mdx#frame-select-選項), and [ElementHandle.selectOption()](/api/class-elementhandle.mdx#element-handle-select-選項)
+- [Page.inputValue()](/api/class-page.mdx#page-input-value), [Frame.inputValue()](/api/class-frame.mdx#frame-input-value) 和 [ElementHandle.inputValue()](/api/class-elementhandle.mdx#element-handle-input-value)
+- new `force` 選項 in [Page.fill()](/api/class-page.mdx#page-fill), [Frame.fill()](/api/class-frame.mdx#frame-fill), 和 [ElementHandle.fill()](/api/class-elementhandle.mdx#element-handle-fill)
+- new `force` 選項 in [Page.selectOption()](/api/class-page.mdx#page-select-選項), [Frame.selectOption()](/api/class-frame.mdx#frame-select-選項), 和 [ElementHandle.selectOption()](/api/class-elementhandle.mdx#element-handle-select-選項)
 
 ## 版本 1.12
 
@@ -1443,12 +1443,12 @@ This version of Playwright was also tested against the following stable channels
 - Microsoft Edge 91
 
 #### 新的 API
-- `reducedMotion` 選項 in [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media), [BrowserType.launchPersistentContext()](/api/class-browsertype.mdx#browser-type-launch-persistent-context), [Browser.newContext()](/api/class-browser.mdx#browser-new-context) and [Browser.newPage()](/api/class-browser.mdx#browser-new-page)
+- `reducedMotion` 選項 in [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media), [BrowserType.launchPersistentContext()](/api/class-browsertype.mdx#browser-type-launch-persistent-context), [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [Browser.newPage()](/api/class-browser.mdx#browser-new-page)
 - [BrowserContext.onRequest(handler)](/api/class-browsercontext.mdx#browser-context-event-request)
 - [BrowserContext.onRequestFailed(handler)](/api/class-browsercontext.mdx#browser-context-event-request-failed)
 - [BrowserContext.onRequestFinished(handler)](/api/class-browsercontext.mdx#browser-context-event-request-finished)
 - [BrowserContext.onResponse(handler)](/api/class-browsercontext.mdx#browser-context-event-response)
-- `tracesDir` 選項 in [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch) and [BrowserType.launchPersistentContext()](/api/class-browsertype.mdx#browser-type-launch-persistent-context)
+- `tracesDir` 選項 in [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 和 [BrowserType.launchPersistentContext()](/api/class-browsertype.mdx#browser-type-launch-persistent-context)
 - new [BrowserContext.tracing()](/api/class-browsercontext.mdx#browser-context-tracing) API namespace
 - new [Download.page()](/api/class-download.mdx#download-page) 方法
 
@@ -1458,7 +1458,7 @@ This version of Playwright was also tested against the following stable channels
 - We talked about Playwright
 - Showed engineering work behind the scenes
 - Did live demos with new features ✨
-- **Special thanks** to [applitools](http://applitools.com/) for hosting the event and inviting us!
+- **Special thanks** to [applitools](http://applitools.com/) 主辦活動並邀請我們!
 
 #### 瀏覽器版本
 - Chromium 92.0.4498.0
@@ -1470,11 +1470,11 @@ This version of Playwright was also tested against the following stable channels
 - new **emulation devices**: Galaxy S8, Galaxy S9+, Galaxy Tab S4, Pixel 3, Pixel 4
 - new methods:
   * [Page.waitForURL()](/api/class-page.mdx#page-wait-for-url) to await navigations to URL
-  * [Video.delete()](/api/class-video.mdx#video-delete) and [Video.saveAs()](/api/class-video.mdx#video-save-as) to manage screen recording
+  * [Video.delete()](/api/class-video.mdx#video-delete) 和 [Video.saveAs()](/api/class-video.mdx#video-save-as) to manage screen recording
 - new options:
   * `screen` 選項 in the [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 方法 to emulate `window.screen` dimensions
-  * `position` 選項 in [Page.check()](/api/class-page.mdx#page-check) and [Page.uncheck()](/api/class-page.mdx#page-uncheck) methods
-  * `trial` 選項 to dry-run actions in [Page.check()](/api/class-page.mdx#page-check), [Page.uncheck()](/api/class-page.mdx#page-uncheck), [Page.click()](/api/class-page.mdx#page-click), [Page.dblclick()](/api/class-page.mdx#page-dblclick), [Page.hover()](/api/class-page.mdx#page-hover) and [Page.tap()](/api/class-page.mdx#page-tap)
+  * `position` 選項 in [Page.check()](/api/class-page.mdx#page-check) 和 [Page.uncheck()](/api/class-page.mdx#page-uncheck) methods
+  * `trial` 選項 to dry-run actions in [Page.check()](/api/class-page.mdx#page-check), [Page.uncheck()](/api/class-page.mdx#page-uncheck), [Page.click()](/api/class-page.mdx#page-click), [Page.dblclick()](/api/class-page.mdx#page-dblclick), [Page.hover()](/api/class-page.mdx#page-hover) 和 [Page.tap()](/api/class-page.mdx#page-tap)
 
 ## 版本 1.10
 - [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) is **now stable**!
@@ -1491,7 +1491,7 @@ This version of Playwright was also tested against the following stable channels
 - Microsoft Edge 89
 
 #### 新的 API
-- [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch) now accepts the new `'channel'` 選項. Read more in [our documentation](./browsers).
+- [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch)現在accepts the new `'channel'` 選項. Read more in [our documentation](./browsers).
 
 ## 版本 1.9
 - [Playwright Inspector](./debug.mdx) is a **new GUI tool** to author and debug your tests.
@@ -1501,7 +1501,7 @@ This version of Playwright was also tested against the following stable channels
   - Set the `PWDEBUG=1` environment variable to launch the Inspector
 - **Pause script execution** with [Page.pause()](/api/class-page.mdx#page-pause) in headed mode. Pausing the page launches [Playwright Inspector](./debug.mdx) for debugging.
 - **New has-text pseudo-class** for CSS selectors. `:has-text("example")` matches any element containing `"example"` somewhere inside, possibly in a child or a descendant element. See [more examples](./other-locators.mdx#css-matching-by-text).
-- **Page dialogs are now auto-dismissed** during execution, unless a listener for `dialog` event is configured. [Learn more](./dialogs.mdx) about this.
+- **Page dialogs are現在auto-dismissed** during execution, unless a listener for `dialog` event is configured. [Learn more](./dialogs.mdx) about this.
 - [Playwright for Python](https://github.com/microsoft/playwright-python) is **now stable** with an idiomatic snake case API and pre-built [Docker image](./docker.mdx) to run tests in CI/CD.
 
 #### 瀏覽器版本
@@ -1514,13 +1514,13 @@ This version of Playwright was also tested against the following stable channels
 
 ## 版本 1.8
 - [Selecting elements based on layout](./other-locators.mdx#css-matching-elements-based-on-layout) with `:left-of()`, `:right-of()`, `:above()` and `:below()`.
-- Playwright now includes command line interface, former playwright-cli.
+- Playwright現在includes command line interface, former playwright-cli.
   
   ```bash
   mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="--help"
   ```
   
-- [Page.selectOption()](/api/class-page.mdx#page-select-選項) now waits for the options to be present.
+- [Page.selectOption()](/api/class-page.mdx#page-select-選項)現在waits for the options to be present.
 - 新方法s to [assert element state](./actionability#assertions) like [Page.isEditable()](/api/class-page.mdx#page-is-editable).
 
 #### 新的 API
@@ -1544,15 +1544,15 @@ This version of Playwright was also tested against the following stable channels
 - WebKit 14.1
 
 ## 版本 1.7
-- **New Java SDK**: [Playwright for Java](https://github.com/microsoft/playwright-java) is now on par with [JavaScript](https://github.com/microsoft/playwright), [Python](https://github.com/microsoft/playwright-python) and [.NET bindings](https://github.com/microsoft/playwright-dotnet).
-- **Browser storage API**: New convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
+- **New Java SDK**: [Playwright for Java](https://github.com/microsoft/playwright-java) is現在on par with [JavaScript](https://github.com/microsoft/playwright), [Python](https://github.com/microsoft/playwright-python) 和 [.NET bindings](https://github.com/microsoft/playwright-dotnet).
+- **Browser storage API**: 新的 convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
 - **New CSS selectors**: We heard your feedback for more flexible selectors and have revamped the selectors implementation. Playwright 1.7 introduces [new CSS extensions](./other-locators.mdx#css-locator) and there's more coming soon.
-- **New website**: The docs website at [playwright.dev](https://playwright.dev/) 已被 updated and is now built with [Docusaurus](https://v2.docusaurus.io/).
-- **Support for Apple Silicon**: Playwright browser binaries for WebKit and Chromium are now built for Apple Silicon.
+- **New website**: The docs website at [playwright.dev](https://playwright.dev/) 已被 updated and is現在built with [Docusaurus](https://v2.docusaurus.io/).
+- **支援 Apple Silicon**: Playwright browser binaries for WebKit and Chromium are現在built for Apple Silicon.
 
 #### 新的 API
 - [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) to get current state for later reuse.
-- `storageState` 選項 in [Browser.newContext()](/api/class-browser.mdx#browser-new-context) and [Browser.newPage()](/api/class-browser.mdx#browser-new-page) to setup browser context state.
+- `storageState` 選項 in [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [Browser.newPage()](/api/class-browser.mdx#browser-new-page) to setup browser context state.
 
 #### 瀏覽器版本
 - Chromium 89.0.4344.0
