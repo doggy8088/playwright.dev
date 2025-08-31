@@ -396,7 +396,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
   await page.keyboard.press('ControlOrMeta+S');
   ```
   
-- 新屬性 `httpCredentials.send` in [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that 允許 either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
+- 新屬性 `httpCredentials.send` 在 [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 中，允許永遠傳送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時傳送。
 - 新選項 `reason` in [apiRequestContext.dispose()](/api/class-apirequestcontext.mdx#api-request-context-dispose) that will be included in the error message of ongoing operations interrupted by the context disposal.
 - 新選項 `host` in [browserType.launchServer()](/api/class-browsertype.mdx#browser-type-launch-server) 允許 accept websocket connections on a specific address instead of unspecified `0.0.0.0`.
 - Playwright 現在支援 Chromium, Firefox and WebKit on Ubuntu 24.04.
@@ -456,7 +456,7 @@ await page.removeLocatorHandler(locator);
 ```
 
 **其他選項**
-- [`multipart`](./api/class-apirequestcontext#api-request-context-fetch-選項-multipart) 選項 in `apiRequestContext.fetch()`現在accepts [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) and supports repeating fields with the same name.
+- [`multipart`](./api/class-apirequestcontext#api-request-context-fetch-選項-multipart) 選項在 `apiRequestContext.fetch()` 中現在接受 [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) 並支援具有相同名稱的重複欄位。
   
   ```js
   const formData = new FormData();
@@ -467,9 +467,9 @@ await page.removeLocatorHandler(locator);
   });
   ```
   
-- `expect(callback).toPass({ intervals })` 現在可以 be configured by `expect.toPass.intervals` 選項 globally in [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) or per project in [testProject.expect](/api/class-testproject.mdx#test-project-expect).
+- `expect(callback).toPass({ intervals })` 現在可以透過 `expect.toPass.intervals` 選項在 [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) 中全域配置或在 [testProject.expect](/api/class-testproject.mdx#test-project-expect) 中按專案配置。
 - `expect(page).toHaveURL(url)` 現在支援 `ignoreCase` [選項](./api/class-pageassertions#page-assertions-to-have-url-選項-ignore-case).
-- [testProject.ignoreSnapshots](./api/class-testproject#test-project-ignore-snapshots) 允許 configure  per project whether to skip screenshot expectations.
+- [testProject.ignoreSnapshots](./api/class-testproject#test-project-ignore-snapshots) 允許按專案配置是否跳過截圖預期。
 
 **報告器 API**
 - 新方法 [suite.entries()](/api/class-suite.mdx#suite-entries) 回傳 child test suites and test cases in their declaration order. [suite.type](/api/class-suite.mdx#suite-type) 和 [testCase.type](/api/class-testcase.mdx#test-case-type) 可以使用 to tell apart test cases和 suites 在the list.
@@ -601,8 +601,8 @@ await page.getByRole('link', { name: 'Collection of blue and white' }).click();
 await expect(page.getByRole('heading', { name: 'Light and easy' })).toBeVisible();
 ```
 
-- `expect(callback).toPass()` timeout 現在可以 be configured by `expect.toPass.timeout` 選項 [globally](./api/class-testconfig#test-config-expect) or in [project config](./api/class-testproject#test-project-expect)
-- [electronApplication.on('console')](/api/class-electronapplication.mdx#electron-application-event-console) event is emitted when Electron main process calls console API methods.
+- `expect(callback).toPass()` 超時現在可以透過 `expect.toPass.timeout` 選項進行[全域配置](./api/class-testconfig#test-config-expect)或在[專案配置](./api/class-testproject#test-project-expect)中配置
+- [electronApplication.on('console')](/api/class-electronapplication.mdx#electron-application-event-console) 事件在 Electron 主程序呼叫主控台 API 方法時觸發。
 
 ```js
 electronApp.on('console', async msg => {
@@ -1058,7 +1058,7 @@ Linux support looks like this:
   });
   ```
   
-* 新方法 [`expect.configure`](./test-assertions.mdx#expectconfigure) to create pre-configured expect instance with its own defaults such as `timeout` and `soft`.
+* 新方法 [`expect.configure`](./test-assertions.mdx#expectconfigure) 以建立具有自己預設值（如 `timeout` 和 `soft`）的預配置 expect 實例。
   
   ```js
   const slowExpect = expect.configure({ timeout: 10000 });
@@ -1068,7 +1068,7 @@ Linux support looks like this:
   const softExpect = expect.configure({ soft: true });
   ```
   
-* 新選項s `stderr` and `stdout`  in [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) to configure output handling:
+* 新選項 `stderr` 和 `stdout` 在 [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) 中以配置輸出處理：
   
   ```js title="playwright.config.ts"
   import { defineConfig } from '@playwright/test';
@@ -1117,7 +1117,7 @@ Linux support looks like this:
 <LiteYouTube id="JeFD6rqDbBo" title="Playwright 1.33" />
 
 ### 定位器更新
-* Use [locator.or()](/api/class-locator.mdx#locator-or) to create a locator that matches either of the two locators. Consider a scenario where you'd like to click on a "New email" button, but sometimes a security settings dialog shows up instead. In this case, you can wait for either a "New email" button, or a dialog and act accordingly:
+* 使用 [locator.or()](/api/class-locator.mdx#locator-or) 建立符合兩個定位器其中之一的定位器。考慮這樣的場景：您想要點選「New email」按鈕，但有時會出現安全設定對話框。在這種情況下，您可以等待「New email」按鈕或對話框，並相應地採取行動：
   
   ```js
   const newEmail = page.getByRole('button', { name: 'New email' });
@@ -1202,7 +1202,7 @@ Note: **component tests only**, does not affect end-to-end tests.
 <LiteYouTube id="PI50YAPTAs4" title="Playwright 1.31" />
 
 ### 新的 API
-- 新屬性 [testProject.dependencies](/api/class-testproject.mdx#test-project-dependencies) to configure dependencies between projects.
+- 新屬性 [testProject.dependencies](/api/class-testproject.mdx#test-project-dependencies) 以配置專案之間的依賴性。
   
   Using dependencies allows global setup to produce traces and other artifacts, see the setup steps in the test report and more.
   
@@ -1411,7 +1411,7 @@ export default defineConfig({
   test('runs second', async ({ page }) => {});
   ```
   
-* Use [testProject.snapshotPathTemplate](/api/class-testproject.mdx#test-project-snapshot-path-template) 和 [testConfig.snapshotPathTemplate](/api/class-testconfig.mdx#test-config-snapshot-path-template) to configure a template controlling location of snapshots generated by [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1).
+* 使用 [testProject.snapshotPathTemplate](/api/class-testproject.mdx#test-project-snapshot-path-template) 和 [testConfig.snapshotPathTemplate](/api/class-testconfig.mdx#test-config-snapshot-path-template) 以配置控制由 [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1) 產生的快照位置的範本。
   
   ```js title="playwright.config.ts"
   import { defineConfig } from '@playwright/test';
@@ -1464,7 +1464,7 @@ await expect(page.getByText('Welcome, John!')).toBeVisible();
 All the same methods are also available on [Locator], [FrameLocator] 和 [Frame] classes.
 
 ### 其他重點
-- `workers` 選項 in the `playwright.config.ts`現在accepts a percentage string to use some of the available CPUs. 您可以also pass it in the command line:
+- `workers` 選項在 `playwright.config.ts` 中現在接受百分比字串以使用部分可用的 CPU。您也可以在命令列中傳遞它：
   
   ```bash
   npx playwright test --workers=20%
@@ -1645,7 +1645,7 @@ test.describe(() => {
 
 ### 🧩 Component Tests Update
 
-Playwright 1.24 Component Tests introduce `beforeMount` and `afterMount` hooks. Use these to configure your app for tests.
+Playwright 1.24 組件測試引入了 `beforeMount` 和 `afterMount` 鉤子。使用這些來為測試配置您的應用程式。
 
 For example, this could be used to setup App router in Vue.js:
 
@@ -1936,7 +1936,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   ```
   
   It is most convenient以指定`maxDiffPixels` or `maxDiffPixelRatio` once in [testConfig.expect](/api/class-testconfig.mdx#test-config-expect).
-- Playwright Test現在adds [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) mode. By default, Playwright Test parallelizes between files. In fully parallel mode, tests inside a single file are also run in parallel. 您可以also use `--fully-parallel` command line flag.
+- Playwright Test 現在新增 [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) 模式。預設情況下，Playwright Test 在檔案之間平行化。在完全平行模式中，單一檔案內的測試也會平行執行。您也可以使用 `--fully-parallel` 命令列標誌。
   
   ```js title="playwright.config.ts"
   export default {
@@ -2018,10 +2018,10 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   ```
   
   Read more in [our documentation](./test-assertions#custom-expect-message)
-- By default, tests in a single file are run in order. If you have many independent tests in a single file, you 現在可以 run them in parallel with [test.describe.configure()](/api/class-test.mdx#test-describe-configure).
+- 預設情況下，單一檔案中的測試會依序執行。如果您在單一檔案中有許多獨立的測試，您現在可以使用 [test.describe.configure()](/api/class-test.mdx#test-describe-configure) 平行執行它們。
 
 ### 其他更新
-- Locator 現在支援 a `has` 選項 that makes sure it contains another locator inside:
+- Locator 現在支援 `has` 選項，確保它在內部包含另一個定位器：
   
   ```js
   await page.locator('article', {
@@ -2040,7 +2040,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 
 It is unlikely that this change will affect you, no action is required if your tests keep running as they did.
 
-We've noticed that in rare cases, the set of tests to be executed was configured in the global setup by means of the environment variables. We also noticed some applications that were post processing the reporters' output in the global teardown. If you are doing one of the two, [learn more](https://github.com/microsoft/playwright/issues/12018)
+我們注意到在極少數情況下，要執行的測試集合是透過環境變數在全域設定中配置的。我們也注意到一些應用程式在全域清理中對報告器的輸出進行後處理。如果您正在執行其中一項，[了解更多](https://github.com/microsoft/playwright/issues/12018)
 
 ### 瀏覽器版本
 - Chromium 100.0.4863.0
@@ -2058,7 +2058,7 @@ We've noticed that in rare cases, the set of tests to be executed was configured
 ### 定位器改進
 - [locator.dragTo()](/api/class-locator.mdx#locator-drag-to)
 - [`expect(locator).toBeChecked({ checked })`](./api/class-locatorassertions#locator-assertions-to-be-checked)
-- Each locator 現在可以 be optionally filtered by the text it contains:
+- 每個定位器現在可以選擇性地依其包含的文字進行篩選：
   
   ```js
   await page.locator('li', { hasText: 'my item' }).locator('button').click();
@@ -2158,7 +2158,7 @@ Playwright 1.17 introduces [frame locators](./api/class-framelocator) - a locato
 
 ![Graphics](https://user-images.githubusercontent.com/746130/142082759-2170db38-370d-43ec-8d41-5f9941f57d83.png)
 
-Frame locators can be created with either [page.frameLocator()](/api/class-page.mdx#page-frame-locator) or [locator.frameLocator()](/api/class-locator.mdx#locator-frame-locator) 方法.
+框架定位器可以使用 [page.frameLocator()](/api/class-page.mdx#page-frame-locator) 或 [locator.frameLocator()](/api/class-locator.mdx#locator-frame-locator) 方法建立。
 
 ```js
 const locator = page.frameLocator('#my-iframe').locator('text=Submit');
@@ -2272,7 +2272,7 @@ Read more about [response interception](./network#modify-responses).
 
 #### New HTML reporter
 
-Try it out new HTML reporter with either `--reporter=html` or a `reporter` entry in `playwright.config.ts` file:
+使用 `--reporter=html` 或在 `playwright.config.ts` 檔案中的 `reporter` 項目來試用新的 HTML 報告器：
 
 ```bash
 $ npx playwright test --reporter=html
@@ -2452,7 +2452,7 @@ Consider the following example:
 await expect(page.locator('.status')).toHaveText('Submitted');
 ```
 
-Playwright Test will be re-testing the node with the selector `.status` until fetched Node has the `"Submitted"` text. It will be re-fetching the node and checking it over and over, until the condition is met or until the timeout is reached. 您可以either pass this timeout or configure it once via the [`testProject.expect`](./api/class-testproject#test-project-expect) value in test config.
+Playwright Test 會重複測試具有選擇器 `.status` 的節點，直到取得的節點具有 `"Submitted"` 文字為止。它會不斷重新取得節點並檢查，直到滿足條件或達到逾時為止。您可以傳遞此逾時或透過測試配置中的 [`testProject.expect`](./api/class-testproject#test-project-expect) 值一次性配置它。
 
 By default, the timeout for assertions is not set, so it'll wait forever, until the whole test times out.
 
@@ -2698,7 +2698,7 @@ This version of Playwright was also tested against the following stable channels
 - Microsoft Edge 89
 
 #### 新的 API
-- [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch)現在accepts the new `'channel'` 選項. Read more in [our documentation](./browsers).
+- [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 現在接受新的 `'channel'` 選項。在[我們的文件](./browsers)中閱讀更多。
 
 ## 版本 1.9
 - [Playwright Inspector](./debug.mdx) is a **new GUI tool** to author and debug your tests.
@@ -2708,7 +2708,7 @@ This version of Playwright was also tested against the following stable channels
   - Set the `PWDEBUG=1` environment variable to launch the Inspector
 - **Pause script execution** with [page.pause()](/api/class-page.mdx#page-pause) in headed mode. Pausing the page launches [Playwright Inspector](./debug.mdx) for debugging.
 - **New has-text pseudo-class** for CSS selectors. `:has-text("example")` matches any element containing `"example"` somewhere inside, possibly in a child or a descendant element. See [more examples](./other-locators.mdx#css-matching-by-text).
-- **Page dialogs are現在auto-dismissed** during execution, unless a listener for `dialog` event is configured. [Learn more](./dialogs.mdx) about this.
+- **頁面對話框現在自動關閉**：除非配置了 `dialog` 事件的監聽器，否則在執行過程中會自動關閉頁面對話框。[了解更多](./dialogs.mdx)相關資訊。
 - [Playwright for Python](https://github.com/microsoft/playwright-python) is **now stable** with an idiomatic snake case API and pre-built [Docker image](./docker.mdx) to run tests in CI/CD.
 
 #### 瀏覽器版本
@@ -2727,7 +2727,7 @@ This version of Playwright was also tested against the following stable channels
   npx playwright --help
   ```
   
-- [page.selectOption()](/api/class-page.mdx#page-select-選項)現在waits for the options to be present.
+- [page.selectOption()](/api/class-page.mdx#page-select-選項) 現在會等待選項出現。
 - 新方法s to [assert element state](./actionability#assertions) like [page.isEditable()](/api/class-page.mdx#page-is-editable).
 
 #### 新的 API

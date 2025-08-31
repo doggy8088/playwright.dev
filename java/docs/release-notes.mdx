@@ -239,7 +239,7 @@ page.context().tracing().groupEnd();
   page.keyboard.press("ControlOrMeta+S");
   ```
   
-- 新屬性 `httpCredentials.send` in [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that 允許 either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
+- 新屬性 `httpCredentials.send` 在 [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 中，允許永遠傳送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時傳送。
 - Playwright 現在支援 Chromium, Firefox and WebKit on Ubuntu 24.04.
 - v1.45是最後一個接收receive WebKit update for macOS 12 Monterey. 請更新macOS以繼續使用the latest WebKit.
 
@@ -657,7 +657,7 @@ Linux support looks like this:
 ## 版本 1.33
 
 ### 定位器更新
-* Use [Locator.or()](/api/class-locator.mdx#locator-or) to create a locator that matches either of the two locators. Consider a scenario where you'd like to click on a "New email" button, but sometimes a security settings dialog shows up instead. In this case, you can wait for either a "New email" button, or a dialog and act accordingly:
+* 使用 [Locator.or()](/api/class-locator.mdx#locator-or) 建立符合兩個定位器其中之一的定位器。考慮這樣的場景：您想要點選「New email」按鈕，但有時會出現安全設定對話框。在這種情況下，您可以等待「New email」按鈕或對話框，並相應地採取行動：
   
   ```java
   Locator newEmail = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("New email"));
@@ -842,7 +842,7 @@ With these new APIs writing locators is a joy:
 - [Page.getByText()](/api/class-page.mdx#page-get-by-text)以定位by text content.
 - [Page.getByRole()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 - [Page.getByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
-- [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id)以定位an element based on its `data-testid` attribute (other attribute can be configured).
+- [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 以根據元素的 `data-testid` 屬性定位元素（可配置其他屬性）。
 - [Page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
 - [Page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text)以定位an element, usually image, by its text alternative.
 - [Page.getByTitle()](/api/class-page.mdx#page-get-by-title)以定位an element by its title.
@@ -1206,7 +1206,7 @@ Playwright 1.17 introduces [frame locators](./api/class-framelocator) - a locato
 
 ![Graphics](https://user-images.githubusercontent.com/746130/142082759-2170db38-370d-43ec-8d41-5f9941f57d83.png)
 
-Frame locators can be created with either [Page.frameLocator()](/api/class-page.mdx#page-frame-locator) or [Locator.frameLocator()](/api/class-locator.mdx#locator-frame-locator) 方法.
+框架定位器可以使用 [Page.frameLocator()](/api/class-page.mdx#page-frame-locator) 或 [Locator.frameLocator()](/api/class-locator.mdx#locator-frame-locator) 方法建立。
 
 ```java
 Locator locator = page.frameLocator("#my-frame").locator("text=Submit");
@@ -1338,7 +1338,7 @@ Learn more in the [documentation](./api/class-locator).
 
 #### 🧩 Experimental [**React**](./other-locators.mdx#react-locator) 和 [**Vue**](./other-locators.mdx#vue-locator) selector engines
 
-React and Vue selectors allow selecting elements by its component name and/or 屬性 values. The syntax is very similar to [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) and supports all attribute selector operators.
+React 和 Vue 選擇器允許按組件名稱和/或屬性值選擇元素。語法與[屬性選擇器](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)非常相似，並支援所有屬性選擇器運算子。
 
 ```java
 page.locator("_react=SubmitButton[enabled=true]").click();
@@ -1491,7 +1491,7 @@ This version of Playwright was also tested against the following stable channels
 - Microsoft Edge 89
 
 #### 新的 API
-- [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch)現在accepts the new `'channel'` 選項. Read more in [our documentation](./browsers).
+- [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 現在接受新的 `'channel'` 選項。在[我們的文件](./browsers)中閱讀更多。
 
 ## 版本 1.9
 - [Playwright Inspector](./debug.mdx) is a **new GUI tool** to author and debug your tests.
@@ -1501,7 +1501,7 @@ This version of Playwright was also tested against the following stable channels
   - Set the `PWDEBUG=1` environment variable to launch the Inspector
 - **Pause script execution** with [Page.pause()](/api/class-page.mdx#page-pause) in headed mode. Pausing the page launches [Playwright Inspector](./debug.mdx) for debugging.
 - **New has-text pseudo-class** for CSS selectors. `:has-text("example")` matches any element containing `"example"` somewhere inside, possibly in a child or a descendant element. See [more examples](./other-locators.mdx#css-matching-by-text).
-- **Page dialogs are現在auto-dismissed** during execution, unless a listener for `dialog` event is configured. [Learn more](./dialogs.mdx) about this.
+- **頁面對話框現在自動關閉**：除非配置了 `dialog` 事件的監聽器，否則在執行過程中會自動關閉頁面對話框。[了解更多](./dialogs.mdx)相關資訊。
 - [Playwright for Python](https://github.com/microsoft/playwright-python) is **now stable** with an idiomatic snake case API and pre-built [Docker image](./docker.mdx) to run tests in CI/CD.
 
 #### 瀏覽器版本
@@ -1520,7 +1520,7 @@ This version of Playwright was also tested against the following stable channels
   mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="--help"
   ```
   
-- [Page.selectOption()](/api/class-page.mdx#page-select-選項)現在waits for the options to be present.
+- [Page.selectOption()](/api/class-page.mdx#page-select-選項) 現在會等待選項出現。
 - 新方法s to [assert element state](./actionability#assertions) like [Page.isEditable()](/api/class-page.mdx#page-is-editable).
 
 #### 新的 API
