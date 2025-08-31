@@ -151,41 +151,41 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * Mozilla Firefox 135.0
 * WebKit 18.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 133
 * Microsoft Edge 133
 
-## Version 1.50
+## 版本 1.50
 
-### Support for Xunit
-* Support for xUnit 2.8+ via [Microsoft.Playwright.Xunit](https://www.nuget.org/packages/Microsoft.Playwright.Xunit). Follow our [Getting Started](./intro.mdx) guide to learn more.
+### Xunit 支援
+* 透過 [Microsoft.Playwright.Xunit](https://www.nuget.org/packages/Microsoft.Playwright.Xunit) 支援 xUnit 2.8+。請遵循我們的[快速入門](./intro.mdx)指南了解更多。
 
-### Miscellaneous
-* Added method [Expect(Locator).ToHaveAccessibleErrorMessageAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
+### 雜項
+* 新增方法 [Expect(Locator).ToHaveAccessibleErrorMessageAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) 來斷言定位器指向具有給定 [aria errormessage](https://w3c.github.io/aria/#aria-errormessage) 的元素。
 
-### UI updates
-* New button in Codegen for picking elements to produce aria snapshots.
-* Additional details (such as keys pressed) are now displayed alongside action API calls in traces.
-* Display of `canvas` content in traces is error-prone. Display is now disabled by default, and can be enabled via the `Display canvas content` UI setting.
-* `Call` and `Network` panels now display additional time information.
+### UI 更新
+* Codegen 中新增用於選取元素以產生 aria 快照的按鈕。
+* 現在在追蹤中與動作 API 呼叫一起顯示額外的詳細資訊（例如按下的按鍵）。
+* 追蹤中 `canvas` 內容的顯示容易出錯。現在預設停用顯示，可以透過 `Display canvas content` UI 設定啟用。
+* `Call` 和 `Network` 面板現在顯示額外的時間資訊。
 
-### Breaking
-* [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) and [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
+### 重大變更
+* [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-editable) 現在如果目標元素不是 `<input>`、`<select>` 或許多其他可編輯元素時會拋出例外。
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 133.0.6943.16
 * Mozilla Firefox 134.0
 * WebKit 18.2
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 132
 * Microsoft Edge 132
 
-## Version 1.49
+## 版本 1.49
 
-### Aria snapshots
+### Aria 快照
 
-New assertion [Expect(Locator).ToMatchAriaSnapshotAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) verifies page structure by comparing to an expected accessibility tree, represented as YAML.
+新斷言 [Expect(Locator).ToMatchAriaSnapshotAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) 透過比較預期的無障礙樹（以 YAML 表示）來驗證頁面結構。
 
 ```csharp
 await page.GotoAsync("https://playwright.dev");
@@ -200,13 +200,13 @@ await Expect(page.Locator("body")).ToMatchAriaSnapshotAsync(@"
 ");
 ```
 
-You can generate this assertion with [Test Generator](./codegen) or by calling [Locator.AriaSnapshotAsync()](/api/class-locator.mdx#locator-aria-snapshot).
+您可以使用[測試產生器](./codegen)或呼叫 [Locator.AriaSnapshotAsync()](/api/class-locator.mdx#locator-aria-snapshot) 來產生此斷言。
 
-Learn more in the [aria snapshots guide](./aria-snapshots).
+在 [aria 快照指南](./aria-snapshots)中了解更多。
 
-### Tracing groups
+### 追蹤分組
 
-New method [Tracing.GroupAsync()](/api/class-tracing.mdx#tracing-group) allows you to visually group actions in the trace viewer.
+新方法 [Tracing.GroupAsync()](/api/class-tracing.mdx#tracing-group) 允許您在追蹤檢視器中以視覺化方式將動作分組。
 
 ```csharp
 // All actions between GroupAsync and GroupEndAsync
@@ -217,21 +217,21 @@ await Page.GetByRole(AriaRole.Link, new() { Name = "API" }).ClickAsync();
 await Page.Context.Tracing.GroupEndAsync();
 ```
 
-### Breaking: `chrome` and `msedge` channels switch to new headless mode
+### 重大變更：`chrome` 和 `msedge` 通道切換到新的無頭模式
 
-This change affects you if you're using one of the following channels in your `playwright.config.ts`:
-- `chrome`, `chrome-dev`, `chrome-beta`, or `chrome-canary`
-- `msedge`, `msedge-dev`, `msedge-beta`, or `msedge-canary`
+如果您在 `playwright.config.ts` 中使用以下任一通道，此變更會影響您：
+- `chrome`、`chrome-dev`、`chrome-beta` 或 `chrome-canary`
+- `msedge`、`msedge-dev`、`msedge-beta` 或 `msedge-canary`
 
-After updating to Playwright v1.49, run your test suite. If it still passes, you're good to go. If not, you will probably need to update your snapshots, and adapt some of your test code around PDF viewers and extensions. See [issue #33566](https://github.com/microsoft/playwright/issues/33566) for more details.
+更新到 Playwright v1.49 後，執行您的測試套件。如果仍然通過，那就沒問題。如果沒有，您可能需要更新快照，並調整一些關於 PDF 檢視器和擴充功能的測試程式碼。更多詳細資訊請參閱 [issue #33566](https://github.com/microsoft/playwright/issues/33566)。
 
-### Try new Chromium headless
+### 嘗試新的 Chromium 無頭模式
 
-You can opt into the new headless mode by using `'chromium'` channel. As [official Chrome documentation puts it](https://developer.chrome.com/blog/chrome-headless-shell):
+您可以透過使用 `'chromium'` 通道選擇加入新的無頭模式。如 [Chrome 官方文件所述](https://developer.chrome.com/blog/chrome-headless-shell)：
 
-> New Headless on the other hand is the real Chrome browser, and is thus more authentic, reliable, and offers more features. This makes it more suitable for high-accuracy end-to-end web app testing or browser extension testing.
+> 另一方面，新的無頭模式是真正的 Chrome 瀏覽器，因此更真實、可靠且提供更多功能。這使其更適合高精度的端到端網頁應用程式測試或瀏覽器擴充功能測試。
 
-See [issue #33566](https://github.com/microsoft/playwright/issues/33566) for the list of possible breakages you could encounter and more details on Chromium headless. Please file an issue if you see any problems after opting in.
+有關您可能遇到的問題清單以及 Chromium 無頭模式的更多詳細資訊，請參閱 [issue #33566](https://github.com/microsoft/playwright/issues/33566)。如果在選擇加入後遇到任何問題，請提交 issue。
 
 ```xml title="runsettings.xml"
 <?xml version="1.0" encoding="utf-8"?>
@@ -249,24 +249,24 @@ See [issue #33566](https://github.com/microsoft/playwright/issues/33566) for the
 dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Channel=chromium
 ```
 
-### Miscellaneous
-- There will be no more updates for WebKit on Ubuntu 20.04 and Debian 11. We recommend updating your OS to a later version.
-- `<canvas>` elements inside a snapshot now draw a preview.
+### 雜項
+- Ubuntu 20.04 和 Debian 11 上的 WebKit 將不再有更新。我們建議將您的作業系統更新到較新版本。
+- 快照中的 `<canvas>` 元素現在會繪製預覽。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 131.0.6778.33
 - Mozilla Firefox 132.0
 - WebKit 18.2
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 130
 - Microsoft Edge 130
 
-## Version 1.48
+## 版本 1.48
 
-### WebSocket routing
+### WebSocket 路由
 
-New methods [Page.RouteWebSocketAsync()](/api/class-page.mdx#page-route-web-socket) and [BrowserContext.RouteWebSocketAsync()](/api/class-browsercontext.mdx#browser-context-route-web-socket) allow to intercept, modify and mock WebSocket connections initiated in the page. Below is a simple example that mocks WebSocket communication by responding to a `"request"` with a `"response"`.
+新方法 [Page.RouteWebSocketAsync()](/api/class-page.mdx#page-route-web-socket) 和 [BrowserContext.RouteWebSocketAsync()](/api/class-browsercontext.mdx#browser-context-route-web-socket) 允許攔截、修改和模擬在頁面中啟動的 WebSocket 連線。以下是一個簡單範例，透過以 `"response"` 回應 `"request"` 來模擬 WebSocket 通訊。
 
 ```csharp
 await page.RouteWebSocketAsync("/ws", ws => {
@@ -277,27 +277,27 @@ await page.RouteWebSocketAsync("/ws", ws => {
 });
 ```
 
-See [WebSocketRoute] for more details.
+更多詳細資訊請參閱 [WebSocketRoute]。
 
-### UI updates
-- New "copy" buttons for annotations and test location in the HTML report.
-- Route method calls like [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill) are not shown in the report and trace viewer anymore. You can see which network requests were routed in the network tab instead.
-- New "Copy as cURL" and "Copy as fetch" buttons for requests in the network tab.
+### UI 更新
+- HTML 報告中的註解和測試位置新增「複製」按鈕。
+- 像 [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill) 這樣的路由方法呼叫不再顯示在報告和追蹤檢視器中。您可以在網路標籤中看到哪些網路請求被路由。
+- 網路標籤中的請求新增「複製為 cURL」和「複製為 fetch」按鈕。
 
-### Miscellaneous
-- New method [Page.RequestGCAsync()](/api/class-page.mdx#page-request-gc) may help detect memory leaks.
-- Requests made by [APIRequestContext] now record detailed timing and security information in the HAR.
+### 雜項
+- 新方法 [Page.RequestGCAsync()](/api/class-page.mdx#page-request-gc) 可能有助於偵測記憶體洩漏。
+- [APIRequestContext] 發出的請求現在在 HAR 中記錄詳細的時間和安全資訊。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 130.0.6723.19
 - Mozilla Firefox 130.0
 - WebKit 18.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 129
 - Microsoft Edge 129
 
-## Version 1.47
+## 版本 1.47
 
 ### Network Tab improvements
 
