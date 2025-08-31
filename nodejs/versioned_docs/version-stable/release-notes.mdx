@@ -151,12 +151,12 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
 - Google Chrome 135
 - Microsoft Edge 135
 
-## Version 1.51
+## 版本 1.51
 
-### StorageState for indexedDB
-* New option [indexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) allows to save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
+### IndexedDB 的 StorageState
+* [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 的新選項 [indexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) 允許儲存和還原 IndexedDB 內容。當您的應用程式使用 [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 儲存驗證權杖時很有用，例如 Firebase Authentication。
   
-  Here is an example following the [authentication guide](./auth.mdx#basic-shared-account-in-all-tests):
+  以下是遵循[驗證指南](./auth.mdx#basic-shared-account-in-all-tests)的範例：
   
   ```js title="tests/auth.setup.ts"
   import { test as setup, expect } from '@playwright/test';
@@ -173,28 +173,25 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
   });
   ```
   
-### Copy as prompt
+### 複製為提示
+HTML 報告、追蹤檢視器和 UI 模式中錯誤的新「複製提示」按鈕。點擊以複製包含錯誤訊息和修復錯誤有用上下文的預填 LLM 提示。
 
-New "Copy prompt" button on errors in the HTML report, trace viewer and UI mode. Click to copy a pre-filled LLM prompt that contains the error message and useful context for fixing the error.
+![複製提示](https://github.com/user-attachments/assets/f3654407-dd6d-4240-9845-0d96df2bf30a)
 
-![Copy prompt](https://github.com/user-attachments/assets/f3654407-dd6d-4240-9845-0d96df2bf30a)
-
-### Filter visible elements
-
-New option [visible](/api/class-locator.mdx#locator-filter-option-visible) for [locator.filter()](/api/class-locator.mdx#locator-filter) allows matching only visible elements.
+### 過濾可見元素
+[locator.filter()](/api/class-locator.mdx#locator-filter) 的新選項 [visible](/api/class-locator.mdx#locator-filter-option-visible) 允許僅匹配可見元素。
 
 ```js title="example.spec.ts"
 test('some test', async ({ page }) => {
-  // Ignore invisible todo items.
+  // 忽略不可見的待辦事項。
   const todoItems = page.getByTestId('todo-item').filter({ visible: true });
-  // Check there are exactly 3 visible ones.
+  // 檢查正好有 3 個可見的。
   await expect(todoItems).toHaveCount(3);
 });
 ```
 
-### Git information in HTML report
-
-Set option [testConfig.captureGitInfo](/api/class-testconfig.mdx#test-config-capture-git-info) to capture git information into [testConfig.metadata](/api/class-testconfig.mdx#test-config-metadata).
+### HTML 報告中的 Git 資訊
+設定選項 [testConfig.captureGitInfo](/api/class-testconfig.mdx#test-config-capture-git-info) 以將 git 資訊擷取到 [testConfig.metadata](/api/class-testconfig.mdx#test-config-metadata) 中。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -204,17 +201,16 @@ export default defineConfig({
 });
 ```
 
-HTML report will show this information when available:
+可用時，HTML 報告將顯示此資訊：
 
-![Git information in the report](https://github.com/user-attachments/assets/f5b3f6f4-aa08-4a24-816c-7edf33ef0c37)
+![報告中的 Git 資訊](https://github.com/user-attachments/assets/f5b3f6f4-aa08-4a24-816c-7edf33ef0c37)
 
-### Test Step improvements
-
-A new [TestStepInfo] object is now available in test steps. You can add step attachments or skip the step under some conditions.
+### 測試步驟改進
+測試步驟中現在可以使用新的 [TestStepInfo] 物件。您可以新增步驟附件或在某些條件下跳過步驟。
 
 ```js
 test('some test', async ({ page, isMobile }) => {
-  // Note the new "step" argument:
+  // 注意新的 "step" 參數：
   await test.step('here is my step', async step => {
     step.skip(isMobile, 'not relevant on mobile layouts');
 
@@ -225,17 +221,17 @@ test('some test', async ({ page, isMobile }) => {
 });
 ```
 
-### Miscellaneous
-* New option `contrast` for methods [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) and [browser.newContext()](/api/class-browser.mdx#browser-new-context) allows to emulate the `prefers-contrast` media feature.
-* New option [failOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) makes all fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
-* Assertion [expect(page).toHaveURL()](/api/class-pageassertions.mdx#page-assertions-to-have-url) now supports a predicate.
+### 其他
+* 方法 [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) 和 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 的新選項 `contrast` 允許模擬 `prefers-contrast` 媒體功能。
+* 新選項 [failOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) 使透過 [APIRequestContext] 進行的所有 fetch 請求在回應代碼不是 2xx 和 3xx 時拋出錯誤。
+* 斷言 [expect(page).toHaveURL()](/api/class-pageassertions.mdx#page-assertions-to-have-url) 現在支援謂詞。
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 134.0.6998.35
 * Mozilla Firefox 135.0
 * WebKit 18.4
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 * Google Chrome 133
 * Microsoft Edge 133
 

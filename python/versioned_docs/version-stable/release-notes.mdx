@@ -8,44 +8,44 @@ import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Version 1.55
+## 版本 1.55
 
 ### Codegen
-- Automatic `toBeVisible()` assertions: Codegen can now generate automatic `toBeVisible()` assertions for common UI interactions. This feature can be enabled in the Codegen settings UI.
+- 自動 `to_be_visible()` 斷言：Codegen 現在可以為常見的 UI 互動產生自動 `to_be_visible()` 斷言。此功能可以在 Codegen 設定 UI 中啟用。
 
-### Breaking Changes
-- ⚠️ Dropped support for Chromium extension manifest v2.
+### 重大變更
+- ⚠️ 已移除對 Chromium 擴充功能 manifest v2 的支援。
 
-### Miscellaneous
-- Added support for Debian 13 "Trixie".
+### 其他
+- 新增對 Debian 13 "Trixie" 的支援。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 140.0.7339.16
 - Mozilla Firefox 141.0
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 139
 - Microsoft Edge 139
 
-## Version 1.54
+## 版本 1.54
 
-### Highlights
-- New cookie property `partition_key` in [browser_context.cookies()](/api/class-browsercontext.mdx#browser-context-cookies) and [browser_context.add_cookies()](/api/class-browsercontext.mdx#browser-context-add-cookies). This property allows to save and restore partitioned cookies. See [CHIPS MDN article](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) for more information. Note that browsers have different support and defaults for cookie partitioning.
-- New option `--user-data-dir` in multiple commands. You can specify the same user data dir to reuse browsing state, like authentication, between sessions.
+### 重點
+- 在 [browser_context.cookies()](/api/class-browsercontext.mdx#browser-context-cookies) 和 [browser_context.add_cookies()](/api/class-browsercontext.mdx#browser-context-add-cookies) 中新增 cookie 屬性 `partition_key`。此屬性允許儲存和還原分割的 cookies。請參閱 [CHIPS MDN 文章](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) 以取得更多資訊。請注意，瀏覽器對 cookie 分割有不同的支援和預設值。
+- 在多個指令中新增選項 `--user-data-dir`。您可以指定相同的使用者資料目錄來重複使用瀏覽狀態，例如驗證，在不同的會話之間。
   
   ```bash
   playwright codegen --user-data-dir=./user-data
   ```
   
-- `playwright open` does not open the test recorder anymore. Use `playwright codegen` instead.
+- `playwright open` 不再開啟測試錄製器。請改用 `playwright codegen`。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 139.0.7258.5
 - Mozilla Firefox 140.0.2
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 140
 - Microsoft Edge 140
 

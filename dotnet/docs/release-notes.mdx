@@ -82,7 +82,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
     await Expect(Page.GetByRole(AriaRole.Listitem, new() { Name = "Ship v1.52" })).ToContainClassAsync("done");
   ```
   
-- [Aria Snapshots](./aria-snapshots.mdx) got two new properties: [`/children`](./aria-snapshots.mdx#strict-matching) for strict matching and `/url` for links.
+- [Aria Snapshots](./aria-snapshots.mdx) 獲得兩個新屬性：[`/children`](./aria-snapshots.mdx#strict-matching) 用於嚴格匹配和 `/url` 用於連結。
   
   ```csharp
   await Expect(locator).ToMatchAriaSnapshotAsync(@"
@@ -95,29 +95,29 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   ");
   ```
   
-### Miscellaneous
-- New option [MaxRedirects](/api/class-apirequest.mdx#api-request-new-context-option-max-redirects) in [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) to control the maximum number of redirects.
+### 其他
+- [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 中的新選項 [MaxRedirects](/api/class-apirequest.mdx#api-request-new-context-option-max-redirects) 用於控制重定向的最大次數。
 
-### Breaking Changes
-- Glob URL patterns in methods like [Page.RouteAsync()](/api/class-page.mdx#page-route) do not support `?` and `[]` anymore. We recommend using regular expressions instead.
-- Method [Route.ContinueAsync()](/api/class-route.mdx#route-continue) does not allow to override the `Cookie` header anymore. If a `Cookie` header is provided, it will be ignored, and the cookie will be loaded from the browser's cookie store. To set custom cookies, use [BrowserContext.AddCookiesAsync()](/api/class-browsercontext.mdx#browser-context-add-cookies).
-- macOS 13 is now deprecated and will no longer receive WebKit updates. Please upgrade to a more recent macOS version to continue benefiting from the latest WebKit improvements.
+### 重大變更
+- 像 [Page.RouteAsync()](/api/class-page.mdx#page-route) 這樣的方法中的全域 URL 模式不再支援 `?` 和 `[]`。我們建議改用正規表達式。
+- 方法 [Route.ContinueAsync()](/api/class-route.mdx#route-continue) 不再允許覆寫 `Cookie` 標頭。如果提供了 `Cookie` 標頭，它將被忽略，cookie 將從瀏覽器的 cookie 儲存中載入。要設定自訂 cookies，請使用 [BrowserContext.AddCookiesAsync()](/api/class-browsercontext.mdx#browser-context-add-cookies)。
+- macOS 13 現已棄用，將不再接收 WebKit 更新。請升級到更新的 macOS 版本以繼續受益於最新的 WebKit 改進。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 136.0.7103.25
 - Mozilla Firefox 137.0
 - WebKit 18.4
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 135
 - Microsoft Edge 135
 
-## Version 1.51
+## 版本 1.51
 
-### Highlights
-* New option [IndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) allows to save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
+### 重點
+* [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) 的新選項 [IndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) 允許儲存和還原 IndexedDB 內容。當您的應用程式使用 [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 儲存驗證權杖時很有用，例如 Firebase Authentication。
   
-  Here is an example following the [authentication guide](./auth.mdx#reusing-signed-in-state):
+  以下是遵循[驗證指南](./auth.mdx#reusing-signed-in-state)的範例：
   
   ```csharp
   // Save storage state into the file. Make sure to include IndexedDB.
