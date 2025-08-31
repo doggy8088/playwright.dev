@@ -17,7 +17,7 @@
 
 ## Node.js（nodejs/docs）（139）
 
- - [x] nodejs/docs/accessibility-testing.mdx
+- [x] nodejs/docs/accessibility-testing.mdx
 - [x] nodejs/docs/actionability.mdx
 - [x] nodejs/docs/api-testing.mdx
 - [ ] nodejs/docs/api/class-accessibility.mdx
@@ -88,9 +88,9 @@
 - [ ] nodejs/docs/api/class-websocketroute.mdx
 - [ ] nodejs/docs/api/class-worker.mdx
 - [ ] nodejs/docs/api/class-workerinfo.mdx
-- [ ] nodejs/docs/aria-snapshots.mdx
+- [x] nodejs/docs/aria-snapshots.mdx
 - [x] nodejs/docs/auth.mdx
-- [ ] nodejs/docs/best-practices.mdx
+- [x] nodejs/docs/best-practices.mdx
 - [x] nodejs/docs/browser-contexts.mdx
 - [ ] nodejs/docs/browsers.mdx
 - [ ] nodejs/docs/canary-releases.mdx
@@ -231,9 +231,9 @@
 - [ ] nodejs/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-worker.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-workerinfo.mdx
-- [ ] nodejs/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] nodejs/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] nodejs/versioned_docs/version-stable/auth.mdx
-- [ ] nodejs/versioned_docs/version-stable/best-practices.mdx
+- [x] nodejs/versioned_docs/version-stable/best-practices.mdx
 - [x] nodejs/versioned_docs/version-stable/browser-contexts.mdx
 - [ ] nodejs/versioned_docs/version-stable/browsers.mdx
 - [ ] nodejs/versioned_docs/version-stable/canary-releases.mdx
@@ -342,7 +342,7 @@
 - [ ] python/docs/api/class-websocket.mdx
 - [ ] python/docs/api/class-websocketroute.mdx
 - [ ] python/docs/api/class-worker.mdx
-- [ ] python/docs/aria-snapshots.mdx
+- [x] python/docs/aria-snapshots.mdx
 - [x] python/docs/auth.mdx
 - [x] python/docs/browser-contexts.mdx
 - [ ] python/docs/browsers.mdx
@@ -428,7 +428,7 @@
 - [ ] python/versioned_docs/version-stable/api/class-websocket.mdx
 - [ ] python/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] python/versioned_docs/version-stable/api/class-worker.mdx
-- [ ] python/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] python/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] python/versioned_docs/version-stable/auth.mdx
 - [x] python/versioned_docs/version-stable/browser-contexts.mdx
 - [ ] python/versioned_docs/version-stable/browsers.mdx
@@ -518,7 +518,7 @@
 - [ ] java/docs/api/class-websocketframe.mdx
 - [ ] java/docs/api/class-websocketroute.mdx
 - [ ] java/docs/api/class-worker.mdx
-- [ ] java/docs/aria-snapshots.mdx
+- [x] java/docs/aria-snapshots.mdx
 - [x] java/docs/auth.mdx
 - [x] java/docs/browser-contexts.mdx
 - [ ] java/docs/browsers.mdx
@@ -608,7 +608,7 @@
 - [ ] java/versioned_docs/version-stable/api/class-websocketframe.mdx
 - [ ] java/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] java/versioned_docs/version-stable/api/class-worker.mdx
-- [ ] java/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] java/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] java/versioned_docs/version-stable/auth.mdx
 - [x] java/versioned_docs/version-stable/browser-contexts.mdx
 - [ ] java/versioned_docs/version-stable/browsers.mdx
@@ -697,7 +697,7 @@
 - [ ] dotnet/docs/api/class-websocketframe.mdx
 - [ ] dotnet/docs/api/class-websocketroute.mdx
 - [ ] dotnet/docs/api/class-worker.mdx
-- [ ] dotnet/docs/aria-snapshots.mdx
+- [x] dotnet/docs/aria-snapshots.mdx
 - [x] dotnet/docs/auth.mdx
 - [x] dotnet/docs/browser-contexts.mdx
 - [ ] dotnet/docs/browsers.mdx
@@ -785,7 +785,7 @@
 - [ ] dotnet/versioned_docs/version-stable/api/class-websocketframe.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-websocketroute.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-worker.mdx
-- [ ] dotnet/versioned_docs/version-stable/aria-snapshots.mdx
+- [x] dotnet/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] dotnet/versioned_docs/version-stable/auth.mdx
 - [x] dotnet/versioned_docs/version-stable/browser-contexts.mdx
 - [ ] dotnet/versioned_docs/version-stable/browsers.mdx
@@ -827,4 +827,3 @@
 - [ ] dotnet/versioned_docs/version-stable/videos.mdx
 - [ ] dotnet/versioned_docs/version-stable/webview2.mdx
 - [ ] dotnet/versioned_docs/version-stable/writing-tests.mdx
-
