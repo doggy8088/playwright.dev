@@ -350,7 +350,7 @@
 - [ ] python/docs/ci-intro.mdx
 - [x] python/docs/ci.mdx
 - [ ] python/docs/clock.mdx
-- [ ] python/docs/codegen-intro.mdx
+- [x] python/docs/codegen-intro.mdx
 - [ ] python/docs/codegen.mdx
 - [x] python/docs/debug.mdx
 - [ ] python/docs/dialogs.mdx
@@ -436,7 +436,7 @@
 - [ ] python/versioned_docs/version-stable/ci-intro.mdx
 - [x] python/versioned_docs/version-stable/ci.mdx
 - [ ] python/versioned_docs/version-stable/clock.mdx
-- [ ] python/versioned_docs/version-stable/codegen-intro.mdx
+- [x] python/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] python/versioned_docs/version-stable/codegen.mdx
 - [x] python/versioned_docs/version-stable/debug.mdx
 - [ ] python/versioned_docs/version-stable/dialogs.mdx
@@ -525,7 +525,7 @@
 - [ ] java/docs/ci-intro.mdx
 - [x] java/docs/ci.mdx
 - [ ] java/docs/clock.mdx
-- [ ] java/docs/codegen-intro.mdx
+- [x] java/docs/codegen-intro.mdx
 - [ ] java/docs/codegen.mdx
 - [x] java/docs/debug.mdx
 - [ ] java/docs/dialogs.mdx
@@ -615,7 +615,7 @@
 - [ ] java/versioned_docs/version-stable/ci-intro.mdx
 - [x] java/versioned_docs/version-stable/ci.mdx
 - [ ] java/versioned_docs/version-stable/clock.mdx
-- [ ] java/versioned_docs/version-stable/codegen-intro.mdx
+- [x] java/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] java/versioned_docs/version-stable/codegen.mdx
 - [x] java/versioned_docs/version-stable/debug.mdx
 - [ ] java/versioned_docs/version-stable/dialogs.mdx
@@ -704,7 +704,7 @@
 - [ ] dotnet/docs/ci-intro.mdx
 - [x] dotnet/docs/ci.mdx
 - [ ] dotnet/docs/clock.mdx
-- [ ] dotnet/docs/codegen-intro.mdx
+- [x] dotnet/docs/codegen-intro.mdx
 - [ ] dotnet/docs/codegen.mdx
 - [x] dotnet/docs/debug.mdx
 - [ ] dotnet/docs/dialogs.mdx
@@ -792,7 +792,7 @@
 - [ ] dotnet/versioned_docs/version-stable/ci-intro.mdx
 - [x] dotnet/versioned_docs/version-stable/ci.mdx
 - [ ] dotnet/versioned_docs/version-stable/clock.mdx
-- [ ] dotnet/versioned_docs/version-stable/codegen-intro.mdx
+- [x] dotnet/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/codegen.mdx
 - [x] dotnet/versioned_docs/version-stable/debug.mdx
 - [ ] dotnet/versioned_docs/version-stable/dialogs.mdx
