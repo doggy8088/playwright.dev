@@ -428,21 +428,21 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
 ### 新的 API
 
 **無障礙斷言**
-- [Expect(Locator).ToHaveAccessibleNameAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
+- [Expect(Locator).ToHaveAccessibleNameAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的無障礙名稱：
   
   ```csharp
   var locator = Page.GetByRole(AriaRole.Button);
   await Expect(locator).ToHaveAccessibleNameAsync("Submit");
   ```
   
-- [Expect(Locator).ToHaveAccessibleDescriptionAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) checks if the element has the specified accessible description:
+- [Expect(Locator).ToHaveAccessibleDescriptionAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的無障礙描述：
   
   ```csharp
   var locator = Page.GetByRole(AriaRole.Button);
   await Expect(locator).ToHaveAccessibleDescriptionAsync("Upload a photo");
   ```
   
-- [Expect(Locator).ToHaveRoleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) checks if the element has the specified ARIA role:
+- [Expect(Locator).ToHaveRoleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色：
   
   ```csharp
   var locator = Page.GetByTestId("save-button");
@@ -467,7 +467,7 @@ await Page.RemoveLocatorHandlerAsync(locator);
 ```
 
 **其他選項**
-- 新方法 [FormData.Append()](/api/class-formdata.mdx#form-data-append) 允許 specify repeating fields with the same name in [`Multipart`](./api/class-apirequestcontext#api-request-context-fetch-選項-multipart) 選項 in `APIRequestContext.FetchAsync()`:
+- 新方法 [FormData.Append()](/api/class-formdata.mdx#form-data-append) 允許在 `APIRequestContext.FetchAsync()` 的 [`Multipart`](./api/class-apirequestcontext#api-request-context-fetch-選項-multipart) 選項中指定具有相同名稱的重複欄位：
   
   ```csharp
   var formData = Context.APIRequest.CreateFormData();
@@ -511,7 +511,7 @@ await Page.RemoveLocatorHandlerAsync(locator);
   await Context.ClearCookiesAsync(new() { Domain = "my-origin.com" });
   ```
   
-- 新屬性 [Locator.ContentFrame](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
+- 新屬性 [Locator.ContentFrame](/api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。當您在某處取得 [Locator] 物件，稍後想要與框架內的內容互動時，這會很有用。
   
   ```csharp
   var locator = Page.Locator("iframe[name='embedded']");
@@ -520,7 +520,7 @@ await Page.RemoveLocatorHandlerAsync(locator);
   await frameLocator.GetByRole(AriaRole.Button).ClickAsync();
   ```
   
-- 新屬性 [FrameLocator.Owner](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
+- 新屬性 [FrameLocator.Owner](/api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。當您在某處取得 [FrameLocator] 物件，稍後想要與 `iframe` 元素互動時，這會很有用。
   
   ```csharp
   var frameLocator = page.FrameLocator("iframe[name='embedded']");
@@ -576,8 +576,8 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [Page.UnrouteAllAsync()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [Page.RouteAsync()](/api/class-page.mdx#page-route) and [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
-- 新方法 [BrowserContext.UnrouteAllAsync()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) and [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [Page.UnrouteAllAsync()](/api/class-page.mdx#page-unroute-all) 移除所有由 [Page.RouteAsync()](/api/class-page.mdx#page-route) 和 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
+- 新方法 [BrowserContext.UnrouteAllAsync()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除所有由 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
 - 新選項s [Style](/api/class-page.mdx#page-screenshot-選項-style) in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) and [Style](/api/class-locator.mdx#locator-screenshot-選項-style) in [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
 
 ### 瀏覽器版本
@@ -766,7 +766,7 @@ Linux support looks like this:
       .ScreenshotAsync();
   ```
   
-* Use new web-first assertion [Expect(Locator).ToBeAttachedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) to ensure that the element is present in the page's DOM. Do not confuse with the [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) that ensures that element is both attached & visible.
+* 使用新的 web-first 斷言 [Expect(Locator).ToBeAttachedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 確保元素存在於頁面的 DOM 中。不要與 [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既已附加又可見。
 
 ### 新的 API
 - [Locator.Or()](/api/class-locator.mdx#locator-or)

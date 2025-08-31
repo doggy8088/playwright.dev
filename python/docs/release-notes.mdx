@@ -270,7 +270,7 @@ This change affects you if you're using one of the following channels in your `p
   expect(locator).to_have_accessible_description("Upload a photo")
   ```
   
-- [expect(locator).to_have_role()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) checks if the element has the specified ARIA role:
+- [expect(locator).to_have_role()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色：
   
   ```python
   locator = page.get_by_test_id("save-button")
@@ -382,8 +382,8 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [page.unroute_all()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) and [page.route_from_har()](/api/class-page.mdx#page-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
-- 新方法 [browser_context.unroute_all()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) and [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [page.unroute_all()](/api/class-page.mdx#page-unroute-all) 移除所有由 [page.route()](/api/class-page.mdx#page-route) 和 [page.route_from_har()](/api/class-page.mdx#page-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
+- 新方法 [browser_context.unroute_all()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除所有由 [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
 - 新選項s [style](/api/class-page.mdx#page-screenshot-選項-style) in [page.screenshot()](/api/class-page.mdx#page-screenshot) and [style](/api/class-locator.mdx#locator-screenshot-選項-style) in [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
 
 ### 瀏覽器版本
@@ -578,7 +578,7 @@ Linux support looks like this:
   ).screenshot()
   ```
   
-* Use new web-first assertion [expect(locator).to_be_attached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) to ensure that the element is present in the page's DOM. Do not confuse with the [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) that ensures that element is both attached & visible.
+* 使用新的 web-first 斷言 [expect(locator).to_be_attached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 確保元素存在於頁面的 DOM 中。不要與 [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既已附加又可見。
 
 ### 新的 API
 - [locator.or_()](/api/class-locator.mdx#locator-or)

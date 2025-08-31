@@ -257,21 +257,21 @@ This change affects you if you're using one of the following channels in your `p
 ### 新的 API
 
 **無障礙斷言**
-- [assertThat(locator).hasAccessibleName()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
+- [assertThat(locator).hasAccessibleName()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) 檢查元素是否具有指定的無障礙名稱：
   
   ```java
   Locator locator = page.getByRole(AriaRole.BUTTON);
   assertThat(locator).hasAccessibleName("Submit");
   ```
   
-- [assertThat(locator).hasAccessibleDescription()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) checks if the element has the specified accessible description:
+- [assertThat(locator).hasAccessibleDescription()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) 檢查元素是否具有指定的無障礙描述：
   
   ```java
   Locator locator = page.getByRole(AriaRole.BUTTON);
   assertThat(locator).hasAccessibleDescription("Upload a photo");
   ```
   
-- [assertThat(locator).hasRole()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) checks if the element has the specified ARIA role:
+- [assertThat(locator).hasRole()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) 檢查元素是否具有指定的 ARIA 角色：
   
   ```java
   Locator locator = page.getByTestId("save-button");
@@ -295,7 +295,7 @@ page.removeLocatorHandler(locator);
 ```
 
 **其他選項**
-- 新方法 [FormData.append()](/api/class-formdata.mdx#form-data-append) 允許 specify repeating fields with the same name in [`setMultipart`](./api/class-requestoptions#request-options-set-multipart) 選項 in `RequestOptions`:
+- 新方法 [FormData.append()](/api/class-formdata.mdx#form-data-append) 允許在 `RequestOptions` 的 [`setMultipart`](./api/class-requestoptions#request-options-set-multipart) 選項中指定具有相同名稱的重複欄位：
   
   ```java
   FormData formData = FormData.create();
@@ -331,7 +331,7 @@ page.removeLocatorHandler(locator);
   context.clearCookies(new BrowserContext.ClearCookiesOptions().setDomain("my-origin.com"));
   ```
   
-- 新方法 [Locator.contentFrame()](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
+- 新方法 [Locator.contentFrame()](/api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。當您在某處取得 [Locator] 物件，稍後想要與框架內的內容互動時，這會很有用。
   
   ```java
   Locator locator = page.locator("iframe[name='embedded']");
@@ -340,7 +340,7 @@ page.removeLocatorHandler(locator);
   frameLocator.getByRole(AriaRole.BUTTON).click();
   ```
   
-- 新方法 [FrameLocator.owner()](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
+- 新方法 [FrameLocator.owner()](/api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。當您在某處取得 [FrameLocator] 物件，稍後想要與 `iframe` 元素互動時，這會很有用。
   
   ```java
   FrameLocator frameLocator = page.frameLocator("iframe[name='embedded']");
@@ -680,7 +680,7 @@ Linux support looks like this:
       .screenshot();
   ```
   
-* Use new web-first assertion [assertThat(locator).isAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) to ensure that the element is present in the page's DOM. Do not confuse with the [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) that ensures that element is both attached & visible.
+* 使用新的 web-first 斷言 [assertThat(locator).isAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 確保元素存在於頁面的 DOM 中。不要與 [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既已附加又可見。
 
 ### 新的 API
 - [Locator.or()](/api/class-locator.mdx#locator-or)
