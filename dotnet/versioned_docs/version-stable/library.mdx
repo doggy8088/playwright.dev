@@ -1,37 +1,37 @@
 ---
 id: library
-title: "Getting started - Library"
+title: "入門 - 程式庫"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright can either be used with the [MSTest, NUnit, xUnit, or xUnit v3 base classes](./test-runners.mdx) or as a Playwright Library (this guide). If you are working on an application that utilizes Playwright capabilities or you are using Playwright with another test runner, read on.
+Playwright 可以與 [MSTest、NUnit、xUnit 或 xUnit v3 基礎類別](./test-runners.mdx)一起使用，或作為 Playwright Library（本指南）使用。如果您正在開發利用 Playwright 功能的應用程式或將 Playwright 與另一個測試執行器一起使用，請繼續閱讀。
 
-## Usage
+## 使用方式
 
-Create a console project and add the Playwright dependency.
+建立一個主控台專案並新增 Playwright 相依性。
 
 ```bash
-# Create project
+# 建立專案
 dotnet new console -n PlaywrightDemo
 cd PlaywrightDemo
 
-# Add project dependency
+# 新增專案相依性
 dotnet add package Microsoft.Playwright
-# Build the project
+# 建置專案
 dotnet build
-# Install required browsers - replace netX with actual output folder name, e.g. net8.0.
+# 安裝所需的瀏覽器 - 將 netX 替換為實際的輸出資料夾名稱，例如 net8.0。
 pwsh bin/Debug/netX/playwright.ps1 install
 
-# If the pwsh command does not work (throws TypeNotFound), make sure to use an up-to-date version of PowerShell.
+# 如果 pwsh 命令無法工作（拋出 TypeNotFound），請確保使用最新版本的 PowerShell。
 dotnet tool update --global PowerShell
 ```
 
-Create a `Program.cs` that will navigate to `https://playwright.dev/dotnet` and take a screenshot in Chromium.
+建立一個 `Program.cs`，它將導航到 `https://playwright.dev/dotnet` 並在 Chromium 中截取螢幕截圖。
 
 ```csharp
 using Microsoft.Playwright;
@@ -46,7 +46,7 @@ await page.ScreenshotAsync(new()
 });
 ```
 
-Now run it.
+現在執行它。
 
 ```bash
 dotnet run

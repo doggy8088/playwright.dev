@@ -1,23 +1,23 @@
 ---
 id: library
-title: "Library"
+title: "程式庫"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright Library provides unified APIs for launching and interacting with browsers, while Playwright Test provides all this plus a fully managed end-to-end Test Runner and experience.
+Playwright Library 提供統一的 API 來啟動和與瀏覽器互動，而 Playwright Test 則提供所有這些功能，再加上完全託管的端對端測試執行器和體驗。
 
-Under most circumstances, for end-to-end testing, you'll want to use `@playwright/test` (Playwright Test), and not `playwright` (Playwright Library) directly. To get started with Playwright Test, follow the [Getting Started Guide](./intro.mdx).
+在大多數情況下，對於端對端測試，您會想要使用 `@playwright/test`（Playwright Test），而不是直接使用 `playwright`（Playwright Library）。要開始使用 Playwright Test，請遵循[入門指南](./intro.mdx)。
 
-## Differences when using library
+## 使用程式庫時的差異
 
-### Library Example
+### 程式庫範例
 
-The following is an example of using the Playwright Library directly to launch Chromium, go to a page, and check its title:
+以下是直接使用 Playwright Library 來啟動 Chromium、前往頁面並檢查其標題的範例：
 
 <Tabs
   groupId="js-flavor"
@@ -34,18 +34,18 @@ import { chromium, devices } from 'playwright';
 import assert from 'node:assert';
 
 (async () => {
-  // Setup
+  // 設定
   const browser = await chromium.launch();
   const context = await browser.newContext(devices['iPhone 11']);
   const page = await context.newPage();
 
-  // The actual interesting bit
+  // 實際有趣的部分
   await context.route('**.jpg', route => route.abort());
   await page.goto('https://example.com/');
 
-  assert(await page.title() === 'Example Domain'); // 👎 not a Web First assertion
+  assert(await page.title() === 'Example Domain'); // 👎 不是網頁優先斷言
 
-  // Teardown
+  // 清理
   await context.close();
   await browser.close();
 })();
@@ -59,18 +59,18 @@ const assert = require('node:assert');
 const { chromium, devices } = require('playwright');
 
 (async () => {
-  // Setup
+  // 設定
   const browser = await chromium.launch();
   const context = await browser.newContext(devices['iPhone 11']);
   const page = await context.newPage();
 
-  // The actual interesting bit
+  // 實際有趣的部分
   await context.route('**.jpg', route => route.abort());
   await page.goto('https://example.com/');
 
-  assert(await page.title() === 'Example Domain'); // 👎 not a Web First assertion
+  assert(await page.title() === 'Example Domain'); // 👎 不是網頁優先斷言
 
-  // Teardown
+  // 清理
   await context.close();
   await browser.close();
 })();
@@ -79,11 +79,11 @@ const { chromium, devices } = require('playwright');
 </TabItem>
 </Tabs>
 
-Run it with `node my-script.js`.
+使用 `node my-script.js` 執行它。
 
-### Test Example
+### 測試範例
 
-A test to achieve similar behavior, would look like:
+要實現類似行為的測試，看起來會像：
 
 <Tabs
   groupId="js-flavor"
@@ -129,74 +129,74 @@ test('should be titled', async ({ page, context }) => {
 
 Run it with `npx playwright test`.
 
-### Key Differences
+### 主要差異
 
-The key differences to note are as follows:
+需要注意的主要差異如下：
 
-| | Library | Test |
+| | 程式庫 | 測試 |
 | - | - | - |
-| Installation | `npm install playwright` | `npm init playwright@latest` - note `install` vs. `init` |
-| Install browsers | Install `@playwright/browser-chromium`, `@playwright/browser-firefox` and/or `@playwright/browser-webkit` | `npx playwright install` or `npx playwright install chromium` for a single one |
-| `import` from | `playwright` | `@playwright/test` |
-| Initialization | Explicitly need to: <ol><li>Pick a browser to use, e.g. `chromium`</li><li>Launch browser with [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch)</li><li>Create a context with [browser.newContext()](/api/class-browser.mdx#browser-new-context), <em>and</em> pass any context options explicitly, e.g. `devices['iPhone 11']`</li><li>Create a page with [browserContext.newPage()](/api/class-browsercontext.mdx#browser-context-new-page)</li></ol> | An isolated `page` and `context` are provided to each test out-of the box, along with other [built-in fixtures](./test-fixtures.mdx#built-in-fixtures). No explicit creation. If referenced by the test in its arguments, the Test Runner will create them for the test. (i.e. lazy-initialization) |
-| Assertions | No built-in Web-First Assertions | [Web-First assertions](./test-assertions.mdx) like: <ul><li>[expect(page).toHaveTitle()](/api/class-pageassertions.mdx#page-assertions-to-have-title)</li><li>[expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1)</li></ul> which auto-wait and retry for the condition to be met.|
-| Timeouts | Defaults to 30s for most operations. | Most operations don't time out, but every test has a timeout that makes it fail (30s by default). |
-| Cleanup | Explicitly need to: <ol><li>Close context with [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close)</li><li>Close browser with [browser.close()](/api/class-browser.mdx#browser-close)</li></ol> | No explicit close of [built-in fixtures](./test-fixtures.mdx#built-in-fixtures); the Test Runner will take care of it.
-| Running | When using the Library, you run the code as a node script, possibly with some compilation first. | When using the Test Runner, you use the `npx playwright test` command. Along with your [config](./test-configuration.mdx), the Test Runner handles any compilation and choosing what to run and how to run it. |
+| 安裝 | `npm install playwright` | `npm init playwright@latest` - 注意 `install` 與 `init` 的差別 |
+| 安裝瀏覽器 | 安裝 `@playwright/browser-chromium`、`@playwright/browser-firefox` 和/或 `@playwright/browser-webkit` | `npx playwright install` 或 `npx playwright install chromium` 用於單一瀏覽器 |
+| `import` 來源 | `playwright` | `@playwright/test` |
+| 初始化 | 明確需要：<ol><li>選擇要使用的瀏覽器，例如 `chromium`</li><li>使用 [`browserType.launch()`](/api/class-browsertype.mdx#browser-type-launch) 啟動瀏覽器</li><li>使用 [`browser.newContext()`](/api/class-browser.mdx#browser-new-context) 建立情境，<em>並且</em>明確傳遞任何情境選項，例如 `devices['iPhone 11']`</li><li>使用 [`browserContext.newPage()`](/api/class-browsercontext.mdx#browser-context-new-page) 建立頁面</li></ol> | 為每個測試開箱即用地提供隔離的 `page` 和 `context`，以及其他[內建佈置](./test-fixtures.mdx#built-in-fixtures)。無需明確建立。如果測試在其參數中引用它們，測試執行器將為測試建立它們。（即懶惰初始化） |
+| 斷言 | 沒有內建的網頁優先斷言 | [網頁優先斷言](./test-assertions.mdx)，例如：<ul><li>[`expect(page).toHaveTitle()`](/api/class-pageassertions.mdx#page-assertions-to-have-title)</li><li>[`expect(page).toHaveScreenshot()`](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1)</li></ul>這些會自動等待並重試，直到滿足條件。|
+| 逾時 | 大多數操作預設為 30 秒。 | 大多數操作不會逾時，但每個測試都有一個逾時時間，使其失敗（預設為 30 秒）。 |
+| 清理 | 明確需要：<ol><li>使用 [`browserContext.close()`](/api/class-browsercontext.mdx#browser-context-close) 關閉情境</li><li>使用 [`browser.close()`](/api/class-browser.mdx#browser-close) 關閉瀏覽器</li></ol> | 無需明確關閉[內建佈置](./test-fixtures.mdx#built-in-fixtures)；測試執行器會處理它。
+| 執行 | 使用程式庫時，您將程式碼作為 Node 腳本執行，可能首先進行一些編譯。 | 使用測試執行器時，您使用 `npx playwright test` 命令。連同您的[組態設定](./test-configuration.mdx)，測試執行器處理任何編譯以及選擇執行什麼和如何執行。 |
 
-In addition to the above, Playwright Test, as a full-featured Test Runner, includes:
-- [Configuration Matrix and Projects](./test-configuration.mdx): In the above example, in the Playwright Library version, if we wanted to run with a different device or browser, we'd have to modify the script and plumb the information through. With Playwright Test, we can just specify the [matrix of configurations](./test-configuration.mdx) in one place, and it will create run the one test under each of these configurations.
-- [Parallelization](./test-parallel.mdx)
-- [Web-First Assertions](./test-assertions.mdx)
-- [Reporting](./test-reporters.mdx)
-- [Retries](./test-retries.mdx)
-- [Easily Enabled Tracing](./trace-viewer-intro.mdx)
-- and more…
+除了上述內容之外，Playwright Test 作為功能齊全的測試執行器，包括：
+- [組態設定矩陣和專案](./test-configuration.mdx)：在上面的範例中，在 Playwright Library 版本中，如果我們想要使用不同的裝置或瀏覽器執行，我們必須修改腳本並透過它傳遞資訊。使用 Playwright Test，我們可以在一個地方指定[組態設定矩陣](./test-configuration.mdx)，它將在每個這些組態設定下建立並執行一個測試。
+- [平行化](./test-parallel.mdx)
+- [網頁優先斷言](./test-assertions.mdx)
+- [報告](./test-reporters.mdx)
+- [重試](./test-retries.mdx)
+- [輕鬆啟用追蹤](./trace-viewer-intro.mdx)
+- 還有更多…
 
-## Usage
+## 使用方式
 
-Use npm or Yarn to install Playwright library in your Node.js project. See [system requirements](./intro.mdx#system-requirements).
+使用 npm 或 Yarn 在您的 Node.js 專案中安裝 Playwright 程式庫。請參閱[系統需求](./intro.mdx#system-requirements)。
 
 ```bash
 npm i -D playwright
 ```
 
-You will also need to install browsers - either manually or by adding a package that will do it for you automatically.
+您還需要安裝瀏覽器 - 手動安裝或新增會自動為您執行此操作的套件。
 
 ```bash
-# Download the Chromium, Firefox and WebKit browser
+# 下載 Chromium、Firefox 和 WebKit 瀏覽器
 npx playwright install chromium firefox webkit
 
-# Alternatively, add packages that will download a browser upon npm install
+# 或者，新增會在 npm install 時下載瀏覽器的套件
 npm i -D @playwright/browser-chromium @playwright/browser-firefox @playwright/browser-webkit
 ```
 
-See [managing browsers](./browsers.mdx#managing-browser-binaries) for more options.
+更多選項請參閱[管理瀏覽器](./browsers.mdx#managing-browser-binaries)。
 
-Once installed, you can import Playwright in a Node.js script, and launch any of the 3 browsers (`chromium`, `firefox` and `webkit`).
+安裝後，您可以在 Node.js 腳本中匯入 Playwright，並啟動 3 種瀏覽器中的任何一種（`chromium`、`firefox` 和 `webkit`）。
 
 ```js
 const { chromium } = require('playwright');
 
 (async () => {
   const browser = await chromium.launch();
-  // Create pages, interact with UI elements, assert values
+  // 建立頁面、與 UI 元素互動、斷言值
   await browser.close();
 })();
 ```
 
-Playwright APIs are asynchronous and return Promise objects. Our code examples use [the async/await pattern](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await) to ease readability. The code is wrapped in an unnamed async arrow function which is invoking itself.
+Playwright API 是非同步的並返回 Promise 物件。我們的程式碼範例使用 [async/await 模式](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)來提高可讀性。程式碼包裝在一個未命名的非同步箭頭函式中，該函式正在調用自身。
 
 ```js
-(async () => { // Start of async arrow function
-  // Function code
+(async () => { // 非同步箭頭函式的開始
+  // 函式程式碼
   // ...
-})(); // End of the function and () to invoke itself
+})(); // 函式的結束和 () 來調用自身
 ```
 
-## First script
+## 第一個腳本
 
-In our first script, we will navigate to `https://playwright.dev/` and take a screenshot in WebKit.
+在我們的第一個腳本中，我們將導航到 `https://playwright.dev/` 並在 WebKit 中截取螢幕截圖。
 
 ```js
 const { webkit } = require('playwright');
@@ -210,39 +210,39 @@ const { webkit } = require('playwright');
 })();
 ```
 
-By default, Playwright runs the browsers in headless mode. To see the browser UI, pass the `headless: false` flag while launching the browser. You can also use `slowMo` to slow down execution. Learn more in the debugging tools [section](./debug.mdx).
+預設情況下，Playwright 在無頭模式下執行瀏覽器。要查看瀏覽器 UI，請在啟動瀏覽器時傳遞 `headless: false` 標誌。您也可以使用 `slowMo` 來減慢執行速度。在偵錯工具[章節](./debug.mdx)中了解更多。
 
 ```js
 firefox.launch({ headless: false, slowMo: 50 });
 ```
 
-## Record scripts
+## 錄製腳本
 
-[Command line tools](./test-cli.mdx) can be used to record user interactions and generate JavaScript code.
+[命令列工具](./test-cli.mdx)可用於錄製使用者互動並產生 JavaScript 程式碼。
 
 ```bash
 npx playwright codegen wikipedia.org
 ```
 
-## Browser downloads
+## 瀏覽器下載
 
-To download Playwright browsers run:
+要下載 Playwright 瀏覽器，請執行：
 
 ```bash
-# Explicitly download browsers
+# 明確下載瀏覽器
 npx playwright install
 ```
 
-Alternatively, you can add `@playwright/browser-chromium`, `@playwright/browser-firefox` and `@playwright/browser-webkit` packages to automatically download the respective browser during the package installation.
+或者，您可以新增 `@playwright/browser-chromium`、`@playwright/browser-firefox` 和 `@playwright/browser-webkit` 套件，以在套件安裝期間自動下載相應的瀏覽器。
 
 ```bash
-# Use a helper package that downloads a browser on npm install
+# 使用在 npm install 時下載瀏覽器的輔助套件
 npm install @playwright/browser-chromium
 ```
 
-**Download behind a firewall or a proxy**
+**在防火牆或代理後面下載**
 
-Pass `HTTPS_PROXY` environment variable to download through a proxy.
+傳遞 `HTTPS_PROXY` 環境變數以透過代理下載。
 
 <Tabs
   groupId="bash-flavor"
@@ -295,9 +295,9 @@ npm install
 </TabItem>
 </Tabs>
 
-**Download from artifact repository**
+**從構件倉庫下載**
 
-By default, Playwright downloads browsers from Microsoft's CDN. Pass `PLAYWRIGHT_DOWNLOAD_HOST` environment variable to download from an internal artifacts repository instead.
+預設情況下，Playwright 從 Microsoft 的 CDN 下載瀏覽器。傳遞 `PLAYWRIGHT_DOWNLOAD_HOST` 環境變數以改為從內部構件倉庫下載。
 
 <Tabs
   groupId="bash-flavor"
@@ -350,9 +350,9 @@ npm install
 </TabItem>
 </Tabs>
 
-**Skip browser download**
+**跳過瀏覽器下載**
 
-In certain cases, it is desired to avoid browser downloads altogether because browser binaries are managed separately. This can be done by setting `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` variable before installing packages.
+在某些情況下，希望完全避免瀏覽器下載，因為瀏覽器二進位檔案是單獨管理的。這可以透過在安裝套件之前設定 `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` 變數來完成。
 
 <Tabs
   groupId="bash-flavor"
@@ -394,29 +394,29 @@ npm install
 </TabItem>
 </Tabs>
 
-## TypeScript support
+## TypeScript 支援
 
-Playwright includes built-in support for TypeScript. Type definitions will be imported automatically. It is recommended to use type-checking to improve the IDE experience.
+Playwright 包含內建的 TypeScript 支援。類型定義將自動匯入。建議使用類型檢查來改善 IDE 體驗。
 
-### In JavaScript
+### 在 JavaScript 中
 
-Add the following to the top of your JavaScript file to get type-checking in VS Code or WebStorm.
+在您的 JavaScript 檔案頂部新增以下內容，以在 VS Code 或 WebStorm 中獲得類型檢查。
 
 ```js
 // @ts-check
 // ...
 ```
 
-Alternatively, you can use JSDoc to set types for variables.
+或者，您可以使用 JSDoc 為變數設定類型。
 
 ```js
 /** @type {import('playwright').Page} */
 let page;
 ```
 
-### In TypeScript
+### 在 TypeScript 中
 
-TypeScript support will work out-of-the-box. Types can also be imported explicitly.
+TypeScript 支援將開箱即用。類型也可以明確匯入。
 
 ```js
 let page: import('playwright').Page;
