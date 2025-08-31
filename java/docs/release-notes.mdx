@@ -1047,7 +1047,7 @@ page.route("**/*", route -> {
   ```
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
-- New [Locator.filter()](/api/class-locator.mdx#locator-filter) API to filter an existing locator
+- 新 API [Locator.filter()](/api/class-locator.mdx#locator-filter) 用於篩選現有定位器
   
   ```java
   Locator buttonsLocator = page.locator("role=button");
@@ -1061,7 +1061,7 @@ page.route("**/*", route -> {
 ## 版本 1.21
 
 ### 重點
-- New role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 新的角色選擇器允許根據元素的 [ARIA 角色](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA 屬性](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [可存取名稱](https://w3c.github.io/accname/#dfn-accessible-name) 來選擇元素。
   
   ```java
   // Click a button with accessible name "log in"
@@ -1069,8 +1069,8 @@ page.route("**/*", route -> {
   ```
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
-- New `scale` 選項 in [Page.screenshot()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
-- New `caret` 選項 in [Page.screenshot()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
+- [Page.screenshot()](/api/class-page.mdx#page-screenshot) 中新的 `scale` 選項，用於較小尺寸的螢幕截圖。
+- [Page.screenshot()](/api/class-page.mdx#page-screenshot) 中新的 `caret` 選項，用於控制文字游標。預設為 `"hide"`。
 
 ### 行為變更
 - Playwright 現在支援 large file uploads (100s of MBs) via [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) API.

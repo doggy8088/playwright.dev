@@ -637,7 +637,7 @@ Linux support looks like this:
   ```
   
 ### 其他
-- DOM snapshots in trace viewer can be now opened in a separate window.
+- 追蹤檢視器中的 DOM 快照現在可在單獨視窗中開啟。
 - 新選項 [max_redirects](/api/class-route.mdx#route-fetch-選項-max-redirects) for 方法 [route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
 - Official [docker images](./docker.mdx) now include Node 18 instead of Node 16.
@@ -746,10 +746,10 @@ With these new APIs writing locators is a joy:
 - [page.get_by_text()](/api/class-page.mdx#page-get-by-text) to locate by text content.
 - [page.get_by_role()](/api/class-page.mdx#page-get-by-role) to locate by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 - [page.get_by_label()](/api/class-page.mdx#page-get-by-label) to locate a form control by associated label's text.
-- [page.get_by_test_id()](/api/class-page.mdx#page-get-by-test-id) to locate an element based on its `data-testid` attribute (other attribute can be configured).
-- [page.get_by_placeholder()](/api/class-page.mdx#page-get-by-placeholder) to locate an input by placeholder.
-- [page.get_by_alt_text()](/api/class-page.mdx#page-get-by-alt-text) to locate an element, usually image, by its text alternative.
-- [page.get_by_title()](/api/class-page.mdx#page-get-by-title) to locate an element by its title.
+- [page.get_by_test_id()](/api/class-page.mdx#page-get-by-test-id) 根據 `data-testid` 屬性定位元素（可配置其他屬性）。
+- [page.get_by_placeholder()](/api/class-page.mdx#page-get-by-placeholder) 根據預留位置文字定位輸入元素。
+- [page.get_by_alt_text()](/api/class-page.mdx#page-get-by-alt-text) 根據替代文字定位元素，通常是圖像。
+- [page.get_by_title()](/api/class-page.mdx#page-get-by-title) 根據標題定位元素。
 
 ```python
 page.get_by_label("User Name").fill("John")
@@ -764,7 +764,7 @@ expect(page.get_by_text("Welcome, John!")).to_be_visible()
 All the same methods are also available on [Locator], [FrameLocator] and [Frame] classes.
 
 ### 其他重點
-- As announced in v1.25, Ubuntu 18 will not be supported as of Dec 2022. In addition to that, there will be no WebKit updates on Ubuntu 18 starting from the next Playwright release.
+- 如 v1.25 所宣布，Ubuntu 18 將自 2022 年 12 月起不再支援。此外，從下一個 Playwright 版本開始，Ubuntu 18 將不再有 WebKit 更新。
 
 ### 行為變更
 - [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
@@ -792,7 +792,7 @@ All the same methods are also available on [Locator], [FrameLocator] and [Frame]
 
 ### 其他重點
 - 新選項 `max_redirects` for [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
-- Python 3.11 is now supported.
+- 現在支援 Python 3.11。
 
 ### 行為變更
 
@@ -1084,7 +1084,7 @@ await page.route("**/*", abort_images_handler)
   ```
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
-- New [locator.filter()](/api/class-locator.mdx#locator-filter) API to filter an existing locator
+- 新 API [locator.filter()](/api/class-locator.mdx#locator-filter) 用於篩選現有定位器
   
   ```py
   buttons = page.locator("role=button")
@@ -1100,7 +1100,7 @@ await page.route("**/*", abort_images_handler)
 ## 版本 1.21
 
 ### 重點
-- New role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 新的角色選擇器允許根據元素的 [ARIA 角色](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA 屬性](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [可存取名稱](https://w3c.github.io/accname/#dfn-accessible-name) 來選擇元素。
   
   <Tabs
     groupId="python-flavor"
@@ -1129,11 +1129,11 @@ await page.route("**/*", abort_images_handler)
   </Tabs>
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
-- New `scale` 選項 in [page.screenshot()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
-- New `caret` 選項 in [page.screenshot()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
+- [page.screenshot()](/api/class-page.mdx#page-screenshot) 中新的 `scale` 選項，用於較小尺寸的螢幕截圖。
+- [page.screenshot()](/api/class-page.mdx#page-screenshot) 中新的 `caret` 選項，用於控制文字游標。預設為 `"hide"`。
 
 ### 行為變更
-- The `mcr.microsoft.com/playwright` docker image no longer contains Python. Please use `mcr.microsoft.com/playwright/python` as a Playwright-ready docker image with pre-installed Python.
+- `mcr.microsoft.com/playwright` Docker 映像不再包含 Python。請使用 `mcr.microsoft.com/playwright/python` 作為預裝 Python 的 Playwright 就緒 Docker 映像。
 - Playwright 現在支援 large file uploads (100s of MBs) via [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) API.
 
 ### 瀏覽器版本
