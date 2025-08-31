@@ -132,7 +132,7 @@
 - [x] nodejs/docs/service-workers-experimental-network-events.mdx
 - [ ] nodejs/docs/test-annotations.mdx
 - [x] nodejs/docs/test-assertions.mdx
-- [ ] nodejs/docs/test-cli.mdx
+- [x] nodejs/docs/test-cli.mdx
 - [x] nodejs/docs/test-components.mdx
 - [ ] nodejs/docs/test-configuration.mdx
 - [ ] nodejs/docs/test-fixtures.mdx
@@ -274,7 +274,7 @@
 - [x] nodejs/versioned_docs/version-stable/service-workers-experimental-network-events.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-annotations.mdx
 - [x] nodejs/versioned_docs/version-stable/test-assertions.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-cli.mdx
+- [x] nodejs/versioned_docs/version-stable/test-cli.mdx
 - [x] nodejs/versioned_docs/version-stable/test-components.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-configuration.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-fixtures.mdx
