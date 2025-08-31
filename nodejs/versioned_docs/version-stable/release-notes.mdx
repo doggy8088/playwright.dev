@@ -325,7 +325,7 @@ You can generate this assertion with [Test Generator](./codegen) and update the 
 Learn more in the [aria snapshots guide](./aria-snapshots).
 
 ### Test runner
-- 新選項 [testConfig.tsconfig](/api/class-testconfig.mdx#test-config-tsconfig) allows to specify a single `tsconfig` to be used for all tests.
+- 新選項 [testConfig.tsconfig](/api/class-testconfig.mdx#test-config-tsconfig) 允許 specify a single `tsconfig` to be used for all tests.
 - 新方法 [test.fail.only()](/api/class-test.mdx#test-fail-only) to focus on a failing test.
 - Options [testConfig.globalSetup](/api/class-testconfig.mdx#test-config-global-setup) and [testConfig.globalTeardown](/api/class-testconfig.mdx#test-config-global-teardown) now support multiple setups/teardowns.
 - New value `'on-first-failure'` for [testOptions.screenshot](/api/class-testoptions.mdx#test-options-screenshot).
@@ -434,7 +434,7 @@ The Network tab in the UI mode and trace viewer has several nice improvements:
 
 ### `--tsconfig` CLI option
 
-By default, Playwright will look up the closest tsconfig for each imported file using a heuristic. You can now specify a single tsconfig file in the command line, and Playwright will use it for all imported files, not only test files:
+By default, Playwright will look up the closest tsconfig for each imported file using a heuristic. You 現在可以 specify a single tsconfig file in the command line, and Playwright will use it for all imported files, not only test files:
 
 ```sh
 # Pass a specific tsconfig
@@ -443,7 +443,7 @@ npx playwright test --tsconfig tsconfig.test.json
 
 ### [APIRequestContext] now accepts [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) and `string` as query parameters
 
-You can now pass [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) and `string` as query parameters to [APIRequestContext]:
+You 現在可以 pass [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) and `string` as query parameters to [APIRequestContext]:
 
 ```js
 test('query params', async ({ request }) => {
@@ -462,8 +462,8 @@ test('query params', async ({ request }) => {
 ### 其他
 - The `mcr.microsoft.com/playwright:v1.47.0` now serves a Playwright image based on Ubuntu 24.04 Noble. To use the 22.04 jammy-based image, please use `mcr.microsoft.com/playwright:v1.47.0-jammy` instead.
 - 新選項s [behavior](/api/class-page.mdx#page-remove-all-listeners-option-behavior), [behavior](/api/class-browser.mdx#browser-remove-all-listeners-option-behavior) and [behavior](/api/class-browsercontext.mdx#browser-context-remove-all-listeners-option-behavior) to wait for ongoing listeners to complete.
-- TLS client certificates can now be passed from memory by passing [clientCertificates.cert](/api/class-browser.mdx#browser-new-context-option-client-certificates) and [clientCertificates.key](/api/class-browser.mdx#browser-new-context-option-client-certificates) as buffers instead of file paths.
-- Attachments with a `text/html` content type can now be opened in a new tab in the HTML report. This is useful for including third-party reports or other HTML content in the Playwright test report and distributing it to your team.
+- TLS client certificates 現在可以 be passed from memory by passing [clientCertificates.cert](/api/class-browser.mdx#browser-new-context-option-client-certificates) and [clientCertificates.key](/api/class-browser.mdx#browser-new-context-option-client-certificates) as buffers instead of file paths.
+- Attachments with a `text/html` content type 現在可以 be opened in a new tab in the HTML report. This is useful for including third-party reports or other HTML content in the Playwright test report and distributing it to your team.
 - [noWaitAfter](/api/class-locator.mdx#locator-select-option-option-no-wait-after) option in [locator.selectOption()](/api/class-locator.mdx#locator-select-option) was deprecated.
 - We've seen reports of WebGL in Webkit misbehaving on GitHub Actions `macos-13`. We recommend upgrading GitHub Actions to `macos-14`.
 
@@ -569,7 +569,7 @@ This fixture is only available in [component tests](./test-components#handling-n
 
 ### Clock
 
-Utilizing the new [Clock] API allows to manipulate and control time within tests to verify time-related behavior. This API covers many common scenarios, including:
+Utilizing the new [Clock] API 允許 manipulate and control time within tests to verify time-related behavior. This API covers many common scenarios, including:
 * testing with predefined time;
 * keeping consistent time and timers;
 * monitoring inactivity;
@@ -635,9 +635,9 @@ See [the clock guide](./clock.mdx) for more details.
   await page.keyboard.press('ControlOrMeta+S');
   ```
   
-- 新屬性 `httpCredentials.send` in [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
+- 新屬性 `httpCredentials.send` in [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that 允許 either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
 - 新選項 `reason` in [apiRequestContext.dispose()](/api/class-apirequestcontext.mdx#api-request-context-dispose) that will be included in the error message of ongoing operations interrupted by the context disposal.
-- 新選項 `host` in [browserType.launchServer()](/api/class-browsertype.mdx#browser-type-launch-server) allows to accept websocket connections on a specific address instead of unspecified `0.0.0.0`.
+- 新選項 `host` in [browserType.launchServer()](/api/class-browsertype.mdx#browser-type-launch-server) 允許 accept websocket connections on a specific address instead of unspecified `0.0.0.0`.
 - Playwright now supports Chromium, Firefox and WebKit on Ubuntu 24.04.
 - v1.45 is the last release to receive WebKit update for macOS 12 Monterey. Please update macOS to keep using the latest WebKit.
 
@@ -679,7 +679,7 @@ See [the clock guide](./clock.mdx) for more details.
   ```
   
 **Locator handler**
-- After executing the handler added with [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright will now wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `noWaitAfter` option.
+- After executing the handler added with [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `noWaitAfter` option.
 - You can use new `times` option in [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
 - The handler in [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
 - New [page.removeLocatorHandler()](/api/class-page.mdx#page-remove-locator-handler) method for removing previously added locator handlers.
@@ -706,9 +706,9 @@ await page.removeLocatorHandler(locator);
   });
   ```
   
-- `expect(callback).toPass({ intervals })` can now be configured by `expect.toPass.intervals` option globally in [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) or per project in [testProject.expect](/api/class-testproject.mdx#test-project-expect).
+- `expect(callback).toPass({ intervals })` 現在可以 be configured by `expect.toPass.intervals` option globally in [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) or per project in [testProject.expect](/api/class-testproject.mdx#test-project-expect).
 - `expect(page).toHaveURL(url)` now supports `ignoreCase` [option](./api/class-pageassertions#page-assertions-to-have-url-option-ignore-case).
-- [testProject.ignoreSnapshots](./api/class-testproject#test-project-ignore-snapshots) allows to configure  per project whether to skip screenshot expectations.
+- [testProject.ignoreSnapshots](./api/class-testproject#test-project-ignore-snapshots) 允許 configure  per project whether to skip screenshot expectations.
 
 **Reporter API**
 - 新方法 [suite.entries()](/api/class-suite.mdx#suite-entries) returns child test suites and test cases in their declaration order. [suite.type](/api/class-suite.mdx#suite-type) and [testCase.type](/api/class-testcase.mdx#test-case-type) can be used to tell apart test cases and suites in the list.
@@ -840,7 +840,7 @@ await page.getByRole('link', { name: 'Collection of blue and white' }).click();
 await expect(page.getByRole('heading', { name: 'Light and easy' })).toBeVisible();
 ```
 
-- `expect(callback).toPass()` timeout can now be configured by `expect.toPass.timeout` option [globally](./api/class-testconfig#test-config-expect) or in [project config](./api/class-testproject#test-project-expect)
+- `expect(callback).toPass()` timeout 現在可以 be configured by `expect.toPass.timeout` option [globally](./api/class-testconfig#test-config-expect) or in [project config](./api/class-testproject#test-project-expect)
 - [electronApplication.on('console')](/api/class-electronapplication.mdx#electron-application-event-console) event is emitted when Electron main process calls console API methods.
 
 ```js
@@ -905,8 +905,8 @@ test('test full report', {
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [page.unrouteAll()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) and [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
-- 新方法 [browserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [page.unrouteAll()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) and [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [browserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
 - 新選項s [style](/api/class-page.mdx#page-screenshot-option-style) in [page.screenshot()](/api/class-page.mdx#page-screenshot) and [style](/api/class-locator.mdx#locator-screenshot-option-style) in [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
 - 新選項 `stylePath` for methods [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) and [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) to apply a custom stylesheet while making the screenshot.
 - New `fileName` option for [Blob reporter](./test-reporters#blob-reporter), to specify the name of the report to be created.
@@ -991,7 +991,7 @@ See the documentation [for a full example](./test-assertions#add-custom-matchers
 
 ### Merge test fixtures
 
-You can now merge test fixtures from multiple files or modules:
+You 現在可以 merge test fixtures from multiple files or modules:
 
 ```js title="fixtures.ts"
 import { mergeTests } from '@playwright/test';
@@ -1011,7 +1011,7 @@ test('passes', async ({ database, page, a11y }) => {
 
 ### Merge custom expect matchers
 
-You can now merge custom expect matchers from multiple files or modules:
+You 現在可以 merge custom expect matchers from multiple files or modules:
 
 ```js title="fixtures.ts"
 import { mergeTests, mergeExpects } from '@playwright/test';
@@ -1141,7 +1141,7 @@ Add `@playwright/browser-chromium`, `@playwright/browser-firefox` and `@playwrig
 
 ### New `npx playwright merge-reports` tool
 
-If you run tests on multiple shards, you can now merge all reports in a single HTML report (or any other report) using the new `merge-reports` CLI tool.
+If you run tests on multiple shards, you 現在可以 merge all reports in a single HTML report (or any other report) using the new `merge-reports` CLI tool.
 
 Using `merge-reports` tool requires the following steps:
 1. Adding a new "blob" reporter to the config when running on CI:
@@ -1973,7 +1973,7 @@ Read more in [our documentation](./mock.mdx#mocking-with-har-files).
 
 ### Advanced Routing
 
-You can now use [route.fallback()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
+You 現在可以 use [route.fallback()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
 
 Consider the following example:
 
@@ -2010,7 +2010,7 @@ Note that the new methods [page.routeFromHAR()](/api/class-page.mdx#page-route-f
 Read more about [component testing with Playwright](./test-components).
 
 ### 其他
-* If there's a service worker that's in your way, you can now easily disable it with a new context option `serviceWorkers`:
+* If there's a service worker that's in your way, you 現在可以 easily disable it with a new context option `serviceWorkers`:
   
   ```js title="playwright.config.ts"
   export default {
@@ -2057,7 +2057,7 @@ WebServer is now considered "ready" if request to the specified url has any of t
 ### 重點
 - Components Testing (preview)
   
-  Playwright Test can now test your [React](https://reactjs.org/), [Vue.js](https://vuejs.org/) or [Svelte](https://svelte.dev/) components. You can use all the features of Playwright Test (such as parallelization, emulation & debugging) while running components in real browsers.
+  Playwright Test 現在可以 test your [React](https://reactjs.org/), [Vue.js](https://vuejs.org/) or [Svelte](https://svelte.dev/) components. You can use all the features of Playwright Test (such as parallelization, emulation & debugging) while running components in real browsers.
   
   Here is what a typical component test looks like:
   
@@ -2125,7 +2125,7 @@ WebServer is now considered "ready" if request to the specified url has any of t
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
 - New `scale` option in [page.screenshot()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
-- New `caret` option in [page.screenshot()](/api/class-page.mdx#page-screenshot) to control text caret. Defaults to `"hide"`.
+- New `caret` option in [page.screenshot()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
 - 新方法 `expect.poll` to wait for an arbitrary condition:
   
   ```js
@@ -2183,7 +2183,7 @@ WebServer is now considered "ready" if request to the specified url has any of t
   };
   ```
   
-- [testProject.grep](/api/class-testproject.mdx#test-project-grep) and [testProject.grepInvert](/api/class-testproject.mdx#test-project-grep-invert) are now configurable per project. For example, you can now configure smoke tests project using `grep`:
+- [testProject.grep](/api/class-testproject.mdx#test-project-grep) and [testProject.grepInvert](/api/class-testproject.mdx#test-project-grep-invert) are now configurable per project. For example, you 現在可以 configure smoke tests project using `grep`:
   
   ```js title="playwright.config.ts"
   export default {
@@ -2232,7 +2232,7 @@ WebServer is now considered "ready" if request to the specified url has any of t
   ```
   
   Read more in [our documentation](./test-assertions#soft-assertions)
-- You can now specify a **custom expect message** as a second argument to the `expect` and `expect.soft` functions, for example:
+- You 現在可以 specify a **custom expect message** as a second argument to the `expect` and `expect.soft` functions, for example:
   
   ```js
   await expect(page.locator('text=Name'), 'should be logged in').toBeVisible();
@@ -2257,7 +2257,7 @@ WebServer is now considered "ready" if request to the specified url has any of t
   ```
   
   Read more in [our documentation](./test-assertions#custom-expect-message)
-- By default, tests in a single file are run in order. If you have many independent tests in a single file, you can now run them in parallel with [test.describe.configure()](/api/class-test.mdx#test-describe-configure).
+- By default, tests in a single file are run in order. If you have many independent tests in a single file, you 現在可以 run them in parallel with [test.describe.configure()](/api/class-test.mdx#test-describe-configure).
 
 ### Other Updates
 - Locator now supports a `has` option that makes sure it contains another locator inside:
@@ -2297,7 +2297,7 @@ We've noticed that in rare cases, the set of tests to be executed was configured
 ### Locator Improvements
 - [locator.dragTo()](/api/class-locator.mdx#locator-drag-to)
 - [`expect(locator).toBeChecked({ checked })`](./api/class-locatorassertions#locator-assertions-to-be-checked)
-- Each locator can now be optionally filtered by the text it contains:
+- Each locator 現在可以 be optionally filtered by the text it contains:
   
   ```js
   await page.locator('li', { hasText: 'my item' }).locator('button').click();
@@ -2425,8 +2425,8 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
 ### Ubuntu ARM64 support + more
-- Playwright now supports **Ubuntu 20.04 ARM64**. You can now run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
-- You can now use Playwright to install stable version of Edge on Linux:
+- Playwright now supports **Ubuntu 20.04 ARM64**. You 現在可以 run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
+- You 現在可以 use Playwright to install stable version of Edge on Linux:
   
   ```bash
   npx playwright install msedge
@@ -2611,7 +2611,7 @@ test.describe.parallel('group', () => {
 });
 ```
 
-By default, tests in a single file are run in order. If you have many independent tests in a single file, you can now run them in parallel with [test.describe.parallel(title, callback)](./api/class-test#test-describe-parallel).
+By default, tests in a single file are run in order. If you have many independent tests in a single file, you 現在可以 run them in parallel with [test.describe.parallel(title, callback)](./api/class-test#test-describe-parallel).
 
 #### 🛠 Add `--debug` CLI flag
 

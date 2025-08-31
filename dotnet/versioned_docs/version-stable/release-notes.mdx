@@ -115,7 +115,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ## 版本 1.51
 
 ### 重點
-* 新選項 [IndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) allows to save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
+* 新選項 [IndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) 允許 save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
   
   Here is an example following the [authentication guide](./auth.mdx#reusing-signed-in-state):
   
@@ -143,7 +143,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   await Expect(todoItems).ToHaveCountAsync(3);
   ```
   
-* 新選項 `Contrast` for methods [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media) and [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) allows to emulate the `prefers-contrast` media feature.
+* 新選項 `Contrast` for methods [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media) and [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 允許 emulate the `prefers-contrast` media feature.
 * 新選項 [FailOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) makes all fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
 
 ### 瀏覽器版本
@@ -311,7 +311,7 @@ The Network tab in the trace viewer has several nice improvements:
 ### 其他
 - The `mcr.microsoft.com/playwright/dotnet:v1.47.0` now serves a Playwright image based on Ubuntu 24.04 Noble. To use the 22.04 jammy-based image, please use `mcr.microsoft.com/playwright/dotnet:v1.47.0-jammy` instead.
 - The `:latest`/`:focal`/`:jammy` tag for Playwright Docker images is no longer being published. Pin to a specific version for better stability and reproducibility.
-- TLS client certificates can now be passed from memory by passing [ClientCertificates.Cert](/api/class-browser.mdx#browser-new-context-option-client-certificates) and [ClientCertificates.Key](/api/class-browser.mdx#browser-new-context-option-client-certificates) as byte arrays instead of file paths.
+- TLS client certificates 現在可以 be passed from memory by passing [ClientCertificates.Cert](/api/class-browser.mdx#browser-new-context-option-client-certificates) and [ClientCertificates.Key](/api/class-browser.mdx#browser-new-context-option-client-certificates) as byte arrays instead of file paths.
 - [NoWaitAfter](/api/class-locator.mdx#locator-select-option-option-no-wait-after) in [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-option) was deprecated.
 - We've seen reports of WebGL in Webkit misbehaving on GitHub Actions `macos-13`. We recommend upgrading GitHub Actions to `macos-14`.
 
@@ -328,7 +328,7 @@ The Network tab in the trace viewer has several nice improvements:
 
 ### TLS Client Certificates
 
-Playwright now allows to supply client-side certificates, so that server can verify them, as specified by TLS Client Authentication.
+Playwright now 允許 supply client-side certificates, so that server can verify them, as specified by TLS Client Authentication.
 
 You can provide client certificates as a parameter of [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) and [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context). The following snippet sets up a client certificate for `https://example.com`:
 
@@ -367,7 +367,7 @@ var context = await Browser.NewContextAsync(new() {
 
 ### Clock
 
-Utilizing the new [Clock] API allows to manipulate and control time within tests to verify time-related behavior. This API covers many common scenarios, including:
+Utilizing the new [Clock] API 允許 manipulate and control time within tests to verify time-related behavior. This API covers many common scenarios, including:
 * testing with predefined time;
 * keeping consistent time and timers;
 * monitoring inactivity;
@@ -410,7 +410,7 @@ See [the clock guide](./clock.mdx) for more details.
   await page.Keyboard.PressAsync("ControlOrMeta+S");
   ```
   
-- 新屬性 `httpCredentials.send` in [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
+- 新屬性 `httpCredentials.send` in [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) that 允許 either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
 - Playwright now supports Chromium, Firefox and WebKit on Ubuntu 24.04.
 - v1.45 is the last release to receive WebKit update for macOS 12 Monterey. Please update macOS to keep using the latest WebKit.
 
@@ -450,7 +450,7 @@ See [the clock guide](./clock.mdx) for more details.
   ```
   
 **Locator handler**
-- After executing the handler added with [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler), Playwright will now wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `NoWaitAfter` option.
+- After executing the handler added with [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `NoWaitAfter` option.
 - You can use new `Times` option in [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
 - The handler in [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
 - New [Page.RemoveLocatorHandlerAsync()](/api/class-page.mdx#page-remove-locator-handler) method for removing previously added locator handlers.
@@ -467,7 +467,7 @@ await Page.RemoveLocatorHandlerAsync(locator);
 ```
 
 **Miscellaneous options**
-- 新方法 [FormData.Append()](/api/class-formdata.mdx#form-data-append) allows to specify repeating fields with the same name in [`Multipart`](./api/class-apirequestcontext#api-request-context-fetch-option-multipart) option in `APIRequestContext.FetchAsync()`:
+- 新方法 [FormData.Append()](/api/class-formdata.mdx#form-data-append) 允許 specify repeating fields with the same name in [`Multipart`](./api/class-apirequestcontext#api-request-context-fetch-option-multipart) option in `APIRequestContext.FetchAsync()`:
   
   ```csharp
   var formData = Context.APIRequest.CreateFormData();
@@ -576,8 +576,8 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [Page.UnrouteAllAsync()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [Page.RouteAsync()](/api/class-page.mdx#page-route) and [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
-- 新方法 [BrowserContext.UnrouteAllAsync()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) and [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [Page.UnrouteAllAsync()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [Page.RouteAsync()](/api/class-page.mdx#page-route) and [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [BrowserContext.UnrouteAllAsync()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) and [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
 - 新選項s [Style](/api/class-page.mdx#page-screenshot-option-style) in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) and [Style](/api/class-locator.mdx#locator-screenshot-option-style) in [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
 
 ### 瀏覽器版本
@@ -1003,9 +1003,9 @@ To align with web specification, the `WaitUntilState.DOMContentLoaded` value onl
 
 ## 版本 1.25
 
-### New .runsettings file support
+### New .runsettings file的支援
 
-`Microsoft.Playwright.NUnit` and `Microsoft.Playwright.MSTest` will now consider the `.runsettings` file and passed settings via the CLI when running end-to-end tests. See in the [documentation](./test-runners) for a full list of supported settings.
+`Microsoft.Playwright.NUnit` and `Microsoft.Playwright.MSTest` 現在會 consider the `.runsettings` file and passed settings via the CLI when running end-to-end tests. See in the [documentation](./test-runners) for a full list of supported settings.
 
 The following does now work:
 
@@ -1127,7 +1127,7 @@ Read more in [our documentation](./mock.mdx#mocking-with-har-files).
 
 ### Advanced Routing
 
-You can now use [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
+You 現在可以 use [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
 
 Consider the following example:
 
@@ -1161,7 +1161,7 @@ Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-ro
 * Methods [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) and [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` option.
 
 ### 其他
-* If there's a service worker that's in your way, you can now easily disable it with a new context option `serviceWorkers`:
+* If there's a service worker that's in your way, you 現在可以 easily disable it with a new context option `serviceWorkers`:
   
   ```csharp
   var context = await Browser.NewContextAsync(new()
@@ -1217,7 +1217,7 @@ Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-ro
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
 - New `scale` option in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
-- New `caret` option in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) to control text caret. Defaults to `"hide"`.
+- New `caret` option in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
 - We now ship a designated .NET docker image `mcr.microsoft.com/playwright/dotnet`. Read more in [our documentation](./docker).
 
 ### Behavior Changes
@@ -1307,7 +1307,7 @@ Read more in [our documentation](./test-assertions).
 
 ### Locator Improvements
 - [Locator.DragToAsync()](/api/class-locator.mdx#locator-drag-to)
-- Each locator can now be optionally filtered by the text it contains:
+- Each locator 現在可以 be optionally filtered by the text it contains:
   
   ```csharp
   await Page.Locator("li", new() { HasTextString = "My Item" })
@@ -1365,8 +1365,8 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
 ### Ubuntu ARM64 support + more
-- Playwright now supports **Ubuntu 20.04 ARM64**. You can now run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
-- You can now use Playwright to install stable version of Edge on Linux:
+- Playwright now supports **Ubuntu 20.04 ARM64**. You 現在可以 run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
+- You 現在可以 use Playwright to install stable version of Edge on Linux:
   
   ```bash
   pwsh bin/Debug/netX/playwright.ps1 install msedge

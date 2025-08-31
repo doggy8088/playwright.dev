@@ -125,7 +125,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   context = await browser.new_context(storage_state="state.json")
   ```
   
-* 新選項 [visible](/api/class-locator.mdx#locator-filter-option-visible) for [locator.filter()](/api/class-locator.mdx#locator-filter) allows matching only visible elements.
+* [locator.filter()](/api/class-locator.mdx#locator-filter) 的新選項 [visible](/api/class-locator.mdx#locator-filter-option-visible) 允許僅匹配可見元素。
   
   ```python
   # Ignore invisible todo items.
@@ -134,8 +134,8 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   await expect(todo_items).to_have_count(3)
   ```
   
-* 新選項 `contrast` for methods [page.emulate_media()](/api/class-page.mdx#page-emulate-media) and [browser.new_context()](/api/class-browser.mdx#browser-new-context) allows to emulate the `prefers-contrast` media feature.
-* 新選項 [fail_on_status_code](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) makes all fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
+* 方法 [page.emulate_media()](/api/class-page.mdx#page-emulate-media) 和 [browser.new_context()](/api/class-browser.mdx#browser-new-context) 的新選項 `contrast` 允許模擬 `prefers-contrast` 媒體功能。
+* 新選項 [fail_on_status_code](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) 使透過 [APIRequestContext] 進行的所有 fetch 請求在回應代碼不是 2xx 和 3xx 時拋出錯誤。
 
 ### 瀏覽器版本
 * Chromium 134.0.6998.35
@@ -292,7 +292,7 @@ The Network tab in the trace viewer has several nice improvements:
 ### 其他
 - The `mcr.microsoft.com/playwright/python:v1.47.0` now serves a Playwright image based on Ubuntu 24.04 Noble. To use the 22.04 jammy-based image, please use `mcr.microsoft.com/playwright/python:v1.47.0-jammy` instead.
 - The `:latest`/`:focal`/`:jammy` tag for Playwright Docker images is no longer being published. Pin to a specific version for better stability and reproducibility.
-- TLS client certificates can now be passed from memory by passing [client_certificates.cert](/api/class-browser.mdx#browser-new-context-option-client-certificates) and [client_certificates.key](/api/class-browser.mdx#browser-new-context-option-client-certificates) as bytes instead of file paths.
+- TLS client certificates 現在可以 be passed from memory by passing [client_certificates.cert](/api/class-browser.mdx#browser-new-context-option-client-certificates) and [client_certificates.key](/api/class-browser.mdx#browser-new-context-option-client-certificates) as bytes instead of file paths.
 - [no_wait_after](/api/class-locator.mdx#locator-select-option-option-no-wait-after) in [locator.select_option()](/api/class-locator.mdx#locator-select-option) was deprecated.
 - We've seen reports of WebGL in Webkit misbehaving on GitHub Actions `macos-13`. We recommend upgrading GitHub Actions to `macos-14`.
 
@@ -309,7 +309,7 @@ The Network tab in the trace viewer has several nice improvements:
 
 ### TLS Client Certificates
 
-Playwright now allows to supply client-side certificates, so that server can verify them, as specified by TLS Client Authentication.
+Playwright now 允許 supply client-side certificates, so that server can verify them, as specified by TLS Client Authentication.
 
 You can provide client certificates as a parameter of [browser.new_context()](/api/class-browser.mdx#browser-new-context) and [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context). The following snippet sets up a client certificate for `https://example.com`:
 
@@ -348,7 +348,7 @@ context = browser.new_context(
 
 ### Clock
 
-Utilizing the new [Clock] API allows to manipulate and control time within tests to verify time-related behavior. This API covers many common scenarios, including:
+Utilizing the new [Clock] API 允許 manipulate and control time within tests to verify time-related behavior. This API covers many common scenarios, including:
 * testing with predefined time;
 * keeping consistent time and timers;
 * monitoring inactivity;
@@ -388,7 +388,7 @@ See [the clock guide](./clock.mdx) for more details.
   page.keyboard.press("ControlOrMeta+S")
   ```
   
-- 新屬性 `httpCredentials.send` in [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
+- 新屬性 `httpCredentials.send` in [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) that 允許 either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
 - Playwright now supports Chromium, Firefox and WebKit on Ubuntu 24.04.
 - v1.45 is the last release to receive WebKit update for macOS 12 Monterey. Please update macOS to keep using the latest WebKit.
 
@@ -428,7 +428,7 @@ See [the clock guide](./clock.mdx) for more details.
   ```
   
 **Locator handler**
-- After executing the handler added with [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler), Playwright will now wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `no_wait_after` option.
+- After executing the handler added with [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `no_wait_after` option.
 - You can use new `times` option in [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
 - The handler in [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
 - New [page.remove_locator_handler()](/api/class-page.mdx#page-remove-locator-handler) method for removing previously added locator handlers.
@@ -532,8 +532,8 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [page.unroute_all()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) and [page.route_from_har()](/api/class-page.mdx#page-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
-- 新方法 [browser_context.unroute_all()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) and [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [page.unroute_all()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) and [page.route_from_har()](/api/class-page.mdx#page-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [browser_context.unroute_all()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) and [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
 - 新選項s [style](/api/class-page.mdx#page-screenshot-option-style) in [page.screenshot()](/api/class-page.mdx#page-screenshot) and [style](/api/class-locator.mdx#locator-screenshot-option-style) in [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
 
 ### 瀏覽器版本
@@ -1077,7 +1077,7 @@ Read more in [our documentation](./mock.mdx#mocking-with-har-files).
 
 ### Advanced Routing
 
-You can now use [route.fallback()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
+You 現在可以 use [route.fallback()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
 
 Consider the following example:
 
@@ -1144,7 +1144,7 @@ Note that the new methods [page.route_from_har()](/api/class-page.mdx#page-route
 * Methods [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) and [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignore_case` option.
 
 ### 其他
-* If there's a service worker that's in your way, you can now easily disable it with a new context option `service_workers`:
+* If there's a service worker that's in your way, you 現在可以 easily disable it with a new context option `service_workers`:
   
   <Tabs
     groupId="python-flavor"
@@ -1280,7 +1280,7 @@ Note that the new methods [page.route_from_har()](/api/class-page.mdx#page-route
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
 - New `scale` option in [page.screenshot()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
-- New `caret` option in [page.screenshot()](/api/class-page.mdx#page-screenshot) to control text caret. Defaults to `"hide"`.
+- New `caret` option in [page.screenshot()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
 
 ### Behavior Changes
 - The `mcr.microsoft.com/playwright` docker image no longer contains Python. Please use `mcr.microsoft.com/playwright/python` as a Playwright-ready docker image with pre-installed Python.
@@ -1445,7 +1445,7 @@ Read more in [our documentation](./test-assertions).
 
 ### Locator Improvements
 - [locator.drag_to()](/api/class-locator.mdx#locator-drag-to)
-- Each locator can now be optionally filtered by the text it contains:
+- Each locator 現在可以 be optionally filtered by the text it contains:
   
   <Tabs
     groupId="python-flavor"
@@ -1522,8 +1522,8 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
 ### Ubuntu ARM64 support + more
-- Playwright now supports **Ubuntu 20.04 ARM64**. You can now run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
-- You can now use Playwright to install stable version of Edge on Linux:
+- Playwright now supports **Ubuntu 20.04 ARM64**. You 現在可以 run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
+- You 現在可以 use Playwright to install stable version of Edge on Linux:
   
   ```bash
   npx playwright install msedge

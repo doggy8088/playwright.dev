@@ -113,7 +113,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ## 版本 1.51
 
 ### 重點
-* 新選項 [setIndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) allows to save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
+* 新選項 [setIndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 允許 save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
   
   Here is an example following the [authentication guide](./auth.mdx#reusing-signed-in-state):
   
@@ -138,7 +138,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   assertThat(todoItems).hasCount(3);
   ```
   
-* 新選項 `setContrast` for methods [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media) and [Browser.newContext()](/api/class-browser.mdx#browser-new-context) allows to emulate the `prefers-contrast` media feature.
+* 新選項 `setContrast` for methods [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media) and [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 允許 emulate the `prefers-contrast` media feature.
 * 新選項 [setFailOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) makes all fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
 
 ### 瀏覽器版本
@@ -291,7 +291,7 @@ The Network tab in the trace viewer has several nice improvements:
 ### 其他
 - The `mcr.microsoft.com/playwright/java:v1.47.0` now serves a Playwright image based on Ubuntu 24.04 Noble. To use the 22.02 jammy-based image, please use `mcr.microsoft.com/playwright/java:v1.47.0-jammy` instead.
 - The `:latest`/`:focal`/`:jammy` tag for Playwright Docker images is no longer being published. Pin to a specific version for better stability and reproducibility.
-- TLS client certificates can now be passed from memory by passing [setClientCertificates.setCert](/api/class-browser.mdx#browser-new-context-option-client-certificates) and [setClientCertificates.setKey](/api/class-browser.mdx#browser-new-context-option-client-certificates) as byte arrays instead of file paths.
+- TLS client certificates 現在可以 be passed from memory by passing [setClientCertificates.setCert](/api/class-browser.mdx#browser-new-context-option-client-certificates) and [setClientCertificates.setKey](/api/class-browser.mdx#browser-new-context-option-client-certificates) as byte arrays instead of file paths.
 - [setNoWaitAfter](/api/class-locator.mdx#locator-select-option-option-no-wait-after) in [Locator.selectOption()](/api/class-locator.mdx#locator-select-option) was deprecated.
 - We've seen reports of WebGL in Webkit misbehaving on GitHub Actions `macos-13`. We recommend upgrading GitHub Actions to `macos-14`.
 
@@ -308,7 +308,7 @@ The Network tab in the trace viewer has several nice improvements:
 
 ### TLS Client Certificates
 
-Playwright now allows to supply client-side certificates, so that server can verify them, as specified by TLS Client Authentication.
+Playwright now 允許 supply client-side certificates, so that server can verify them, as specified by TLS Client Authentication.
 
 You can provide client certificates as a parameter of [Browser.newContext()](/api/class-browser.mdx#browser-new-context) and [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context). The following snippet sets up a client certificate for `https://example.com`:
 
@@ -342,7 +342,7 @@ BrowserContext context = browser.newContext(new Browser.NewContextOptions()
 
 ### Clock
 
-Utilizing the new [Clock] API allows to manipulate and control time within tests to verify time-related behavior. This API covers many common scenarios, including:
+Utilizing the new [Clock] API 允許 manipulate and control time within tests to verify time-related behavior. This API covers many common scenarios, including:
 * testing with predefined time;
 * keeping consistent time and timers;
 * monitoring inactivity;
@@ -383,7 +383,7 @@ See [the clock guide](./clock.mdx) for more details.
   page.keyboard.press("ControlOrMeta+S");
   ```
   
-- 新屬性 `httpCredentials.send` in [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
+- 新屬性 `httpCredentials.send` in [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that 允許 either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
 - Playwright now supports Chromium, Firefox and WebKit on Ubuntu 24.04.
 - v1.45 is the last release to receive WebKit update for macOS 12 Monterey. Please update macOS to keep using the latest WebKit.
 
@@ -423,7 +423,7 @@ See [the clock guide](./clock.mdx) for more details.
   ```
   
 **Locator handler**
-- After executing the handler added with [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright will now wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `setNoWaitAfter` option.
+- After executing the handler added with [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會 wait until the overlay that triggered the handler is not visible anymore. You can opt-out of this behavior with the new `setNoWaitAfter` option.
 - You can use new `setTimes` option in [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) to specify maximum number of times the handler should be run.
 - The handler in [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) now accepts the locator as argument.
 - New [Page.removeLocatorHandler()](/api/class-page.mdx#page-remove-locator-handler) method for removing previously added locator handlers.
@@ -439,7 +439,7 @@ page.removeLocatorHandler(locator);
 ```
 
 **Miscellaneous options**
-- 新方法 [FormData.append()](/api/class-formdata.mdx#form-data-append) allows to specify repeating fields with the same name in [`setMultipart`](./api/class-requestoptions#request-options-set-multipart) option in `RequestOptions`:
+- 新方法 [FormData.append()](/api/class-formdata.mdx#form-data-append) 允許 specify repeating fields with the same name in [`setMultipart`](./api/class-requestoptions#request-options-set-multipart) option in `RequestOptions`:
   
   ```java
   FormData formData = FormData.create();
@@ -1128,7 +1128,7 @@ Read more in [our documentation](./mock.mdx#mocking-with-har-files).
 
 ### Advanced Routing
 
-You can now use [Route.fallback()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
+You 現在可以 use [Route.fallback()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
 
 Consider the following example:
 
@@ -1156,7 +1156,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
 * Methods [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) and [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` option.
 
 ### 其他
-* If there's a service worker that's in your way, you can now easily disable it with a new context option `serviceWorkers`:
+* If there's a service worker that's in your way, you 現在可以 easily disable it with a new context option `serviceWorkers`:
   
   ```java
   BrowserContext context = browser.newContext(new Browser.NewContextOptions()
@@ -1200,7 +1200,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
   submitButton.click();
   ```
   
-- Playwright for Java now supports **Ubuntu 20.04 ARM64** and **Apple M1**. You can now run Playwright for Java tests on Apple M1, inside Docker on Apple M1, and on Raspberry Pi.
+- Playwright for Java now supports **Ubuntu 20.04 ARM64** and **Apple M1**. You 現在可以 run Playwright for Java tests on Apple M1, inside Docker on Apple M1, and on Raspberry Pi.
 
 ## 版本 1.21
 
@@ -1214,7 +1214,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
 - New `scale` option in [Page.screenshot()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
-- New `caret` option in [Page.screenshot()](/api/class-page.mdx#page-screenshot) to control text caret. Defaults to `"hide"`.
+- New `caret` option in [Page.screenshot()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
 
 ### Behavior Changes
 - Playwright now supports large file uploads (100s of MBs) via [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) API.
@@ -1315,7 +1315,7 @@ Read more in [our documentation](./test-assertions).
 
 ### Locator Improvements
 - [Locator.dragTo()](/api/class-locator.mdx#locator-drag-to)
-- Each locator can now be optionally filtered by the text it contains:
+- Each locator 現在可以 be optionally filtered by the text it contains:
   
   ```java
   page.locator("li", new Page.LocatorOptions().setHasText("my item"))
@@ -1378,8 +1378,8 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
 ### Ubuntu ARM64 support + more
-- Playwright now supports **Ubuntu 20.04 ARM64**. You can now run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
-- You can now use Playwright to install stable version of Edge on Linux:
+- Playwright now supports **Ubuntu 20.04 ARM64**. You 現在可以 run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
+- You 現在可以 use Playwright to install stable version of Edge on Linux:
   
   ```bash
   mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install msedge"
