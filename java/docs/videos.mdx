@@ -1,19 +1,19 @@
 ---
 id: videos
-title: "Videos"
+title: "影片"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-With Playwright you can record videos for your tests.
+使用 Playwright 您可以為測試錄製影片。
 
-## Record video
+## 錄製影片
 
-Videos are saved upon [browser context](./browser-contexts.mdx) closure at the end of a test. If you create a browser context manually, make sure to await [BrowserContext.close()](/api/class-browsercontext.mdx#browser-context-close).
+影片會在測試結束時於[瀏覽器情境](./browser-contexts.mdx)關閉時儲存。如果您手動建立瀏覽器情境，請確保等待 [BrowserContext.close()](/api/class-browsercontext.mdx#browser-context-close)。
 
 ```java
 context = browser.newContext(new Browser.NewContextOptions().setRecordVideoDir(Paths.get("videos/")));
@@ -21,7 +21,7 @@ context = browser.newContext(new Browser.NewContextOptions().setRecordVideoDir(P
 context.close();
 ```
 
-You can also specify video size. The video size defaults to the viewport size scaled down to fit 800x800. The video of the viewport is placed in the top-left corner of the output video, scaled down to fit if necessary. You may need to set the viewport size to match your desired video size.
+您也可以指定影片大小。影片大小預設為檢視區大小縮放以符合 800x800。檢視區的影片會放置在輸出影片的左上角，必要時會縮放以符合大小。您可能需要設定檢視區大小以符合您所需的影片大小。
 
 ```java
 BrowserContext context = browser.newContext(new Browser.NewContextOptions()
@@ -29,14 +29,14 @@ BrowserContext context = browser.newContext(new Browser.NewContextOptions()
   .setRecordVideoSize(640, 480));
 ```
 
-Saved video files will appear in the specified folder. They all have generated unique names. For the multi-page scenarios, you can access the video file associated with the page via the [Page.video()](/api/class-page.mdx#page-video).
+儲存的影片檔案將出現在指定的資料夾中。它們都有自動產生的唯一名稱。對於多頁面情境，您可以透過 [Page.video()](/api/class-page.mdx#page-video) 存取與頁面相關聯的影片檔案。
 
 ```java
 path = page.video().path();
 ```
 
 :::note
-Note that the video is only available after the page or browser context is closed.
+請注意，影片僅在頁面或瀏覽器情境關閉後才可使用。
 :::
 
 
