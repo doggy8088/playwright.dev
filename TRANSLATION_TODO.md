@@ -101,7 +101,7 @@
 - [x] nodejs/docs/codegen-intro.mdx
 - [ ] nodejs/docs/codegen.mdx
 - [ ] nodejs/docs/codegen.mdx
-- [ ] nodejs/docs/debug.mdx
+- [x] nodejs/docs/debug.mdx
 - [ ] nodejs/docs/dialogs.mdx
 - [ ] nodejs/docs/docker.mdx
 - [ ] nodejs/docs/downloads.mdx
@@ -243,7 +243,7 @@
 - [ ] nodejs/versioned_docs/version-stable/clock.mdx
 - [x] nodejs/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/codegen.mdx
-- [ ] nodejs/versioned_docs/version-stable/debug.mdx
+- [x] nodejs/versioned_docs/version-stable/debug.mdx
 - [ ] nodejs/versioned_docs/version-stable/dialogs.mdx
 - [ ] nodejs/versioned_docs/version-stable/docker.mdx
 - [ ] nodejs/versioned_docs/version-stable/downloads.mdx
@@ -352,7 +352,7 @@
 - [ ] python/docs/clock.mdx
 - [ ] python/docs/codegen-intro.mdx
 - [ ] python/docs/codegen.mdx
-- [ ] python/docs/debug.mdx
+- [x] python/docs/debug.mdx
 - [ ] python/docs/dialogs.mdx
 - [ ] python/docs/docker.mdx
 - [ ] python/docs/downloads.mdx
@@ -438,7 +438,7 @@
 - [ ] python/versioned_docs/version-stable/clock.mdx
 - [ ] python/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] python/versioned_docs/version-stable/codegen.mdx
-- [ ] python/versioned_docs/version-stable/debug.mdx
+- [x] python/versioned_docs/version-stable/debug.mdx
 - [ ] python/versioned_docs/version-stable/dialogs.mdx
 - [ ] python/versioned_docs/version-stable/docker.mdx
 - [ ] python/versioned_docs/version-stable/downloads.mdx
@@ -527,7 +527,7 @@
 - [ ] java/docs/clock.mdx
 - [ ] java/docs/codegen-intro.mdx
 - [ ] java/docs/codegen.mdx
-- [ ] java/docs/debug.mdx
+- [x] java/docs/debug.mdx
 - [ ] java/docs/dialogs.mdx
 - [ ] java/docs/docker.mdx
 - [ ] java/docs/downloads.mdx
@@ -617,7 +617,7 @@
 - [ ] java/versioned_docs/version-stable/clock.mdx
 - [ ] java/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] java/versioned_docs/version-stable/codegen.mdx
-- [ ] java/versioned_docs/version-stable/debug.mdx
+- [x] java/versioned_docs/version-stable/debug.mdx
 - [ ] java/versioned_docs/version-stable/dialogs.mdx
 - [ ] java/versioned_docs/version-stable/docker.mdx
 - [ ] java/versioned_docs/version-stable/downloads.mdx
@@ -706,7 +706,7 @@
 - [ ] dotnet/docs/clock.mdx
 - [ ] dotnet/docs/codegen-intro.mdx
 - [ ] dotnet/docs/codegen.mdx
-- [ ] dotnet/docs/debug.mdx
+- [x] dotnet/docs/debug.mdx
 - [ ] dotnet/docs/dialogs.mdx
 - [ ] dotnet/docs/docker.mdx
 - [ ] dotnet/docs/downloads.mdx
@@ -794,7 +794,7 @@
 - [ ] dotnet/versioned_docs/version-stable/clock.mdx
 - [ ] dotnet/versioned_docs/version-stable/codegen-intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/codegen.mdx
-- [ ] dotnet/versioned_docs/version-stable/debug.mdx
+- [x] dotnet/versioned_docs/version-stable/debug.mdx
 - [ ] dotnet/versioned_docs/version-stable/dialogs.mdx
 - [ ] dotnet/versioned_docs/version-stable/docker.mdx
 - [ ] dotnet/versioned_docs/version-stable/downloads.mdx
