@@ -548,7 +548,7 @@ await page.removeLocatorHandler(locator);
   });
   ```
   
-- 新方法 [locator.contentFrame()](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
+- 新方法 [locator.contentFrame()](/api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。當您在某處取得 [Locator] 物件，稍後想要與框架內的內容互動時，這會很有用。
   
   ```js
   const locator = page.locator('iframe[name="embedded"]');
@@ -557,7 +557,7 @@ await page.removeLocatorHandler(locator);
   await frameLocator.getByRole('button').click();
   ```
   
-- 新方法 [frameLocator.owner()](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
+- 新方法 [frameLocator.owner()](/api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。當您在某處取得 [FrameLocator] 物件，稍後想要與 `iframe` 元素互動時，這會很有用。
   
   ```js
   const frameLocator = page.frameLocator('iframe[name="embedded"]');

@@ -317,7 +317,7 @@ page.remove_locator_handler(locator)
   context.clear_cookies(domain="my-origin.com")
   ```
   
-- 新方法 [locator.content_frame](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
+- 新方法 [locator.content_frame](/api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。當您在某處取得 [Locator] 物件，稍後想要與框架內的內容互動時，這會很有用。
   
   ```python
   locator = page.locator("iframe[name='embedded']")
@@ -326,7 +326,7 @@ page.remove_locator_handler(locator)
   frame_locator.getByRole("button").click()
   ```
   
-- 新方法 [frame_locator.owner](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
+- 新方法 [frame_locator.owner](/api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。當您在某處取得 [FrameLocator] 物件，稍後想要與 `iframe` 元素互動時，這會很有用。
   
   ```python
   frame_locator = page.frame_locator("iframe[name='embedded']")
@@ -335,7 +335,7 @@ page.remove_locator_handler(locator)
   expect(locator).to_be_visible()
   ```
   
-- Conda builds are now published for macOS-arm64 and Linux-arm64.
+- Conda 建置現在發佈用於 macOS-arm64 和 Linux-arm64。
 
 ### 瀏覽器版本
 * Chromium 124.0.6367.8

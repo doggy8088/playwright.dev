@@ -266,7 +266,7 @@ dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Channel=
 
 ### WebSocket 路由
 
-新方法s [Page.RouteWebSocketAsync()](/api/class-page.mdx#page-route-web-socket) and [BrowserContext.RouteWebSocketAsync()](/api/class-browsercontext.mdx#browser-context-route-web-socket) 允許 intercept, modify and mock WebSocket connections initiated in the page. Below is a simple example that mocks WebSocket communication by responding to a `"request"` with a `"response"`.
+新方法 [Page.RouteWebSocketAsync()](/api/class-page.mdx#page-route-web-socket) 和 [BrowserContext.RouteWebSocketAsync()](/api/class-browsercontext.mdx#browser-context-route-web-socket) 允許攔截、修改和模擬頁面中發起的 WebSocket 連線。以下是一個簡單範例，透過回應 `"request"` 訊息來模擬 WebSocket 通訊並回傳 `"response"`。
 
 ```csharp
 await page.RouteWebSocketAsync("/ws", ws => {
