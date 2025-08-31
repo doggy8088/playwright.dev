@@ -544,7 +544,7 @@ await page.removeLocatorHandler(locator);
   });
   ```
   
-- 新方法 [locator.contentFrame()](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
+- 新方法 [locator.contentFrame()](/api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。當您在某處獲得 [Locator] 物件，然後想要與框架內的內容互動時，這會很有用。
   
   ```js
   const locator = page.locator('iframe[name="embedded"]');
@@ -553,7 +553,7 @@ await page.removeLocatorHandler(locator);
   await frameLocator.getByRole('button').click();
   ```
   
-- 新方法 [frameLocator.owner()](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
+- 新方法 [frameLocator.owner()](/api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。當您在某處獲得 [FrameLocator] 物件，然後想要與 `iframe` 元素互動時，這會很有用。
   
   ```js
   const frameLocator = page.frameLocator('iframe[name="embedded"]');
@@ -586,7 +586,7 @@ await page.removeLocatorHandler(locator);
 <LiteYouTube id="KjSaIQLlgns" title="Playwright 1.41 & 1.42" />
 
 ### 新的 API
-- 新方法 [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) registers a callback that will be invoked when specified element becomes visible and may block Playwright actions. The callback can get rid of the overlay. Here is an example that closes a cookie dialog when it appears:
+- 新方法 [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 註冊一個回呼函數，當指定元素變為可見且可能阻止 Playwright 動作時會被呼叫。回呼函數可以移除覆蓋層。以下是一個在 cookie 對話方塊出現時關閉它的範例：
 
 ```js
 // Setup the handler.
@@ -614,7 +614,7 @@ electronApp.on('console', async msg => {
 await electronApp.evaluate(() => console.log('hello', 5, { foo: 'bar' }));
 ```
 
-- [New syntax](./test-annotations#tag-tests) for adding tags to the tests (@-tokens in the test title are still supported):
+- [新語法](./test-annotations#tag-tests) 用於為測試新增標籤（測試標題中的 @-token 仍然支援）：
 
 ```js
 test('test customer login', {
@@ -636,7 +636,7 @@ npx playwright test --grep @fast
 npx playwright test --project='*mobile*'
 ```
 
-- [New syntax](./test-annotations#annotate-tests) for test annotations:
+- [新語法](./test-annotations#annotate-tests) 用於測試註釋：
 
 ```js
 test('test full report', {
@@ -649,7 +649,7 @@ test('test full report', {
 });
 ```
 
-- [page.pdf()](/api/class-page.mdx#page-pdf) accepts two new options [`tagged`](./api/class-page#page-pdf-選項-tagged) 和 [`outline`](./api/class-page#page-pdf-選項-outline).
+- [page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [`tagged`](./api/class-page#page-pdf-選項-tagged) 和 [`outline`](./api/class-page#page-pdf-選項-outline)。
 
 ### 公告
 * ⚠️ Ubuntu 18 is not supported anymore.
@@ -690,7 +690,7 @@ test('test full report', {
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
 新的產生斷言工具：
-- "Assert visibility" tool generates [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
+- "Assert visibility" 工具產生 [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
 - "Assert value" tool generates [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
 - "Assert text" tool generates [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).
 
@@ -1250,7 +1250,7 @@ Note: **component tests only**, does not affect end-to-end tests.
   ```
   
 ### 其他
-- DOM snapshots in trace viewer can be現在opened in a separate window.
+- 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新方法 `defineConfig` to be used in `playwright.config`.
 - 新選項 [maxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
@@ -1484,7 +1484,7 @@ All the same methods are also available on [Locator], [FrameLocator] 和 [Frame]
 - 如 v1.25 中所宣布，Ubuntu 18 將在 2022 年 12 月起不再受支援。除此之外，從下一個 Playwright 版本開始，Ubuntu 18 上將不會有 WebKit 更新。
 
 ### 行為變更
-- [expect(locator).toHaveAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
+- [expect(locator).toHaveAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) 使用空值不再比對缺少的屬性。例如，當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
   
   ```js
   await expect(page.getByRole('button')).toHaveAttribute('disabled', '');

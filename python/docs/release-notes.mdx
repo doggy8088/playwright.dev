@@ -1197,7 +1197,7 @@ await page.route("**/*", abort_images_handler)
   </Tabs>
   
   Read more in [locator documentation](./api/class-locator#locator-locator)
-- New [locator.page](/api/class-locator.mdx#locator-page)
+- 新的 [locator.page](/api/class-locator.mdx#locator-page)
 - [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot)現在automatically hide blinking caret
 - Playwright Codegen現在generates locators and frame locators
 
@@ -1367,7 +1367,7 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 
 ### HTML Report Update
 - HTML report 現在支援 dynamic filtering
-- Report is現在a **single static HTML file** that could be sent by e-mail or as a slack attachment.
+- 報告現在是一個**單一靜態 HTML 檔案**，可以透過電子郵件傳送或作為 slack 附件。
 
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
@@ -1620,7 +1620,7 @@ This version of Playwright was also tested against the following stable channels
   * `trial` 選項 to dry-run actions in [page.check()](/api/class-page.mdx#page-check), [page.uncheck()](/api/class-page.mdx#page-uncheck), [page.click()](/api/class-page.mdx#page-click), [page.dblclick()](/api/class-page.mdx#page-dblclick), [page.hover()](/api/class-page.mdx#page-hover) 和 [page.tap()](/api/class-page.mdx#page-tap)
 
 ## 版本 1.10
-- [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) is **now stable**!
+- [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) 現在**穩定**！
 - Run Playwright against **Google Chrome** and **Microsoft Edge** stable channels with the [new channels API](./browsers).
 - Chromium screenshots are **fast** on Mac & Windows.
 
@@ -1643,9 +1643,9 @@ This version of Playwright was also tested against the following stable channels
   - **Generate element selectors** for your script by hovering over elements.
   - Set the `PWDEBUG=1` environment variable to launch the Inspector
 - **Pause script execution** with [page.pause()](/api/class-page.mdx#page-pause) in headed mode. Pausing the page launches [Playwright Inspector](./debug.mdx) for debugging.
-- **New has-text pseudo-class** for CSS selectors. `:has-text("example")` matches any element containing `"example"` somewhere inside, possibly in a child or a descendant element. See [more examples](./other-locators.mdx#css-matching-by-text).
+- **新的 has-text 偽類別** 用於 CSS 選擇器。`:has-text("example")` 比對任何在內部包含 `"example"` 的元素，可能在子元素或後代元素中。請參閱[更多範例](./other-locators.mdx#css-matching-by-text)。
 - **頁面對話框現在自動關閉**：除非配置了 `dialog` 事件的監聽器，否則在執行過程中會自動關閉頁面對話框。[了解更多](./dialogs.mdx)相關資訊。
-- [Playwright for Python](https://github.com/microsoft/playwright-python) is **now stable** with an idiomatic snake case API and pre-built [Docker image](./docker.mdx) to run tests in CI/CD.
+- [Playwright for Python](https://github.com/microsoft/playwright-python) 現在**穩定**，具有符合慣用語的 snake case API 和預建的 [Docker 映像](./docker.mdx) 以在 CI/CD 中執行測試。
 
 #### 瀏覽器版本
 - Chromium 90.0.4421.0

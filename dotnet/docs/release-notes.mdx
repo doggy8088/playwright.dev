@@ -821,7 +821,7 @@ Linux support looks like this:
   await Expect(locator).ToBeInViewportAsync(new() { Ratio = 0.5 });
   ```
   
-- 新方法s [BrowserContext.NewCDPSessionAsync()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) 和 [Browser.NewBrowserCDPSessionAsync()](/api/class-browser.mdx#browser-new-browser-cdp-session) create a [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) session for the page and browser respectively.
+- 新方法 [BrowserContext.NewCDPSessionAsync()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) 和 [Browser.NewBrowserCDPSessionAsync()](/api/class-browser.mdx#browser-new-browser-cdp-session) 分別為頁面和瀏覽器建立 [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) 工作階段。
 
 ### 其他
 - 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
@@ -951,7 +951,7 @@ await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 - 如 v1.25 中所宣布，Ubuntu 18 將在 2022 年 12 月起不再受支援。除此之外，從下一個 Playwright 版本開始，Ubuntu 18 上將不會有 WebKit 更新。
 
 ### 行為變更
-- [Expect(Locator).ToHaveAttributeAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
+- [Expect(Locator).ToHaveAttributeAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) 使用空值不再比對缺少的屬性。例如，當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
   
   ```csharp
   await Expect(Page.GetByRole(AriaRole.Button)).ToHaveAttributeAsync("disabled", "");
@@ -1290,7 +1290,7 @@ Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節�
   ```
   
   Read more in [locator documentation](./api/class-locator#locator-locator)
-- New [Locator.Page](/api/class-locator.mdx#locator-page)
+- 新的 [Locator.Page](/api/class-locator.mdx#locator-page)
 - [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot)現在automatically hide blinking caret
 - Playwright Codegen 現在會產生定位器和框架定位器
 
@@ -1504,7 +1504,7 @@ await button.ClickAsync("button >> visible=true");
 
 #### Playwright
 - **🖖 Programmatic drag-and-drop support** via the [Page.DragAndDropAsync()](/api/class-page.mdx#page-drag-and-drop) API.
-- **🔎 Enhanced HAR**具有請求和回應的主體大小. 透過 `recordHar` 選項 in [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context). 使用
+- **🔎 增強的 HAR** 具有請求和回應的主體大小。透過 [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 中的 `recordHar` 選項。使用
 
 #### 工具
 - Playwright 追蹤檢視器現在顯示參數、回傳值和 `console.log()` 呼叫。

@@ -694,8 +694,8 @@ test('test full report', {
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
 新的產生斷言工具：
-- "Assert visibility" tool generates [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
-- "Assert value" tool generates [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
+- "Assert visibility" 工具產生 [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
+- "Assert value" 工具產生 [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
 - "Assert text" 工具產生 [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
 以下是產生的測試與斷言的範例：
@@ -1255,7 +1255,7 @@ Note: **component tests only**, does not affect end-to-end tests.
   
 ### 其他
 - 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
-- 新方法 `defineConfig` to be used in `playwright.config`.
+- 新方法 `defineConfig` 用於 `playwright.config`。
 - 新選項 [maxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
 - 官方 [docker images](./docker.mdx) 現在包含 Node 18 而非 Node 16。
@@ -2540,7 +2540,7 @@ export default defineConfig({
 
 #### Playwright Test
 - **⚡️ 介紹 [Reporter API](https://github.com/microsoft/playwright/blob/65a9037461ffc15d70cdc2055832a0c5512b227c/packages/playwright-test/types/testReporter.d.ts)**，已用於建立 [Allure Playwright reporter](https://github.com/allure-framework/allure-js/pull/297)。
-- **⛺️ New [`baseURL` fixture](./test-configuration#basic-configuration)** to support relative paths in tests.
+- **⛺️ 新的 [`baseURL` 佈置](./test-configuration#basic-configuration)** 以支援測試中的相對路徑。
 
 #### Playwright
 - **🖖 Programmatic drag-and-drop support** via the [page.dragAndDrop()](/api/class-page.mdx#page-drag-and-drop) API.
@@ -2688,7 +2688,7 @@ This version of Playwright was also tested against the following stable channels
   * `trial` 選項以在 [page.check()](/api/class-page.mdx#page-check)、[page.uncheck()](/api/class-page.mdx#page-uncheck)、[page.click()](/api/class-page.mdx#page-click)、[page.dblclick()](/api/class-page.mdx#page-dblclick)、[page.hover()](/api/class-page.mdx#page-hover) 和 [page.tap()](/api/class-page.mdx#page-tap) 中執行乾運行動作
 
 ## 版本 1.10
-- [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) is **now stable**!
+- [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) 現在**穩定**！
 - Run Playwright against **Google Chrome** and **Microsoft Edge** stable channels with the [new channels API](./browsers).
 - Chromium screenshots are **fast** on Mac & Windows.
 
@@ -2713,7 +2713,7 @@ This version of Playwright was also tested against the following stable channels
 - **Pause script execution** with [page.pause()](/api/class-page.mdx#page-pause) in headed mode. Pausing the page launches [Playwright Inspector](./debug.mdx) for debugging.
 - **新的 has-text 偽類**用於 CSS 選擇器。`:has-text("example")` 匹配任何在內部包含 `"example"` 的元素，可能在子元素或後代元素中。請參閱[更多範例](./other-locators.mdx#css-matching-by-text)。
 - **頁面對話框現在會自動關閉**在執行期間，除非為 `dialog` 事件配置了監聽器。[了解更多](./dialogs.mdx)相關資訊。
-- [Playwright for Python](https://github.com/microsoft/playwright-python) is **now stable** with an idiomatic snake case API and pre-built [Docker image](./docker.mdx) to run tests in CI/CD.
+- [Playwright for Python](https://github.com/microsoft/playwright-python) 現在**穩定**，具有符合慣用語的 snake case API 和預建的 [Docker 映像](./docker.mdx) 以在 CI/CD 中執行測試。
 
 #### 瀏覽器版本
 - Chromium 90.0.4421.0

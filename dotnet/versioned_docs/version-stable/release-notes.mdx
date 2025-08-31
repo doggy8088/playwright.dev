@@ -346,13 +346,13 @@ var context = await Browser.NewContextAsync(new() {
 
 ### 追蹤檢視器更新
 - 文字附件的內容現在會在附件窗格中內嵌呈現。
-- New setting to show/hide routing actions like [Route.ContinueAsync()](/api/class-route.mdx#route-continue).
+- 新設定以顯示/隱藏路由動作，如 [Route.ContinueAsync()](/api/class-route.mdx#route-continue)。
 - Request 方法 and status are shown in the network details tab.
 - 複製源檔案位置到剪貼簿的新按鈕。
 - Metadata pane現在displays the `BaseURL`.
 
 ### 其他
-- New `maxRetries` 選項 in [ApiRequestContext.FetchAsync()](/api/class-apirequestcontext.mdx#api-request-context-fetch) which retries on the `ECONNRESET` network error.
+- [ApiRequestContext.FetchAsync()](/api/class-apirequestcontext.mdx#api-request-context-fetch) 中的新 `maxRetries` 選項，在 `ECONNRESET` 網路錯誤時重試。
 
 ### 瀏覽器版本
 - Chromium 128.0.6613.18
@@ -453,7 +453,7 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
 - 執行透過 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 新增的處理器後，Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `NoWaitAfter` 選項來選擇退出此行為。
 - 您可以在 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `Times` 選項來指定處理器應執行的最大次數。
 - [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
-- New [Page.RemoveLocatorHandlerAsync()](/api/class-page.mdx#page-remove-locator-handler) 方法 for removing previously added locator handlers.
+- 新的 [Page.RemoveLocatorHandlerAsync()](/api/class-page.mdx#page-remove-locator-handler) 方法用於移除先前新增的定位器處理器。
 
 ```csharp
 var locator = Page.GetByText("This interstitial covers the button");
@@ -511,7 +511,7 @@ await Page.RemoveLocatorHandlerAsync(locator);
   await Context.ClearCookiesAsync(new() { Domain = "my-origin.com" });
   ```
   
-- 新屬性 [Locator.ContentFrame](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
+- 新屬性 [Locator.ContentFrame](/api/class-locator.mdx#locator-content-frame) 將 [Locator] 物件轉換為 [FrameLocator]。當您在某處獲得 [Locator] 物件，然後想要與框架內的內容互動時，這會很有用。
   
   ```csharp
   var locator = Page.Locator("iframe[name='embedded']");
@@ -520,7 +520,7 @@ await Page.RemoveLocatorHandlerAsync(locator);
   await frameLocator.GetByRole(AriaRole.Button).ClickAsync();
   ```
   
-- 新屬性 [FrameLocator.Owner](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
+- 新屬性 [FrameLocator.Owner](/api/class-framelocator.mdx#frame-locator-owner) 將 [FrameLocator] 物件轉換為 [Locator]。當您在某處獲得 [FrameLocator] 物件，然後想要與 `iframe` 元素互動時，這會很有用。
   
   ```csharp
   var frameLocator = page.FrameLocator("iframe[name='embedded']");
@@ -824,7 +824,7 @@ Linux support looks like this:
 - 新方法s [BrowserContext.NewCDPSessionAsync()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) 和 [Browser.NewBrowserCDPSessionAsync()](/api/class-browser.mdx#browser-new-browser-cdp-session) create a [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) session for the page and browser respectively.
 
 ### 其他
-- DOM snapshots in trace viewer can be現在opened in a separate window.
+- 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新選項 [MaxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [Route.FetchAsync()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
 - Official [docker images](./docker.mdx)現在include Node 18 instead of Node 16.
@@ -951,7 +951,7 @@ await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 - 如 v1.25 中所宣布，Ubuntu 18 將在 2022 年 12 月起不再受支援。除此之外，從下一個 Playwright 版本開始，Ubuntu 18 上將不會有 WebKit 更新。
 
 ### 行為變更
-- [Expect(Locator).ToHaveAttributeAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
+- [Expect(Locator).ToHaveAttributeAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) 使用空值不再比對缺少的屬性。例如，當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
   
   ```csharp
   await Expect(Page.GetByRole(AriaRole.Button)).ToHaveAttributeAsync("disabled", "");

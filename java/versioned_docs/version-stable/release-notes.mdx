@@ -457,7 +457,7 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 ```
 
 ### 新的 API
-- [Page.pdf()](/api/class-page.mdx#page-pdf) accepts two new options [setTagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [setOutline](/api/class-page.mdx#page-pdf-選項-outline).
+- [Page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [setTagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [setOutline](/api/class-page.mdx#page-pdf-選項-outline)。
 
 ### 公告
 * ⚠️ Ubuntu 18 is not supported anymore.
@@ -494,9 +494,9 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
 新的產生斷言工具：
-- "Assert visibility" tool generates [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
-- "Assert value" tool generates [assertThat(locator).hasValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
-- "Assert text" tool generates [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).
+- "Assert visibility" 工具產生 [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
+- "Assert value" 工具產生 [assertThat(locator).hasValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
+- "Assert text" 工具產生 [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
 Here is an example of a generated test with assertions:
 
@@ -740,7 +740,7 @@ Linux support looks like this:
   ```
   
 ### 其他
-- DOM snapshots in trace viewer can be現在opened in a separate window.
+- 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新選項 [setMaxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [Route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
 - Official [docker images](./docker.mdx)現在include Node 18 instead of Node 16.
@@ -842,7 +842,7 @@ With these new APIs writing locators is a joy:
 - [Page.getByText()](/api/class-page.mdx#page-get-by-text)以定位by text content.
 - [Page.getByRole()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 - [Page.getByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
-- [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id)以定位an element based on its `data-testid` attribute (other attribute can be configured).
+- [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 以定位基於其 `data-testid` 屬性的元素（可以配置其他屬性）。
 - [Page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
 - [Page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text)以定位an element, usually image, by its text alternative.
 - [Page.getByTitle()](/api/class-page.mdx#page-get-by-title)以定位an element by its title.
@@ -863,7 +863,7 @@ All the same methods are also available on [Locator], [FrameLocator] 和 [Frame]
 - 如 v1.25 中所宣布，Ubuntu 18 將在 2022 年 12 月起不再受支援。除此之外，從下一個 Playwright 版本開始，Ubuntu 18 上將不會有 WebKit 更新。
 
 ### 行為變更
-- [assertThat(locator).hasAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
+- [assertThat(locator).hasAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) 使用空值不再比對缺少的屬性。例如，當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
   
   ```java
   assertThat(page.getByRole(AriaRole.BUTTON)).hasAttribute("disabled", "");
@@ -914,7 +914,7 @@ To align with web specification, the `WaitUntilState.DOMCONTENTLOADED` value onl
 ## 版本 1.25
 
 ### 新的 API 與變更
-- Default assertions timeout現在can be changed with [`setDefaultAssertionTimeout`](./api/class-playwrightassertions#playwright-assertions-set-default-assertion-timeout).
+- 預設斷言逾時現在可以使用 [`setDefaultAssertionTimeout`](./api/class-playwrightassertions#playwright-assertions-set-default-assertion-timeout) 變更。
 
 ### 公告
 * 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).

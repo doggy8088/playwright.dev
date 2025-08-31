@@ -402,9 +402,9 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
 新的產生斷言工具：
-- "Assert visibility" tool generates [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
-- "Assert value" tool generates [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
-- "Assert text" tool generates [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).
+- "Assert visibility" 工具產生 [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
+- "Assert value" 工具產生 [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
+- "Assert text" 工具產生 [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
 Here is an example of a generated test with assertions:
 
@@ -619,7 +619,7 @@ Linux support looks like this:
 ## 版本 1.31
 
 ### 新的 API
-- 新的 assertion [expect(locator).to_be_in_viewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) ensures that locator points to an element that intersects viewport, according to the [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+- 新的斷言 [expect(locator).to_be_in_viewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) 確保定位器指向根據[交集觀察器 API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) 與檢視區相交的元素。
   
   ```python
   from playwright.sync_api import expect
@@ -637,7 +637,7 @@ Linux support looks like this:
   ```
   
 ### 其他
-- DOM snapshots in trace viewer can be現在opened in a separate window.
+- 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新選項 [max_redirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
 - Official [docker images](./docker.mdx)現在include Node 18 instead of Node 16.
@@ -746,7 +746,7 @@ With these new APIs writing locators is a joy:
 - [page.get_by_text()](/api/class-page.mdx#page-get-by-text)以定位by text content.
 - [page.get_by_role()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 - [page.get_by_label()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
-- [page.get_by_test_id()](/api/class-page.mdx#page-get-by-test-id)以定位an element based on its `data-testid` attribute (other attribute can be configured).
+- [page.get_by_test_id()](/api/class-page.mdx#page-get-by-test-id) 以定位基於其 `data-testid` 屬性的元素（可以配置其他屬性）。
 - [page.get_by_placeholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
 - [page.get_by_alt_text()](/api/class-page.mdx#page-get-by-alt-text)以定位an element, usually image, by its text alternative.
 - [page.get_by_title()](/api/class-page.mdx#page-get-by-title)以定位an element by its title.
@@ -767,7 +767,7 @@ All the same methods are also available on [Locator], [FrameLocator] 和 [Frame]
 - 如 v1.25 中所宣布，Ubuntu 18 將在 2022 年 12 月起不再受支援。除此之外，從下一個 Playwright 版本開始，Ubuntu 18 上將不會有 WebKit 更新。
 
 ### 行為變更
-- [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
+- [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) 使用空值不再比對缺少的屬性。例如，當 `button` **沒有** `disabled` 屬性時，以下程式碼片段將會成功。
   
   ```python
   expect(page.get_by_role("button")).to_have_attribute("disabled", "")
@@ -1637,7 +1637,7 @@ This version of Playwright was also tested against the following stable channels
 - [browser_type.launch()](/api/class-browsertype.mdx#browser-type-launch) 現在接受新的 `'channel'` 選項。在[我們的文件](./browsers)中閱讀更多。
 
 ## 版本 1.9
-- [Playwright Inspector](./debug.mdx) is a **new GUI tool** to author and debug your tests.
+- [Playwright Inspector](./debug.mdx) 是一個**新的 GUI 工具**，用於編寫和偵錯測試。
   - **Line-by-line debugging** of your Playwright scripts, with play, pause and step-through.
   - Author new scripts by **recording user actions**.
   - **Generate element selectors** for your script by hovering over elements.
