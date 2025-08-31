@@ -124,7 +124,7 @@
 - [x] nodejs/docs/pages.mdx
 - [x] nodejs/docs/pom.mdx
 - [ ] nodejs/docs/protractor.mdx
-- [ ] nodejs/docs/puppeteer.mdx
+- [x] nodejs/docs/puppeteer.mdx
 - [ ] nodejs/docs/release-notes.mdx
 - [x] nodejs/docs/running-tests.mdx
 - [x] nodejs/docs/screenshots.mdx
@@ -266,7 +266,7 @@
 - [x] nodejs/versioned_docs/version-stable/pages.mdx
 - [x] nodejs/versioned_docs/version-stable/pom.mdx
 - [ ] nodejs/versioned_docs/version-stable/protractor.mdx
-- [ ] nodejs/versioned_docs/version-stable/puppeteer.mdx
+- [x] nodejs/versioned_docs/version-stable/puppeteer.mdx
 - [ ] nodejs/versioned_docs/version-stable/release-notes.mdx
 - [x] nodejs/versioned_docs/version-stable/running-tests.mdx
 - [x] nodejs/versioned_docs/version-stable/screenshots.mdx
