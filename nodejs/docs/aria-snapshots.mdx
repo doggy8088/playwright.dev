@@ -73,31 +73,31 @@ Snapshot testing captures a “snapshot” or representation of the entire state
 
 在 Playwright 中，aria 快照提供頁面無障礙樹的 YAML 表示法。這些快照可以儲存並在之後進行比較，以驗證頁面結構是否保持一致或符合定義的期望。
 
-The YAML format describes the hierarchical structure of accessible elements on the page, detailing **roles**, **attributes**, **values**, and **text content**. The structure follows a tree-like syntax, where each node represents an accessible element, and indentation indicates nested elements.
+YAML 格式描述了頁面上無障礙元素的階層結構，詳細說明了**角色**、**屬性**、**值**和**文字內容**。結構遵循樹狀語法，其中每個節點代表一個無障礙元素，縮排表示巢狀元素。
 
-Each accessible element in the tree is represented as a YAML node:
+樹中的每個無障礙元素都表示為一個 YAML 節點：
 
 ```yaml
 - role "name" [attribute=value]
 ```
 
-- **role**: Specifies the ARIA or HTML role of the element (e.g., `heading`, `list`, `listitem`, `button`).
-- **"name"**: Accessible name of the element. Quoted strings indicate exact values, `/patterns/` are used for regular expression.
-- **[attribute=value]**: Attributes and values, in square brackets, represent specific ARIA attributes, such as `checked`, `disabled`, `expanded`, `level`, `pressed`, or `selected`.
+- **role**：指定元素的 ARIA 或 HTML 角色（例如 `heading`、`list`、`listitem`、`button`）。
+- **"name"**：元素的無障礙名稱。引號字串表示確切值，`/patterns/` 用於正規表示式。
+- **[attribute=value]**：屬性和值，在方括號中，表示特定的 ARIA 屬性，例如 `checked`、`disabled`、`expanded`、`level`、`pressed` 或 `selected`。
 
-These values are derived from ARIA attributes or calculated based on HTML semantics. To inspect the accessibility tree structure of a page, use the [Chrome DevTools Accessibility Tab](https://developer.chrome.com/docs/devtools/accessibility/reference#tab).
+這些值來自 ARIA 屬性或根據 HTML 語義計算。要檢查頁面的無障礙樹結構，請使用 [Chrome DevTools Accessibility Tab](https://developer.chrome.com/docs/devtools/accessibility/reference#tab)。
 
-## Snapshot matching
+## 快照比對
 
-The [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) assertion method in Playwright compares the accessible structure of the locator scope with a predefined aria snapshot template, helping validate the page's state against testing requirements.
+Playwright 中的 [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) 斷言方法會將定位器範圍的無障礙結構與預定義的 aria 快照範本進行比較，有助於根據測試需求驗證頁面狀態。
 
-For the following DOM:
+對於以下 DOM：
 
 ```html
 <h1>title</h1>
 ```
 
-You can match it using the following snapshot template:
+您可以使用以下快照範本進行比對：
 
 ```js
 await expect(page.locator('body')).toMatchAriaSnapshot(`
@@ -105,14 +105,14 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
 `);
 ```
 
-When matching, the snapshot template is compared to the current accessibility tree of the page:
-* If the tree structure matches the template, the test passes; otherwise, it fails, indicating a mismatch between expected and actual accessibility states.
-* The comparison is case-sensitive and collapses whitespace, so indentation and line breaks are ignored.
-* The comparison is order-sensitive, meaning the order of elements in the snapshot template must match the order in the page's accessibility tree.
+比對時，快照範本會與頁面的當前無障礙樹進行比較：
+* 如果樹結構符合範本，測試通過；否則測試失敗，表示預期和實際無障礙狀態之間不符。
+* 比較區分大小寫並會摺疊空白字元，因此忽略縮排和換行符號。
+* 比較對順序敏感，這意味著快照範本中元素的順序必須與頁面無障礙樹中的順序相符。
 
-### Partial matching
+### 部分比對
 
-You can perform partial matches on nodes by omitting attributes or accessible names, enabling verification of specific parts of the accessibility tree without requiring exact matches. This flexibility is helpful for dynamic or irrelevant attributes.
+您可以透過省略屬性或無障礙名稱對節點執行部分比對，從而能夠驗證無障礙樹的特定部分，而無需完全相符。這種靈活性對於動態或無關的屬性很有幫助。
 
 ```html
 <button>Submit</button>
@@ -124,7 +124,7 @@ You can perform partial matches on nodes by omitting attributes or accessible na
 - button
 ```
 
-In this example, the button role is matched, but the accessible name ("Submit") is not specified, allowing the test to pass regardless of the button's label.
+在此範例中，button 角色會被比對，但未指定無障礙名稱（「Submit」），允許測試無論按鈕標籤為何都能通過。
 
 <hr/>
 
@@ -163,7 +163,7 @@ Similarly, you can partially match children in lists or groups by omitting speci
 
 Partial matches let you create flexible snapshot tests that verify essential page structure without enforcing specific content or attributes.
 
-### Strict matching
+### 嚴格比對
 
 By default, a template containing the subset of children will be matched:
 
@@ -204,7 +204,7 @@ The `/children` property can be used to control how child elements are matched:
   - listitem: Feature B
 ```
 
-### Matching with regular expressions
+### 使用正規表示式比對
 
 Regular expressions allow flexible matching for elements with dynamic or variable text. Accessible names and text can support regex patterns.
 
@@ -218,17 +218,17 @@ Regular expressions allow flexible matching for elements with dynamic or variabl
 - heading /Issues \d+/
 ```
 
-## Generating snapshots
+## 產生快照
 
-Creating aria snapshots in Playwright helps ensure and maintain your application's structure. You can generate snapshots in various ways depending on your testing setup and workflow.
+在 Playwright 中建立 aria 快照有助於確保和維護您應用程式的結構。您可以根據測試設定和工作流程以各種方式產生快照。
 
-### Generating snapshots with the Playwright code generator
+### 使用 Playwright 程式碼產生器產生快照
 
 If you're using Playwright's [Code Generator](./codegen.mdx), generating aria snapshots is streamlined with its interactive interface:
 - **"Assert snapshot" Action**: In the code generator, you can use the "Assert snapshot" action to automatically create a snapshot assertion for the selected elements. This is a quick way to capture the aria snapshot as part of your recorded test flow.
 - **"Aria snapshot" Tab**: The "Aria snapshot" tab within the code generator interface visually represents the aria snapshot for a selected locator, letting you explore, inspect, and verify element roles, attributes, and accessible names to aid snapshot creation and review.
 
-### Updating snapshots with `@playwright/test` and the `--update-snapshots` flag
+### 使用 `@playwright/test` 和 `--update-snapshots` 旗標更新快照
 
 When using the Playwright test runner (`@playwright/test`), you can automatically update snapshots with the `--update-snapshots` flag, `-u` for short.
 
@@ -240,7 +240,7 @@ npx playwright test --update-snapshots
 
 Updating snapshots is useful when application structure changes require new snapshots as a baseline. Note that Playwright will wait for the maximum expect timeout specified in the test runner configuration to ensure the page is settled before taking the snapshot. It might be necessary to adjust the `--timeout` if the test hits the timeout while generating snapshots.
 
-#### Empty template for snapshot generation
+#### 用於快照產生的空範本
 
 Passing an empty string as the template in an assertion generates a snapshot on-the-fly:
 
@@ -250,7 +250,7 @@ await expect(locator).toMatchAriaSnapshot('');
 
 Note that Playwright will wait for the maximum expect timeout specified in the test runner configuration to ensure the page is settled before taking the snapshot. It might be necessary to adjust the `--timeout` if the test hits the timeout while generating snapshots.
 
-#### Snapshot patch files
+#### 快照修補檔案
 
 When updating snapshots, Playwright creates patch files that capture differences. These patch files can be reviewed, applied, and committed to source control, allowing teams to track structural changes over time and ensure updates are consistent with application requirements.
 
@@ -263,7 +263,7 @@ The way source code is updated can be changed using the `--update-source-method`
 npx playwright test --update-snapshots --update-source-method=3way
 ```
 
-#### Snapshots as separate files
+#### 快照作為獨立檔案
 
 To store your snapshots in a separate file, use the `toMatchAriaSnapshot` method with the `name` option, specifying a `.aria.yml` file extension.
 
@@ -283,7 +283,7 @@ export default defineConfig({
 });
 ```
 
-### Using the `Locator.ariaSnapshot` method
+### 使用 `Locator.ariaSnapshot` 方法
 
 The [locator.ariaSnapshot()](/api/class-locator.mdx#locator-aria-snapshot) method allows you to programmatically create a YAML representation of accessible elements within a locator's scope, especially helpful for generating snapshots dynamically during test execution.
 
@@ -296,9 +296,9 @@ console.log(snapshot);
 
 This command outputs the aria snapshot within the specified locator's scope in YAML format, which you can validate or store as needed.
 
-## Accessibility tree examples
+## 無障礙樹範例
 
-### Headings with level attributes
+### 具有層級屬性的標題
 
 Headings can include a `level` attribute indicating their heading level.
 
@@ -314,7 +314,7 @@ Headings can include a `level` attribute indicating their heading level.
 - heading "Subtitle" [level=2]
 ```
 
-### Text nodes
+### 文字節點
 
 Standalone or descriptive text elements appear as text nodes.
 
@@ -328,7 +328,7 @@ Standalone or descriptive text elements appear as text nodes.
 - text: Sample accessible name
 ```
 
-### Inline multiline text
+### 行內多行文字
 
 Multiline text, such as paragraphs, is normalized in the aria snapshot.
 
@@ -342,7 +342,7 @@ Multiline text, such as paragraphs, is normalized in the aria snapshot.
 - paragraph: Line 1 Line 2
 ```
 
-### Links
+### 連結
 
 Links display their text or composed content from pseudo-elements.
 
@@ -356,7 +356,7 @@ Links display their text or composed content from pseudo-elements.
 - link "Read more about Accessibility"
 ```
 
-### Text boxes
+### 文字方塊
 
 Input elements of type `text` show their `value` attribute content.
 
@@ -370,7 +370,7 @@ Input elements of type `text` show their `value` attribute content.
 - textbox: Enter your name
 ```
 
-### Lists with items
+### 含項目的清單
 
 Ordered and unordered lists include their list items.
 
@@ -389,7 +389,7 @@ Ordered and unordered lists include their list items.
   - listitem: Feature 2
 ```
 
-### Grouped elements
+### 群組元素
 
 Groups capture nested elements, such as `<details>` elements with summary content.
 
@@ -406,11 +406,11 @@ Groups capture nested elements, such as `<details>` elements with summary conten
 - group: Summary
 ```
 
-### Attributes and states
+### 屬性和狀態
 
 Commonly used ARIA attributes, like `checked`, `disabled`, `expanded`, `level`, `pressed`, and `selected`, represent control states.
 
-#### Checkbox with `checked` attribute
+#### 帶有 `checked` 屬性的核取方塊
 
 ```html
 <input type="checkbox" checked>
@@ -422,7 +422,7 @@ Commonly used ARIA attributes, like `checked`, `disabled`, `expanded`, `level`, 
 - checkbox [checked]
 ```
 
-#### Button with `pressed` attribute
+#### 帶有 `pressed` 屬性的按鈕
 
 ```html
 <button aria-pressed="true">Toggle</button>
