@@ -118,36 +118,36 @@ Playwright 包含多個 CSS 偽類別來依文字內容比對元素。
   
   </TabItem>
   </Tabs>
-- `#nav-bar :text-is("Home")` - the `:text-is()` pseudo-class matches the smallest element with exact text. Exact matching is case-sensitive, trims whitespace and searches for the full string.
+- `#nav-bar :text-is("Home")` - `:text-is()` 偽類別比對具有完全相同文字的最小元素。嚴格比對區分大小寫，會修剪空白字元並搜尋完整字串。
   
-  For example, `:text-is("Log")` does not match `<button>Log in</button>` because `<button>` contains a single text node `"Log in"` that is not equal to `"Log"`. However, `:text-is("Log")` matches `<button> Log <span>in</span></button>`, because `<button>` contains a text node `" Log "`.
+  例如，`:text-is("Log")` 不會比對 `<button>Log in</button>`，因為 `<button>` 包含單一文字節點 `"Log in"`，這不等於 `"Log"`。然而，`:text-is("Log")` 會比對 `<button> Log <span>in</span></button>`，因為 `<button>` 包含文字節點 `" Log "`。
   
-  Similarly, `:text-is("Download")` will not match `<button>download</button>` because it is case-sensitive.
-* `#nav-bar :text-matches("reg?ex", "i")` - the `:text-matches()` pseudo-class matches the smallest element with text content matching the [JavaScript-like regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp).
+  同樣地，`:text-is("Download")` 不會比對 `<button>download</button>`，因為這是區分大小寫的。
+* `#nav-bar :text-matches("reg?ex", "i")` - `:text-matches()` 偽類別比對文字內容符合 [JavaScript 式正規表示式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)的最小元素。
   
-  For example, `:text-matches("Log\s*in", "i")` matches `<button>Login</button>` and `<button>log IN</button>`.
+  例如，`:text-matches("Log\s*in", "i")` 比對 `<button>Login</button>` 和 `<button>log IN</button>`。
 
 :::note
 
-Text matching always normalizes whitespace. For example, it turns multiple spaces into one, turns line breaks into spaces and ignores leading and trailing whitespace.
+文字比對總是會正規化空白字元。例如，它將多個空格轉為一個，將換行符轉為空格，並忽略前導和尾隨的空白字元。
 :::
 
 :::note
-Input elements of the type `button` and `submit` are matched by their `value` instead of text content. For example, `:text("Log in")` matches `<input type=button value="Log in">`.
+類型為 `button` 和 `submit` 的輸入元素會依其 `value` 而非文字內容進行比對。例如，`:text("Log in")` 比對 `<input type=button value="Log in">`。
 :::
 
-### CSS: matching only visible elements
+### CSS：只比對可見元素
 
-Playwright supports the `:visible` pseudo class in CSS selectors. For example, `css=button` matches all the buttons on the page, while `css=button:visible` only matches visible buttons. This is useful to distinguish elements that are very similar but differ in visibility.
+Playwright 在 CSS 選擇器中支援 `:visible` 偽類別。例如，`css=button` 比對頁面上的所有按鈕，而 `css=button:visible` 只比對可見的按鈕。這對於區分非常相似但可見性不同的元素很有用。
 
-Consider a page with two buttons, first invisible and second visible.
+考慮一個有兩個按鈕的頁面，第一個不可見，第二個可見。
 
 ```html
 <button style='display: none'>Invisible</button>
 <button>Visible</button>
 ```
 
-* This will find both buttons and throw a [strictness](./locators.mdx#strictness) violation error:
+* 這將找到兩個按鈕並拋出[嚴格性](./locators.mdx#strictness)違反錯誤：
   <Tabs
     groupId="python-flavor"
     defaultValue="sync"
@@ -171,7 +171,7 @@ Consider a page with two buttons, first invisible and second visible.
   
   </TabItem>
   </Tabs>
-* This will only find a second button, because it is visible, and then click it.
+* 這將只找到第二個按鈕，因為它是可見的，然後點擊它。
   
   <Tabs
     groupId="python-flavor"
@@ -197,7 +197,7 @@ Consider a page with two buttons, first invisible and second visible.
   </TabItem>
   </Tabs>
 
-### CSS: elements that contain other elements
+### CSS：包含其他元素的元素
 
 The `:has()` pseudo-class is an [experimental CSS pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:has). It returns an element if any of the selectors passed as parameters relative to the `:scope` of the given element match at least one element.
 
@@ -397,9 +397,9 @@ await page.locator(":nth-match(:text('Buy'), 3)").wait_for()
 Unlike [`:nth-child()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child), elements do not have to be siblings, they could be anywhere on the page. In the snippet above, all three buttons match `:text("Buy")` selector, and `:nth-match()` selects the third button.
 :::
 
-## N-th element locator
+## 第 n 個元素定位器
 
-You can narrow down query to the n-th match using the `nth=` locator passing a zero-based index.
+您可以使用 `nth=` 定位器並傳遞從零開始的索引，將查詢縮小到第 n 個比對。
 
 <Tabs
   groupId="python-flavor"
@@ -412,10 +412,10 @@ You can narrow down query to the n-th match using the `nth=` locator passing a z
 <TabItem value="sync">
 
 ```py
-# Click first button
+# 點擊第一個按鈕
 page.locator("button").locator("nth=0").click()
 
-# Click last button
+# 點擊最後一個按鈕
 page.locator("button").locator("nth=-1").click()
 ```
 
@@ -423,19 +423,19 @@ page.locator("button").locator("nth=-1").click()
 <TabItem value="async">
 
 ```py
-# Click first button
+# 點擊第一個按鈕
 await page.locator("button").locator("nth=0").click()
 
-# Click last button
+# 點擊最後一個按鈕
 await page.locator("button").locator("nth=-1").click()
 ```
 
 </TabItem>
 </Tabs>
 
-## Parent element locator
+## 父元素定位器
 
-When you need to target a parent element of some other element, most of the time you should [locator.filter()](/api/class-locator.mdx#locator-filter) by the child locator. For example, consider the following DOM structure:
+當您需要定位某個其他元素的父元素時，大多數時候您應該使用 [`locator.filter()`](/api/class-locator.mdx#locator-filter) 依子定位器進行篩選。例如，考慮以下 DOM 結構：
 
 ```html
 <li><label>Hello</label></li>
