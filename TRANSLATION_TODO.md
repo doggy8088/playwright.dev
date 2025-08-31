@@ -117,7 +117,7 @@
 - [ ] nodejs/docs/languages.mdx
 - [ ] nodejs/docs/library.mdx
 - [x] nodejs/docs/locators.mdx
-- [ ] nodejs/docs/mock-browser.mdx
+- [x] nodejs/docs/mock-browser.mdx
 - [ ] nodejs/docs/mock.mdx
 - [ ] nodejs/docs/navigations.mdx
 - [ ] nodejs/docs/network.mdx
@@ -259,7 +259,7 @@
 - [ ] nodejs/versioned_docs/version-stable/languages.mdx
 - [ ] nodejs/versioned_docs/version-stable/library.mdx
 - [x] nodejs/versioned_docs/version-stable/locators.mdx
-- [ ] nodejs/versioned_docs/version-stable/mock-browser.mdx
+- [x] nodejs/versioned_docs/version-stable/mock-browser.mdx
 - [ ] nodejs/versioned_docs/version-stable/mock.mdx
 - [ ] nodejs/versioned_docs/version-stable/navigations.mdx
 - [ ] nodejs/versioned_docs/version-stable/network.mdx
