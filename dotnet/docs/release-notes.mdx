@@ -1,6 +1,6 @@
 ---
 id: release-notes
-title: "Release notes"
+title: "發行說明"
 toc_max_heading_level: 2
 ---
 import Tabs from '@theme/Tabs';
@@ -8,81 +8,81 @@ import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Version 1.55
+## 版本 1.55
 
 ### Codegen
-- Automatic `ToBeVisibleAsync()` assertions: Codegen can now generate automatic `ToBeVisibleAsync()` assertions for common UI interactions. This feature can be enabled in the Codegen settings UI.
+- 自動產生 `ToBeVisibleAsync()` 斷言：Codegen 現在可以為常見的 UI 互動自動產生 `ToBeVisibleAsync()` 斷言。此功能可以在 Codegen 設定 UI 中啟用。
 
-### Breaking Changes
-- ⚠️ Dropped support for Chromium extension manifest v2.
+### 重大變更
+- ⚠️ 移除對 Chromium extension manifest v2 的支援。
 
-### Miscellaneous
-- Added support for Debian 13 "Trixie".
-- Added support for Xunit v3 as part of [`Microsoft.Playwright.Xunit.v3`](https://www.nuget.org/packages/Microsoft.Playwright.Xunit.v3)
-- Added support for MSTest v4 as part of [`Microsoft.Playwright.MSTest.v4`](https://www.nuget.org/packages/Microsoft.Playwright.MSTest.v4)
+### 雜項
+- 新增對 Debian 13 "Trixie" 的支援。
+- 新增對 Xunit v3 的支援，作為 [`Microsoft.Playwright.Xunit.v3`](https://www.nuget.org/packages/Microsoft.Playwright.Xunit.v3) 的一部分
+- 新增對 MSTest v4 的支援，作為 [`Microsoft.Playwright.MSTest.v4`](https://www.nuget.org/packages/Microsoft.Playwright.MSTest.v4) 的一部分
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 140.0.7339.16
 - Mozilla Firefox 141.0
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 139
 - Microsoft Edge 139
 
-## Version 1.54
+## 版本 1.54
 
-### Highlights
-- New cookie property `PartitionKey` in [BrowserContext.CookiesAsync()](/api/class-browsercontext.mdx#browser-context-cookies) and [BrowserContext.AddCookiesAsync()](/api/class-browsercontext.mdx#browser-context-add-cookies). This property allows to save and restore partitioned cookies. See [CHIPS MDN article](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) for more information. Note that browsers have different support and defaults for cookie partitioning.
-- New option `--user-data-dir` in multiple commands. You can specify the same user data dir to reuse browsing state, like authentication, between sessions.
+### 亮點
+- 在 [BrowserContext.CookiesAsync()](/api/class-browsercontext.mdx#browser-context-cookies) 和 [BrowserContext.AddCookiesAsync()](/api/class-browsercontext.mdx#browser-context-add-cookies) 中新增 cookie 屬性 `PartitionKey`。此屬性允許儲存和還原分區 cookie。更多資訊請參閱 [CHIPS MDN 文章](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies)。請注意，瀏覽器對 cookie 分區有不同的支援和預設值。
+- 在多個指令中新增選項 `--user-data-dir`。您可以指定相同的使用者資料目錄，在會話之間重複使用瀏覽狀態（例如身份驗證）。
   
   ```bash
   pwsh bin/Debug/netX/playwright.ps1 codegen --user-data-dir=./user-data
   ```
   
-- `pwsh bin/Debug/netX/playwright.ps1 open` does not open the test recorder anymore. Use `pwsh bin/Debug/netX/playwright.ps1 codegen` instead.
+- `pwsh bin/Debug/netX/playwright.ps1 open` 不再開啟測試錄製器。請改用 `pwsh bin/Debug/netX/playwright.ps1 codegen`。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 139.0.7258.5
 - Mozilla Firefox 140.0.2
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 140
 - Microsoft Edge 140
 
-## Version 1.53
+## 版本 1.53
 
-### Trace Viewer and HTML Reporter Updates
-- New Steps in Trace Viewer: ![New Trace Viewer Steps](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
-- New method [Locator.Describe()](/api/class-locator.mdx#locator-describe) to describe a locator. Used for trace viewer.
+### Trace Viewer 和 HTML Reporter 更新
+- Trace Viewer 中的新步驟：![New Trace Viewer Steps](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
+- 新方法 [Locator.Describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器。用於追蹤檢視器。
   
   ```csharp
   var button = Page.GetByTestId("btn-sub").Describe("Subscribe button");
   await button.ClickAsync();
   ```
   
-- `pwsh bin/Debug/netX/playwright.ps1 install --list` will now list all installed browsers, versions and locations.
+- `pwsh bin/Debug/netX/playwright.ps1 install --list` 現在將列出所有已安裝的瀏覽器、版本和位置。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 138.0.7204.4
 - Mozilla Firefox 139.0
 - WebKit 18.5
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 137
 - Microsoft Edge 137
 
-## Version 1.52
+## 版本 1.52
 
-### Highlights
-- New method [Expect(Locator).ToContainClassAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) to ergonomically assert individual class names on the element.
+### 亮點
+- 新方法 [Expect(Locator).ToContainClassAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) 可輕鬆斷言元素上的個別類別名稱。
   
   ```csharp
     await Expect(Page.GetByRole(AriaRole.Listitem, new() { Name = "Ship v1.52" })).ToContainClassAsync("done");
   ```
   
-- [Aria Snapshots](./aria-snapshots.mdx) got two new properties: [`/children`](./aria-snapshots.mdx#strict-matching) for strict matching and `/url` for links.
+- [Aria 快照](./aria-snapshots.mdx) 獲得了兩個新屬性：用於嚴格比對的 [`/children`](./aria-snapshots.mdx#strict-matching) 和用於連結的 `/url`。
   
   ```csharp
   await Expect(locator).ToMatchAriaSnapshotAsync(@"
@@ -95,29 +95,29 @@ This version was also tested against the following stable channels:
   ");
   ```
   
-### Miscellaneous
-- New option [MaxRedirects](/api/class-apirequest.mdx#api-request-new-context-option-max-redirects) in [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) to control the maximum number of redirects.
+### 雜項
+- 在 [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 中新增選項 [MaxRedirects](/api/class-apirequest.mdx#api-request-new-context-option-max-redirects) 來控制最大重新導向次數。
 
-### Breaking Changes
-- Glob URL patterns in methods like [Page.RouteAsync()](/api/class-page.mdx#page-route) do not support `?` and `[]` anymore. We recommend using regular expressions instead.
-- Method [Route.ContinueAsync()](/api/class-route.mdx#route-continue) does not allow to override the `Cookie` header anymore. If a `Cookie` header is provided, it will be ignored, and the cookie will be loaded from the browser's cookie store. To set custom cookies, use [BrowserContext.AddCookiesAsync()](/api/class-browsercontext.mdx#browser-context-add-cookies).
-- macOS 13 is now deprecated and will no longer receive WebKit updates. Please upgrade to a more recent macOS version to continue benefiting from the latest WebKit improvements.
+### 重大變更
+- 在 [Page.RouteAsync()](/api/class-page.mdx#page-route) 等方法中的 Glob URL 模式不再支援 `?` 和 `[]`。我們建議改用正規表示式。
+- 方法 [Route.ContinueAsync()](/api/class-route.mdx#route-continue) 不再允許覆寫 `Cookie` 標頭。如果提供了 `Cookie` 標頭，它將被忽略，並且 cookie 將從瀏覽器的 cookie 儲存載入。要設定自訂 cookie，請使用 [BrowserContext.AddCookiesAsync()](/api/class-browsercontext.mdx#browser-context-add-cookies)。
+- macOS 13 現在已棄用，將不再接收 WebKit 更新。請升級到更新的 macOS 版本以繼續受益於最新的 WebKit 改進。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 136.0.7103.25
 - Mozilla Firefox 137.0
 - WebKit 18.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 135
 - Microsoft Edge 135
 
-## Version 1.51
+## 版本 1.51
 
-### Highlights
-* New option [IndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) allows to save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
+### 亮點
+* [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) 的新選項 [IndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) 允許儲存和還原 IndexedDB 內容。當您的應用程式使用 [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 儲存身份驗證權杖（如 Firebase Authentication）時很有用。
   
-  Here is an example following the [authentication guide](./auth.mdx#reusing-signed-in-state):
+  以下是遵循[身份驗證指南](./auth.mdx#reusing-signed-in-state)的範例：
   
   ```csharp
   // Save storage state into the file. Make sure to include IndexedDB.
@@ -134,7 +134,7 @@ This version was also tested against the following stable channels:
   });
   ```
   
-* New option [Visible](/api/class-locator.mdx#locator-filter-option-visible) for [Locator.Filter()](/api/class-locator.mdx#locator-filter) allows matching only visible elements.
+* [Locator.Filter()](/api/class-locator.mdx#locator-filter) 的新選項 [Visible](/api/class-locator.mdx#locator-filter-option-visible) 允許僅比對可見元素。
   
   ```csharp
   // Ignore invisible todo items.
@@ -143,10 +143,10 @@ This version was also tested against the following stable channels:
   await Expect(todoItems).ToHaveCountAsync(3);
   ```
   
-* New option `Contrast` for methods [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media) and [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) allows to emulate the `prefers-contrast` media feature.
-* New option [FailOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) makes all fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
+* 方法 [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media) 和 [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 的新選項 `Contrast` 允許模擬 `prefers-contrast` 媒體功能。
+* 新選項 [FailOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) 使通過 [APIRequestContext] 發出的所有 fetch 請求在回應碼不是 2xx 和 3xx 時拋出例外。
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 134.0.6998.35
 * Mozilla Firefox 135.0
 * WebKit 18.4
