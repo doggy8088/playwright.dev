@@ -1221,7 +1221,7 @@ Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-ro
 - We現在ship a designated .NET docker image `mcr.microsoft.com/playwright/dotnet`. 在 [我們的文件](./docker).
 
 ### 行為變更
-- Playwright 現在支援 large file uploads (100s of MBs) via [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) API.
+- Playwright 現在透過 [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) API 支援大型檔案上傳（數百 MB）。
 
 ### 瀏覽器版本
 - Chromium 101.0.4951.26
@@ -1428,7 +1428,7 @@ Previously it was not possible to get multiple header values of a response. This
 Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) or calling [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media).
 
 ### 新的 API
-- [Page.RouteAsync()](/api/class-page.mdx#page-route) accepts new `times` 選項以指定how many times this route should be matched.
+- [Page.RouteAsync()](/api/class-page.mdx#page-route) 接受新的 `times` 選項，以指定此路由應匹配多少次。
 - [Page.SetCheckedAsync()](/api/class-page.mdx#page-set-checked) 和 [Locator.SetCheckedAsync()](/api/class-locator.mdx#locator-set-checked) 被引入以設定the checked state of a checkbox.
 - [Request.SizesAsync()](/api/class-request.mdx#request-sizes) 回傳 resource size information for given http request.
 - [Tracing.StartChunkAsync()](/api/class-tracing.mdx#tracing-start-chunk) - Start a new trace chunk.

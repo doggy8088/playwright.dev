@@ -211,8 +211,8 @@ page.context.tracing.group_end()
 ### Breaking: `chrome` 和 `msedge` 頻道切換到新的無頭模式
 
 如果您在 `playwright.config.ts` 中使用以下任一通道，此變更會影響您：
-- `chrome`, `chrome-dev`, `chrome-beta`, or `chrome-canary`
-- `msedge`, `msedge-dev`, `msedge-beta`, or `msedge-canary`
+- `chrome`、`chrome-dev`、`chrome-beta` 或 `chrome-canary`
+- `msedge`、`msedge-dev`、`msedge-beta` 或 `msedge-canary`
 
 更新到 Playwright v1.49 後，執行您的測試套件。如果仍然通過，您就可以繼續。如果沒有，您可能需要更新快照，並調整一些關於 PDF 檢視器和擴充功能的測試程式碼。請參閱 [issue #33566](https://github.com/microsoft/playwright/issues/33566) 以取得更多詳細資訊。
 
@@ -231,7 +231,7 @@ page.context.tracing.group_end()
   page.get_by_label("Upload directory").set_input_files('mydir')
   ```
   
-- 多個方法（如 [locator.click()](/api/class-locator.mdx#locator-click) or [locator.press()](/api/class-locator.mdx#locator-press) 現在支援 a `ControlOrMeta` modifier key. 此鍵 對應到 `Meta` on macOS and 對應到 `Control` on Windows and Linux.
+- 多個方法（如 [locator.click()](/api/class-locator.mdx#locator-click) 或 [locator.press()](/api/class-locator.mdx#locator-press)）現在支援 `ControlOrMeta` 修飾鍵。此鍵在 macOS 上對應到 `Meta`，在 Windows 和 Linux 上對應到 `Control`。
   
   ```python
   # Press the common keyboard shortcut Control+S or Meta+S to trigger a "Save" operation.
@@ -423,10 +423,10 @@ def test_example(page: Page) -> None:
 
 ### 新的 API
 - [page.close()](/api/class-page.mdx#page-close) 中的選項 [reason](/api/class-page.mdx#page-close-選項-reason)、[browser_context.close()](/api/class-browsercontext.mdx#browser-context-close) 中的選項 [reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) 和 [browser.close()](/api/class-browser.mdx#browser-close) 中的選項 [reason](/api/class-browser.mdx#browser-close-選項-reason)。關閉原因會回報給所有因關閉而中斷的操作。
-- 選項 [firefox_user_prefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs) in [browser_type.launch_persistent_context()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
+- [browser_type.launch_persistent_context()](/api/class-browsertype.mdx#browser-type-launch-persistent-context) 中的選項 [firefox_user_prefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs)。
 
 ### 其他變更
-- 方法 [download.path()](/api/class-download.mdx#download-path)對於...會拋出錯誤failed and cancelled downloads.
+- 方法 [download.path()](/api/class-download.mdx#download-path) 在失敗和取消的下載時會拋出錯誤。
 
 ### 瀏覽器版本
 * Chromium 120.0.6099.28
@@ -767,7 +767,7 @@ All the same methods are also available on [Locator], [FrameLocator] 和 [Frame]
 - 如 v1.25 所宣布，Ubuntu 18 將自 2022 年 12 月起不再支援。此外，從下一個 Playwright 版本開始，Ubuntu 18 將不再有 WebKit 更新。
 
 ### 行為變更
-- [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
+- [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) 使用空值時不再匹配缺少的屬性。例如，當 `button` **沒有** `disabled` 屬性時，以下程式碼片段會成功。
   
   ```python
   expect(page.get_by_role("button")).to_have_attribute("disabled", "")
@@ -785,10 +785,10 @@ All the same methods are also available on [Locator], [FrameLocator] 和 [Frame]
 ## 版本 1.26
 
 ### 斷言
-- 新選項 `enabled` for [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled).
+- [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) 新的 `enabled` 選項。
 - [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在可以穿透開放的陰影根。
-- 新選項 `editable` for [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable).
-- 新選項 `visible` for [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
+- [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 新的 `editable` 選項。
+- [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 新的 `visible` 選項。
 
 ### 其他重點
 - 新選項 `max_redirects` 用於 [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) 和其他方法以限制重定向次數。

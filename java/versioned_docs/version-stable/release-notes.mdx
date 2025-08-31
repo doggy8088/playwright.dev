@@ -1073,7 +1073,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
 - New `caret` 選項 in [Page.screenshot()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
 
 ### 行為變更
-- Playwright 現在支援 large file uploads (100s of MBs) via [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) API.
+- Playwright 現在透過 [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) API 支援大型檔案上傳（數百 MB）。
 
 ### 瀏覽器版本
 - Chromium 101.0.4951.26
@@ -1297,7 +1297,7 @@ Previously it was not possible to get multiple header values of a response. This
 Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [Browser.newContext()](/api/class-browser.mdx#browser-new-context) or calling [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
 
 ### 新的 API
-- [Page.route()](/api/class-page.mdx#page-route) accepts new `times` 選項以指定how many times this route should be matched.
+- [Page.route()](/api/class-page.mdx#page-route) 接受新的 `times` 選項，以指定此路由應匹配多少次。
 - [Page.setChecked()](/api/class-page.mdx#page-set-checked) 和 [Locator.setChecked()](/api/class-locator.mdx#locator-set-checked) 被引入以設定the checked state of a checkbox.
 - [Request.sizes()](/api/class-request.mdx#request-sizes) 回傳 resource size information for given http request.
 - [Tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) - Start a new trace chunk.

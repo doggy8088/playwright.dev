@@ -472,12 +472,12 @@ await page.removeLocatorHandler(locator);
 - [testProject.ignoreSnapshots](./api/class-testproject#test-project-ignore-snapshots) 允許按專案配置是否跳過截圖預期。
 
 **報告器 API**
-- 新方法 [suite.entries()](/api/class-suite.mdx#suite-entries) 回傳 child test suites and test cases in their declaration order. [suite.type](/api/class-suite.mdx#suite-type) 和 [testCase.type](/api/class-testcase.mdx#test-case-type) 可以使用 to tell apart test cases和 suites 在the list.
-- [Blob](./test-reporters#blob-reporter) reporter現在allows overriding report file path with a single 選項 `outputFile`. The same 選項 can also be specified as `PLAYWRIGHT_BLOB_OUTPUT_FILE` environment variable that might be more convenient on CI/CD.
+- 新方法 [suite.entries()](/api/class-suite.mdx#suite-entries) 按宣告順序回傳子測試套件和測試案例。[suite.type](/api/class-suite.mdx#suite-type) 和 [testCase.type](/api/class-testcase.mdx#test-case-type) 可以用來區分清單中的測試案例和套件。
+- [Blob](./test-reporters#blob-reporter) 報告器現在允許使用單一選項 `outputFile` 覆寫報告檔案路徑。相同的選項也可以指定為 `PLAYWRIGHT_BLOB_OUTPUT_FILE` 環境變數，這在 CI/CD 上可能更方便。
 - [JUnit](./test-reporters#junit-reporter) reporter 現在支援 `includeProjectInTestName` 選項.
 
 **命令列**
-- `--last-failed` CLI 選項 to for running only tests that failed in the previous run.
+- `--last-failed` CLI 選項，用於僅執行上次執行中失敗的測試。
   
   First run all tests:
   
@@ -1902,7 +1902,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 ### 行為變更
 - 在執行 TypeScript 測試時，ESM 支援現在預設啟用。不再需要 `PLAYWRIGHT_EXPERIMENTAL_TS_ESM` 環境變數。
 - `mcr.microsoft.com/playwright` docker 映像不再包含 Python。請使用 `mcr.microsoft.com/playwright/python` 作為預先安裝 Python 的 Playwright-ready docker 映像。
-- Playwright 現在支援 large file uploads (100s of MBs) via [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) API.
+- Playwright 現在透過 [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) API 支援大型檔案上傳（數百 MB）。
 
 ### 瀏覽器版本
 - Chromium 101.0.4951.26
@@ -2353,7 +2353,7 @@ Previously it was not possible to get multiple header values of a response. This
 Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [browser.newContext()](/api/class-browser.mdx#browser-new-context) or calling [page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
 
 #### 新的 API
-- [page.route()](/api/class-page.mdx#page-route) accepts new `times` 選項以指定how many times this route should be matched.
+- [page.route()](/api/class-page.mdx#page-route) 接受新的 `times` 選項，以指定此路由應匹配多少次。
 - [page.setChecked()](/api/class-page.mdx#page-set-checked) 和 [locator.setChecked()](/api/class-locator.mdx#locator-set-checked) 被引入以設定the checked state of a checkbox.
 - [request.sizes()](/api/class-request.mdx#request-sizes) 回傳 resource size information for given http request.
 - [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) - Start a new trace chunk.

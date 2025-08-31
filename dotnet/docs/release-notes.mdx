@@ -220,8 +220,8 @@ await Page.Context.Tracing.GroupEndAsync();
 ### Breaking: `chrome` 和 `msedge` 頻道切換到新的無頭模式
 
 如果您在 `playwright.config.ts` 中使用以下任一通道，此變更會影響您：
-- `chrome`, `chrome-dev`, `chrome-beta`, or `chrome-canary`
-- `msedge`, `msedge-dev`, `msedge-beta`, or `msedge-canary`
+- `chrome`、`chrome-dev`、`chrome-beta` 或 `chrome-canary`
+- `msedge`、`msedge-dev`、`msedge-beta` 或 `msedge-canary`
 
 更新到 Playwright v1.49 後，執行您的測試套件。如果仍然通過，您就可以繼續使用。如果不是，您可能需要更新您的快照，並調整一些關於 PDF 檢視器和擴充功能的測試程式碼。請參閱 [issue #33566](https://github.com/microsoft/playwright/issues/33566) 以取得更多詳細資訊。
 
@@ -250,8 +250,8 @@ dotnet test -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Channel=
 ```
 
 ### 其他
-- 將no more updates for WebKit on Ubuntu 20.04 and Debian 11. 我們建議updating your OS to a later version.
-- `<canvas>` elements inside a snapshot現在draw a preview.
+- 將不再提供 WebKit 在 Ubuntu 20.04 和 Debian 11 上的更新。我們建議將您的作業系統更新到較新版本。
+- 快照中的 `<canvas>` 元素現在會繪製預覽。
 
 ### 瀏覽器版本
 - Chromium 131.0.6778.33
@@ -302,8 +302,8 @@ await page.RouteWebSocketAsync("/ws", ws => {
 ### 網路分頁改進
 
 追蹤檢視器中的網路索引標籤有幾項良好的改進：
-- filtering by asset type and URL
-- better display of query string parameters
+- 按資產類型和 URL 篩選
+- 更好地顯示查詢字串參數
 - preview of font assets
 
 ![Network tab now has filters](https://github.com/user-attachments/assets/4bd1b67d-90bd-438b-a227-00b9e86872e2)
@@ -312,7 +312,7 @@ await page.RouteWebSocketAsync("/ws", ws => {
 - `mcr.microsoft.com/playwright/dotnet:v1.47.0` 現在提供基於 Ubuntu 24.04 Noble 的 Playwright 映像。若要使用基於 22.04 jammy 的映像，請改用 `mcr.microsoft.com/playwright/dotnet:v1.47.0-jammy`。
 - Playwright Docker 映像的 `:latest`/`:focal`/`:jammy` 標籤不再發布。為了更好的穩定性和可重現性，請固定到特定版本。
 - TLS 用戶端憑證現在可以透過傳遞 [ClientCertificates.Cert](/api/class-browser.mdx#browser-new-context-選項-client-certificates) 和 [ClientCertificates.Key](/api/class-browser.mdx#browser-new-context-選項-client-certificates) 作為位元組陣列而非檔案路徑從記憶體傳遞。
-- [NoWaitAfter](/api/class-locator.mdx#locator-select-選項-選項-no-wait-after) in [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-選項) was deprecated.
+- [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-選項) 中的 [NoWaitAfter](/api/class-locator.mdx#locator-select-選項-選項-no-wait-after) 已被棄用。
 - 我們在 GitHub Actions `macos-13` 上看到了 Webkit 中 WebGL 的異常行為報告。我們建議將 GitHub Actions 升級到 `macos-14`。
 
 ### 瀏覽器版本
@@ -352,7 +352,7 @@ var context = await Browser.NewContextAsync(new() {
 - 中繼資料窗格現在顯示 `BaseURL`。
 
 ### 其他
-- New `maxRetries` 選項 in [ApiRequestContext.FetchAsync()](/api/class-apirequestcontext.mdx#api-request-context-fetch) which retries on the `ECONNRESET` network error.
+- [ApiRequestContext.FetchAsync()](/api/class-apirequestcontext.mdx#api-request-context-fetch) 中新的 `maxRetries` 選項，在 `ECONNRESET` 網路錯誤時重試。
 
 ### 瀏覽器版本
 - Chromium 128.0.6613.18
@@ -397,13 +397,13 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
 請參閱 [時鐘指南](./clock.mdx) 以取得更多詳細資訊。
 
 ### 其他
-- 方法 [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) 現在支援 uploading a directory for `<input type=file webkitdirectory>` elements.
+- 方法 [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) 現在支援為 `<input type=file webkitdirectory>` 元素上傳目錄。
   
   ```csharp
   await page.GetByLabel("Upload directory").SetInputFilesAsync("mydir");
   ```
   
-- 多個方法（如 [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) or [Locator.PressAsync()](/api/class-locator.mdx#locator-press) 現在支援 a `ControlOrMeta` modifier key. 此鍵 對應到 `Meta` on macOS and 對應到 `Control` on Windows and Linux.
+- 多個方法（如 [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) 或 [Locator.PressAsync()](/api/class-locator.mdx#locator-press)）現在支援 `ControlOrMeta` 修飾鍵。此鍵在 macOS 上對應到 `Meta`，在 Windows 和 Linux 上對應到 `Control`。
   
   ```csharp
   // Press the common keyboard shortcut Control+S or Meta+S to trigger a "Save" operation.
@@ -411,8 +411,8 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
   ```
   
 - 新屬性 `httpCredentials.send` 在 [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 中，允許永遠傳送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時傳送。
-- Playwright 現在支援 Chromium, Firefox and WebKit on Ubuntu 24.04.
-- v1.45是最後一個接收receive WebKit update for macOS 12 Monterey. 請更新macOS以繼續使用the latest WebKit.
+- Playwright 現在支援在 Ubuntu 24.04 上使用 Chromium、Firefox 和 WebKit。
+- v1.45 是最後一個接收 macOS 12 Monterey WebKit 更新的版本。請更新 macOS 以繼續使用最新的 WebKit。
 
 ### 瀏覽器版本
 * Chromium 127.0.6533.5
@@ -450,10 +450,10 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
   ```
   
 **定位器處理器**
-- After executing the handler added with [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `NoWaitAfter` 選項來選擇退出此行為。
+- 執行使用 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 新增的處理器後，Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `NoWaitAfter` 選項來選擇退出此行為。
 - 您可以在 [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `Times` 選項來指定處理器應執行的最大次數。
 - [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
-- New [Page.RemoveLocatorHandlerAsync()](/api/class-page.mdx#page-remove-locator-handler) 方法 for removing previously added locator handlers.
+- 新的 [Page.RemoveLocatorHandlerAsync()](/api/class-page.mdx#page-remove-locator-handler) 方法，用於移除先前新增的定位器處理器。
 
 ```csharp
 var locator = Page.GetByText("This interstitial covers the button");
@@ -500,7 +500,7 @@ await Page.RemoveLocatorHandlerAsync(locator);
 ## 版本 1.43
 
 ### 新的 API
-- 方法 [BrowserContext.ClearCookiesAsync()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援 filters to remove only some cookies.
+- 方法 [BrowserContext.ClearCookiesAsync()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援篩選器，僅移除部分 cookies。
   
   ```csharp
   // Clear all cookies.
@@ -578,7 +578,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 ### 新的 API
 - 新方法 [Page.UnrouteAllAsync()](/api/class-page.mdx#page-unroute-all) 移除所有由 [Page.RouteAsync()](/api/class-page.mdx#page-route) 和 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
 - 新方法 [BrowserContext.UnrouteAllAsync()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除所有由 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
-- 新選項s [Style](/api/class-page.mdx#page-screenshot-選項-style) in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Style](/api/class-locator.mdx#locator-screenshot-選項-style) in [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot)以新增custom CSS to the page在執行...之前a screenshot.
+- [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 中的新選項 [Style](/api/class-page.mdx#page-screenshot-選項-style) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) 中的 [Style](/api/class-locator.mdx#locator-screenshot-選項-style)，用於在執行螢幕截圖前新增自訂 CSS 到頁面。
 
 ### 瀏覽器版本
 * Chromium 121.0.6167.57
@@ -613,8 +613,8 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 ```
 
 ### 新的 API
-- Options [Reason](/api/class-page.mdx#page-close-選項-reason) in [Page.CloseAsync()](/api/class-page.mdx#page-close), [Reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) in [BrowserContext.CloseAsync()](/api/class-browsercontext.mdx#browser-context-close) 和 [Reason](/api/class-browser.mdx#browser-close-選項-reason) in [Browser.CloseAsync()](/api/class-browser.mdx#browser-close). Close reason is reported for all operations interrupted by the closure.
-- 選項 [FirefoxUserPrefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs) in [BrowserType.LaunchPersistentContextAsync()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
+- [Page.CloseAsync()](/api/class-page.mdx#page-close) 中的選項 [Reason](/api/class-page.mdx#page-close-選項-reason)、[BrowserContext.CloseAsync()](/api/class-browsercontext.mdx#browser-context-close) 中的 [Reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) 和 [Browser.CloseAsync()](/api/class-browser.mdx#browser-close) 中的 [Reason](/api/class-browser.mdx#browser-close-選項-reason)。關閉原因會報告所有因關閉而中斷的操作。
+- [BrowserType.LaunchPersistentContextAsync()](/api/class-browsertype.mdx#browser-type-launch-persistent-context) 中的選項 [FirefoxUserPrefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs)。
 
 ### 其他變更
 - 方法 [Download.PathAsync()](/api/class-download.mdx#download-path) 和 [Download.CreateReadStreamAsync()](/api/class-download.mdx#download-create-read-stream) 在失敗和取消的下載時會拋出錯誤。
@@ -1005,7 +1005,7 @@ await Page.GotoAsync("https://playwright.dev", new() { WaitUntil = WaitUntilStat
 
 ### New .runsettings file的支援
 
-`Microsoft.Playwright.NUnit` and `Microsoft.Playwright.MSTest` 現在會 consider the `.runsettings` file and passed settings via the CLI when running end-to-end tests. See in the [documentation](./test-runners) for a full list of supported settings.
+`Microsoft.Playwright.NUnit` 和 `Microsoft.Playwright.MSTest` 現在會在執行端對端測試時考慮 `.runsettings` 檔案和透過 CLI 傳遞的設定。請參閱[文件](./test-runners)以取得支援設定的完整清單。
 
 The following does now work:
 
@@ -1216,12 +1216,12 @@ await page.RouteAsync("**/*", async route =>
   ```
   
   Read more in [our documentation](./locators.mdx#locate-by-role).
-- New `scale` 選項 in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
-- New `caret` 選項 in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
+- [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 中新的 `scale` 選項，用於較小尺寸的螢幕截圖。
+- [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 中新的 `caret` 選項，控制文字游標。預設為 `"hide"`。
 - 我們現在提供專用的 .NET docker 映像 `mcr.microsoft.com/playwright/dotnet`。在[我們的文件](./docker)中閱讀更多。
 
 ### 行為變更
-- Playwright 現在支援 large file uploads (100s of MBs) via [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) API.
+- Playwright 現在透過 [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) API 支援大型檔案上傳（數百 MB）。
 
 ### 瀏覽器版本
 - Chromium 101.0.4951.26
