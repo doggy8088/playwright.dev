@@ -591,7 +591,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 
 ## 版本 1.40
 
-### Test Generator Update
+### 測試程式碼產生器更新
 
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
@@ -924,7 +924,7 @@ Linux support looks like this:
 
 ## 版本 1.27
 
-### Locators
+### 定位器
 
 With these new APIs writing locators is a joy:
 - [Page.GetByText()](/api/class-page.mdx#page-get-by-text) to locate by text content.
@@ -968,7 +968,7 @@ All the same methods are also available on [Locator], [FrameLocator] and [Frame]
 
 ## 版本 1.26
 
-### Assertions
+### 斷言
 - 新選項 `Enabled` for [Expect(Locator).ToBeEnabledAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled).
 - [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now pierces open shadow roots.
 - 新選項 `Editable` for [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable).
@@ -1003,7 +1003,7 @@ To align with web specification, the `WaitUntilState.DOMContentLoaded` value onl
 
 ## 版本 1.25
 
-### New .runsettings file support
+### New .runsettings file 的支援
 
 `Microsoft.Playwright.NUnit` and `Microsoft.Playwright.MSTest` will now consider the `.runsettings` file and passed settings via the CLI when running end-to-end tests. See in the [documentation](./test-runners) for a full list of supported settings.
 
@@ -1070,7 +1070,7 @@ We rewrote our Getting Started docs to be more end-to-end testing focused. Check
 
 ## 版本 1.23
 
-### API Testing
+### API 測試
 
 Playwright for .NET 1.23 introduces new [API Testing](./api/class-apirequestcontext) that lets you send requests to the server directly from .NET! Now you can:
 - test your server API
@@ -1092,7 +1092,7 @@ Console.WriteLine((await response.JsonAsync())?.GetProperty("foo").GetString());
 
 Read more about it in our [API testing guide](./api-testing).
 
-### Network Replay
+### 網路重播
 
 Now you can record network traffic into a HAR file and re-use this traffic in your tests.
 
@@ -1125,7 +1125,7 @@ await context.RouteFromHARAsync("example.har");
 
 Read more in [our documentation](./mock.mdx#mocking-with-har-files).
 
-### Advanced Routing
+### 進階路由
 
 You can now use [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
 
@@ -1346,7 +1346,7 @@ await locator.ClickAsync();
 
 Read more at [our documentation](./api/class-framelocator).
 
-### Trace Viewer Update
+### Trace Viewer 更新
 
 Playwright Trace Viewer is now **available online** at https://trace.playwright.dev! Just drag-and-drop your `trace.zip` file to inspect its contents.
 

@@ -1,6 +1,6 @@
 ---
 id: release-notes
-title: "Release notes"
+title: "發行說明"
 toc_max_heading_level: 2
 ---
 import Tabs from '@theme/Tabs';
@@ -8,31 +8,31 @@ import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Version 1.55
+## 版本 1.55
 
 ### Codegen
 - Automatic `toBeVisible()` assertions: Codegen can now generate automatic `toBeVisible()` assertions for common UI interactions. This feature can be enabled in the Codegen settings UI.
 
-### Breaking Changes
-- ⚠️ Dropped support for Chromium extension manifest v2.
+### 重大變更
+- ⚠️ 移除對 Chromium extension manifest v2.
 
-### Miscellaneous
-- Added support for Debian 13 "Trixie".
+### 雜項
+- 新增對 Debian 13 "Trixie".
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 140.0.7339.16
 - Mozilla Firefox 141.0
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 139
 - Microsoft Edge 139
 
-## Version 1.54
+## 版本 1.54
 
-### Highlights
+### 亮點
 - New cookie property `partition_key` in [browser_context.cookies()](/api/class-browsercontext.mdx#browser-context-cookies) and [browser_context.add_cookies()](/api/class-browsercontext.mdx#browser-context-add-cookies). This property allows to save and restore partitioned cookies. See [CHIPS MDN article](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) for more information. Note that browsers have different support and defaults for cookie partitioning.
-- New option `--user-data-dir` in multiple commands. You can specify the same user data dir to reuse browsing state, like authentication, between sessions.
+- 新選項 `--user-data-dir` in multiple commands. You can specify the same user data dir to reuse browsing state, like authentication, between sessions.
   
   ```bash
   playwright codegen --user-data-dir=./user-data
@@ -40,20 +40,20 @@ This version was also tested against the following stable channels:
   
 - `playwright open` does not open the test recorder anymore. Use `playwright codegen` instead.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 139.0.7258.5
 - Mozilla Firefox 140.0.2
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 140
 - Microsoft Edge 140
 
-## Version 1.53
+## 版本 1.53
 
 ### Trace Viewer and HTML Reporter Updates
 - New Steps in Trace Viewer: ![New Trace Viewer Steps](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
-- New method [locator.describe()](/api/class-locator.mdx#locator-describe) to describe a locator. Used for trace viewer.
+- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) to describe a locator. Used for trace viewer.
   
   ```python
   button = page.get_by_test_id("btn-sub").describe("Subscribe button")
@@ -62,19 +62,19 @@ This version was also tested against the following stable channels:
   
 - `python -m playwright install --list` will now list all installed browsers, versions and locations.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 138.0.7204.4
 - Mozilla Firefox 139.0
 - WebKit 18.5
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 137
 - Microsoft Edge 137
 
-## Version 1.52
+## 版本 1.52
 
-### Highlights
-- New method [expect(locator).to_contain_class()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) to ergonomically assert individual class names on the element.
+### 亮點
+- 新方法 [expect(locator).to_contain_class()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) to ergonomically assert individual class names on the element.
   
   ```python
     expect(page.get_by_role('listitem', name='Ship v1.52')).to_contain_class('done')
@@ -93,27 +93,27 @@ This version was also tested against the following stable channels:
   """)
   ```
   
-### Miscellaneous
-- New option [max_redirects](/api/class-apirequest.mdx#api-request-new-context-option-max-redirects) in [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) to control the maximum number of redirects.
+### 雜項
+- 新選項 [max_redirects](/api/class-apirequest.mdx#api-request-new-context-option-max-redirects) in [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) to control the maximum number of redirects.
 
-### Breaking Changes
+### 重大變更
 - Glob URL patterns in methods like [page.route()](/api/class-page.mdx#page-route) do not support `?` and `[]` anymore. We recommend using regular expressions instead.
 - Method [route.continue_()](/api/class-route.mdx#route-continue) does not allow to override the `Cookie` header anymore. If a `Cookie` header is provided, it will be ignored, and the cookie will be loaded from the browser's cookie store. To set custom cookies, use [browser_context.add_cookies()](/api/class-browsercontext.mdx#browser-context-add-cookies).
 - macOS 13 is now deprecated and will no longer receive WebKit updates. Please upgrade to a more recent macOS version to continue benefiting from the latest WebKit improvements.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 136.0.7103.25
 - Mozilla Firefox 137.0
 - WebKit 18.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 135
 - Microsoft Edge 135
 
-## Version 1.51
+## 版本 1.51
 
-### Highlights
-* New option [indexed_db](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state) allows to save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
+### 亮點
+* 新選項 [indexed_db](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state) allows to save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
   
   Here is an example following the [authentication guide](./auth.mdx#reusing-signed-in-state):
   
@@ -125,7 +125,7 @@ This version was also tested against the following stable channels:
   context = await browser.new_context(storage_state="state.json")
   ```
   
-* New option [visible](/api/class-locator.mdx#locator-filter-option-visible) for [locator.filter()](/api/class-locator.mdx#locator-filter) allows matching only visible elements.
+* 新選項 [visible](/api/class-locator.mdx#locator-filter-option-visible) for [locator.filter()](/api/class-locator.mdx#locator-filter) allows matching only visible elements.
   
   ```python
   # Ignore invisible todo items.
@@ -134,24 +134,24 @@ This version was also tested against the following stable channels:
   await expect(todo_items).to_have_count(3)
   ```
   
-* New option `contrast` for methods [page.emulate_media()](/api/class-page.mdx#page-emulate-media) and [browser.new_context()](/api/class-browser.mdx#browser-new-context) allows to emulate the `prefers-contrast` media feature.
-* New option [fail_on_status_code](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) makes all fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
+* 新選項 `contrast` for methods [page.emulate_media()](/api/class-page.mdx#page-emulate-media) and [browser.new_context()](/api/class-browser.mdx#browser-new-context) allows to emulate the `prefers-contrast` media feature.
+* 新選項 [fail_on_status_code](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) makes all fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 134.0.6998.35
 * Mozilla Firefox 135.0
 * WebKit 18.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 133
 * Microsoft Edge 133
 
-## Version 1.50
+## 版本 1.50
 
 ### Async Pytest Plugin
 * [Playwright's Pytest plugin](./test-runners.mdx) now has support for [Async Fixtures](https://playwright.dev/python/docs/test-runners#async-fixtures).
 
-### Miscellaneous
+### 雜項
 * Added method [expect(locator).to_have_accessible_error_message()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
 
 ### UI updates
@@ -160,19 +160,19 @@ This version was also tested against the following stable channels:
 * Display of `canvas` content in traces is error-prone. Display is now disabled by default, and can be enabled via the `Display canvas content` UI setting.
 * `Call` and `Network` panels now display additional time information.
 
-### Breaking
+### 重大變更
 * [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) and [locator.is_editable()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 133.0.6943.16
 * Mozilla Firefox 134.0
 * WebKit 18.2
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 132
 * Microsoft Edge 132
 
-## Version 1.49
+## 版本 1.49
 
 ### Aria snapshots
 
@@ -197,7 +197,7 @@ Learn more in the [aria snapshots guide](./aria-snapshots).
 
 ### Tracing groups
 
-New method [tracing.group()](/api/class-tracing.mdx#tracing-group) allows you to visually group actions in the trace viewer.
+新方法 [tracing.group()](/api/class-tracing.mdx#tracing-group) allows you to visually group actions in the trace viewer.
 
 ```python
 # All actions between group and group_end
@@ -228,21 +228,21 @@ See [issue #33566](https://github.com/microsoft/playwright/issues/33566) for the
 pytest test_login.py --browser-channel chromium
 ```
 
-### Miscellaneous
+### 雜項
 - There will be no more updates for WebKit on Ubuntu 20.04 and Debian 11. We recommend updating your OS to a later version.
 - `<canvas>` elements inside a snapshot now draw a preview.
 - Python 3.8 is not supported anymore.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 131.0.6778.33
 - Mozilla Firefox 132.0
 - WebKit 18.2
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 130
 - Microsoft Edge 130
 
-## Version 1.48
+## 版本 1.48
 
 ### WebSocket routing
 
@@ -265,20 +265,20 @@ See [WebSocketRoute] for more details.
 - Route method calls like [route.fulfill()](/api/class-route.mdx#route-fulfill) are not shown in the report and trace viewer anymore. You can see which network requests were routed in the network tab instead.
 - New "Copy as cURL" and "Copy as fetch" buttons for requests in the network tab.
 
-### Miscellaneous
-- New method [page.request_gc()](/api/class-page.mdx#page-request-gc) may help detect memory leaks.
+### 雜項
+- 新方法 [page.request_gc()](/api/class-page.mdx#page-request-gc) may help detect memory leaks.
 - Requests made by [APIRequestContext] now record detailed timing and security information in the HAR.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 130.0.6723.19
 - Mozilla Firefox 130.0
 - WebKit 18.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 129
 - Microsoft Edge 129
 
-## Version 1.47
+## 版本 1.47
 
 ### Network Tab improvements
 
@@ -289,23 +289,23 @@ The Network tab in the trace viewer has several nice improvements:
 
 ![Network tab now has filters](https://github.com/user-attachments/assets/4bd1b67d-90bd-438b-a227-00b9e86872e2)
 
-### Miscellaneous
+### 雜項
 - The `mcr.microsoft.com/playwright/python:v1.47.0` now serves a Playwright image based on Ubuntu 24.04 Noble. To use the 22.04 jammy-based image, please use `mcr.microsoft.com/playwright/python:v1.47.0-jammy` instead.
 - The `:latest`/`:focal`/`:jammy` tag for Playwright Docker images is no longer being published. Pin to a specific version for better stability and reproducibility.
 - TLS client certificates can now be passed from memory by passing [client_certificates.cert](/api/class-browser.mdx#browser-new-context-option-client-certificates) and [client_certificates.key](/api/class-browser.mdx#browser-new-context-option-client-certificates) as bytes instead of file paths.
 - [no_wait_after](/api/class-locator.mdx#locator-select-option-option-no-wait-after) in [locator.select_option()](/api/class-locator.mdx#locator-select-option) was deprecated.
 - We've seen reports of WebGL in Webkit misbehaving on GitHub Actions `macos-13`. We recommend upgrading GitHub Actions to `macos-14`.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 129.0.6668.29
 - Mozilla Firefox 130.0
 - WebKit 18.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 128
 - Microsoft Edge 128
 
-## Version 1.46
+## 版本 1.46
 
 ### TLS Client Certificates
 
@@ -332,19 +332,19 @@ context = browser.new_context(
 - New button to copy source file location to clipboard.
 - Metadata pane now displays the `base_url`.
 
-### Miscellaneous
+### 雜項
 - New `maxRetries` option in [api_request_context.fetch()](/api/class-apirequestcontext.mdx#api-request-context-fetch) which retries on the `ECONNRESET` network error.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 128.0.6613.18
 - Mozilla Firefox 128.0
 - WebKit 18.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 127
 - Microsoft Edge 127
 
-## Version 1.45
+## 版本 1.45
 
 ### Clock
 
@@ -374,7 +374,7 @@ expect(page.get_by_test_id("current-time")).to_have_text("2/2/2024, 10:30:00 AM"
 
 See [the clock guide](./clock.mdx) for more details.
 
-### Miscellaneous
+### 雜項
 - Method [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) now supports uploading a directory for `<input type=file webkitdirectory>` elements.
   
   ```python
@@ -388,22 +388,22 @@ See [the clock guide](./clock.mdx) for more details.
   page.keyboard.press("ControlOrMeta+S")
   ```
   
-- New property `httpCredentials.send` in [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
+- 新屬性 `httpCredentials.send` in [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
 - Playwright now supports Chromium, Firefox and WebKit on Ubuntu 24.04.
 - v1.45 is the last release to receive WebKit update for macOS 12 Monterey. Please update macOS to keep using the latest WebKit.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 127.0.6533.5
 * Mozilla Firefox 127.0
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 126
 * Microsoft Edge 126
 
-## Version 1.44
+## 版本 1.44
 
-### New APIs
+### 新的 API
 
 **Accessibility assertions**
 - [expect(locator).to_have_accessible_name()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
@@ -444,18 +444,18 @@ page.remove_locator_handler(locator)
 **Miscellaneous options**
 - [expect(page).to_have_url()](/api/class-pageassertions.mdx#page-assertions-to-have-url) now supports `ignore_case` [option](./api/class-pageassertions#page-assertions-to-have-url-option-ignore-case).
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 125.0.6422.14
 * Mozilla Firefox 125.0.1
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 124
 * Microsoft Edge 124
 
-## Version 1.43
+## 版本 1.43
 
-### New APIs
+### 新的 API
 - Method [browser_context.clear_cookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) now supports filters to remove only some cookies.
   
   ```python
@@ -467,7 +467,7 @@ This version was also tested against the following stable channels:
   context.clear_cookies(domain="my-origin.com")
   ```
   
-- New method [locator.content_frame](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
+- 新方法 [locator.content_frame](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
   
   ```python
   locator = page.locator("iframe[name='embedded']")
@@ -476,7 +476,7 @@ This version was also tested against the following stable channels:
   frame_locator.getByRole("button").click()
   ```
   
-- New method [frame_locator.owner](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
+- 新方法 [frame_locator.owner](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
   
   ```python
   frame_locator = page.frame_locator("iframe[name='embedded']")
@@ -487,20 +487,20 @@ This version was also tested against the following stable channels:
   
 - Conda builds are now published for macOS-arm64 and Linux-arm64.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 124.0.6367.8
 * Mozilla Firefox 124.0
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 123
 * Microsoft Edge 123
 
-## Version 1.42
+## 版本 1.42
 
 ### New Locator Handler
 
-New method [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) registers a callback that will be invoked when specified element becomes visible and may block Playwright actions. The callback can get rid of the overlay. Here is an example that closes a cookie dialog when it appears.
+新方法 [page.add_locator_handler()](/api/class-page.mdx#page-add-locator-handler) registers a callback that will be invoked when specified element becomes visible and may block Playwright actions. The callback can get rid of the overlay. Here is an example that closes a cookie dialog when it appears.
 
 ```python
 # Setup the handler.
@@ -514,40 +514,40 @@ page.get_by_role("link", name="Collection of blue and white").click()
 expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 ```
 
-### New APIs
+### 新的 API
 - [page.pdf()](/api/class-page.mdx#page-pdf) accepts two new options [tagged](/api/class-page.mdx#page-pdf-option-tagged) and [outline](/api/class-page.mdx#page-pdf-option-outline).
 
-### Announcements
+### 公告
 * ⚠️ Ubuntu 18 is not supported anymore.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 123.0.6312.4
 * Mozilla Firefox 123.0
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 122
 * Microsoft Edge 123
 
-## Version 1.41
+## 版本 1.41
 
-### New APIs
-- New method [page.unroute_all()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) and [page.route_from_har()](/api/class-page.mdx#page-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
-- New method [browser_context.unroute_all()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) and [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
+### 新的 API
+- 新方法 [page.unroute_all()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) and [page.route_from_har()](/api/class-page.mdx#page-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [browser_context.unroute_all()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) and [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
 - New options [style](/api/class-page.mdx#page-screenshot-option-style) in [page.screenshot()](/api/class-page.mdx#page-screenshot) and [style](/api/class-locator.mdx#locator-screenshot-option-style) in [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 121.0.6167.57
 * Mozilla Firefox 121.0
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 120
 * Microsoft Edge 120
 
-## Version 1.40
+## 版本 1.40
 
-### Test Generator Update
+### 測試程式碼產生器更新
 
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
@@ -571,36 +571,36 @@ def test_example(page: Page) -> None:
     expect(page.get_by_placeholder("Search docs")).to_have_value("locator");
 ```
 
-### New APIs
+### 新的 API
 - Options [reason](/api/class-page.mdx#page-close-option-reason) in [page.close()](/api/class-page.mdx#page-close), [reason](/api/class-browsercontext.mdx#browser-context-close-option-reason) in [browser_context.close()](/api/class-browsercontext.mdx#browser-context-close) and [reason](/api/class-browser.mdx#browser-close-option-reason) in [browser.close()](/api/class-browser.mdx#browser-close). Close reason is reported for all operations interrupted by the closure.
 - Option [firefox_user_prefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-firefox-user-prefs) in [browser_type.launch_persistent_context()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
 
-### Other Changes
+### 其他變更
 - Method [download.path()](/api/class-download.mdx#download-path) throws an error for failed and cancelled downloads.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 120.0.6099.28
 * Mozilla Firefox 119.0
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 119
 * Microsoft Edge 119
 
-## Version 1.39
+## 版本 1.39
 
 Evergreen browsers update.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 119.0.6045.9
 * Mozilla Firefox 118.0.1
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 118
 * Microsoft Edge 118
 
-## Version 1.38
+## 版本 1.38
 
 ### Trace Viewer Updates
 
@@ -608,25 +608,25 @@ This version was also tested against the following stable channels:
 1. Zoom into time range.
 1. Network panel redesign.
 
-### New APIs
+### 新的 API
 - [browser_context.on("weberror")](/api/class-browsercontext.mdx#browser-context-event-web-error)
 - [locator.press_sequentially()](/api/class-locator.mdx#locator-press-sequentially)
 
 ### Deprecations
 * The following methods were deprecated: [page.type()](/api/class-page.mdx#page-type), [frame.type()](/api/class-frame.mdx#frame-type), [locator.type()](/api/class-locator.mdx#locator-type) and [element_handle.type()](/api/class-elementhandle.mdx#element-handle-type). Please use [locator.fill()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [locator.press_sequentially()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 117.0.5938.62
 * Mozilla Firefox 117.0
 * WebKit 17.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 116
 * Microsoft Edge 116
 
-## Version 1.37
+## 版本 1.37
 
-### Highlights
+### 亮點
 * New [--full-page-screenshot](./test-runners.mdx#cli-arguments) command line flag allows taking a full page screenshot on failure.
 * It is now possible to override the context options for a single test by using the [browser_context_args](./test-runners.mdx#fixtures) marker.
 * `pytest-playwright` is now also getting published [on Anaconda](https://anaconda.org/Microsoft/pytest-playwright/)
@@ -643,32 +643,32 @@ Linux support looks like this:
 | WebKit | ✅ | ✅ | ✅ | ✅ |
 | Firefox | ✅ | ✅ | ✅ | ✅ |
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 116.0.5845.82
 * Mozilla Firefox 115.0
 * WebKit 17.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 115
 * Microsoft Edge 115
 
-## Version 1.36
+## 版本 1.36
 
 🏝️ Summer maintenance release.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 115.0.5790.75
 * Mozilla Firefox 115.0
 * WebKit 17.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 114
 * Microsoft Edge 114
 
-## Version 1.35
+## 版本 1.35
 
-### Highlights
-* New option `mask_color` for methods [page.screenshot()](/api/class-page.mdx#page-screenshot) and [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
+### 亮點
+* 新選項 `mask_color` for methods [page.screenshot()](/api/class-page.mdx#page-screenshot) and [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
 * New `uninstall` CLI command to uninstall browser binaries:
   
   ```bash
@@ -676,18 +676,18 @@ This version was also tested against the following stable channels:
   $ playwright uninstall --all # remove all ever-install Playwright browsers
   ```
   
-### Browser Versions
+### 瀏覽器版本
 * Chromium 115.0.5790.13
 * Mozilla Firefox 113.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 114
 * Microsoft Edge 114
 
-## Version 1.34
+## 版本 1.34
 
-### Highlights
+### 亮點
 * New [locator.and_()](/api/class-locator.mdx#locator-and) to create a locator that matches both locators.
   
   ```python
@@ -696,16 +696,16 @@ This version was also tested against the following stable channels:
   
 * New events [browser_context.on("console")](/api/class-browsercontext.mdx#browser-context-event-console) and [browser_context.on("dialog")](/api/class-browsercontext.mdx#browser-context-event-dialog) to subscribe to any dialogs and console messages from any page from the given browser context. Use the new methods [console_message.page](/api/class-consolemessage.mdx#console-message-page) and [dialog.page](/api/class-dialog.mdx#dialog-page) to pin-point event source.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 114.0.5735.26
 * Mozilla Firefox 113.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 113
 * Microsoft Edge 113
 
-## Version 1.33
+## 版本 1.33
 
 ### Locators Update
 * Use [locator.or_()](/api/class-locator.mdx#locator-or) to create a locator that matches either of the two locators. Consider a scenario where you'd like to click on a "New email" button, but sometimes a security settings dialog shows up instead. In this case, you can wait for either a "New email" button, or a dialog and act accordingly:
@@ -730,45 +730,45 @@ This version was also tested against the following stable channels:
   
 * Use new web-first assertion [expect(locator).to_be_attached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) to ensure that the element is present in the page's DOM. Do not confuse with the [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) that ensures that element is both attached & visible.
 
-### New APIs
+### 新的 API
 - [locator.or_()](/api/class-locator.mdx#locator-or)
-- New option [has_not](/api/class-locator.mdx#locator-filter-option-has-not) in [locator.filter()](/api/class-locator.mdx#locator-filter)
-- New option [has_not_text](/api/class-locator.mdx#locator-filter-option-has-not-text) in [locator.filter()](/api/class-locator.mdx#locator-filter)
+- 新選項 [has_not](/api/class-locator.mdx#locator-filter-option-has-not) in [locator.filter()](/api/class-locator.mdx#locator-filter)
+- 新選項 [has_not_text](/api/class-locator.mdx#locator-filter-option-has-not-text) in [locator.filter()](/api/class-locator.mdx#locator-filter)
 - [expect(locator).to_be_attached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached)
-- New option [timeout](/api/class-route.mdx#route-fetch-option-timeout) in [route.fetch()](/api/class-route.mdx#route-fetch)
+- 新選項 [timeout](/api/class-route.mdx#route-fetch-option-timeout) in [route.fetch()](/api/class-route.mdx#route-fetch)
 
 ### ⚠️ Breaking change
 * The `mcr.microsoft.com/playwright/python:v1.33.0` now serves a Playwright image based on Ubuntu Jammy. To use the focal-based image, please use `mcr.microsoft.com/playwright/python:v1.33.0-focal` instead.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 113.0.5672.53
 * Mozilla Firefox 112.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 112
 * Microsoft Edge 112
 
-## Version 1.32
+## 版本 1.32
 
-### New APIs
+### 新的 API
 - Custom expect message, see [test assertions documentation](./test-assertions.mdx#custom-expect-message).
 - New options [update_mode](/api/class-page.mdx#page-route-from-har-option-update-mode) and [update_content](/api/class-page.mdx#page-route-from-har-option-update-content) in [page.route_from_har()](/api/class-page.mdx#page-route-from-har) and [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har).
 - Chaining existing locator objects, see [locator docs](./locators.mdx#matching-inside-a-locator) for details.
-- New option [name](/api/class-tracing.mdx#tracing-start-chunk-option-name) in method [tracing.start_chunk()](/api/class-tracing.mdx#tracing-start-chunk).
+- 新選項 [name](/api/class-tracing.mdx#tracing-start-chunk-option-name) in method [tracing.start_chunk()](/api/class-tracing.mdx#tracing-start-chunk).
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 112.0.5615.29
 * Mozilla Firefox 111.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 111
 * Microsoft Edge 111
 
-## Version 1.31
+## 版本 1.31
 
-### New APIs
+### 新的 API
 - New assertion [expect(locator).to_be_in_viewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) ensures that locator points to an element that intersects viewport, according to the [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
   
   ```python
@@ -786,36 +786,36 @@ This version was also tested against the following stable channels:
   expect(locator).to_be_in_viewport(ratio=0.5)
   ```
   
-### Miscellaneous
+### 雜項
 - DOM snapshots in trace viewer can be now opened in a separate window.
-- New option [max_redirects](/api/class-route.mdx#route-fetch-option-max-redirects) for method [route.fetch()](/api/class-route.mdx#route-fetch).
+- 新選項 [max_redirects](/api/class-route.mdx#route-fetch-option-max-redirects) for method [route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright now supports Debian 11 arm64.
 - Official [docker images](./docker.mdx) now include Node 18 instead of Node 16.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 111.0.5563.19
 * Mozilla Firefox 109.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 110
 * Microsoft Edge 110
 
-## Version 1.30
+## 版本 1.30
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 110.0.5481.38
 * Mozilla Firefox 108.0.2
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 109
 * Microsoft Edge 109
 
-## Version 1.29
+## 版本 1.29
 
-### New APIs
-- New method [route.fetch()](/api/class-route.mdx#route-fetch) and new option `json` for [route.fulfill()](/api/class-route.mdx#route-fulfill):
+### 新的 API
+- 新方法 [route.fetch()](/api/class-route.mdx#route-fetch) and new option `json` for [route.fulfill()](/api/class-route.mdx#route-fulfill):
   
   ```python
   def handle_route(route: Route):
@@ -833,7 +833,7 @@ This version was also tested against the following stable channels:
   page.route("**/api/settings", handle_route)
   ```
   
-- New method [locator.all()](/api/class-locator.mdx#locator-all) to iterate over all matching elements:
+- 新方法 [locator.all()](/api/class-locator.mdx#locator-all) to iterate over all matching elements:
   
   ```python
   # Check all checkboxes!
@@ -856,41 +856,41 @@ This version was also tested against the following stable channels:
   element.select_option("Red")
   ```
   
-### Miscellaneous
+### 雜項
 - Option `postData` in method [route.continue_()](/api/class-route.mdx#route-continue) now supports [Serializable] values.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 109.0.5414.46
 * Mozilla Firefox 107.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 108
 * Microsoft Edge 108
 
-## Version 1.28
+## 版本 1.28
 
 ### Playwright Tools
 * **Live Locators in CodeGen.** Generate a locator for any element on the page using "Explore" tool.
 
 ![Locator Explorer](https://user-images.githubusercontent.com/9798949/202293514-8e2eade6-c809-4b0a-864b-899dfcee3d84.png)
 
-### New APIs
+### 新的 API
 - [locator.blur()](/api/class-locator.mdx#locator-blur)
 - [locator.clear()](/api/class-locator.mdx#locator-clear)
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 108.0.5359.29
 * Mozilla Firefox 106.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 107
 * Microsoft Edge 107
 
-## Version 1.27
+## 版本 1.27
 
-### Locators
+### 定位器
 
 With these new APIs writing locators is a joy:
 - [page.get_by_text()](/api/class-page.mdx#page-get-by-text) to locate by text content.
@@ -913,35 +913,35 @@ expect(page.get_by_text("Welcome, John!")).to_be_visible()
 
 All the same methods are also available on [Locator], [FrameLocator] and [Frame] classes.
 
-### Other highlights
+### 其他亮點
 - As announced in v1.25, Ubuntu 18 will not be supported as of Dec 2022. In addition to that, there will be no WebKit updates on Ubuntu 18 starting from the next Playwright release.
 
-### Behavior Changes
+### 行為變更
 - [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
   
   ```python
   expect(page.get_by_role("button")).to_have_attribute("disabled", "")
   ```
   
-### Browser Versions
+### 瀏覽器版本
 * Chromium 107.0.5304.18
 * Mozilla Firefox 105.0.1
 * WebKit 16.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 106
 * Microsoft Edge 106
 
-## Version 1.26
+## 版本 1.26
 
-### Assertions
-- New option `enabled` for [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled).
+### 斷言
+- 新選項 `enabled` for [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled).
 - [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now pierces open shadow roots.
-- New option `editable` for [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable).
-- New option `visible` for [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
+- 新選項 `editable` for [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable).
+- 新選項 `visible` for [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
 
-### Other highlights
-- New option `max_redirects` for [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
+### 其他亮點
+- 新選項 `max_redirects` for [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
 - Python 3.11 is now supported.
 
 ### Behavior Change
@@ -956,32 +956,32 @@ Prior to 1.26, this would wait for all iframes to fire the `DOMContentLoaded` ev
 
 To align with web specification, the `'domcontentloaded'` value only waits for the target frame to fire the `'DOMContentLoaded'` event. Use `wait_until="load"` to wait for all iframes.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 106.0.5249.30
 * Mozilla Firefox 104.0
 * WebKit 16.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 105
 * Microsoft Edge 105
 
-## Version 1.25
+## 版本 1.25
 
-### Announcements
+### 公告
 * 🎁 We now ship Ubuntu 22.04 Jammy Jellyfish docker image: `mcr.microsoft.com/playwright/python:v1.34.0-jammy`.
 * 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
 * ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 105.0.5195.19
 * Mozilla Firefox 103.0
 * WebKit 16.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 104
 * Microsoft Edge 104
 
-## Version 1.24
+## 版本 1.24
 
 <div className="embed-youtube">
 
@@ -1005,9 +1005,9 @@ Linux support looks like this:
 
 We rewrote our Getting Started docs to be more end-to-end testing focused. Check them out on [playwright.dev](https://playwright.dev/python/docs/intro).
 
-## Version 1.23
+## 版本 1.23
 
-### Network Replay
+### 網路重播
 
 Now you can record network traffic into a HAR file and re-use this traffic in your tests.
 
@@ -1075,7 +1075,7 @@ await context.route_from_har("github.har.zip")
 
 Read more in [our documentation](./mock.mdx#mocking-with-har-files).
 
-### Advanced Routing
+### 進階路由
 
 You can now use [route.fallback()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
 
@@ -1140,10 +1140,10 @@ await page.route("**/*", abort_images_handler)
 Note that the new methods [page.route_from_har()](/api/class-page.mdx#page-route-from-har) and [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har) also participate in routing and could be deferred to.
 
 ### Web-First Assertions Update
-* New method [expect(locator).to_have_values()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
+* 新方法 [expect(locator).to_have_values()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
 * Methods [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) and [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignore_case` option.
 
-### Miscellaneous
+### 雜項
 * If there's a service worker that's in your way, you can now easily disable it with a new context option `service_workers`:
   
   <Tabs
@@ -1223,9 +1223,9 @@ Note that the new methods [page.route_from_har()](/api/class-page.mdx#page-route
   </Tabs>
 * Playwright now runs on Ubuntu 22 amd64 and Ubuntu 22 arm64.
 
-## Version 1.22
+## 版本 1.22
 
-### Highlights
+### 亮點
 - Role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
   
   ```py
@@ -1247,9 +1247,9 @@ Note that the new methods [page.route_from_har()](/api/class-page.mdx#page-route
   
   ![Graphics](https://user-images.githubusercontent.com/746130/168098384-40784024-6c26-4426-8255-e714862af6fc.png)
 
-## Version 1.21
+## 版本 1.21
 
-### Highlights
+### 亮點
 - New role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
   
   <Tabs
@@ -1282,44 +1282,44 @@ Note that the new methods [page.route_from_har()](/api/class-page.mdx#page-route
 - New `scale` option in [page.screenshot()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
 - New `caret` option in [page.screenshot()](/api/class-page.mdx#page-screenshot) to control text caret. Defaults to `"hide"`.
 
-### Behavior Changes
+### 行為變更
 - The `mcr.microsoft.com/playwright` docker image no longer contains Python. Please use `mcr.microsoft.com/playwright/python` as a Playwright-ready docker image with pre-installed Python.
 - Playwright now supports large file uploads (100s of MBs) via [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) API.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 101.0.4951.26
 - Mozilla Firefox 98.0.2
 - WebKit 15.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 100
 - Microsoft Edge 100
 
-## Version 1.20
+## 版本 1.20
 
-### Highlights
+### 亮點
 - New options for methods [page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) and [element_handle.screenshot()](/api/class-elementhandle.mdx#element-handle-screenshot):
   * Option `animations: "disabled"` rewinds all CSS animations and transitions to a consistent state
   * Option `mask: Locator[]` masks given elements, overlaying them with pink `#FF00FF` boxes.
 - [Trace Viewer](./trace-viewer) now shows [API testing requests](./api-testing).
 - [locator.highlight()](/api/class-locator.mdx#locator-highlight) visually reveals element(s) for easier debugging.
 
-### Announcements
+### 公告
 - We now ship a designated Python docker image `mcr.microsoft.com/playwright/python`. Please switch over to it if you use Python. This is the last release that includes Python inside our javascript `mcr.microsoft.com/playwright` docker image.
 - v1.20 is the last release to receive WebKit update for macOS 10.15 Catalina. Please update macOS to keep using latest & greatest WebKit!
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 101.0.4921.0
 - Mozilla Firefox 97.0.1
 - WebKit 15.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 99
 - Microsoft Edge 99
 
-## Version 1.19
+## 版本 1.19
 
-### Highlights
+### 亮點
 - Locator now supports a `has` option that makes sure it contains another locator inside:
   
   <Tabs
@@ -1351,18 +1351,18 @@ This version was also tested against the following stable channels:
 - [page.screenshot()](/api/class-page.mdx#page-screenshot) and [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) now automatically hide blinking caret
 - Playwright Codegen now generates locators and frame locators
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 100.0.4863.0
 - Mozilla Firefox 96.0.1
 - WebKit 15.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 98
 - Microsoft Edge 98
 
-## Version 1.18
+## 版本 1.18
 
-### API Testing
+### API 測試
 
 Playwright for Python 1.18 introduces new [API Testing](./api/class-apirequestcontext) that lets you send requests to the server directly from Python! Now you can:
 - test your server API
@@ -1477,16 +1477,16 @@ Read more in [our documentation](./test-assertions).
 - [`accept_downloads`](./api/class-browser#browser-new-context-option-accept-downloads) option now defaults to `True`.
 - [`sources`](./api/class-tracing#tracing-start-option-sources) option to embed sources into traces.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 99.0.4812.0
 - Mozilla Firefox 95.0
 - WebKit 15.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 97
 - Microsoft Edge 97
 
-## Version 1.17
+## 版本 1.17
 
 ### Frame Locators
 
@@ -1503,7 +1503,7 @@ locator.click()
 
 Read more at [our documentation](./api/class-framelocator).
 
-### Trace Viewer Update
+### Trace Viewer 更新
 
 Playwright Trace Viewer is now **available online** at https://trace.playwright.dev! Just drag-and-drop your `trace.zip` file to inspect its contents.
 
@@ -1529,11 +1529,11 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
   npx playwright install msedge
   ```
   
-### New APIs
+### 新的 API
 - Tracing now supports a [`'title'`](./api/class-tracing#tracing-start-option-title) option
 - Page navigations support a new [`'commit'`](./api/class-page#page-goto) waiting option
 
-## Version 1.16
+## 版本 1.16
 
 ### 🎭 Playwright Library
 
@@ -1562,7 +1562,7 @@ Read more about [Docker integration](./docker).
 
 Read more about [Trace Viewer](./trace-viewer).
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 97.0.4666.0
 - Mozilla Firefox 93.0
 - WebKit 15.4
@@ -1571,7 +1571,7 @@ This version of Playwright was also tested against the following stable channels
 - Google Chrome 94
 - Microsoft Edge 94
 
-## Version 1.15
+## 版本 1.15
 
 ### 🖱️ Mouse Wheel
 
@@ -1592,19 +1592,19 @@ Previously it was not possible to get multiple header values of a response. This
 
 Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [browser.new_context()](/api/class-browser.mdx#browser-new-context) or calling [page.emulate_media()](/api/class-page.mdx#page-emulate-media).
 
-### New APIs
+### 新的 API
 - [page.route()](/api/class-page.mdx#page-route) accepts new `times` option to specify how many times this route should be matched.
 - [page.set_checked()](/api/class-page.mdx#page-set-checked) and [locator.set_checked()](/api/class-locator.mdx#locator-set-checked) were introduced to set the checked state of a checkbox.
 - [request.sizes()](/api/class-request.mdx#request-sizes) Returns resource size information for given http request.
 - [tracing.start_chunk()](/api/class-tracing.mdx#tracing-start-chunk) - Start a new trace chunk.
 - [tracing.stop_chunk()](/api/class-tracing.mdx#tracing-stop-chunk) - Stops a new trace chunk.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 96.0.4641.0
 - Mozilla Firefox 92.0
 - WebKit 15.0
 
-## Version 1.14
+## 版本 1.14
 
 #### ⚡️ New "strict" mode
 
@@ -1657,12 +1657,12 @@ page.locator("button").first.click()
 button.click("button >> visible=true")
 ```
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 94.0.4595.0
 - Mozilla Firefox 91.0
 - WebKit 15.0
 
-## Version 1.13
+## 版本 1.13
 
 #### Playwright
 - **🖖 Programmatic drag-and-drop support** via the [page.drag_and_drop()](/api/class-page.mdx#page-drag-and-drop) API.
@@ -1690,7 +1690,7 @@ button.click("button >> visible=true")
 - new `force` option in [page.fill()](/api/class-page.mdx#page-fill), [frame.fill()](/api/class-frame.mdx#frame-fill), and [element_handle.fill()](/api/class-elementhandle.mdx#element-handle-fill)
 - new `force` option in [page.select_option()](/api/class-page.mdx#page-select-option), [frame.select_option()](/api/class-frame.mdx#frame-select-option), and [element_handle.select_option()](/api/class-elementhandle.mdx#element-handle-select-option)
 
-## Version 1.12
+## 版本 1.12
 
 #### 🧟‍♂️ Introducing Playwright Trace Viewer
 
@@ -1745,7 +1745,7 @@ This version of Playwright was also tested against the following stable channels
 - new [browser_context.tracing](/api/class-browsercontext.mdx#browser-context-tracing) API namespace
 - new [download.page](/api/class-download.mdx#download-page) method
 
-## Version 1.11
+## 版本 1.11
 
 🎥  New video: [Playwright: A New Test Automation Framework for the Modern Web](https://youtu.be/_Jla6DyuEu4) ([slides](https://docs.google.com/presentation/d/1xFhZIJrdHkVe2CuMKOrni92HoG2SWslo0DhJJQMR1DI/edit?usp=sharing))
 - We talked about Playwright
@@ -1769,7 +1769,7 @@ This version of Playwright was also tested against the following stable channels
   * `position` option in [page.check()](/api/class-page.mdx#page-check) and [page.uncheck()](/api/class-page.mdx#page-uncheck) methods
   * `trial` option to dry-run actions in [page.check()](/api/class-page.mdx#page-check), [page.uncheck()](/api/class-page.mdx#page-uncheck), [page.click()](/api/class-page.mdx#page-click), [page.dblclick()](/api/class-page.mdx#page-dblclick), [page.hover()](/api/class-page.mdx#page-hover) and [page.tap()](/api/class-page.mdx#page-tap)
 
-## Version 1.10
+## 版本 1.10
 - [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) is **now stable**!
 - Run Playwright against **Google Chrome** and **Microsoft Edge** stable channels with the [new channels API](./browsers).
 - Chromium screenshots are **fast** on Mac & Windows.
@@ -1786,7 +1786,7 @@ This version of Playwright was also tested against the following stable channels
 #### New APIs
 - [browser_type.launch()](/api/class-browsertype.mdx#browser-type-launch) now accepts the new `'channel'` option. Read more in [our documentation](./browsers).
 
-## Version 1.9
+## 版本 1.9
 - [Playwright Inspector](./debug.mdx) is a **new GUI tool** to author and debug your tests.
   - **Line-by-line debugging** of your Playwright scripts, with play, pause and step-through.
   - Author new scripts by **recording user actions**.
@@ -1805,7 +1805,7 @@ This version of Playwright was also tested against the following stable channels
 #### New APIs
 - [page.pause()](/api/class-page.mdx#page-pause).
 
-## Version 1.8
+## 版本 1.8
 - [Selecting elements based on layout](./other-locators.mdx#css-matching-elements-based-on-layout) with `:left-of()`, `:right-of()`, `:above()` and `:below()`.
 - Playwright now includes command line interface, former playwright-cli.
   
@@ -1829,14 +1829,14 @@ This version of Playwright was also tested against the following stable channels
 - [page.is_enabled()](/api/class-page.mdx#page-is-enabled).
 - [page.is_hidden()](/api/class-page.mdx#page-is-hidden).
 - [page.is_visible()](/api/class-page.mdx#page-is-visible).
-- New option `'editable'` in [element_handle.wait_for_element_state()](/api/class-elementhandle.mdx#element-handle-wait-for-element-state).
+- 新選項 `'editable'` in [element_handle.wait_for_element_state()](/api/class-elementhandle.mdx#element-handle-wait-for-element-state).
 
 #### Browser Versions
 - Chromium 90.0.4392.0
 - Mozilla Firefox 85.0b5
 - WebKit 14.1
 
-## Version 1.7
+## 版本 1.7
 - **New Java SDK**: [Playwright for Java](https://github.com/microsoft/playwright-java) is now on par with [JavaScript](https://github.com/microsoft/playwright), [Python](https://github.com/microsoft/playwright-python) and [.NET bindings](https://github.com/microsoft/playwright-dotnet).
 - **Browser storage API**: New convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
 - **New CSS selectors**: We heard your feedback for more flexible selectors and have revamped the selectors implementation. Playwright 1.7 introduces [new CSS extensions](./other-locators.mdx#css-locator) and there's more coming soon.

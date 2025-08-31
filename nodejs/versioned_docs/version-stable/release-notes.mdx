@@ -1,6 +1,6 @@
 ---
 id: release-notes
-title: "Release notes"
+title: "發行說明"
 toc_max_heading_level: 2
 ---
 import Tabs from '@theme/Tabs';
@@ -10,34 +10,34 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Version 1.55
+## 版本 1.55
 
-### New APIs
+### 新的 API
 - New Property [testStepInfo.titlePath](/api/class-teststepinfo.mdx#test-step-info-title-path) Returns the full title path starting from the test file, including test and step titles.
 
 ### Codegen
 - Automatic `toBeVisible()` assertions: Codegen can now generate automatic `toBeVisible()` assertions for common UI interactions. This feature can be enabled in the Codegen settings UI.
 
-### Breaking Changes
-- ⚠️ Dropped support for Chromium extension manifest v2.
+### 重大變更
+- ⚠️ 移除對 Chromium extension manifest v2.
 
-### Miscellaneous
-- Added support for Debian 13 "Trixie".
+### 雜項
+- 新增對 Debian 13 "Trixie".
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 140.0.7339.16
 - Mozilla Firefox 141.0
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 139
 - Microsoft Edge 139
 
-## Version 1.54
+## 版本 1.54
 
-### Highlights
+### 亮點
 - New cookie property `partitionKey` in [browserContext.cookies()](/api/class-browsercontext.mdx#browser-context-cookies) and [browserContext.addCookies()](/api/class-browsercontext.mdx#browser-context-add-cookies). This property allows to save and restore partitioned cookies. See [CHIPS MDN article](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) for more information. Note that browsers have different support and defaults for cookie partitioning.
-- New option `noSnippets` to disable code snippets in the html report.
+- 新選項 `noSnippets` to disable code snippets in the html report.
   
   ```js
   import { defineConfig } from '@playwright/test';
@@ -47,10 +47,10 @@ This version was also tested against the following stable channels:
   });
   ```
   
-- New property `location` in test annotations, for example in [testResult.annotations](/api/class-testresult.mdx#test-result-annotations) and [testInfo.annotations](/api/class-testinfo.mdx#test-info-annotations). It shows where the annotation like `test.skip` or `test.fixme` was added.
+- 新屬性 `location` in test annotations, for example in [testResult.annotations](/api/class-testresult.mdx#test-result-annotations) and [testInfo.annotations](/api/class-testinfo.mdx#test-info-annotations). It shows where the annotation like `test.skip` or `test.fixme` was added.
 
 ### Command Line
-- New option `--user-data-dir` in multiple commands. You can specify the same user data dir to reuse browsing state, like authentication, between sessions.
+- 新選項 `--user-data-dir` in multiple commands. You can specify the same user data dir to reuse browsing state, like authentication, between sessions.
   
   ```bash
   npx playwright codegen --user-data-dir=./user-data
@@ -59,24 +59,24 @@ This version was also tested against the following stable channels:
 - Option `-gv` has been removed from the `npx playwright test` command. Use `--grep-invert` instead.
 - `npx playwright open` does not open the test recorder anymore. Use `npx playwright codegen` instead.
 
-### Miscellaneous
+### 雜項
 - Support for Node.js 16 has been removed.
 - Support for Node.js 18 has been deprecated, and will be removed in the future.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 139.0.7258.5
 - Mozilla Firefox 140.0.2
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 140
 - Microsoft Edge 140
 
-## Version 1.53
+## 版本 1.53
 
 ### Trace Viewer and HTML Reporter Updates
 - New Steps in Trace Viewer and HTML reporter: ![New Trace Viewer Steps](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
-- New option in `'html'` reporter to set the title of a specific test run:
+- 新選項 in `'html'` reporter to set the title of a specific test run:
   
   ```js
   import { defineConfig } from '@playwright/test';
@@ -86,9 +86,9 @@ This version was also tested against the following stable channels:
   });
   ```
   
-### Miscellaneous
-- New option [kind](/api/class-testinfo.mdx#test-info-snapshot-path-option-kind) in [testInfo.snapshotPath()](/api/class-testinfo.mdx#test-info-snapshot-path) controls which snapshot path template is used.
-- New method [locator.describe()](/api/class-locator.mdx#locator-describe) to describe a locator. Used for trace viewer and reports.
+### 雜項
+- 新選項 [kind](/api/class-testinfo.mdx#test-info-snapshot-path-option-kind) in [testInfo.snapshotPath()](/api/class-testinfo.mdx#test-info-snapshot-path) controls which snapshot path template is used.
+- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) to describe a locator. Used for trace viewer and reports.
   
   ```js
   const button = page.getByTestId('btn-sub').describe('Subscribe button');
@@ -97,19 +97,19 @@ This version was also tested against the following stable channels:
   
 - `npx playwright install --list` will now list all installed browsers, versions and locations.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 138.0.7204.4
 - Mozilla Firefox 139.0
 - WebKit 18.5
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 137
 - Microsoft Edge 137
 
-## Version 1.52
+## 版本 1.52
 
-### Highlights
-- New method [expect(locator).toContainClass()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) to ergonomically assert individual class names on the element.
+### 亮點
+- 新方法 [expect(locator).toContainClass()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) to ergonomically assert individual class names on the element.
   
   ```ts
   await expect(page.getByRole('listitem', { name: 'Ship v1.52' })).toContainClass('done');
@@ -129,32 +129,32 @@ This version was also tested against the following stable channels:
   ```
   
 ### Test Runner
-- New property [testProject.workers](/api/class-testproject.mdx#test-project-workers) allows to specify the number of concurrent worker processes to use for a test project. The global limit of property [testConfig.workers](/api/class-testconfig.mdx#test-config-workers) still applies.
+- 新屬性 [testProject.workers](/api/class-testproject.mdx#test-project-workers) allows to specify the number of concurrent worker processes to use for a test project. The global limit of property [testConfig.workers](/api/class-testconfig.mdx#test-config-workers) still applies.
 - New [testConfig.failOnFlakyTests](/api/class-testconfig.mdx#test-config-fail-on-flaky-tests) option to fail the test run if any flaky tests are detected, similarly to `--fail-on-flaky-tests`. This is useful for CI/CD environments where you want to ensure that all tests are stable before deploying.
-- New property [testResult.annotations](/api/class-testresult.mdx#test-result-annotations) contains annotations for each test retry.
+- 新屬性 [testResult.annotations](/api/class-testresult.mdx#test-result-annotations) contains annotations for each test retry.
 
-### Miscellaneous
-- New option [maxRedirects](/api/class-apirequest.mdx#api-request-new-context-option-max-redirects) in [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) to control the maximum number of redirects.
+### 雜項
+- 新選項 [maxRedirects](/api/class-apirequest.mdx#api-request-new-context-option-max-redirects) in [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) to control the maximum number of redirects.
 - HTML reporter now supports *NOT filtering* via `!@my-tag` or `!my-file.spec.ts` or `!p:my-project`.
 
-### Breaking Changes
+### 重大變更
 - Glob URL patterns in methods like [page.route()](/api/class-page.mdx#page-route) do not support `?` and `[]` anymore. We recommend using regular expressions instead.
 - Method [route.continue()](/api/class-route.mdx#route-continue) does not allow to override the `Cookie` header anymore. If a `Cookie` header is provided, it will be ignored, and the cookie will be loaded from the browser's cookie store. To set custom cookies, use [browserContext.addCookies()](/api/class-browsercontext.mdx#browser-context-add-cookies).
 - macOS 13 is now deprecated and will no longer receive WebKit updates. Please upgrade to a more recent macOS version to continue benefiting from the latest WebKit improvements.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 136.0.7103.25
 - Mozilla Firefox 137.0
 - WebKit 18.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 135
 - Microsoft Edge 135
 
-## Version 1.51
+## 版本 1.51
 
 ### StorageState for indexedDB
-* New option [indexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) allows to save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
+* 新選項 [indexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-option-indexed-db) for [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) allows to save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
   
   Here is an example following the [authentication guide](./auth.mdx#basic-shared-account-in-all-tests):
   
@@ -181,7 +181,7 @@ New "Copy prompt" button on errors in the HTML report, trace viewer and UI mode.
 
 ### Filter visible elements
 
-New option [visible](/api/class-locator.mdx#locator-filter-option-visible) for [locator.filter()](/api/class-locator.mdx#locator-filter) allows matching only visible elements.
+新選項 [visible](/api/class-locator.mdx#locator-filter-option-visible) for [locator.filter()](/api/class-locator.mdx#locator-filter) allows matching only visible elements.
 
 ```js title="example.spec.ts"
 test('some test', async ({ page }) => {
@@ -225,24 +225,24 @@ test('some test', async ({ page, isMobile }) => {
 });
 ```
 
-### Miscellaneous
-* New option `contrast` for methods [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) and [browser.newContext()](/api/class-browser.mdx#browser-new-context) allows to emulate the `prefers-contrast` media feature.
-* New option [failOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) makes all fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
+### 雜項
+* 新選項 `contrast` for methods [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) and [browser.newContext()](/api/class-browser.mdx#browser-new-context) allows to emulate the `prefers-contrast` media feature.
+* 新選項 [failOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-option-fail-on-status-code) makes all fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
 * Assertion [expect(page).toHaveURL()](/api/class-pageassertions.mdx#page-assertions-to-have-url) now supports a predicate.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 134.0.6998.35
 * Mozilla Firefox 135.0
 * WebKit 18.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 133
 * Microsoft Edge 133
 
-## Version 1.50
+## 版本 1.50
 
 ### Test runner
-* New option [timeout](/api/class-test.mdx#test-step-option-timeout) allows specifying a maximum run time for an individual test step. A timed-out step will fail the execution of the test.
+* 新選項 [timeout](/api/class-test.mdx#test-step-option-timeout) allows specifying a maximum run time for an individual test step. A timed-out step will fail the execution of the test.
   
   ```js
   test('some test', async ({ page }) => {
@@ -252,7 +252,7 @@ This version was also tested against the following stable channels:
   });
   ```
   
-* New method [test.step.skip()](/api/class-test.mdx#test-step-skip) to disable execution of a test step.
+* 新方法 [test.step.skip()](/api/class-test.mdx#test-step-skip) to disable execution of a test step.
   
   ```js
   test('some test', async ({ page }) => {
@@ -273,7 +273,7 @@ This version was also tested against the following stable channels:
 * Expanded [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot-2) to allow storing of aria snapshots in separate YAML files.
 * Added method [expect(locator).toHaveAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
 * Option [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) added the configuration enum `changed`. `changed` updates only the snapshots that have changed, whereas `all` now updates all snapshots, regardless of whether there are any differences.
-* New option [testConfig.updateSourceMethod](/api/class-testconfig.mdx#test-config-update-source-method) defines the way source code is updated when [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) is configured. Added `overwrite` and `3-way` modes that write the changes into source code, on top of existing `patch` mode that creates a patch file.
+* 新選項 [testConfig.updateSourceMethod](/api/class-testconfig.mdx#test-config-update-source-method) defines the way source code is updated when [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) is configured. Added `overwrite` and `3-way` modes that write the changes into source code, on top of existing `patch` mode that creates a patch file.
   
   ```bash
   npx playwright test --update-snapshots=changed --update-source-method=3way
@@ -281,7 +281,7 @@ This version was also tested against the following stable channels:
   
 * Option [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) added a `gracefulShutdown` field for specifying a process kill signal other than the default `SIGKILL`.
 * Exposed [testStep.attachments](/api/class-teststep.mdx#test-step-attachments) from the reporter API to allow retrieval of all attachments created by that step.
-* New option `pathTemplate` for `toHaveScreenshot` and `toMatchAriaSnapshot` assertions in the [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) configuration.
+* 新選項 `pathTemplate` for `toHaveScreenshot` and `toMatchAriaSnapshot` assertions in the [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) configuration.
 
 ### UI updates
 * Updated default HTML reporter to improve display of attachments.
@@ -290,20 +290,20 @@ This version was also tested against the following stable channels:
 * Display of `canvas` content in traces is error-prone. Display is now disabled by default, and can be enabled via the `Display canvas content` UI setting.
 * `Call` and `Network` panels now display additional time information.
 
-### Breaking
+### 重大變更
 * [expect(locator).toBeEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) and [locator.isEditable()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
 * Option [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots) now updates all snapshots when set to `all`, rather than only the failed/changed snapshots. Use the new enum `changed` to keep the old functionality of only updating the changed snapshots.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 133.0.6943.16
 * Mozilla Firefox 134.0
 * WebKit 18.2
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 132
 * Microsoft Edge 132
 
-## Version 1.49
+## 版本 1.49
 
 <LiteYouTube id="S5wCft-ImKk" title="Playwright 1.49" />
 
@@ -329,8 +329,8 @@ You can generate this assertion with [Test Generator](./codegen) and update the 
 Learn more in the [aria snapshots guide](./aria-snapshots).
 
 ### Test runner
-- New option [testConfig.tsconfig](/api/class-testconfig.mdx#test-config-tsconfig) allows to specify a single `tsconfig` to be used for all tests.
-- New method [test.fail.only()](/api/class-test.mdx#test-fail-only) to focus on a failing test.
+- 新選項 [testConfig.tsconfig](/api/class-testconfig.mdx#test-config-tsconfig) allows to specify a single `tsconfig` to be used for all tests.
+- 新方法 [test.fail.only()](/api/class-test.mdx#test-fail-only) to focus on a failing test.
 - Options [testConfig.globalSetup](/api/class-testconfig.mdx#test-config-global-setup) and [testConfig.globalTeardown](/api/class-testconfig.mdx#test-config-global-teardown) now support multiple setups/teardowns.
 - New value `'on-first-failure'` for [testOptions.screenshot](/api/class-testoptions.mdx#test-options-screenshot).
 - Added "previous" and "next" buttons to the HTML report to quickly switch between test cases.
@@ -372,21 +372,21 @@ export default defineConfig({
 });
 ```
 
-### Miscellaneous
+### 雜項
 - `<canvas>` elements inside a snapshot now draw a preview.
-- New method [tracing.group()](/api/class-tracing.mdx#tracing-group) to visually group actions in the trace.
+- 新方法 [tracing.group()](/api/class-tracing.mdx#tracing-group) to visually group actions in the trace.
 - Playwright docker images switched from Node.js v20 to Node.js v22 LTS.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 131.0.6778.33
 - Mozilla Firefox 132.0
 - WebKit 18.2
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 130
 - Microsoft Edge 130
 
-## Version 1.48
+## 版本 1.48
 
 <LiteYouTube id="VGlkSBkMVCQ" title="Playwright 1.48" />
 
@@ -410,22 +410,22 @@ See [WebSocketRoute] for more details.
 - Route method calls like [route.fulfill()](/api/class-route.mdx#route-fulfill) are not shown in the report and trace viewer anymore. You can see which network requests were routed in the network tab instead.
 - New "Copy as cURL" and "Copy as fetch" buttons for requests in the network tab.
 
-### Miscellaneous
+### 雜項
 - Option [form](/api/class-apirequestcontext.mdx#api-request-context-fetch-option-form) and similar ones now accept [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
-- New method [page.requestGC()](/api/class-page.mdx#page-request-gc) may help detect memory leaks.
-- New option [location](/api/class-test.mdx#test-step-option-location) to pass custom step location.
+- 新方法 [page.requestGC()](/api/class-page.mdx#page-request-gc) may help detect memory leaks.
+- 新選項 [location](/api/class-test.mdx#test-step-option-location) to pass custom step location.
 - Requests made by [APIRequestContext] now record detailed timing and security information in the HAR.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 130.0.6723.19
 - Mozilla Firefox 130.0
 - WebKit 18.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 129
 - Microsoft Edge 129
 
-## Version 1.47
+## 版本 1.47
 
 ### Network Tab improvements
 
@@ -463,7 +463,7 @@ test('query params', async ({ request }) => {
 });
 ```
 
-### Miscellaneous
+### 雜項
 - The `mcr.microsoft.com/playwright:v1.47.0` now serves a Playwright image based on Ubuntu 24.04 Noble. To use the 22.04 jammy-based image, please use `mcr.microsoft.com/playwright:v1.47.0-jammy` instead.
 - New options [behavior](/api/class-page.mdx#page-remove-all-listeners-option-behavior), [behavior](/api/class-browser.mdx#browser-remove-all-listeners-option-behavior) and [behavior](/api/class-browsercontext.mdx#browser-context-remove-all-listeners-option-behavior) to wait for ongoing listeners to complete.
 - TLS client certificates can now be passed from memory by passing [clientCertificates.cert](/api/class-browser.mdx#browser-new-context-option-client-certificates) and [clientCertificates.key](/api/class-browser.mdx#browser-new-context-option-client-certificates) as buffers instead of file paths.
@@ -471,16 +471,16 @@ test('query params', async ({ request }) => {
 - [noWaitAfter](/api/class-locator.mdx#locator-select-option-option-no-wait-after) option in [locator.selectOption()](/api/class-locator.mdx#locator-select-option) was deprecated.
 - We've seen reports of WebGL in Webkit misbehaving on GitHub Actions `macos-13`. We recommend upgrading GitHub Actions to `macos-14`.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 129.0.6668.29
 - Mozilla Firefox 130.0
 - WebKit 18.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 128
 - Microsoft Edge 128
 
-## Version 1.46
+## 版本 1.46
 
 <LiteYouTube id="tQo7w-QQBsI" title="Playwright 1.46" />
 
@@ -553,21 +553,21 @@ This fixture is only available in [component tests](./test-components#handling-n
 - New button to copy source file location to clipboard.
 - Metadata pane now displays the `baseURL`.
 
-### Miscellaneous
+### 雜項
 - New `maxRetries` option in [apiRequestContext.fetch()](/api/class-apirequestcontext.mdx#api-request-context-fetch) which retries on the `ECONNRESET` network error.
-- New option to [box a fixture](./test-fixtures#box-fixtures) to minimize the fixture exposure in test reports and error messages.
-- New option to provide a [custom fixture title](./test-fixtures#custom-fixture-title) to be used in test reports and error messages.
+- 新選項 to [box a fixture](./test-fixtures#box-fixtures) to minimize the fixture exposure in test reports and error messages.
+- 新選項 to provide a [custom fixture title](./test-fixtures#custom-fixture-title) to be used in test reports and error messages.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 128.0.6613.18
 - Mozilla Firefox 128.0
 - WebKit 18.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 127
 - Microsoft Edge 127
 
-## Version 1.45
+## 版本 1.45
 
 <LiteYouTube id="54_aC-rVKHg" title="Playwright 1.45" />
 
@@ -611,7 +611,7 @@ See [the clock guide](./clock.mdx) for more details.
   ```
   
 - New options [testConfig.respectGitIgnore](/api/class-testconfig.mdx#test-config-respect-git-ignore) and [testProject.respectGitIgnore](/api/class-testproject.mdx#test-project-respect-git-ignore) control whether files matching `.gitignore` patterns are excluded when searching for tests.
-- New property `timeout` is now available for custom expect matchers. This property takes into account `playwright.config.ts` and `expect.configure()`.
+- 新屬性 `timeout` is now available for custom expect matchers. This property takes into account `playwright.config.ts` and `expect.configure()`.
   
   ```js
   import { expect as baseExpect } from '@playwright/test';
@@ -625,7 +625,7 @@ See [the clock guide](./clock.mdx) for more details.
   });
   ```
   
-### Miscellaneous
+### 雜項
 - Method [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) now supports uploading a directory for `<input type=file webkitdirectory>` elements.
   
   ```js
@@ -639,26 +639,26 @@ See [the clock guide](./clock.mdx) for more details.
   await page.keyboard.press('ControlOrMeta+S');
   ```
   
-- New property `httpCredentials.send` in [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
-- New option `reason` in [apiRequestContext.dispose()](/api/class-apirequestcontext.mdx#api-request-context-dispose) that will be included in the error message of ongoing operations interrupted by the context disposal.
-- New option `host` in [browserType.launchServer()](/api/class-browsertype.mdx#browser-type-launch-server) allows to accept websocket connections on a specific address instead of unspecified `0.0.0.0`.
+- 新屬性 `httpCredentials.send` in [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) that allows to either always send the `Authorization` header or only send it in response to `401 Unauthorized`.
+- 新選項 `reason` in [apiRequestContext.dispose()](/api/class-apirequestcontext.mdx#api-request-context-dispose) that will be included in the error message of ongoing operations interrupted by the context disposal.
+- 新選項 `host` in [browserType.launchServer()](/api/class-browsertype.mdx#browser-type-launch-server) allows to accept websocket connections on a specific address instead of unspecified `0.0.0.0`.
 - Playwright now supports Chromium, Firefox and WebKit on Ubuntu 24.04.
 - v1.45 is the last release to receive WebKit update for macOS 12 Monterey. Please update macOS to keep using the latest WebKit.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 127.0.6533.5
 * Mozilla Firefox 127.0
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 126
 * Microsoft Edge 126
 
-## Version 1.44
+## 版本 1.44
 
 <LiteYouTube id="avjSahFWdCI" title="Playwright 1.44" />
 
-### New APIs
+### 新的 API
 
 **Accessibility assertions**
 - [expect(locator).toHaveAccessibleName()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) checks if the element has the specified accessible name:
@@ -715,7 +715,7 @@ await page.removeLocatorHandler(locator);
 - [testProject.ignoreSnapshots](./api/class-testproject#test-project-ignore-snapshots) allows to configure  per project whether to skip screenshot expectations.
 
 **Reporter API**
-- New method [suite.entries()](/api/class-suite.mdx#suite-entries) returns child test suites and test cases in their declaration order. [suite.type](/api/class-suite.mdx#suite-type) and [testCase.type](/api/class-testcase.mdx#test-case-type) can be used to tell apart test cases and suites in the list.
+- 新方法 [suite.entries()](/api/class-suite.mdx#suite-entries) returns child test suites and test cases in their declaration order. [suite.type](/api/class-suite.mdx#suite-type) and [testCase.type](/api/class-testcase.mdx#test-case-type) can be used to tell apart test cases and suites in the list.
 - [Blob](./test-reporters#blob-reporter) reporter now allows overriding report file path with a single option `outputFile`. The same option can also be specified as `PLAYWRIGHT_BLOB_OUTPUT_FILE` environment variable that might be more convenient on CI/CD.
 - [JUnit](./test-reporters#junit-reporter) reporter now supports `includeProjectInTestName` option.
 
@@ -744,18 +744,18 @@ await page.removeLocatorHandler(locator);
     2 passed (1.2s)
   ```
   
-### Browser Versions
+### 瀏覽器版本
 * Chromium 125.0.6422.14
 * Mozilla Firefox 125.0.1
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 124
 * Microsoft Edge 124
 
-## Version 1.43
+## 版本 1.43
 
-### New APIs
+### 新的 API
 - Method [browserContext.clearCookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) now supports filters to remove only some cookies.
   
   ```js
@@ -779,7 +779,7 @@ This version was also tested against the following stable channels:
   });
   ```
   
-- New property [testInfo.tags](/api/class-testinfo.mdx#test-info-tags) exposes test tags during test execution.
+- 新屬性 [testInfo.tags](/api/class-testinfo.mdx#test-info-tags) exposes test tags during test execution.
   
   ```js
   test('example', async ({ page }) => {
@@ -787,7 +787,7 @@ This version was also tested against the following stable channels:
   });
   ```
   
-- New method [locator.contentFrame()](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
+- 新方法 [locator.contentFrame()](/api/class-locator.mdx#locator-content-frame) converts a [Locator] object to a [FrameLocator]. This can be useful when you have a [Locator] object obtained somewhere, and later on would like to interact with the content inside the frame.
   
   ```js
   const locator = page.locator('iframe[name="embedded"]');
@@ -796,7 +796,7 @@ This version was also tested against the following stable channels:
   await frameLocator.getByRole('button').click();
   ```
   
-- New method [frameLocator.owner()](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
+- 新方法 [frameLocator.owner()](/api/class-framelocator.mdx#frame-locator-owner) converts a [FrameLocator] object to a [Locator]. This can be useful when you have a [FrameLocator] object obtained somewhere, and later on would like to interact with the `iframe` element.
   
   ```js
   const frameLocator = page.frameLocator('iframe[name="embedded"]');
@@ -815,21 +815,21 @@ This version was also tested against the following stable channels:
   - "Shift F5" to stop running tests.
   - "Ctrl `" to toggle test output.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 124.0.6367.8
 * Mozilla Firefox 124.0
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 123
 * Microsoft Edge 123
 
-## Version 1.42
+## 版本 1.42
 
 <LiteYouTube id="KjSaIQLlgns" title="Playwright 1.41 & 1.42" />
 
-### New APIs
-- New method [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) registers a callback that will be invoked when specified element becomes visible and may block Playwright actions. The callback can get rid of the overlay. Here is an example that closes a cookie dialog when it appears:
+### 新的 API
+- 新方法 [page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) registers a callback that will be invoked when specified element becomes visible and may block Playwright actions. The callback can get rid of the overlay. Here is an example that closes a cookie dialog when it appears:
 
 ```js
 // Setup the handler.
@@ -894,41 +894,41 @@ test('test full report', {
 
 - [page.pdf()](/api/class-page.mdx#page-pdf) accepts two new options [`tagged`](./api/class-page#page-pdf-option-tagged) and [`outline`](./api/class-page#page-pdf-option-outline).
 
-### Announcements
+### 公告
 * ⚠️ Ubuntu 18 is not supported anymore.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 123.0.6312.4
 * Mozilla Firefox 123.0
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 122
 * Microsoft Edge 123
 
-## Version 1.41
+## 版本 1.41
 
-### New APIs
-- New method [page.unrouteAll()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) and [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
-- New method [browserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
+### 新的 API
+- 新方法 [page.unrouteAll()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) and [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [browserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally allows to wait for ongoing routes to finish, or ignore any errors from them.
 - New options [style](/api/class-page.mdx#page-screenshot-option-style) in [page.screenshot()](/api/class-page.mdx#page-screenshot) and [style](/api/class-locator.mdx#locator-screenshot-option-style) in [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to add custom CSS to the page before taking a screenshot.
-- New option `stylePath` for methods [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) and [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) to apply a custom stylesheet while making the screenshot.
+- 新選項 `stylePath` for methods [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) and [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) to apply a custom stylesheet while making the screenshot.
 - New `fileName` option for [Blob reporter](./test-reporters#blob-reporter), to specify the name of the report to be created.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 121.0.6167.57
 * Mozilla Firefox 121.0
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 120
 * Microsoft Edge 120
 
-## Version 1.40
+## 版本 1.40
 
 <LiteYouTube id="mn892dV81_8" title="Playwright 1.40" />
 
-### Test Generator Update
+### 測試程式碼產生器更新
 
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
@@ -953,24 +953,24 @@ test('test', async ({ page }) => {
 });
 ```
 
-### New APIs
+### 新的 API
 - Options [reason](/api/class-page.mdx#page-close-option-reason) in [page.close()](/api/class-page.mdx#page-close), [reason](/api/class-browsercontext.mdx#browser-context-close-option-reason) in [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) and [reason](/api/class-browser.mdx#browser-close-option-reason) in [browser.close()](/api/class-browser.mdx#browser-close). Close reason is reported for all operations interrupted by the closure.
 - Option [firefoxUserPrefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-firefox-user-prefs) in [browserType.launchPersistentContext()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
 
-### Other Changes
+### 其他變更
 - Methods [download.path()](/api/class-download.mdx#download-path) and [download.createReadStream()](/api/class-download.mdx#download-create-read-stream) throw an error for failed and cancelled downloads.
 - Playwright [docker image](./docker.mdx) now comes with Node.js v20.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 120.0.6099.28
 * Mozilla Firefox 119.0
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 119
 * Microsoft Edge 119
 
-## Version 1.39
+## 版本 1.39
 
 <LiteYouTube id="KqVuRAlOkm0" title="Playwright 1.39" />
 
@@ -1059,19 +1059,19 @@ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
 
 See [test.step()](/api/class-test.mdx#test-step) documentation for a full example.
 
-### New APIs
+### 新的 API
 - [expect(locator).toHaveAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute-2)
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 119.0.6045.9
 * Mozilla Firefox 118.0.1
 * WebKit 17.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 118
 * Microsoft Edge 118
 
-## Version 1.38
+## 版本 1.38
 
 <LiteYouTube id="YGJTeXaZDTM" title="Playwright 1.38" />
 
@@ -1081,7 +1081,7 @@ This version was also tested against the following stable channels:
 1. Zoom into time range.
 1. Network panel redesign.
 
-### New APIs
+### 新的 API
 - [browserContext.on('weberror')](/api/class-browsercontext.mdx#browser-context-event-web-error)
 - [locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially)
 - The [reporter.onEnd()](/api/class-reporter.mdx#reporter-on-end) now reports `startTime` and total run `duration`.
@@ -1130,16 +1130,16 @@ Add `@playwright/browser-chromium`, `@playwright/browser-firefox` and `@playwrig
 }
 ```
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 117.0.5938.62
 * Mozilla Firefox 117.0
 * WebKit 17.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 116
 * Microsoft Edge 116
 
-## Version 1.37
+## 版本 1.37
 
 <LiteYouTube id="cEd4SH_Xf5U" title="Playwright 1.36 & 1.37" />
 
@@ -1183,40 +1183,40 @@ Linux support looks like this:
 - UI Mode now respects project dependencies. You can control which dependencies to respect by checking/unchecking them in a projects list.
 - Console logs from the test are now displayed in the Console tab.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 116.0.5845.82
 * Mozilla Firefox 115.0
 * WebKit 17.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 115
 * Microsoft Edge 115
 
-## Version 1.36
+## 版本 1.36
 
 🏝️ Summer maintenance release.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 115.0.5790.75
 * Mozilla Firefox 115.0
 * WebKit 17.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 114
 * Microsoft Edge 114
 
-## Version 1.35
+## 版本 1.35
 
 <LiteYouTube id="pJiirfyJwcA" title="Playwright 1.35" />
 
-### Highlights
+### 亮點
 * UI mode is now available in VSCode Playwright extension via a new "Show trace viewer" button:
   
   ![Playwright UI Mode](https://github.com/microsoft/playwright/assets/746130/13094128-259b-477a-8bbb-c1181178e8a2)
 * UI mode and trace viewer mark network requests handled with [page.route()](/api/class-page.mdx#page-route) and [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) handlers, as well as those issued via the [API testing](./api-testing):
   
   ![Trace Viewer](https://github.com/microsoft/playwright/assets/746130/0df2d4b6-faa3-465c-aff3-c435b430bfe1)
-* New option `maskColor` for methods [page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot), [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) and [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) to change default masking color:
+* 新選項 `maskColor` for methods [page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot), [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) and [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) to change default masking color:
   
   ```js
   await page.goto('https://playwright.dev');
@@ -1249,22 +1249,22 @@ This version was also tested against the following stable channels:
   
   This change **does not** affect `@playwright/test` and `playwright` package users.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 115.0.5790.13
 * Mozilla Firefox 113.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 114
 * Microsoft Edge 114
 
-## Version 1.34
+## 版本 1.34
 
 <LiteYouTube id="JeFD6rqDbBo" title="Playwright 1.34" />
 
-### Highlights
+### 亮點
 * UI Mode now shows steps, fixtures and attachments: ![UI Mode attachments](https://github.com/microsoft/playwright/assets/746130/1d280419-d79a-4a56-b2dc-54d631281d56)
-* New property [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) to specify a project that needs to run after this and all dependent projects have finished. Teardown is useful to cleanup any resources acquired by this project.
+* 新屬性 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) to specify a project that needs to run after this and all dependent projects have finished. Teardown is useful to cleanup any resources acquired by this project.
   
   A common pattern would be a `setup` dependency with a corresponding `teardown`:
   
@@ -1301,7 +1301,7 @@ This version was also tested against the following stable channels:
   });
   ```
   
-* New method [`expect.configure`](./test-assertions.mdx#expectconfigure) to create pre-configured expect instance with its own defaults such as `timeout` and `soft`.
+* 新方法 [`expect.configure`](./test-assertions.mdx#expectconfigure) to create pre-configured expect instance with its own defaults such as `timeout` and `soft`.
   
   ```js
   const slowExpect = expect.configure({ timeout: 10000 });
@@ -1346,16 +1346,16 @@ This version was also tested against the following stable channels:
   
 * Node.js 14 is no longer supported since it [reached its end-of-life](https://nodejs.dev/en/about/releases/) on April 30, 2023.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 114.0.5735.26
 * Mozilla Firefox 113.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 113
 * Microsoft Edge 113
 
-## Version 1.33
+## 版本 1.33
 
 <LiteYouTube id="JeFD6rqDbBo" title="Playwright 1.33" />
 
@@ -1383,27 +1383,27 @@ This version was also tested against the following stable channels:
   
 * Use new web-first assertion [expect(locator).toBeAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) to ensure that the element is present in the page's DOM. Do not confuse with the [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) that ensures that element is both attached & visible.
 
-### New APIs
+### 新的 API
 - [locator.or()](/api/class-locator.mdx#locator-or)
-- New option [hasNot](/api/class-locator.mdx#locator-filter-option-has-not) in [locator.filter()](/api/class-locator.mdx#locator-filter)
-- New option [hasNotText](/api/class-locator.mdx#locator-filter-option-has-not-text) in [locator.filter()](/api/class-locator.mdx#locator-filter)
+- 新選項 [hasNot](/api/class-locator.mdx#locator-filter-option-has-not) in [locator.filter()](/api/class-locator.mdx#locator-filter)
+- 新選項 [hasNotText](/api/class-locator.mdx#locator-filter-option-has-not-text) in [locator.filter()](/api/class-locator.mdx#locator-filter)
 - [expect(locator).toBeAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached)
-- New option [timeout](/api/class-route.mdx#route-fetch-option-timeout) in [route.fetch()](/api/class-route.mdx#route-fetch)
+- 新選項 [timeout](/api/class-route.mdx#route-fetch-option-timeout) in [route.fetch()](/api/class-route.mdx#route-fetch)
 - [reporter.onExit()](/api/class-reporter.mdx#reporter-on-exit)
 
 ### ⚠️ Breaking change
 * The `mcr.microsoft.com/playwright:v1.33.0` now serves a Playwright image based on Ubuntu Jammy. To use the focal-based image, please use `mcr.microsoft.com/playwright:v1.33.0-focal` instead.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 113.0.5672.53
 * Mozilla Firefox 112.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 112
 * Microsoft Edge 112
 
-## Version 1.32
+## 版本 1.32
 
 <LiteYouTube id="jF0yA-JLQW0" title="Playwright 1.32" />
 
@@ -1419,11 +1419,11 @@ Engage with a new flag `--ui`:
 npx playwright test --ui
 ```
 
-### New APIs
+### 新的 API
 - New options [updateMode](/api/class-page.mdx#page-route-from-har-option-update-mode) and [updateContent](/api/class-page.mdx#page-route-from-har-option-update-content) in [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) and [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har).
 - Chaining existing locator objects, see [locator docs](./locators.mdx#matching-inside-a-locator) for details.
-- New property [testInfo.testId](/api/class-testinfo.mdx#test-info-test-id).
-- New option [name](/api/class-tracing.mdx#tracing-start-chunk-option-name) in method [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk).
+- 新屬性 [testInfo.testId](/api/class-testinfo.mdx#test-info-test-id).
+- 新選項 [name](/api/class-tracing.mdx#tracing-start-chunk-option-name) in method [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk).
 
 ### ⚠️ Breaking change in component tests
 
@@ -1431,21 +1431,21 @@ Note: **component tests only**, does not affect end-to-end tests.
 * `@playwright/experimental-ct-react` now supports **React 18 only**.
 * If you're running component tests with React 16 or 17, please replace `@playwright/experimental-ct-react` with `@playwright/experimental-ct-react17`.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 112.0.5615.29
 * Mozilla Firefox 111.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 111
 * Microsoft Edge 111
 
-## Version 1.31
+## 版本 1.31
 
 <LiteYouTube id="PI50YAPTAs4" title="Playwright 1.31" />
 
-### New APIs
-- New property [testProject.dependencies](/api/class-testproject.mdx#test-project-dependencies) to configure dependencies between projects.
+### 新的 API
+- 新屬性 [testProject.dependencies](/api/class-testproject.mdx#test-project-dependencies) to configure dependencies between projects.
   
   Using dependencies allows global setup to produce traces and other artifacts, see the setup steps in the test report and more.
   
@@ -1492,10 +1492,10 @@ This version was also tested against the following stable channels:
   await expect(button).toBeInViewport({ ratio: 0.5 });
   ```
   
-### Miscellaneous
+### 雜項
 - DOM snapshots in trace viewer can be now opened in a separate window.
-- New method `defineConfig` to be used in `playwright.config`.
-- New option [maxRedirects](/api/class-route.mdx#route-fetch-option-max-redirects) for method [route.fetch()](/api/class-route.mdx#route-fetch).
+- 新方法 `defineConfig` to be used in `playwright.config`.
+- 新選項 [maxRedirects](/api/class-route.mdx#route-fetch-option-max-redirects) for method [route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright now supports Debian 11 arm64.
 - Official [docker images](./docker.mdx) now include Node 18 instead of Node 16.
 
@@ -1526,32 +1526,32 @@ export default defineConfig({
 });
 ```
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 111.0.5563.19
 * Mozilla Firefox 109.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 110
 * Microsoft Edge 110
 
-## Version 1.30
+## 版本 1.30
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 110.0.5481.38
 * Mozilla Firefox 108.0.2
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 109
 * Microsoft Edge 109
 
-## Version 1.29
+## 版本 1.29
 
 <LiteYouTube id="VbVlz61VtNo" title="Playwright 1.29" />
 
-### New APIs
-- New method [route.fetch()](/api/class-route.mdx#route-fetch) and new option `json` for [route.fulfill()](/api/class-route.mdx#route-fulfill):
+### 新的 API
+- 新方法 [route.fetch()](/api/class-route.mdx#route-fetch) and new option `json` for [route.fulfill()](/api/class-route.mdx#route-fulfill):
   
   ```js
   await page.route('**/api/settings', async route => {
@@ -1567,7 +1567,7 @@ This version was also tested against the following stable channels:
   });
   ```
   
-- New method [locator.all()](/api/class-locator.mdx#locator-all) to iterate over all matching elements:
+- 新方法 [locator.all()](/api/class-locator.mdx#locator-all) to iterate over all matching elements:
   
   ```js
   // Check all checkboxes!
@@ -1614,21 +1614,21 @@ This version was also tested against the following stable channels:
   });
   ```
   
-### Miscellaneous
+### 雜項
 - Playwright Test now respects [`jsconfig.json`](https://code.visualstudio.com/docs/languages/jsconfig).
 - New options `args` and `proxy` for [androidDevice.launchBrowser()](/api/class-androiddevice.mdx#android-device-launch-browser).
 - Option `postData` in method [route.continue()](/api/class-route.mdx#route-continue) now supports [Serializable] values.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 109.0.5414.46
 * Mozilla Firefox 107.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 108
 * Microsoft Edge 108
 
-## Version 1.28
+## 版本 1.28
 
 <LiteYouTube id="tVSq-0n-TY4" title="Playwright 1.28" />
 
@@ -1664,26 +1664,26 @@ This version was also tested against the following stable channels:
   });
   ```
   
-### New APIs
+### 新的 API
 - [locator.blur()](/api/class-locator.mdx#locator-blur)
 - [locator.clear()](/api/class-locator.mdx#locator-clear)
 - [android.launchServer()](/api/class-android.mdx#android-launch-server) and  [android.connect()](/api/class-android.mdx#android-connect)
 - [androidDevice.on('close')](/api/class-androiddevice.mdx#android-device-event-close)
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 108.0.5359.29
 * Mozilla Firefox 106.0
 * WebKit 16.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 107
 * Microsoft Edge 107
 
-## Version 1.27
+## 版本 1.27
 
 <LiteYouTube id="b84eqab3kwc" title="Playwright 1.27" />
 
-### Locators
+### 定位器
 
 With these new APIs writing locators is a joy:
 - [page.getByText()](/api/class-page.mdx#page-get-by-text) to locate by text content.
@@ -1706,7 +1706,7 @@ await expect(page.getByText('Welcome, John!')).toBeVisible();
 
 All the same methods are also available on [Locator], [FrameLocator] and [Frame] classes.
 
-### Other highlights
+### 其他亮點
 - `workers` option in the `playwright.config.ts` now accepts a percentage string to use some of the available CPUs. You can also pass it in the command line:
   
   ```bash
@@ -1726,7 +1726,7 @@ All the same methods are also available on [Locator], [FrameLocator] and [Frame]
 - New field `FullConfig.configFile` is available to test reporters, specifying the path to the config file if any.
 - As announced in v1.25, Ubuntu 18 will not be supported as of Dec 2022. In addition to that, there will be no WebKit updates on Ubuntu 18 starting from the next Playwright release.
 
-### Behavior Changes
+### 行為變更
 - [expect(locator).toHaveAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
   
   ```js
@@ -1735,27 +1735,27 @@ All the same methods are also available on [Locator], [FrameLocator] and [Frame]
   
 - Command line options `--grep` and `--grep-invert` previously incorrectly ignored `grep` and `grepInvert` options specified in the config. Now all of them are applied together.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 107.0.5304.18
 * Mozilla Firefox 105.0.1
 * WebKit 16.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 106
 * Microsoft Edge 106
 
-## Version 1.26
+## 版本 1.26
 
 <LiteYouTube id="b84eqab3kwc" title="Playwright 1.26" />
 
-### Assertions
-- New option `enabled` for [expect(locator).toBeEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled).
+### 斷言
+- 新選項 `enabled` for [expect(locator).toBeEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled).
 - [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now pierces open shadow roots.
-- New option `editable` for [expect(locator).toBeEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable).
-- New option `visible` for [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
+- 新選項 `editable` for [expect(locator).toBeEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable).
+- 新選項 `visible` for [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
 
-### Other highlights
-- New option `maxRedirects` for [apiRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
+### 其他亮點
+- 新選項 `maxRedirects` for [apiRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
 - New command-line flag `--pass-with-no-tests` that allows the test suite to pass when no files are found.
 - New command-line flag `--ignore-snapshots` to skip snapshot expectations, such as `expect(value).toMatchSnapshot()` and `expect(page).toHaveScreenshot()`.
 
@@ -1773,16 +1773,16 @@ Prior to 1.26, this would wait for all iframes to fire the `DOMContentLoaded` ev
 
 To align with web specification, the `'domcontentloaded'` value only waits for the target frame to fire the `'DOMContentLoaded'` event. Use `waitUntil: 'load'` to wait for all iframes.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 106.0.5249.30
 * Mozilla Firefox 104.0
 * WebKit 16.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 105
 * Microsoft Edge 105
 
-## Version 1.25
+## 版本 1.25
 
 <LiteYouTube id="NFLHA57a-so" title="Playwright 1.25" />
 
@@ -1810,22 +1810,22 @@ This version was also tested against the following stable channels:
 * New `'interrupted'` test status.
 * Enable tracing via CLI flag: `npx playwright test --trace=on`.
 
-### Announcements
+### 公告
 * 🎁 We now ship Ubuntu 22.04 Jammy Jellyfish docker image: `mcr.microsoft.com/playwright:v1.34.0-jammy`.
 * 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
 * 🪦 This is the last release with Node.js 12 support, we recommend upgrading to Node.js LTS (16).
 * ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
 
-### Browser Versions
+### 瀏覽器版本
 * Chromium 105.0.5195.19
 * Mozilla Firefox 103.0
 * WebKit 16.0
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 * Google Chrome 104
 * Microsoft Edge 104
 
-## Version 1.24
+## 版本 1.24
 
 <LiteYouTube id="9F05o1shxcY" title="Playwright 1.24" />
 
@@ -1943,11 +1943,11 @@ beforeMount(async ({ hooksConfig }) => {
 });
 ```
 
-## Version 1.23
+## 版本 1.23
 
 <LiteYouTube id="NRGOV46P3kU" title="Playwright 1.23" />
 
-### Network Replay
+### 網路重播
 
 Now you can record network traffic into a HAR file and re-use this traffic in your tests.
 
@@ -1975,7 +1975,7 @@ await context.routeFromHAR('github.har.zip');
 
 Read more in [our documentation](./mock.mdx#mocking-with-har-files).
 
-### Advanced Routing
+### 進階路由
 
 You can now use [route.fallback()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
 
@@ -2004,7 +2004,7 @@ test('should work', async ({ page }) => {
 Note that the new methods [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) and [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) also participate in routing and could be deferred to.
 
 ### Web-First Assertions Update
-* New method [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
+* 新方法 [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
 * Methods [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) and [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` option.
 
 ### Component Tests Update
@@ -2013,7 +2013,7 @@ Note that the new methods [page.routeFromHAR()](/api/class-page.mdx#page-route-f
 
 Read more about [component testing with Playwright](./test-components).
 
-### Miscellaneous
+### 雜項
 * If there's a service worker that's in your way, you can now easily disable it with a new context option `serviceWorkers`:
   
   ```js title="playwright.config.ts"
@@ -2054,11 +2054,11 @@ WebServer is now considered "ready" if request to the specified url has any of t
 * `300-399` (new)
 * `400`, `401`, `402`, `403` (new)
 
-## Version 1.22
+## 版本 1.22
 
 <LiteYouTube id="keV2CIgtBlg" title="Playwright 1.22" />
 
-### Highlights
+### 亮點
 - Components Testing (preview)
   
   Playwright Test can now test your [React](https://reactjs.org/), [Vue.js](https://vuejs.org/) or [Svelte](https://svelte.dev/) components. You can use all the features of Playwright Test (such as parallelization, emulation & debugging) while running components in real browsers.
@@ -2115,11 +2115,11 @@ WebServer is now considered "ready" if request to the specified url has any of t
   
   The new [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) saves screenshots at the same location as [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1).
 
-## Version 1.21
+## 版本 1.21
 
 <LiteYouTube id="45HZdbmgEw8" title="Playwright 1.21" />
 
-### Highlights
+### 亮點
 - New role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
   
   ```js
@@ -2130,7 +2130,7 @@ WebServer is now considered "ready" if request to the specified url has any of t
   Read more in [our documentation](./locators.mdx#locate-by-role).
 - New `scale` option in [page.screenshot()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
 - New `caret` option in [page.screenshot()](/api/class-page.mdx#page-screenshot) to control text caret. Defaults to `"hide"`.
-- New method `expect.poll` to wait for an arbitrary condition:
+- 新方法 `expect.poll` to wait for an arbitrary condition:
   
   ```js
   // Poll the method until it returns an expected result.
@@ -2142,25 +2142,25 @@ WebServer is now considered "ready" if request to the specified url has any of t
   
   `expect.poll` supports most synchronous matchers, like `.toBe()`, `.toContain()`, etc. Read more in [our documentation](./test-assertions.mdx#expectpoll).
 
-### Behavior Changes
+### 行為變更
 - ESM support when running TypeScript tests is now enabled by default. The `PLAYWRIGHT_EXPERIMENTAL_TS_ESM` env variable is no longer required.
 - The `mcr.microsoft.com/playwright` docker image no longer contains Python. Please use `mcr.microsoft.com/playwright/python` as a Playwright-ready docker image with pre-installed Python.
 - Playwright now supports large file uploads (100s of MBs) via [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) API.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 101.0.4951.26
 - Mozilla Firefox 98.0.2
 - WebKit 15.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 100
 - Microsoft Edge 100
 
-## Version 1.20
+## 版本 1.20
 
 <LiteYouTube id="6vV-XXKsrbA" title="Playwright 1.20" />
 
-### Highlights
+### 亮點
 - New options for methods [page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) and [elementHandle.screenshot()](/api/class-elementhandle.mdx#element-handle-screenshot):
   * Option `animations: "disabled"` rewinds all CSS animations and transitions to a consistent state
   * Option `mask: Locator[]` masks given elements, overlaying them with pink `#FF00FF` boxes.
@@ -2203,20 +2203,20 @@ This version was also tested against the following stable channels:
 - [Trace Viewer](./trace-viewer) now shows [API testing requests](./api-testing).
 - [locator.highlight()](/api/class-locator.mdx#locator-highlight) visually reveals element(s) for easier debugging.
 
-### Announcements
+### 公告
 - We now ship a designated Python docker image `mcr.microsoft.com/playwright/python`. Please switch over to it if you use Python. This is the last release that includes Python inside our javascript `mcr.microsoft.com/playwright` docker image.
 - v1.20 is the last release to receive WebKit update for macOS 10.15 Catalina. Please update macOS to keep using latest & greatest WebKit!
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 101.0.4921.0
 - Mozilla Firefox 97.0.1
 - WebKit 15.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 99
 - Microsoft Edge 99
 
-## Version 1.19
+## 版本 1.19
 
 <LiteYouTube id="z0EOFvlf14U" title="Playwright 1.19" />
 
@@ -2276,7 +2276,7 @@ This version was also tested against the following stable channels:
 - New [locator.page()](/api/class-locator.mdx#locator-page)
 - [page.screenshot()](/api/class-page.mdx#page-screenshot) and [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) now automatically hide blinking caret
 - Playwright Codegen now generates locators and frame locators
-- New option `url`  in [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) to ensure your web server is ready before running the tests
+- 新選項 `url`  in [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) to ensure your web server is ready before running the tests
 - New [testInfo.errors](/api/class-testinfo.mdx#test-info-errors) and [testResult.errors](/api/class-testresult.mdx#test-result-errors) that contain all failed assertions and soft assertions.
 
 ### Potentially breaking change in Playwright Test Global Setup
@@ -2285,16 +2285,16 @@ It is unlikely that this change will affect you, no action is required if your t
 
 We've noticed that in rare cases, the set of tests to be executed was configured in the global setup by means of the environment variables. We also noticed some applications that were post processing the reporters' output in the global teardown. If you are doing one of the two, [learn more](https://github.com/microsoft/playwright/issues/12018)
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 100.0.4863.0
 - Mozilla Firefox 96.0.1
 - WebKit 15.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 98
 - Microsoft Edge 98
 
-## Version 1.18
+## 版本 1.18
 
 <LiteYouTube id="ABLYpw2BN_g" title="Playwright 1.18" />
 
@@ -2382,16 +2382,16 @@ module.exports = {
 };
 ```
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 99.0.4812.0
 - Mozilla Firefox 95.0
 - WebKit 15.4
 
-This version was also tested against the following stable channels:
+此版本還對以下穩定版本進行了測試：
 - Google Chrome 97
 - Microsoft Edge 97
 
-## Version 1.17
+## 版本 1.17
 
 <LiteYouTube id="7iyIdeoAP04" title="Playwright 1.17" />
 
@@ -2410,7 +2410,7 @@ await locator.click();
 
 Read more at [our documentation](./api/class-framelocator).
 
-### Trace Viewer Update
+### Trace Viewer 更新
 
 Playwright Trace Viewer is now **available online** at https://trace.playwright.dev! Just drag-and-drop your `trace.zip` file to inspect its contents.
 
@@ -2436,7 +2436,7 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
   npx playwright install msedge
   ```
   
-### New APIs
+### 新的 API
 - Tracing now supports a [`'title'`](./api/class-tracing#tracing-start-option-title) option
 - Page navigations support a new [`'commit'`](./api/class-page#page-goto) waiting option
 - HTML reporter got [new configuration options](./test-reporters#html-reporter)
@@ -2447,7 +2447,7 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 - [`expect.toMatchSnapshot`](./api/class-genericassertions.mdx) supports subdirectories
 - [`reporter.printsToStdio()`](./api/class-reporter#reporter-prints-to-stdio)
 
-## Version 1.16
+## 版本 1.16
 
 <LiteYouTube id="OQKwFDmY64g" title="Playwright 1.16" />
 
@@ -2561,7 +2561,7 @@ Read more about [Docker integration](./docker).
 
 Read more about [Trace Viewer](./trace-viewer).
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 97.0.4666.0
 - Mozilla Firefox 93.0
 - WebKit 15.4
@@ -2570,7 +2570,7 @@ This version of Playwright was also tested against the following stable channels
 - Google Chrome 94
 - Microsoft Edge 94
 
-## Version 1.15
+## 版本 1.15
 
 <LiteYouTube id="6RwzsDeEj7Y" title="Playwright 1.15" />
 
@@ -2621,12 +2621,12 @@ By default, tests in a single file are run in order. If you have many independen
 
 By using `npx playwright test --debug` it will enable the [Playwright Inspector](./debug#playwright-inspector) for you to debug your tests.
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 96.0.4641.0
 - Mozilla Firefox 92.0
 - WebKit 15.0
 
-## Version 1.14
+## 版本 1.14
 
 <LiteYouTube id="LczBDR0gOhk" title="Playwright 1.14" />
 
@@ -2770,12 +2770,12 @@ export default defineConfig({
 
 Learn more in the [documentation](./test-webserver).
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 94.0.4595.0
 - Mozilla Firefox 91.0
 - WebKit 15.0
 
-## Version 1.13
+## 版本 1.13
 
 #### Playwright Test
 - **⚡️ Introducing [Reporter API](https://github.com/microsoft/playwright/blob/65a9037461ffc15d70cdc2055832a0c5512b227c/packages/playwright-test/types/testReporter.d.ts)** which is already used to create an [Allure Playwright reporter](https://github.com/allure-framework/allure-js/pull/297).
@@ -2811,7 +2811,7 @@ Learn more in the [documentation](./test-webserver).
 - new `force` option in [page.fill()](/api/class-page.mdx#page-fill), [frame.fill()](/api/class-frame.mdx#frame-fill), and [elementHandle.fill()](/api/class-elementhandle.mdx#element-handle-fill)
 - new `force` option in [page.selectOption()](/api/class-page.mdx#page-select-option), [frame.selectOption()](/api/class-frame.mdx#frame-select-option), and [elementHandle.selectOption()](/api/class-elementhandle.mdx#element-handle-select-option)
 
-## Version 1.12
+## 版本 1.12
 
 #### ⚡️ Introducing Playwright Test
 
@@ -2902,7 +2902,7 @@ This version of Playwright was also tested against the following stable channels
 - new [browserContext.tracing](/api/class-browsercontext.mdx#browser-context-tracing) API namespace
 - new [download.page()](/api/class-download.mdx#download-page) method
 
-## Version 1.11
+## 版本 1.11
 
 🎥  New video: [Playwright: A New Test Automation Framework for the Modern Web](https://youtu.be/_Jla6DyuEu4) ([slides](https://docs.google.com/presentation/d/1xFhZIJrdHkVe2CuMKOrni92HoG2SWslo0DhJJQMR1DI/edit?usp=sharing))
 - We talked about Playwright
@@ -2926,7 +2926,7 @@ This version of Playwright was also tested against the following stable channels
   * `position` option in [page.check()](/api/class-page.mdx#page-check) and [page.uncheck()](/api/class-page.mdx#page-uncheck) methods
   * `trial` option to dry-run actions in [page.check()](/api/class-page.mdx#page-check), [page.uncheck()](/api/class-page.mdx#page-uncheck), [page.click()](/api/class-page.mdx#page-click), [page.dblclick()](/api/class-page.mdx#page-dblclick), [page.hover()](/api/class-page.mdx#page-hover) and [page.tap()](/api/class-page.mdx#page-tap)
 
-## Version 1.10
+## 版本 1.10
 - [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) is **now stable**!
 - Run Playwright against **Google Chrome** and **Microsoft Edge** stable channels with the [new channels API](./browsers).
 - Chromium screenshots are **fast** on Mac & Windows.
@@ -2943,7 +2943,7 @@ This version of Playwright was also tested against the following stable channels
 #### New APIs
 - [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) now accepts the new `'channel'` option. Read more in [our documentation](./browsers).
 
-## Version 1.9
+## 版本 1.9
 - [Playwright Inspector](./debug.mdx) is a **new GUI tool** to author and debug your tests.
   - **Line-by-line debugging** of your Playwright scripts, with play, pause and step-through.
   - Author new scripts by **recording user actions**.
@@ -2962,7 +2962,7 @@ This version of Playwright was also tested against the following stable channels
 #### New APIs
 - [page.pause()](/api/class-page.mdx#page-pause).
 
-## Version 1.8
+## 版本 1.8
 - [Selecting elements based on layout](./other-locators.mdx#css-matching-elements-based-on-layout) with `:left-of()`, `:right-of()`, `:above()` and `:below()`.
 - Playwright now includes [command line interface](./test-cli.mdx), former playwright-cli.
   
@@ -2986,14 +2986,14 @@ This version of Playwright was also tested against the following stable channels
 - [page.isEnabled()](/api/class-page.mdx#page-is-enabled).
 - [page.isHidden()](/api/class-page.mdx#page-is-hidden).
 - [page.isVisible()](/api/class-page.mdx#page-is-visible).
-- New option `'editable'` in [elementHandle.waitForElementState()](/api/class-elementhandle.mdx#element-handle-wait-for-element-state).
+- 新選項 `'editable'` in [elementHandle.waitForElementState()](/api/class-elementhandle.mdx#element-handle-wait-for-element-state).
 
 #### Browser Versions
 - Chromium 90.0.4392.0
 - Mozilla Firefox 85.0b5
 - WebKit 14.1
 
-## Version 1.7
+## 版本 1.7
 - **New Java SDK**: [Playwright for Java](https://github.com/microsoft/playwright-java) is now on par with [JavaScript](https://github.com/microsoft/playwright), [Python](https://github.com/microsoft/playwright-python) and [.NET bindings](https://github.com/microsoft/playwright-dotnet).
 - **Browser storage API**: New convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
 - **New CSS selectors**: We heard your feedback for more flexible selectors and have revamped the selectors implementation. Playwright 1.7 introduces [new CSS extensions](./other-locators.mdx#css-locator) and there's more coming soon.
