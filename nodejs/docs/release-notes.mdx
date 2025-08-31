@@ -696,7 +696,7 @@ test('test full report', {
 新的產生斷言工具：
 - "Assert visibility" tool generates [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
 - "Assert value" tool generates [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
-- "Assert text" tool generates [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).
+- "Assert text" 工具產生 [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
 以下是產生的測試與斷言的範例：
 
@@ -2037,7 +2037,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 - 新方法 [locator.page()](/api/class-locator.mdx#locator-page)
 - [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 現在會自動隱藏閃爍的游標
 - Playwright Codegen 現在會產生定位器和框架定位器
-- 新選項 `url`  in [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) to ensure your web server is ready before running the tests
+- 新選項 `url` 在 [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) 中，確保您的網頁伺服器在執行測試前已準備就緒
 - 新屬性 [testInfo.errors](/api/class-testinfo.mdx#test-info-errors) 和 [testResult.errors](/api/class-testresult.mdx#test-result-errors) 包含所有失敗的斷言和軟斷言。
 
 ### Playwright Test 全域設定中的潛在重大變更
@@ -2611,7 +2611,7 @@ npx playwright test
 
 #### 🧟‍♂️ Introducing Playwright Trace Viewer
 
-[Playwright Trace Viewer](./trace-viewer.mdx) is a new GUI tool that helps exploring recorded Playwright traces after the script ran. Playwright traces let you examine:
+[Playwright Trace Viewer](./trace-viewer.mdx) 是一個新的 GUI 工具，可幫助探索在腳本執行後記錄的 Playwright 追蹤。Playwright 追蹤讓您檢查：
 - page DOM before and after each Playwright action
 - page rendering before and after each Playwright action
 - browser network during script execution
@@ -2705,7 +2705,7 @@ This version of Playwright was also tested against the following stable channels
 - [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 現在接受新的 `'channel'` 選項。在[我們的文件](./browsers)中閱讀更多。
 
 ## 版本 1.9
-- [Playwright Inspector](./debug.mdx) is a **new GUI tool** to author and debug your tests.
+- [Playwright Inspector](./debug.mdx) 是一個**新的 GUI 工具**，用於編寫和偵錯您的測試。
   - **Line-by-line debugging** of your Playwright scripts, with play, pause and step-through.
   - Author new scripts by **recording user actions**.
   - **Generate element selectors** for your script by hovering over elements.

@@ -402,9 +402,9 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
 新的產生斷言工具：
-- "Assert visibility" tool generates [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
-- "Assert value" tool generates [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
-- "Assert text" tool generates [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).
+- "Assert visibility" 工具產生 [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
+- "Assert value" 工具產生 [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
+- "Assert text" 工具產生 [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
 Here is an example of a generated test with assertions:
 
@@ -1544,7 +1544,7 @@ button.click("button >> visible=true")
 
 #### 🧟‍♂️ Introducing Playwright Trace Viewer
 
-[Playwright Trace Viewer](./trace-viewer.mdx) is a new GUI tool that helps exploring recorded Playwright traces after the script ran. Playwright traces let you examine:
+[Playwright Trace Viewer](./trace-viewer.mdx) 是一個新的 GUI 工具，可幫助探索在腳本執行後記錄的 Playwright 追蹤。Playwright 追蹤讓您檢查：
 - page DOM before and after each Playwright action
 - page rendering before and after each Playwright action
 - browser network during script execution
@@ -1637,7 +1637,7 @@ This version of Playwright was also tested against the following stable channels
 - [browser_type.launch()](/api/class-browsertype.mdx#browser-type-launch) 現在接受新的 `'channel'` 選項。在[我們的文件](./browsers)中閱讀更多。
 
 ## 版本 1.9
-- [Playwright Inspector](./debug.mdx) is a **new GUI tool** to author and debug your tests.
+- [Playwright Inspector](./debug.mdx) 是一個**新的 GUI 工具**，用於編寫和偵錯您的測試。
   - **Line-by-line debugging** of your Playwright scripts, with play, pause and step-through.
   - Author new scripts by **recording user actions**.
   - **Generate element selectors** for your script by hovering over elements.
