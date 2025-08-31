@@ -152,7 +152,7 @@
 - [x] nodejs/docs/testing-library.mdx
 - [x] nodejs/docs/touch-events.mdx
 - [x] nodejs/docs/trace-viewer-intro.mdx
-- [ ] nodejs/docs/trace-viewer.mdx
+- [x] nodejs/docs/trace-viewer.mdx
 - [x] nodejs/docs/videos.mdx
 - [x] nodejs/docs/webview2.mdx
 - [x] nodejs/docs/writing-tests.mdx
@@ -294,7 +294,7 @@
 - [x] nodejs/versioned_docs/version-stable/testing-library.mdx
 - [x] nodejs/versioned_docs/version-stable/touch-events.mdx
 - [x] nodejs/versioned_docs/version-stable/trace-viewer-intro.mdx
-- [ ] nodejs/versioned_docs/version-stable/trace-viewer.mdx
+- [x] nodejs/versioned_docs/version-stable/trace-viewer.mdx
 - [x] nodejs/versioned_docs/version-stable/videos.mdx
 - [x] nodejs/versioned_docs/version-stable/webview2.mdx
 - [x] nodejs/versioned_docs/version-stable/writing-tests.mdx
@@ -380,7 +380,7 @@
 - [ ] python/docs/test-runners.mdx
 - [x] python/docs/touch-events.mdx
 - [ ] python/docs/trace-viewer-intro.mdx
-- [ ] python/docs/trace-viewer.mdx
+- [x] python/docs/trace-viewer.mdx
 - [x] python/docs/videos.mdx
 - [x] python/docs/webview2.mdx
 - [x] python/docs/writing-tests.mdx
@@ -466,7 +466,7 @@
 - [ ] python/versioned_docs/version-stable/test-runners.mdx
 - [x] python/versioned_docs/version-stable/touch-events.mdx
 - [ ] python/versioned_docs/version-stable/trace-viewer-intro.mdx
-- [ ] python/versioned_docs/version-stable/trace-viewer.mdx
+- [x] python/versioned_docs/version-stable/trace-viewer.mdx
 - [x] python/versioned_docs/version-stable/videos.mdx
 - [x] python/versioned_docs/version-stable/webview2.mdx
 - [x] python/versioned_docs/version-stable/writing-tests.mdx
@@ -556,7 +556,7 @@
 - [ ] java/docs/threading.mdx
 - [x] java/docs/touch-events.mdx
 - [ ] java/docs/trace-viewer-intro.mdx
-- [ ] java/docs/trace-viewer.mdx
+- [x] java/docs/trace-viewer.mdx
 - [x] java/docs/videos.mdx
 - [x] java/docs/webview2.mdx
 - [ ] java/docs/writing-tests.mdx
@@ -646,7 +646,7 @@
 - [ ] java/versioned_docs/version-stable/threading.mdx
 - [x] java/versioned_docs/version-stable/touch-events.mdx
 - [ ] java/versioned_docs/version-stable/trace-viewer-intro.mdx
-- [ ] java/versioned_docs/version-stable/trace-viewer.mdx
+- [x] java/versioned_docs/version-stable/trace-viewer.mdx
 - [x] java/versioned_docs/version-stable/videos.mdx
 - [x] java/versioned_docs/version-stable/webview2.mdx
 - [ ] java/versioned_docs/version-stable/writing-tests.mdx
@@ -734,7 +734,7 @@
 - [ ] dotnet/docs/test-runners.mdx
 - [x] dotnet/docs/touch-events.mdx
 - [ ] dotnet/docs/trace-viewer-intro.mdx
-- [ ] dotnet/docs/trace-viewer.mdx
+- [x] dotnet/docs/trace-viewer.mdx
 - [x] dotnet/docs/videos.mdx
 - [x] dotnet/docs/webview2.mdx
 - [ ] dotnet/docs/writing-tests.mdx
@@ -822,7 +822,7 @@
 - [ ] dotnet/versioned_docs/version-stable/test-runners.mdx
 - [x] dotnet/versioned_docs/version-stable/touch-events.mdx
 - [ ] dotnet/versioned_docs/version-stable/trace-viewer-intro.mdx
-- [ ] dotnet/versioned_docs/version-stable/trace-viewer.mdx
+- [x] dotnet/versioned_docs/version-stable/trace-viewer.mdx
 - [x] dotnet/versioned_docs/version-stable/videos.mdx
 - [x] dotnet/versioned_docs/version-stable/webview2.mdx
 - [ ] dotnet/versioned_docs/version-stable/writing-tests.mdx
