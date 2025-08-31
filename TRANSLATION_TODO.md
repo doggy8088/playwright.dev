@@ -101,7 +101,7 @@
 - [x] nodejs/docs/codegen-intro.mdx
 - [x] nodejs/docs/codegen.mdx
 - [x] nodejs/docs/debug.mdx
-- [ ] nodejs/docs/dialogs.mdx
+- [x] nodejs/docs/dialogs.mdx
 - [ ] nodejs/docs/docker.mdx
 - [x] nodejs/docs/downloads.mdx
 - [x] nodejs/docs/emulation.mdx
@@ -123,7 +123,7 @@
 - [x] nodejs/docs/other-locators.mdx
 - [x] nodejs/docs/pages.mdx
 - [x] nodejs/docs/pom.mdx
-- [ ] nodejs/docs/protractor.mdx
+- [x] nodejs/docs/protractor.mdx
 - [x] nodejs/docs/puppeteer.mdx
 - [ ] nodejs/docs/release-notes.mdx
 - [x] nodejs/docs/running-tests.mdx
@@ -243,7 +243,7 @@
 - [x] nodejs/versioned_docs/version-stable/codegen-intro.mdx
 - [x] nodejs/versioned_docs/version-stable/codegen.mdx
 - [x] nodejs/versioned_docs/version-stable/debug.mdx
-- [ ] nodejs/versioned_docs/version-stable/dialogs.mdx
+- [x] nodejs/versioned_docs/version-stable/dialogs.mdx
 - [ ] nodejs/versioned_docs/version-stable/docker.mdx
 - [x] nodejs/versioned_docs/version-stable/downloads.mdx
 - [x] nodejs/versioned_docs/version-stable/emulation.mdx
@@ -265,7 +265,7 @@
 - [x] nodejs/versioned_docs/version-stable/other-locators.mdx
 - [x] nodejs/versioned_docs/version-stable/pages.mdx
 - [x] nodejs/versioned_docs/version-stable/pom.mdx
-- [ ] nodejs/versioned_docs/version-stable/protractor.mdx
+- [x] nodejs/versioned_docs/version-stable/protractor.mdx
 - [x] nodejs/versioned_docs/version-stable/puppeteer.mdx
 - [ ] nodejs/versioned_docs/version-stable/release-notes.mdx
 - [x] nodejs/versioned_docs/version-stable/running-tests.mdx
@@ -352,7 +352,7 @@
 - [x] python/docs/codegen-intro.mdx
 - [x] python/docs/codegen.mdx
 - [x] python/docs/debug.mdx
-- [ ] python/docs/dialogs.mdx
+- [x] python/docs/dialogs.mdx
 - [ ] python/docs/docker.mdx
 - [x] python/docs/downloads.mdx
 - [x] python/docs/emulation.mdx
@@ -438,7 +438,7 @@
 - [x] python/versioned_docs/version-stable/codegen-intro.mdx
 - [x] python/versioned_docs/version-stable/codegen.mdx
 - [x] python/versioned_docs/version-stable/debug.mdx
-- [ ] python/versioned_docs/version-stable/dialogs.mdx
+- [x] python/versioned_docs/version-stable/dialogs.mdx
 - [ ] python/versioned_docs/version-stable/docker.mdx
 - [x] python/versioned_docs/version-stable/downloads.mdx
 - [x] python/versioned_docs/version-stable/emulation.mdx
@@ -527,7 +527,7 @@
 - [x] java/docs/codegen-intro.mdx
 - [x] java/docs/codegen.mdx
 - [x] java/docs/debug.mdx
-- [ ] java/docs/dialogs.mdx
+- [x] java/docs/dialogs.mdx
 - [ ] java/docs/docker.mdx
 - [x] java/docs/downloads.mdx
 - [x] java/docs/emulation.mdx
@@ -617,7 +617,7 @@
 - [x] java/versioned_docs/version-stable/codegen-intro.mdx
 - [x] java/versioned_docs/version-stable/codegen.mdx
 - [x] java/versioned_docs/version-stable/debug.mdx
-- [ ] java/versioned_docs/version-stable/dialogs.mdx
+- [x] java/versioned_docs/version-stable/dialogs.mdx
 - [ ] java/versioned_docs/version-stable/docker.mdx
 - [x] java/versioned_docs/version-stable/downloads.mdx
 - [x] java/versioned_docs/version-stable/emulation.mdx
@@ -706,7 +706,7 @@
 - [x] dotnet/docs/codegen-intro.mdx
 - [x] dotnet/docs/codegen.mdx
 - [x] dotnet/docs/debug.mdx
-- [ ] dotnet/docs/dialogs.mdx
+- [x] dotnet/docs/dialogs.mdx
 - [ ] dotnet/docs/docker.mdx
 - [x] dotnet/docs/downloads.mdx
 - [x] dotnet/docs/emulation.mdx
@@ -794,7 +794,7 @@
 - [x] dotnet/versioned_docs/version-stable/codegen-intro.mdx
 - [x] dotnet/versioned_docs/version-stable/codegen.mdx
 - [x] dotnet/versioned_docs/version-stable/debug.mdx
-- [ ] dotnet/versioned_docs/version-stable/dialogs.mdx
+- [x] dotnet/versioned_docs/version-stable/dialogs.mdx
 - [ ] dotnet/versioned_docs/version-stable/docker.mdx
 - [x] dotnet/versioned_docs/version-stable/downloads.mdx
 - [x] dotnet/versioned_docs/version-stable/emulation.mdx

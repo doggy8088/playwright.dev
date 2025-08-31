@@ -1,19 +1,19 @@
 ---
 id: dialogs
-title: "Dialogs"
+title: "對話框"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright can interact with the web page dialogs such as [`alert`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert), [`confirm`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm), [`prompt`](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt) as well as [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) confirmation. For print dialogs, see [Print](#print-dialogs).
+Playwright 可以與網頁對話框互動，例如 [`alert`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)、[`confirm`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm)、[`prompt`](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt) 以及 [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) 確認。對於列印對話框，請參閱 [Print](#print-dialogs)。
 
-## alert(), confirm(), prompt() dialogs
+## alert()、confirm()、prompt() 對話框
 
-By default, dialogs are auto-dismissed by Playwright, so you don't have to handle them. However, you can register a dialog handler before the action that triggers the dialog to either [Dialog.accept()](/api/class-dialog.mdx#dialog-accept) or [Dialog.dismiss()](/api/class-dialog.mdx#dialog-dismiss) it.
+預設情況下，對話框會被 Playwright 自動關閉，所以您不需要處理它們。但是，您可以在觸發對話框的操作之前註冊對話框處理程序，以 [Dialog.accept()](/api/class-dialog.mdx#dialog-accept) 或 [Dialog.dismiss()](/api/class-dialog.mdx#dialog-dismiss) 它。
 
 ```java
 page.onDialog(dialog -> dialog.accept());
@@ -21,30 +21,30 @@ page.getByRole(AriaRole.BUTTON).click();
 ```
 
 :::note
-[Page.onDialog(handler)](/api/class-page.mdx#page-event-dialog) listener **must handle** the dialog. Otherwise your action will stall, be it [Locator.click()](/api/class-locator.mdx#locator-click) or something else. That's because dialogs in Web are modals and therefore block further page execution until they are handled.
+[Page.onDialog(handler)](/api/class-page.mdx#page-event-dialog) 監聽器 **必須處理** 對話框。否則您的操作將會停滯，無論是 [Locator.click()](/api/class-locator.mdx#locator-click) 還是其他操作。這是因為網頁中的對話框是模態的，因此會阻止進一步的頁面執行，直到它們被處理。
 :::
 
-As a result, the following snippet will never resolve:
+因此，以下程式碼片段永遠不會解析：
 
 :::warning
 
-WRONG!
+錯誤！
 :::
 
 ```java
 page.onDialog(dialog -> System.out.println(dialog.message()));
-page.getByRole(AriaRole.BUTTON).click(); // Will hang here
+page.getByRole(AriaRole.BUTTON).click(); // 將會停滯在此
 ```
 
 :::note
-If there is no listener for [Page.onDialog(handler)](/api/class-page.mdx#page-event-dialog), all dialogs are automatically dismissed.
+如果沒有 [Page.onDialog(handler)](/api/class-page.mdx#page-event-dialog) 的監聽器，所有對話框都會自動關閉。
 :::
 
-## beforeunload dialog
+## beforeunload 對話框
 
-When [Page.close()](/api/class-page.mdx#page-close) is invoked with the truthy [setRunBeforeUnload](/api/class-page.mdx#page-close-option-run-before-unload) value, the page runs its unload handlers. This is the only case when [Page.close()](/api/class-page.mdx#page-close) does not wait for the page to actually close, because it might be that the page stays open in the end of the operation.
+當 [Page.close()](/api/class-page.mdx#page-close) 以真值 [setRunBeforeUnload](/api/class-page.mdx#page-close-option-run-before-unload) 調用時，頁面會運行其卸載處理程序。這是 [Page.close()](/api/class-page.mdx#page-close) 不等待頁面實際關閉的唯一情況，因為頁面可能最終保持打開狀態。
 
-You can register a dialog handler to handle the `beforeunload` dialog yourself:
+您可以註冊對話框處理程序來自己處理 `beforeunload` 對話框：
 
 ```java
 page.onDialog(dialog -> {
@@ -54,9 +54,9 @@ page.onDialog(dialog -> {
 page.close(new Page.CloseOptions().setRunBeforeUnload(true));
 ```
 
-## Print dialogs
+## 列印對話框
 
-In order to assert that a print dialog via [`window.print`](https://developer.mozilla.org/en-US/docs/Web/API/Window/print) was triggered, you can use the following snippet:
+為了斷言通過 [`window.print`](https://developer.mozilla.org/en-US/docs/Web/API/Window/print) 觸發的列印對話框，您可以使用以下程式碼片段：
 
 ```java
 page.navigate("<url>");
@@ -67,7 +67,7 @@ page.getByText("Print it!").click();
 page.waitForFunction("window.waitForPrintDialog");
 ```
 
-This will wait for the print dialog to be opened after the button is clicked. Make sure to evaluate the script before clicking the button / after the page is loaded.
+這將在按鈕點擊後等待列印對話框打開。確保在點擊按鈕之前 / 頁面載入後評估腳本。
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"
