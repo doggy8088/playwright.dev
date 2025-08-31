@@ -99,7 +99,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 - [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 中的新選項 [MaxRedirects](/api/class-apirequest.mdx#api-request-new-context-選項-max-redirects) 用於控制重定向的最大次數。
 
 ### 重大變更
-- Glob URL patterns in methods like [Page.RouteAsync()](/api/class-page.mdx#page-route) do not support `?` and `[]` anymore. We recommend using regular expressions instead.
+- [Page.RouteAsync()](/api/class-page.mdx#page-route) 等方法中的 Glob URL 模式不再支援 `?` 和 `[]`。我們建議改用正規表示式。
 - 方法 [Route.ContinueAsync()](/api/class-route.mdx#route-continue) 不再允許覆寫 `Cookie` 標頭。如果提供了 `Cookie` 標頭，它將被忽略，cookie 將從瀏覽器的 cookie 儲存區載入。若要設定自訂 cookie，請使用 [BrowserContext.AddCookiesAsync()](/api/class-browsercontext.mdx#browser-context-add-cookies)。
 - macOS 13 現已棄用，將不再接收 WebKit 更新。請升級到更新的 macOS 版本以繼續受益於最新的 WebKit 改進。
 
@@ -280,13 +280,13 @@ await page.RouteWebSocketAsync("/ws", ws => {
 請參閱 [WebSocketRoute] 以取得更多詳細資訊。
 
 ### UI 更新
-- New "copy" buttons for annotations and test location in the HTML report.
-- Route 方法 calls like [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill) are not shown in the report and trace viewer anymore. You can see which network requests were routed in the network tab instead.
-- New "Copy as cURL" and "Copy as fetch" buttons for requests in the network tab.
+- HTML 報告中註釋和測試位置的新「複製」按鈕。
+- 路由方法呼叫（如 [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill)）不再顯示在報告和追蹤檢視器中。您可以在網路標籤中查看哪些網路請求被路由。
+- 網路標籤中請求的新「複製為 cURL」和「複製為 fetch」按鈕。
 
 ### 其他
 - 新方法 [Page.RequestGCAsync()](/api/class-page.mdx#page-request-gc) may help detect memory leaks.
-- Requests made by [APIRequestContext] now record detailed timing and security information in the HAR.
+- [APIRequestContext] 發出的請求現在在 HAR 中記錄詳細的時間和安全資訊。
 
 ### 瀏覽器版本
 - Chromium 130.0.6723.19
@@ -348,7 +348,7 @@ var context = await Browser.NewContextAsync(new() {
 - 文字附件的內容現在會在附件窗格中內嵌呈現。
 - New setting to show/hide routing actions like [Route.ContinueAsync()](/api/class-route.mdx#route-continue).
 - Request 方法 and status are shown in the network details tab.
-- New button to copy source file location to clipboard.
+- 複製源檔案位置到剪貼簿的新按鈕。
 - Metadata pane now displays the `BaseURL`.
 
 ### 其他
@@ -806,7 +806,7 @@ Linux support looks like this:
 ## 版本 1.31
 
 ### 新的 API
-- New assertion [Expect(Locator).ToBeInViewportAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) ensures that locator points to an element that intersects viewport, according to the [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+- 新的斷言 [Expect(Locator).ToBeInViewportAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) 確保定位器指向與視埠相交的元素，根據[交集觀察器 API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)。
   
   ```csharp
   var locator = Page.GetByRole(AriaRole.Button);
@@ -1353,7 +1353,7 @@ Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
 - Playwright Test traces now include sources by default (these could be turned off with tracing 選項)
 - Trace Viewer now shows test name
-- New trace metadata tab with browser details
+- 含有瀏覽器詳細資訊的新追蹤中繼資料標籤
 - Snapshots now have URL bar
 
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)

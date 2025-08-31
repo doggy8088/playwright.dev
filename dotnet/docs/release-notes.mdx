@@ -281,12 +281,12 @@ await page.RouteWebSocketAsync("/ws", ws => {
 
 ### UI 更新
 - HTML 報告中新增用於註釋和測試位置的「複製」按鈕。
-- Route 方法 calls like [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill) are not shown in the report and trace viewer anymore. You can see which network requests were routed in the network tab instead.
+- 路由方法呼叫（如 [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill)）不再顯示在報告和追蹤檢視器中。您可以在網路標籤中查看哪些網路請求被路由。
 - 網路分頁中新增用於請求的「複製為 cURL」和「複製為 fetch」按鈕。
 
 ### 其他
 - 新方法 [Page.RequestGCAsync()](/api/class-page.mdx#page-request-gc) may help detect memory leaks.
-- Requests made by [APIRequestContext] now record detailed timing and security information in the HAR.
+- [APIRequestContext] 發出的請求現在在 HAR 中記錄詳細的時間和安全資訊。
 
 ### 瀏覽器版本
 - Chromium 130.0.6723.19
@@ -313,7 +313,7 @@ await page.RouteWebSocketAsync("/ws", ws => {
 - Playwright Docker 映像的 `:latest`/`:focal`/`:jammy` 標籤不再發布。為了更好的穩定性和可重現性，請固定到特定版本。
 - TLS client certificates 現在可以 be passed from memory by passing [ClientCertificates.Cert](/api/class-browser.mdx#browser-new-context-選項-client-certificates) and [ClientCertificates.Key](/api/class-browser.mdx#browser-new-context-選項-client-certificates) as byte arrays instead of file paths.
 - [NoWaitAfter](/api/class-locator.mdx#locator-select-選項-選項-no-wait-after) in [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-選項) was deprecated.
-- We've seen reports of WebGL in Webkit misbehaving on GitHub Actions `macos-13`. We recommend upgrading GitHub Actions to `macos-14`.
+- 我們在 GitHub Actions `macos-13` 上看到了 Webkit 中 WebGL 的異常行為報告。我們建議將 GitHub Actions 升級到 `macos-14`。
 
 ### 瀏覽器版本
 - Chromium 129.0.6668.29
@@ -345,11 +345,11 @@ var context = await Browser.NewContextAsync(new() {
 ```
 
 ### 追蹤檢視器更新
-- Content of text attachments is now rendered inline in the attachments pane.
-- New setting to show/hide routing actions like [Route.ContinueAsync()](/api/class-route.mdx#route-continue).
-- Request 方法 and status are shown in the network details tab.
+- 文字附件的內容現在在附件窗格中以行內方式呈現。
+- 顯示/隱藏路由動作（如 [Route.ContinueAsync()](/api/class-route.mdx#route-continue)）的新設定。
+- 請求方法和狀態顯示在網路詳細資訊標籤中。
 - 複製來源檔案位置到剪貼簿的新按鈕。
-- Metadata pane now displays the `BaseURL`.
+- 中繼資料窗格現在顯示 `BaseURL`。
 
 ### 其他
 - New `maxRetries` 選項 in [ApiRequestContext.FetchAsync()](/api/class-apirequestcontext.mdx#api-request-context-fetch) which retries on the `ECONNRESET` network error.
@@ -617,8 +617,8 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 - 選項 [FirefoxUserPrefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs) in [BrowserType.LaunchPersistentContextAsync()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
 
 ### 其他變更
-- Methods [Download.PathAsync()](/api/class-download.mdx#download-path) and [Download.CreateReadStreamAsync()](/api/class-download.mdx#download-create-read-stream) throw an error for failed and cancelled downloads.
-- Playwright [docker image](./docker.mdx) now comes with .NET 8 (new LTS).
+- 方法 [Download.PathAsync()](/api/class-download.mdx#download-path) 和 [Download.CreateReadStreamAsync()](/api/class-download.mdx#download-create-read-stream) 在失敗和取消的下載時會拋出錯誤。
+- Playwright [docker image](./docker.mdx) 現在包含 .NET 8（新的 LTS）。
 
 ### 瀏覽器版本
 * Chromium 120.0.6099.28
@@ -824,10 +824,10 @@ Linux support looks like this:
 - 新方法s [BrowserContext.NewCDPSessionAsync()](/api/class-browsercontext.mdx#browser-context-new-cdp-session) and [Browser.NewBrowserCDPSessionAsync()](/api/class-browser.mdx#browser-new-browser-cdp-session) create a [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) session for the page and browser respectively.
 
 ### 其他
-- DOM snapshots in trace viewer can be now opened in a separate window.
+- 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新選項 [MaxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) for 方法 [Route.FetchAsync()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
-- Official [docker images](./docker.mdx) now include Node 18 instead of Node 16.
+- 官方 [docker images](./docker.mdx) 現在包含 Node 18 而非 Node 16。
 
 ### 瀏覽器版本
 * Chromium 111.0.5563.19
@@ -978,7 +978,7 @@ await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 ### 其他重點
 - 新選項 `MaxRedirects` for [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
 - Codegen 現在支援 MSTest and NUnit frameworks.
-- ASP .NET is now supported.
+- 現在支援 ASP .NET。
 
 ### 行為變更
 
@@ -1188,7 +1188,7 @@ await page.RouteAsync("**/*", async route =>
 ## 版本 1.22
 
 ### 重點
-- Role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 角色選擇器，允許依據其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和[無障礙名稱](https://w3c.github.io/accname/#dfn-accessible-name)選取元素。
   
   ```csharp
   // Click a button with accessible name "log in"
@@ -1208,7 +1208,7 @@ await page.RouteAsync("**/*", async route =>
 ## 版本 1.21
 
 ### 重點
-- New role selectors that allow selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 新的角色選擇器，允許依據其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和[無障礙名稱](https://w3c.github.io/accname/#dfn-accessible-name)選取元素。
   
   ```csharp
   // Click a button with accessible name "log in"
@@ -1218,7 +1218,7 @@ await page.RouteAsync("**/*", async route =>
   Read more in [our documentation](./locators.mdx#locate-by-role).
 - New `scale` 選項 in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) for smaller sized screenshots.
 - New `caret` 選項 in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 控制 text caret. Defaults to `"hide"`.
-- We now ship a designated .NET docker image `mcr.microsoft.com/playwright/dotnet`. Read more in [our documentation](./docker).
+- 我們現在提供專用的 .NET docker 映像 `mcr.microsoft.com/playwright/dotnet`。在[我們的文件](./docker)中閱讀更多。
 
 ### 行為變更
 - Playwright 現在支援 large file uploads (100s of MBs) via [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) API.
@@ -1292,7 +1292,7 @@ Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節�
   Read more in [locator documentation](./api/class-locator#locator-locator)
 - New [Locator.Page](/api/class-locator.mdx#locator-page)
 - [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) and [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) now automatically hide blinking caret
-- Playwright Codegen now generates locators and frame locators
+- Playwright Codegen 現在會產生定位器和框架定位器
 
 ### 瀏覽器版本
 - Chromium 100.0.4863.0
@@ -1307,7 +1307,7 @@ Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節�
 
 ### 定位器改進
 - [Locator.DragToAsync()](/api/class-locator.mdx#locator-drag-to)
-- Each locator 現在可以 be optionally filtered by the text it contains:
+- 每個定位器現在可以選擇性地依據其包含的文字進行篩選：
   
   ```csharp
   await Page.Locator("li", new() { HasTextString = "My Item" })
@@ -1351,16 +1351,16 @@ await locator.ClickAsync();
 Playwright Trace Viewer 現在 **可在線上使用**，網址為 https://trace.playwright.dev！只需拖放您的 `trace.zip` 檔案即可檢查其內容。
 
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
-- Playwright Test traces now include sources by default (these could be turned off with tracing 選項)
-- Trace Viewer now shows test name
-- New trace metadata tab with browser details
-- Snapshots now have URL bar
+- Playwright Test 追蹤現在預設包含來源（這些可以透過追蹤選項關閉）
+- 追蹤檢視器現在顯示測試名稱
+- 含有瀏覽器詳細資訊的新追蹤中繼資料標籤
+- 快照現在具有 URL 列
 
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)
 
 ### HTML Report Update
 - HTML report 現在支援 dynamic filtering
-- Report is now a **single static HTML file** that could be sent by e-mail or as a slack attachment.
+- 報告現在是**單一靜態 HTML 檔案**，可以透過電子郵件或作為 slack 附件發送。
 
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
@@ -1374,7 +1374,7 @@ Playwright Trace Viewer 現在 **可在線上使用**，網址為 https://trace.
   
 ### 新的 API
 - Tracing 現在支援 a [`'title'`](./api/class-tracing#tracing-start-選項-title) 選項
-- Page navigations support a new [`'commit'`](./api/class-page#page-goto) waiting 選項
+- 頁面導覽支援新的 [`'commit'`](./api/class-page#page-goto) 等待選項
 
 ## 版本 1.16
 
@@ -1507,7 +1507,7 @@ await button.ClickAsync("button >> visible=true");
 - **🔎 Enhanced HAR** with body sizes for requests and responses. Use via `recordHar` 選項 in [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context).
 
 #### 工具
-- Playwright Trace Viewer now shows parameters, returned values and `console.log()` calls.
+- Playwright 追蹤檢視器現在顯示參數、回傳值和 `console.log()` 呼叫。
 
 #### 新增與重新編寫的指南
 - [Intro](./intro.mdx)
@@ -1530,7 +1530,7 @@ await button.ClickAsync("button >> visible=true");
 ## 版本 1.12
 
 #### 重點
-- Playwright for .NET v1.12 is now stable!
+- Playwright for .NET v1.12 現在穩定！
 - Ships with the [codegen](./codegen.mdx) and [trace viewer](./trace-viewer.mdx) tools out-of-the-box
 
 #### 瀏覽器版本

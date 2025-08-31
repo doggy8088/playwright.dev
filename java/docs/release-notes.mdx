@@ -282,7 +282,7 @@ page.context().tracing().groupEnd();
 - After executing the handler added with [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler), Playwright 現在會等待直到觸發處理器的覆蓋層不再可見。您可以使用新的 `setNoWaitAfter` 選項來選擇退出此行為。
 - 您可以在 [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中使用新的 `setTimes` 選項來指定處理器應執行的最大次數。
 - [Page.addLocatorHandler()](/api/class-page.mdx#page-add-locator-handler) 中的處理器現在接受定位器作為參數。
-- New [Page.removeLocatorHandler()](/api/class-page.mdx#page-remove-locator-handler) 方法 for removing previously added locator handlers.
+- 新的 [Page.removeLocatorHandler()](/api/class-page.mdx#page-remove-locator-handler) 方法，用於移除先前新增的定位器處理器。
 
 ```java
 Locator locator = page.getByText("This interstitial covers the button");
@@ -511,11 +511,11 @@ assertThat(page.getByPlaceholder("Search docs")).hasValue("locator");
 ```
 
 ### 新的 API
-- Options [setReason](/api/class-page.mdx#page-close-選項-reason) in [Page.close()](/api/class-page.mdx#page-close), [setReason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) in [BrowserContext.close()](/api/class-browsercontext.mdx#browser-context-close) and [setReason](/api/class-browser.mdx#browser-close-選項-reason) in [Browser.close()](/api/class-browser.mdx#browser-close). Close reason is reported for all operations interrupted by the closure.
+- [Page.close()](/api/class-page.mdx#page-close) 中的選項 [setReason](/api/class-page.mdx#page-close-選項-reason)、[BrowserContext.close()](/api/class-browsercontext.mdx#browser-context-close) 中的選項 [setReason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) 和 [Browser.close()](/api/class-browser.mdx#browser-close) 中的選項 [setReason](/api/class-browser.mdx#browser-close-選項-reason)。關閉原因會回報給所有因關閉而中斷的操作。
 - 選項 [setFirefoxUserPrefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs) in [BrowserType.launchPersistentContext()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
 
 ### 其他變更
-- Methods [Download.path()](/api/class-download.mdx#download-path) and [Download.createReadStream()](/api/class-download.mdx#download-create-read-stream) throw an error for failed and cancelled downloads.
+- 方法 [Download.path()](/api/class-download.mdx#download-path) 和 [Download.createReadStream()](/api/class-download.mdx#download-create-read-stream) 在失敗和取消的下載時會拋出錯誤。
 
 ### 瀏覽器版本
 * Chromium 120.0.6099.28
@@ -690,7 +690,7 @@ Linux support looks like this:
 - 新選項 [setTimeout](/api/class-route.mdx#route-fetch-選項-timeout) in [Route.fetch()](/api/class-route.mdx#route-fetch)
 
 ### 其他重點
-- Native support for Apple Silicon - Playwright now runs without Rosetta
+- Apple Silicon 的原生支援 - Playwright 現在無需 Rosetta 即可執行
 - Added Ubuntu 22.04 (Jammy) Docker image
 
 ### ⚠️ Breaking change
@@ -740,10 +740,10 @@ Linux support looks like this:
   ```
   
 ### 其他
-- DOM snapshots in trace viewer can be now opened in a separate window.
+- 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新選項 [setMaxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) for 方法 [Route.fetch()](/api/class-route.mdx#route-fetch).
 - Playwright 現在支援 Debian 11 arm64.
-- Official [docker images](./docker.mdx) now include Node 18 instead of Node 16.
+- 官方 [docker images](./docker.mdx) 現在包含 Node 18 而非 Node 16。
 
 ### 瀏覽器版本
 * Chromium 111.0.5563.19
@@ -888,7 +888,7 @@ All the same methods are also available on [Locator], [FrameLocator] and [Frame]
 
 ### 其他重點
 - 新選項 `setMaxRedirects` for [APIRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and others to limit redirect count.
-- Docker images are now using OpenJDK 17.
+- Docker 映像現在使用 OpenJDK 17。
 
 ### 行為變更
 
@@ -914,7 +914,7 @@ To align with web specification, the `WaitUntilState.DOMCONTENTLOADED` value onl
 ## 版本 1.25
 
 ### 新的 API 與變更
-- Default assertions timeout now can be changed with [`setDefaultAssertionTimeout`](./api/class-playwrightassertions#playwright-assertions-set-default-assertion-timeout).
+- 預設斷言逾時現在可以透過 [`setDefaultAssertionTimeout`](./api/class-playwrightassertions#playwright-assertions-set-default-assertion-timeout) 變更。
 
 ### 公告
 * 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
@@ -1117,7 +1117,7 @@ page.route("**/*", route -> {
   Read more in [locator documentation](./api/class-locator#locator-locator)
 - New [Locator.page()](/api/class-locator.mdx#locator-page)
 - [Page.screenshot()](/api/class-page.mdx#page-screenshot) and [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) now automatically hide blinking caret
-- Playwright Codegen now generates locators and frame locators
+- Playwright Codegen 現在會產生定位器和框架定位器
 
 ### 瀏覽器版本
 - Chromium 100.0.4863.0
@@ -1171,7 +1171,7 @@ Read more in [our documentation](./test-assertions).
 
 ### 定位器改進
 - [Locator.dragTo()](/api/class-locator.mdx#locator-drag-to)
-- Each locator 現在可以 be optionally filtered by the text it contains:
+- 每個定位器現在可以選擇性地依據其包含的文字進行篩選：
   
   ```java
   page.locator("li", new Page.LocatorOptions().setHasText("my item"))
@@ -1220,16 +1220,16 @@ Read more at [our documentation](./api/class-framelocator).
 Playwright Trace Viewer is now **available online** at https://trace.playwright.dev! Just drag-and-drop your `trace.zip` file to inspect its contents.
 
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
-- Playwright Test traces now include sources by default (these could be turned off with tracing 選項)
-- Trace Viewer now shows test name
-- New trace metadata tab with browser details
-- Snapshots now have URL bar
+- Playwright Test 追蹤現在預設包含來源（這些可以透過追蹤選項關閉）
+- 追蹤檢視器現在顯示測試名稱
+- 含有瀏覽器詳細資訊的新追蹤中繼資料標籤
+- 快照現在具有 URL 列
 
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)
 
 ### HTML Report Update
 - HTML report 現在支援 dynamic filtering
-- Report is now a **single static HTML file** that could be sent by e-mail or as a slack attachment.
+- 報告現在是**單一靜態 HTML 檔案**，可以透過電子郵件或作為 slack 附件發送。
 
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 

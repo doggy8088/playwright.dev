@@ -52,7 +52,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ## 版本 1.53
 
 ### Trace Viewer and HTML Reporter Updates
-- New Steps in Trace Viewer: ![New Trace Viewer Steps](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
+- 追蹤檢視器中的新步驟：![新的追蹤檢視器步驟](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
 - 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) to describe a locator. Used for trace viewer.
   
   ```python
@@ -97,7 +97,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 - 新選項 [max_redirects](/api/class-apirequest.mdx#api-request-new-context-選項-max-redirects) in [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) 控制 the maximum number of redirects.
 
 ### 重大變更
-- Glob URL patterns in methods like [page.route()](/api/class-page.mdx#page-route) do not support `?` and `[]` anymore. We recommend using regular expressions instead.
+- [page.route()](/api/class-page.mdx#page-route) 等方法中的 Glob URL 模式不再支援 `?` 和 `[]`。我們建議改用正規表示式。
 - 方法 [route.continue_()](/api/class-route.mdx#route-continue) does not 允許 override the `Cookie` header anymore. If a `Cookie` header is provided, it will be ignored, and the cookie will be loaded from the browser's cookie store. To set custom cookies, use [browser_context.add_cookies()](/api/class-browsercontext.mdx#browser-context-add-cookies).
 - macOS 13 現已棄用，將不再接收 WebKit 更新。請升級到更新的 macOS 版本以繼續受益於最新的 WebKit 改進。
 
@@ -422,7 +422,7 @@ def test_example(page: Page) -> None:
 ```
 
 ### 新的 API
-- Options [reason](/api/class-page.mdx#page-close-選項-reason) in [page.close()](/api/class-page.mdx#page-close), [reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) in [browser_context.close()](/api/class-browsercontext.mdx#browser-context-close) and [reason](/api/class-browser.mdx#browser-close-選項-reason) in [browser.close()](/api/class-browser.mdx#browser-close). Close reason is reported for all operations interrupted by the closure.
+- [page.close()](/api/class-page.mdx#page-close) 中的選項 [reason](/api/class-page.mdx#page-close-選項-reason)、[browser_context.close()](/api/class-browsercontext.mdx#browser-context-close) 中的選項 [reason](/api/class-browsercontext.mdx#browser-context-close-選項-reason) 和 [browser.close()](/api/class-browser.mdx#browser-close) 中的選項 [reason](/api/class-browser.mdx#browser-close-選項-reason)。關閉原因會回報給所有因關閉而中斷的操作。
 - 選項 [firefox_user_prefs](/api/class-browsertype.mdx#browser-type-launch-persistent-context-選項-firefox-user-prefs) in [browser_type.launch_persistent_context()](/api/class-browsertype.mdx#browser-type-launch-persistent-context).
 
 ### 其他變更
@@ -602,7 +602,7 @@ Linux support looks like this:
 ## 版本 1.32
 
 ### 新的 API
-- Custom expect message, see [test assertions documentation](./test-assertions.mdx#custom-expect-message).
+- 自訂預期訊息，請參閱[測試斷言文件](./test-assertions.mdx#custom-expect-message)。
 - 新選項s [update_mode](/api/class-page.mdx#page-route-from-har-選項-update-mode) and [update_content](/api/class-page.mdx#page-route-from-har-選項-update-content) in [page.route_from_har()](/api/class-page.mdx#page-route-from-har) and [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har).
 - Chaining existing locator objects, see [locator docs](./locators.mdx#matching-inside-a-locator) for details.
 - 新選項 [name](/api/class-tracing.mdx#tracing-start-chunk-選項-name) in 方法 [tracing.start_chunk()](/api/class-tracing.mdx#tracing-start-chunk).
