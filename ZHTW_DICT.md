@@ -81,3 +81,26 @@
 - Chrome DevTools → Chrome DevTools（產品名不翻）
 
 如需新增詞條，請於本檔案最後追加，並附上簡短語境說明。
+
+## 新增術語（test-projects 相關）
+- project → 專案（測試專案）
+- configuration → 組態設定
+- dependencies → 相依性
+- teardown → 拆除（測試拆除）
+- setup → 設定（測試設定）
+- filter → 篩選器
+- logical group → 邏輯群組
+- environment → 環境
+- staging → 測試環境
+- production → 正式環境
+- subset → 子集合
+- worker → 工作程序
+- sequence → 序列
+- registry → 註冊表
+- branded browsers → 品牌瀏覽器
+- emulated → 模擬的
+- tablet → 平板電腦
+- mobile devices → 行動裝置
+- desktop → 桌面
+- viewport → 檢視區
+- profile → 設定檔
