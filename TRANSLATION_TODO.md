@@ -17,7 +17,7 @@
 
 ## Node.js（nodejs/docs）（139）
 
-- [ ] nodejs/docs/accessibility-testing.mdx
+ - [x] nodejs/docs/accessibility-testing.mdx
 - [ ] nodejs/docs/actionability.mdx
 - [ ] nodejs/docs/api-testing.mdx
 - [ ] nodejs/docs/api/class-accessibility.mdx
@@ -160,7 +160,7 @@
 
 ## Node.js（nodejs/versioned_docs）（139）
 
-- [ ] nodejs/versioned_docs/version-stable/accessibility-testing.mdx
+- [x] nodejs/versioned_docs/version-stable/accessibility-testing.mdx
 - [ ] nodejs/versioned_docs/version-stable/actionability.mdx
 - [ ] nodejs/versioned_docs/version-stable/api-testing.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-accessibility.mdx
@@ -474,7 +474,7 @@
 
 ## Java（java/docs）（87）
 
-- [ ] java/docs/accessibility-testing.mdx
+- [x] java/docs/accessibility-testing.mdx
 - [ ] java/docs/actionability.mdx
 - [ ] java/docs/api-testing.mdx
 - [ ] java/docs/api/class-apirequest.mdx
@@ -564,7 +564,7 @@
 
 ## Java（java/versioned_docs）（87）
 
-- [ ] java/versioned_docs/version-stable/accessibility-testing.mdx
+- [x] java/versioned_docs/version-stable/accessibility-testing.mdx
 - [ ] java/versioned_docs/version-stable/actionability.mdx
 - [ ] java/versioned_docs/version-stable/api-testing.mdx
 - [ ] java/versioned_docs/version-stable/api/class-apirequest.mdx

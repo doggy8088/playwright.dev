@@ -1,43 +1,43 @@
 ---
 id: accessibility-testing
-title: "Accessibility testing"
+title: "無障礙測試（Accessibility testing）"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 介紹
 
-Playwright can be used to test your application for many types of accessibility issues.
+Playwright 可用於針對多種無障礙（Accessibility）問題測試您的應用程式。
 
-A few examples of problems this can catch include:
-- Text that would be hard to read for users with vision impairments due to poor color contrast with the background behind it
-- UI controls and form elements without labels that a screen reader could identify
-- Interactive elements with duplicate IDs which can confuse assistive technologies
+以下是一些可自動偵測出的問題範例：
+- 由於與背景色的對比不足，導致視覺障礙使用者難以閱讀的文字
+- 沒有可被螢幕閱讀器辨識之標籤的 UI 控制項與表單元素
+- 具有重複 ID 的互動元素，可能使輔助技術混淆
 
-The following examples rely on the [`com.deque.html.axe-core/playwright`](https://mvnrepository.com/artifact/com.deque.html.axe-core/playwright) Maven package which adds support for running the [axe accessibility testing engine](https://www.deque.com/axe/) as part of your Playwright tests.
+以下範例仰賴 [`com.deque.html.axe-core/playwright`](https://mvnrepository.com/artifact/com.deque.html.axe-core/playwright) Maven 套件，讓您能在 Playwright 測試中執行 [axe 無障礙測試引擎](https://www.deque.com/axe/)。
 
-## Disclaimer
+## 免責聲明
 
-Automated accessibility tests can detect some common accessibility problems such as missing or invalid properties. But many accessibility problems can only be discovered through manual testing. We recommend using a combination of automated testing, manual accessibility assessments, and inclusive user testing.
+自動化無障礙測試可偵測部分常見問題，例如缺少或無效的屬性。但仍有許多無障礙問題必須透過人工測試才能發現。我們建議結合自動化測試、手動無障礙評估，以及包容性的使用者測試。
 
-For manual assessments, we recommend [Accessibility Insights for Web](https://accessibilityinsights.io/docs/web/overview/?referrer=playwright-accessibility-testing-java), a free and open source dev tool that walks you through assessing a website for [WCAG 2.1 AA](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize&levels=aaa) coverage.
+若進行手動評估，我們推薦使用 [Accessibility Insights for Web](https://accessibilityinsights.io/docs/web/overview/?referrer=playwright-accessibility-testing-java)，這是一套免費開源的開發工具，可引導您評估網站對 [WCAG 2.1 AA](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize&levels=aaa) 的涵蓋程度。
 
-## Example accessibility tests
+## 無障礙測試範例
 
-Accessibility tests work just like any other Playwright test. You can either create separate test cases for them, or integrate accessibility scans and assertions into your existing test cases.
+無障礙測試的運作方式與一般的 Playwright 測試相同。您可以為它們建立獨立的測試案例，或將無障礙掃描與斷言整合到既有的測試中。
 
-The following examples demonstrate a few basic accessibility testing scenarios.
+以下示範幾個基本的無障礙測試情境。
 
-### Example 1: Scanning an entire page
+### 範例 1：掃描整個頁面
 
-This example demonstrates how to test an entire page for automatically detectable accessibility violations. The test:
-1. Imports the [`com.deque.html.axe-core/playwright`](https://mvnrepository.com/artifact/com.deque.html.axe-core/playwright) package
-1. Uses normal JUnit 5 `@Test` syntax to define a test case
-1. Uses normal Playwright syntax to open a browser and navigate to the page under test
-1. Invokes `AxeBuilder.analyze()` to run the accessibility scan against the page
-1. Uses normal JUnit 5 test assertions to verify that there are no violations in the returned scan results
+此範例示範如何在整個頁面上執行可自動偵測的無障礙違規檢查。測試會：
+1. 匯入 [`com.deque.html.axe-core/playwright`](https://mvnrepository.com/artifact/com.deque.html.axe-core/playwright) 套件
+1. 使用一般的 JUnit 5 `@Test` 語法定義測試案例
+1. 使用一般的 Playwright 語法開啟瀏覽器並導覽至受測頁面
+1. 呼叫 `AxeBuilder.analyze()` 對頁面執行無障礙掃描
+1. 使用一般的 JUnit 5 測試斷言驗證回傳的掃描結果中沒有違規
 
 ```java
 import com.deque.html.axecore.playwright.*; // 1
@@ -65,13 +65,13 @@ public class HomepageTests {
 }
 ```
 
-### Example 2: Configuring axe to scan a specific part of a page
+### 範例 2：設定 axe 只掃描頁面的特定區域
 
-`com.deque.html.axe-core/playwright` supports many configuration options for axe. You can specify these options by using a Builder pattern with the `AxeBuilder` class.
+`com.deque.html.axe-core/playwright` 支援多種 axe 設定。您可以使用 `AxeBuilder` 類別搭配 Builder 模式來指定這些選項。
 
-For example, you can use [`AxeBuilder.include()`](https://github.com/dequelabs/axe-core-maven-html/blob/develop/playwright/README.md#axebuilderincludeliststring-selector) to constrain an accessibility scan to only run against one specific part of a page.
+例如，可使用 [`AxeBuilder.include()`](https://github.com/dequelabs/axe-core-maven-html/blob/develop/playwright/README.md#axebuilderincludeliststring-selector) 將無障礙掃描限制在頁面某個特定區域。
 
-`AxeBuilder.analyze()` will scan the page *in its current state* when you call it. To scan parts of a page that are revealed based on UI interactions, use [Locators](./locators.mdx) to interact with the page before invoking `analyze()`:
+`AxeBuilder.analyze()` 呼叫時會以頁面「當下狀態」進行掃描。若需掃描透過 UI 互動後才會顯示的區塊，請在呼叫 `analyze()` 之前先用[定位器](./locators.mdx)與頁面互動：
 
 ```java
 public class HomepageTests {
@@ -95,13 +95,13 @@ public class HomepageTests {
 }
 ```
 
-### Example 3: Scanning for WCAG violations
+### 範例 3：掃描 WCAG 違規
 
-By default, axe checks against a wide variety of accessibility rules. Some of these rules correspond to specific success criteria from the [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/TR/WCAG21/), and others are "best practice" rules that are not specifically required by any WCAG criterion.
+預設情況下，axe 會檢查多種無障礙規則。其中有些對應到 [Web 內容無障礙指南（WCAG）](https://www.w3.org/TR/WCAG21/) 的特定成功準則，另外一些則屬於非 WCAG 強制、但建議遵循的「最佳實務」規則。
 
-You can constrain an accessibility scan to only run those rules which are "tagged" as corresponding to specific WCAG success criteria by using [`AxeBuilder.withTags()`](https://github.com/dequelabs/axe-core-maven-html/blob/develop/playwright/README.md#axebuilderwithtagsliststring-rules). For example, [Accessibility Insights for Web's Automated Checks](https://accessibilityinsights.io/docs/web/getstarted/fastpass/?referrer=playwright-accessibility-testing-java) only include axe rules that test for violations of WCAG A and AA success criteria; to match that behavior, you would use the tags `wcag2a`, `wcag2aa`, `wcag21a`, and `wcag21aa`.
+您可以使用 [`AxeBuilder.withTags()`](https://github.com/dequelabs/axe-core-maven-html/blob/develop/playwright/README.md#axebuilderwithtagsliststring-rules) 將掃描限制為只執行「標記為」某些 WCAG 成功準則的規則。例如，[Accessibility Insights for Web 的 Automated Checks](https://accessibilityinsights.io/docs/web/getstarted/fastpass/?referrer=playwright-accessibility-testing-java) 只包含用於檢測 WCAG A 與 AA 成功準則違規的 axe 規則；若要符合該行為，請使用標記 `wcag2a`、`wcag2aa`、`wcag21a` 與 `wcag21aa`。
 
-Note that [automated testing cannot detect all types of WCAG violations](#disclaimer).
+請注意，[自動化測試無法偵測到所有類型的 WCAG 違規](#免責聲明)。
 
 ```java
 AxeResults accessibilityScanResults = new AxeBuilder(page)
@@ -111,21 +111,21 @@ AxeResults accessibilityScanResults = new AxeBuilder(page)
 assertEquals(Collections.emptyList(), accessibilityScanResults.getViolations());
 ```
 
-You can find a complete listing of the rule tags axe-core supports in [the "Axe-core Tags" section of the axe API documentation](https://www.deque.com/axe/core-documentation/api-documentation/#axecore-tags).
+您可以在 [axe API 文件的「Axe-core Tags」章節](https://www.deque.com/axe/core-documentation/api-documentation/#axecore-tags) 找到 axe-core 支援的規則標記完整清單。
 
-## Handling known issues
+## 處理已知問題
 
-A common question when adding accessibility tests to an application is "how do I suppress known violations?" The following examples demonstrate a few techniques you can use.
+在為應用程式加入無障礙測試時，常見問題是「要如何暫時抑制已知的違規？」以下示範幾種可用技巧。
 
-### Excluding individual elements from a scan
+### 從掃描中排除個別元素
 
-If your application contains a few specific elements with known issues, you can use [`AxeBuilder.exclude()`](https://github.com/dequelabs/axe-core-maven-html/blob/develop/playwright/README.md#axebuilderexcludeliststring-selector) to exclude them from being scanned until you're able to fix the issues.
+若應用程式中有少量具已知問題的特定元素，您可以使用 [`AxeBuilder.exclude()`](https://github.com/dequelabs/axe-core-maven-html/blob/develop/playwright/README.md#axebuilderexcludeliststring-selector) 將它們自掃描中排除，直到有時間修復為止。
 
-This is usually the simplest option, but it has some important downsides:
-* `exclude()` will exclude the specified elements *and all of their descendants*. Avoid using it with components that contain many children.
-* `exclude()` will prevent *all* rules from running against the specified elements, not just the rules corresponding to known issues.
+這通常是最簡單的作法，但也有幾個重要缺點：
+* `exclude()` 會排除指定元素與其「所有子孫」。若該元件包含許多子元素，請避免使用。
+* `exclude()` 會阻止「所有」規則在指定元素上執行，而不僅是與已知問題相關的規則。
 
-Here is an example of excluding one element from being scanned in one specific test:
+以下示範在單一測試中排除某個元素不被掃描：
 
 ```java
 AxeResults accessibilityScanResults = new AxeBuilder(page)
@@ -135,13 +135,13 @@ AxeResults accessibilityScanResults = new AxeBuilder(page)
 assertEquals(Collections.emptyList(), accessibilityScanResults.getViolations());
 ```
 
-If the element in question is used repeatedly in many pages, consider [using a test fixture](#using-a-test-fixture-for-common-axe-configuration) to reuse the same `AxeBuilder` configuration across multiple tests.
+如果該元素在許多頁面重複使用，考慮[使用測試佈置](#using-a-test-fixture-for-common-axe-configuration) 讓多個測試共用相同的 `AxeBuilder` 設定。
 
-### Disabling individual scan rules
+### 停用單一掃描規則
 
-If your application contains many different preexisting violations of a specific rule, you can use [`AxeBuilder.disableRules()`](https://github.com/dequelabs/axe-core-maven-html/blob/develop/playwright/README.md#axebuilderdisablerulesliststring-rules) to temporarily disable individual rules until you're able to fix the issues.
+若應用程式中存在許多某特定規則的既有違規，您可以使用 [`AxeBuilder.disableRules()`](https://github.com/dequelabs/axe-core-maven-html/blob/develop/playwright/README.md#axebuilderdisablerulesliststring-rules) 暫時停用單一規則，直到您修復問題為止。
 
-You can find the rule IDs to pass to `disableRules()` in the `id` property of the violations you want to suppress. A [complete list of axe's rules](https://github.com/dequelabs/axe-core/blob/master/doc/rule-descriptions.md) can be found in `axe-core`'s documentation.
+可在您想抑制之違規項目的 `id` 屬性中找到要傳給 `disableRules()` 的規則 ID。`axe-core` 文件中有[完整的 axe 規則清單](https://github.com/dequelabs/axe-core/blob/master/doc/rule-descriptions.md)。
 
 ```java
 AxeResults accessibilityScanResults = new AxeBuilder(page)
@@ -151,16 +151,16 @@ AxeResults accessibilityScanResults = new AxeBuilder(page)
 assertEquals(Collections.emptyList(), accessibilityScanResults.getViolations());
 ```
 
-### Using violation fingerprints to specific known issues
+### 使用違規指紋（fingerprints）允許特定已知問題
 
-If you would like to allow for a more granular set of known issues, you can use the following pattern:
-1. Perform an accessibility scan which is expected to find some known violations
-1. Convert the violations into "violation fingerprint" objects
-1. Assert that the set of fingerprints is equivalent to the expected ones
+若您需要更細緻地允許某些已知問題，可以採用以下模式：
+1. 執行一次預期會找到已知違規的無障礙掃描
+1. 將違規轉換為「違規指紋」物件
+1. 斷言指紋集合與預期相符
 
-This approach avoids the downsides of using `AxeBuilder.exclude()` at the cost of slightly more complexity and fragility.
+此作法可避免 `AxeBuilder.exclude()` 的缺點，但代價是稍微增加複雜度且較脆弱。
 
-Here is an example of using fingerprints based on only rule IDs and "target" selectors pointing to each violation:
+以下示範使用僅含規則 ID 與指向各違規之 target 選擇器的指紋：
 
 ```java
 public class HomepageTests {
@@ -179,10 +179,9 @@ public class HomepageTests {
     ), violationFingerprints);
   }
 
-  // You can make your "fingerprint" as specific as you like. This one considers a violation to be
-  // "the same" if it corresponds the same Axe rule on the same element.
+  // 您可以視需求調整「指紋」的具體程度。以下將「同一元素上對應同一 Axe 規則的違規」視為相同。
   //
-  // Using a record type makes it easy to compare fingerprints with assertEquals
+  // 使用 record 類型有助於用 assertEquals 比對指紋
   public record ViolationFingerprint(String ruleId, String target) { }
 
   public List<ViolationFingerprint> fingerprintsFromScanResults(AxeResults results) {
@@ -200,18 +199,18 @@ public class HomepageTests {
 }
 ```
 
-## Using a test fixture for common axe configuration
+## 使用測試佈置共用 axe 設定
 
-A [`TestFixtures` class](./test-runners#running-tests-in-parallel) is a good way to share common `AxeBuilder` configuration across many tests. Some scenarios where this might be useful include:
-* Using a common set of rules among all of your tests
-* Suppressing a known violation in a common element which appears in many different pages
-* Attaching standalone accessibility reports consistently for many scans
+使用 [`TestFixtures` 類別](./test-runners#running-tests-in-parallel) 是在多個測試間共用 `AxeBuilder` 設定的好方法。適用情境包含：
+* 在所有測試中使用共同的一組規則
+* 針對出現在多個頁面的共用元素，抑制已知違規
+* 持續為多次掃描附加獨立的無障礙報告
 
-The following example demonstrates extending the `TestFixtures` class from the [Test Runners example](./test-runners#running-tests-in-parallel) with a new fixture that contains some common `AxeBuilder` configuration.
+以下示範擴充[測試執行器範例](./test-runners#running-tests-in-parallel)中的 `TestFixtures` 類別，新增包含共用 `AxeBuilder` 設定的佈置。
 
-### Creating a fixture
+### 建立佈置
 
-This example fixture creates an `AxeBuilder` object which is pre-configured with shared `withTags()` and `exclude()` configuration.
+此佈置會建立一個 `AxeBuilder` 物件，並預先設定共用的 `withTags()` 與 `exclude()`。
 
 ```java
 class AxeTestFixtures extends TestFixtures {
@@ -223,9 +222,9 @@ class AxeTestFixtures extends TestFixtures {
 }
 ```
 
-### Using a fixture
+### 使用佈置
 
-To use the fixture, replace the earlier examples' `new AxeBuilder(page)` with the newly defined `makeAxeBuilder` fixture:
+若要使用此佈置，請將先前範例中的 `new AxeBuilder(page)` 改為使用新定義的 `makeAxeBuilder` 佈置：
 
 ```java
 public class HomepageTests extends AxeTestFixtures {
@@ -244,7 +243,7 @@ public class HomepageTests extends AxeTestFixtures {
 }
 ```
 
-See experimental [JUnit integration](./junit.mdx) to automatically initialize Playwright objects and more.
+另請參考實驗性的 [JUnit 整合](./junit.mdx)，可自動初始化 Playwright 物件等能力。
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"
