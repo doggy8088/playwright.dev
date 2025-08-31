@@ -95,7 +95,7 @@
 - [x] nodejs/docs/browsers.mdx
 - [x] nodejs/docs/canary-releases.mdx
 - [x] nodejs/docs/chrome-extensions.mdx
-- [ ] nodejs/docs/ci-intro.mdx
+- [x] nodejs/docs/ci-intro.mdx
 - [x] nodejs/docs/ci.mdx
 - [ ] nodejs/docs/clock.mdx
 - [x] nodejs/docs/codegen-intro.mdx
@@ -237,7 +237,7 @@
 - [x] nodejs/versioned_docs/version-stable/browsers.mdx
 - [x] nodejs/versioned_docs/version-stable/canary-releases.mdx
 - [x] nodejs/versioned_docs/version-stable/chrome-extensions.mdx
-- [ ] nodejs/versioned_docs/version-stable/ci-intro.mdx
+- [x] nodejs/versioned_docs/version-stable/ci-intro.mdx
 - [x] nodejs/versioned_docs/version-stable/ci.mdx
 - [ ] nodejs/versioned_docs/version-stable/clock.mdx
 - [x] nodejs/versioned_docs/version-stable/codegen-intro.mdx
@@ -346,7 +346,7 @@
 - [x] python/docs/browser-contexts.mdx
 - [x] python/docs/browsers.mdx
 - [x] python/docs/chrome-extensions.mdx
-- [ ] python/docs/ci-intro.mdx
+- [x] python/docs/ci-intro.mdx
 - [x] python/docs/ci.mdx
 - [ ] python/docs/clock.mdx
 - [x] python/docs/codegen-intro.mdx
@@ -432,7 +432,7 @@
 - [x] python/versioned_docs/version-stable/browser-contexts.mdx
 - [x] python/versioned_docs/version-stable/browsers.mdx
 - [x] python/versioned_docs/version-stable/chrome-extensions.mdx
-- [ ] python/versioned_docs/version-stable/ci-intro.mdx
+- [x] python/versioned_docs/version-stable/ci-intro.mdx
 - [x] python/versioned_docs/version-stable/ci.mdx
 - [ ] python/versioned_docs/version-stable/clock.mdx
 - [x] python/versioned_docs/version-stable/codegen-intro.mdx
@@ -521,7 +521,7 @@
 - [x] java/docs/auth.mdx
 - [x] java/docs/browser-contexts.mdx
 - [x] java/docs/browsers.mdx
-- [ ] java/docs/ci-intro.mdx
+- [x] java/docs/ci-intro.mdx
 - [x] java/docs/ci.mdx
 - [ ] java/docs/clock.mdx
 - [x] java/docs/codegen-intro.mdx
@@ -611,7 +611,7 @@
 - [x] java/versioned_docs/version-stable/auth.mdx
 - [x] java/versioned_docs/version-stable/browser-contexts.mdx
 - [x] java/versioned_docs/version-stable/browsers.mdx
-- [ ] java/versioned_docs/version-stable/ci-intro.mdx
+- [x] java/versioned_docs/version-stable/ci-intro.mdx
 - [x] java/versioned_docs/version-stable/ci.mdx
 - [ ] java/versioned_docs/version-stable/clock.mdx
 - [x] java/versioned_docs/version-stable/codegen-intro.mdx
@@ -700,7 +700,7 @@
 - [x] dotnet/docs/auth.mdx
 - [x] dotnet/docs/browser-contexts.mdx
 - [x] dotnet/docs/browsers.mdx
-- [ ] dotnet/docs/ci-intro.mdx
+- [x] dotnet/docs/ci-intro.mdx
 - [x] dotnet/docs/ci.mdx
 - [ ] dotnet/docs/clock.mdx
 - [x] dotnet/docs/codegen-intro.mdx
@@ -788,7 +788,7 @@
 - [x] dotnet/versioned_docs/version-stable/auth.mdx
 - [x] dotnet/versioned_docs/version-stable/browser-contexts.mdx
 - [x] dotnet/versioned_docs/version-stable/browsers.mdx
-- [ ] dotnet/versioned_docs/version-stable/ci-intro.mdx
+- [x] dotnet/versioned_docs/version-stable/ci-intro.mdx
 - [x] dotnet/versioned_docs/version-stable/ci.mdx
 - [ ] dotnet/versioned_docs/version-stable/clock.mdx
 - [x] dotnet/versioned_docs/version-stable/codegen-intro.mdx
