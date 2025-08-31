@@ -92,7 +92,7 @@
 - [x] nodejs/docs/auth.mdx
 - [x] nodejs/docs/best-practices.mdx
 - [x] nodejs/docs/browser-contexts.mdx
-- [ ] nodejs/docs/browsers.mdx
+- [x] nodejs/docs/browsers.mdx
 - [x] nodejs/docs/canary-releases.mdx
 - [ ] nodejs/docs/chrome-extensions.mdx
 - [ ] nodejs/docs/ci-intro.mdx
@@ -108,7 +108,7 @@
 - [ ] nodejs/docs/emulation.mdx
 - [ ] nodejs/docs/evaluating.mdx
 - [ ] nodejs/docs/events.mdx
-- [ ] nodejs/docs/extensibility.mdx
+- [x] nodejs/docs/extensibility.mdx
 - [ ] nodejs/docs/frames.mdx
 - [ ] nodejs/docs/getting-started-vscode.mdx
 - [ ] nodejs/docs/handles.mdx
@@ -123,14 +123,14 @@
 - [ ] nodejs/docs/network.mdx
 - [ ] nodejs/docs/other-locators.mdx
 - [ ] nodejs/docs/pages.mdx
-- [ ] nodejs/docs/pom.mdx
+- [x] nodejs/docs/pom.mdx
 - [ ] nodejs/docs/protractor.mdx
 - [ ] nodejs/docs/puppeteer.mdx
 - [ ] nodejs/docs/release-notes.mdx
 - [x] nodejs/docs/running-tests.mdx
 - [ ] nodejs/docs/screenshots.mdx
 - [ ] nodejs/docs/selenium-grid.mdx
-- [ ] nodejs/docs/service-workers-experimental-network-events.mdx
+- [x] nodejs/docs/service-workers-experimental-network-events.mdx
 - [ ] nodejs/docs/test-annotations.mdx
 - [x] nodejs/docs/test-assertions.mdx
 - [ ] nodejs/docs/test-cli.mdx
@@ -140,7 +140,7 @@
 - [ ] nodejs/docs/test-global-setup-teardown.mdx
 - [ ] nodejs/docs/test-parallel.mdx
 - [ ] nodejs/docs/test-parameterize.mdx
-- [ ] nodejs/docs/test-projects.mdx
+- [x] nodejs/docs/test-projects.mdx
 - [ ] nodejs/docs/test-reporters.mdx
 - [ ] nodejs/docs/test-retries.mdx
 - [ ] nodejs/docs/test-sharding.mdx
@@ -235,7 +235,7 @@
 - [x] nodejs/versioned_docs/version-stable/auth.mdx
 - [x] nodejs/versioned_docs/version-stable/best-practices.mdx
 - [x] nodejs/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] nodejs/versioned_docs/version-stable/browsers.mdx
+- [x] nodejs/versioned_docs/version-stable/browsers.mdx
 - [x] nodejs/versioned_docs/version-stable/canary-releases.mdx
 - [ ] nodejs/versioned_docs/version-stable/chrome-extensions.mdx
 - [ ] nodejs/versioned_docs/version-stable/ci-intro.mdx
@@ -250,7 +250,7 @@
 - [ ] nodejs/versioned_docs/version-stable/emulation.mdx
 - [ ] nodejs/versioned_docs/version-stable/evaluating.mdx
 - [ ] nodejs/versioned_docs/version-stable/events.mdx
-- [ ] nodejs/versioned_docs/version-stable/extensibility.mdx
+- [x] nodejs/versioned_docs/version-stable/extensibility.mdx
 - [ ] nodejs/versioned_docs/version-stable/frames.mdx
 - [ ] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
 - [ ] nodejs/versioned_docs/version-stable/handles.mdx
@@ -265,14 +265,14 @@
 - [ ] nodejs/versioned_docs/version-stable/network.mdx
 - [ ] nodejs/versioned_docs/version-stable/other-locators.mdx
 - [ ] nodejs/versioned_docs/version-stable/pages.mdx
-- [ ] nodejs/versioned_docs/version-stable/pom.mdx
+- [x] nodejs/versioned_docs/version-stable/pom.mdx
 - [ ] nodejs/versioned_docs/version-stable/protractor.mdx
 - [ ] nodejs/versioned_docs/version-stable/puppeteer.mdx
 - [ ] nodejs/versioned_docs/version-stable/release-notes.mdx
 - [x] nodejs/versioned_docs/version-stable/running-tests.mdx
 - [ ] nodejs/versioned_docs/version-stable/screenshots.mdx
 - [ ] nodejs/versioned_docs/version-stable/selenium-grid.mdx
-- [ ] nodejs/versioned_docs/version-stable/service-workers-experimental-network-events.mdx
+- [x] nodejs/versioned_docs/version-stable/service-workers-experimental-network-events.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-annotations.mdx
 - [x] nodejs/versioned_docs/version-stable/test-assertions.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-cli.mdx
@@ -282,7 +282,7 @@
 - [ ] nodejs/versioned_docs/version-stable/test-global-setup-teardown.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-parallel.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-parameterize.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-projects.mdx
+- [x] nodejs/versioned_docs/version-stable/test-projects.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-reporters.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-retries.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-sharding.mdx
@@ -345,7 +345,7 @@
 - [x] python/docs/aria-snapshots.mdx
 - [x] python/docs/auth.mdx
 - [x] python/docs/browser-contexts.mdx
-- [ ] python/docs/browsers.mdx
+- [x] python/docs/browsers.mdx
 - [ ] python/docs/chrome-extensions.mdx
 - [ ] python/docs/ci-intro.mdx
 - [ ] python/docs/ci.mdx
@@ -359,7 +359,7 @@
 - [ ] python/docs/emulation.mdx
 - [ ] python/docs/evaluating.mdx
 - [ ] python/docs/events.mdx
-- [ ] python/docs/extensibility.mdx
+- [x] python/docs/extensibility.mdx
 - [ ] python/docs/frames.mdx
 - [ ] python/docs/handles.mdx
 - [ ] python/docs/input.mdx
@@ -372,7 +372,7 @@
 - [ ] python/docs/network.mdx
 - [ ] python/docs/other-locators.mdx
 - [ ] python/docs/pages.mdx
-- [ ] python/docs/pom.mdx
+- [x] python/docs/pom.mdx
 - [ ] python/docs/release-notes.mdx
 - [ ] python/docs/running-tests.mdx
 - [ ] python/docs/screenshots.mdx
@@ -431,7 +431,7 @@
 - [x] python/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] python/versioned_docs/version-stable/auth.mdx
 - [x] python/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] python/versioned_docs/version-stable/browsers.mdx
+- [x] python/versioned_docs/version-stable/browsers.mdx
 - [ ] python/versioned_docs/version-stable/chrome-extensions.mdx
 - [ ] python/versioned_docs/version-stable/ci-intro.mdx
 - [ ] python/versioned_docs/version-stable/ci.mdx
@@ -445,7 +445,7 @@
 - [ ] python/versioned_docs/version-stable/emulation.mdx
 - [ ] python/versioned_docs/version-stable/evaluating.mdx
 - [ ] python/versioned_docs/version-stable/events.mdx
-- [ ] python/versioned_docs/version-stable/extensibility.mdx
+- [x] python/versioned_docs/version-stable/extensibility.mdx
 - [ ] python/versioned_docs/version-stable/frames.mdx
 - [ ] python/versioned_docs/version-stable/handles.mdx
 - [ ] python/versioned_docs/version-stable/input.mdx
@@ -458,7 +458,7 @@
 - [ ] python/versioned_docs/version-stable/network.mdx
 - [ ] python/versioned_docs/version-stable/other-locators.mdx
 - [ ] python/versioned_docs/version-stable/pages.mdx
-- [ ] python/versioned_docs/version-stable/pom.mdx
+- [x] python/versioned_docs/version-stable/pom.mdx
 - [ ] python/versioned_docs/version-stable/release-notes.mdx
 - [ ] python/versioned_docs/version-stable/running-tests.mdx
 - [ ] python/versioned_docs/version-stable/screenshots.mdx
@@ -521,7 +521,7 @@
 - [x] java/docs/aria-snapshots.mdx
 - [x] java/docs/auth.mdx
 - [x] java/docs/browser-contexts.mdx
-- [ ] java/docs/browsers.mdx
+- [x] java/docs/browsers.mdx
 - [ ] java/docs/ci-intro.mdx
 - [ ] java/docs/ci.mdx
 - [ ] java/docs/clock.mdx
@@ -534,7 +534,7 @@
 - [ ] java/docs/emulation.mdx
 - [ ] java/docs/evaluating.mdx
 - [ ] java/docs/events.mdx
-- [ ] java/docs/extensibility.mdx
+- [x] java/docs/extensibility.mdx
 - [ ] java/docs/frames.mdx
 - [ ] java/docs/handles.mdx
 - [ ] java/docs/input.mdx
@@ -547,7 +547,7 @@
 - [ ] java/docs/network.mdx
 - [ ] java/docs/other-locators.mdx
 - [ ] java/docs/pages.mdx
-- [ ] java/docs/pom.mdx
+- [x] java/docs/pom.mdx
 - [ ] java/docs/release-notes.mdx
 - [ ] java/docs/running-tests.mdx
 - [ ] java/docs/screenshots.mdx
@@ -611,7 +611,7 @@
 - [x] java/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] java/versioned_docs/version-stable/auth.mdx
 - [x] java/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] java/versioned_docs/version-stable/browsers.mdx
+- [x] java/versioned_docs/version-stable/browsers.mdx
 - [ ] java/versioned_docs/version-stable/ci-intro.mdx
 - [ ] java/versioned_docs/version-stable/ci.mdx
 - [ ] java/versioned_docs/version-stable/clock.mdx
@@ -624,7 +624,7 @@
 - [ ] java/versioned_docs/version-stable/emulation.mdx
 - [ ] java/versioned_docs/version-stable/evaluating.mdx
 - [ ] java/versioned_docs/version-stable/events.mdx
-- [ ] java/versioned_docs/version-stable/extensibility.mdx
+- [x] java/versioned_docs/version-stable/extensibility.mdx
 - [ ] java/versioned_docs/version-stable/frames.mdx
 - [ ] java/versioned_docs/version-stable/handles.mdx
 - [ ] java/versioned_docs/version-stable/input.mdx
@@ -637,7 +637,7 @@
 - [ ] java/versioned_docs/version-stable/network.mdx
 - [ ] java/versioned_docs/version-stable/other-locators.mdx
 - [ ] java/versioned_docs/version-stable/pages.mdx
-- [ ] java/versioned_docs/version-stable/pom.mdx
+- [x] java/versioned_docs/version-stable/pom.mdx
 - [ ] java/versioned_docs/version-stable/release-notes.mdx
 - [ ] java/versioned_docs/version-stable/running-tests.mdx
 - [ ] java/versioned_docs/version-stable/screenshots.mdx
@@ -700,7 +700,7 @@
 - [x] dotnet/docs/aria-snapshots.mdx
 - [x] dotnet/docs/auth.mdx
 - [x] dotnet/docs/browser-contexts.mdx
-- [ ] dotnet/docs/browsers.mdx
+- [x] dotnet/docs/browsers.mdx
 - [ ] dotnet/docs/ci-intro.mdx
 - [ ] dotnet/docs/ci.mdx
 - [ ] dotnet/docs/clock.mdx
@@ -713,7 +713,7 @@
 - [ ] dotnet/docs/emulation.mdx
 - [ ] dotnet/docs/evaluating.mdx
 - [ ] dotnet/docs/events.mdx
-- [ ] dotnet/docs/extensibility.mdx
+- [x] dotnet/docs/extensibility.mdx
 - [ ] dotnet/docs/frames.mdx
 - [ ] dotnet/docs/handles.mdx
 - [ ] dotnet/docs/input.mdx
@@ -726,7 +726,7 @@
 - [ ] dotnet/docs/network.mdx
 - [ ] dotnet/docs/other-locators.mdx
 - [ ] dotnet/docs/pages.mdx
-- [ ] dotnet/docs/pom.mdx
+- [x] dotnet/docs/pom.mdx
 - [ ] dotnet/docs/release-notes.mdx
 - [ ] dotnet/docs/running-tests.mdx
 - [ ] dotnet/docs/screenshots.mdx
@@ -788,7 +788,7 @@
 - [x] dotnet/versioned_docs/version-stable/aria-snapshots.mdx
 - [x] dotnet/versioned_docs/version-stable/auth.mdx
 - [x] dotnet/versioned_docs/version-stable/browser-contexts.mdx
-- [ ] dotnet/versioned_docs/version-stable/browsers.mdx
+- [x] dotnet/versioned_docs/version-stable/browsers.mdx
 - [ ] dotnet/versioned_docs/version-stable/ci-intro.mdx
 - [ ] dotnet/versioned_docs/version-stable/ci.mdx
 - [ ] dotnet/versioned_docs/version-stable/clock.mdx
@@ -801,7 +801,7 @@
 - [ ] dotnet/versioned_docs/version-stable/emulation.mdx
 - [ ] dotnet/versioned_docs/version-stable/evaluating.mdx
 - [ ] dotnet/versioned_docs/version-stable/events.mdx
-- [ ] dotnet/versioned_docs/version-stable/extensibility.mdx
+- [x] dotnet/versioned_docs/version-stable/extensibility.mdx
 - [ ] dotnet/versioned_docs/version-stable/frames.mdx
 - [ ] dotnet/versioned_docs/version-stable/handles.mdx
 - [ ] dotnet/versioned_docs/version-stable/input.mdx
@@ -814,7 +814,7 @@
 - [ ] dotnet/versioned_docs/version-stable/network.mdx
 - [ ] dotnet/versioned_docs/version-stable/other-locators.mdx
 - [ ] dotnet/versioned_docs/version-stable/pages.mdx
-- [ ] dotnet/versioned_docs/version-stable/pom.mdx
+- [x] dotnet/versioned_docs/version-stable/pom.mdx
 - [ ] dotnet/versioned_docs/version-stable/release-notes.mdx
 - [ ] dotnet/versioned_docs/version-stable/running-tests.mdx
 - [ ] dotnet/versioned_docs/version-stable/screenshots.mdx

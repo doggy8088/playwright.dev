@@ -1,25 +1,25 @@
 ---
 id: extensibility
-title: "Extensibility"
+title: "延展性"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Custom selector engines
+## 自訂選擇器引擎
 
-Playwright supports custom selector engines, registered with [selectors.register()](/api/class-selectors.mdx#selectors-register).
+Playwright 支援自訂選擇器引擎，透過 [`selectors.register()`](/api/class-selectors.mdx#selectors-register) 註冊。
 
-Selector engine should have the following properties:
-- `query` function to query first element matching `selector` relative to the `root`.
-- `queryAll` function to query all elements matching `selector` relative to the `root`.
+選擇器引擎應具備以下屬性：
+- `query` 函式用於查詢相對於 `root` 第一個符合 `selector` 的元素。
+- `queryAll` 函式用於查詢相對於 `root` 所有符合 `selector` 的元素。
 
-By default the engine is run directly in the frame's JavaScript context and, for example, can call an application-defined function. To isolate the engine from any JavaScript in the frame, but leave access to the DOM, register the engine with `{contentScript: true}` option. Content script engine is safer because it is protected from any tampering with the global objects, for example altering `Node.prototype` methods. All built-in selector engines run as content scripts. Note that running as a content script is not guaranteed when the engine is used together with other custom engines.
+預設情況下，引擎直接在框架的 JavaScript 情境中執行，例如可以呼叫應用程式定義的函式。若要將引擎與框架中的任何 JavaScript 隔離，但保留對 DOM 的存取，請使用 `{contentScript: true}` 選項註冊引擎。內容腳本引擎更安全，因為它受到保護，不會被全域物件的任何竄改影響，例如更改 `Node.prototype` 方法。所有內建選擇器引擎都以內容腳本執行。請注意，當引擎與其他自訂引擎一起使用時，不保證會以內容腳本執行。
 
-Selectors must be registered before creating the page.
+選擇器必須在建立頁面前註冊。
 
-An example of registering selector engine that queries elements based on a tag name:
+以下範例註冊一個基於標籤名稱查詢元素的選擇器引擎：
 
 ```js title="baseTest.ts"
 import { test as base } from '@playwright/test';
