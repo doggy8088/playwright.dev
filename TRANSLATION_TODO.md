@@ -130,7 +130,7 @@
 - [x] nodejs/docs/running-tests.mdx
 - [ ] nodejs/docs/screenshots.mdx
 - [ ] nodejs/docs/selenium-grid.mdx
-- [ ] nodejs/docs/service-workers-experimental-network-events.mdx
+- [x] nodejs/docs/service-workers-experimental-network-events.mdx
 - [ ] nodejs/docs/test-annotations.mdx
 - [x] nodejs/docs/test-assertions.mdx
 - [ ] nodejs/docs/test-cli.mdx
@@ -272,7 +272,7 @@
 - [x] nodejs/versioned_docs/version-stable/running-tests.mdx
 - [ ] nodejs/versioned_docs/version-stable/screenshots.mdx
 - [ ] nodejs/versioned_docs/version-stable/selenium-grid.mdx
-- [ ] nodejs/versioned_docs/version-stable/service-workers-experimental-network-events.mdx
+- [x] nodejs/versioned_docs/version-stable/service-workers-experimental-network-events.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-annotations.mdx
 - [x] nodejs/versioned_docs/version-stable/test-assertions.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-cli.mdx
