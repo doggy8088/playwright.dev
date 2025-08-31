@@ -1,35 +1,35 @@
 ---
 id: api-testing
-title: "API testing"
+title: "API 測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright can be used to get access to the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API of your application.
+Playwright 可用於存取您應用程式的 [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API。
 
-Sometimes you may want to send requests to the server directly from Java without loading a page and running js code in it. A few examples where it may come in handy:
-- Test your server API.
-- Prepare server side state before visiting the web application in a test.
-- Validate server side post-conditions after running some actions in the browser.
+有時您可能想要直接從 Java 向伺服器發送請求，而不載入頁面並在其中執行 js 程式碼。在以下情況下可能會很有用：
+- 測試您的伺服器 API。
+- 在測試中存取 Web 應用程式之前準備伺服器端狀態。
+- 在瀏覽器中執行某些操作後驗證伺服器端後置條件。
 
-All of that could be achieved via [APIRequestContext] methods.
+所有這些都可以透過 [`APIRequestContext`] 方法來實現。
 
-## Writing API Test
+## 撰寫 API 測試
 
-[APIRequestContext] can send all kinds of HTTP(S) requests over network.
+[`APIRequestContext`] 可以透過網路發送各種 HTTP(S) 請求。
 
-The following example demonstrates how to use Playwright to test issues creation via [GitHub API](https://docs.github.com/en/rest). The test suite will do the following:
-- Create a new repository before running tests.
-- Create a few issues and validate server state.
-- Delete the repository after running tests.
+以下範例示範如何使用 Playwright 透過 [GitHub API](https://docs.github.com/en/rest) 測試問題的建立。測試套件將執行以下操作：
+- 在執行測試前建立新的儲存庫。
+- 建立幾個問題並驗證伺服器狀態。
+- 在執行測試後刪除儲存庫。
 
-### Configure
+### 設定
 
-GitHub API requires authorization, so we'll configure the token once for all tests. While at it, we'll also set the `baseURL` to simplify the tests.
+GitHub API 需要身份驗證，因此我們將為所有測試設定一次令牌。同時，我們也會設定 `baseURL` 來簡化測試。
 
 ```java
 package org.example;
@@ -97,9 +97,9 @@ public class TestGitHubAPI {
 }
 ```
 
-### Write tests
+### 撰寫測試
 
-Now that we initialized request object we can add a few tests that will create new issues in the repository.
+現在我們已經初始化了請求物件，我們可以新增一些測試，這些測試將在儲存庫中建立新問題。
 
 ```java
 package org.example;
@@ -192,9 +192,9 @@ public class TestGitHubAPI {
 
 ```
 
-### Setup and teardown
+### 設定和清理
 
-These tests assume that repository exists. You probably want to create a new one before running tests and delete it afterwards. Use `@BeforeAll` and `@AfterAll` hooks for that.
+這些測試假設儲存庫存在。您可能希望在執行測試前建立新的儲存庫，並在測試後刪除它。使用 `@BeforeAll` 和 `@AfterAll` 掛勾來實現這一點。
 
 ```java
 public class TestGitHubAPI {
@@ -230,9 +230,9 @@ public class TestGitHubAPI {
 }
 ```
 
-### Complete test example
+### 完整測試範例
 
-Here is the complete example of an API test:
+以下是 API 測試的完整範例：
 
 ```java
 package org.example;
@@ -378,11 +378,11 @@ public class TestGitHubAPI {
 }
 ```
 
-See experimental [JUnit integration](./junit.mdx) to automatically initialize Playwright objects and more.
+請參閱實驗性的 [JUnit 整合](./junit.mdx) 以自動初始化 Playwright 物件等。
 
-## Prepare server state via API calls
+## 通過 API 呼叫準備伺服器狀態
 
-The following test creates a new issue via API and then navigates to the list of all issues in the project to check that it appears at the top of the list. The check is performed using [LocatorAssertions].
+以下測試透過 API 建立新問題，然後導航到專案中所有問題的清單，以檢查它是否出現在清單頂部。檢查是使用 [`LocatorAssertions`] 執行的。
 
 ```java
 public class TestGitHubAPI {
@@ -402,9 +402,9 @@ public class TestGitHubAPI {
 }
 ```
 
-## Check the server state after running user actions
+## 執行用戶操作後檢查伺服器狀態
 
-The following test creates a new issue via user interface in the browser and then checks via API if it was created:
+以下測試透過瀏覽器中的使用者介面建立新問題，然後透過 API 檢查它是否已建立：
 
 ```java
 public class TestGitHubAPI {
@@ -424,20 +424,20 @@ public class TestGitHubAPI {
 }
 ```
 
-## Reuse authentication state
+## 重用身份驗證狀態
 
-Web apps use cookie-based or token-based authentication, where authenticated state is stored as [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). Playwright provides [APIRequestContext.storageState()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) method that can be used to retrieve storage state from an authenticated context and then create new contexts with that state.
+Web 應用程式使用基於 Cookie 或基於令牌的身份驗證，其中認證狀態儲存為 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)。Playwright 提供 [APIRequestContext.storageState()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) 方法，可用於從已認證的上下文中擷取儲存狀態，然後使用該狀態建立新的上下文。
 
-Storage state is interchangeable between [BrowserContext] and [APIRequestContext]. You can use it to log in via API calls and then create a new context with cookies already there. The following code snippet retrieves state from an authenticated [APIRequestContext] and creates a new [BrowserContext] with that state.
+儲存狀態在 [`BrowserContext`] 和 [`APIRequestContext`] 之間是可互換的。您可以使用它透過 API 呼叫登入，然後建立一個已包含 cookies 的新上下文。以下程式碼片段從已認證的 [`APIRequestContext`] 中擷取狀態，並使用該狀態建立新的 [`BrowserContext`]。
 
 ```java
 APIRequestContext requestContext = playwright.request().newContext(
   new APIRequest.NewContextOptions().setHttpCredentials("user", "passwd"));
 requestContext.get("https://api.example.com/login");
-// Save storage state into a variable.
+// 將儲存狀態儲存到變數中。
 String state = requestContext.storageState();
 
-// Create a new context with the saved storage state.
+// 使用已儲存的儲存狀態建立新的上下文。
 BrowserContext context = browser.newContext(new Browser.NewContextOptions().setStorageState(state));
 ```
 
