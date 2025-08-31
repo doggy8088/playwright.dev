@@ -948,7 +948,7 @@ await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 所有相同的方法在 [Locator]、[FrameLocator] 和 [Frame] 類別中也都可以使用。
 
 ### 其他重點
-- As announced in v1.25, Ubuntu 18 will not be supported as of Dec 2022. In addition to that, there will be no WebKit updates on Ubuntu 18 starting from the next Playwright release.
+- 如 v1.25 中所宣布，Ubuntu 18 將在 2022 年 12 月起不再受支援。除此之外，從下一個 Playwright 版本開始，Ubuntu 18 上將不會有 WebKit 更新。
 
 ### 行為變更
 - [Expect(Locator).ToHaveAttributeAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) with an empty value does not match missing attribute anymore. For example, the following snippet will succeed when `button` **does not** have a `disabled` attribute.
