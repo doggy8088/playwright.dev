@@ -102,7 +102,7 @@ await expect(page.query_selector('banner')).to_match_aria_snapshot("""
 
 YAML 格式描述了頁面上無障礙元素的階層結構，詳細說明了**角色**、**屬性**、**值**和**文字內容**。結構遵循樹狀語法，其中每個節點代表一個無障礙元素，縮排表示巢狀元素。
 
-Each accessible element in the tree is represented as a YAML node:
+樹中的每個無障礙元素都表示為一個 YAML 節點：
 
 ```yaml
 - role "name" [attribute=value]
@@ -279,7 +279,7 @@ await expect(page.locator("body")).to_match_aria_snapshot("""
 
 ### 使用 `Locator.ariaSnapshot` 方法
 
-[locator.aria_snapshot()].*方法讓您能夠以程式化方式建立定位器範圍內無障礙元素的 YAML 表示法，這對於在測試執行期間動態產生快照特別有幫助。
+[locator.aria_snapshot()](/api/class-locator.mdx#locator-aria-snapshot) 方法讓您能夠以程式化方式建立定位器範圍內無障礙元素的 YAML 表示法，這對於在測試執行期間動態產生快照特別有幫助。
 
 **Example**:
 
