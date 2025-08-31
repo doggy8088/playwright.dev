@@ -1,69 +1,70 @@
 ---
 id: codegen-intro
-title: "Generating tests"
+title: "產生測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright can generate tests automatically, providing a quick way to get started with testing. Codegen opens a browser window for interaction and the Playwright Inspector for recording, copying, and managing your generated tests.
+Playwright 可以自動產生測試，提供快速開始測試的方式。Codegen 開啟瀏覽器視窗供互動，並開啟 Playwright Inspector 供錄製、複製和管理您產生的測試。
 
-**You will learn**
-- [How to record a test](/codegen.mdx#recording-a-test)
-- [How to generate locators](/codegen.mdx#generating-locators)
+**您將學到**
+- [如何錄製測試](/codegen.mdx#recording-a-test)
+- [如何產生定位器](/codegen.mdx#generating-locators)
 
-## Running Codegen
+## 執行 Codegen
 
-Use the `codegen` command to run the test generator followed by the URL of the website you want to generate tests for. The URL is optional and can be added directly in the browser window if omitted.
+使用 `codegen` 指令執行測試產生器，接著輸入您想要產生測試的網站 URL。URL 是可選的，如果省略，可以直接在瀏覽器視窗中輸入。
 
 ```bash
 mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="codegen demo.playwright.dev/todomvc"
 ```
 
-### Recording a test
+### 錄製測試
 
-Run `codegen` and perform actions in the browser. Playwright generates code for your interactions automatically. Codegen analyzes the rendered page and recommends the best locator, prioritizing role, text, and test id locators. When multiple elements match a locator, the generator improves it to uniquely identify the target element, reducing test failures and flakiness.
+執行 `codegen` 並在瀏覽器中執行操作。Playwright 會自動為您的互動產生程式碼。Codegen 分析渲染的頁面並推薦最佳定位器，優先使用角色、文字和測試 ID 定位器。當多個元素符合定位器時，產生器會改善它以唯一識別目標元素，減少測試失敗和不穩定性。
 
-With the test generator you can record:
-* Actions like click or fill by interacting with the page
-* Assertions by clicking a toolbar icon, then clicking a page element to assert against. You can choose:
-  * `'assert visibility'` to assert that an element is visible
-  * `'assert text'` to assert that an element contains specific text
-  * `'assert value'` to assert that an element has a specific value
+使用測試產生器，您可以錄製：
+* 動作，例如點擊或填寫，透過與頁面互動
+* 斷言，點擊工具列圖示，然後點擊頁面元素來進行斷言。您可以選擇：
+  * `'assert visibility'` 斷言元素是可見的
+  * `'assert text'` 斷言元素包含特定文字
+  * `'assert value'` 斷言元素具有特定值
 
 ###### 
 <ProgressiveImage image={require("../images/getting-started/record-test-java.png")} alt="recording a test" />
 
-###### 
-When you finish interacting with the page, press the `'record'` button to stop recording and use the `'copy'` button to copy the generated code to your editor.
+######
+完成與頁面互動後，按下 `'record'` 按鈕停止錄製，並使用 `'copy'` 按鈕將產生的程式碼複製到您的編輯器中。
 
-Use the `'clear'` button to clear the code and start recording again. Once finished, close the Playwright Inspector window or stop the terminal command.
+使用 `'clear'` 按鈕清除程式碼並重新開始錄製。完成後，關閉 Playwright Inspector 視窗或停止終端指令。
 
-To learn more about generating tests, check out our detailed guide on [Codegen](./codegen.mdx).
+要了解更多關於產生測試的資訊，請查看我們的詳細指南 [Codegen](./codegen.mdx)。
 
-### Generating locators
+### 產生定位器
 
-You can generate [locators](/locators.mdx) with the test generator.
-* Press the `'Record'` button to stop recording and the `'Pick Locator'` button will appear
-* Click the `'Pick Locator'` button and hover over elements in the browser window to see the locator highlighted underneath each element
-* Click the element you want to locate and the code for that locator will appear in the locator playground next to the Pick Locator button
-* Edit the locator in the locator playground to fine-tune it and see the matching element highlighted in the browser window
-* Use the copy button to copy the locator and paste it into your code
+您可以使用測試產生器產生[定位器](/locators.mdx)。
+* 按下 `'Record'` 按鈕停止錄製，`'Pick Locator'` 按鈕就會出現
+* 點擊 `'Pick Locator'` 按鈕，然後將滑鼠移到瀏覽器視窗中的元素上方，您會看到每個元素下方都高亮顯示了定位器
+* 點擊您想要定位的元素，該定位器的程式碼就會出現在 Pick Locator 按鈕旁邊的定位器遊樂場中
+* 在定位器遊樂場中編輯定位器來微調它，並在瀏覽器視窗中看到相符的元素高亮顯示
+* 使用複製按鈕複製定位器並將其貼上到您的程式碼中
 
 ###### 
 <ProgressiveImage image={require("../images/getting-started/pick-locator-java.png")} alt="picking a locator" />
 
-### Emulation
+### 模擬
 
-You can generate tests using emulation for specific viewports, devices, color schemes, geolocation, language, or timezone. The test generator can also preserve authenticated state. Check out the [Test Generator](./codegen.mdx#emulation) guide to learn more.
+您可以使用模擬為特定檢視區、裝置、顏色方案、地理位置、語言或時區產生測試。測試產生器也可以保持驗證狀態。查看[測試產生器](./codegen.mdx#emulation)指南以了解更多。
 
-## What's Next
-- [See a trace of your tests](./trace-viewer-intro.mdx)
+## 接下來做什麼
+- [查看您測試的追蹤](./trace-viewer-intro.mdx)
 
 
+[Accessibility]: /api/class-accessibility.mdx "Accessibility"
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"
 [APIRequestContext]: /api/class-apirequestcontext.mdx "APIRequestContext"
 [APIResponse]: /api/class-apiresponse.mdx "APIResponse"
@@ -77,8 +78,8 @@ You can generate tests using emulation for specific viewports, devices, color sc
 [Dialog]: /api/class-dialog.mdx "Dialog"
 [Download]: /api/class-download.mdx "Download"
 [ElementHandle]: /api/class-elementhandle.mdx "ElementHandle"
+[Error]: /api/class-error.mdx "Error"
 [FileChooser]: /api/class-filechooser.mdx "FileChooser"
-[FormData]: /api/class-formdata.mdx "FormData"
 [Frame]: /api/class-frame.mdx "Frame"
 [FrameLocator]: /api/class-framelocator.mdx "FrameLocator"
 [JSHandle]: /api/class-jshandle.mdx "JSHandle"
@@ -89,10 +90,7 @@ You can generate tests using emulation for specific viewports, devices, color sc
 [Page]: /api/class-page.mdx "Page"
 [PageAssertions]: /api/class-pageassertions.mdx "PageAssertions"
 [Playwright]: /api/class-playwright.mdx "Playwright"
-[PlaywrightAssertions]: /api/class-playwrightassertions.mdx "PlaywrightAssertions"
-[PlaywrightException]: /api/class-playwrightexception.mdx "PlaywrightException"
 [Request]: /api/class-request.mdx "Request"
-[RequestOptions]: /api/class-requestoptions.mdx "RequestOptions"
 [Response]: /api/class-response.mdx "Response"
 [Route]: /api/class-route.mdx "Route"
 [Selectors]: /api/class-selectors.mdx "Selectors"
@@ -102,7 +100,6 @@ You can generate tests using emulation for specific viewports, devices, color sc
 [Video]: /api/class-video.mdx "Video"
 [WebError]: /api/class-weberror.mdx "WebError"
 [WebSocket]: /api/class-websocket.mdx "WebSocket"
-[WebSocketFrame]: /api/class-websocketframe.mdx "WebSocketFrame"
 [WebSocketRoute]: /api/class-websocketroute.mdx "WebSocketRoute"
 [Worker]: /api/class-worker.mdx "Worker"
 [Element]: https://developer.mozilla.org/en-US/docs/Web/API/element "Element"
@@ -116,27 +113,25 @@ You can generate tests using emulation for specific viewports, devices, color sc
 [UnixTime]: https://en.wikipedia.org/wiki/Unix_time "Unix Time"
 [xpath]: https://developer.mozilla.org/en-US/docs/Web/XPath "xpath"
 
-[boolean]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "boolean"
-[byte&#91;&#93;]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "byte[]"
-[Consumer]: https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html "Consumer"
-[Date]: https://docs.oracle.com/javase/8/docs/api/java/util/Date.html "Date"
-[double]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "double"
-[InputStream]: https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html "InputStream"
-[int]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "int"
-[long]: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html "long"
-[JsonObject]: https://www.javadoc.io/doc/com.google.code.gson/gson/latest/com.google.gson/com/google/gson/JsonObject.html "JsonObject"
-[List]: https://docs.oracle.com/javase/8/docs/api/java/util/List.html "List"
-[Map]: https://docs.oracle.com/javase/8/docs/api/java/util/Map.html "Map"
-[null]: https://docs.oracle.com/javase/specs/jls/se8/html/jls-3.html#jls-3.10.7 "null"
-[Object]: https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html "Object"
-[Path]: https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html "Path"
-[Pattern]: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html "Pattern"
-[Predicate]: https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html "Predicate"
-[void]: https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html "void"
-[Runnable]: https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html "Runnable"
-[RuntimeException]: https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html "RuntimeException"
-[String]: https://docs.oracle.com/javase/8/docs/api/java/lang/String.html "String"
+[Any]: https://docs.python.org/3/library/typing.html#typing.Any "Any"
+[bool]: https://docs.python.org/3/library/stdtypes.html "bool"
+[bytes]: https://docs.python.org/3/library/stdtypes.html#bytes "bytes"
+[Callable]: https://docs.python.org/3/library/typing.html#typing.Callable "Callable"
+[EventContextManager]: https://docs.python.org/3/reference/datamodel.html#context-managers "Event context manager"
+[EventEmitter]: https://pyee.readthedocs.io/en/latest/#pyee.BaseEventEmitter "EventEmitter"
+[Exception]: https://docs.python.org/3/library/exceptions.html#Exception "Exception"
+[Dict]: https://docs.python.org/3/library/typing.html#typing.Dict "Dict"
+[float]: https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex "float"
+[int]: https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex "int"
+[List]: https://docs.python.org/3/library/typing.html#typing.List "List"
+[NoneType]: https://docs.python.org/3/library/constants.html#None "None"
+[Pattern]: https://docs.python.org/3/library/re.html "Pattern"
+[URL]: https://en.wikipedia.org/wiki/URL "URL"
+[pathlib.Path]: https://realpython.com/python-pathlib/ "pathlib.Path"
+[str]: https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str "str"
+[Union]: https://docs.python.org/3/library/typing.html#typing.Union "Union"
+[datetime]: https://docs.python.org/3/library/datetime.html#datetime.datetime "datetime"
 
-[all available image tags]: https://mcr.microsoft.com/en-us/product/playwright/java/about "all available image tags"
-[Microsoft Artifact Registry]: https://mcr.microsoft.com/en-us/product/playwright/java/about "Microsoft Artifact Registry"
-[Dockerfile.noble]: https://github.com/microsoft/playwright-java/blob/main/utils/docker/Dockerfile.noble "Dockerfile.noble"
+[all available image tags]: https://mcr.microsoft.com/en-us/product/playwright/python/about "all available image tags"
+[Microsoft Artifact Registry]: https://mcr.microsoft.com/en-us/product/playwright/python/about "Microsoft Artifact Registry"
+[Dockerfile.noble]: https://github.com/microsoft/playwright-python/blob/main/utils/docker/Dockerfile.noble "Dockerfile.noble"
