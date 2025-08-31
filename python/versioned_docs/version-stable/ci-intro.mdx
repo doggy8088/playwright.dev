@@ -1,24 +1,24 @@
 ---
 id: ci-intro
-title: "Setting up CI"
+title: "設定 CI"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright tests can be run on any CI provider. In this section we cover running tests on GitHub using GitHub Actions. If you would like to see how to configure other CI providers, check out our detailed doc on Continuous Integration.
+Playwright 測試可以在任何 CI 提供者上執行。在本節中，我們涵蓋使用 GitHub Actions 在 GitHub 上執行測試。如果您想了解如何設定其他 CI 提供者，請查看我們的詳細持續整合文件。
 
-#### You will learn
-- [How to set up GitHub Actions](/ci-intro.mdx#setting-up-github-actions)
-- [How to view test logs](/ci-intro.mdx#viewing-test-logs)
-- [How to view the trace](/ci-intro.mdx#viewing-the-trace)
+#### 您將學習
+- [如何設定 GitHub Actions](/ci-intro.mdx#setting-up-github-actions)
+- [如何檢視測試日誌](/ci-intro.mdx#viewing-test-logs)
+- [如何檢視追蹤](/ci-intro.mdx#viewing-the-trace)
 
 ## Setting up GitHub Actions
 
-To add a [GitHub Actions](https://docs.github.com/en/actions) file, first create `.github/workflows` folder and inside it add a `playwright.yml` file containing the example code below so that your tests run on each push and pull request for the main/master branch.
+要新增 [GitHub Actions](https://docs.github.com/en/actions) 檔案，首先建立 `.github/workflows` 資料夾，並在其中新增包含下方範例程式碼的 `playwright.yml` 檔案，以便在每次推送和向 main/master 分支發出拉取請求時執行測試。
 
 ```yml title=".github/workflows/playwright.yml"
 name: Playwright Tests
@@ -52,53 +52,53 @@ jobs:
         path: test-results/
 ```
 
-To learn more about this, see ["Understanding GitHub Actions"](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
+若要了解更多相關資訊，請參閱[「了解 GitHub Actions」](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)。
 
-Looking at the list of steps in `jobs.test.steps`, you can see that the workflow performs these steps:
-1. Clone your repository
-1. Install language dependencies
-1. Install project dependencies and build
-1. Install Playwright Browsers
-1. Run tests
+查看 `jobs.test.steps` 中的步驟清單，您可以看到工作流程執行這些步驟：
+1. 複製您的儲存庫
+1. 安裝語言相依套件
+1. 安裝專案相依套件並建構
+1. 安裝 Playwright 瀏覽器
+1. 執行測試
 
-## Create a Repo and Push to GitHub
+## 建立一個 Repo 並推送到 GitHub
 
-Once you have your [GitHub Actions workflow](#setting-up-github-actions) setup, then all you need to do is [Create a repo on GitHub](https://docs.github.com/en/get-started/quickstart/create-a-repo) or push your code to an existing repository. Follow the instructions on GitHub and don't forget to [initialize a git repository](https://github.com/git-guides/git-init) using the `git init` command so you can [add](https://github.com/git-guides/git-add), [commit](https://github.com/git-guides/git-commit), and [push](https://github.com/git-guides/git-push) your code.
+一旦設定好您的 [GitHub Actions 工作流程](#setting-up-github-actions)，您只需要[在 GitHub 上建立一個儲存庫](https://docs.github.com/en/get-started/quickstart/create-a-repo)或將您的程式碼推送到現有的儲存庫。遵循 GitHub 上的指示，別忘了使用 `git init` 指令[初始化 git 儲存庫](https://github.com/git-guides/git-init)，這樣您就可以[新增](https://github.com/git-guides/git-add)、[提交](https://github.com/git-guides/git-commit)和[推送](https://github.com/git-guides/git-push)您的程式碼。
 
 ###### 
 <img width="861" alt="Create a Repo and Push to GitHub" src="https://user-images.githubusercontent.com/13063165/183423254-d2735278-a2ab-4d63-bb99-48d8e5e447bc.png"/>
 
-## Opening the Workflows
+## 開啟工作流程
 
-Click on the **Actions** tab to see the workflows. Here you see if your tests have passed or failed.
+點擊 **Actions** 頁籤以查看工作流程。在這裡您將看到您的測試是否通過或失敗。
 
-###### 
+######
 ![opening the workflow](https://user-images.githubusercontent.com/13063165/183423783-58bf2008-514e-4f96-9c12-c9a55703960c.png)
 
-## Viewing Test Logs
+## 檢視測試日誌
 
-Clicking on the workflow run shows you all the actions that GitHub performed and clicking on **Run Playwright tests** shows the error messages, what was expected and what was received as well as the call log.
+點擊工作流程執行會顯示 GitHub 執行的所有動作，點擊 **Run Playwright tests** 會顯示錯誤訊息、預期內容和實際收到的內容以及呼叫日誌。
 
-###### 
+######
 ![Viewing Test Logs](https://user-images.githubusercontent.com/13063165/183423783-58bf2008-514e-4f96-9c12-c9a55703960c.png)
 
-## Viewing the Trace
+## 檢視追蹤
 
-[trace.playwright.dev](https://trace.playwright.dev) is a statically hosted variant of the Trace Viewer. You can upload trace files using drag and drop.
+[trace.playwright.dev](https://trace.playwright.dev) 是追蹤檢視器的靜態託管版本。您可以使用拖放功能上傳追蹤檔案。
 
 <ProgressiveImage image={require("../images/getting-started/trace-viewer-failed-test.png")} alt="playwright trace viewer" />
 
-## Properly handling Secrets
+## 正確處理機密
 
-Artifacts like trace files or console logs contain information about your test execution. They can contain sensitive data like user credentials for a test user, access tokens to a staging backend, testing source code, or sometimes even your application source code. Treat these files just as carefully as you treat that sensitive data. If you upload reports and traces as part of your CI workflow, make sure that you only upload them to trusted artifact stores, or that you encrypt the files before upload. The same is true for sharing artifacts with team members: Use a trusted file share or encrypt the files before sharing.
+像追蹤檔案或主控台日誌等產物包含關於您測試執行的資訊。它們可能包含敏感資料，例如測試使用者的用戶憑證、測試環境後端的存取權杖、測試原始碼，有時甚至是您的應用程式原始碼。請將這些檔案視為與那些敏感資料同等重要。如果您在 CI 工作流程中上傳報告和追蹤，請確保您只將它們上傳到可信任的產物儲存庫，或在上傳前加密檔案。與團隊成員分享產物時也是如此：使用可信任的檔案分享服務或在分享前加密檔案。
 
-## What's Next
-- [Learn how to use Locators](./locators.mdx)
-- [Learn how to perform Actions](./input.mdx)
-- [Learn how to write Assertions](./test-assertions.mdx)
-- [Learn more about the Trace Viewer](/trace-viewer.mdx)
-- [Learn more ways of running tests on GitHub Actions](/ci.mdx#github-actions)
-- [Learn more about running tests on other CI providers](/ci.mdx)
+## 接下來是什麼
+- [學習如何使用定位器](./locators.mdx)
+- [學習如何執行動作](./input.mdx)
+- [學習如何撰寫斷言](./test-assertions.mdx)
+- [了解更多關於追蹤檢視器](/trace-viewer.mdx)
+- [了解更多在 GitHub Actions 上執行測試的方法](/ci.mdx#github-actions)
+- [了解更多在其他 CI 提供者上執行測試](/ci.mdx)
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"
