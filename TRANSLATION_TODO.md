@@ -109,18 +109,18 @@
 - [ ] nodejs/docs/events.mdx
 - [x] nodejs/docs/extensibility.mdx
 - [x] nodejs/docs/frames.mdx
-- [ ] nodejs/docs/getting-started-vscode.mdx
+- [x] nodejs/docs/getting-started-vscode.mdx
 - [ ] nodejs/docs/handles.mdx
 - [ ] nodejs/docs/input.mdx
 - [x] nodejs/docs/intro.mdx
 - [ ] nodejs/docs/languages.mdx
 - [ ] nodejs/docs/library.mdx
 - [x] nodejs/docs/locators.mdx
-- [ ] nodejs/docs/mock-browser.mdx
+- [x] nodejs/docs/mock-browser.mdx
 - [ ] nodejs/docs/mock.mdx
 - [ ] nodejs/docs/navigations.mdx
 - [ ] nodejs/docs/network.mdx
-- [ ] nodejs/docs/other-locators.mdx
+- [x] nodejs/docs/other-locators.mdx
 - [ ] nodejs/docs/pages.mdx
 - [x] nodejs/docs/pom.mdx
 - [ ] nodejs/docs/protractor.mdx
@@ -133,7 +133,7 @@
 - [ ] nodejs/docs/test-annotations.mdx
 - [x] nodejs/docs/test-assertions.mdx
 - [ ] nodejs/docs/test-cli.mdx
-- [ ] nodejs/docs/test-components.mdx
+- [x] nodejs/docs/test-components.mdx
 - [ ] nodejs/docs/test-configuration.mdx
 - [ ] nodejs/docs/test-fixtures.mdx
 - [ ] nodejs/docs/test-global-setup-teardown.mdx
@@ -251,18 +251,18 @@
 - [ ] nodejs/versioned_docs/version-stable/events.mdx
 - [x] nodejs/versioned_docs/version-stable/extensibility.mdx
 - [x] nodejs/versioned_docs/version-stable/frames.mdx
-- [ ] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
+- [x] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
 - [ ] nodejs/versioned_docs/version-stable/handles.mdx
 - [ ] nodejs/versioned_docs/version-stable/input.mdx
 - [x] nodejs/versioned_docs/version-stable/intro.mdx
 - [ ] nodejs/versioned_docs/version-stable/languages.mdx
 - [ ] nodejs/versioned_docs/version-stable/library.mdx
 - [x] nodejs/versioned_docs/version-stable/locators.mdx
-- [ ] nodejs/versioned_docs/version-stable/mock-browser.mdx
+- [x] nodejs/versioned_docs/version-stable/mock-browser.mdx
 - [ ] nodejs/versioned_docs/version-stable/mock.mdx
 - [ ] nodejs/versioned_docs/version-stable/navigations.mdx
 - [ ] nodejs/versioned_docs/version-stable/network.mdx
-- [ ] nodejs/versioned_docs/version-stable/other-locators.mdx
+- [x] nodejs/versioned_docs/version-stable/other-locators.mdx
 - [ ] nodejs/versioned_docs/version-stable/pages.mdx
 - [x] nodejs/versioned_docs/version-stable/pom.mdx
 - [ ] nodejs/versioned_docs/version-stable/protractor.mdx
@@ -275,7 +275,7 @@
 - [ ] nodejs/versioned_docs/version-stable/test-annotations.mdx
 - [x] nodejs/versioned_docs/version-stable/test-assertions.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-cli.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-components.mdx
+- [x] nodejs/versioned_docs/version-stable/test-components.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-configuration.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-fixtures.mdx
 - [ ] nodejs/versioned_docs/version-stable/test-global-setup-teardown.mdx
@@ -349,7 +349,7 @@
 - [ ] python/docs/ci-intro.mdx
 - [x] python/docs/ci.mdx
 - [ ] python/docs/clock.mdx
-- [ ] python/docs/codegen-intro.mdx
+- [x] python/docs/codegen-intro.mdx
 - [x] python/docs/codegen.mdx
 - [x] python/docs/debug.mdx
 - [ ] python/docs/dialogs.mdx
@@ -369,7 +369,7 @@
 - [ ] python/docs/mock.mdx
 - [ ] python/docs/navigations.mdx
 - [ ] python/docs/network.mdx
-- [ ] python/docs/other-locators.mdx
+- [x] python/docs/other-locators.mdx
 - [ ] python/docs/pages.mdx
 - [x] python/docs/pom.mdx
 - [ ] python/docs/release-notes.mdx
@@ -435,7 +435,7 @@
 - [ ] python/versioned_docs/version-stable/ci-intro.mdx
 - [x] python/versioned_docs/version-stable/ci.mdx
 - [ ] python/versioned_docs/version-stable/clock.mdx
-- [ ] python/versioned_docs/version-stable/codegen-intro.mdx
+- [x] python/versioned_docs/version-stable/codegen-intro.mdx
 - [x] python/versioned_docs/version-stable/codegen.mdx
 - [x] python/versioned_docs/version-stable/debug.mdx
 - [ ] python/versioned_docs/version-stable/dialogs.mdx
@@ -455,7 +455,7 @@
 - [ ] python/versioned_docs/version-stable/mock.mdx
 - [ ] python/versioned_docs/version-stable/navigations.mdx
 - [ ] python/versioned_docs/version-stable/network.mdx
-- [ ] python/versioned_docs/version-stable/other-locators.mdx
+- [x] python/versioned_docs/version-stable/other-locators.mdx
 - [ ] python/versioned_docs/version-stable/pages.mdx
 - [x] python/versioned_docs/version-stable/pom.mdx
 - [ ] python/versioned_docs/version-stable/release-notes.mdx
@@ -524,7 +524,7 @@
 - [ ] java/docs/ci-intro.mdx
 - [x] java/docs/ci.mdx
 - [ ] java/docs/clock.mdx
-- [ ] java/docs/codegen-intro.mdx
+- [x] java/docs/codegen-intro.mdx
 - [x] java/docs/codegen.mdx
 - [x] java/docs/debug.mdx
 - [ ] java/docs/dialogs.mdx
@@ -544,7 +544,7 @@
 - [ ] java/docs/mock.mdx
 - [ ] java/docs/navigations.mdx
 - [ ] java/docs/network.mdx
-- [ ] java/docs/other-locators.mdx
+- [x] java/docs/other-locators.mdx
 - [ ] java/docs/pages.mdx
 - [x] java/docs/pom.mdx
 - [ ] java/docs/release-notes.mdx
@@ -614,7 +614,7 @@
 - [ ] java/versioned_docs/version-stable/ci-intro.mdx
 - [x] java/versioned_docs/version-stable/ci.mdx
 - [ ] java/versioned_docs/version-stable/clock.mdx
-- [ ] java/versioned_docs/version-stable/codegen-intro.mdx
+- [x] java/versioned_docs/version-stable/codegen-intro.mdx
 - [x] java/versioned_docs/version-stable/codegen.mdx
 - [x] java/versioned_docs/version-stable/debug.mdx
 - [ ] java/versioned_docs/version-stable/dialogs.mdx
@@ -634,7 +634,7 @@
 - [ ] java/versioned_docs/version-stable/mock.mdx
 - [ ] java/versioned_docs/version-stable/navigations.mdx
 - [ ] java/versioned_docs/version-stable/network.mdx
-- [ ] java/versioned_docs/version-stable/other-locators.mdx
+- [x] java/versioned_docs/version-stable/other-locators.mdx
 - [ ] java/versioned_docs/version-stable/pages.mdx
 - [x] java/versioned_docs/version-stable/pom.mdx
 - [ ] java/versioned_docs/version-stable/release-notes.mdx
@@ -703,7 +703,7 @@
 - [ ] dotnet/docs/ci-intro.mdx
 - [x] dotnet/docs/ci.mdx
 - [ ] dotnet/docs/clock.mdx
-- [ ] dotnet/docs/codegen-intro.mdx
+- [x] dotnet/docs/codegen-intro.mdx
 - [x] dotnet/docs/codegen.mdx
 - [x] dotnet/docs/debug.mdx
 - [ ] dotnet/docs/dialogs.mdx
@@ -723,7 +723,7 @@
 - [ ] dotnet/docs/mock.mdx
 - [ ] dotnet/docs/navigations.mdx
 - [ ] dotnet/docs/network.mdx
-- [ ] dotnet/docs/other-locators.mdx
+- [x] dotnet/docs/other-locators.mdx
 - [ ] dotnet/docs/pages.mdx
 - [x] dotnet/docs/pom.mdx
 - [ ] dotnet/docs/release-notes.mdx
@@ -791,7 +791,7 @@
 - [ ] dotnet/versioned_docs/version-stable/ci-intro.mdx
 - [x] dotnet/versioned_docs/version-stable/ci.mdx
 - [ ] dotnet/versioned_docs/version-stable/clock.mdx
-- [ ] dotnet/versioned_docs/version-stable/codegen-intro.mdx
+- [x] dotnet/versioned_docs/version-stable/codegen-intro.mdx
 - [x] dotnet/versioned_docs/version-stable/codegen.mdx
 - [x] dotnet/versioned_docs/version-stable/debug.mdx
 - [ ] dotnet/versioned_docs/version-stable/dialogs.mdx
@@ -811,7 +811,7 @@
 - [ ] dotnet/versioned_docs/version-stable/mock.mdx
 - [ ] dotnet/versioned_docs/version-stable/navigations.mdx
 - [ ] dotnet/versioned_docs/version-stable/network.mdx
-- [ ] dotnet/versioned_docs/version-stable/other-locators.mdx
+- [x] dotnet/versioned_docs/version-stable/other-locators.mdx
 - [ ] dotnet/versioned_docs/version-stable/pages.mdx
 - [x] dotnet/versioned_docs/version-stable/pom.mdx
 - [ ] dotnet/versioned_docs/version-stable/release-notes.mdx

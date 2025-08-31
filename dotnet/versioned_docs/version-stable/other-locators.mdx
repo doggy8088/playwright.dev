@@ -1,167 +1,167 @@
 ---
 id: other-locators
-title: "Other locators"
+title: "其他定位器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
 :::note
 
-Check out the main [locators guide](./locators) for most common and recommended locators.
+請查看主要的[定位器指南](./locators)以了解最常用和推薦的定位器。
 :::
 
-In addition to recommended locators like [Page.GetByRole()](/api/class-page.mdx#page-get-by-role) and [Page.GetByText()](/api/class-page.mdx#page-get-by-text), Playwright supports a variety of other locators described in this guide.
+除了推薦的定位器如 [`Page.GetByRole()`](/api/class-page.mdx#page-get-by-role) 和 [`Page.GetByText()`](/api/class-page.mdx#page-get-by-text) 之外，Playwright 還支援本指南中描述的各種其他定位器。
 
-## CSS locator
+## CSS 定位器
 
 :::note
 
-We recommend prioritizing [user-visible locators](./locators.mdx#quick-guide) like text or accessible role instead of using CSS that is tied to the implementation and could break when the page changes.
+我們建議優先使用[使用者可見的定位器](./locators.mdx#quick-guide)，如文字或無障礙角色，而非使用與實作細節綁定且在頁面變更時可能失效的 CSS。
 :::
 
-Playwright can locate an element by CSS selector.
+Playwright 可以透過 CSS 選擇器定位元素。
 
 ```csharp
 await page.Locator("css=button").ClickAsync();
 ```
 
-Playwright augments standard CSS selectors in two ways:
-* CSS selectors pierce open shadow DOM.
-* Playwright adds custom pseudo-classes like `:visible`, `:has-text()`, `:has()`, `:is()`, `:nth-match()` and more.
+Playwright 以兩種方式增強標準 CSS 選擇器：
+* CSS 選擇器可穿透開放的 shadow DOM。
+* Playwright 新增自訂偽類別，如 `:visible`、`:has-text()`、`:has()`、`:is()`、`:nth-match()` 等等。
 
-### CSS: matching by text
+### CSS：依文字比對
 
-Playwright include a number of CSS pseudo-classes to match elements by their text content.
-- `article:has-text("Playwright")` - the `:has-text()` matches any element containing specified text somewhere inside, possibly in a child or a descendant element. Matching is case-insensitive, trims whitespace and searches for a substring.
+Playwright 包含多個 CSS 偽類別來依文字內容比對元素。
+- `article:has-text("Playwright")` - `:has-text()` 比對在內部某處（可能在子元素或後代元素中）包含指定文字的任何元素。比對不區分大小寫，會修剪空白字元並搜尋子字串。
   
-  For example, `article:has-text("Playwright")` matches `<article><div>Playwright</div></article>`.
+  例如，`article:has-text("Playwright")` 比對 `<article><div>Playwright</div></article>`。
   
-  Note that `:has-text()` should be used together with other CSS specifiers, otherwise it will match all the elements containing specified text, including the `<body>`.
+  請注意，`:has-text()` 應該與其他 CSS 指定符一起使用，否則將比對所有包含指定文字的元素，包括 `<body>`。
   
   ```csharp
-  // Wrong, will match many elements including <body>
-  await page.Locator(":has-text(\"Playwright\")").ClickAsync();
-  // Correct, only matches the <article> element
-  await page.Locator("article:has-text(\"Playwright\")").ClickAsync();
+  // 錯誤，將比對包括 <body> 在內的許多元素
+  await page.Locator(':has-text("Playwright")').ClickAsync();
+  // 正確，只比對 <article> 元素
+  await page.Locator('article:has-text("Playwright")').ClickAsync();
   ```
   
-- `#nav-bar :text("Home")` - the `:text()` pseudo-class matches the smallest element containing specified text. Matching is case-insensitive, trims whitespace and searches for a substring.
+- `#nav-bar :text("Home")` - `:text()` 偽類別比對包含指定文字的最小元素。比對不區分大小寫，會修剪空白字元並搜尋子字串。
   
-  For example, this will find an element with text "Home" somewhere inside the `#nav-bar` element:
+  例如，這將在 `#nav-bar` 元素內部某處找到包含文字 "Home" 的元素：
   
   ```csharp
-  await page.Locator("#nav-bar :text('Home')").ClickAsync();
+  await page.Locator('#nav-bar :text("Home")').ClickAsync();
   ```
   
-- `#nav-bar :text-is("Home")` - the `:text-is()` pseudo-class matches the smallest element with exact text. Exact matching is case-sensitive, trims whitespace and searches for the full string.
+- `#nav-bar :text-is("Home")` - `:text-is()` 偽類別比對具有完全相同文字的最小元素。嚴格比對區分大小寫，會修剪空白字元並搜尋完整字串。
   
-  For example, `:text-is("Log")` does not match `<button>Log in</button>` because `<button>` contains a single text node `"Log in"` that is not equal to `"Log"`. However, `:text-is("Log")` matches `<button> Log <span>in</span></button>`, because `<button>` contains a text node `" Log "`.
+  例如，`:text-is("Log")` 不會比對 `<button>Log in</button>`，因為 `<button>` 包含單一文字節點 `"Log in"`，這不等於 `"Log"`。然而，`:text-is("Log")` 會比對 `<button> Log <span>in</span></button>`，因為 `<button>` 包含文字節點 `" Log "`。
   
-  Similarly, `:text-is("Download")` will not match `<button>download</button>` because it is case-sensitive.
-* `#nav-bar :text-matches("reg?ex", "i")` - the `:text-matches()` pseudo-class matches the smallest element with text content matching the [JavaScript-like regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp).
+  同樣地，`:text-is("Download")` 不會比對 `<button>download</button>`，因為這是區分大小寫的。
+* `#nav-bar :text-matches("reg?ex", "i")` - `:text-matches()` 偽類別比對文字內容符合 [JavaScript 式正規表示式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)的最小元素。
   
-  For example, `:text-matches("Log\s*in", "i")` matches `<button>Login</button>` and `<button>log IN</button>`.
+  例如，`:text-matches("Log\s*in", "i")` 比對 `<button>Login</button>` 和 `<button>log IN</button>`。
 
 :::note
 
-Text matching always normalizes whitespace. For example, it turns multiple spaces into one, turns line breaks into spaces and ignores leading and trailing whitespace.
+文字比對總是會正規化空白字元。例如，它將多個空格轉為一個，將換行符轉為空格，並忽略前導和尾隨的空白字元。
 :::
 
 :::note
-Input elements of the type `button` and `submit` are matched by their `value` instead of text content. For example, `:text("Log in")` matches `<input type=button value="Log in">`.
+類型為 `button` 和 `submit` 的輸入元素會依其 `value` 而非文字內容進行比對。例如，`:text("Log in")` 比對 `<input type=button value="Log in">`。
 :::
 
-### CSS: matching only visible elements
+### CSS：只比對可見元素
 
-Playwright supports the `:visible` pseudo class in CSS selectors. For example, `css=button` matches all the buttons on the page, while `css=button:visible` only matches visible buttons. This is useful to distinguish elements that are very similar but differ in visibility.
+Playwright 在 CSS 選擇器中支援 `:visible` 偽類別。例如，`css=button` 比對頁面上的所有按鈕，而 `css=button:visible` 只比對可見的按鈕。這對於區分非常相似但可見性不同的元素很有用。
 
-Consider a page with two buttons, first invisible and second visible.
+考慮一個有兩個按鈕的頁面，第一個不可見，第二個可見。
 
 ```html
 <button style='display: none'>Invisible</button>
 <button>Visible</button>
 ```
 
-* This will find both buttons and throw a [strictness](./locators.mdx#strictness) violation error:
+* 這將找到兩個按鈕並拋出[嚴格性](./locators.mdx#strictness)違反錯誤：
   
   ```csharp
-  await page.Locator("button").ClickAsync();
+  await page.Locator('button').ClickAsync();
   ```
   
-* This will only find a second button, because it is visible, and then click it.
+* 這將只找到第二個按鈕，因為它是可見的，然後點擊它。
   
   ```csharp
-  await page.Locator("button:visible").ClickAsync();
+  await page.Locator('button:visible').ClickAsync();
   ```
   
-### CSS: elements that contain other elements
+### CSS：包含其他元素的元素
 
-The `:has()` pseudo-class is an [experimental CSS pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:has). It returns an element if any of the selectors passed as parameters relative to the `:scope` of the given element match at least one element.
+`:has()` 偽類別是一個[實驗性的 CSS 偽類別](https://developer.mozilla.org/en-US/docs/Web/CSS/:has)。如果相對於給定元素的 `:scope` 傳遞作為參數的任何選擇器至少比對一個元素，它就會回傳該元素。
 
-Following snippet returns text content of an `<article>` element that has a `<div class=promo>` inside.
-
-```csharp
-await page.Locator("article:has(div.promo)").TextContentAsync();
-```
-
-### CSS: elements matching one of the conditions
-
-Comma-separated list of CSS selectors will match all elements that can be selected by one of the selectors in that list.
+下面的程式碼片段回傳內部有 `<div class=promo>` 的 `<article>` 元素的文字內容。
 
 ```csharp
-// Clicks a <button> that has either a "Log in" or "Sign in" text.
-await page.Locator("button:has-text(\"Log in\"), button:has-text(\"Sign in\")").ClickAsync();
+await page.Locator('article:has(div.promo)').TextContentAsync();
 ```
 
-The `:is()` pseudo-class is an [experimental CSS pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:is) that may be useful for specifying a list of extra conditions on an element.
+### CSS：符合其中一個條件的元素
 
-### CSS: matching elements based on layout
+以逗號分隔的 CSS 選擇器清單將比對所有可以被該清單中任一選擇器選取的元素。
+
+```csharp
+// 點擊包含 "Log in" 或 "Sign in" 文字的 <button>
+await page.Locator('button:has-text("Log in"), button:has-text("Sign in")').ClickAsync();
+```
+
+`:is()` 偽類別是一個[實驗性的 CSS 偽類別](https://developer.mozilla.org/en-US/docs/Web/CSS/:is)，可能對於在元素上指定額外條件清單很有用。
+
+### CSS：依版面配置比對元素
 
 :::note
 
-Matching based on layout may produce unexpected results. For example, a different element could be matched when layout changes by one pixel.
+依版面配置的比對可能產生意外的結果。例如，當版面配置因一個像素而改變時，可能會比對到不同的元素。
 :::
 
-Sometimes, it is hard to come up with a good selector to the target element when it lacks distinctive features. In this case, using Playwright layout CSS pseudo-classes could help. These can be combined with regular CSS to pinpoint one of the multiple choices.
+有時，當目標元素缺乏獨特特徵時，很難想出好的選擇器來選取它。在這種情況下，使用 Playwright 版面配置 CSS 偽類別可能會有幫助。這些可以與常規 CSS 結合，以精確定位多個選擇中的一個。
 
-For example, `input:right-of(:text("Password"))` matches an input field that is to the right of text "Password" - useful when the page has multiple inputs that are hard to distinguish between each other.
+例如，`input:right-of(:text("Password"))` 比對位於文字 "Password" 右側的輸入欄位 - 當頁面有多個難以區分的輸入欄位時很有用。
 
-Note that layout pseudo-classes are useful in addition to something else, like `input`. If you use a layout pseudo-class alone, like `:right-of(:text("Password"))`, most likely you'll get not the input you are looking for, but some empty element in between the text and the target input.
+請注意，版面配置偽類別除了其他選擇器（如 `input`）之外很有用。如果您單獨使用版面配置偽類別，如 `:right-of(:text("Password"))`，您很可能得到的不是您要找的輸入欄位，而是文字和目標輸入欄位之間的某個空元素。
 
-Layout pseudo-classes use [bounding client rect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) to compute distance and relative position of the elements.
-* `:right-of(div > button)` - Matches elements that are to the right of any element matching the inner selector, at any vertical position.
-* `:left-of(div > button)` - Matches elements that are to the left of any element matching the inner selector, at any vertical position.
-* `:above(div > button)` - Matches elements that are above any of the elements matching the inner selector, at any horizontal position.
-* `:below(div > button)` - Matches elements that are below any of the elements matching the inner selector, at any horizontal position.
-* `:near(div > button)` - Matches elements that are near (within 50 CSS pixels) any of the elements matching the inner selector.
+版面配置偽類別使用[邊界客戶端矩形](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)來計算元素的距離和相對位置。
+* `:right-of(div > button)` - 比對位於任何符合內部選擇器的元素右側的元素，在任何垂直位置。
+* `:left-of(div > button)` - 比對位於任何符合內部選擇器的元素左側的元素，在任何垂直位置。
+* `:above(div > button)` - 比對位於任何符合內部選擇器的元素上方的元素，在任何水平位置。
+* `:below(div > button)` - 比對位於任何符合內部選擇器的元素下方的元素，在任何水平位置。
+* `:near(div > button)` - 比對接近（在 50 CSS 像素內）任何符合內部選擇器的元素的元素。
 
-Note that resulting matches are sorted by their distance to the anchor element, so you can use [Locator.First](/api/class-locator.mdx#locator-first) to pick the closest one. This is only useful if you have something like a list of similar elements, where the closest is obviously the right one. However, using [Locator.First](/api/class-locator.mdx#locator-first) in other cases most likely won't work as expected - it will not target the element you are searching for, but some other element that happens to be the closest like a random empty `<div>`, or an element that is scrolled out and is not currently visible.
+請注意，結果比對會依其與錨點元素的距離排序，因此您可以使用 [`locator.First)`](/api/class-locator.mdx#locator-first) 來選取最近的一個。這只有在您有類似元素清單且最近的元素明顯是正確的情況下才有用。然而，在其他情況下使用 [`locator.First)`](/api/class-locator.mdx#locator-first) 很可能不會如預期運作 - 它不會定位到您正在搜尋的元素，而是某個恰好最近的其他元素，如隨機的空 `<div>`，或是已捲動出去且目前不可見的元素。
 
 ```csharp
-// Fill an input to the right of "Username".
-await page.Locator("input:right-of(:text(\"Username\"))").FillAsync("value");
+// 填寫 "Username" 右側的輸入欄位
+await page.Locator('input:right-of(:text("Username"))').FillAsync('value');
 
-// Click a button near the promo card.
-await page.Locator("button:near(.promo-card)").ClickAsync();
+// 點擊促銷卡片附近的按鈕
+await page.Locator('button:near(.promo-card)').ClickAsync();
 
-// Click the radio input in the list closest to the "Label 3".
-await page.Locator("[type=radio]:left-of(:text(\"Label 3\"))").First.ClickAsync();
+// 點擊清單中最接近 "Label 3" 的單選輸入
+await page.Locator('[type=radio]:left-of(:text("Label 3"))').first().ClickAsync();
 ```
 
-All layout pseudo-classes support optional maximum pixel distance as the last argument. For example `button:near(:text("Username"), 120)` matches a button that is at most 120 CSS pixels away from the element with the text "Username".
+所有版面配置偽類別都支援可選的最大像素距離作為最後一個參數。例如，`button:near(:text("Username"), 120)` 比對距離包含文字 "Username" 的元素最多 120 CSS 像素的按鈕。
 
-### CSS: pick n-th match from the query result
+### CSS：從查詢結果中選取第 n 個比對
 
 :::note
 
-It is usually possible to distinguish elements by some attribute or text content, which is more resilient to page changes.
+通常可以透過某些屬性或文字內容來區分元素，這對頁面變更更具彈性。
 :::
 
-Sometimes page contains a number of similar elements, and it is hard to select a particular one. For example:
+有時頁面包含許多相似的元素，很難選取特定的一個。例如：
 
 ```html
 <section> <button>Buy</button> </section>
@@ -169,331 +169,342 @@ Sometimes page contains a number of similar elements, and it is hard to select a
 <div><div> <button>Buy</button> </div></div>
 ```
 
-In this case, `:nth-match(:text("Buy"), 3)` will select the third button from the snippet above. Note that index is one-based.
+在這種情況下，`:nth-match(:text("Buy"), 3)` 會選取上面程式碼片段中的第三個按鈕。請注意，索引是從一開始的。
 
 ```csharp
-// Click the third "Buy" button
-await page.Locator(":nth-match(:text('Buy'), 3)").ClickAsync();
+// 點擊第三個 "Buy" 按鈕
+await page.Locator(':nth-match(:text("Buy"), 3)').ClickAsync();
 ```
 
-`:nth-match()` is also useful to wait until a specified number of elements appear, using [Locator.WaitForAsync()](/api/class-locator.mdx#locator-wait-for).
+`:nth-match()` 對於等待指定數量的元素出現也很有用，可使用 [`locator.WaitForAsync()`](/api/class-locator.mdx#locator-wait-for)。
 
 ```csharp
-// Wait until all three buttons are visible
-await page.Locator(":nth-match(:text('Buy'), 3)").WaitForAsync();
+// 等待所有三個按鈕都可見
+await page.Locator(':nth-match(:text("Buy"), 3)').WaitForAsync();
 ```
 
 :::note
-Unlike [`:nth-child()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child), elements do not have to be siblings, they could be anywhere on the page. In the snippet above, all three buttons match `:text("Buy")` selector, and `:nth-match()` selects the third button.
+與 [`:nth-child()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child) 不同，元素不必是兄弟節點，它們可以在頁面的任何地方。在上面的程式碼片段中，所有三個按鈕都符合 `:text("Buy")` 選擇器，而 `:nth-match()` 選取第三個按鈕。
 :::
 
-## N-th element locator
+## 第 n 個元素定位器
 
-You can narrow down query to the n-th match using the `nth=` locator passing a zero-based index.
+您可以使用 `nth=` 定位器並傳遞從零開始的索引，將查詢縮小到第 n 個比對。
 
 ```csharp
-// Click first button
-await page.Locator("button").Locator("nth=0").ClickAsync();
+// 點擊第一個按鈕
+await page.Locator('button').locator('nth=0').ClickAsync();
 
-// Click last button
-await page.Locator("button").Locator("nth=-1").ClickAsync();
+// 點擊最後一個按鈕
+await page.Locator('button').locator('nth=-1').ClickAsync();
 ```
 
-## Parent element locator
+## 父元素定位器
 
-When you need to target a parent element of some other element, most of the time you should [Locator.Filter()](/api/class-locator.mdx#locator-filter) by the child locator. For example, consider the following DOM structure:
+當您需要定位某個其他元素的父元素時，大多數時候您應該使用 [`locator.filter()`](/api/class-locator.mdx#locator-filter) 依子定位器進行篩選。例如，考慮以下 DOM 結構：
 
 ```html
 <li><label>Hello</label></li>
 <li><label>World</label></li>
 ```
 
-If you'd like to target the parent `<li>` of a label with text `"Hello"`, using [Locator.Filter()](/api/class-locator.mdx#locator-filter) works best:
+如果您想要定位包含文字 `"Hello"` 的標籤的父 `<li>`，使用 [`locator.filter()`](/api/class-locator.mdx#locator-filter) 效果最好：
 
 ```csharp
-var child = page.GetByText("Hello");
-var parent = page.GetByRole(AriaRole.Listitem).Filter(new () { Has = child });
+const child = page.GetByText('Hello');
+const parent = page.GetByRole('listitem').filter({ has: child });
 ```
 
-Alternatively, if you cannot find a suitable locator for the parent element, use `xpath=..`. Note that this method is not as reliable, because any changes to the DOM structure will break your tests. Prefer [Locator.Filter()](/api/class-locator.mdx#locator-filter) when possible.
+或者，如果您無法為父元素找到合適的定位器，請使用 `xpath=..`。請注意，這種方法不如上述方法可靠，因為 DOM 結構的任何變更都會破壞您的測試。盡可能時請優先使用 [`locator.filter()`](/api/class-locator.mdx#locator-filter)。
 
 ```csharp
-var parent = page.GetByText("Hello").Locator("xpath=..");
+const parent = page.GetByText('Hello').locator('xpath=..');
 ```
 
-## React locator
+## React 定位器
 
 :::note
 
-React locator is experimental and prefixed with `_`. The functionality might change in future.
+React 定位器是實驗性的，前綴為 `_`。功能可能在未來會變更。
 :::
 
-React locator allows finding elements by their component name and property values. The syntax is very similar to [CSS attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) and supports all CSS attribute selector operators.
+React 定位器允許依組件名稱和屬性值尋找元素。語法與 [CSS 屬性選擇器](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)非常相似，並支援所有 CSS 屬性選擇器運算子。
 
-In React locator, component names are transcribed with **CamelCase**.
+在 React 定位器中，組件名稱以 **CamelCase** 轉錄。
 
 ```csharp
-await page.Locator("_react=BookItem").ClickAsync();
+await page.Locator('_react=BookItem').ClickAsync();
 ```
 
-More examples:
-- match by **component**: `_react=BookItem`
-- match by component and **exact property value**, case-sensitive: `_react=BookItem[author = "Steven King"]`
-- match by property value only, **case-insensitive**: `_react=[author = "steven king" i]`
-- match by component and **truthy property value**: `_react=MyButton[enabled]`
-- match by component and **boolean value**: `_react=MyButton[enabled = false]`
-- match by property **value substring**: `_react=[author *= "King"]`
-- match by component and **multiple properties**: `_react=BookItem[author *= "king" i][year = 1990]`
-- match by **nested** property value: `_react=[some.nested.value = 12]`
-- match by component and property value **prefix**: `_react=BookItem[author ^= "Steven"]`
-- match by component and property value **suffix**: `_react=BookItem[author $= "Steven"]`
-- match by component and **key**: `_react=BookItem[key = '2']`
-- match by property value **regex**: `_react=[author = /Steven(\\s+King)?/i]`
+更多範例：
+- 依**組件**比對：`_react=BookItem`
+- 依組件和**確切屬性值**比對，區分大小寫：`_react=BookItem[author = "Steven King"]`
+- 僅依屬性值比對，**不區分大小寫**：`_react=[author = "steven king" i]`
+- 依組件和**真值屬性值**比對：`_react=MyButton[enabled]`
+- 依組件和**布林值**比對：`_react=MyButton[enabled = false]`
+- 依屬性**值子字串**比對：`_react=[author *= "King"]`
+- 依組件和**多個屬性**比對：`_react=BookItem[author *= "king" i][year = 1990]`
+- 依**巢狀**屬性值比對：`_react=[some.nested.value = 12]`
+- 依組件和屬性值**前綴**比對：`_react=BookItem[author ^= "Steven"]`
+- 依組件和屬性值**後綴**比對：`_react=BookItem[author $= "Steven"]`
+- 依組件和 **key** 比對：`_react=BookItem[key = '2']`
+- 依屬性值**正規表示式**比對：`_react=[author = /Steven(\\s+King)?/i]`
 
-To find React element names in a tree use [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
-
-:::note
-
-React locator supports React 15 and above.
-:::
-
-:::note
-React locator, as well as [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), only work against **unminified** application builds.
-:::
-
-## Vue locator
+要在樹中尋找 React 元素名稱，請使用 [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)。
 
 :::note
 
-Vue locator is experimental and prefixed with `_`. The functionality might change in future.
+React 定位器支援 React 15 及以上版本。
 :::
 
-Vue locator allows finding elements by their component name and property values. The syntax is very similar to [CSS attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) and supports all CSS attribute selector operators.
+:::note
+React 定位器以及 [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) 只能在**未壓縮**的應用程式建置中運作。
+:::
 
-In Vue locator, component names are transcribed with **kebab-case**.
+## Vue 定位器
+
+:::note
+
+Vue 定位器是實驗性的，前綴為 `_`。功能可能在未來會變更。
+:::
+
+Vue 定位器允許依組件名稱和屬性值尋找元素。語法與 [CSS 屬性選擇器](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)非常相似，並支援所有 CSS 屬性選擇器運算子。
+
+在 Vue 定位器中，組件名稱以 **kebab-case** 轉錄。
 
 ```csharp
-await page.Locator("_vue=book-item").ClickAsync();
+await page.Locator('_vue=book-item').ClickAsync();
 ```
 
-More examples:
-- match by **component**: `_vue=book-item`
-- match by component and **exact property value**, case-sensitive: `_vue=book-item[author = "Steven King"]`
-- match by property value only, **case-insensitive**: `_vue=[author = "steven king" i]`
-- match by component and **truthy property value**: `_vue=my-button[enabled]`
-- match by component and **boolean value**: `_vue=my-button[enabled = false]`
-- match by property **value substring**: `_vue=[author *= "King"]`
-- match by component and **multiple properties**: `_vue=book-item[author *= "king" i][year = 1990]`
-- match by **nested** property value: `_vue=[some.nested.value = 12]`
-- match by component and property value **prefix**: `_vue=book-item[author ^= "Steven"]`
-- match by component and property value **suffix**: `_vue=book-item[author $= "Steven"]`
-- match by property value **regex**: `_vue=[author = /Steven(\\s+King)?/i]`
+更多範例：
+- 依**組件**比對：`_vue=book-item`
+- 依組件和**確切屬性值**比對，區分大小寫：`_vue=book-item[author = "Steven King"]`
+- 僅依屬性值比對，**不區分大小寫**：`_vue=[author = "steven king" i]`
+- 依組件和**真值屬性值**比對：`_vue=my-button[enabled]`
+- 依組件和**布林值**比對：`_vue=my-button[enabled = false]`
+- 依屬性**值子字串**比對：`_vue=[author *= "King"]`
+- 依組件和**多個屬性**比對：`_vue=book-item[author *= "king" i][year = 1990]`
+- 依**巢狀**屬性值比對：`_vue=[some.nested.value = 12]`
+- 依組件和屬性值**前綴**比對：`_vue=book-item[author ^= "Steven"]`
+- 依組件和屬性值**後綴**比對：`_vue=book-item[author $= "Steven"]`
+- 依屬性值**正規表示式**比對：`_vue=[author = /Steven(\\s+King)?/i]`
 
-To find Vue element names in a tree use [Vue DevTools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en).
+要在樹中尋找 Vue 元素名稱，請使用 [Vue DevTools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en)。
 
 :::note
 
-Vue locator supports Vue2 and above.
+Vue 定位器支援 Vue2 及以上版本。
 :::
 
 :::note
-Vue locator, as well as [Vue DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), only work against **unminified** application builds.
+Vue 定位器以及 [Vue DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) 只能在**未壓縮**的應用程式建置中運作。
 :::
 
-## XPath locator
+## XPath 定位器
 
 :::warning
 
-We recommend prioritizing [user-visible locators](./locators.mdx#quick-guide) like text or accessible role instead of using XPath that is tied to the implementation and easily break when the page changes.
+我們建議優先使用[使用者可見的定位器](./locators.mdx#quick-guide)，如文字或無障礙角色，而非使用與實作細節綁定且在頁面變更時容易失效的 XPath。
 :::
 
-XPath locators are equivalent to calling [`Document.evaluate`](https://developer.mozilla.org/en/docs/Web/API/Document/evaluate).
+XPath 定位器等同於呼叫 [`Document.evaluate`](https://developer.mozilla.org/en/docs/Web/API/Document/evaluate)。
 
 ```csharp
-await page.Locator("xpath=//button").ClickAsync();
+await page.Locator('xpath=//button').ClickAsync();
 ```
 
 :::note
-Any selector string starting with `//` or `..` are assumed to be an xpath selector. For example, Playwright converts `'//html/body'` to `'xpath=//html/body'`.
+任何以 `//` 或 `..` 開頭的選擇器字串都會被視為 xpath 選擇器。例如，Playwright 會將 `'//html/body'` 轉換為 `'xpath=//html/body'`。
 :::
 
 :::note
-XPath does not pierce shadow roots.
+XPath 不會穿透 shadow 根。
 :::
 
-### XPath union
+### XPath 聯集
 
-Pipe operator (`|`) can be used to specify multiple selectors in XPath. It will match all elements that can be selected by one of the selectors in that list.
+管道運算子（`|`）可用於在 XPath 中指定多個選擇器。它會比對所有可以被該清單中任一選擇器選取的元素。
 
 ```csharp
-// Waits for either confirmation dialog or load spinner.
-await page.Locator("//span[contains(@class, 'spinner__loading')]|//div[@id='confirmation']").WaitForAsync();
+// 等待確認對話框或載入旋轉器
+await page.Locator(
+    `//span[contains(@class, 'spinner__loading')]|//div[@id='confirmation']`
+).WaitForAsync();
 ```
 
-## Label to form control retargeting
+## 標籤到表單控制項重新定位
 
 :::warning
 
-We recommend [locating by label text](./locators.mdx#locate-by-label) instead of relying to label-to-control retargeting.
+我們建議[依標籤文字定位](./locators.mdx#locate-by-label)，而非依賴標籤到控制項重新定位。
 :::
 
-Targeted input actions in Playwright automatically distinguish between labels and controls, so you can target the label to perform an action on the associated control.
+Playwright 中的目標輸入動作會自動區分標籤和控制項，因此您可以定位標籤來對關聯的控制項執行動作。
 
-For example, consider the following DOM structure: `<label for="password">Password:</label><input id="password" type="password">`. You can target the label by its "Password" text using [Page.GetByText()](/api/class-page.mdx#page-get-by-text). However, the following actions will be performed on the input instead of the label:
-- [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) will click the label and automatically focus the input field;
-- [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) will fill the input field;
-- [Locator.InputValueAsync()](/api/class-locator.mdx#locator-input-value) will return the value of the input field;
-- [Locator.SelectTextAsync()](/api/class-locator.mdx#locator-select-text) will select text in the input field;
-- [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) will set files for the input field with `type=file`;
-- [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-option) will select an option from the select box.
-
-```csharp
-// Fill the input by targeting the label.
-await page.GetByText("Password").FillAsync("secret");
-```
-
-However, other methods will target the label itself, for example [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) will assert the text content of the label, not the input field.
+例如，考慮以下 DOM 結構：`<label for="password">Password:</label><input id="password" type="password">`。您可以使用 [`page.GetByText()`](/api/class-page.mdx#page-get-by-text) 依其 "Password" 文字定位標籤。然而，以下動作將在輸入欄位而非標籤上執行：
+- [`locator.ClickAsync()`](/api/class-locator.mdx#locator-click) 會點擊標籤並自動聚焦輸入欄位；
+- [`locator.FillAsync()`](/api/class-locator.mdx#locator-fill) 會填寫輸入欄位；
+- [`locator.InputValueAsync()`](/api/class-locator.mdx#locator-input-value) 會回傳輸入欄位的值；
+- [`locator.SelectTextAsync()`](/api/class-locator.mdx#locator-select-text) 會選取輸入欄位中的文字；
+- [`locator.SetInputFilesAsync()`](/api/class-locator.mdx#locator-set-input-files) 會為 `type=file` 的輸入欄位設定檔案；
+- [`locator.SelectOptionAsync()`](/api/class-locator.mdx#locator-select-option) 會從選取方塊中選取選項。
 
 ```csharp
-// Fill the input by targeting the label.
-await Expect(Page.Locator("label")).ToHaveTextAsync("Password");
+// 透過定位標籤來填寫輸入欄位
+await page.GetByText('Password').FillAsync('secret');
 ```
 
-## Legacy text locator
+然而，其他方法會定位標籤本身，例如 [`await Expect(...).ToHaveTextAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 會斷言標籤的文字內容，而非輸入欄位。
+
+```csharp
+// 填寫輸入欄位並定位標籤
+await await Expect(...).ToHaveTextAsync('Password');
+```
+
+## 舊版文字定位器
 
 :::warning
 
-We recommend the modern [text locator](./locators.mdx#get-by-text) instead.
+我們建議使用現代的[文字定位器](./locators.mdx#get-by-text)。
 :::
 
-Legacy text locator matches elements that contain passed text.
+舊版文字定位器比對包含傳遞文字的元素。
 
 ```csharp
-await page.Locator("text=Log in").ClickAsync();
+await page.Locator('text=Log in').ClickAsync();
 ```
 
-Legacy text locator has a few variations:
-- `text=Log in` - default matching is case-insensitive, trims whitespace and searches for a substring. For example, `text=Log` matches `<button>Log in</button>`.
+舊版文字定位器有幾個變化：
+- `text=Log in` - 預設比對不區分大小寫，會修剪空白字元並搜尋子字串。例如，`text=Log` 比對 `<button>Log in</button>`。
   
   ```csharp
-  await page.Locator("text=Log in").ClickAsync();
+  await page.Locator('text=Log in').ClickAsync();
   ```
   
-- `text="Log in"` - text body can be escaped with single or double quotes to search for a text node with exact content after trimming whitespace.
+- `text="Log in"` - 文字主體可以用單引號或雙引號轉義，以搜尋在修剪空白字元後具有確切內容的文字節點。
   
-  For example, `text="Log"` does not match `<button>Log in</button>` because `<button>` contains a single text node `"Log in"` that is not equal to `"Log"`. However, `text="Log"` matches `<button> Log <span>in</span></button>`, because `<button>` contains a text node `" Log "`. This exact mode implies case-sensitive matching, so `text="Download"` will not match `<button>download</button>`.
+  例如，`text="Log"` 不會比對 `<button>Log in</button>`，因為 `<button>` 包含單一文字節點 `"Log in"`，這不等於 `"Log"`。然而，`text="Log"` 會比對 `<button> Log <span>in</span></button>`，因為 `<button>` 包含文字節點 `" Log "`。這種確切模式意味著區分大小寫的比對，所以 `text="Download"` 不會比對 `<button>download</button>`。
   
-  Quoted body follows the usual escaping rules, e.g. use `\"` to escape double quote in a double-quoted string: `text="foo\"bar"`.
+  引號主體遵循通常的轉義規則，例如使用 `\"` 在雙引號字串中轉義雙引號：`text="foo\"bar"`。
   
   ```csharp
-  await page.Locator("text='Log in'").ClickAsync();
+  await page.Locator('text="Log in"').ClickAsync();
   ```
   
-- `/Log\s*in/i` - body can be a [JavaScript-like regex](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) wrapped in `/` symbols. For example, `text=/Log\s*in/i` matches `<button>Login</button>` and `<button>log IN</button>`.
+- `/Log\s*in/i` - 主體可以是包在 `/` 符號中的 [JavaScript 式正規表示式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)。例如，`text=/Log\s*in/i` 比對 `<button>Login</button>` 和 `<button>log IN</button>`。
   
   ```csharp
-  await page.Locator("text=/Log\\s*in/i").ClickAsync();
+  await page.Locator('text=/Log\\s*in/i').ClickAsync();
   ```
   
 :::note
 
-String selectors starting and ending with a quote (either `"` or `'`) are assumed to be a legacy text locators. For example, `"Log in"` is converted to `text="Log in"` internally.
+以引號（`"` 或 `'`）開始和結束的字串選擇器會被視為舊版文字定位器。例如，`"Log in"` 在內部會轉換為 `text="Log in"`。
 :::
 
 :::note
-Matching always normalizes whitespace. For example, it turns multiple spaces into one, turns line breaks into spaces and ignores leading and trailing whitespace.
+比對總是會正規化空白字元。例如，它將多個空格轉為一個，將換行符轉為空格，並忽略前導和尾隨的空白字元。
 :::
 
 :::note
-Input elements of the type `button` and `submit` are matched by their `value` instead of text content. For example, `text=Log in` matches `<input type=button value="Log in">`.
+類型為 `button` 和 `submit` 的輸入元素會依其 `value` 而非文字內容進行比對。例如，`text=Log in` 比對 `<input type=button value="Log in">`。
 :::
 
-## id, data-testid, data-test-id, data-test selectors
+## id、data-testid、data-test-id、data-test 選擇器
 
 :::warning
 
-We recommend [locating by test id](./locators.mdx#locate-by-test-id) instead.
+我們建議改為[依測試 ID 定位](./locators.mdx#locate-by-test-id)。
 :::
 
-Playwright supports shorthand for selecting elements using certain attributes. Currently, only the following attributes are supported:
+Playwright 支援使用特定屬性選取元素的簡寫。目前只支援以下屬性：
 - `id`
 - `data-testid`
 - `data-test-id`
 - `data-test`
 
 ```csharp
-// Fill an input with the id "username"
-await page.Locator("id=username").FillAsync("value");
+// 填寫 id 為 "username" 的輸入欄位
+await page.Locator('id=username').FillAsync('value');
 
-// Click an element with data-test-id "submit"
-await page.Locator("data-test-id=submit").ClickAsync();
+// 點擊 data-test-id 為 "submit" 的元素
+await page.Locator('data-test-id=submit').ClickAsync();
 ```
 
 :::note
-Attribute selectors are not CSS selectors, so anything CSS-specific like `:enabled` is not supported. For more features, use a proper [css](#css-locator) selector, e.g. `css=[data-test="login"]:enabled`.
+屬性選擇器不是 CSS 選擇器，因此不支援任何 CSS 特定的語法，如 `:enabled`。對於更多功能，請使用適當的 [css](#css-locator) 選擇器，例如 `css=[data-test="login"]:enabled`。
 :::
 
-## Chaining selectors
+## 選擇器鏈結
 
 :::warning
 
-We recommend [chaining locators](./locators.mdx#matching-inside-a-locator) instead.
+我們建議改為[鏈結定位器](./locators.mdx#matching-inside-a-locator)。
 :::
 
-Selectors defined as `engine=body` or in short-form can be combined with the `>>` token, e.g. `selector1 >> selector2 >> selectors3`. When selectors are chained, the next one is queried relative to the previous one's result.
+定義為 `engine=body` 或簡寫形式的選擇器可以與 `>>` 符號結合，例如 `selector1 >> selector2 >> selectors3`。當選擇器被鏈結時，下一個選擇器會相對於前一個的結果進行查詢。
 
-For example,
+例如，
 
 ```txt
 css=article >> css=.bar > .baz >> css=span[attr=value]
 ```
 
-is equivalent to
+等同於
 
-```js
+```csharp
 document
     .querySelector('article')
     .querySelector('.bar > .baz')
     .querySelector('span[attr=value]');
 ```
 
-If a selector needs to include `>>` in the body, it should be escaped inside a string to not be confused with chaining separator, e.g. `text="some >> text"`.
+如果選擇器需要在主體中包含 `>>`，應該在字串內轉義以免與鏈結分隔符混淆，例如 `text="some >> text"`。
 
-### Intermediate matches
+### 中間比對
 
 :::warning
 
-We recommend [filtering by another locator](./locators.mdx#filter-by-childdescendant) to locate elements that contain other elements.
+我們建議[依另一個定位器篩選](./locators.mdx#filter-by-childdescendant)來定位包含其他元素的元素。
 :::
 
-By default, chained selectors resolve to an element queried by the last selector. A selector can be prefixed with `*` to capture elements that are queried by an intermediate selector.
+預設情況下，鏈結選擇器會解析為由最後一個選擇器查詢的元素。選擇器可以前綴 `*` 來擷取由中間選擇器查詢的元素。
 
-For example, `css=article >> text=Hello` captures the element with the text `Hello`, and `*css=article >> text=Hello` (note the `*`) captures the `article` element that contains some element with the text `Hello`.
+例如，`css=article >> text=Hello` 擷取包含文字 `Hello` 的元素，而 `*css=article >> text=Hello`（請注意 `*`）擷取包含某個含有文字 `Hello` 的元素的 `article` 元素。
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"
+[Android]: /api/class-android.mdx "Android"
+[AndroidDevice]: /api/class-androiddevice.mdx "AndroidDevice"
+[AndroidInput]: /api/class-androidinput.mdx "AndroidInput"
+[AndroidSocket]: /api/class-androidsocket.mdx "AndroidSocket"
+[AndroidWebView]: /api/class-androidwebview.mdx "AndroidWebView"
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"
 [APIRequestContext]: /api/class-apirequestcontext.mdx "APIRequestContext"
 [APIResponse]: /api/class-apiresponse.mdx "APIResponse"
 [APIResponseAssertions]: /api/class-apiresponseassertions.mdx "APIResponseAssertions"
 [Browser]: /api/class-browser.mdx "Browser"
 [BrowserContext]: /api/class-browsercontext.mdx "BrowserContext"
+[BrowserServer]: /api/class-browserserver.mdx "BrowserServer"
 [BrowserType]: /api/class-browsertype.mdx "BrowserType"
 [CDPSession]: /api/class-cdpsession.mdx "CDPSession"
-[CDPSessionEvent]: /api/class-cdpsessionevent.mdx "CDPSessionEvent"
 [Clock]: /api/class-clock.mdx "Clock"
 [ConsoleMessage]: /api/class-consolemessage.mdx "ConsoleMessage"
+[Coverage]: /api/class-coverage.mdx "Coverage"
 [Dialog]: /api/class-dialog.mdx "Dialog"
 [Download]: /api/class-download.mdx "Download"
+[Electron]: /api/class-electron.mdx "Electron"
+[ElectronApplication]: /api/class-electronapplication.mdx "ElectronApplication"
 [ElementHandle]: /api/class-elementhandle.mdx "ElementHandle"
 [FileChooser]: /api/class-filechooser.mdx "FileChooser"
-[FormData]: /api/class-formdata.mdx "FormData"
 [Frame]: /api/class-frame.mdx "Frame"
 [FrameLocator]: /api/class-framelocator.mdx "FrameLocator"
+[GenericAssertions]: /api/class-genericassertions.mdx "GenericAssertions"
 [JSHandle]: /api/class-jshandle.mdx "JSHandle"
 [Keyboard]: /api/class-keyboard.mdx "Keyboard"
 [Locator]: /api/class-locator.mdx "Locator"
 [LocatorAssertions]: /api/class-locatorassertions.mdx "LocatorAssertions"
+[Logger]: /api/class-logger.mdx "Logger"
 [Mouse]: /api/class-mouse.mdx "Mouse"
 [Page]: /api/class-page.mdx "Page"
 [PageAssertions]: /api/class-pageassertions.mdx "PageAssertions"
@@ -503,15 +514,33 @@ For example, `css=article >> text=Hello` captures the element with the text `Hel
 [Response]: /api/class-response.mdx "Response"
 [Route]: /api/class-route.mdx "Route"
 [Selectors]: /api/class-selectors.mdx "Selectors"
+[SnapshotAssertions]: /api/class-snapshotassertions.mdx "SnapshotAssertions"
 [TimeoutError]: /api/class-timeouterror.mdx "TimeoutError"
 [Touchscreen]: /api/class-touchscreen.mdx "Touchscreen"
 [Tracing]: /api/class-tracing.mdx "Tracing"
 [Video]: /api/class-video.mdx "Video"
 [WebError]: /api/class-weberror.mdx "WebError"
 [WebSocket]: /api/class-websocket.mdx "WebSocket"
-[WebSocketFrame]: /api/class-websocketframe.mdx "WebSocketFrame"
 [WebSocketRoute]: /api/class-websocketroute.mdx "WebSocketRoute"
 [Worker]: /api/class-worker.mdx "Worker"
+[Fixtures]: /api/class-fixtures.mdx "Fixtures"
+[FullConfig]: /api/class-fullconfig.mdx "FullConfig"
+[FullProject]: /api/class-fullproject.mdx "FullProject"
+[Location]: /api/class-location.mdx "Location"
+[Test]: /api/class-test.mdx "Test"
+[TestConfig]: /api/class-testconfig.mdx "TestConfig"
+[TestInfo]: /api/class-testinfo.mdx "TestInfo"
+[TestInfoError]: /api/class-testinfoerror.mdx "TestInfoError"
+[TestOptions]: /api/class-testoptions.mdx "TestOptions"
+[TestProject]: /api/class-testproject.mdx "TestProject"
+[TestStepInfo]: /api/class-teststepinfo.mdx "TestStepInfo"
+[WorkerInfo]: /api/class-workerinfo.mdx "WorkerInfo"
+[Reporter]: /api/class-reporter.mdx "Reporter"
+[Suite]: /api/class-suite.mdx "Suite"
+[TestCase]: /api/class-testcase.mdx "TestCase"
+[TestError]: /api/class-testerror.mdx "TestError"
+[TestResult]: /api/class-testresult.mdx "TestResult"
+[TestStep]: /api/class-teststep.mdx "TestStep"
 [Element]: https://developer.mozilla.org/en-US/docs/Web/API/element "Element"
 [EvaluationArgument]: /evaluating.mdx#evaluation-argument "EvaluationArgument"
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise "Promise"
@@ -523,26 +552,29 @@ For example, `css=article >> text=Hello` captures the element with the text `Hel
 [UnixTime]: https://en.wikipedia.org/wiki/Unix_time "Unix Time"
 [xpath]: https://developer.mozilla.org/en-US/docs/Web/XPath "xpath"
 
-[bool]: https://docs.microsoft.com/en-us/dotnet/api/system.boolean "bool"
-[Date]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime "DateTime"
-[double]: https://docs.microsoft.com/en-us/dotnet/api/system.double "double"
-[byte]: https://docs.microsoft.com/en-us/dotnet/api/system.byte "byte"
-[int]: https://docs.microsoft.com/en-us/dotnet/api/system.int32 "int"
-[long]: https://docs.microsoft.com/en-us/dotnet/api/system.int64 "long"
-[void]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/void "void"
-[string]: https://docs.microsoft.com/en-us/dotnet/api/system.string "string"
+[Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array "Array"
+[boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type "Boolean"
+[Buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer "Buffer"
+[ChildProcess]: https://nodejs.org/api/child_process.html "ChildProcess"
+[Date]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date "Date"
+[Error]: https://nodejs.org/api/errors.html#errors_class_error "Error"
+[EventEmitter]: https://nodejs.org/api/events.html#events_class_eventemitter "EventEmitter"
+[function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function "Function"
+[FormData]: https://developer.mozilla.org/en-US/docs/Web/API/FormData "FormData"
+[Map]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map "Map"
+[Metadata]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object "Object&lt;string, any&gt;"
+[null]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null "null"
+[number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type "Number"
+[Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object "Object"
+[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise "Promise"
+[Readable]: https://nodejs.org/api/stream.html#stream_class_stream_readable "Readable"
+[ReadStream]: https://nodejs.org/api/fs.html#class-fsreadstream "ReadStream"
+[RegExp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp "RegExp"
+[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type "string"
+[void]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined "void"
 [URL]: https://nodejs.org/api/url.html "URL"
-[Regex]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex "Regex"
+[URLSearchParams]: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams "URLSearchParams"
 
-[Action]: https://docs.microsoft.com/en-us/dotnet/api/system.action-1 "Action"
-[Func]: https://docs.microsoft.com/en-us/dotnet/api/system.func-2 "Func"
-[IEnumerable]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerable "IEnumerable"
-[IReadOnlyList]: https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlylist-1?view=net-9.0 "IReadOnlyList"
-[IDictionary]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.idictionary "IDictionary"
-[Task]: https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task?view=net-5.0 "Task"
-[IReadOnlyDictionary]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ireadonlydictionary-2 "IReadOnlyDictionary"
-[JsonElement]: https://docs.microsoft.com/en-us/dotnet/api/system.text.json.jsonelement "JsonElement"
-
-[all available image tags]: https://mcr.microsoft.com/en-us/product/playwright/dotnet/about "all available image tags"
-[Microsoft Artifact Registry]: https://mcr.microsoft.com/en-us/product/playwright/dotnet/about "Microsoft Artifact Registry"
-[Dockerfile.noble]: https://github.com/microsoft/playwright-dotnet/blob/main/utils/docker/Dockerfile.noble "Dockerfile.noble"
+[all available image tags]: https://mcr.microsoft.com/en-us/product/playwright/about "all available image tags"
+[Microsoft Artifact Registry]: https://mcr.microsoft.com/en-us/product/playwright/about "Microsoft Artifact Registry"
+[Dockerfile.noble]: https://github.com/microsoft/playwright/blob/main/utils/docker/Dockerfile.noble "Dockerfile.noble"
