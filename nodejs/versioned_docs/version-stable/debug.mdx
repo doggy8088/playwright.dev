@@ -1,99 +1,99 @@
 ---
 id: debug
-title: "Debugging Tests"
+title: "偵錯測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## VS Code debugger
+## VS Code 偵錯器
 
-We recommend using the [VS Code Extension](./getting-started-vscode.mdx) for debugging for a better developer experience. With the VS Code extension you can debug your tests right in VS Code, see error messages, set breakpoints and step through your tests.
+我們建議使用 [VS Code Extension](./getting-started-vscode.mdx) 進行偵錯，以獲得更好的開發者體驗。使用 VS Code 擴充功能，您可以在 VS Code 中直接偵錯測試、查看錯誤訊息、設定斷點並逐步執行測試。
 
 <img width="1269" alt="running test in debug mode" src="https://user-images.githubusercontent.com/13063165/212740233-3f278825-13e7-4a88-a118-dd4478d43a16.png" />
 
-### Error Messages
+### 錯誤訊息
 
-If your test fails VS Code will show you error messages right in the editor showing what was expected, what was received as well as a complete call log.
+如果您的測試失敗，VS Code 會在編輯器中顯示錯誤訊息，包括預期值、實際值以及完整的呼叫記錄。
 
 <img width="1269" alt="error messaging in vs code" src="https://user-images.githubusercontent.com/13063165/212738654-b573b7c9-05be-476f-ab4c-201bf4265bc0.png" />
 
-### Live Debugging
+### 即時偵錯
 
-You can debug your test live in VS Code. After running a test with the `Show Browser` option checked, click on any of the locators in VS Code and it will be highlighted in the Browser window. Playwright will also show you if there are multiple matches.
+您可以在 VS Code 中即時偵錯測試。在勾選 `Show Browser` 選項執行測試後，點選 VS Code 中的任何定位器，它會在瀏覽器視窗中被突出顯示。Playwright 也會顯示是否有多個匹配項目。
 
 <img width="1394" alt="live debugging in VS Code" src="https://user-images.githubusercontent.com/13063165/212884329-0755b007-0d69-4987-b084-38fd5bfb577d.png" />
 
-You can also edit the locators in VS Code and Playwright will show you the changes live in the browser window.
+您也可以在 VS Code 中編輯定位器，Playwright 會在瀏覽器視窗中即時顯示變更。
 
 <img width="1394" alt="live debugging in VS Code" src="https://user-images.githubusercontent.com/13063165/212884772-5022d4b1-6fab-456f-88e3-506f2354e238.png" />
 
-### Picking a Locator
+### 挑選定位器
 
-Pick a [locator](./locators.mdx) and copy it into your test file by clicking the **Pick locator** button form the testing sidebar. Then in the browser click the element you require and it will now show up in the **Pick locator** box in VS Code. Press 'enter' on your keyboard to copy the locator into the clipboard and then paste anywhere in your code. Or press 'escape' if you want to cancel.
+透過點選測試側邊欄中的 **Pick locator** 按鈕，挑選一個[定位器](./locators.mdx)並複製到您的測試檔案中。然後在瀏覽器中點選您需要的元素，它會顯示在 VS Code 的 **Pick locator** 方塊中。按下鍵盤上的 'enter' 將定位器複製到剪貼簿，然後貼到程式碼中的任何位置。如果要取消，請按下 'escape'。
 
 <img width="1394" alt="Pick locators" src="https://user-images.githubusercontent.com/13063165/212741666-6479a702-2517-44a3-9eca-e719e13b379c.png" />
 
-Playwright will look at your page and figure out the best locator, prioritizing [role, text and test id locators](./locators.mdx). If Playwright finds multiple elements matching the locator, it will improve the locator to make it resilient and uniquely identify the target element, so you don't have to worry about failing tests due to locators.
+Playwright 會檢視您的頁面並找出最佳的定位器，優先使用[角色、文字和測試 ID 定位器](./locators.mdx)。如果 Playwright 找到多個符合該定位器的元素，它會改進定位器使其具有彈性並唯一識別目標元素，因此您不必擔心因定位器導致測試失敗。
 
-### Run in Debug Mode
+### 在偵錯模式中執行
 
-To set a breakpoint click next to the line number where you want the breakpoint to be until a red dot appears. Run the tests in debug mode by right clicking on the line next to the test you want to run.
+要設定斷點，請點選您要設置斷點的行號旁邊，直到出現紅點。透過右鍵點選您想要執行的測試旁邊的行，在偵錯模式下執行測試。
 
 <img width="1269" alt="setting debug test mode" src="https://user-images.githubusercontent.com/13063165/212739847-ecb7dcfe-8929-45f3-b24e-f9c4b592f430.png" />
 
-A browser window will open and the test will run and pause at where the breakpoint is set. You can step through the tests, pause the test and rerun the tests from the menu in VS Code.
+瀏覽器視窗會開啟，測試會執行並在設定斷點的地方暫停。您可以在 VS Code 的選單中逐步執行測試、暫停測試並重新執行測試。
 
 <img width="1269" alt="running test in debug mode" src="https://user-images.githubusercontent.com/13063165/212740233-3f278825-13e7-4a88-a118-dd4478d43a16.png" />
 
-### Debug Tests Using Chrome DevTools
+### 使用 Chrome DevTools 偵錯測試
 
-Instead of using `Debug Test`, choose `Run Test` in VS Code. With `Show Browser` enabled, the browser session is reused, letting you open Chrome DevTools for continuous debugging of your tests and the web application.
+在 VS Code 中選擇 `Run Test` 而不是使用 `Debug Test`。啟用 `Show Browser` 後，瀏覽器工作階段會被重複使用，讓您可以開啟 Chrome DevTools 持續偵錯測試和網頁應用程式。
 
-### Debug in different Browsers
+### 在不同瀏覽器中偵錯
 
-By default, debugging is done using the Chromium profile. You can debug your tests on different browsers by right clicking on the debug icon in the testing sidebar and clicking on the 'Select Default Profile' option from the dropdown.
+預設情況下，偵錯使用 Chromium 設定檔進行。您可以透過右鍵點選測試側邊欄中的偵錯圖示，並從下拉選單中點選 'Select Default Profile' 選項，在不同瀏覽器上偵錯測試。
 
 <img width="1312" alt="debugging on specific profile" src="https://user-images.githubusercontent.com/13063165/212879469-436f8130-c62a-49e1-9d67-c1903b478d5f.png" />
 
-Then choose the test profile you would like to use for debugging your tests. Each time you run your test in debug mode it will use the profile you selected. You can run tests in debug mode by right clicking the line number where your test is and selecting 'Debug Test' from the menu.
+然後選擇您想要用於偵錯測試的測試設定檔。每次在偵錯模式下執行測試時，都會使用您選擇的設定檔。您可以透過右鍵點選測試所在的行號並從選單中選擇 'Debug Test' 來在偵錯模式下執行測試。
 
 <img width="1312" alt="choosing a profile for debugging" src="https://user-images.githubusercontent.com/13063165/212880198-eac22c3e-68ce-47da-9163-d6b376ae7575.png" />
 
-To learn more about debugging, see [Debugging in Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging).
+若要了解更多關於偵錯的資訊，請參閱 [Debugging in Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging)。
 
 ## Playwright Inspector
 
-The Playwright Inspector is a GUI tool to help you debug your Playwright tests. It allows you to step through your tests, live edit locators, pick locators and see actionability logs.
+Playwright Inspector 是一個 GUI 工具，可以幫助您偵錯 Playwright 測試。它讓您可以逐步執行測試、即時編輯定位器、挑選定位器並查看可操作性記錄。
 
 <img width="864" alt="Playwright Inspector" src="https://user-images.githubusercontent.com/13063165/212924587-4b84e5f6-b147-40e9-8c75-d7b9ab6b7ca1.png" />
 
-### Run in debug mode
+### 在偵錯模式中執行
 
-Run your tests with the `--debug` flag to open the inspector. This configures Playwright for debugging and opens the inspector. Additional useful defaults are configured when `--debug` is used:
-- Browsers launch in headed mode
-- Default timeout is set to 0 (= no timeout)
+使用 `--debug` 旗標執行您的測試以開啟檢查器。這會設定 Playwright 進行偵錯並開啟檢查器。當使用 `--debug` 時，會設定額外的實用預設值：
+- 瀏覽器以有頭模式啟動
+- 預設逾時設定為 0（= 無逾時）
 
-#### Debug all tests on all browsers
+#### 偵錯所有瀏覽器上的所有測試
 
-To debug all tests run the test command with the `--debug` flag. This will run tests one by one, and open the inspector and a browser window for each test.
+要偵錯所有測試，請使用 `--debug` 旗標執行測試指令。這會逐一執行測試，並為每個測試開啟檢查器和瀏覽器視窗。
 
 ```bash
 npx playwright test --debug
 ```
 
-#### Debug one test on all browsers
+#### 偵錯所有瀏覽器上的一個測試
 
-To debug one test on a specific line, run the test command followed by the name of the test file and the line number of the test you want to debug, followed by the `--debug` flag. This will run a single test in each browser configured in your [`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers) and open the inspector.
+要偵錯特定行上的一個測試，執行測試指令後加上測試檔案名稱和您想要偵錯的測試行號，然後加上 `--debug` 旗標。這會在您的 [`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers) 中設定的每個瀏覽器中執行單一測試並開啟檢查器。
 
 ```bash
 npx playwright test example.spec.ts:10 --debug
 ```
 
-#### Debug on a specific browser
+#### 在特定瀏覽器上偵錯
 
-In Playwright you can configure projects in your [`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers). Once configured you can then debug your tests on a specific browser or mobile viewport using the `--project` flag followed by the name of the project configured in your `playwright.config`.
+在 Playwright 中，您可以在 [`playwright.config`](./test-projects.mdx#configure-projects-for-multiple-browsers) 中設定專案。設定完成後，您可以使用 `--project` 旗標並加上在 `playwright.config` 中設定的專案名稱，在特定瀏覽器或行動檢視區上偵錯測試。
 
 ```bash
 npx playwright test --project=chromium --debug
@@ -101,55 +101,55 @@ npx playwright test --project="Mobile Safari" --debug
 npx playwright test --project="Microsoft Edge" --debug
 ```
 
-#### Debug one test on a specific browser
+#### 在特定瀏覽器上偵錯一個測試
 
-To run one test on a specific browser add the name of the test file and the line number of the test you want to debug as well as the `--project` flag followed by the name of the project.
+要在特定瀏覽器上執行一個測試，請加上測試檔案名稱和您想要偵錯的測試行號，以及 `--project` 旗標並加上專案名稱。
 
 ```bash
 npx playwright test example.spec.ts:10 --project=webkit --debug
 ```
 
-### Stepping through your tests
+### 逐步執行您的測試
 
-You can play, pause or step through each action of your test using the toolbar at the top of the Inspector. You can see the current action highlighted in the test code, and matching elements highlighted in the browser window.
+您可以使用檢查器頂部的工具列來播放、暫停或逐步執行測試的每個動作。您可以在測試程式碼中看到當前動作被突出顯示，匹配的元素也會在瀏覽器視窗中被突出顯示。
 
 <img width="1340" alt="Playwright Inspector and browser" src="https://user-images.githubusercontent.com/13063165/212936618-84b87acc-bc2e-46ed-994b-32b2ef742e60.png" />
 
-### Run a test from a specific breakpoint
+### 從特定斷點執行測試
 
-To speed up the debugging process you can add a [page.pause()](/api/class-page.mdx#page-pause) method to your test. This way you won't have to step through each action of your test to get to the point where you want to debug.
+為了加速偵錯過程，您可以在測試中加入 [page.pause()](/api/class-page.mdx#page-pause) 方法。這樣您就不必逐步執行測試的每個動作來到達您想要偵錯的點。
 
 ```js
 await page.pause();
 ```
 
-Once you add a `page.pause()` call, run your tests in debug mode. Clicking the "Resume" button in the Inspector will run the test and only stop on the `page.pause()`.
+一旦您新增了 `page.pause()` 呼叫，在偵錯模式下執行您的測試。點選檢查器中的「Resume」按鈕會執行測試，並且只會在 `page.pause()` 處停止。
 
 <img width="1350" alt="test with page.pause" src="https://user-images.githubusercontent.com/13063165/219473050-122be4c2-31d0-4cbd-aa8b-8588e8b781a6.png" />
 
-### Live editing locators
+### 即時編輯定位器
 
-While running in debug mode you can live edit the locators. Next to the 'Pick Locator' button there is a field showing the [locator](./locators.mdx) that the test is paused on. You can edit this locator directly in the **Pick Locator** field, and matching elements will be highlighted in the browser window.
+在偵錯模式下執行時，您可以即時編輯定位器。在 'Pick Locator' 按鈕旁邊有一個欄位顯示測試暫停處的[定位器](./locators.mdx)。您可以直接在 **Pick Locator** 欄位中編輯此定位器，匹配的元素會在瀏覽器視窗中被突出顯示。
 
 <img width="1348" alt="live editing locators" src="https://user-images.githubusercontent.com/13063165/212980815-1cf6ef7b-e69a-496c-898a-ec603a3bc562.png" />
 
-### Picking locators
+### 挑選定位器
 
-While debugging, you might need to choose a more resilient locator. You can do this by clicking on the **Pick Locator** button and hovering over any element in the browser window. While hovering over an element you will see the code needed to locate this element highlighted below. Clicking an element in the browser will add the locator into the field where you can then either tweak it or copy it into your code.
+在偵錯時，您可能需要選擇更具彈性的定位器。您可以透過點選 **Pick Locator** 按鈕並在瀏覽器視窗中滑鼠游標停留在任何元素上來實現。當滑鼠游標停留在元素上時，您會看到下方突出顯示的定位此元素所需的程式碼。在瀏覽器中點選元素會將定位器新增到欄位中，然後您可以調整它或將其複製到程式碼中。
 
 <img width="1392" alt="Picking locators" src="https://user-images.githubusercontent.com/13063165/212968640-ce82a027-9277-4bdf-b0a9-6282fb2becb7.png" />
 
-Playwright will look at your page and figure out the best locator, prioritizing [role, text and test id locators](./locators.mdx). If Playwright finds multiple elements matching the locator, it will improve the locator to make it resilient and uniquely identify the target element, so you don't have to worry about failing tests due to locators.
+Playwright 會檢視您的頁面並找出最佳的定位器，優先使用[角色、文字和測試 ID 定位器](./locators.mdx)。如果 Playwright 找到多個符合該定位器的元素，它會改進定位器使其具有彈性並唯一識別目標元素，因此您不必擔心因定位器導致測試失敗。
 
-### Actionability logs
+### 可操作性記錄
 
-By the time Playwright has paused on a click action, it has already performed [actionability checks](./actionability.mdx) that can be found in the log. This can help you understand what happened during your test and what Playwright did or tried to do. The log tells you if the element was visible, enabled and stable, if the locator resolved to an element, scrolled into view, and so much more. If actionability can't be reached, it will show the action as pending.
+當 Playwright 在點選動作上暫停時，它已經執行了可在記錄中找到的[可操作性檢查](./actionability.mdx)。這可以幫助您了解測試期間發生了什麼，以及 Playwright 做了什麼或嘗試做什麼。記錄會告訴您元素是否可見、已啟用且穩定、定位器是否解析為元素、是否捲動到檢視區等等。如果無法達到可操作性，它會將動作顯示為待處理。
 
 <img width="883" alt="Actionability Logs" src="https://user-images.githubusercontent.com/13063165/212968907-5dede739-e0e3-482a-91cd-726a0f5b0b6d.png" />
 
 ## Trace Viewer
 
-Playwright [Trace Viewer](/trace-viewer.mdx) is a GUI tool that lets you explore recorded Playwright traces of your tests. You can go back and forward through each action on the left side, and visually see what was happening during the action. In the middle of the screen, you can see a DOM snapshot for the action. On the right side you can see action details, such as time, parameters, return value and log. You can also explore console messages, network requests and the source code.
+Playwright [Trace Viewer](/trace-viewer.mdx) 是一個 GUI 工具，讓您可以探索測試的錄製 Playwright 追蹤。您可以在左側前後瀏覽每個動作，並在動作期間直觀地看到發生了什麼。在螢幕中央，您可以看到動作的 DOM 快照。在右側，您可以看到動作詳細資訊，例如時間、參數、返回值和記錄。您也可以探索主控台訊息、網路請求和原始碼。
 
 <video width="100%" height="100%" controls muted>
 
@@ -157,26 +157,26 @@ Playwright [Trace Viewer](/trace-viewer.mdx) is a GUI tool that lets you explore
 
 </video>
 
-To learn more about how to record traces and use the Trace Viewer, check out the [Trace Viewer](/trace-viewer.mdx) guide.
+若要了解更多關於如何錄製追蹤和使用 Trace Viewer 的資訊，請查看 [Trace Viewer](/trace-viewer.mdx) 指南。
 
-## Browser Developer Tools
+## 瀏覽器開發者工具
 
-When running in Debug Mode with `PWDEBUG=console`, a `playwright` object is available in the Developer tools console. Developer tools can help you to:
-- Inspect the DOM tree and **find element selectors**
-- **See console logs** during execution (or learn how to [read logs via API](./api/class-page.mdx#page-event-console))
-- Check **network activity** and other developer tools features
+當使用 `PWDEBUG=console` 在偵錯模式下執行時，開發者工具主控台中會有一個 `playwright` 物件可用。開發者工具可以幫助您：
+- 檢視 DOM 樹並**尋找元素選擇器**
+- **查看主控台記錄**執行期間（或學習如何[透過 API 讀取記錄](./api/class-page.mdx#page-event-console)）
+- 檢查**網路活動**和其他開發者工具功能
 
-This will also set the default timeouts of Playwright to 0 (= no timeout).
+這也會將 Playwright 的預設逾時設定為 0（= 無逾時）。
 
 <img width="1399" alt="Browser Developer Tools with Playwright object" src="https://user-images.githubusercontent.com/13063165/219128002-898f604d-9697-4b7f-95b5-a6a8260b7282.png" />
 
-To debug your tests using the browser developer tools, start by setting a breakpoint in your test to pause the execution using the [page.pause()](/api/class-page.mdx#page-pause) method.
+要使用瀏覽器開發者工具偵錯測試，首先使用 [page.pause()](/api/class-page.mdx#page-pause) 方法在測試中設定斷點來暫停執行。
 
 ```js
 await page.pause();
 ```
 
-Once you have set a breakpoint in your test, you can then run your test with `PWDEBUG=console`.
+一旦您在測試中設定了斷點，您就可以使用 `PWDEBUG=console` 執行測試。
 
 <Tabs
   groupId="bash-flavor"
@@ -212,11 +212,11 @@ npx playwright test
 </TabItem>
 </Tabs>
 
-Once Playwright launches the browser window, you can open the developer tools. The `playwright` object will be available in the console panel.
+一旦 Playwright 啟動瀏覽器視窗，您就可以開啟開發者工具。`playwright` 物件將在主控台面板中可用。
 
 #### playwright.$(selector)
 
-Query the Playwright selector, using the actual Playwright query engine, for example:
+使用實際的 Playwright 查詢引擎查詢 Playwright 選擇器，例如：
 
 ```bash
 playwright.$('.auth-form >> text=Log in');
@@ -226,7 +226,7 @@ playwright.$('.auth-form >> text=Log in');
 
 #### playwright.$$(selector)
 
-Same as `playwright.$`, but returns all matching elements.
+與 `playwright.$` 相同，但返回所有匹配的元素。
 
 ```bash
 playwright.$$('li >> text=John')
@@ -236,7 +236,7 @@ playwright.$$('li >> text=John')
 
 #### playwright.inspect(selector)
 
-Reveal element in the Elements panel.
+在元素面板中顯示元素。
 
 ```bash
 playwright.inspect('text=Log in')
@@ -244,7 +244,7 @@ playwright.inspect('text=Log in')
 
 #### playwright.locator(selector)
 
-Create a locator and query matching elements, for example:
+建立定位器並查詢匹配的元素，例如：
 
 ```bash
 playwright.locator('.auth-form', { hasText: 'Log in' });
@@ -256,7 +256,7 @@ Locator ()
 
 #### playwright.selector(element)
 
-Generates selector for the given element. For example, select an element in the Elements panel and pass `$0`:
+為給定元素生成選擇器。例如，在元素面板中選擇一個元素並傳遞 `$0`：
 
 ```bash
 playwright.selector($0)
@@ -264,9 +264,9 @@ playwright.selector($0)
 "div[id="glow-ingress-block"] >> text=/.*Hello.*/"
 ```
 
-## Verbose API logs
+## 冗長的 API 記錄
 
-Playwright supports verbose logging with the `DEBUG` environment variable.
+Playwright 支援使用 `DEBUG` 環境變數進行冗長記錄。
 
 <Tabs
   groupId="bash-flavor"
@@ -304,14 +304,14 @@ npx playwright test
 
 :::note
 
-**For WebKit**: launching WebKit Inspector during the execution will prevent the Playwright script from executing any further and will reset pre-configured user agent and device emulation.
+**對於 WebKit**：在執行期間啟動 WebKit Inspector 會阻止 Playwright 腳本進一步執行，並會重設預先設定的使用者代理和裝置模擬。
 :::
 
 ## Headed mode
 
-Playwright runs browsers in headless mode by default. To change this behavior, use `headless: false` as a launch option.
+Playwright 預設在無頭模式下執行瀏覽器。要改變此行為，請使用 `headless: false` 作為啟動選項。
 
-You can also use the [slowMo](/api/class-browsertype.mdx#browser-type-launch-option-slow-mo) option to slow down execution (by N milliseconds per operation) and follow along while debugging.
+您也可以使用 [slowMo](/api/class-browsertype.mdx#browser-type-launch-option-slow-mo) 選項來減慢執行速度（每次操作 N 毫秒）並在偵錯時跟隨。
 
 ```js
 // Chromium, Firefox, or WebKit
