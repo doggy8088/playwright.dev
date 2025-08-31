@@ -63,4 +63,21 @@
 
 ---
 
+## 新增術語（aria-snapshots 相關）
+- accessibility tree → 無障礙樹
+- aria snapshot → aria 快照
+- accessible element → 無障礙元素
+- accessible name → 無障礙名稱
+- role → 角色（ARIA/HTML 角色保留原文）
+- attribute → 屬性
+- hierarchical structure → 階層結構
+- tree-like syntax → 樹狀語法
+- node → 節點
+- indentation → 縮排
+- YAML representation → YAML 表示法
+- partial matching → 部分比對
+- strict matching → 嚴格比對
+- regular expression → 正規表示式
+- Chrome DevTools → Chrome DevTools（產品名不翻）
+
 如需新增詞條，請於本檔案最後追加，並附上簡短語境說明。
