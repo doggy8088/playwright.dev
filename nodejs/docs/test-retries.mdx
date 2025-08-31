@@ -1,21 +1,21 @@
 ---
 id: test-retries
-title: "Retries"
+title: "測試重試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Test retries are a way to automatically re-run a test when it fails. This is useful when a test is flaky and fails intermittently. Test retries are configured in the [configuration file](./test-configuration.mdx).
+測試重試是一種在測試失敗時自動重新執行測試的方法。當測試不穩定並間歇性失敗時，這很有用。測試重試在[組態設定檔案](./test-configuration.mdx)中組態設定。
 
-## Failures
+## 失敗
 
-Playwright Test runs tests in worker processes. These processes are OS processes, running independently, orchestrated by the test runner. All workers have identical environments and each starts its own browser.
+Playwright Test 在工作程序中執行測試。這些程序是作業系統程序，獨立執行，由測試執行器協調。所有工作程序都有相同的環境，每個都啟動自己的瀏覽器。
 
-Consider the following snippet:
+考慮以下程式碼片段：
 
 ```js
 import { test } from '@playwright/test';
@@ -29,15 +29,15 @@ test.describe('suite', () => {
 });
 ```
 
-When **all tests pass**, they will run in order in the same worker process.
-* Worker process starts
-  * `beforeAll` hook runs
-  * `first good` passes
-  * `second flaky` passes
-  * `third good` passes
-  * `afterAll` hook runs
+當**所有測試通過**時，它們將在同一工作程序中按順序執行。
+* 工作程序啟動
+  * `beforeAll` 掛勾執行
+  * `first good` 通過
+  * `second flaky` 通過
+  * `third good` 通過
+  * `afterAll` 掛勾執行
 
-Should **any test fail**, Playwright Test will discard the entire worker process along with the browser and will start a new one. Testing will continue in the new worker process starting with the next test.
+如果**任何測試失敗**，Playwright Test 將丟棄整個工作程序以及瀏覽器，並啟動一個新的。測試將在新的工作程序中繼續，從下一個測試開始。
 * Worker process #1 starts
   * `beforeAll` hook runs
   * `first good` passes
@@ -62,9 +62,9 @@ If you **enable [retries](#retries)**, second worker process will start by retry
 
 This scheme works perfectly for independent tests and guarantees that failing tests can't affect healthy ones.
 
-## Retries
+## 重試
 
-Playwright supports **test retries**. When enabled, failing tests will be retried multiple times until they pass, or until the maximum number of retries is reached. By default failing tests are not retried.
+Playwright 支援**測試重試**。啟用時，失敗的測試將被多次重試，直到它們通過，或直到達到最大重試次數。預設情況下，失敗的測試不會重試。
 
 ```bash
 # Give failing tests 3 retry attempts
