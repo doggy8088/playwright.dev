@@ -32,7 +32,7 @@ Snapshot testing and assertion testing serve different purposes in test automati
 
 ### 斷言測試
 
-Assertion testing is a targeted approach where you assert specific values or conditions about elements or components. For instance, with Playwright, [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) verifies that an element contains the expected text, and [assertThat(locator).hasValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) confirms that an input field has the expected value. Assertion tests are specific and generally check the current state of an element or property against an expected, predefined state. They work well for predictable, single-value checks but are limited in scope when testing the broader structure or variations.
+斷言測試是一種針對性的方法，您可以斷言元素或元件的特定值或條件。例如，使用 Playwright 的.*驗證元素包含預期文字，而.*則確認輸入欄位具有預期值。斷言測試是特定的，通常檢查元素或屬性的當前狀態與預期的預定義狀態。它們適用於可預測的單一值檢查，但在測試更廣泛的結構或變化時範圍有限。
 
 **Advantages**
 - **Clarity**: The intent of the test is explicit and easy to understand.
@@ -45,7 +45,7 @@ Assertion testing is a targeted approach where you assert specific values or con
 
 ### 快照測試
 
-Snapshot testing captures a “snapshot” or representation of the entire state of an element, component, or data at a given moment, which is then saved for future comparisons. When re-running tests, the current state is compared to the snapshot, and if there are differences, the test fails. This approach is especially useful for complex or dynamic structures, where manually asserting each detail would be too time-consuming. Snapshot testing is broader and more holistic than assertion testing, allowing you to track more complex changes over time.
+快照測試會在特定時刻捕獲元素、元件或資料的整個狀態的「快照」或表示法，然後儲存以供未來比較。重新執行測試時，會將當前狀態與快照進行比較，如果有差異，測試就會失敗。這種方法對於複雜或動態結構特別有用，因為手動斷言每個細節會過於耗時。快照測試比斷言測試更廣泛、更全面，讓您能夠追蹤更複雜的變更。
 
 **Advantages**
 - **Simplifies complex outputs**: For example, testing a UI component's rendered output can be tedious with traditional assertions. Snapshots capture the entire output for easy comparison.
@@ -67,25 +67,25 @@ Snapshot testing captures a “snapshot” or representation of the entire state
   - Computed value testing.
   - Fine-grained tests requiring precise conditions.
 
-By combining snapshot testing for broad, structural checks and assertion testing for specific functionality, you can achieve a well-rounded testing strategy.
+透過結合用於廣泛結構檢查的快照測試和用於特定功能的斷言測試，您可以實現全面的測試策略。
 
 ## Aria 快照
 
-In Playwright, aria snapshots provide a YAML representation of the accessibility tree of a page. These snapshots can be stored and compared later to verify if the page structure remains consistent or meets defined expectations.
+在 Playwright 中，aria 快照提供頁面無障礙樹的 YAML 表示法。這些快照可以儲存並在之後進行比較，以驗證頁面結構是否保持一致或符合定義的期望。
 
-The YAML format describes the hierarchical structure of accessible elements on the page, detailing **roles**, **attributes**, **values**, and **text content**. The structure follows a tree-like syntax, where each node represents an accessible element, and indentation indicates nested elements.
+YAML 格式描述了頁面上無障礙元素的階層結構，詳細說明了**角色**、**屬性**、**值**和**文字內容**。結構遵循樹狀語法，其中每個節點代表一個無障礙元素，縮排表示巢狀元素。
 
-Each accessible element in the tree is represented as a YAML node:
+樹中的每個無障礙元素都表示為一個 YAML 節點：
 
 ```yaml
 - role "name" [attribute=value]
 ```
 
-- **role**: Specifies the ARIA or HTML role of the element (e.g., `heading`, `list`, `listitem`, `button`).
-- **"name"**: Accessible name of the element. Quoted strings indicate exact values, `/patterns/` are used for regular expression.
-- **[attribute=value]**: Attributes and values, in square brackets, represent specific ARIA attributes, such as `checked`, `disabled`, `expanded`, `level`, `pressed`, or `selected`.
+- **role**: 指定元素的 ARIA 或 HTML 角色 (e.g., `heading`, `list`, `listitem`, `button`).
+- **"name"**: 元素的無障礙名稱。引號字串表示確切值, `/patterns/` 用於正規表示式.
+- **[attribute=value]**: 屬性和值，在方括號中，表示特定的 ARIA 屬性, such as `checked`, `disabled`, `expanded`, `level`, `pressed`, or `selected`.
 
-These values are derived from ARIA attributes or calculated based on HTML semantics. To inspect the accessibility tree structure of a page, use the [Chrome DevTools Accessibility Tab](https://developer.chrome.com/docs/devtools/accessibility/reference#tab).
+這些值來自 ARIA 屬性或根據 HTML 語義計算。 要檢查頁面的無障礙樹結構，請使用 [Chrome DevTools Accessibility Tab](https://developer.chrome.com/docs/devtools/accessibility/reference#tab).
 
 ## 快照比對
 

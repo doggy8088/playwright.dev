@@ -55,52 +55,52 @@ await expect(page.query_selector('banner')).to_match_aria_snapshot("""
 
 ## 斷言測試 vs 快照測試
 
-Snapshot testing and assertion testing serve different purposes in test automation:
+快照測試和斷言測試在測試自動化中有不同的用途：
 
 ### 斷言測試
 
-Assertion testing is a targeted approach where you assert specific values or conditions about elements or components. For instance, with Playwright, [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) verifies that an element contains the expected text, and [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) confirms that an input field has the expected value. Assertion tests are specific and generally check the current state of an element or property against an expected, predefined state. They work well for predictable, single-value checks but are limited in scope when testing the broader structure or variations.
+斷言測試是一種針對性的方法，您可以斷言元素或元件的特定值或條件。例如，使用 Playwright 的 [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 驗證元素包含預期文字，而 [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) 則確認輸入欄位具有預期值。斷言測試是特定的，通常檢查元素或屬性的當前狀態與預期的預定義狀態。它們適用於可預測的單一值檢查，但在測試更廣泛的結構或變化時範圍有限。
 
-**Advantages**
-- **Clarity**: The intent of the test is explicit and easy to understand.
-- **Specificity**: Tests focus on particular aspects of functionality, making them more robust against unrelated changes.
-- **Debugging**: Failures provide targeted feedback, pointing directly to the problematic aspect.
+**優點**
+- **清晰度**：測試的意圖明確且易於理解。
+- **特異性**：測試專注於功能的特定方面，使它們對無關變更更加穩健。
+- **偵錯**：失敗提供有針對性的回饋，直接指向有問題的方面。
 
-**Disadvantages**
-- **Verbose for complex outputs**: Writing assertions for complex data structures or large outputs can be cumbersome and error-prone.
-- **Maintenance overhead**: As code evolves, manually updating assertions can be time-consuming.
+**缺點**
+- **複雜輸出的冗長性**：為複雜資料結構或大型輸出編寫斷言可能很麻煩且容易出錯。
+- **維護負擔**：隨著程式碼的發展，手動更新斷言可能很耗時。
 
 ### 快照測試
 
-Snapshot testing captures a “snapshot” or representation of the entire state of an element, component, or data at a given moment, which is then saved for future comparisons. When re-running tests, the current state is compared to the snapshot, and if there are differences, the test fails. This approach is especially useful for complex or dynamic structures, where manually asserting each detail would be too time-consuming. Snapshot testing is broader and more holistic than assertion testing, allowing you to track more complex changes over time.
+快照測試會在特定時刻捕獲元素、元件或資料的整個狀態的「快照」或表示法，然後儲存以供未來比較。重新執行測試時，會將當前狀態與快照進行比較，如果有差異，測試就會失敗。這種方法對於複雜或動態結構特別有用，因為手動斷言每個細節會過於耗時。快照測試比斷言測試更廣泛、更全面，讓您能夠追蹤更複雜的變更。
 
-**Advantages**
-- **Simplifies complex outputs**: For example, testing a UI component's rendered output can be tedious with traditional assertions. Snapshots capture the entire output for easy comparison.
-- **Quick Feedback loop**: Developers can easily spot unintended changes in the output.
-- **Encourages consistency**: Helps maintain consistent output as code evolves.
+**優點**
+- **簡化複雜輸出**：例如，使用傳統斷言測試 UI 元件的渲染輸出可能很繁瑣。快照可以捕獲整個輸出以便輕鬆比較。
+- **快速回饋循環**：開發人員可以輕鬆發現輸出中的意外變更。
+- **鼓勵一致性**：隨著程式碼的發展，有助於保持一致的輸出。
 
-**Disadvantages**
-- **Over-Reliance**: It can be tempting to accept changes to snapshots without fully understanding them, potentially hiding bugs.
-- **Granularity**: Large snapshots may be hard to interpret when differences arise, especially if minor changes affect large portions of the output.
-- **Suitability**: Not ideal for highly dynamic content where outputs change frequently or unpredictably.
+**缺點**
+- **過度依賴**：可能會因為沒有完全理解快照的變更就接受它們而隱藏錯誤。
+- **粒度**：當出現差異時，大型快照可能難以解釋，特別是在微小變更影響輸出的大部分時。
+- **適用性**：不適合經常或不可預測地變更輸出的高度動態內容。
 
 ### 何時使用
-- **Snapshot testing** is ideal for:
-  - UI testing of whole pages and components.
-  - Broad structural checks for complex UI components.
-  - Regression testing for outputs that rarely change structure.
-- **Assertion testing** is ideal for:
-  - Core logic validation.
-  - Computed value testing.
-  - Fine-grained tests requiring precise conditions.
+- **快照測試**適用於：
+  - 整個頁面和元件的 UI 測試。
+  - 複雜 UI 元件的廣泛結構檢查。
+  - 很少變更結構的輸出的回歸測試。
+- **斷言測試**適用於：
+  - 核心邏輯驗證。
+  - 計算值測試。
+  - 需要精確條件的細粒度測試。
 
-By combining snapshot testing for broad, structural checks and assertion testing for specific functionality, you can achieve a well-rounded testing strategy.
+透過結合用於廣泛結構檢查的快照測試和用於特定功能的斷言測試，您可以實現全面的測試策略。
 
 ## Aria 快照
 
-In Playwright, aria snapshots provide a YAML representation of the accessibility tree of a page. These snapshots can be stored and compared later to verify if the page structure remains consistent or meets defined expectations.
+在 Playwright 中，aria 快照提供頁面無障礙樹的 YAML 表示法。這些快照可以儲存並在之後進行比較，以驗證頁面結構是否保持一致或符合定義的期望。
 
-The YAML format describes the hierarchical structure of accessible elements on the page, detailing **roles**, **attributes**, **values**, and **text content**. The structure follows a tree-like syntax, where each node represents an accessible element, and indentation indicates nested elements.
+YAML 格式描述了頁面上無障礙元素的階層結構，詳細說明了**角色**、**屬性**、**值**和**文字內容**。結構遵循樹狀語法，其中每個節點代表一個無障礙元素，縮排表示巢狀元素。
 
 Each accessible element in the tree is represented as a YAML node:
 
@@ -108,23 +108,23 @@ Each accessible element in the tree is represented as a YAML node:
 - role "name" [attribute=value]
 ```
 
-- **role**: Specifies the ARIA or HTML role of the element (e.g., `heading`, `list`, `listitem`, `button`).
-- **"name"**: Accessible name of the element. Quoted strings indicate exact values, `/patterns/` are used for regular expression.
-- **[attribute=value]**: Attributes and values, in square brackets, represent specific ARIA attributes, such as `checked`, `disabled`, `expanded`, `level`, `pressed`, or `selected`.
+- **role**：指定元素的 ARIA 或 HTML 角色（例如 `heading`、`list`、`listitem`、`button`）。
+- **"name"**：元素的無障礙名稱。引號字串表示確切值，`/patterns/` 用於正規表示式。
+- **[attribute=value]**：屬性和值，在方括號中，表示特定的 ARIA 屬性，例如 `checked`、`disabled`、`expanded`、`level`、`pressed` 或 `selected`。
 
-These values are derived from ARIA attributes or calculated based on HTML semantics. To inspect the accessibility tree structure of a page, use the [Chrome DevTools Accessibility Tab](https://developer.chrome.com/docs/devtools/accessibility/reference#tab).
+這些值來自 ARIA 屬性或根據 HTML 語義計算。要檢查頁面的無障礙樹結構，請使用 [Chrome DevTools Accessibility Tab](https://developer.chrome.com/docs/devtools/accessibility/reference#tab)。
 
 ## 快照比對
 
-The [expect(locator).to_match_aria_snapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) assertion method in Playwright compares the accessible structure of the locator scope with a predefined aria snapshot template, helping validate the page's state against testing requirements.
+Playwright 中的 [expect(locator).to_match_aria_snapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) 斷言方法會將定位器範圍的無障礙結構與預定義的 aria 快照範本進行比較，有助於根據測試需求驗證頁面狀態。
 
-For the following DOM:
+對於以下 DOM：
 
 ```html
 <h1>title</h1>
 ```
 
-You can match it using the following snapshot template:
+您可以使用以下快照範本進行比對：
 
 <Tabs
   groupId="python-flavor"
@@ -154,14 +154,14 @@ await expect(page.locator("body")).to_match_aria_snapshot("""
 </TabItem>
 </Tabs>
 
-When matching, the snapshot template is compared to the current accessibility tree of the page:
-* If the tree structure matches the template, the test passes; otherwise, it fails, indicating a mismatch between expected and actual accessibility states.
-* The comparison is case-sensitive and collapses whitespace, so indentation and line breaks are ignored.
-* The comparison is order-sensitive, meaning the order of elements in the snapshot template must match the order in the page's accessibility tree.
+比對時，快照範本會與頁面的當前無障礙樹進行比較：
+* 如果樹結構符合範本，測試通過；否則測試失敗，表示預期和實際無障礙狀態之間不符。
+* 比較區分大小寫並會摺疊空白字元，因此忽略縮排和換行符號。
+* 比較對順序敏感，這意味著快照範本中元素的順序必須與頁面無障礙樹中的順序相符。
 
 ### 部分比對
 
-You can perform partial matches on nodes by omitting attributes or accessible names, enabling verification of specific parts of the accessibility tree without requiring exact matches. This flexibility is helpful for dynamic or irrelevant attributes.
+您可以透過省略屬性或無障礙名稱對節點執行部分比對，從而能夠驗證無障礙樹的特定部分，而無需完全相符。這種靈活性對於動態或無關的屬性很有幫助。
 
 ```html
 <button>Submit</button>
@@ -315,7 +315,7 @@ print(snapshot)
 
 ### 具有層級屬性的標題
 
-Headings can include a `level` attribute indicating their heading level.
+標題可以包含指示其標題層級的 `level` 屬性。
 
 ```html
 <h1>Title</h1>
