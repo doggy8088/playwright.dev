@@ -113,7 +113,7 @@
 - [ ] nodejs/docs/handles.mdx
 - [ ] nodejs/docs/input.mdx
 - [x] nodejs/docs/intro.mdx
-- [ ] nodejs/docs/languages.mdx
+- [x] nodejs/docs/languages.mdx
 - [ ] nodejs/docs/library.mdx
 - [x] nodejs/docs/locators.mdx
 - [x] nodejs/docs/mock-browser.mdx
@@ -255,7 +255,7 @@
 - [ ] nodejs/versioned_docs/version-stable/handles.mdx
 - [ ] nodejs/versioned_docs/version-stable/input.mdx
 - [x] nodejs/versioned_docs/version-stable/intro.mdx
-- [ ] nodejs/versioned_docs/version-stable/languages.mdx
+- [x] nodejs/versioned_docs/version-stable/languages.mdx
 - [ ] nodejs/versioned_docs/version-stable/library.mdx
 - [x] nodejs/versioned_docs/version-stable/locators.mdx
 - [x] nodejs/versioned_docs/version-stable/mock-browser.mdx
@@ -363,7 +363,7 @@
 - [ ] python/docs/handles.mdx
 - [ ] python/docs/input.mdx
 - [x] python/docs/intro.mdx
-- [ ] python/docs/languages.mdx
+- [x] python/docs/languages.mdx
 - [ ] python/docs/library.mdx
 - [ ] python/docs/locators.mdx
 - [ ] python/docs/mock.mdx
@@ -449,7 +449,7 @@
 - [ ] python/versioned_docs/version-stable/handles.mdx
 - [ ] python/versioned_docs/version-stable/input.mdx
 - [x] python/versioned_docs/version-stable/intro.mdx
-- [ ] python/versioned_docs/version-stable/languages.mdx
+- [x] python/versioned_docs/version-stable/languages.mdx
 - [ ] python/versioned_docs/version-stable/library.mdx
 - [ ] python/versioned_docs/version-stable/locators.mdx
 - [ ] python/versioned_docs/version-stable/mock.mdx
@@ -539,7 +539,7 @@
 - [ ] java/docs/input.mdx
 - [x] java/docs/intro.mdx
 - [ ] java/docs/junit.mdx
-- [ ] java/docs/languages.mdx
+- [x] java/docs/languages.mdx
 - [ ] java/docs/locators.mdx
 - [ ] java/docs/mock.mdx
 - [ ] java/docs/navigations.mdx
@@ -629,7 +629,7 @@
 - [ ] java/versioned_docs/version-stable/input.mdx
 - [x] java/versioned_docs/version-stable/intro.mdx
 - [ ] java/versioned_docs/version-stable/junit.mdx
-- [ ] java/versioned_docs/version-stable/languages.mdx
+- [x] java/versioned_docs/version-stable/languages.mdx
 - [ ] java/versioned_docs/version-stable/locators.mdx
 - [ ] java/versioned_docs/version-stable/mock.mdx
 - [ ] java/versioned_docs/version-stable/navigations.mdx
@@ -717,7 +717,7 @@
 - [ ] dotnet/docs/handles.mdx
 - [ ] dotnet/docs/input.mdx
 - [x] dotnet/docs/intro.mdx
-- [ ] dotnet/docs/languages.mdx
+- [x] dotnet/docs/languages.mdx
 - [ ] dotnet/docs/library.mdx
 - [ ] dotnet/docs/locators.mdx
 - [ ] dotnet/docs/mock.mdx
@@ -805,7 +805,7 @@
 - [ ] dotnet/versioned_docs/version-stable/handles.mdx
 - [ ] dotnet/versioned_docs/version-stable/input.mdx
 - [x] dotnet/versioned_docs/version-stable/intro.mdx
-- [ ] dotnet/versioned_docs/version-stable/languages.mdx
+- [x] dotnet/versioned_docs/version-stable/languages.mdx
 - [ ] dotnet/versioned_docs/version-stable/library.mdx
 - [ ] dotnet/versioned_docs/version-stable/locators.mdx
 - [ ] dotnet/versioned_docs/version-stable/mock.mdx
