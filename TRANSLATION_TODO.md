@@ -125,7 +125,7 @@
 - [x] nodejs/docs/pom.mdx
 - [x] nodejs/docs/protractor.mdx
 - [x] nodejs/docs/puppeteer.mdx
-- [ ] nodejs/docs/release-notes.mdx
+- [x] nodejs/docs/release-notes.mdx
 - [x] nodejs/docs/running-tests.mdx
 - [x] nodejs/docs/screenshots.mdx
 - [x] nodejs/docs/selenium-grid.mdx
@@ -267,7 +267,7 @@
 - [x] nodejs/versioned_docs/version-stable/pom.mdx
 - [x] nodejs/versioned_docs/version-stable/protractor.mdx
 - [x] nodejs/versioned_docs/version-stable/puppeteer.mdx
-- [ ] nodejs/versioned_docs/version-stable/release-notes.mdx
+- [x] nodejs/versioned_docs/version-stable/release-notes.mdx
 - [x] nodejs/versioned_docs/version-stable/running-tests.mdx
 - [x] nodejs/versioned_docs/version-stable/screenshots.mdx
 - [x] nodejs/versioned_docs/version-stable/selenium-grid.mdx
@@ -372,7 +372,7 @@
 - [x] python/docs/other-locators.mdx
 - [x] python/docs/pages.mdx
 - [x] python/docs/pom.mdx
-- [ ] python/docs/release-notes.mdx
+- [x] python/docs/release-notes.mdx
 - [ ] python/docs/running-tests.mdx
 - [x] python/docs/screenshots.mdx
 - [x] python/docs/selenium-grid.mdx
@@ -458,7 +458,7 @@
 - [x] python/versioned_docs/version-stable/other-locators.mdx
 - [x] python/versioned_docs/version-stable/pages.mdx
 - [x] python/versioned_docs/version-stable/pom.mdx
-- [ ] python/versioned_docs/version-stable/release-notes.mdx
+- [x] python/versioned_docs/version-stable/release-notes.mdx
 - [ ] python/versioned_docs/version-stable/running-tests.mdx
 - [x] python/versioned_docs/version-stable/screenshots.mdx
 - [x] python/versioned_docs/version-stable/selenium-grid.mdx
@@ -547,7 +547,7 @@
 - [x] java/docs/other-locators.mdx
 - [x] java/docs/pages.mdx
 - [x] java/docs/pom.mdx
-- [ ] java/docs/release-notes.mdx
+- [x] java/docs/release-notes.mdx
 - [ ] java/docs/running-tests.mdx
 - [x] java/docs/screenshots.mdx
 - [x] java/docs/selenium-grid.mdx
@@ -637,7 +637,7 @@
 - [x] java/versioned_docs/version-stable/other-locators.mdx
 - [x] java/versioned_docs/version-stable/pages.mdx
 - [x] java/versioned_docs/version-stable/pom.mdx
-- [ ] java/versioned_docs/version-stable/release-notes.mdx
+- [x] java/versioned_docs/version-stable/release-notes.mdx
 - [ ] java/versioned_docs/version-stable/running-tests.mdx
 - [x] java/versioned_docs/version-stable/screenshots.mdx
 - [x] java/versioned_docs/version-stable/selenium-grid.mdx
@@ -726,7 +726,7 @@
 - [x] dotnet/docs/other-locators.mdx
 - [x] dotnet/docs/pages.mdx
 - [x] dotnet/docs/pom.mdx
-- [ ] dotnet/docs/release-notes.mdx
+- [x] dotnet/docs/release-notes.mdx
 - [ ] dotnet/docs/running-tests.mdx
 - [x] dotnet/docs/screenshots.mdx
 - [x] dotnet/docs/selenium-grid.mdx
@@ -814,7 +814,7 @@
 - [x] dotnet/versioned_docs/version-stable/other-locators.mdx
 - [x] dotnet/versioned_docs/version-stable/pages.mdx
 - [x] dotnet/versioned_docs/version-stable/pom.mdx
-- [ ] dotnet/versioned_docs/version-stable/release-notes.mdx
+- [x] dotnet/versioned_docs/version-stable/release-notes.mdx
 - [ ] dotnet/versioned_docs/version-stable/running-tests.mdx
 - [x] dotnet/versioned_docs/version-stable/screenshots.mdx
 - [x] dotnet/versioned_docs/version-stable/selenium-grid.mdx

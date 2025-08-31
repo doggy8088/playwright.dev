@@ -1,6 +1,6 @@
 ---
 id: release-notes
-title: "Release notes"
+title: "發行說明"
 toc_max_heading_level: 2
 ---
 import Tabs from '@theme/Tabs';
@@ -8,73 +8,73 @@ import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Version 1.55
+## 版本 1.55
 
 ### Codegen
-- Automatic `isVisible()` assertions: Codegen can now generate automatic `isVisible()` assertions for common UI interactions. This feature can be enabled in the Codegen settings UI.
+- 自動 `isVisible()` 斷言：Codegen 現在可以為常見的 UI 互動產生自動 `isVisible()` 斷言。此功能可以在 Codegen 設定 UI 中啟用。
 
-### Breaking Changes
-- ⚠️ Dropped support for Chromium extension manifest v2.
+### 重大變更
+- ⚠️ 已移除對 Chromium 擴充功能 manifest v2 的支援。
 
-### Miscellaneous
-- Added support for Debian 13 "Trixie".
+### 其他
+- 新增對 Debian 13 "Trixie" 的支援。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 140.0.7339.16
 - Mozilla Firefox 141.0
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 139
 - Microsoft Edge 139
 
-## Version 1.54
+## 版本 1.54
 
-### Highlights
-- New cookie property `partitionKey` in [BrowserContext.cookies()](/api/class-browsercontext.mdx#browser-context-cookies) and [BrowserContext.addCookies()](/api/class-browsercontext.mdx#browser-context-add-cookies). This property allows to save and restore partitioned cookies. See [CHIPS MDN article](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) for more information. Note that browsers have different support and defaults for cookie partitioning.
-- New option `--user-data-dir` in multiple commands. You can specify the same user data dir to reuse browsing state, like authentication, between sessions.
+### 重點
+- 在 [BrowserContext.cookies()](/api/class-browsercontext.mdx#browser-context-cookies) 和 [BrowserContext.addCookies()](/api/class-browsercontext.mdx#browser-context-add-cookies) 中新增 cookie 屬性 `partitionKey`。此屬性允許儲存和還原分割的 cookies。請參閱 [CHIPS MDN 文章](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies) 以取得更多資訊。請注意，瀏覽器對 cookie 分割有不同的支援和預設值。
+- 在多個指令中新增選項 `--user-data-dir`。您可以指定相同的使用者資料目錄來重複使用瀏覽狀態，例如驗證，在不同的會話之間。
   
   ```bash
   mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="codegen --user-data-dir=./user-data"
   ```
   
-- `mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args=open` command does not open the test recorder anymore. Use `mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args=codegen` instead.
+- `mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args=open` 指令不再開啟測試錄製器。請改用 `mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args=codegen`。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 139.0.7258.5
 - Mozilla Firefox 140.0.2
 - WebKit 26.0
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 140
 - Microsoft Edge 140
 
-## Version 1.53
+## 版本 1.53
 
-### Trace Viewer and HTML Reporter Updates
-- New Steps in Trace Viewer: ![New Trace Viewer Steps](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
-- New method [Locator.describe()](/api/class-locator.mdx#locator-describe) to describe a locator. Used for trace viewer.
+### 追蹤檢視器和 HTML 報告器更新
+- 追蹤檢視器中的新步驟：![新的追蹤檢視器步驟](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
+- 新方法 [Locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器。用於追蹤檢視器。
   
   ```java
   Locator button = page.getByTestId("btn-sub").describe("Subscribe button");
   button.click();
   ```
   
-- `mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --list"` will now list all installed browsers, versions and locations.
+- `mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --list"` 現在會列出所有已安裝的瀏覽器、版本和位置。
 
-### Browser Versions
+### 瀏覽器版本
 - Chromium 138.0.7204.4
 - Mozilla Firefox 139.0
 - WebKit 18.5
 
-This version was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 137
 - Microsoft Edge 137
 
-## Version 1.52
+## 版本 1.52
 
-### Highlights
-- New method [assertThat(locator).containsClass()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) to ergonomically assert individual class names on the element.
+### 重點
+- 新方法 [assertThat(locator).containsClass()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) 用於人體工學地斷言元素上的個別類別名稱。
   
   ```java
     assertThat(page.getByRole(AriaRole.LISTITEM, new Page.GetByRoleOptions().setName("Ship v1.52"))).containsClass("done");
