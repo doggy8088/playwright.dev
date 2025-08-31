@@ -173,44 +173,44 @@ import path from 'path';
 
 export * from '@playwright/test';
 export const test = baseTest.extend<{}, { workerStorageState: string }>({
-  // Use the same storage state for all tests in this worker.
+  // 為此工作者中的所有測試使用相同的儲存狀態。
   storageState: ({ workerStorageState }, use) => use(workerStorageState),
 
-  // Authenticate once per worker with a worker-scoped fixture.
+  // 使用工作者範圍的佈置為每個工作者進行一次驗證。
   workerStorageState: [async ({ browser }, use) => {
-    // Use parallelIndex as a unique identifier for each worker.
+    // 使用 parallelIndex 作為每個工作者的唯一識別碼。
     const id = test.info().parallelIndex;
     const fileName = path.resolve(test.info().project.outputDir, `.auth/${id}.json`);
 
     if (fs.existsSync(fileName)) {
-      // Reuse existing authentication state if any.
+      // 如果有的話，重用現有的驗證狀態。
       await use(fileName);
       return;
     }
 
-    // Important: make sure we authenticate in a clean environment by unsetting storage state.
+    // 重要：確保我們在乾淨的環境中進行驗證，取消設定儲存狀態。
     const page = await browser.newPage({ storageState: undefined });
 
-    // Acquire a unique account, for example create a new one.
-    // Alternatively, you can have a list of precreated accounts for testing.
-    // Make sure that accounts are unique, so that multiple team members
-    // can run tests at the same time without interference.
+    // 取得唯一帳戶，例如建立新帳戶。
+    // 或者，您可以有一個預先建立的測試帳戶清單。
+    // 確保帳戶是唯一的，這樣多個團隊成員
+    // 可以同時執行測試而不會互相干擾。
     const account = await acquireAccount(id);
 
-    // Perform authentication steps. Replace these actions with your own.
+    // 執行驗證步驟。將這些操作替換為您自己的。
     await page.goto('https://github.com/login');
     await page.getByLabel('Username or email address').fill(account.username);
     await page.getByLabel('Password').fill(account.password);
     await page.getByRole('button', { name: 'Sign in' }).click();
-    // Wait until the page receives the cookies.
+    // 等待頁面接收 cookies。
     //
-    // Sometimes login flow sets cookies in the process of several redirects.
-    // Wait for the final URL to ensure that the cookies are actually set.
+    // 有時登入流程會在幾次重新導向的過程中設定 cookies。
+    // 等待最終 URL 以確保 cookies 實際上已設定。
     await page.waitForURL('https://github.com/');
-    // Alternatively, you can wait until the page reaches a state where all cookies are set.
+    // 或者，您可以等待頁面達到所有 cookies 都已設定的狀態。
     await expect(page.getByRole('button', { name: 'View profile and more' })).toBeVisible();
 
-    // End of authentication steps.
+    // 驗證步驟結束。
 
     await page.context().storageState({ path: fileName });
     await page.close();
@@ -219,29 +219,29 @@ export const test = baseTest.extend<{}, { workerStorageState: string }>({
 });
 ```
 
-Now, each test file should import `test` from our fixtures file instead of `@playwright/test`. No changes are needed in the config.
+現在，每個測試檔案都應該從我們的佈置檔案中導入 `test`，而不是從 `@playwright/test`。設定中不需要任何變更。
 
 ```js title="tests/example.spec.ts"
-// Important: import our fixtures.
+// 重要：導入我們的佈置。
 import { test, expect } from '../playwright/fixtures';
 
 test('test', async ({ page }) => {
-  // page is authenticated
+  // page 已經經過驗證
 });
 ```
 
-## Advanced scenarios
+## 進階情境
 
-### Authenticate with API request
+### 使用 API 請求進行驗證
 
-**When to use**
-- Your web application supports authenticating via API that is easier/faster than interacting with the app UI.
+**何時使用**
+- 您的 Web 應用程式支援透過 API 進行驗證，這比與應用程式 UI 互動更容易/更快。
 
-**Details**
+**詳細說明**
 
-We will send the API request with [APIRequestContext] and then save authenticated state as usual.
+我們將使用 [APIRequestContext] 發送 API 請求，然後照常儲存已驗證的狀態。
 
-In the [setup project](#basic-shared-account-in-all-tests):
+在[設定專案](#basic-shared-account-in-all-tests)中：
 
 ```js title="tests/auth.setup.ts"
 import { test as setup } from '@playwright/test';
@@ -249,7 +249,7 @@ import { test as setup } from '@playwright/test';
 const authFile = 'playwright/.auth/user.json';
 
 setup('authenticate', async ({ request }) => {
-  // Send authentication request. Replace with your own.
+  // 發送驗證請求。替換為您自己的。
   await request.post('https://github.com/login', {
     form: {
       'user': 'user',
@@ -260,7 +260,7 @@ setup('authenticate', async ({ request }) => {
 });
 ```
 
-Alternatively, in a [worker fixture](#moderate-one-account-per-parallel-worker):
+或者，在[工作者佈置](#moderate-one-account-per-parallel-worker)中：
 
 ```js title="playwright/fixtures.ts"
 import { test as baseTest, request } from '@playwright/test';
@@ -269,31 +269,31 @@ import path from 'path';
 
 export * from '@playwright/test';
 export const test = baseTest.extend<{}, { workerStorageState: string }>({
-  // Use the same storage state for all tests in this worker.
+  // 為此工作者中的所有測試使用相同的儲存狀態。
   storageState: ({ workerStorageState }, use) => use(workerStorageState),
 
-  // Authenticate once per worker with a worker-scoped fixture.
+  // 使用工作者範圍的佈置為每個工作者進行一次驗證。
   workerStorageState: [async ({}, use) => {
-    // Use parallelIndex as a unique identifier for each worker.
+    // 使用 parallelIndex 作為每個工作者的唯一識別碼。
     const id = test.info().parallelIndex;
     const fileName = path.resolve(test.info().project.outputDir, `.auth/${id}.json`);
 
     if (fs.existsSync(fileName)) {
-      // Reuse existing authentication state if any.
+      // 如果有的話，重用現有的驗證狀態。
       await use(fileName);
       return;
     }
 
-    // Important: make sure we authenticate in a clean environment by unsetting storage state.
+    // 重要：確保我們在乾淨的環境中進行驗證，取消設定儲存狀態。
     const context = await request.newContext({ storageState: undefined });
 
-    // Acquire a unique account, for example create a new one.
-    // Alternatively, you can have a list of precreated accounts for testing.
-    // Make sure that accounts are unique, so that multiple team members
-    // can run tests at the same time without interference.
+    // 取得唯一帳戶，例如建立新帳戶。
+    // 或者，您可以有一個預先建立的測試帳戶清單。
+    // 確保帳戶是唯一的，這樣多個團隊成員
+    // 可以同時執行測試而不會互相干擾。
     const account = await acquireAccount(id);
 
-    // Send authentication request. Replace with your own.
+    // 發送驗證請求。替換為您自己的。
     await context.post('https://github.com/login', {
       form: {
         'user': 'user',
@@ -308,14 +308,14 @@ export const test = baseTest.extend<{}, { workerStorageState: string }>({
 });
 ```
 
-### Multiple signed in roles
+### 多個已登入角色
 
-**When to use**
-- You have more than one role in your end to end tests, but you can reuse accounts across all tests.
+**何時使用**
+- 您在端到端測試中有超過一個角色，但可以在所有測試中重用帳戶。
 
-**Details**
+**詳細說明**
 
-We will authenticate multiple times in the setup project.
+我們將在設定專案中進行多次驗證。
 
 ```js title="tests/auth.setup.ts"
 import { test as setup, expect } from '@playwright/test';
@@ -323,20 +323,20 @@ import { test as setup, expect } from '@playwright/test';
 const adminFile = 'playwright/.auth/admin.json';
 
 setup('authenticate as admin', async ({ page }) => {
-  // Perform authentication steps. Replace these actions with your own.
+  // 執行驗證步驟。將這些操作替換為您自己的。
   await page.goto('https://github.com/login');
   await page.getByLabel('Username or email address').fill('admin');
   await page.getByLabel('Password').fill('password');
   await page.getByRole('button', { name: 'Sign in' }).click();
-  // Wait until the page receives the cookies.
+  // 等待頁面接收 cookies。
   //
-  // Sometimes login flow sets cookies in the process of several redirects.
-  // Wait for the final URL to ensure that the cookies are actually set.
+  // 有時登入流程會在幾次重新導向的過程中設定 cookies。
+  // 等待最終 URL 以確保 cookies 實際上已設定。
   await page.waitForURL('https://github.com/');
-  // Alternatively, you can wait until the page reaches a state where all cookies are set.
+  // 或者，您可以等待頁面達到所有 cookies 都已設定的狀態。
   await expect(page.getByRole('button', { name: 'View profile and more' })).toBeVisible();
 
-  // End of authentication steps.
+  // 驗證步驟結束。
 
   await page.context().storageState({ path: adminFile });
 });
@@ -344,26 +344,26 @@ setup('authenticate as admin', async ({ page }) => {
 const userFile = 'playwright/.auth/user.json';
 
 setup('authenticate as user', async ({ page }) => {
-  // Perform authentication steps. Replace these actions with your own.
+  // 執行驗證步驟。將這些操作替換為您自己的。
   await page.goto('https://github.com/login');
   await page.getByLabel('Username or email address').fill('user');
   await page.getByLabel('Password').fill('password');
   await page.getByRole('button', { name: 'Sign in' }).click();
-  // Wait until the page receives the cookies.
+  // 等待頁面接收 cookies。
   //
-  // Sometimes login flow sets cookies in the process of several redirects.
-  // Wait for the final URL to ensure that the cookies are actually set.
+  // 有時登入流程會在幾次重新導向的過程中設定 cookies。
+  // 等待最終 URL 以確保 cookies 實際上已設定。
   await page.waitForURL('https://github.com/');
-  // Alternatively, you can wait until the page reaches a state where all cookies are set.
+  // 或者，您可以等待頁面達到所有 cookies 都已設定的狀態。
   await expect(page.getByRole('button', { name: 'View profile and more' })).toBeVisible();
 
-  // End of authentication steps.
+  // 驗證步驟結束。
 
   await page.context().storageState({ path: userFile });
 });
 ```
 
-After that, specify `storageState` for each test file or test group, **instead of** setting it in the config.
+之後，為每個測試檔案或測試群組指定 `storageState`，**而不是**在設定中設定它。
 
 ```js title="tests/example.spec.ts"
 import { test } from '@playwright/test';
@@ -371,69 +371,69 @@ import { test } from '@playwright/test';
 test.use({ storageState: 'playwright/.auth/admin.json' });
 
 test('admin test', async ({ page }) => {
-  // page is authenticated as admin
+  // page 已驗證為管理員
 });
 
 test.describe(() => {
   test.use({ storageState: 'playwright/.auth/user.json' });
 
   test('user test', async ({ page }) => {
-    // page is authenticated as a user
+    // page 已驗證為使用者
   });
 });
 ```
 
-See also about [authenticating in the UI mode](#authenticating-in-ui-mode).
+另請參見[在 UI 模式中進行驗證](#authenticating-in-ui-mode)。
 
-### Testing multiple roles together
+### 一起測試多個角色
 
-**When to use**
-- You need to test how multiple authenticated roles interact together, in a single test.
+**何時使用**
+- 您需要在單一測試中測試多個已驗證角色如何互動。
 
-**Details**
+**詳細說明**
 
-Use multiple [BrowserContext]s and [Page]s with different storage states in the same test.
+在同一個測試中使用多個 [BrowserContext] 和具有不同儲存狀態的 [Page]。
 
 ```js title="tests/example.spec.ts"
 import { test } from '@playwright/test';
 
 test('admin and user', async ({ browser }) => {
-  // adminContext and all pages inside, including adminPage, are signed in as "admin".
+  // adminContext 及其內部的所有頁面（包括 adminPage）都已登入為「admin」。
   const adminContext = await browser.newContext({ storageState: 'playwright/.auth/admin.json' });
   const adminPage = await adminContext.newPage();
 
-  // userContext and all pages inside, including userPage, are signed in as "user".
+  // userContext 及其內部的所有頁面（包括 userPage）都已登入為「user」。
   const userContext = await browser.newContext({ storageState: 'playwright/.auth/user.json' });
   const userPage = await userContext.newPage();
 
-  // ... interact with both adminPage and userPage ...
+  // ... 與 adminPage 和 userPage 互動 ...
 
   await adminContext.close();
   await userContext.close();
 });
 ```
 
-### Testing multiple roles with POM fixtures
+### 使用 POM 佈置測試多個角色
 
-**When to use**
-- You need to test how multiple authenticated roles interact together, in a single test.
+**何時使用**
+- 您需要在單一測試中測試多個已驗證角色如何互動。
 
-**Details**
+**詳細說明**
 
-You can introduce fixtures that will provide a page authenticated as each role.
+您可以引入佈置來提供以每個角色驗證的頁面。
 
-Below is an example that [creates fixtures](./test-fixtures.mdx#creating-a-fixture) for two [Page Object Models](./pom.mdx) - admin POM and user POM. It assumes `adminStorageState.json` and `userStorageState.json` files were created in the global setup.
+下面是一個[建立佈置](./test-fixtures.mdx#creating-a-fixture)用於兩個[頁面物件模型](./pom.mdx)的範例 - 管理員 POM 和使用者 POM。它假設 `adminStorageState.json` 和 `userStorageState.json` 檔案是在全域設定中建立的。
 
 ```js title="playwright/fixtures.ts"
 import { test as base, type Page, type Locator } from '@playwright/test';
 
-// Page Object Model for the "admin" page.
-// Here you can add locators and helper methods specific to the admin page.
+// 「admin」頁面的頁面物件模型。
+// 在這裡您可以新增特定於管理員頁面的定位器和輔助方法。
 class AdminPage {
-  // Page signed in as "admin".
+  // 以「admin」身份登入的頁面。
   page: Page;
 
-  // Example locator pointing to "Welcome, Admin" greeting.
+  // 指向「Welcome, Admin」問候語的範例定位器。
   greeting: Locator;
 
   constructor(page: Page) {
@@ -442,13 +442,13 @@ class AdminPage {
   }
 }
 
-// Page Object Model for the "user" page.
-// Here you can add locators and helper methods specific to the user page.
+// 「user」頁面的頁面物件模型。
+// 在這裡您可以新增特定於使用者頁面的定位器和輔助方法。
 class UserPage {
-  // Page signed in as "user".
+  // 以「user」身份登入的頁面。
   page: Page;
 
-  // Example locator pointing to "Welcome, User" greeting.
+  // 指向「Welcome, User」問候語的範例定位器。
   greeting: Locator;
 
   constructor(page: Page) {
@@ -457,7 +457,7 @@ class UserPage {
   }
 }
 
-// Declare the types of your fixtures.
+// 宣告您的佈置類型。
 type MyFixtures = {
   adminPage: AdminPage;
   userPage: UserPage;
@@ -482,12 +482,12 @@ export const test = base.extend<MyFixtures>({
 ```
 
 ```js title="tests/example.spec.ts"
-// Import test with our new fixtures.
+// 導入帶有我們新佈置的測試。
 import { test, expect } from '../playwright/fixtures';
 
-// Use adminPage and userPage fixtures in the test.
+// 在測試中使用 adminPage 和 userPage 佈置。
 test('admin and user', async ({ adminPage, userPage }) => {
-  // ... interact with both adminPage and userPage ...
+  // ... 與 adminPage 和 userPage 互動 ...
   await expect(adminPage.greeting).toHaveText('Welcome, Admin');
   await expect(userPage.greeting).toHaveText('Welcome, User');
 });
@@ -495,14 +495,14 @@ test('admin and user', async ({ adminPage, userPage }) => {
 
 ### Session storage
 
-Reusing authenticated state covers [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies), [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage) and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) based authentication. Rarely, [session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is used for storing information associated with the signed-in state. Session storage is specific to a particular domain and is not persisted across page loads. Playwright does not provide API to persist session storage, but the following snippet can be used to save/load session storage.
+重用已驗證狀態涵蓋基於 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)、[本地儲存](https://developer.mozilla.org/en-US/docs/Web/API/Storage)和 [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 的驗證。很少情況下，[session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 用於儲存與已登入狀態相關的資訊。Session storage 特定於特定網域，不會跨頁面載入持續存在。Playwright 不提供持續存儲 session storage 的 API，但可以使用以下程式碼片段來儲存/載入 session storage。
 
 ```js
-// Get session storage and store as env variable
+// 取得 session storage 並儲存為環境變數
 const sessionStorage = await page.evaluate(() => JSON.stringify(sessionStorage));
 fs.writeFileSync('playwright/.auth/session.json', sessionStorage, 'utf-8');
 
-// Set session storage in a new context
+// 在新情境中設定 session storage
 const sessionStorage = JSON.parse(fs.readFileSync('playwright/.auth/session.json', 'utf-8'));
 await context.addInitScript(storage => {
   if (window.location.hostname === 'example.com') {
@@ -512,14 +512,14 @@ await context.addInitScript(storage => {
 }, sessionStorage);
 ```
 
-### Avoid authentication in some tests
+### 在某些測試中避免驗證
 
-You can reset storage state in a test file to avoid authentication that was set up for the whole project.
+您可以在測試檔案中重設儲存狀態，以避免為整個專案設定的驗證。
 
 ```js title="not-signed-in.spec.ts"
 import { test } from '@playwright/test';
 
-// Reset storage state for this file to avoid being authenticated
+// 為此檔案重設儲存狀態以避免被驗證
 test.use({ storageState: { cookies: [], origins: [] } });
 
 test('not signed in test', async ({ page }) => {
