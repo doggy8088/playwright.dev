@@ -1,6 +1,6 @@
 ---
 id: codegen
-title: "Test generator"
+title: "測試產生器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,75 +9,75 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## Introduction
+## 簡介
 
-Playwright comes with the ability to generate tests for you as you perform actions in the browser and is a great way to quickly get started with testing. Playwright will look at your page and figure out the best locator, prioritizing [role, text and test id locators](./locators.mdx). If the generator finds multiple elements matching the locator, it will improve the locator to make it resilient that uniquely identify the target element.
+Playwright 具備為您產生測試的能力，當您在瀏覽器中執行操作時，它會自動錄製測試，這是快速開始測試的絕佳方式。Playwright 會檢視您的頁面並找出最佳的定位器，優先使用[角色、文字與測試 ID 定位器](./locators.mdx)。如果產生器發現多個元素符合定位器，它會改善定位器使其更穩固，以唯一識別目標元素。
 
-## Generate tests in VS Code
+## 在 VS Code 中產生測試
 
-Install the VS Code extension and generate tests directly from VS Code. The extension is available on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright). Check out our guide on [getting started with VS Code](./getting-started-vscode.mdx).
+安裝 VS Code 擴充套件並直接從 VS Code 產生測試。該擴充套件可在 [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) 中取得。請參閱我們的 [VS Code 入門](./getting-started-vscode.mdx) 指南。
 
 <LiteYouTube id="LM4yqrOzmFE" title="Generating Playwright tests in VS Code" />
 
-### Record a New Test
+### 錄製新測試
 
-To record a test click on the **Record new** button from the Testing sidebar. This will create a `test-1.spec.ts` file as well as open up a browser window.
+要錄製測試，請從 Testing 側邊欄點擊 **Record new** 按鈕。這會建立一個 `test-1.spec.ts` 檔案並開啟瀏覽器視窗。
 
 <img width="1385" alt="record new in vs code" src="https://user-images.githubusercontent.com/13063165/220961665-615d0ab8-3f0b-439c-ad0b-0424d9aa154b.png" />
 
-In the browser go to the URL you wish to test and start clicking around to record your user actions.
+在瀏覽器中前往您想要測試的 URL，並開始點擊以錄製您的使用者操作。
 
 ![generating user actions](https://github.com/microsoft/playwright/assets/13063165/1d4c8f37-8325-4816-a665-d0e95e63f509)
 
-Playwright will record your actions and generate the test code directly in VS Code. You can also generate assertions by choosing one of the icons in the toolbar and then clicking on an element on the page to assert against. The following assertions can be generated:
-* `'assert visibility'` to assert that an element is visible
-* `'assert text'` to assert that an element contains specific text
-* `'assert value'` to assert that an element has a specific value
+Playwright 會錄製您的操作並直接在 VS Code 中產生測試程式碼。您也可以透過選擇工具列中的其中一個圖示，然後點擊頁面上的元素來產生斷言。可以產生以下斷言：
+* `'assert visibility'` 斷言元素是可見的
+* `'assert text'` 斷言元素包含特定文字
+* `'assert value'` 斷言元素具有特定值
 
 ![generating assertions](https://github.com/microsoft/playwright/assets/13063165/d131eb35-b2ca-4bf4-a8ac-88b6e40dcf07)
 
-Once you are done recording click the **cancel** button or close the browser window. You can then inspect your `test-1.spec.ts` file and manually improve it if needed.
+錄製完成後，點擊 **cancel** 按鈕或關閉瀏覽器視窗。然後您可以檢查 `test-1.spec.ts` 檔案，並在需要時手動改進它。
 
 ![code from a generated test](https://github.com/microsoft/playwright/assets/13063165/2ba4c212-4713-460a-b054-6dc6b67a9a7c)
 
-### Record at Cursor
+### 在游標處錄製
 
-To record from a specific point in your test move your cursor to where you want to record more actions and then click the **Record at cursor** button from the Testing sidebar. If your browser window is not already open then first run the test with 'Show browser' checked and then click the **Record at cursor** button.
+要從測試中的特定點開始錄製，請將游標移動到您想要錄製更多操作的位置，然後從 Testing 側邊欄點擊 **Record at cursor** 按鈕。如果您的瀏覽器視窗尚未開啟，請先勾選 'Show browser' 執行測試，然後點擊 **Record at cursor** 按鈕。
 
 ![record at cursor in vs code](https://github.com/microsoft/playwright/assets/13063165/77948ab8-92a2-435f-9833-0944da5ae664)
 
-In the browser window start performing the actions you want to record.
+在瀏覽器視窗中開始執行您想要錄製的操作。
 
 <img width="1394" alt="add feed the dog to todo app" src="https://user-images.githubusercontent.com/13063165/220960770-6435cec7-1723-42a8-8c1f-8244e2d800c7.png" />
 
-In the test file in VS Code you will see your new generated actions added to your test at the cursor position.
+在 VS Code 的測試檔案中，您會看到新產生的操作已添加到游標位置的測試中。
 
 ![code from a generated test](https://github.com/microsoft/playwright/assets/13063165/4f4bb34e-9cda-41fe-bf65-8d8016d84c7f)
 
-### Generating locators
+### 產生定位器
 
-You can generate locators with the test generator.
-- Click on the **Pick locator** button form the testing sidebar and then hover over elements in the browser window to see the [locator](./locators.mdx) highlighted underneath each element.
-- Click the element you require and it will now show up in the **Pick locator** box in VS Code.
-- Press <kbd>Enter</kbd> on your keyboard to copy the locator into the clipboard and then paste anywhere in your code. Or press 'escape' if you want to cancel.
+您可以使用測試產生器產生定位器。
+- 從 Testing 側邊欄點擊 **Pick locator** 按鈕，然後將滑鼠游標移到瀏覽器視窗中的元素上，以查看每個元素下方突出顯示的[定位器](./locators.mdx)。
+- 點擊您需要的元素，它現在會顯示在 VS Code 的 **Pick locator** 方塊中。
+- 在鍵盤上按 <kbd>Enter</kbd> 將定位器複製到剪貼簿，然後貼到程式碼中的任何位置。或者按 'escape' 取消。
 
 <img width="1641" alt="Pick locators in VS code" src="https://user-images.githubusercontent.com/13063165/220958368-95b03620-3c9b-40a8-be74-01c96ba03cad.png" />
 
-## Generate tests with the Playwright Inspector
+## 使用 Playwright Inspector 產生測試
 
-When running the `codegen` command two windows will be opened, a browser window where you interact with the website you wish to test and the Playwright Inspector window where you can record your tests and then copy them into your editor.
+執行 `codegen` 指令時會開啟兩個視窗，一個是瀏覽器視窗，您可以在其中與要測試的網站互動，另一個是 Playwright Inspector 視窗，您可以在其中錄製測試並將其複製到編輯器中。
 
-### Running Codegen
+### 執行 Codegen
 
-Use the `codegen` command to run the test generator followed by the URL of the website you want to generate tests for. The URL is optional and you can always run the command without it and then add the URL directly into the browser window instead.
+使用 `codegen` 指令執行測試產生器，後面接您要為其產生測試的網站 URL。URL 是可選的，您也可以不使用它執行指令，然後直接在瀏覽器視窗中加入 URL。
 
 ```bash
 npx playwright codegen demo.playwright.dev/todomvc
 ```
 
-### Recording a test
+### 錄製測試
 
-Run the `codegen` command and perform actions in the browser window. Playwright will generate the code for the user interactions which you can see in the Playwright Inspector window. Once you have finished recording your test stop the recording and press the **copy** button to copy your generated test into your editor.
+執行 `codegen` 指令並在瀏覽器視窗中執行操作。Playwright 會為使用者互動產生程式碼，您可以在 Playwright Inspector 視窗中看到。完成測試錄製後，停止錄製並按 **copy** 按鈕將產生的測試複製到編輯器中。
 
 With the test generator you can record:
 * Actions like click or fill by simply interacting with the page
