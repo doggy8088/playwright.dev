@@ -27,7 +27,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.23</font><x-search>apiRequestContext.CreateFormData</x-search>
 
-Creates a new [FormData] instance which is used for providing form and multipart data when making HTTP requests.
+建立新的 [FormData] 實例，用於在進行 HTTP 請求時提供表單和 multipart 資料。
 
 **使用方式**
 
@@ -67,7 +67,7 @@ await ApiRequestContext.DeleteAsync(url, options);
     
     提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Headers` [IDictionary]?&lt;[string], [string]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-headers"/><a href="#api-request-context-delete-option-headers" class="list-anchor">#</a>
     
     允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
@@ -82,9 +82,9 @@ await ApiRequestContext.DeleteAsync(url, options);
     網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
   - `Multipart` [FormData]? *(選用)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-multipart"/><a href="#api-request-context-delete-option-multipart" class="list-anchor">#</a>
     
-    Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+    提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Params` [IDictionary]?&lt;[string], [object]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-params"/><a href="#api-request-context-delete-option-params" class="list-anchor">#</a>
     
     要與 URL 一起傳送的查詢參數。
@@ -104,7 +104,7 @@ await ApiRequestContext.DeleteAsync(url, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.DisposeAsync</x-search>
 
-All responses returned by [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) and similar methods are stored in the memory, so that you can later call [ApiResponse.BodyAsync()](/api/class-apiresponse.mdx#api-response-body).This method discards all its resources, calling any method on disposed [APIRequestContext] will throw an exception.
+由 [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) 和類似方法傳回的所有回應都儲存在記憶體中，因此您可以稍後呼叫 [ApiResponse.BodyAsync()](/api/class-apiresponse.mdx#api-response-body)。此方法會丟棄其所有資源，對已釋放的 [APIRequestContext] 呼叫任何方法都會拋出例外。
 
 **使用方式**
 
@@ -170,7 +170,7 @@ await Request.FetchAsync("https://example.com/api/uploadScript", new() { Method 
     
     提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Headers` [IDictionary]?&lt;[string], [string]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-headers"/><a href="#api-request-context-fetch-option-headers" class="list-anchor">#</a>
     
     允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
@@ -188,9 +188,9 @@ await Request.FetchAsync("https://example.com/api/uploadScript", new() { Method 
     如果設定會變更 fetch 方法（例如 [PUT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT) 或 [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)）。如果未指定，會使用 GET 方法。
   - `Multipart` [FormData]? *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-multipart"/><a href="#api-request-context-fetch-option-multipart" class="list-anchor">#</a>
     
-    Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+    提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Params` [IDictionary]?&lt;[string], [object]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-params"/><a href="#api-request-context-fetch-option-params" class="list-anchor">#</a>
     
     要與 URL 一起傳送的查詢參數。
@@ -240,7 +240,7 @@ await request.GetAsync("https://example.com/api/getText", new() { Params = query
     
     提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Headers` [IDictionary]?&lt;[string], [string]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-headers"/><a href="#api-request-context-get-option-headers" class="list-anchor">#</a>
     
     允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
@@ -255,9 +255,9 @@ await request.GetAsync("https://example.com/api/getText", new() { Params = query
     網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
   - `Multipart` [FormData]? *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-multipart"/><a href="#api-request-context-get-option-multipart" class="list-anchor">#</a>
     
-    Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+    提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Params` [IDictionary]?&lt;[string], [object]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-params"/><a href="#api-request-context-get-option-params" class="list-anchor">#</a>
     
     要與 URL 一起傳送的查詢參數。
@@ -300,7 +300,7 @@ await ApiRequestContext.HeadAsync(url, options);
     
     提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Headers` [IDictionary]?&lt;[string], [string]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-headers"/><a href="#api-request-context-head-option-headers" class="list-anchor">#</a>
     
     允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
@@ -315,9 +315,9 @@ await ApiRequestContext.HeadAsync(url, options);
     網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
   - `Multipart` [FormData]? *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-multipart"/><a href="#api-request-context-head-option-multipart" class="list-anchor">#</a>
     
-    Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+    提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Params` [IDictionary]?&lt;[string], [object]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-params"/><a href="#api-request-context-head-option-params" class="list-anchor">#</a>
     
     要與 URL 一起傳送的查詢參數。
@@ -360,7 +360,7 @@ await ApiRequestContext.PatchAsync(url, options);
     
     提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Headers` [IDictionary]?&lt;[string], [string]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-headers"/><a href="#api-request-context-patch-option-headers" class="list-anchor">#</a>
     
     允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
@@ -375,9 +375,9 @@ await ApiRequestContext.PatchAsync(url, options);
     網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
   - `Multipart` [FormData]? *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-multipart"/><a href="#api-request-context-patch-option-multipart" class="list-anchor">#</a>
     
-    Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+    提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Params` [IDictionary]?&lt;[string], [object]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-params"/><a href="#api-request-context-patch-option-params" class="list-anchor">#</a>
     
     要與 URL 一起傳送的查詢參數。
@@ -449,7 +449,7 @@ await request.PostAsync("https://example.com/api/uploadScript", new() { Multipar
     
     提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Headers` [IDictionary]?&lt;[string], [string]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-headers"/><a href="#api-request-context-post-option-headers" class="list-anchor">#</a>
     
     允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
@@ -464,9 +464,9 @@ await request.PostAsync("https://example.com/api/uploadScript", new() { Multipar
     網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
   - `Multipart` [FormData]? *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-multipart"/><a href="#api-request-context-post-option-multipart" class="list-anchor">#</a>
     
-    Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+    提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Params` [IDictionary]?&lt;[string], [object]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-params"/><a href="#api-request-context-post-option-params" class="list-anchor">#</a>
     
     要與 URL 一起傳送的查詢參數。
@@ -509,7 +509,7 @@ await ApiRequestContext.PutAsync(url, options);
     
     提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Headers` [IDictionary]?&lt;[string], [string]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-headers"/><a href="#api-request-context-put-option-headers" class="list-anchor">#</a>
     
     允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
@@ -524,9 +524,9 @@ await ApiRequestContext.PutAsync(url, options);
     網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
   - `Multipart` [FormData]? *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-multipart"/><a href="#api-request-context-put-option-multipart" class="list-anchor">#</a>
     
-    Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+    提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
     
-    An instance of [FormData] can be created via [ApiRequestContext.CreateFormData](/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
+    [FormData] 實例可以透過 [ApiRequestContext.CreateFormData] 建立(/api/class-apirequestcontext.mdx#api-request-context-create-form-data).
   - `Params` [IDictionary]?&lt;[string], [object]&gt; *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-params"/><a href="#api-request-context-put-option-params" class="list-anchor">#</a>
     
     要與 URL 一起傳送的查詢參數。

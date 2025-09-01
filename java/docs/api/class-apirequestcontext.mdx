@@ -53,7 +53,7 @@ APIRequestContext.delete(url, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.dispose</x-search>
 
-All responses returned by [APIRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and similar methods are stored in the memory, so that you can later call [APIResponse.body()](/api/class-apiresponse.mdx#api-response-body).This method discards all its resources, calling any method on disposed [APIRequestContext] will throw an exception.
+由 [APIRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) 和類似方法傳回的所有回應都儲存在記憶體中，因此您可以稍後呼叫 [APIResponse.body()](/api/class-apiresponse.mdx#api-response-body)。此方法會丟棄其所有資源，對已釋放的 [APIRequestContext] 呼叫任何方法都會拋出例外。
 
 **使用方式**
 
@@ -99,7 +99,7 @@ APIResponse response = request.fetch("https://example.com/api/uploadTeamList",
   RequestOptions.create().setMethod("post").setMultipart(
     FormData.create().set("fileField", file)));
 
-// Or you can pass the file content directly as FilePayload object:
+// 或者您可以直接將檔案內容作為 FilePayload 物件傳遞：
 FilePayload filePayload = new FilePayload("f.js", "text/javascript",
       "console.log(2022);".getBytes(StandardCharsets.UTF_8));
 APIResponse response = request.fetch("https://example.com/api/uploadScript",
@@ -235,7 +235,7 @@ APIResponse response = request.post("https://example.com/api/uploadTeamList",
   RequestOptions.create().setMultipart(
     FormData.create().set("fileField", file)));
 
-// Or you can pass the file content directly as FilePayload object:
+// 或者您可以直接將檔案內容作為 FilePayload 物件傳遞：
 FilePayload filePayload1 = new FilePayload("f1.js", "text/javascript",
       "console.log(2022);".getBytes(StandardCharsets.UTF_8));
 APIResponse response = request.post("https://example.com/api/uploadScript",

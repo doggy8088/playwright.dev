@@ -37,24 +37,24 @@ USER = "github-username"
 API_TOKEN = os.getenv("GITHUB_API_TOKEN")
 
 with sync_playwright() as p:
-    # This will launch a new browser, create a context and page. When making HTTP
-    # requests with the internal APIRequestContext (e.g. `context.request` or `page.request`)
-    # it will automatically set the cookies to the browser page and vice versa.
+    # 這將啟動新的瀏覽器、建立情境和頁面。當使用內部 APIRequestContext 進行 HTTP
+    # 請求時（例如 `context.request` 或 `page.request`），
+    # 它會自動將 cookies 設定到瀏覽器頁面，反之亦然。
     browser = p.chromium.launch()
     context = browser.new_context(base_url="https://api.github.com")
     api_request_context = context.request
     page = context.new_page()
 
-    # Alternatively you can create a APIRequestContext manually without having a browser context attached:
+    # 您也可以手動建立 APIRequestContext 而不附加瀏覽器情境：
     # api_request_context = p.request.new_context(base_url="https://api.github.com")
 
 
-    # Create a repository.
+    # 建立儲存庫。
     response = api_request_context.post(
         "/user/repos",
         headers={
             "Accept": "application/vnd.github.v3+json",
-            # Add GitHub personal access token.
+            # 新增 GitHub 個人存取權杖。
             "Authorization": f"token {API_TOKEN}",
         },
         data={"name": REPO},
@@ -62,12 +62,12 @@ with sync_playwright() as p:
     assert response.ok
     assert response.json()["name"] == REPO
 
-    # Delete a repository.
+    # 刪除儲存庫。
     response = api_request_context.delete(
         f"/repos/{USER}/{REPO}",
         headers={
             "Accept": "application/vnd.github.v3+json",
-            # Add GitHub personal access token.
+            # 新增 GitHub 個人存取權杖。
             "Authorization": f"token {API_TOKEN}",
         },
     )
@@ -88,23 +88,23 @@ USER = "github-username"
 API_TOKEN = os.getenv("GITHUB_API_TOKEN")
 
 async def run(playwright: Playwright):
-    # This will launch a new browser, create a context and page. When making HTTP
-    # requests with the internal APIRequestContext (e.g. `context.request` or `page.request`)
-    # it will automatically set the cookies to the browser page and vice versa.
+    # 這將啟動新的瀏覽器、建立情境和頁面。當使用內部 APIRequestContext 進行 HTTP
+    # 請求時（例如 `context.request` 或 `page.request`），
+    # 它會自動將 cookies 設定到瀏覽器頁面，反之亦然。
     browser = await playwright.chromium.launch()
     context = await browser.new_context(base_url="https://api.github.com")
     api_request_context = context.request
     page = await context.new_page()
 
-    # Alternatively you can create a APIRequestContext manually without having a browser context attached:
+    # 您也可以手動建立 APIRequestContext 而不附加瀏覽器情境：
     # api_request_context = await playwright.request.new_context(base_url="https://api.github.com")
 
-    # Create a repository.
+    # 建立儲存庫。
     response = await api_request_context.post(
         "/user/repos",
         headers={
             "Accept": "application/vnd.github.v3+json",
-            # Add GitHub personal access token.
+            # 新增 GitHub 個人存取權杖。
             "Authorization": f"token {API_TOKEN}",
         },
         data={"name": REPO},
@@ -112,12 +112,12 @@ async def run(playwright: Playwright):
     assert response.ok
     assert response.json()["name"] == REPO
 
-    # Delete a repository.
+    # 刪除儲存庫。
     response = await api_request_context.delete(
         f"/repos/{USER}/{REPO}",
         headers={
             "Accept": "application/vnd.github.v3+json",
-            # Add GitHub personal access token.
+            # 新增 GitHub 個人存取權杖。
             "Authorization": f"token {API_TOKEN}",
         },
     )
@@ -188,7 +188,7 @@ api_request_context.delete(url, **kwargs)
     
     檔案內容
   
-  Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+  提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
 - `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-params"/><a href="#api-request-context-delete-option-params" class="list-anchor">#</a>
   
   要與 URL 一起傳送的查詢參數。
@@ -205,7 +205,7 @@ api_request_context.delete(url, **kwargs)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.dispose</x-search>
 
-All responses returned by [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and similar methods are stored in the memory, so that you can later call [api_response.body()](/api/class-apiresponse.mdx#api-response-body).This method discards all its resources, calling any method on disposed [APIRequestContext] will throw an exception.
+由 [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) 和類似方法傳回的所有回應都儲存在記憶體中，因此您可以稍後呼叫 [api_response.body()](/api/class-apiresponse.mdx#api-response-body)。此方法會丟棄其所有資源，對已釋放的 [APIRequestContext] 呼叫任何方法都會拋出例外。
 
 **使用方式**
 
@@ -295,7 +295,7 @@ api_request_context.fetch(
     
     檔案內容
   
-  Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+  提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
 - `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-params"/><a href="#api-request-context-fetch-option-params" class="list-anchor">#</a>
   
   要與 URL 一起傳送的查詢參數。
@@ -362,7 +362,7 @@ api_request_context.get("https://example.com/api/getText", params=query_params)
     
     檔案內容
   
-  Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+  提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
 - `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-params"/><a href="#api-request-context-get-option-params" class="list-anchor">#</a>
   
   要與 URL 一起傳送的查詢參數。
@@ -424,7 +424,7 @@ api_request_context.head(url, **kwargs)
     
     檔案內容
   
-  Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+  提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
 - `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-params"/><a href="#api-request-context-head-option-params" class="list-anchor">#</a>
   
   要與 URL 一起傳送的查詢參數。
@@ -486,7 +486,7 @@ api_request_context.patch(url, **kwargs)
     
     檔案內容
   
-  Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+  提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
 - `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-params"/><a href="#api-request-context-patch-option-params" class="list-anchor">#</a>
   
   要與 URL 一起傳送的查詢參數。
@@ -577,7 +577,7 @@ api_request_context.post(
     
     檔案內容
   
-  Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+  提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
 - `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-params"/><a href="#api-request-context-post-option-params" class="list-anchor">#</a>
   
   要與 URL 一起傳送的查詢參數。
@@ -639,7 +639,7 @@ api_request_context.put(url, **kwargs)
     
     檔案內容
   
-  Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
+  提供一個物件，該物件會使用 `multipart/form-data` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `multipart/form-data`。檔案值可以作為包含檔案名稱、mime 類型和其內容的類檔案物件傳遞。
 - `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-params"/><a href="#api-request-context-put-option-params" class="list-anchor">#</a>
   
   要與 URL 一起傳送的查詢參數。

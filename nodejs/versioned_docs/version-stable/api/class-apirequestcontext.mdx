@@ -10,13 +10,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 此 API 用於 Web API 測試。您可以使用它來觸發 API 端點、組態設定微服務、準備環境或服務以進行端對端測試。
 
-每個 Playwright 瀏覽器情境都有一個關聯的 [APIRequestContext] 實例，它與瀏覽器情境共享 cookie 儲存，並可透過 [browserContext.request](/api/class-browsercontext.mdx#browser-context-request) 或 [page.request](/api/class-page.mdx#page-request)。也可以透過呼叫 [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context).
+每個 Playwright 瀏覽器情境都有一個關聯的 [APIRequestContext] 實例，它與瀏覽器情境共享 cookie 儲存，並可透過 [browserContext.request](/api/class-browsercontext.mdx#browser-context-request) 或 [page.request](/api/class-page.mdx#page-request) 存取。也可以透過呼叫 [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 手動建立新的 `APIRequestContext` 實例。
 
 **Cookie 管理**
 
-[APIRequestContext] returned by [browserContext.request](/api/class-browsercontext.mdx#browser-context-request) and [page.request](/api/class-page.mdx#page-request) 與對應的 [BrowserContext] 共享 cookie 儲存。每個 API 請求都會有 `Cookie` 標頭，填入來自瀏覽器情境的值。如果 API 回應包含 `Set-Cookie` 標頭，它會自動更新 [BrowserContext] cookies，並且從頁面發出的請求會取得它們。這意味著如果您使用此 API 登入，您的端對端測試將會登入，反之亦然。
+由 [browserContext.request](/api/class-browsercontext.mdx#browser-context-request) 和 [page.request](/api/class-page.mdx#page-request) 傳回的 [APIRequestContext] 與對應的 [BrowserContext] 共享 cookie 儲存。每個 API 請求都會有 `Cookie` 標頭，填入來自瀏覽器情境的值。如果 API 回應包含 `Set-Cookie` 標頭，它會自動更新 [BrowserContext] cookies，並且從頁面發出的請求會取得它們。這意味著如果您使用此 API 登入，您的端對端測試將會登入，反之亦然。
 
-如果您想要 API 請求不干擾瀏覽器 cookies，您應該透過呼叫 [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context)建立新的 [APIRequestContext]。這樣的 `APIRequestContext` 物件將擁有自己的隔離 cookie 儲存。
+如果您想要 API 請求不干擾瀏覽器 cookies，您應該透過呼叫 [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 建立新的 [APIRequestContext]。這樣的 `APIRequestContext` 物件將擁有自己的隔離 cookie 儲存。
 
 
 ---
