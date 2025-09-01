@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-A Browser is created via [BrowserType.LaunchAsync()](/api/class-browsertype.mdx#browser-type-launch). An example of using a [Browser] to create a [Page]:
+A Browser is created via [BrowserType.LaunchAsync()](/api/class-browsertype.mdx#browser-type-launch)建立的。以下是使用 [Browser] 建立 [Page] 的範例：
 
 ```csharp
 using Microsoft.Playwright;
@@ -24,21 +24,21 @@ await browser.CloseAsync();
 
 ---
 
-## Methods
+## 方法
 
 ### BrowserType {#browser-browser-type}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.23</font><x-search>browser.BrowserType</x-search>
 
-Get the browser type (chromium, firefox or webkit) that the browser belongs to.
+取得瀏覽器所屬的瀏覽器類型（chromium、firefox 或 webkit）。
 
-**Usage**
+**用法**
 
 ```csharp
 Browser.BrowserType
 ```
 
-**Returns**
+**回傳值**
 - [BrowserType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-browser-type-return"/><a href="#browser-browser-type-return" class="list-anchor">#</a>
 
 ---
@@ -58,19 +58,19 @@ This is similar to force-quitting the browser. To close pages gracefully and ens
 
 The [Browser] object itself is considered to be disposed and cannot be used anymore.
 
-**Usage**
+**用法**
 
 ```csharp
 await Browser.CloseAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `BrowserCloseOptions?` *(optional)*
   - `Reason` [string]? *(optional)* <font size="2">Added in: v1.40</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-close-option-reason"/><a href="#browser-close-option-reason" class="list-anchor">#</a>
     
     The reason to be reported to the operations interrupted by the browser closure.
 
-**Returns**
+**回傳值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-close-return"/><a href="#browser-close-return" class="list-anchor">#</a>
 
 ---
@@ -79,9 +79,9 @@ await Browser.CloseAsync(options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.Contexts</x-search>
 
-Returns an array of all open browser contexts. In a newly created browser, this will return zero browser contexts.
+回傳所有開啟的瀏覽器情境陣列。 在新建立的瀏覽器中，這將回傳零個瀏覽器情境。
 
-**Usage**
+**用法**
 
 ```csharp
 using var playwright = await Playwright.CreateAsync();
@@ -91,7 +91,7 @@ var context = await browser.NewContextAsync();
 System.Console.WriteLine(browser.Contexts.Count); // prints "1"
 ```
 
-**Returns**
+**回傳值**
 - [IReadOnlyList]&lt;[BrowserContext]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-contexts-return"/><a href="#browser-contexts-return" class="list-anchor">#</a>
 
 ---
@@ -100,15 +100,15 @@ System.Console.WriteLine(browser.Contexts.Count); // prints "1"
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.IsConnected</x-search>
 
-Indicates that the browser is connected.
+指示瀏覽器已連接。
 
-**Usage**
+**用法**
 
 ```csharp
 Browser.IsConnected
 ```
 
-**Returns**
+**回傳值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-is-connected-return"/><a href="#browser-is-connected-return" class="list-anchor">#</a>
 
 ---
@@ -119,18 +119,18 @@ Browser.IsConnected
 
 :::note
 
-CDP Sessions are only supported on Chromium-based browsers.
+CDP Session 僅在基於 Chromium 的瀏覽器上支援。
 :::
 
-Returns the newly created browser session.
+回傳新建立的瀏覽器工作階段。
 
-**Usage**
+**用法**
 
 ```csharp
 await Browser.NewBrowserCDPSessionAsync();
 ```
 
-**Returns**
+**回傳值**
 - [CDPSession]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-browser-cdp-session-return"/><a href="#browser-new-browser-cdp-session-return" class="list-anchor">#</a>
 
 ---
@@ -139,14 +139,14 @@ await Browser.NewBrowserCDPSessionAsync();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.NewContextAsync</x-search>
 
-Creates a new browser context. It won't share cookies/cache with other browser contexts.
+建立新的瀏覽器情境。 它不會與其他瀏覽器情境共享 cookies/快取。
 
 :::note
 
 If directly using this method to create [BrowserContext]s, it is best practice to explicitly close the returned context via [BrowserContext.CloseAsync()](/api/class-browsercontext.mdx#browser-context-close) when your code is done with the [BrowserContext], and before calling [Browser.CloseAsync()](/api/class-browser.mdx#browser-close). This will ensure the `context` is closed gracefully and any artifacts—like HARs and videos—are fully flushed and saved.
 :::
 
-**Usage**
+**用法**
 
 ```csharp
 using var playwright = await Playwright.CreateAsync();
@@ -162,7 +162,7 @@ await context.CloseAsync();
 await browser.CloseAsync();
 ```
 
-**Arguments**
+**參數**
 - `options` `BrowserNewContextOptions?` *(optional)*
   - `AcceptDownloads` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-accept-downloads"/><a href="#browser-new-context-option-accept-downloads" class="list-anchor">#</a>
     
@@ -363,7 +363,7 @@ await browser.CloseAsync();
     The `ViewportSize.NoViewport` value opts out from the default presets, makes viewport depend on the host window size defined by the operating system. It makes the execution of the tests non-deterministic.
     :::
     
-**Returns**
+**回傳值**
 - [BrowserContext]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-return"/><a href="#browser-new-context-return" class="list-anchor">#</a>
 
 ---
@@ -376,13 +376,13 @@ Creates a new page in a new browser context. Closing this page will close the co
 
 This is a convenience API that should only be used for the single-page scenarios and short snippets. Production code and testing frameworks should explicitly create [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) followed by the [BrowserContext.NewPageAsync()](/api/class-browsercontext.mdx#browser-context-new-page) to control their exact life times.
 
-**Usage**
+**用法**
 
 ```csharp
 await Browser.NewPageAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `BrowserNewPageOptions?` *(optional)*
   - `AcceptDownloads` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-page-option-accept-downloads"/><a href="#browser-new-page-option-accept-downloads" class="list-anchor">#</a>
     
@@ -583,7 +583,7 @@ await Browser.NewPageAsync(options);
     The `ViewportSize.NoViewport` value opts out from the default presets, makes viewport depend on the host window size defined by the operating system. It makes the execution of the tests non-deterministic.
     :::
     
-**Returns**
+**回傳值**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-page-return"/><a href="#browser-new-page-return" class="list-anchor">#</a>
 
 ---
@@ -592,20 +592,20 @@ await Browser.NewPageAsync(options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.Version</x-search>
 
-Returns the browser version.
+回傳瀏覽器版本。
 
-**Usage**
+**用法**
 
 ```csharp
 Browser.Version
 ```
 
-**Returns**
+**回傳值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-version-return"/><a href="#browser-version-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### event Disconnected {#browser-event-disconnected}
 
@@ -615,13 +615,13 @@ Emitted when Browser gets disconnected from the browser application. This might 
 * Browser application is closed or crashed.
 * The [Browser.CloseAsync()](/api/class-browser.mdx#browser-close) method was called.
 
-**Usage**
+**用法**
 
 ```csharp
 Browser.Disconnected += async (_, browser) => {};
 ```
 
-**Event data**
+**事件資料**
 - [Browser]
 
 
