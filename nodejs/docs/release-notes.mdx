@@ -88,7 +88,7 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
   
 ### 其他
 - [testInfo.snapshotPath()](/api/class-testinfo.mdx#test-info-snapshot-path) 中的新選項 [kind](/api/class-testinfo.mdx#test-info-snapshot-path-選項-kind) 控制使用哪個快照路徑範本。
-- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器。用於追蹤檢視器和報告。
+- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器，在追蹤檢視器和報告中使用。
   
   ```js
   const button = page.getByTestId('btn-sub').describe('Subscribe button');
@@ -930,7 +930,7 @@ npx playwright merge-reports --reporter html ./all-blob-reports
 
 ### 📚 Debian 12 Bookworm Support
 
-Playwright 現在支援 Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下所示：
 
@@ -971,7 +971,7 @@ Linux 支援如下所示：
 <LiteYouTube id="pJiirfyJwcA" title="Playwright 1.35" />
 
 ### 重點
-* UI mode 現在可用 in VSCode Playwright extension via a new "Show trace viewer" button:
+* UI mode 現在可用 在 VSCode Playwright extension via a new "Show trace viewer" button:
   
   ![Playwright UI Mode](https://github.com/microsoft/playwright/assets/746130/13094128-259b-477a-8bbb-c1181178e8a2)
 * UI 模式和追蹤檢視器會標記由 [page.route()](/api/class-page.mdx#page-route) 和 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 處理器處理的網路請求，以及透過 [API testing](./api-testing) 發出的請求：
@@ -1257,7 +1257,7 @@ npx playwright test --ui
 - 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新方法 `defineConfig` 用於 `playwright.config`。
 - 新選項 [maxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [route.fetch()](/api/class-route.mdx#route-fetch).
-- Playwright 現在支援 Debian 11 arm64.
+- Playwright 現在支援Debian 11 arm64.
 - 官方 [docker images](./docker.mdx) 現在包含 Node 18 而非 Node 16。
 
 ### ⚠️ Breaking change in component tests
@@ -1572,9 +1572,9 @@ await page.goto('https://playwright.dev', {
 * Enable tracing via CLI flag: `npx playwright test --trace=on`.
 
 ### 公告
-* 🎁 我們現在提供 Ubuntu 22.04 Jammy Jellyfish docker 映像：`mcr.microsoft.com/playwright:v1.34.0-jammy`。
-* 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
-* 🪦 這是最後一個支援 Node.js 12 的版本，我們建議升級到 Node.js LTS（16）。
+* 🎁 我們現在提供Ubuntu 22.04 Jammy Jellyfish docker 映像：`mcr.microsoft.com/playwright:v1.34.0-jammy`。
+* 🪦 這是最後一個支援macOS 10.15 的版本（自 1.21 起已棄用）。
+* 🪦 這是最後一個支援Node.js 12 的版本，我們建議升級到 Node.js LTS（16）。
 * ⚠️ Ubuntu 18 現已棄用，將從 2022 年 12 月起不再受支援。
 
 ### 瀏覽器版本
@@ -1619,7 +1619,7 @@ export default defineConfig({
 
 ### 🐂 Debian 11 Bullseye Support
 
-Playwright 現在支援 Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下所示：
 
@@ -1769,7 +1769,7 @@ test('should work', async ({ page }) => {
 * 方法 [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在接受 `ignoreCase` 選項。
 
 ### 元件測試更新
-* 支援 Vue2 via the [`@playwright/experimental-ct-vue2`](https://www.npmjs.com/package/@playwright/experimental-ct-vue2) package.
+* 支援Vue2 via the [`@playwright/experimental-ct-vue2`](https://www.npmjs.com/package/@playwright/experimental-ct-vue2) package.
 * 支援與在 `.js` 檔案中包含元件的 [create-react-app](https://www.npmjs.com/package/create-react-app) 進行元件測試。
 
 在[使用 Playwright 進行元件測試](./test-components)中閱讀更多。
@@ -1785,7 +1785,7 @@ test('should work', async ({ page }) => {
   };
   ```
   
-* Using `.zip` path for `recordHar` context 選項 automatically zips the resulting HAR:
+* Using `.zip` path for `recordHar` context 選項 自動壓縮 the resulting HAR:
   
   ```js
   const context = await browser.newContext({
@@ -2184,7 +2184,7 @@ Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)
 
 ### HTML Report Update
-- HTML report 現在支援 dynamic filtering
+- HTML report 現在支援dynamic filtering
 - 報告現在是**單一靜態 HTML 檔案**，可透過電子郵件傳送或作為 slack 附件。
 
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
@@ -2308,9 +2308,7 @@ test('context fetch', async ({ page }) => {
 
 在 [locator.waitFor()](/api/class-locator.mdx#locator-wait-for) 中閱讀更多。
 
-### Arm64 的 Docker 支援
-
-Playwright Docker 映像現在發佈用於 Arm64，因此可以在 Apple Silicon 上使用。
+### Arm64 的 Docker 支援Playwright Docker 映像現在發佈用於 Arm64，因此可以在 Apple Silicon 上使用。
 
 在 [Docker 整合](./docker)中閱讀更多。
 

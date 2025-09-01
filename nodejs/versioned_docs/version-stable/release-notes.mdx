@@ -88,7 +88,7 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
   
 ### 其他
 - [testInfo.snapshotPath()](/api/class-testinfo.mdx#test-info-snapshot-path) 中的新選項 [kind](/api/class-testinfo.mdx#test-info-snapshot-path-選項-kind) 控制使用哪個快照路徑範本。
-- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器。用於追蹤檢視器和報告。
+- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器，在追蹤檢視器和報告中使用。
   
   ```js
   const button = page.getByTestId('btn-sub').describe('Subscribe button');
@@ -389,7 +389,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
   await page.getByLabel('Upload directory').setInputFiles(path.join(__dirname, 'mydir'));
   ```
   
-- 多個方法（如 [locator.click()](/api/class-locator.mdx#locator-click) or [locator.press()](/api/class-locator.mdx#locator-press) 現在支援 a `ControlOrMeta` modifier key. 此鍵 對應到 `Meta` on macOS and 對應到 `Control` on Windows and Linux.
+- 多個方法（如 [locator.click()](/api/class-locator.mdx#locator-click) or [locator.press()](/api/class-locator.mdx#locator-press) 現在支援a `ControlOrMeta` modifier key. 此鍵 對應到 `Meta` on macOS and 對應到 `Control` on Windows and Linux.
   
   ```js
   // Press the common keyboard shortcut Control+S or Meta+S to trigger a "Save" operation.
@@ -513,7 +513,7 @@ await page.removeLocatorHandler(locator);
 ## 版本 1.43
 
 ### 新的 API
-- 方法 [browserContext.clearCookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援 filters to remove only some cookies.
+- 方法 [browserContext.clearCookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援篩選器 to remove only some cookies.
   
   ```js
   // Clear all cookies.
@@ -652,7 +652,7 @@ test('test full report', {
 - [page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [`tagged`](./api/class-page#page-pdf-選項-tagged) 和 [`outline`](./api/class-page#page-pdf-選項-outline)。
 
 ### 公告
-* ⚠️ 不再支援 Ubuntu 18。
+* ⚠️ 不再支援Ubuntu 18。
 
 ### 瀏覽器版本
 * Chromium 123.0.6312.4
@@ -926,7 +926,7 @@ npx playwright merge-reports --reporter html ./all-blob-reports
 
 ### 📚 Debian 12 Bookworm Support
 
-Playwright 現在支援 Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下：
 
@@ -967,7 +967,7 @@ Linux 支援如下：
 <LiteYouTube id="pJiirfyJwcA" title="Playwright 1.35" />
 
 ### 重點
-* UI mode 現在可用 in VSCode Playwright extension via a new "Show trace viewer" button:
+* UI mode 現在可用 在 VSCode Playwright extension via a new "Show trace viewer" button:
   
   ![Playwright UI Mode](https://github.com/microsoft/playwright/assets/746130/13094128-259b-477a-8bbb-c1181178e8a2)
 * UI mode and trace viewer mark network requests handled with [page.route()](/api/class-page.mdx#page-route) 和 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) handlers, as well as those issued via the [API testing](./api-testing):
@@ -1253,7 +1253,7 @@ npx playwright test --ui
 - 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新方法 `defineConfig` to be used in `playwright.config`.
 - 新選項 [maxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [route.fetch()](/api/class-route.mdx#route-fetch).
-- Playwright 現在支援 Debian 11 arm64.
+- Playwright 現在支援Debian 11 arm64.
 - Official [docker images](./docker.mdx)現在include Node 18 instead of Node 16.
 
 ### ⚠️ Breaking change in component tests
@@ -1446,7 +1446,7 @@ export default defineConfig({
 - [page.getByText()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
 - [page.getByRole()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [page.getByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
-- [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id)以定位an element based on its `data-testid` attribute (other attribute can be configured).
+- [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 用於根據其 `data-testid` 屬性定位元素（可配置其他屬性）。
 - [page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
 - [page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text)以定位an element, usually image, by its text alternative.
 - [page.getByTitle()](/api/class-page.mdx#page-get-by-title)以定位an element by its title.
@@ -1569,8 +1569,8 @@ await page.goto('https://playwright.dev', {
 
 ### 公告
 * 🎁 我們現在發佈 Ubuntu 22.04 Jammy Jellyfish docker 映像：`mcr.microsoft.com/playwright:v1.34.0-jammy`。
-* 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
-* 🪦 這是最後一個支援 Node.js 12 的版本，我們建議升級到 Node.js LTS (16)。
+* 🪦 這是最後一個支援macOS 10.15 的版本（自 1.21 起已棄用）。
+* 🪦 這是最後一個支援Node.js 12 的版本，我們建議升級到 Node.js LTS (16)。
 * ⚠️ Ubuntu 18 現已棄用，將從 2022 年 12 月起不再受支援。
 
 ### 瀏覽器版本
@@ -1615,7 +1615,7 @@ export default defineConfig({
 
 ### 🐂 Debian 11 Bullseye Support
 
-Playwright 現在支援 Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux support looks like this:
 
@@ -1765,7 +1765,7 @@ test('should work', async ({ page }) => {
 * 方法 [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在接受 `ignoreCase` 選項。
 
 ### 元件測試更新
-* 支援 Vue2 via the [`@playwright/experimental-ct-vue2`](https://www.npmjs.com/package/@playwright/experimental-ct-vue2) package.
+* 支援Vue2 via the [`@playwright/experimental-ct-vue2`](https://www.npmjs.com/package/@playwright/experimental-ct-vue2) package.
 * 支援與在 `.js` 檔案中包含元件的 [create-react-app](https://www.npmjs.com/package/create-react-app) 進行元件測試。
 
 在[component testing with Playwright](./test-components).
@@ -1781,7 +1781,7 @@ test('should work', async ({ page }) => {
   };
   ```
   
-* Using `.zip` path for `recordHar` context 選項 automatically zips the resulting HAR:
+* Using `.zip` path for `recordHar` context 選項 自動壓縮 the resulting HAR:
   
   ```js
   const context = await browser.newContext({
@@ -1818,7 +1818,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 ### 重點
 - 元件測試（預覽）
   
-  Playwright Test 現在可以 test your [React](https://reactjs.org/), [Vue.js](https://vuejs.org/) or [Svelte](https://svelte.dev/) components. 您可以use all the features of Playwright Test (such as parallelization, emulation & debugging) while running components in real browsers.
+  Playwright Test 現在可以 test your [React](https://reactjs.org/), [Vue.js](https://vuejs.org/) or [Svelte](https://svelte.dev/) components. 您可以use all the features of Playwright Test (such as parallelization, emulation & debugging) while running components 在 real browsers.
   
   以下是典型的元件測試範例：
   
@@ -1921,7 +1921,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 - 新選項s用於方法[page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 和 [elementHandle.screenshot()](/api/class-elementhandle.mdx#element-handle-screenshot):
   * 選項 `animations: "disabled"` 將所有 CSS 動畫和轉場重置為一致狀態
   * 選項 `mask: Locator[]` 遮罩指定的元素，在其上方覆蓋粉色 `#FF00FF` 方框。
-- `expect().toMatchSnapshot()` 現在支援 anonymous snapshots: 當快照名稱缺少時, Playwright Test 將自動產生一個:
+- `expect().toMatchSnapshot()` 現在支援anonymous snapshots: 當快照名稱缺少時, Playwright Test 將自動產生一個:
   
   ```js
   expect('Web is Awesome <3').toMatchSnapshot();
@@ -1993,7 +1993,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   ```
   
   在[我們的文件](./test-assertions#soft-assertions)中閱讀更多
-- You 現在可以 specify a **custom expect message** as a second argument to the `expect` and `expect.soft` functions, for example:
+- 您現在可以指定**自定義期望訊息**作為 `expect` 和 `expect.soft` 函數的第二個參數，例如：
   
   ```js
   await expect(page.locator('text=Name'), 'should be logged in').toBeVisible();
@@ -2126,7 +2126,7 @@ module.exports = {
 
 // fixtures.js
 const test = base.extend({
-  // Fixtures marked as "選項: true" will get a value specified in the config,
+  // 標記為「選項: true」的 Fixtures 將取得在配置中指定的值，
   // or fallback to the default value.
   myParameter: ['default', { 選項: true }],
 });
@@ -2194,7 +2194,7 @@ Playwright 追蹤檢視器現在**可在線上使用**於 https://trace.playwrig
   ```
   
 ### 新的 API
-- Tracing 現在支援 a [`'title'`](./api/class-tracing#tracing-start-選項-title) 選項
+- Tracing 現在支援a [`'title'`](./api/class-tracing#tracing-start-選項-title) 選項
 - Page navigations support a new [`'commit'`](./api/class-page#page-goto) waiting 選項
 - HTML reporter got [new configuration options](./test-reporters#html-reporter)
 - [`testConfig.snapshotDir` 選項](./api/class-testconfig#test-config-snapshot-dir)
@@ -2444,9 +2444,9 @@ await button.click('button >> visible=true');
 
 #### ✅ Web-First Assertions
 
-`expect` 現在支援 lots of new web-first assertions.
+`expect` 現在支援lots of new web-first assertions.
 
-Consider the following example:
+請考慮以下範例：
 
 ```js
 await expect(page.locator('.status')).toHaveText('Submitted');
@@ -2755,7 +2755,7 @@ That will open the following GUI:
 - **Browser storage API**: 新的 convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
 - **新的 CSS 選擇器**：我們聽到了您對更靈活選擇器的回饋意見，並改良了選擇器實作。Playwright 1.7 引入了[新的 CSS 擴充功能](./other-locators.mdx#css-locator)，更多功能即將推出。
 - **新網站**：[playwright.dev](https://playwright.dev/) 的文件網站已更新，現在使用 [Docusaurus](https://v2.docusaurus.io/) 建置。
-- **支援 Apple Silicon**：WebKit 和 Chromium 的 Playwright 瀏覽器二進位檔現在為 Apple Silicon 建置。
+- **支援Apple Silicon**：WebKit 和 Chromium 的 Playwright 瀏覽器二進位檔現在為 Apple Silicon 建置。
 
 #### 新的 API
 - [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 用於取得目前狀態以供稍後重複使用。

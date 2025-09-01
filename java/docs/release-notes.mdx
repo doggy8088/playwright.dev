@@ -53,7 +53,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### 追蹤檢視器和 HTML 報告器更新
 - 追蹤檢視器中的新步驟：![新的追蹤檢視器步驟](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
-- 新方法 [Locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器。用於追蹤檢視器。
+- 新方法 [Locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器，在追蹤檢視器中使用。
   
   ```java
   Locator button = page.getByTestId("btn-sub").describe("Subscribe button");
@@ -138,7 +138,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   assertThat(todoItems).hasCount(3);
   ```
   
-* 新選項 `setContrast`用於方法[Page.emulateMedia()](/api/class-page.mdx#page-emulate-media) 和 [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 允許 emulate the `prefers-contrast` media feature.
+* 新選項 `setContrast`用於方法[Page.emulateMedia()](/api/class-page.mdx#page-emulate-media) 和 [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 允許emulate the `prefers-contrast` media feature.
 * 新選項 [setFailOnStatusCode](/api/class-apirequest.mdx#api-request-new-context-選項-fail-on-status-code) 讓所有 fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
 
 ### 瀏覽器版本
@@ -232,7 +232,7 @@ page.context().tracing().groupEnd();
   page.getByLabel("Upload directory").setInputFiles(Paths.get("mydir"));
   ```
   
-- 多個方法（如 [Locator.click()](/api/class-locator.mdx#locator-click) or [Locator.press()](/api/class-locator.mdx#locator-press) 現在支援 a `ControlOrMeta` modifier key. 此鍵 對應到 `Meta` on macOS and 對應到 `Control` on Windows and Linux.
+- 多個方法（如 [Locator.click()](/api/class-locator.mdx#locator-click) or [Locator.press()](/api/class-locator.mdx#locator-press) 現在支援a `ControlOrMeta` modifier key. 此鍵 對應到 `Meta` on macOS and 對應到 `Control` on Windows and Linux.
   
   ```java
   // Press the common keyboard shortcut Control+S or Meta+S to trigger a "Save" operation.
@@ -320,7 +320,7 @@ page.removeLocatorHandler(locator);
 ## 版本 1.43
 
 ### 新的 API
-- 方法 [BrowserContext.clearCookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援 filters to remove only some cookies.
+- 方法 [BrowserContext.clearCookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援篩選器 to remove only some cookies.
   
   ```java
   // Clear all cookies.
@@ -460,7 +460,7 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 - [Page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [setTagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [setOutline](/api/class-page.mdx#page-pdf-選項-outline)。
 
 ### 公告
-* ⚠️ 不再支援 Ubuntu 18。
+* ⚠️ 不再支援Ubuntu 18。
 
 ### 瀏覽器版本
 * Chromium 123.0.6312.4
@@ -582,7 +582,7 @@ assertThat(page.getByPlaceholder("Search docs")).hasValue("locator");
   
 ### 📚 Debian 12 Bookworm Support
 
-Playwright 現在支援 Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下：
 
@@ -742,7 +742,7 @@ Linux 支援如下：
 ### 其他
 - 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新選項 [setMaxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [Route.fetch()](/api/class-route.mdx#route-fetch).
-- Playwright 現在支援 Debian 11 arm64.
+- Playwright 現在支援Debian 11 arm64.
 - 官方 [docker images](./docker.mdx) 現在包含 Node 18 而非 Node 16。
 
 ### 瀏覽器版本
@@ -917,7 +917,7 @@ page.navigate("https://playwright.dev", new Page.NavigateOptions().setWaitUntil(
 - 預設斷言逾時現在可以透過 [`setDefaultAssertionTimeout`](./api/class-playwrightassertions#playwright-assertions-set-default-assertion-timeout) 變更。
 
 ### 公告
-* 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
+* 🪦 這是最後一個支援macOS 10.15 的版本（自 1.21 起已棄用）。
 * ⚠️ Ubuntu 18 現已棄用，於 2022 年 12 月起將不再支援。
 
 ### 瀏覽器版本
@@ -939,7 +939,7 @@ page.navigate("https://playwright.dev", new Page.NavigateOptions().setWaitUntil(
 
 ### 🐂 Debian 11 Bullseye Support
 
-Playwright 現在支援 Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援情況如下：
 
@@ -1019,7 +1019,7 @@ page.route("**/*", route -> {
       .setServiceWorkers(ServiceWorkerPolicy.BLOCK));
   ```
   
-* Using `.zip` path for `recordHar` context 選項 automatically zips the resulting HAR:
+* Using `.zip` path for `recordHar` context 選項 自動壓縮 the resulting HAR:
   
   ```java
   BrowserContext context = browser.newContext(new Browser.NewContextOptions()
@@ -1228,7 +1228,7 @@ Playwright 追蹤檢視器現在**可在線上使用**於 https://trace.playwrig
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)
 
 ### HTML Report Update
-- HTML report 現在支援 dynamic filtering
+- HTML report 現在支援dynamic filtering
 - 報告現在是**單一靜態 HTML 檔案**，可以透過電子郵件或作為 slack 附件發送。
 
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
@@ -1242,7 +1242,7 @@ Playwright 追蹤檢視器現在**可在線上使用**於 https://trace.playwrig
   ```
   
 ### 新的 API
-- Tracing 現在支援 a [`'title'`](./api/class-tracing#tracing-start-選項-title) 選項
+- Tracing 現在支援a [`'title'`](./api/class-tracing#tracing-start-選項-title) 選項
 - 頁面導覽支援新的 [`'commit'`](./api/class-page#page-goto) 等待選項
 
 ## 版本 1.16
@@ -1548,7 +1548,7 @@ mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="sh
 - **瀏覽器儲存 API**：新的便利 API 用於儲存和載入瀏覽器儲存狀態（cookies、本地儲存），以簡化驗證的自動化場景。
 - **新的 CSS 選擇器**：我們聽到了您對更靈活選擇器的回饋意見，並改良了選擇器實作。Playwright 1.7 引入了[新的 CSS 擴充功能](./other-locators.mdx#css-locator)，更多功能即將推出。
 - **新網站**：[playwright.dev](https://playwright.dev/) 的文件網站已更新，現在使用 [Docusaurus](https://v2.docusaurus.io/) 建置。
-- **支援 Apple Silicon**：WebKit 和 Chromium 的 Playwright 瀏覽器二進位檔現在為 Apple Silicon 建置。
+- **支援Apple Silicon**：WebKit 和 Chromium 的 Playwright 瀏覽器二進位檔現在為 Apple Silicon 建置。
 
 #### 新的 API
 - [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 用於取得目前狀態以供稍後重複使用。

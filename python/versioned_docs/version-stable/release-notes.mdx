@@ -53,7 +53,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### Trace Viewer and HTML Reporter Updates
 - 追蹤檢視器中的新步驟：![新的追蹤檢視器步驟](https://github.com/user-attachments/assets/1963ff7d-4070-41be-a79b-4333176921a2)
-- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器。用於追蹤檢視器。
+- 新方法 [locator.describe()](/api/class-locator.mdx#locator-describe) 用於描述定位器，在追蹤檢視器中使用。
   
   ```python
   button = page.get_by_test_id("btn-sub").describe("Subscribe button")
@@ -113,7 +113,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ## 版本 1.51
 
 ### 重點
-* 新選項 [indexed_db](/api/class-browsercontext.mdx#browser-context-storage-state-選項-indexed-db) for [browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state) 允許 save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
+* 新選項 [indexed_db](/api/class-browsercontext.mdx#browser-context-storage-state-選項-indexed-db) for [browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state) 允許save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
   
   以下是遵循[身份驗證指南](./auth.mdx#reusing-signed-in-state)的範例：
   
@@ -134,7 +134,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   await expect(todo_items).to_have_count(3)
   ```
   
-* 新選項 `contrast`用於方法[page.emulate_media()](/api/class-page.mdx#page-emulate-media) 和 [browser.new_context()](/api/class-browser.mdx#browser-new-context) 允許 emulate the `prefers-contrast` media feature.
+* 新選項 `contrast`用於方法[page.emulate_media()](/api/class-page.mdx#page-emulate-media) 和 [browser.new_context()](/api/class-browser.mdx#browser-new-context) 允許emulate the `prefers-contrast` media feature.
 * 新選項 [fail_on_status_code](/api/class-apirequest.mdx#api-request-new-context-選項-fail-on-status-code) 讓所有 fetch requests made through the [APIRequestContext] throw on response codes other than 2xx and 3xx.
 
 ### 瀏覽器版本
@@ -231,7 +231,7 @@ page.context.tracing.group_end()
   page.get_by_label("Upload directory").set_input_files('mydir')
   ```
   
-- 多個方法（如 [locator.click()](/api/class-locator.mdx#locator-click) or [locator.press()](/api/class-locator.mdx#locator-press) 現在支援 a `ControlOrMeta` modifier key. 此鍵 對應到 `Meta` on macOS and 對應到 `Control` on Windows and Linux.
+- 多個方法（如 [locator.click()](/api/class-locator.mdx#locator-click) or [locator.press()](/api/class-locator.mdx#locator-press) 現在支援a `ControlOrMeta` modifier key. 此鍵 對應到 `Meta` on macOS and 對應到 `Control` on Windows and Linux.
   
   ```python
   # 按下常見的鍵盤快捷鍵 Control+S 或 Meta+S 來觸發「儲存」操作。
@@ -306,7 +306,7 @@ page.remove_locator_handler(locator)
 ## 版本 1.43
 
 ### 新的 API
-- 方法 [browser_context.clear_cookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援 filters to remove only some cookies.
+- 方法 [browser_context.clear_cookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援篩選器 to remove only some cookies.
   
   ```python
   # Clear all cookies.
@@ -368,7 +368,7 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 - [page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [tagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [outline](/api/class-page.mdx#page-pdf-選項-outline)。
 
 ### 公告
-* ⚠️ 不再支援 Ubuntu 18。
+* ⚠️ 不再支援Ubuntu 18。
 
 ### 瀏覽器版本
 * Chromium 123.0.6312.4
@@ -483,7 +483,7 @@ def test_example(page: Page) -> None:
 
 ### 📚 Debian 12 Bookworm Support
 
-Playwright 現在支援 Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下：
 
@@ -639,7 +639,7 @@ Linux 支援如下：
 ### 其他
 - 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新選項 [max_redirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [route.fetch()](/api/class-route.mdx#route-fetch).
-- Playwright 現在支援 Debian 11 arm64.
+- Playwright 現在支援Debian 11 arm64.
 - Official [docker images](./docker.mdx) 現在包含 Node 18 而非 Node 16。
 
 ### 瀏覽器版本
@@ -792,7 +792,7 @@ expect(page.get_by_text("Welcome, John!")).to_be_visible()
 
 ### 其他重點
 - 新選項 `max_redirects` for [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get)和其他方法以limit redirect count.
-- 現在支援 Python 3.11。
+- 現在支援Python 3.11。
 
 ### 行為變更
 
@@ -819,7 +819,7 @@ page.goto("https://playwright.dev", wait_until="domcontentloaded")
 
 ### 公告
 * 🎁 我們現在發佈 Ubuntu 22.04 Jammy Jellyfish docker 映像：`mcr.microsoft.com/playwright/python:v1.34.0-jammy`。
-* 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
+* 🪦 這是最後一個支援macOS 10.15 的版本（自 1.21 起已棄用）。
 * ⚠️ Ubuntu 18 現已棄用，將從 2022 年 12 月起不再受支援。
 
 ### 瀏覽器版本
@@ -841,7 +841,7 @@ page.goto("https://playwright.dev", wait_until="domcontentloaded")
 
 ### 🐂 Debian 11 Bullseye Support
 
-Playwright 現在支援 Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下：
 
@@ -1021,7 +1021,7 @@ await page.route("**/*", abort_images_handler)
   
   </TabItem>
   </Tabs>
-* Using `.zip` path for `recordHar` context 選項 automatically zips the resulting HAR:
+* Using `.zip` path for `recordHar` context 選項 自動壓縮 the resulting HAR:
   
   <Tabs
     groupId="python-flavor"
@@ -1093,7 +1093,7 @@ await page.route("**/*", abort_images_handler)
   submit_button.click()
   ```
   
-- Codegen 現在支援 generating Pytest Tests
+- Codegen 現在支援generating Pytest Tests
   
   ![Graphics](https://user-images.githubusercontent.com/746130/168098384-40784024-6c26-4426-8255-e714862af6fc.png)
 
@@ -1134,7 +1134,7 @@ await page.route("**/*", abort_images_handler)
 
 ### 行為變更
 - The `mcr.microsoft.com/playwright` docker image no longer contains Python. Please use `mcr.microsoft.com/playwright/python` as a Playwright-ready docker image with pre-installed Python.
-- Playwright 現在支援 large file uploads (100s of MBs) via [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) API.
+- Playwright 現在支援large file uploads (100s of MBs) via [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) API.
 
 ### 瀏覽器版本
 - Chromium 101.0.4951.26
@@ -1380,7 +1380,7 @@ Playwright 追蹤檢視器現在**可在線上使用**於 https://trace.playwrig
   ```
   
 ### 新的 API
-- Tracing 現在支援 a [`'title'`](./api/class-tracing#tracing-start-選項-title) 選項
+- Tracing 現在支援a [`'title'`](./api/class-tracing#tracing-start-選項-title) 選項
 - Page navigations support a new [`'commit'`](./api/class-page#page-goto) waiting 選項
 
 ## 版本 1.16
@@ -1691,7 +1691,7 @@ That will open the following GUI:
 - **瀏覽器儲存 API**：新的便利 API 用於儲存和載入瀏覽器儲存狀態（cookies、本地儲存），以簡化驗證的自動化場景。
 - **新的 CSS 選擇器**：我們聽到了您對更靈活選擇器的回饋意見，並改良了選擇器實作。Playwright 1.7 引入了[新的 CSS 擴充功能](./other-locators.mdx#css-locator)，更多功能即將推出。
 - **新網站**：[playwright.dev](https://playwright.dev/) 的文件網站已更新，現在使用 [Docusaurus](https://v2.docusaurus.io/) 建置。
-- **支援 Apple Silicon**：WebKit 和 Chromium 的 Playwright 瀏覽器二進位檔現在為 Apple Silicon 建置。
+- **支援Apple Silicon**：WebKit 和 Chromium 的 Playwright 瀏覽器二進位檔現在為 Apple Silicon 建置。
 
 #### 新的 API
 - [browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state) 用於取得目前狀態以供稍後重複使用。
