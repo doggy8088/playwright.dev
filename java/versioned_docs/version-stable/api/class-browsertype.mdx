@@ -54,7 +54,7 @@ BrowserType.連接(wsEndpoint, options);
 - `wsEndpoint` [String] <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-選項-ws-endpoint"/><a href="#browser-type-connect-option-ws-endpoint" class="list-anchor">#</a>
   
   A Playwright 瀏覽器 WebSocket 端點 to 連接 to. You obtain this 端點 via `BrowserServer.wsEndpoint`.
-- `options` `BrowserType.ConnectOptions` *(optional)*
+- `options` `BrowserType.ConnectOptions` *(選擇性)*
   - `setExposeNetwork` [String] *(optional)* <font size="2">Added in: v1.37</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-選項-expose-網路"/><a href="#browser-type-connect-option-expose-網路" class="list-anchor">#</a>
     
     此選項exposes 網路 available on the connecting client to 瀏覽器being connected to. Consists of a list of rules separated by comma.
@@ -62,12 +62,12 @@ BrowserType.連接(wsEndpoint, options);
     Available rules:
     1. Hostname pattern, 例如: `example.com`, `*.org:99`, `x.*.y.com`, `*foo.org`.
     1. IP literal, 例如: `127.0.0.1`, `0.0.0.0:99`, `[::1]`, `[0:0::1]:99`.
-    1. `<loopback>` that matches local loopback interfaces: `localhost`, `*.localhost`, `127.0.0.1`, `[::1]`.
+    1. `<loopback>` 比對本地回送介面：`localhost`、`*.localhost`、`127.0.0.1`、`[::1]`。
     
     Some common examples:
     1. `"*"` to expose all 網路.
     1. `"<loopback>"` to expose localhost 網路.
-    1. `"*.test.internal-domain,*.staging.internal-domain,<loopback>"` to expose test/staging deployments and localhost.
+    1. `"*.test.internal-domain,*.staging.internal-domain,<loopback>"` 用於暴露測試/預備部署和 localhost。
   - `setHeaders` [Map]&lt;[String], [String]&gt; *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-選項-headers"/><a href="#browser-type-connect-option-headers" class="list-anchor">#</a>
     
     Additional HTTP headers to be sent with web socket 連接 request. Optional.
@@ -112,7 +112,7 @@ Page page = defaultContext.pages().get(0);
 - `endpointURL` [String] <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-over-cdp-選項-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
   
   A CDP WebSocket 端點 or http url to 連接 to. 例如 `http://localhost:9222/` or `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`.
-- `options` `BrowserType.ConnectOverCDPOptions` *(optional)*
+- `options` `BrowserType.ConnectOverCDPOptions` *(選擇性)*
   - `setHeaders` [Map]&lt;[String], [String]&gt; *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-over-cdp-選項-headers"/><a href="#browser-type-connect-over-cdp-option-headers" class="list-anchor">#</a>
     
     Additional HTTP headers to be sent with 連接 request. Optional.
@@ -163,12 +163,12 @@ You can use [setIgnoreDefaultArgs](/api/class-browsertype.mdx#browser-type-launc
 
 > **Chromium-only** Playwright can also be used to control the Google Chrome or Microsoft Edge browsers, but it works best with the 版本 of Chromium it is bundled with. There is no guarantee it will work with any other 版本. Use [setExecutablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) 選項 with extreme caution.
 >
-> If Google Chrome (rather than Chromium) is preferred, a [Chrome Canary](https://www.google.com/chrome/browser/canary.html) or [Dev Channel](https://www.chromium.org/getting-involved/dev-channel) build is suggested.
+> 如果偏好使用 Google Chrome（而非 Chromium），建議使用 [Chrome Canary](https://www.google.com/chrome/browser/canary.html) 或 [Dev Channel](https://www.chromium.org/getting-involved/dev-channel) 建置版本。
 >
 > Stock browsers like Google Chrome and Microsoft Edge are suitable for tests that require proprietary media codecs for 影片 playback. See [this article](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/) for other differences between Chromium and Chrome. [This article](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md) describes some differences for Linux users.
 
 **參數**
-- `options` `BrowserType.LaunchOptions` *(optional)*
+- `options` `BrowserType.LaunchOptions` *(選擇性)*
   - `setArgs` [List]&lt;[String]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-args"/><a href="#browser-type-launch-option-args" class="list-anchor">#</a>
     
     :::warning
@@ -181,16 +181,16 @@ You can use [setIgnoreDefaultArgs](/api/class-browsertype.mdx#browser-type-launc
     
     瀏覽器 distribution 通道.
     
-    Use "chromium" to [opt in to new headless mode](../browsers.mdx#chromium-new-headless-mode).
+    使用 "chromium" 來[選擇使用新的無頭模式](../browsers.mdx#chromium-new-headless-mode)。
     
-    Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
+    使用 "chrome"、"chrome-beta"、"chrome-dev"、"chrome-canary"、"msedge"、"msedge-beta"、"msedge-dev" 或 "msedge-canary" 來使用品牌版的 [Google Chrome 和 Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge)。
   - `setChromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-chromium-sandbox"/><a href="#browser-type-launch-option-chromium-sandbox" class="list-anchor">#</a>
     
-    Enable Chromium sandboxing. 預設為`false`.
+    啟用 Chromium 沙盒。預設為 `false`。
   - `setDevtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-devtools"/><a href="#browser-type-launch-option-devtools" class="list-anchor">#</a>
     
     :::warning[Deprecated]
-    Use [debugging tools](../debug.mdx) instead.
+    請改用[偵錯工具](../debug.mdx)。
     :::
     
     
@@ -244,7 +244,7 @@ You can use [setIgnoreDefaultArgs](/api/class-browsertype.mdx#browser-type-launc
     網路 代理 設定.
   - `setSlowMo` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-slow-mo"/><a href="#browser-type-launch-option-slow-mo" class="list-anchor">#</a>
     
-    Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
+    將 Playwright 操作減慢指定的毫秒數。這對於觀察正在進行的操作很有用。
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-timeout"/><a href="#browser-type-launch-option-timeout" class="list-anchor">#</a>
     
     等待瀏覽器實例啟動的最長時間（以毫秒為單位）. 預設為`30000` (30 seconds). Pass `0` to disable 逾時.
@@ -286,7 +286,7 @@ BrowserType.launchPersistentContext(userDataDir, options);
   Chromium/Chrome: Due to recent Chrome policy changes, automating the 預設 Chrome user 設定檔 is not supported. Pointing `userDataDir` to Chrome's main "User Data" 目錄 (the 設定檔 used for your regular browsing) may result in pages not loading or 瀏覽器exiting. Create and use a separate 目錄 (例如, an empty 資料夾) as your automation 設定檔 instead. See https://developer.chrome.com/blog/remote-debugging-port for details.
   :::
   
-- `options` `BrowserType.LaunchPersistentContextOptions` *(optional)*
+- `options` `BrowserType.LaunchPersistentContextOptions` *(選擇性)*
   - `setAcceptDownloads` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-accept-downloads"/><a href="#browser-type-launch-persistent-context-option-accept-downloads" class="list-anchor">#</a>
     
     是否automatically 下載 all the attachments. 預設為`true` where all the downloads are accepted.
@@ -301,9 +301,9 @@ BrowserType.launchPersistentContext(userDataDir, options);
   - `setBaseURL` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-base-url"/><a href="#browser-type-launch-persistent-context-option-base-url" class="list-anchor">#</a>
     
     When using [Page.navigate()](/api/class-page.mdx#page-goto), [Page.route()](/api/class-page.mdx#page-route), [Page.waitForURL()](/api/class-page.mdx#page-wait-for-url), [Page.waitForRequest()](/api/class-page.mdx#page-wait-for-request), or [Page.waitForResponse()](/api/class-page.mdx#page-wait-for-response) it takes the base URL in consideration by using the [__CODE_BLOCK_0__](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor for building the corresponding URL. Unset 預設情況下. Examples:
-    * baseURL: `http://localhost:3000` and navigating to `/bar.html` results in `http://localhost:3000/bar.html`
-    * baseURL: `http://localhost:3000/foo/` and navigating to `./bar.html` results in `http://localhost:3000/foo/bar.html`
-    * baseURL: `http://localhost:3000/foo` (without trailing slash) and navigating to `./bar.html` results in `http://localhost:3000/bar.html`
+    * baseURL：`http://localhost:3000` 並導航到 `/bar.html` 會得到 `http://localhost:3000/bar.html`
+    * baseURL：`http://localhost:3000/foo/` 並導航到 `./bar.html` 會得到 `http://localhost:3000/foo/bar.html`
+    * baseURL：`http://localhost:3000/foo`（無尾隨斜線）並導航到 `./bar.html` 會得到 `http://localhost:3000/bar.html`
   - `setBypassCSP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-bypass-csp"/><a href="#browser-type-launch-persistent-context-option-bypass-csp" class="list-anchor">#</a>
     
     Toggles bypassing page's Content-Security-Policy. 預設為`false`.
@@ -311,12 +311,12 @@ BrowserType.launchPersistentContext(userDataDir, options);
     
     瀏覽器 distribution 通道.
     
-    Use "chromium" to [opt in to new headless mode](../browsers.mdx#chromium-new-headless-mode).
+    使用 "chromium" 來[選擇使用新的無頭模式](../browsers.mdx#chromium-new-headless-mode)。
     
-    Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
+    使用 "chrome"、"chrome-beta"、"chrome-dev"、"chrome-canary"、"msedge"、"msedge-beta"、"msedge-dev" 或 "msedge-canary" 來使用品牌版的 [Google Chrome 和 Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge)。
   - `setChromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-chromium-sandbox"/><a href="#browser-type-launch-persistent-context-option-chromium-sandbox" class="list-anchor">#</a>
     
-    Enable Chromium sandboxing. 預設為`false`.
+    啟用 Chromium 沙盒。預設為 `false`。
   - `setClientCertificates` [List]&lt;ClientCertificates&gt; *(optional)* <font size="2">Added in: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-client-certificates"/><a href="#browser-type-launch-persistent-context-option-client-certificates" class="list-anchor">#</a>
     - `setOrigin` [String]
       
@@ -332,7 +332,7 @@ BrowserType.launchPersistentContext(userDataDir, options);
       到...的路徑the 檔案 with the private key in PEM format.
     - `setKey` [byte&#91;&#93;] *(optional)*
       
-      Direct value of the private key in PEM format.
+      以 PEM 格式提供的私鑰直接值。
     - `setPfxPath` [路徑] *(optional)*
       
       到...的路徑the PFX or PKCS12 encoded private key and 憑證 chain.
@@ -341,7 +341,7 @@ BrowserType.launchPersistentContext(userDataDir, options);
       Direct value of the PFX or PKCS12 encoded private key and 憑證 chain.
     - `setPassphrase` [String] *(optional)*
       
-      Passphrase for the private key (PEM or PFX).
+      私鑰的密碼（PEM 或 PFX）。
     
     TLS Client 驗證 allows the 伺服器 to request a client 憑證 and verify it.
     
@@ -353,7 +353,7 @@ BrowserType.launchPersistentContext(userDataDir, options);
     
     :::note
     
-    When using WebKit on macOS, accessing `localhost` will not pick up client certificates. You can make it work by replacing `localhost` with `local.playwright`.
+    在 macOS 上使用 WebKit 時，存取 `localhost` 不會取得用戶端憑證。您可以將 `localhost` 替換為 `local.playwright` 來解決此問題。
     :::
     
   - `setColorScheme` [null] | `enum ColorScheme { LIGHT, DARK, NO_PREFERENCE }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-color-scheme"/><a href="#browser-type-launch-persistent-context-option-color-scheme" class="list-anchor">#</a>
@@ -368,7 +368,7 @@ BrowserType.launchPersistentContext(userDataDir, options);
   - `setDevtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-devtools"/><a href="#browser-type-launch-persistent-context-option-devtools" class="list-anchor">#</a>
     
     :::warning[Deprecated]
-    Use [debugging tools](../debug.mdx) instead.
+    請改用[偵錯工具](../debug.mdx)。
     :::
     
     
@@ -503,20 +503,20 @@ BrowserType.launchPersistentContext(userDataDir, options);
   - `setScreenSize` ScreenSize *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-螢幕"/><a href="#browser-type-launch-persistent-context-option-螢幕" class="list-anchor">#</a>
     - `setWidth` [int]
       
-      page width in pixels.
+      頁面寬度（以像素為單位）。
     - `setHeight` [int]
       
-      page height in pixels.
+      頁面高度（以像素為單位）。
     
     模擬網頁內可用的一致視窗螢幕大小 via `window.screen`. Is only used when the [setViewportSize](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-viewport) is set.
   - `setServiceWorkers` `enum ServiceWorkerPolicy { ALLOW, BLOCK }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-service-workers"/><a href="#browser-type-launch-persistent-context-option-service-workers" class="list-anchor">#</a>
     
     是否允許網站註冊 Service Worker. 預設為`'allow'`.
-    * `'allow'`: [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) can be registered.
-    * `'block'`: Playwright will block all registration of Service Workers.
+    * `'allow'`：可以註冊 [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)。
+    * `'block'`：Playwright 將阻止所有 Service Workers 的註冊。
   - `setSlowMo` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-slow-mo"/><a href="#browser-type-launch-persistent-context-option-slow-mo" class="list-anchor">#</a>
     
-    Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
+    將 Playwright 操作減慢指定的毫秒數。這對於觀察正在進行的操作很有用。
   - `setStrictSelectors` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-strict-selectors"/><a href="#browser-type-launch-persistent-context-option-strict-selectors" class="list-anchor">#</a>
     
     若設定為 `true`，會為此情境啟用嚴格選擇器模式. In the strict selectors mode all operations on selectors that imply single target DOM element will throw when more than one element matches the selector. 此選項does not affect any Locator APIs (Locators are always strict). 預設為`false`. See [Locator] to 深入了解about the strict mode.
@@ -535,10 +535,10 @@ BrowserType.launchPersistentContext(userDataDir, options);
   - `setViewportSize` [null] | ViewportSize *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-檢視區"/><a href="#browser-type-launch-persistent-context-option-檢視區" class="list-anchor">#</a>
     - `setWidth` [int]
       
-      page width in pixels.
+      頁面寬度（以像素為單位）。
     - `setHeight` [int]
       
-      page height in pixels.
+      頁面高度（以像素為單位）。
     
     為每個頁面模擬一致的檢視區. 預設為 1280x720 檢視區. Use `null` to disable the consistent 檢視區 模擬. 深入了解about [viewport emulation](../emulation#viewport).
     
@@ -602,7 +602,7 @@ BrowserType.name();
 [Selectors]: /api/class-selectors.mdx "Selectors"
 [TimeoutError]: /api/class-timeouterror.mdx "TimeoutError"
 [Touchscreen]: /api/class-touchscreen.mdx "Touchscreen"
-[Tracing]: /api/class-tracing.mdx "Tracing"
+[追蹤]: /api/class-追蹤.mdx "追蹤"
 [Video]: /api/class-video.mdx "Video"
 [WebError]: /api/class-weberror.mdx "WebError"
 [WebSocket]: /api/class-WebSocket.mdx "WebSocket"

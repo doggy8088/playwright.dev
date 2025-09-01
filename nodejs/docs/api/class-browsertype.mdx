@@ -354,7 +354,7 @@ await browserType.launchPersistentContext(userDataDir, options);
       到...的路徑the 檔案 with the private key in PEM format.
     - `key` [Buffer] *(optional)*
       
-      Direct value of the private key in PEM format.
+      以 PEM 格式提供的私鑰直接值。
     - `pfxPath` [string] *(optional)*
       
       到...的路徑the PFX or PKCS12 encoded private key and 憑證 chain.
@@ -363,7 +363,7 @@ await browserType.launchPersistentContext(userDataDir, options);
       Direct value of the PFX or PKCS12 encoded private key and 憑證 chain.
     - `passphrase` [string] *(optional)*
       
-      Passphrase for the private key (PEM or PFX).
+      私鑰的密碼（PEM 或 PFX）。
     
     TLS Client 驗證 allows the 伺服器 to request a client 憑證 and verify it.
     
@@ -375,7 +375,7 @@ await browserType.launchPersistentContext(userDataDir, options);
     
     :::note
     
-    When using WebKit on macOS, accessing `localhost` will not pick up client certificates. You can make it work by replacing `localhost` with `local.playwright`.
+    在 macOS 上使用 WebKit 時，存取 `localhost` 不會取得用戶端憑證。您可以將 `localhost` 替換為 `local.playwright` 來解決此問題。
     :::
     
   - `colorScheme` [null] | "light" | "dark" | "no-preference" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-color-scheme"/><a href="#browser-type-launch-persistent-context-option-color-scheme" class="list-anchor">#</a>
@@ -390,7 +390,7 @@ await browserType.launchPersistentContext(userDataDir, options);
   - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-devtools"/><a href="#browser-type-launch-persistent-context-option-devtools" class="list-anchor">#</a>
     
     :::warning[Deprecated]
-    Use [debugging tools](../debug.mdx) instead.
+    請改用[偵錯工具](../debug.mdx)。
     :::
     
     
@@ -473,11 +473,11 @@ await browserType.launchPersistentContext(userDataDir, options);
   - `logger` [Logger] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-logger"/><a href="#browser-type-launch-persistent-context-option-logger" class="list-anchor">#</a>
     
     :::warning[Deprecated]
-    The logs received by the logger are incomplete. Please use tracing instead.
+    記錄器接收到的記錄檔不完整。請改用追蹤功能。
     :::
     
     
-    Logger sink for Playwright logging.
+    Playwright 記錄的記錄器接收器。
   - `offline` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-offline"/><a href="#browser-type-launch-persistent-context-option-offline" class="list-anchor">#</a>
     
     是否emulate 網路 being offline. 預設為`false`. 深入了解about [network emulation](../emulation.mdx#offline).
@@ -538,20 +538,20 @@ await browserType.launchPersistentContext(userDataDir, options);
   - `screen` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-螢幕"/><a href="#browser-type-launch-persistent-context-option-螢幕" class="list-anchor">#</a>
     - `width` [number]
       
-      page width in pixels.
+      頁面寬度（以像素為單位）。
     - `height` [number]
       
-      page height in pixels.
+      頁面高度（以像素為單位）。
     
     模擬網頁內可用的一致視窗螢幕大小 via `window.screen`. Is only used when the [viewport](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-viewport) is set.
   - `serviceWorkers` "allow" | "block" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-service-workers"/><a href="#browser-type-launch-persistent-context-option-service-workers" class="list-anchor">#</a>
     
     是否允許網站註冊 Service Worker. 預設為`'allow'`.
-    * `'allow'`: [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) can be registered.
-    * `'block'`: Playwright will block all registration of Service Workers.
+    * `'allow'`：可以註冊 [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)。
+    * `'block'`：Playwright 將阻止所有 Service Workers 的註冊。
   - `slowMo` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-slow-mo"/><a href="#browser-type-launch-persistent-context-option-slow-mo" class="list-anchor">#</a>
     
-    Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
+    將 Playwright 操作減慢指定的毫秒數。這對於觀察正在進行的操作很有用。
   - `strictSelectors` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-strict-selectors"/><a href="#browser-type-launch-persistent-context-option-strict-selectors" class="list-anchor">#</a>
     
     若設定為 `true`，會為此情境啟用嚴格選擇器模式. In the strict selectors mode all operations on selectors that imply single target DOM element will throw when more than one element matches the selector. 此選項does not affect any Locator APIs (Locators are always strict). 預設為`false`. See [Locator] to 深入了解about the strict mode.
@@ -570,7 +570,7 @@ await browserType.launchPersistentContext(userDataDir, options);
   - `videoSize` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-影片-size"/><a href="#browser-type-launch-persistent-context-option-影片-size" class="list-anchor">#</a>
     
     :::warning[Deprecated]
-    Use [recordVideo](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-record-video) instead.
+    請改用 [recordVideo](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-record-video)。
     :::
     
     - `width` [number]
@@ -582,16 +582,16 @@ await browserType.launchPersistentContext(userDataDir, options);
   - `videosPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-videos-路徑"/><a href="#browser-type-launch-persistent-context-option-videos-路徑" class="list-anchor">#</a>
     
     :::warning[Deprecated]
-    Use [recordVideo](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-record-video) instead.
+    請改用 [recordVideo](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-record-video)。
     :::
     
   - `viewport` [null] | [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-檢視區"/><a href="#browser-type-launch-persistent-context-option-檢視區" class="list-anchor">#</a>
     - `width` [number]
       
-      page width in pixels.
+      頁面寬度（以像素為單位）。
     - `height` [number]
       
-      page height in pixels.
+      頁面高度（以像素為單位）。
     
     為每個頁面模擬一致的檢視區. 預設為 1280x720 檢視區. Use `null` to disable the consistent 檢視區 模擬. 深入了解about [viewport emulation](../emulation#viewport).
     
@@ -642,16 +642,16 @@ const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
     
     瀏覽器 distribution 通道.
     
-    Use "chromium" to [opt in to new headless mode](../browsers.mdx#chromium-new-headless-mode).
+    使用 "chromium" 來[選擇使用新的無頭模式](../browsers.mdx#chromium-new-headless-mode)。
     
-    Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
+    使用 "chrome"、"chrome-beta"、"chrome-dev"、"chrome-canary"、"msedge"、"msedge-beta"、"msedge-dev" 或 "msedge-canary" 來使用品牌版的 [Google Chrome 和 Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge)。
   - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-chromium-sandbox"/><a href="#瀏覽器-type-啟動-伺服器-選項-chromium-sandbox" class="list-anchor">#</a>
     
-    Enable Chromium sandboxing. 預設為`false`.
+    啟用 Chromium 沙盒。預設為 `false`。
   - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-devtools"/><a href="#瀏覽器-type-啟動-伺服器-選項-devtools" class="list-anchor">#</a>
     
     :::warning[Deprecated]
-    Use [debugging tools](../debug.mdx) instead.
+    請改用[偵錯工具](../debug.mdx)。
     :::
     
     
@@ -691,11 +691,11 @@ const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
   - `logger` [Logger] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-logger"/><a href="#瀏覽器-type-啟動-伺服器-選項-logger" class="list-anchor">#</a>
     
     :::warning[Deprecated]
-    The logs received by the logger are incomplete. Please use tracing instead.
+    記錄器接收到的記錄檔不完整。請改用追蹤功能。
     :::
     
     
-    Logger sink for Playwright logging.
+    Playwright 記錄的記錄器接收器。
   - `port` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-port"/><a href="#瀏覽器-type-啟動-伺服器-選項-port" class="list-anchor">#</a>
     
     Port to use for the web socket. 預設為0 that picks any available port.
@@ -767,7 +767,7 @@ browserType.name();
 [CDPSession]: /api/class-cdpsession.mdx "CDPSession"
 [Clock]: /api/class-clock.mdx "Clock"
 [ConsoleMessage]: /api/class-consolemessage.mdx "ConsoleMessage"
-[Coverage]: /api/class-coverage.mdx "Coverage"
+[覆蓋率]: /api/class-覆蓋率.mdx "覆蓋率"
 [Dialog]: /api/class-dialog.mdx "Dialog"
 [Download]: /api/class-download.mdx "Download"
 [Electron]: /api/class-electron.mdx "Electron"
@@ -794,7 +794,7 @@ browserType.name();
 [SnapshotAssertions]: /api/class-snapshotassertions.mdx "SnapshotAssertions"
 [TimeoutError]: /api/class-timeouterror.mdx "TimeoutError"
 [Touchscreen]: /api/class-touchscreen.mdx "Touchscreen"
-[Tracing]: /api/class-tracing.mdx "Tracing"
+[追蹤]: /api/class-追蹤.mdx "追蹤"
 [Video]: /api/class-video.mdx "Video"
 [WebError]: /api/class-weberror.mdx "WebError"
 [WebSocket]: /api/class-WebSocket.mdx "WebSocket"
