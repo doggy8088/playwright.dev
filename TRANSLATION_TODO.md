@@ -304,13 +304,13 @@
 - [x] python/docs/actionability.mdx
 - [x] python/docs/api-testing.mdx
 - [x] python/docs/api/class-accessibility.mdx
-- [ ] python/docs/api/class-apirequest.mdx
-- [ ] python/docs/api/class-apirequestcontext.mdx
-- [ ] python/docs/api/class-apiresponse.mdx
-- [ ] python/docs/api/class-apiresponseassertions.mdx
-- [ ] python/docs/api/class-browser.mdx
-- [ ] python/docs/api/class-browsercontext.mdx
-- [ ] python/docs/api/class-browsertype.mdx
+- [x] python/docs/api/class-apirequest.mdx
+- [x] python/docs/api/class-apirequestcontext.mdx
+- [x] python/docs/api/class-apiresponse.mdx
+- [x] python/docs/api/class-apiresponseassertions.mdx
+- [x] python/docs/api/class-browser.mdx
+- [x] python/docs/api/class-browsercontext.mdx
+- [x] python/docs/api/class-browsertype.mdx
 - [ ] python/docs/api/class-cdpsession.mdx
 - [ ] python/docs/api/class-clock.mdx
 - [ ] python/docs/api/class-consolemessage.mdx
@@ -390,13 +390,13 @@
 - [x] python/versioned_docs/version-stable/actionability.mdx
 - [x] python/versioned_docs/version-stable/api-testing.mdx
 - [x] python/versioned_docs/version-stable/api/class-accessibility.mdx
-- [ ] python/versioned_docs/version-stable/api/class-apirequest.mdx
-- [ ] python/versioned_docs/version-stable/api/class-apirequestcontext.mdx
-- [ ] python/versioned_docs/version-stable/api/class-apiresponse.mdx
-- [ ] python/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
-- [ ] python/versioned_docs/version-stable/api/class-browser.mdx
-- [ ] python/versioned_docs/version-stable/api/class-browsercontext.mdx
-- [ ] python/versioned_docs/version-stable/api/class-browsertype.mdx
+- [x] python/versioned_docs/version-stable/api/class-apirequest.mdx
+- [x] python/versioned_docs/version-stable/api/class-apirequestcontext.mdx
+- [x] python/versioned_docs/version-stable/api/class-apiresponse.mdx
+- [x] python/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
+- [x] python/versioned_docs/version-stable/api/class-browser.mdx
+- [x] python/versioned_docs/version-stable/api/class-browsercontext.mdx
+- [x] python/versioned_docs/version-stable/api/class-browsertype.mdx
 - [ ] python/versioned_docs/version-stable/api/class-cdpsession.mdx
 - [ ] python/versioned_docs/version-stable/api/class-clock.mdx
 - [ ] python/versioned_docs/version-stable/api/class-consolemessage.mdx
@@ -476,13 +476,13 @@
 - [x] java/docs/accessibility-testing.mdx
 - [x] java/docs/actionability.mdx
 - [x] java/docs/api-testing.mdx
-- [ ] java/docs/api/class-apirequest.mdx
-- [ ] java/docs/api/class-apirequestcontext.mdx
-- [ ] java/docs/api/class-apiresponse.mdx
-- [ ] java/docs/api/class-apiresponseassertions.mdx
-- [ ] java/docs/api/class-browser.mdx
-- [ ] java/docs/api/class-browsercontext.mdx
-- [ ] java/docs/api/class-browsertype.mdx
+- [x] java/docs/api/class-apirequest.mdx
+- [x] java/docs/api/class-apirequestcontext.mdx
+- [x] java/docs/api/class-apiresponse.mdx
+- [x] java/docs/api/class-apiresponseassertions.mdx
+- [x] java/docs/api/class-browser.mdx
+- [x] java/docs/api/class-browsercontext.mdx
+- [x] java/docs/api/class-browsertype.mdx
 - [ ] java/docs/api/class-cdpsession.mdx
 - [ ] java/docs/api/class-clock.mdx
 - [ ] java/docs/api/class-consolemessage.mdx
@@ -566,13 +566,13 @@
 - [x] java/versioned_docs/version-stable/accessibility-testing.mdx
 - [x] java/versioned_docs/version-stable/actionability.mdx
 - [x] java/versioned_docs/version-stable/api-testing.mdx
-- [ ] java/versioned_docs/version-stable/api/class-apirequest.mdx
-- [ ] java/versioned_docs/version-stable/api/class-apirequestcontext.mdx
-- [ ] java/versioned_docs/version-stable/api/class-apiresponse.mdx
-- [ ] java/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
-- [ ] java/versioned_docs/version-stable/api/class-browser.mdx
-- [ ] java/versioned_docs/version-stable/api/class-browsercontext.mdx
-- [ ] java/versioned_docs/version-stable/api/class-browsertype.mdx
+- [x] java/versioned_docs/version-stable/api/class-apirequest.mdx
+- [x] java/versioned_docs/version-stable/api/class-apirequestcontext.mdx
+- [x] java/versioned_docs/version-stable/api/class-apiresponse.mdx
+- [x] java/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
+- [x] java/versioned_docs/version-stable/api/class-browser.mdx
+- [x] java/versioned_docs/version-stable/api/class-browsercontext.mdx
+- [x] java/versioned_docs/version-stable/api/class-browsertype.mdx
 - [ ] java/versioned_docs/version-stable/api/class-cdpsession.mdx
 - [ ] java/versioned_docs/version-stable/api/class-clock.mdx
 - [ ] java/versioned_docs/version-stable/api/class-consolemessage.mdx
@@ -656,13 +656,13 @@
 - [x] dotnet/docs/actionability.mdx
 - [x] dotnet/docs/api-testing.mdx
 - [x] dotnet/docs/api/class-accessibility.mdx
-- [ ] dotnet/docs/api/class-apirequest.mdx
-- [ ] dotnet/docs/api/class-apirequestcontext.mdx
-- [ ] dotnet/docs/api/class-apiresponse.mdx
-- [ ] dotnet/docs/api/class-apiresponseassertions.mdx
-- [ ] dotnet/docs/api/class-browser.mdx
-- [ ] dotnet/docs/api/class-browsercontext.mdx
-- [ ] dotnet/docs/api/class-browsertype.mdx
+- [x] dotnet/docs/api/class-apirequest.mdx
+- [x] dotnet/docs/api/class-apirequestcontext.mdx
+- [x] dotnet/docs/api/class-apiresponse.mdx
+- [x] dotnet/docs/api/class-apiresponseassertions.mdx
+- [x] dotnet/docs/api/class-browser.mdx
+- [x] dotnet/docs/api/class-browsercontext.mdx
+- [x] dotnet/docs/api/class-browsertype.mdx
 - [ ] dotnet/docs/api/class-cdpsession.mdx
 - [ ] dotnet/docs/api/class-cdpsessionevent.mdx
 - [ ] dotnet/docs/api/class-clock.mdx
@@ -744,13 +744,13 @@
 - [x] dotnet/versioned_docs/version-stable/actionability.mdx
 - [x] dotnet/versioned_docs/version-stable/api-testing.mdx
 - [x] dotnet/versioned_docs/version-stable/api/class-accessibility.mdx
-- [ ] dotnet/versioned_docs/version-stable/api/class-apirequest.mdx
-- [ ] dotnet/versioned_docs/version-stable/api/class-apirequestcontext.mdx
-- [ ] dotnet/versioned_docs/version-stable/api/class-apiresponse.mdx
-- [ ] dotnet/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
-- [ ] dotnet/versioned_docs/version-stable/api/class-browser.mdx
-- [ ] dotnet/versioned_docs/version-stable/api/class-browsercontext.mdx
-- [ ] dotnet/versioned_docs/version-stable/api/class-browsertype.mdx
+- [x] dotnet/versioned_docs/version-stable/api/class-apirequest.mdx
+- [x] dotnet/versioned_docs/version-stable/api/class-apirequestcontext.mdx
+- [x] dotnet/versioned_docs/version-stable/api/class-apiresponse.mdx
+- [x] dotnet/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
+- [x] dotnet/versioned_docs/version-stable/api/class-browser.mdx
+- [x] dotnet/versioned_docs/version-stable/api/class-browsercontext.mdx
+- [x] dotnet/versioned_docs/version-stable/api/class-browsertype.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-cdpsession.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-cdpsessionevent.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-clock.mdx
