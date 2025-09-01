@@ -600,7 +600,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 - "Assert value" 工具產生 [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
 - "Assert text" 工具產生 [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
-Here is an example of a generated test with assertions:
+以下是產生的測試與斷言範例：
 
 ```csharp
 await Page.GotoAsync("https://playwright.dev/");
@@ -672,7 +672,7 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 
 Playwright 現在支援 Debian 12 Bookworm on both x86_64 and arm64 for Chromium, Firefox and WebKit. 如果您遇到任何問題，請告訴我們！
 
-Linux support looks like this:
+Linux 支援情況如下：
 
 |          | Ubuntu 20.04 | Ubuntu 22.04 | Debian 11 | Debian 12 |
 | :--- | :---: | :---: | :---: | :---: |

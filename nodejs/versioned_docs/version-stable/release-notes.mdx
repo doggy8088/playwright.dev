@@ -694,7 +694,7 @@ test('test full report', {
 - "Assert value" 工具產生 [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
 - "Assert text" 工具產生 [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
-Here is an example of a generated test with assertions:
+以下是產生的測試與斷言範例：
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -850,9 +850,9 @@ See [test.step()](/api/class-test.mdx#test-step) documentation for a full exampl
 
 > **Note**: If you are using `@playwright/test` package, this change does not affect you.
 
-Playwright recommends to use `@playwright/test` package and download browsers via `npx playwright install` command. If you are following this recommendation, nothing has changed for you.
+Playwright 建議使用 `@playwright/test` 套件，並透過 `npx playwright install` 命令下載瀏覽器。如果您遵循此建議，則沒有任何變更會影響您。
 
-However, up to v1.38, installing the `playwright` package instead of `@playwright/test` did automatically download browsers. This is no longer the case, and we recommend to explicitly download browsers via `npx playwright install` command.
+然而，在 v1.38 之前，安裝 `playwright` 套件而非 `@playwright/test` 會自動下載瀏覽器。這已不再如此，我們建議透過 `npx playwright install` 命令明確下載瀏覽器。
 
 **v1.37 and earlier**
 

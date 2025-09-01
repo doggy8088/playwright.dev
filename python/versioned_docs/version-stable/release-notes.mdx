@@ -210,7 +210,7 @@ page.context.tracing.group_end()
 
 ### Breaking: `chrome` 和 `msedge` 頻道切換到新的無頭模式
 
-This change affects you if you're using one of the following channels in your `playwright.config.ts`:
+如果您在 `playwright.config.ts` 中使用以下任一頻道，此變更會影響您：
 - `chrome`, `chrome-dev`, `chrome-beta`, or `chrome-canary`
 - `msedge`, `msedge-dev`, `msedge-beta`, or `msedge-canary`
 
@@ -406,7 +406,7 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 - "Assert value" 工具產生 [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
 - "Assert text" 工具產生 [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
-Here is an example of a generated test with assertions:
+以下是產生的測試與斷言範例：
 
 ```python
 from playwright.sync_api import Page, expect

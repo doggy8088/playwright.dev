@@ -219,7 +219,7 @@ await Page.Context.Tracing.GroupEndAsync();
 
 ### Breaking: `chrome` 和 `msedge` 頻道切換到新的無頭模式
 
-This change affects you if you're using one of the following channels in your `playwright.config.ts`:
+如果您在 `playwright.config.ts` 中使用以下任一頻道，此變更會影響您：
 - `chrome`, `chrome-dev`, `chrome-beta`, or `chrome-canary`
 - `msedge`, `msedge-dev`, `msedge-beta`, or `msedge-canary`
 
@@ -600,7 +600,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 - "Assert value" 工具產生 [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
 - "Assert text" 工具產生 [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
-Here is an example of a generated test with assertions:
+以下是產生的測試與斷言範例：
 
 ```csharp
 await Page.GotoAsync("https://playwright.dev/");
@@ -1289,10 +1289,10 @@ Playwright will be re-testing the node with the selector `.status` until fetched
   await Page.Locator("article", new() { Has = Page.Locator(".highlight") }).ClickAsync();
   ```
   
-  Read more in [locator documentation](./api/class-locator#locator-locator)
-- New [Locator.Page](/api/class-locator.mdx#locator-page)
-- [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot)現在automatically hide blinking caret
-- Playwright Codegen現在generates locators and frame locators
+  在[定位器文件](./api/class-locator#locator-locator)中閱讀更多
+- 新的 [Locator.Page](/api/class-locator.mdx#locator-page)
+- [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) 現在會自動隱藏閃爍的游標
+- Playwright Codegen 現在會產生定位器和框架定位器
 
 ### 瀏覽器版本
 - Chromium 100.0.4863.0
@@ -1314,7 +1314,7 @@ Playwright will be re-testing the node with the selector `.status` until fetched
             .Locator("button").click();
   ```
   
-  Read more in [locator documentation](./api/class-locator#locator-locator)
+  在[定位器文件](./api/class-locator#locator-locator)中閱讀更多
 
 ### 新的 API 與變更
 - [`AcceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在defaults to `true`.
@@ -1344,7 +1344,7 @@ var locator = page.FrameLocator("#my-frame").Locator("text=Submit");
 await locator.ClickAsync();
 ```
 
-Read more at [our documentation](./api/class-framelocator).
+在[我們的文件](./api/class-framelocator)閱讀更多。
 
 ### 追蹤檢視器更新
 

@@ -400,7 +400,7 @@ public class TestExample {
 }
 ```
 
-In the example above, all three test methods use the same [Browser]. Each test uses its own [BrowserContext] 和 [Page]。
+在上述範例中，三個測試方法都使用相同的 [Browser]。每個測試都使用自己的 [BrowserContext] 和 [Page]。
 
 **自訂選項**
 
@@ -437,7 +437,7 @@ public class MyTest {
 }
 ```
 
-Learn more about the fixtures in our [JUnit guide](./junit.mdx).
+在我們的 [JUnit 指南](./junit.mdx)中了解更多佈置的相關資訊。
 
 ### 新的定位器處理器
 
@@ -1114,9 +1114,9 @@ page.route("**/*", route -> {
   page.locator("article", new Page.LocatorOptions().setHas(page.locator(".highlight"))).click();
   ```
   
-  Read more in [locator documentation](./api/class-locator#locator-locator)
+  在[定位器文件](./api/class-locator#locator-locator)中閱讀更多
 - 新的 [Locator.page()](/api/class-locator.mdx#locator-page)
-- [Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot)現在automatically hide blinking caret
+- [Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 現在會自動隱藏閃爍的游標
 - Playwright Codegen 現在會產生定位器和框架定位器
 
 ### 瀏覽器版本
@@ -1144,7 +1144,7 @@ To do a request on behalf of Playwright's Page, use **new [Page.request()](/api/
 APIResponse res = page.request().get("http://example.com/foo.json");
 ```
 
-Read more about it in our [API testing guide](./api-testing).
+在我們的 [API 測試指南](./api-testing)中閱讀更多。
 
 ### Web-First 斷言
 
@@ -1178,7 +1178,7 @@ Playwright will be re-testing the node with the selector `.status` until fetched
       .locator("button").click();
   ```
   
-  Read more in [locator documentation](./api/class-locator#locator-locator)
+  在[定位器文件](./api/class-locator#locator-locator)中閱讀更多
 
 ### 追蹤改進
 
