@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-BrowserType provides methods to launch a specific browser instance or connect to an existing one. The following is a typical example of using Playwright to drive automation:
+`BrowserType` 提供方法來啟動特定的瀏覽器實例或連接到現有實例。以下是使用 Playwright 進行自動化的典型範例：
 
 ```js
 const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
@@ -25,63 +25,63 @@ const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
 
 ---
 
-## Methods
+## 方法
 
 ### connect {#browser-type-connect}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.connect</x-search>
 
-This method attaches Playwright to an existing browser instance created via `BrowserType.launchServer` in Node.js.
+此方法將 Playwright 連接到透過 Node.js 中的 `BrowserType.launchServer` 建立的現有瀏覽器實例。
 
 :::note
 
-The major and minor version of the Playwright instance that connects needs to match the version of Playwright that launches the browser (1.2.3 → is compatible with 1.2.x).
+連接的 Playwright 實例的主要和次要版本需要與啟動瀏覽器的 Playwright 版本相符（1.2.3 → 與 1.2.x 相容）。
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 await browserType.connect(wsEndpoint);
 await browserType.connect(wsEndpoint, options);
 ```
 
-**Arguments**
+**參數**
 - `wsEndpoint` [string] <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-ws-endpoint"/><a href="#browser-type-connect-option-ws-endpoint" class="list-anchor">#</a>
   
-  A Playwright browser websocket endpoint to connect to. You obtain this endpoint via `BrowserServer.wsEndpoint`.
+  要連接的 Playwright 瀏覽器 websocket 端點。您可以透過 `BrowserServer.wsEndpoint` 取得此端點。
 - `options` [Object] *(optional)*
   - `exposeNetwork` [string] *(optional)* <font size="2">Added in: v1.37</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-expose-network"/><a href="#browser-type-connect-option-expose-network" class="list-anchor">#</a>
     
-    This option exposes network available on the connecting client to the browser being connected to. Consists of a list of rules separated by comma.
+    此選項將連接用戶端可用的網路公開給要連接的瀏覽器。由以逗號分隔的規則清單組成。
     
-    Available rules:
-    1. Hostname pattern, for example: `example.com`, `*.org:99`, `x.*.y.com`, `*foo.org`.
-    1. IP literal, for example: `127.0.0.1`, `0.0.0.0:99`, `[::1]`, `[0:0::1]:99`.
-    1. `<loopback>` that matches local loopback interfaces: `localhost`, `*.localhost`, `127.0.0.1`, `[::1]`.
+    可用規則：
+    1. 主機名稱樣式，例如：`example.com`、`*.org:99`、`x.*.y.com`、`*foo.org`。
+    1. IP 位址字面值，例如：`127.0.0.1`、`0.0.0.0:99`、`[::1]`、`[0:0::1]:99`。
+    1. `<loopback>` 符合本機迴環介面：`localhost`、`*.localhost`、`127.0.0.1`、`[::1]`。
     
-    Some common examples:
-    1. `"*"` to expose all network.
-    1. `"<loopback>"` to expose localhost network.
-    1. `"*.test.internal-domain,*.staging.internal-domain,<loopback>"` to expose test/staging deployments and localhost.
+    一些常見範例：
+    1. `"*"` 公開所有網路。
+    1. `"<loopback>"` 公開 localhost 網路。
+    1. `"*.test.internal-domain,*.staging.internal-domain,<loopback>"` 公開測試/測試環境部署和 localhost。
   - `headers` [Object]&lt;[string], [string]&gt; *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-headers"/><a href="#browser-type-connect-option-headers" class="list-anchor">#</a>
     
-    Additional HTTP headers to be sent with web socket connect request. Optional.
+    與 web socket 連接請求一起傳送的額外 HTTP 標頭。選擇性。
   - `logger` [Logger] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-logger"/><a href="#browser-type-connect-option-logger" class="list-anchor">#</a>
     
-    :::warning[Deprecated]
-    The logs received by the logger are incomplete. Please use tracing instead.
+    :::warning[已棄用]
+    記錄器接收的日誌不完整。請改用追蹤。
     :::
     
     
-    Logger sink for Playwright logging. Optional.
+    Playwright 記錄的記錄器接收器。選擇性。
   - `slowMo` [number] *(optional)* <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-slow-mo"/><a href="#browser-type-connect-option-slow-mo" class="list-anchor">#</a>
     
-    Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on. Defaults to 0.
+    將 Playwright 操作減慢指定的毫秒數。這樣您可以看到正在發生的事情，很有用。預設值為 0。
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-timeout"/><a href="#browser-type-connect-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds to wait for the connection to be established. Defaults to `0` (no timeout).
+    等待建立連接的最大時間（毫秒）。預設值為 `0`（無逾時）。
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-return"/><a href="#browser-type-connect-return" class="list-anchor">#</a>
 
 ---
@@ -90,20 +90,20 @@ await browserType.connect(wsEndpoint, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>browserType.connectOverCDP</x-search>
 
-This method attaches Playwright to an existing browser instance using the Chrome DevTools Protocol.
+此方法使用 Chrome DevTools Protocol 將 Playwright 連接到現有的瀏覽器實例。
 
-The default browser context is accessible via [browser.contexts()](/api/class-browser.mdx#browser-contexts).
+預設瀏覽器情境可透過 [browser.contexts()](/api/class-browser.mdx#browser-contexts) 存取。
 
 :::note
 
-Connecting over the Chrome DevTools Protocol is only supported for Chromium-based browsers.
+透過 Chrome DevTools Protocol 連接僅支援基於 Chromium 的瀏覽器。
 :::
 
 :::note
-This connection is significantly lower fidelity than the Playwright protocol connection via [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect). If you are experiencing issues or attempting to use advanced functionality, you probably want to use [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect).
+此連接的保真度遠低於透過 [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect) 的 Playwright 協定連接。如果您遇到問題或嘗試使用進階功能，您可能會想要使用 [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect)。
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 const browser = await playwright.chromium.connectOverCDP('http://localhost:9222');
@@ -111,36 +111,36 @@ const defaultContext = browser.contexts()[0];
 const page = defaultContext.pages()[0];
 ```
 
-**Arguments**
+**參數**
 - `endpointURL` [string] <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
   
-  A CDP websocket endpoint or http url to connect to. For example `http://localhost:9222/` or `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`.
+  要連接的 CDP websocket 端點或 http url。例如 `http://localhost:9222/` 或 `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`。
 - `options` [Object] *(optional)*
   - `endpointURL` [string] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
     
-    :::warning[Deprecated]
-    Use the first argument instead.
+    :::warning[已棄用]
+    請改用第一個參數。
     :::
     
   - `headers` [Object]&lt;[string], [string]&gt; *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-headers"/><a href="#browser-type-connect-over-cdp-option-headers" class="list-anchor">#</a>
     
-    Additional HTTP headers to be sent with connect request. Optional.
+    與連接請求一起傳送的額外 HTTP 標頭。選擇性。
   - `logger` [Logger] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-logger"/><a href="#browser-type-connect-over-cdp-option-logger" class="list-anchor">#</a>
     
-    :::warning[Deprecated]
-    The logs received by the logger are incomplete. Please use tracing instead.
+    :::warning[已棄用]
+    記錄器接收的日誌不完整。請改用追蹤。
     :::
     
     
-    Logger sink for Playwright logging. Optional.
+    Playwright 記錄的記錄器接收器。選擇性。
   - `slowMo` [number] *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-slow-mo"/><a href="#browser-type-connect-over-cdp-option-slow-mo" class="list-anchor">#</a>
     
-    Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on. Defaults to 0.
+    將 Playwright 操作減慢指定的毫秒數。這樣您可以看到正在發生的事情，很有用。預設值為 0。
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-timeout"/><a href="#browser-type-connect-over-cdp-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds to wait for the connection to be established. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+    等待建立連接的最大時間（毫秒）。預設值為 `30000`（30 秒）。傳遞 `0` 可停用逾時。
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-return"/><a href="#browser-type-connect-over-cdp-return" class="list-anchor">#</a>
 
 ---
@@ -149,15 +149,15 @@ const page = defaultContext.pages()[0];
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.executablePath</x-search>
 
-A path where Playwright expects to find a bundled browser executable.
+Playwright 期望找到綁定瀏覽器可執行檔的路徑。
 
-**Usage**
+**使用方式**
 
 ```js
 browserType.executablePath();
 ```
 
-**Returns**
+**回傳值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-executable-path-return"/><a href="#browser-type-executable-path-return" class="list-anchor">#</a>
 
 ---
@@ -166,7 +166,7 @@ browserType.executablePath();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launch</x-search>
 
-Returns the browser instance.
+回傳瀏覽器實例。
 
 **Usage**
 
