@@ -192,7 +192,7 @@ assertThat(page.locator("body")).matchesAriaSnapshot("""
 """);
 ```
 
-您可以generate this assertion with [Test Generator](./codegen) or by calling [Locator.ariaSnapshot()](/api/class-locator.mdx#locator-aria-snapshot).
+您可以使用[測試產生器](./codegen)或呼叫 [Locator.ariaSnapshot()](/api/class-locator.mdx#locator-aria-snapshot) 產生此斷言。
 
 在 [aria 快照指南](./aria-snapshots) 中了解更多。
 
@@ -289,7 +289,7 @@ Locator locator = page.getByText("This interstitial covers the button");
 page.addLocatorHandler(locator, overlay -> {
   overlay.locator("#close").click();
 }, new Page.AddLocatorHandlerOptions().setTimes(3).setNoWaitAfter(true));
-// Run your tests that can be interrupted by the overlay.
+// 執行可能被覆蓋層中斷的測試。
 // ...
 page.removeLocatorHandler(locator);
 ```
@@ -1334,7 +1334,7 @@ Locator locator = page.locator("button");
 locator.click();
 ```
 
-Learn more in the [documentation](./api/class-locator).
+在[文件](./api/class-locator)中了解更多。
 
 #### 🧩 Experimental [**React**](./other-locators.mdx#react-locator) 和 [**Vue**](./other-locators.mdx#vue-locator) selector engines
 
@@ -1345,7 +1345,7 @@ page.locator("_react=SubmitButton[enabled=true]").click();
 page.locator("_vue=submit-button[enabled=true]").click();
 ```
 
-Learn more in the [react selectors documentation](./other-locators.mdx#react-locator) and the [vue selectors documentation](./other-locators.mdx#vue-locator).
+在 [react 選擇器文件](./other-locators.mdx#react-locator) 和 [vue 選擇器文件](./other-locators.mdx#vue-locator) 中了解更多。
 
 #### ✨ New [**`nth`**](./other-locators.mdx#n-th-element-locator) 和 [**`visible`**](./other-locators.mdx#css-matching-only-visible-elements) selector engines
 - [`nth`](./other-locators.mdx#n-th-element-locator) selector engine is equivalent to the `:nth-match` pseudo class, but could be combined with other selector engines.

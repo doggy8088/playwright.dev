@@ -168,7 +168,7 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
     await page.goto('/');
     // ... perform authentication steps ...
   
-    // make sure to save indexedDB
+    // 確保儲存 indexedDB
     await page.context().storageState({ path: authFile, indexedDB: true });
   });
   ```
@@ -243,7 +243,7 @@ test('some test', async ({ page, isMobile }) => {
   ```js
   test('some test', async ({ page }) => {
     await test.step('a step', async () => {
-      // This step can time out separately from the test
+      // 此步驟可以與測試分別計時
     }, { timeout: 1000 });
   });
   ```
@@ -257,11 +257,11 @@ test('some test', async ({ page, isMobile }) => {
     });
   
     await test.step.skip('not yet ready', async () => {
-      // This step is skipped
+      // 此步驟被跳過
     });
   
     await test.step('after running step', async () => {
-      // This step still runs even though the previous one was skipped
+      // 即使前一個步驟被跳過，此步驟仍會執行
     });
   });
   ```
@@ -275,12 +275,12 @@ test('some test', async ({ page, isMobile }) => {
   npx playwright test --update-snapshots=changed --update-source-方法=3way
   ```
   
-* 選項 [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) added a `gracefulShutdown` field for specifying a process kill signal other than the default `SIGKILL`.
+* 選項 [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) 新增了 `gracefulShutdown` 欄位，用於指定除預設 `SIGKILL` 之外的處理程序終止訊號。
 * Exposed [testStep.attachments](/api/class-teststep.mdx#test-step-attachments) from the reporter API to allow retrieval of all attachments created by that step.
-* 新選項 `pathTemplate` for `toHaveScreenshot` and `toMatchAriaSnapshot` assertions in the [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) configuration.
+* 新選項 `pathTemplate` 用於 [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) 配置中的 `toHaveScreenshot` 和 `toMatchAriaSnapshot` 斷言。
 
 ### UI 更新
-* 更新的 default HTML reporter to improve display of attachments.
+* 更新的預設 HTML 報告器以改善附件顯示。
 * Codegen 中新增用於選取元素以產生 aria 快照的按鈕。
 * 其他詳細資訊（如按下的按鍵）現在會與追蹤中的動作 API 呼叫一起顯示。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
@@ -320,7 +320,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
 `);
 ```
 
-您可以generate this assertion with [Test Generator](./codegen) and update the expected snapshot with `--update-snapshots` command line flag.
+您可以使用[測試產生器](./codegen)產生此斷言，並使用 `--update-snapshots` 命令列旗標更新預期的快照。
 
 在 [aria 快照指南](./aria-snapshots)中了解更多。
 
@@ -450,7 +450,7 @@ const locator = page.getByText('This interstitial covers the button');
 await page.addLocatorHandler(locator, async overlay => {
   await overlay.locator('#close').click();
 }, { times: 3, noWaitAfter: true });
-// Run your tests that can be interrupted by the overlay.
+// 執行可能被覆蓋層中斷的測試。
 // ...
 await page.removeLocatorHandler(locator);
 ```
@@ -492,7 +492,7 @@ await page.removeLocatorHandler(locator);
   101 passed (30.0s)
   ```
   
-  Now fix the failing tests and run Playwright again with `--last-failed` 選項:
+  現在修復失敗的測試，並使用 `--last-failed` 選項再次執行 Playwright：
   
   ```sh
   $ npx playwright test --last-failed
@@ -864,7 +864,7 @@ Playwright 建議使用 `@playwright/test` 套件，並透過 `npx playwright in
 
 **Recommended migration**
 
-Run `npx playwright install` to download browsers after `npm install`. For example, in your CI configuration:
+在 `npm install` 後執行 `npx playwright install` 來下載瀏覽器。例如，在您的 CI 配置中：
 
 ```yml
 - run: npm ci
@@ -1074,7 +1074,7 @@ Linux 支援如下：
   import { defineConfig } from '@playwright/test';
   
   export default defineConfig({
-    // Run your local dev server before starting the tests
+    // 在開始測試前執行您的本地開發伺服器
     webServer: {
       command: 'npm run start',
       url: 'http://127.0.0.1:3000',
@@ -2072,8 +2072,8 @@ It is unlikely that this change will affect you, no action is required if your t
 - [`test.info()`](./api/class-test#test-info)
 
 ### 改進的 TypeScript 支援
-1. Playwright Test now respects `tsconfig.json`'s [`baseUrl`](https://www.typescriptlang.org/tsconfig#baseUrl) 和 [`paths`](https://www.typescriptlang.org/tsconfig#paths), so you can use aliases
-1. There is a new environment variable `PW_EXPERIMENTAL_TS_ESM` ，允許importing ESM modules in your TS code, without the need for the compile step. Don't forget the `.js` suffix when you are importing your esm modules. Run your tests as follows:
+1. Playwright 測試現在遵循 `tsconfig.json` 的 [`baseUrl`](https://www.typescriptlang.org/tsconfig#baseUrl) 和 [`paths`](https://www.typescriptlang.org/tsconfig#paths)，因此您可以使用別名
+1. 有一個新的環境變數 `PW_EXPERIMENTAL_TS_ESM`，允許在您的 TS 程式碼中匯入 ESM 模組，無需編譯步驟。在匯入 ESM 模組時，不要忘記 `.js` 後綴。如下執行您的測試：
 
 ```bash
 npm i --save-dev @playwright/test@1.18.0-rc1
@@ -2099,9 +2099,9 @@ This will create a Playwright Test configuration file, optionally add examples, 
 
 ### 重大變更：自定義配置選項
 
-Custom config options are a convenient way to parametrize projects with different values. Learn more in [this guide](./test-parameterize#parameterized-projects).
+自定義配置選項是用不同值參數化專案的便利方式。在[此指南](./test-parameterize#parameterized-projects)中了解更多。
 
-Previously, any fixture introduced through [test.extend()](/api/class-test.mdx#test-extend) could be overridden in the [testProject.use](/api/class-testproject.mdx#test-project-use) config section. For example,
+以前，透過 [test.extend()](/api/class-test.mdx#test-extend) 引入的任何固件都可以在 [testProject.use](/api/class-testproject.mdx#test-project-use) 配置區段中覆寫。例如，
 
 ```js
 // WRONG: THIS SNIPPET DOES NOT WORK SINCE v1.18.
@@ -2413,7 +2413,7 @@ const locator = page.locator('button');
 await locator.click();
 ```
 
-Learn more in the [documentation](./api/class-locator).
+在[文件](./api/class-locator)中了解更多。
 
 #### 🧩 Experimental [**React**](./other-locators.mdx#react-locator) 和 [**Vue**](./other-locators.mdx#vue-locator) selector engines
 
@@ -2424,7 +2424,7 @@ await page.locator('_react=SubmitButton[enabled=true]').click();
 await page.locator('_vue=submit-button[enabled=true]').click();
 ```
 
-Learn more in the [react selectors documentation](./other-locators.mdx#react-locator) and the [vue selectors documentation](./other-locators.mdx#vue-locator).
+在 [react 選擇器文件](./other-locators.mdx#react-locator) 和 [vue 選擇器文件](./other-locators.mdx#vue-locator) 中了解更多。
 
 #### ✨ New [**`nth`**](./other-locators.mdx#n-th-element-locator) 和 [**`visible`**](./other-locators.mdx#css-matching-only-visible-elements) selector engines
 - [`nth`](./other-locators.mdx#n-th-element-locator) selector engine is equivalent to the `:nth-match` pseudo class, but could be combined with other selector engines.
@@ -2479,7 +2479,7 @@ List of all new assertions:
 
 #### ⛓ Serial mode with [`describe.serial`](./api/class-test#test-describe-serial)
 
-Declares a group of tests that should always be run serially. If one of the tests fails, all subsequent tests are skipped. All tests in a group are retried together.
+宣告應始終循序執行的測試群組。如果其中一個測試失敗，則跳過所有後續測試。群組中的所有測試會一起重試。
 
 ```js
 test.describe.serial('group', () => {
@@ -2488,7 +2488,7 @@ test.describe.serial('group', () => {
 });
 ```
 
-Learn more in the [documentation](./api/class-test#test-describe-serial).
+在[文件](./api/class-test#test-describe-serial)中了解更多。
 
 #### 🐾 Steps API with [`test.step`](./api/class-test#test-step)
 
@@ -2525,7 +2525,7 @@ export default defineConfig({
 });
 ```
 
-Learn more in the [documentation](./test-webserver).
+在[文件](./test-webserver)中了解更多。
 
 ### 瀏覽器版本
 - Chromium 94.0.4595.0
@@ -2543,8 +2543,8 @@ Learn more in the [documentation](./test-webserver).
 - **🔎 Enhanced HAR**具有請求和回應的主體大小. 透過 `recordHar` 選項 in [browser.newContext()](/api/class-browser.mdx#browser-new-context). 使用
 
 #### 工具
-- Playwright Trace Viewer現在shows parameters, returned values and `console.log()` calls.
-- Playwright Inspector can generate Playwright Test tests.
+- Playwright 追蹤檢視器現在顯示參數、回傳值和 `console.log()` 呼叫。
+- Playwright 檢查器可以產生 Playwright 測試。
 
 #### 新增與重新編寫的指南
 - [Intro](./intro.mdx)

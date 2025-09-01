@@ -168,7 +168,7 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
     await page.goto('/');
     // ... perform authentication steps ...
   
-    // make sure to save indexedDB
+    // 確保儲存 indexedDB
     await page.context().storageState({ path: authFile, indexedDB: true });
   });
   ```
@@ -214,7 +214,7 @@ HTML 報告將在可用時顯示此資訊：
 
 ```js
 test('some test', async ({ page, isMobile }) => {
-  // Note the new "step" argument:
+  // 注意新的 "step" 參數：
   await test.step('here is my step', async step => {
     step.skip(isMobile, 'not relevant on mobile layouts');
 
@@ -247,7 +247,7 @@ test('some test', async ({ page, isMobile }) => {
   ```js
   test('some test', async ({ page }) => {
     await test.step('a step', async () => {
-      // This step can time out separately from the test
+      // 此步驟可以與測試分別計時
     }, { timeout: 1000 });
   });
   ```
@@ -261,11 +261,11 @@ test('some test', async ({ page, isMobile }) => {
     });
   
     await test.step.skip('not yet ready', async () => {
-      // This step is skipped
+      // 此步驟被跳過
     });
   
     await test.step('after running step', async () => {
-      // This step still runs even though the previous one was skipped
+      // 即使前一個步驟被跳過，此步驟仍會執行
     });
   });
   ```
@@ -381,7 +381,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
     async toHaveAmount(locator: Locator, expected: number, options?: { timeout?: number }) {
       // 當未指定 timeout 選項時，使用配置的 timeout。
       const timeout = options?.timeout ?? this.timeout;
-      // ... implement the assertion ...
+      // ... 實作斷言 ...
     },
   });
   ```
@@ -396,7 +396,7 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
 - 多個方法（如 [locator.click()](/api/class-locator.mdx#locator-click) 或 [locator.press()](/api/class-locator.mdx#locator-press)）現在支援 `ControlOrMeta` 修飾鍵。此鍵在 macOS 上對應到 `Meta`，在 Windows 和 Linux 上對應到 `Control`。
   
   ```js
-  // Press the common keyboard shortcut Control+S or Meta+S to trigger a "Save" operation.
+  // 按下常見的鍵盤快捷鍵 Control+S 或 Meta+S 來觸發「儲存」操作。
   await page.keyboard.press('ControlOrMeta+S');
   ```
   
@@ -454,7 +454,7 @@ const locator = page.getByText('This interstitial covers the button');
 await page.addLocatorHandler(locator, async overlay => {
   await overlay.locator('#close').click();
 }, { times: 3, noWaitAfter: true });
-// Run your tests that can be interrupted by the overlay.
+// 執行可能被覆蓋層中斷的測試。
 // ...
 await page.removeLocatorHandler(locator);
 ```
@@ -496,7 +496,7 @@ await page.removeLocatorHandler(locator);
   101 passed (30.0s)
   ```
   
-  Now fix the failing tests and run Playwright again with `--last-failed` 選項:
+  現在修復失敗的測試，並使用 `--last-failed` 選項再次執行 Playwright：
   
   ```sh
   $ npx playwright test --last-failed
@@ -1409,7 +1409,7 @@ export default defineConfig({
 * 使用 [test.describe.configure()](/api/class-test.mdx#test-describe-configure) 為檔案或測試配置重試次數和測試逾時。
   
   ```js
-  // Each test in the file will be retried twice and have a timeout of 20 seconds.
+  // 檔案中的每個測試都會重試兩次，並具有 20 秒的逾時。
   test.describe.configure({ retries: 2, timeout: 20_000 });
   test('runs first', async ({ page }) => {});
   test('runs second', async ({ page }) => {});
@@ -1522,7 +1522,7 @@ await expect(page.getByText('Welcome, John!')).toBeVisible();
 
 ### 行為變更
 
-A bunch of Playwright APIs already support the `waitUntil: 'domcontentloaded'` 選項. For example:
+許多 Playwright API 已經支援 `waitUntil: 'domcontentloaded'` 選項。例如：
 
 ```js
 await page.goto('https://playwright.dev', {
@@ -2000,7 +2000,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 - 您現在可以指定**自訂 expect 訊息**作為 `expect` 和 `expect.soft` 函數的第二個參數，例如：
   
   ```js
-  await expect(page.locator('text=Name'), 'should be logged in').toBeVisible();
+  await expect(page.locator('text=Name'), '應該已登入').toBeVisible();
   ```
   
   錯誤會看起來像這樣：
@@ -2105,7 +2105,7 @@ npm init playwright@latest new-project
 
 自訂配置選項是使用不同值來參數化專案的便利方法。在[此指南](./test-parameterize#parameterized-projects)中了解更多。
 
-Previously, any fixture introduced through [test.extend()](/api/class-test.mdx#test-extend) could be overridden in the [testProject.use](/api/class-testproject.mdx#test-project-use) config section. For example,
+以前，透過 [test.extend()](/api/class-test.mdx#test-extend) 引入的任何固件都可以在 [testProject.use](/api/class-testproject.mdx#test-project-use) 配置區段中覆寫。例如，
 
 ```js
 // WRONG: THIS SNIPPET DOES NOT WORK SINCE v1.18.

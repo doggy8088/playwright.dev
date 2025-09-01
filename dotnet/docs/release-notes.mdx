@@ -461,7 +461,7 @@ await Page.AddLocatorHandlerAsync(locator, async (overlay) =>
 {
     await overlay.Locator("#close").ClickAsync();
 }, new() { Times = 3, NoWaitAfter = true });
-// Run your tests that can be interrupted by the overlay.
+// 執行可能被覆蓋層中斷的測試。
 // ...
 await Page.RemoveLocatorHandlerAsync(locator);
 ```
@@ -1468,7 +1468,7 @@ var locator = page.Locator("button");
 await locator.ClickAsync();
 ```
 
-Learn more in the [documentation](./api/class-locator).
+在[文件](./api/class-locator)中了解更多。
 
 #### 🧩 Experimental [**React**](./other-locators.mdx#react-locator) 和 [**Vue**](./other-locators.mdx#vue-locator) selector engines
 
@@ -1479,7 +1479,7 @@ await page.Locator("_react=SubmitButton[enabled=true]").ClickAsync();
 await page.Locator("_vue=submit-button[enabled=true]").ClickAsync();
 ```
 
-Learn more in the [react selectors documentation](./other-locators.mdx#react-locator) and the [vue selectors documentation](./other-locators.mdx#vue-locator).
+在 [react 選擇器文件](./other-locators.mdx#react-locator) 和 [vue 選擇器文件](./other-locators.mdx#vue-locator) 中了解更多。
 
 #### ✨ New [**`nth`**](./other-locators.mdx#n-th-element-locator) 和 [**`visible`**](./other-locators.mdx#css-matching-only-visible-elements) selector engines
 - [`nth`](./other-locators.mdx#n-th-element-locator) selector engine is equivalent to the `:nth-match` pseudo class, but could be combined with other selector engines.
