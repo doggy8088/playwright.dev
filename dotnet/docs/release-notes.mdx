@@ -170,7 +170,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * `Call` 和 `Network` 面板現在顯示額外的時間資訊。
 
 ### 重大變更
-* [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
+* [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-editable) 現在在目標元素不是 `<input>`、`<select>` 或其他許多可編輯元素時會拋出例外。
 
 ### 瀏覽器版本
 * Chromium 133.0.6943.16
@@ -306,7 +306,7 @@ await page.RouteWebSocketAsync("/ws", ws => {
 - 更好地顯示查詢字串參數
 - preview of font assets
 
-![Network tab now has filters](https://github.com/user-attachments/assets/4bd1b67d-90bd-438b-a227-00b9e86872e2)
+![網路頁籤現在有篩選器](https://github.com/user-attachments/assets/4bd1b67d-90bd-438b-a227-00b9e86872e2)
 
 ### 其他
 - `mcr.microsoft.com/playwright/dotnet:v1.47.0` 現在提供基於 Ubuntu 24.04 Noble 的 Playwright 映像。若要使用基於 22.04 jammy 的映像，請改用 `mcr.microsoft.com/playwright/dotnet:v1.47.0-jammy`。
@@ -562,7 +562,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 - [Page.PdfAsync()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [Tagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [Outline](/api/class-page.mdx#page-pdf-選項-outline)。
 
 ### 公告
-* ⚠️ Ubuntu 18 is not supported anymore.
+* ⚠️ 不再支援 Ubuntu 18。
 
 ### 瀏覽器版本
 * Chromium 123.0.6312.4
@@ -1007,7 +1007,7 @@ await Page.GotoAsync("https://playwright.dev", new() { WaitUntil = WaitUntilStat
 
 `Microsoft.Playwright.NUnit` 和 `Microsoft.Playwright.MSTest` 現在會在執行端對端測試時考慮 `.runsettings` 檔案和透過 CLI 傳遞的設定。請參閱[文件](./test-runners)以取得支援設定的完整清單。
 
-The following does now work:
+以下現在可以正常運作：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1033,7 +1033,7 @@ The following does now work:
 
 ### 公告
 * 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
-* ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
+* ⚠️ Ubuntu 18 現已棄用，於 2022 年 12 月起將不再支援。
 
 ### 瀏覽器版本
 * Chromium 105.0.5195.19
@@ -1158,7 +1158,7 @@ await page.RouteAsync("**/*", async route =>
 
 ### Web-First 斷言更新
 * 新方法 [Expect(Locator).ToHaveValuesAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選取值。
-* Methods [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
+* 方法 [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在接受 `ignoreCase` 選項。
 
 ### 其他
 * 如果有阻礙您的 Service Worker，您現在可以透過新的上下文選項 `serviceWorkers` 輕鬆停用它：
@@ -1410,11 +1410,11 @@ This version of Playwright was also tested against the following stable channels
 
 ### 🖱️ Mouse Wheel
 
-By using [Mouse.WheelAsync()](/api/class-mouse.mdx#mouse-wheel) you are now able to scroll vertically or horizontally.
+透過使用 [Mouse.WheelAsync()](/api/class-mouse.mdx#mouse-wheel)，您現在可以垂直或水平滾動。
 
 ### 📜 新的 Headers API
 
-Previously it was not possible to get multiple header values of a response. This is now possible and additional helper functions are available:
+以前無法取得回應的多個標頭值。現在這是可能的，並提供了額外的輔助函數：
 - [Request.AllHeadersAsync()](/api/class-request.mdx#request-all-headers)
 - [Request.HeadersArrayAsync()](/api/class-request.mdx#request-headers-array)
 - [Request.HeaderValueAsync()](/api/class-request.mdx#request-header-value)
@@ -1425,7 +1425,7 @@ Previously it was not possible to get multiple header values of a response. This
 
 ### 🌈 Forced-Colors emulation
 
-Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) or calling [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media).
+現在可以透過在 [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 中傳遞它或呼叫 [Page.EmulateMediaAsync()](/api/class-page.mdx#page-emulate-media) 來模擬 `forced-colors` CSS 媒體功能。
 
 ### 新的 API
 - [Page.RouteAsync()](/api/class-page.mdx#page-route) 接受新的 `times` 選項來指定此路由應匹配多少次。

@@ -158,10 +158,10 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * 錄製測試中用於挑選元素以產生 aria 快照的新按鈕。
 * 其他詳細資訊（如按下的按鍵）現在會與追蹤中的動作 API 呼叫一起顯示。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
-* `Call` and `Network` panels now display additional time information.
+* `Call` 和 `Network` 面板現在顯示額外的時間資訊。
 
 ### 重大變更
-* [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [locator.is_editable()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
+* [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [locator.is_editable()](/api/class-locator.mdx#locator-is-editable) 現在在目標元素不是 `<input>`、`<select>` 或其他許多可編輯元素時會拋出例外。
 
 ### 瀏覽器版本
 * Chromium 133.0.6943.16
@@ -368,7 +368,7 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 - [page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [tagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [outline](/api/class-page.mdx#page-pdf-選項-outline)。
 
 ### 公告
-* ⚠️ Ubuntu 18 is not supported anymore.
+* ⚠️ 不再支援 Ubuntu 18。
 
 ### 瀏覽器版本
 * Chromium 123.0.6312.4
@@ -1425,7 +1425,7 @@ This version of Playwright was also tested against the following stable channels
 
 ### 🖱️ Mouse Wheel
 
-By using [mouse.wheel()](/api/class-mouse.mdx#mouse-wheel) you are now able to scroll vertically or horizontally.
+透過使用 [mouse.wheel()](/api/class-mouse.mdx#mouse-wheel)，您現在可以垂直或水平滾動。
 
 ### 📜 新的 Headers API
 
@@ -1440,7 +1440,7 @@ Previously it was not possible to get multiple header values of a response. This
 
 ### 🌈 Forced-Colors emulation
 
-Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [browser.new_context()](/api/class-browser.mdx#browser-new-context) or calling [page.emulate_media()](/api/class-page.mdx#page-emulate-media).
+現在可以透過在 [browser.new_context()](/api/class-browser.mdx#browser-new-context) 中傳遞它或呼叫 [page.emulate_media()](/api/class-page.mdx#page-emulate-media) 來模擬 `forced-colors` CSS 媒體功能。
 
 ### 新的 API
 - [page.route()](/api/class-page.mdx#page-route) 接受新的 `times` 選項，以指定此路由應匹配多少次。

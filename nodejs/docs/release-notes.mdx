@@ -1024,7 +1024,7 @@ Linux 支援如下所示：
 <LiteYouTube id="JeFD6rqDbBo" title="Playwright 1.34" />
 
 ### 重點
-* UI Mode now shows steps, fixtures and attachments: ![UI Mode attachments](https://github.com/microsoft/playwright/assets/746130/1d280419-d79a-4a56-b2dc-54d631281d56)
+* UI 模式現在顯示步驟、佈置和附件：![UI 模式附件](https://github.com/microsoft/playwright/assets/746130/1d280419-d79a-4a56-b2dc-54d631281d56)
 * 新屬性 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) 用於指定在此專案和所有相依專案完成後需要執行的專案。清理對於清理此專案取得的任何資源很有用。
   
   A common pattern would be a `setup` dependency with a corresponding `teardown`:
@@ -1766,7 +1766,7 @@ test('should work', async ({ page }) => {
 
 ### Web-First 斷言更新
 * 新方法 [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選取值。
-* Methods [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
+* 方法 [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在接受 `ignoreCase` 選項。
 
 ### 元件測試更新
 * 支援 Vue2 via the [`@playwright/experimental-ct-vue2`](https://www.npmjs.com/package/@playwright/experimental-ct-vue2) package.
@@ -2339,7 +2339,7 @@ Playwright Docker 映像現在發佈用於 Arm64，因此可以在 Apple Silicon
 
 #### 🖱️ Mouse Wheel
 
-By using [mouse.wheel()](/api/class-mouse.mdx#mouse-wheel) you are now able to scroll vertically or horizontally.
+透過使用 [mouse.wheel()](/api/class-mouse.mdx#mouse-wheel)，您現在可以垂直或水平滾動。
 
 #### 📜 新的 Headers API
 
@@ -2354,7 +2354,7 @@ By using [mouse.wheel()](/api/class-mouse.mdx#mouse-wheel) you are now able to s
 
 #### 🌈 Forced-Colors emulation
 
-Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [browser.newContext()](/api/class-browser.mdx#browser-new-context) or calling [page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
+現在可以透過在 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 中傳遞它或呼叫 [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) 來模擬 `forced-colors` CSS 媒體功能。
 
 #### 新的 API
 - [page.route()](/api/class-page.mdx#page-route) 接受新的 `times` 選項來指定此路由應匹配多少次。

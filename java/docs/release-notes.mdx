@@ -157,9 +157,9 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ### UI 更新
 * Codegen 中新增用於選取元素以產生 aria 快照的按鈕。
-* Additional details (such as keys pressed) are now displayed alongside action API calls in traces.
+* 額外的詳細資訊（如按下的按鍵）現在顯示在追蹤中的動作 API 呼叫旁邊。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
-* `Call` and `Network` panels now display additional time information.
+* `Call` 和 `Network` 面板現在顯示額外的時間資訊。
 
 ### 重大變更
 * [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.isEditable()](/api/class-locator.mdx#locator-is-editable) 現在如果目標元素不是 `<input>`、`<select>` 或其他可編輯元素會拋出例外。
@@ -460,7 +460,7 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 - [Page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [setTagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [setOutline](/api/class-page.mdx#page-pdf-選項-outline)。
 
 ### 公告
-* ⚠️ Ubuntu 18 is not supported anymore.
+* ⚠️ 不再支援 Ubuntu 18。
 
 ### 瀏覽器版本
 * Chromium 123.0.6312.4
@@ -918,7 +918,7 @@ To align with web specification, the `WaitUntilState.DOMCONTENTLOADED` value onl
 
 ### 公告
 * 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
-* ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
+* ⚠️ Ubuntu 18 現已棄用，於 2022 年 12 月起將不再支援。
 
 ### 瀏覽器版本
 * Chromium 105.0.5195.19
@@ -1009,7 +1009,7 @@ page.route("**/*", route -> {
 
 ### Web-First 斷言更新
 * 新方法 [assertThat(locator).hasValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選取值。
-* Methods [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
+* 方法 [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在接受 `ignoreCase` 選項。
 
 ### 其他
 * 如果有阻礙您的 Service Worker，您現在可以透過新的上下文選項 `serviceWorkers` 輕鬆停用它：
@@ -1279,11 +1279,11 @@ This version of Playwright was also tested against the following stable channels
 
 ### 🖱️ Mouse Wheel
 
-By using [Mouse.wheel()](/api/class-mouse.mdx#mouse-wheel) you are now able to scroll vertically or horizontally.
+透過使用 [Mouse.wheel()](/api/class-mouse.mdx#mouse-wheel)，您現在可以垂直或水平滾動。
 
 ### 📜 新的 Headers API
 
-Previously it was not possible to get multiple header values of a response. This is now possible and additional helper functions are available:
+以前無法取得回應的多個標頭值。現在這是可能的，並提供了額外的輔助函數：
 - [Request.allHeaders()](/api/class-request.mdx#request-all-headers)
 - [Request.headersArray()](/api/class-request.mdx#request-headers-array)
 - [Request.headerValue()](/api/class-request.mdx#request-header-value)
@@ -1294,7 +1294,7 @@ Previously it was not possible to get multiple header values of a response. This
 
 ### 🌈 Forced-Colors emulation
 
-Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [Browser.newContext()](/api/class-browser.mdx#browser-new-context) or calling [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
+現在可以透過在 [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 中傳遞它或呼叫 [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media) 來模擬 `forced-colors` CSS 媒體功能。
 
 ### 新的 API
 - [Page.route()](/api/class-page.mdx#page-route) 接受新的 `times` 選項來指定此路由應匹配多少次。

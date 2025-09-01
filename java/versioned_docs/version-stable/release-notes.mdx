@@ -460,7 +460,7 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 - [Page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [setTagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [setOutline](/api/class-page.mdx#page-pdf-選項-outline)。
 
 ### 公告
-* ⚠️ Ubuntu 18 is not supported anymore.
+* ⚠️ 不再支援 Ubuntu 18。
 
 ### 瀏覽器版本
 * Chromium 123.0.6312.4
@@ -1009,7 +1009,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
 
 ### Web-First 斷言更新
 * 新方法 [assertThat(locator).hasValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選取值。
-* Methods [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
+* 方法 [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在接受 `ignoreCase` 選項。
 
 ### 其他
 * 如果有阻礙您的 Service Worker，您現在可以透過新的上下文選項 `serviceWorkers` 輕鬆停用它：
@@ -1283,7 +1283,7 @@ This version of Playwright was also tested against the following stable channels
 
 ### 📜 新的 Headers API
 
-Previously it was not possible to get multiple header values of a response. This is now possible and additional helper functions are available:
+以前無法取得回應的多個標頭值。現在這是可能的，並提供了額外的輔助函數：
 - [Request.allHeaders()](/api/class-request.mdx#request-all-headers)
 - [Request.headersArray()](/api/class-request.mdx#request-headers-array)
 - [Request.headerValue()](/api/class-request.mdx#request-header-value)
@@ -1294,7 +1294,7 @@ Previously it was not possible to get multiple header values of a response. This
 
 ### 🌈 Forced-Colors emulation
 
-Its now possible to emulate the `forced-colors` CSS media feature by passing it in the [Browser.newContext()](/api/class-browser.mdx#browser-new-context) or calling [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
+現在可以透過在 [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 中傳遞它或呼叫 [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media) 來模擬 `forced-colors` CSS 媒體功能。
 
 ### 新的 API
 - [Page.route()](/api/class-page.mdx#page-route) 接受新的 `times` 選項，以指定此路由應匹配多少次。
