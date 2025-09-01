@@ -743,8 +743,8 @@ Linux support looks like this:
 ### 定位器
 
 With these new APIs writing locators is a joy:
-- [page.get_by_text()](/api/class-page.mdx#page-get-by-text)以定位by text content.
-- [page.get_by_role()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- [page.get_by_text()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
+- [page.get_by_role()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [page.get_by_label()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
 - [page.get_by_test_id()](/api/class-page.mdx#page-get-by-test-id) 根據 `data-testid` 屬性定位元素（可配置其他屬性）。
 - [page.get_by_placeholder()](/api/class-page.mdx#page-get-by-placeholder) 根據預留位置文字定位輸入元素。
@@ -818,7 +818,7 @@ To align with web specification, the `'domcontentloaded'` value only waits for t
 ## 版本 1.25
 
 ### 公告
-* 🎁 We now ship Ubuntu 22.04 Jammy Jellyfish docker image: `mcr.microsoft.com/playwright/python:v1.34.0-jammy`.
+* 🎁 我們現在發佈 Ubuntu 22.04 Jammy Jellyfish docker 映像：`mcr.microsoft.com/playwright/python:v1.34.0-jammy`。
 * 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 版起已棄用）。
 * ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
 
@@ -1358,10 +1358,10 @@ Read more at [our documentation](./api/class-framelocator).
 Playwright Trace Viewer is now **available online** at https://trace.playwright.dev! Just drag-and-drop your `trace.zip` file to inspect its contents.
 
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
-- Playwright Test traces現在include sources by default (these could be turned off with tracing 選項)
-- Trace Viewer現在shows test name
+- Playwright 測試追蹤現在預設包含原始碼（這些可以透過追蹤選項關閉）
+- 追蹤檢視器現在顯示測試名稱
 - 含有瀏覽器詳細資訊的新追蹤中繼資料標籤
-- Snapshots現在have URL bar
+- 快照現在有 URL 列
 
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)
 
@@ -1372,8 +1372,8 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
 ### Ubuntu ARM64 支援與更多功能
-- Playwright 現在支援 **Ubuntu 20.04 ARM64**. You 現在可以 run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
-- You 現在可以 use Playwright to install stable version of Edge on Linux:
+- Playwright 現在支援 **Ubuntu 20.04 ARM64**。您現在可以在 Apple M1 和 Raspberry Pi 的 Docker 中執行 Playwright 測試。
+- 您現在可以使用 Playwright 在 Linux 上安裝穩定版本的 Edge：
   
   ```bash
   npx playwright install msedge
@@ -1597,10 +1597,10 @@ This version of Playwright was also tested against the following stable channels
 
 ## 版本 1.11
 
-🎥  New video: [Playwright: A New Test Automation Framework for the Modern Web](https://youtu.be/_Jla6DyuEu4) ([slides](https://docs.google.com/presentation/d/1xFhZIJrdHkVe2CuMKOrni92HoG2SWslo0DhJJQMR1DI/edit?usp=sharing))
-- We talked about Playwright
-- Showed engineering work behind the scenes
-- Did live demos with new features ✨
+🎥  新影片：[Playwright: A New Test Automation Framework for the Modern Web](https://youtu.be/_Jla6DyuEu4) ([投影片](https://docs.google.com/presentation/d/1xFhZIJrdHkVe2CuMKOrni92HoG2SWslo0DhJJQMR1DI/edit?usp=sharing))
+- 我們談論 Playwright
+- 展示幕後的工程工作
+- 使用新功能進行實時演示 ✨
 - **Special thanks** to [applitools](http://applitools.com/) 主辦活動並邀請我們!
 
 #### 瀏覽器版本
@@ -1687,11 +1687,11 @@ This version of Playwright was also tested against the following stable channels
 - WebKit 14.1
 
 ## 版本 1.7
-- **New Java SDK**: [Playwright for Java](https://github.com/microsoft/playwright-java) is現在on par with [JavaScript](https://github.com/microsoft/playwright), [Python](https://github.com/microsoft/playwright-python) 和 [.NET bindings](https://github.com/microsoft/playwright-dotnet).
-- **Browser storage API**: 新的 convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
+- **新 Java SDK**：[Playwright for Java](https://github.com/microsoft/playwright-java) 現在與 [JavaScript](https://github.com/microsoft/playwright)、[Python](https://github.com/microsoft/playwright-python) 和 [.NET bindings](https://github.com/microsoft/playwright-dotnet) 並駕齊驅。
+- **瀏覽器儲存 API**：新的便利 API 用於儲存和載入瀏覽器儲存狀態（cookies、本地儲存），以簡化驗證的自動化場景。
 - **新的 CSS 選擇器**：我們聽到了您對更靈活選擇器的回饋意見，並改良了選擇器實作。Playwright 1.7 引入了[新的 CSS 擴充功能](./other-locators.mdx#css-locator)，更多功能即將推出。
-- **New website**: The docs website at [playwright.dev](https://playwright.dev/) 已被 updated and is現在built with [Docusaurus](https://v2.docusaurus.io/).
-- **支援 Apple Silicon**: Playwright browser binaries for WebKit and Chromium are現在built for Apple Silicon.
+- **新網站**：[playwright.dev](https://playwright.dev/) 的文件網站已更新，現在使用 [Docusaurus](https://v2.docusaurus.io/) 建置。
+- **支援 Apple Silicon**：WebKit 和 Chromium 的 Playwright 瀏覽器二進位檔現在為 Apple Silicon 建置。
 
 #### 新的 API
 - [browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state) 用於取得目前狀態以供稍後重複使用。

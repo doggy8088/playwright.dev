@@ -156,10 +156,10 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * 新增方法 [assertThat(locator).hasAccessibleErrorMessage()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) 用來斷言定位器指向具有指定 [aria errormessage](https://w3c.github.io/aria/#aria-errormessage) 的元素。
 
 ### UI 更新
-* New button in Codegen for picking elements to produce aria snapshots.
+* Codegen 中用於選取元素以產生 aria 快照的新按鈕。
 * 其他詳細資訊（如按下的按鍵）現在會與追蹤中的動作 API 呼叫一起顯示。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
-* `Call` and `Network` panels now display additional time information.
+* `Call` 和 `Network` 面板現在顯示其他時間資訊。
 
 ### 重大變更
 * [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.isEditable()](/api/class-locator.mdx#locator-is-editable) 現在在目標元素不是 `<input>`、`<select>` 或其他可編輯元素時會拋出例外。
@@ -194,7 +194,7 @@ assertThat(page.locator("body")).matchesAriaSnapshot("""
 
 您可以generate this assertion with [Test Generator](./codegen) or by calling [Locator.ariaSnapshot()](/api/class-locator.mdx#locator-aria-snapshot).
 
-Learn more in the [aria snapshots guide](./aria-snapshots).
+在 [aria 快照指南](./aria-snapshots) 中了解更多。
 
 ### 追蹤群組
 
@@ -552,7 +552,7 @@ Evergreen browsers update.
 - [Locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially)
 
 ### 棄用
-* The following methods were deprecated: [Page.type()](/api/class-page.mdx#page-type), [Frame.type()](/api/class-frame.mdx#frame-type), [Locator.type()](/api/class-locator.mdx#locator-type) 和 [ElementHandle.type()](/api/class-elementhandle.mdx#element-handle-type). Please use [Locator.fill()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [Locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
+* 以下方法已棄用：[Page.type()](/api/class-page.mdx#page-type)、[Frame.type()](/api/class-frame.mdx#frame-type)、[Locator.type()](/api/class-locator.mdx#locator-type) 和 [ElementHandle.type()](/api/class-elementhandle.mdx#element-handle-type)。請改用速度更快的 [Locator.fill()](/api/class-locator.mdx#locator-fill)。只有在頁面有特殊的鍵盤處理需求，需要逐一按鍵時，才使用 [Locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially)。
 
 ### 瀏覽器版本
 * Chromium 117.0.5938.62
@@ -617,8 +617,8 @@ Linux support looks like this:
 ## 版本 1.35
 
 ### 重點
-* 新選項 `maskColor`用於方法[Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
-* New `uninstall` CLI command to uninstall browser binaries:
+* 新選項 `maskColor`用於方法[Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 以變更預設遮罩顏色。
+* 新的 `uninstall` CLI 命令用於解除安裝瀏覽器二進位檔：
   
   ```bash
   $ mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="uninstall" # remove browsers installed by this installation
@@ -694,7 +694,7 @@ Linux support looks like this:
 - Added Ubuntu 22.04 (Jammy) Docker image
 
 ### ⚠️ Breaking change
-* The `mcr.microsoft.com/playwright/java:v1.33.0` now serves a Playwright image based on Ubuntu Jammy. To use the focal-based image, please use `mcr.microsoft.com/playwright/java:v1.33.0-focal` instead.
+* `mcr.microsoft.com/playwright/java:v1.33.0` 現在提供基於 Ubuntu Jammy 的 Playwright 映像。若要使用基於 focal 的映像，請改用 `mcr.microsoft.com/playwright/java:v1.33.0-focal`。
 
 ### 瀏覽器版本
 * Chromium 113.0.5672.53
@@ -839,8 +839,8 @@ Linux support looks like this:
 ### 定位器
 
 With these new APIs writing locators is a joy:
-- [Page.getByText()](/api/class-page.mdx#page-get-by-text)以定位by text content.
-- [Page.getByRole()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- [Page.getByText()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
+- [Page.getByRole()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [Page.getByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
 - [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 以定位基於其 `data-testid` 屬性的元素（可以配置其他屬性）。
 - [Page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
@@ -917,7 +917,7 @@ To align with web specification, the `WaitUntilState.DOMCONTENTLOADED` value onl
 - 預設斷言逾時現在可以使用 [`setDefaultAssertionTimeout`](./api/class-playwrightassertions#playwright-assertions-set-default-assertion-timeout) 變更。
 
 ### 公告
-* 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
+* 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
 * ⚠️ Ubuntu 18 現已棄用，將從 2022 年 12 月起不再受支援。
 
 ### 瀏覽器版本
@@ -1039,7 +1039,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
 ## 版本 1.22
 
 ### 重點
-- Role selectors ，允許selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 角色選擇器，允許依據 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素。
   
   ```java
   // Click a button with accessible name "log in"
@@ -1061,7 +1061,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
 ## 版本 1.21
 
 ### 重點
-- New role selectors ，允許selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 新的角色選擇器，允許依據 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素。
   
   ```java
   // Click a button with accessible name "log in"
@@ -1220,10 +1220,10 @@ Read more at [our documentation](./api/class-framelocator).
 Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace.playwright.dev！只需拖放您的 `trace.zip` 檔案即可檢查其內容。
 
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
-- Playwright Test traces現在include sources by default (these could be turned off with tracing 選項)
-- Trace Viewer現在shows test name
-- New trace metadata tab with browser details
-- Snapshots現在have URL bar
+- Playwright 測試追蹤現在預設包含原始碼（這些可以透過追蹤選項關閉）
+- 追蹤檢視器現在顯示測試名稱
+- 新的追蹤中繼資料頁籤，包含瀏覽器詳細資訊
+- 快照現在有 URL 列
 
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)
 
@@ -1545,14 +1545,14 @@ This version of Playwright was also tested against the following stable channels
 
 ## 版本 1.7
 - **New Java SDK**: [Playwright for Java](https://github.com/microsoft/playwright-java) is現在on par with [JavaScript](https://github.com/microsoft/playwright), [Python](https://github.com/microsoft/playwright-python) 和 [.NET bindings](https://github.com/microsoft/playwright-dotnet).
-- **Browser storage API**: 新的 convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
+- **瀏覽器儲存 API**：新的便利 API 用於儲存和載入瀏覽器儲存狀態（cookies、本地儲存），以簡化驗證的自動化場景。
 - **新的 CSS 選擇器**：我們聽到了您對更靈活選擇器的回饋意見，並改良了選擇器實作。Playwright 1.7 引入了[新的 CSS 擴充功能](./other-locators.mdx#css-locator)，更多功能即將推出。
-- **New website**: The docs website at [playwright.dev](https://playwright.dev/) 已被 updated and is現在built with [Docusaurus](https://v2.docusaurus.io/).
-- **支援 Apple Silicon**: Playwright browser binaries for WebKit and Chromium are現在built for Apple Silicon.
+- **新網站**：[playwright.dev](https://playwright.dev/) 的文件網站已更新，現在使用 [Docusaurus](https://v2.docusaurus.io/) 建置。
+- **支援 Apple Silicon**：WebKit 和 Chromium 的 Playwright 瀏覽器二進位檔現在為 Apple Silicon 建置。
 
 #### 新的 API
 - [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 用於取得目前狀態以供稍後重複使用。
-- `storageState` 選項 in [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [Browser.newPage()](/api/class-browser.mdx#browser-new-page) to setup browser context state.
+- [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [Browser.newPage()](/api/class-browser.mdx#browser-new-page) 中的 `storageState` 選項用於設定瀏覽器上下文狀態。
 
 #### 瀏覽器版本
 - Chromium 89.0.4344.0

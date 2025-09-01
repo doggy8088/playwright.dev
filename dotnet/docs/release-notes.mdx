@@ -655,7 +655,7 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 - [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially)
 
 ### 棄用
-* The following methods were deprecated: [Page.TypeAsync()](/api/class-page.mdx#page-type), [Frame.TypeAsync()](/api/class-frame.mdx#frame-type), [Locator.TypeAsync()](/api/class-locator.mdx#locator-type) 和 [ElementHandle.TypeAsync()](/api/class-elementhandle.mdx#element-handle-type). Please use [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
+* 以下方法已棄用：[Page.TypeAsync()](/api/class-page.mdx#page-type)、[Frame.TypeAsync()](/api/class-frame.mdx#frame-type)、[Locator.TypeAsync()](/api/class-locator.mdx#locator-type) 和 [ElementHandle.TypeAsync()](/api/class-elementhandle.mdx#element-handle-type)。請改用速度更快的 [Locator.FillAsync()](/api/class-locator.mdx#locator-fill)。只有在頁面有特殊的鍵盤處理需求，需要逐一按鍵時，才使用 [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially)。
 
 ### 瀏覽器版本
 * Chromium 117.0.5938.62
@@ -705,8 +705,8 @@ Linux support looks like this:
 ## 版本 1.35
 
 ### 重點
-* 新選項 `MaskColor`用於方法[Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
-* New `uninstall` CLI command to uninstall browser binaries:
+* 新選項 `MaskColor`用於方法[Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) 以變更預設遮罩顏色。
+* 新的 `uninstall` CLI 命令用於解除安裝瀏覽器二進位檔：
   
   ```bash
   $ pwsh bin/Debug/netX/playwright.ps1 uninstall # remove browsers installed by this installation
@@ -776,7 +776,7 @@ Linux support looks like this:
 - 新選項 [Timeout](/api/class-route.mdx#route-fetch-選項-timeout) in [Route.FetchAsync()](/api/class-route.mdx#route-fetch)
 
 ### ⚠️ Breaking change
-* The `mcr.microsoft.com/playwright/dotnet:v1.33.0` now serves a Playwright image based on Ubuntu Jammy. To use the focal-based image, please use `mcr.microsoft.com/playwright/dotnet:v1.33.0-focal` instead.
+* `mcr.microsoft.com/playwright/dotnet:v1.33.0` 現在提供基於 Ubuntu Jammy 的 Playwright 映像。若要使用基於 focal 的映像，請改用 `mcr.microsoft.com/playwright/dotnet:v1.33.0-focal`。
 
 ### 瀏覽器版本
 * Chromium 113.0.5672.53
@@ -927,8 +927,8 @@ Linux support looks like this:
 ### 定位器
 
 With these new APIs writing locators is a joy:
-- [Page.GetByText()](/api/class-page.mdx#page-get-by-text)以定位by text content.
-- [Page.GetByRole()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- [Page.GetByText()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
+- [Page.GetByRole()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [Page.GetByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
 - [Page.GetByTestId()](/api/class-page.mdx#page-get-by-test-id) 以根據元素的 `data-testid` 屬性定位元素（可配置其他屬性）。
 - [Page.GetByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
@@ -1032,7 +1032,7 @@ The following does now work:
 ```
 
 ### 公告
-* 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
+* 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
 * ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
 
 ### 瀏覽器版本

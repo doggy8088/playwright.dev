@@ -624,7 +624,7 @@ test('test customer login', {
 });
 ```
 
-Use `--grep` command line 選項 to run only tests with certain tags.
+使用 `--grep` 命令列選項僅執行具有特定標籤的測試。
 
 ```sh
 npx playwright test --grep @fast
@@ -844,7 +844,7 @@ See [test.step()](/api/class-test.mdx#test-step) documentation for a full exampl
 - [reporter.onEnd()](/api/class-reporter.mdx#reporter-on-end) 現在回報 `startTime` 和總執行 `duration`。
 
 ### 棄用
-* The following methods were deprecated: [page.type()](/api/class-page.mdx#page-type), [frame.type()](/api/class-frame.mdx#frame-type), [locator.type()](/api/class-locator.mdx#locator-type) 和 [elementHandle.type()](/api/class-elementhandle.mdx#element-handle-type). Please use [locator.fill()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
+* 以下方法已棄用：[page.type()](/api/class-page.mdx#page-type)、[frame.type()](/api/class-frame.mdx#frame-type)、[locator.type()](/api/class-locator.mdx#locator-type) 和 [elementHandle.type()](/api/class-elementhandle.mdx#element-handle-type)。請改用速度更快的 [locator.fill()](/api/class-locator.mdx#locator-fill)。只有在頁面有特殊的鍵盤處理需求，需要逐一按鍵時，才使用 [locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially)。
 
 ### 重大變更：Playwright 不再自動下載瀏覽器
 
@@ -983,7 +983,7 @@ Linux support looks like this:
   });
   ```
   
-* New `uninstall` CLI command to uninstall browser binaries:
+* 新的 `uninstall` CLI 命令用於解除安裝瀏覽器二進位檔：
   
   ```bash
   $ npx playwright uninstall # remove browsers installed by this installation
@@ -1020,10 +1020,10 @@ Linux support looks like this:
 <LiteYouTube id="JeFD6rqDbBo" title="Playwright 1.34" />
 
 ### 重點
-* UI Mode now shows steps, fixtures and attachments: ![UI Mode attachments](https://github.com/microsoft/playwright/assets/746130/1d280419-d79a-4a56-b2dc-54d631281d56)
-* 新屬性 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown)以指定a project that needs to run after this and all dependent projects have finished. Teardown is useful to cleanup any resources acquired by this project.
+* UI 模式現在顯示步驟、固定裝置和附件： ![UI Mode attachments](https://github.com/microsoft/playwright/assets/746130/1d280419-d79a-4a56-b2dc-54d631281d56)
+* 新屬性 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown)，用於指定在此專案和所有相依專案完成後需要執行的專案。Teardown 對於清理此專案獲取的任何資源很有用。
   
-  A common pattern would be a `setup` dependency with a corresponding `teardown`:
+  常見的模式是 `setup` 相依性與對應的 `teardown`：
   
   ```js title="playwright.config.ts"
   import { defineConfig } from '@playwright/test';
@@ -1149,7 +1149,7 @@ Linux support looks like this:
 - [reporter.onExit()](/api/class-reporter.mdx#reporter-on-exit)
 
 ### ⚠️ Breaking change
-* The `mcr.microsoft.com/playwright:v1.33.0` now serves a Playwright image based on Ubuntu Jammy. To use the focal-based image, please use `mcr.microsoft.com/playwright:v1.33.0-focal` instead.
+* `mcr.microsoft.com/playwright:v1.33.0` 現在提供基於 Ubuntu Jammy 的 Playwright 映像。若要使用基於 focal 的映像，請改用 `mcr.microsoft.com/playwright:v1.33.0-focal`。
 
 ### 瀏覽器版本
 * Chromium 113.0.5672.53
@@ -1204,7 +1204,7 @@ Note: **component tests only**, does not affect end-to-end tests.
 ### 新的 API
 - 新屬性 [testProject.dependencies](/api/class-testproject.mdx#test-project-dependencies) 以配置專案之間的依賴性。
   
-  Using dependencies allows global setup to produce traces and other artifacts, see the setup steps in the test report and more.
+  使用相依性允許全域設定產生追蹤和其他工件，在測試報告中查看設定步驟等。
   
   ```js title="playwright.config.ts"
   import { defineConfig } from '@playwright/test';
@@ -1443,8 +1443,8 @@ export default defineConfig({
 ### 定位器
 
 With these new APIs writing locators is a joy:
-- [page.getByText()](/api/class-page.mdx#page-get-by-text)以定位by text content.
-- [page.getByRole()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- [page.getByText()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
+- [page.getByRole()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [page.getByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
 - [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id)以定位an element based on its `data-testid` attribute (other attribute can be configured).
 - [page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
@@ -1480,7 +1480,7 @@ All the same methods are also available on [Locator], [FrameLocator] 和 [Frame]
   });
   ```
   
-- New field `FullConfig.configFile` 可用 to test reporters, specifying the path to the config file if any.
+- 新欄位 `FullConfig.configFile` 可用於測試報告器，用於指定設定檔的路徑（如果有的話）。
 - 如 v1.25 中所宣布，Ubuntu 18 將在 2022 年 12 月起不再受支援。除此之外，從下一個 Playwright 版本開始，Ubuntu 18 上將不會有 WebKit 更新。
 
 ### 行為變更
@@ -1490,7 +1490,7 @@ All the same methods are also available on [Locator], [FrameLocator] 和 [Frame]
   await expect(page.getByRole('button')).toHaveAttribute('disabled', '');
   ```
   
-- Command line options `--grep` and `--grep-invert` previously incorrectly ignored `grep` and `grepInvert` options specified in the config. Now all of them are applied together.
+- 命令列選項 `--grep` 和 `--grep-invert` 先前錯誤地忽略了設定中指定的 `grep` 和 `grepInvert` 選項。現在它們會一起套用。
 
 ### 瀏覽器版本
 * Chromium 107.0.5304.18
@@ -1568,9 +1568,9 @@ To align with web specification, the `'domcontentloaded'` value only waits for t
 * Enable tracing via CLI flag: `npx playwright test --trace=on`.
 
 ### 公告
-* 🎁 We now ship Ubuntu 22.04 Jammy Jellyfish docker image: `mcr.microsoft.com/playwright:v1.34.0-jammy`.
-* 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
-* 🪦 This is the last release with Node.js 12 support, we recommend upgrading to Node.js LTS (16).
+* 🎁 我們現在發佈 Ubuntu 22.04 Jammy Jellyfish docker 映像：`mcr.microsoft.com/playwright:v1.34.0-jammy`。
+* 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
+* 🪦 這是最後一個支援 Node.js 12 的版本，我們建議升級到 Node.js LTS (16)。
 * ⚠️ Ubuntu 18 現已棄用，將從 2022 年 12 月起不再受支援。
 
 ### 瀏覽器版本
@@ -1961,8 +1961,8 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 - [locator.highlight()](/api/class-locator.mdx#locator-highlight)視覺化地顯示element(s)以便更輕鬆地debugging.
 
 ### 公告
-- We現在ship a designated Python docker image `mcr.microsoft.com/playwright/python`. Please switch over to it if you use Python. This is the last release that includes Python inside our javascript `mcr.microsoft.com/playwright` docker image.
-- v1.20是最後一個接收receive WebKit update for macOS 10.15 Catalina. 請更新macOS以繼續使用latest & greatest WebKit!
+- 我們現在發佈專用的 Python docker 映像 `mcr.microsoft.com/playwright/python`。如果您使用 Python，請切換到該映像。這是最後一個在我們的 javascript `mcr.microsoft.com/playwright` docker 映像中包含 Python 的版本。
+- v1.20 是最後一個為 macOS 10.15 Catalina 接收 WebKit 更新的版本。請更新 macOS 以繼續使用最新的 WebKit！
 
 ### 瀏覽器版本
 - Chromium 101.0.4921.0
@@ -2172,16 +2172,16 @@ Read more at [our documentation](./api/class-framelocator).
 Playwright Trace Viewer is now **available online** at https://trace.playwright.dev! Just drag-and-drop your `trace.zip` file to inspect its contents.
 
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
-- Playwright Test traces現在include sources by default (these could be turned off with tracing 選項)
-- Trace Viewer現在shows test name
-- New trace metadata tab with browser details
-- Snapshots現在have URL bar
+- Playwright 測試追蹤現在預設包含原始碼（這些可以透過追蹤選項關閉）
+- 追蹤檢視器現在顯示測試名稱
+- 新的追蹤中繼資料頁籤，包含瀏覽器詳細資訊
+- 快照現在有 URL 列
 
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)
 
 ### HTML Report Update
-- HTML report 現在支援 dynamic filtering
-- Report is現在a **single static HTML file** that could be sent by e-mail or as a slack attachment.
+- HTML 報告現在支援動態篩選
+- 報告現在是**單一靜態 HTML 檔案**，可以透過電子郵件或作為 slack 附件傳送。
 
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
@@ -2709,7 +2709,7 @@ This version of Playwright was also tested against the following stable channels
 - **Pause script execution** with [page.pause()](/api/class-page.mdx#page-pause) in headed mode. Pausing the page launches [Playwright Inspector](./debug.mdx) for debugging.
 - **New has-text pseudo-class** for CSS selectors. `:has-text("example")` matches any element containing `"example"` somewhere inside, possibly in a child or a descendant element. See [more examples](./other-locators.mdx#css-matching-by-text).
 - **頁面對話框現在自動關閉**：除非配置了 `dialog` 事件的監聽器，否則在執行過程中會自動關閉頁面對話框。[了解更多](./dialogs.mdx)相關資訊。
-- [Playwright for Python](https://github.com/microsoft/playwright-python) is **now stable** with an idiomatic snake case API and pre-built [Docker image](./docker.mdx) to run tests in CI/CD.
+- [Playwright for Python](https://github.com/microsoft/playwright-python) 現在**穩定**，具有慣用的 snake case API 和預建的 [Docker 映像](./docker.mdx)，可在 CI/CD 中執行測試。
 
 #### 瀏覽器版本
 - Chromium 90.0.4421.0
@@ -2754,8 +2754,8 @@ This version of Playwright was also tested against the following stable channels
 - **New Java SDK**: [Playwright for Java](https://github.com/microsoft/playwright-java) is現在on par with [JavaScript](https://github.com/microsoft/playwright), [Python](https://github.com/microsoft/playwright-python) 和 [.NET bindings](https://github.com/microsoft/playwright-dotnet).
 - **Browser storage API**: 新的 convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
 - **新的 CSS 選擇器**：我們聽到了您對更靈活選擇器的回饋意見，並改良了選擇器實作。Playwright 1.7 引入了[新的 CSS 擴充功能](./other-locators.mdx#css-locator)，更多功能即將推出。
-- **New website**: The docs website at [playwright.dev](https://playwright.dev/) 已被 updated and is現在built with [Docusaurus](https://v2.docusaurus.io/).
-- **支援 Apple Silicon**: Playwright browser binaries for WebKit and Chromium are現在built for Apple Silicon.
+- **新網站**：[playwright.dev](https://playwright.dev/) 的文件網站已更新，現在使用 [Docusaurus](https://v2.docusaurus.io/) 建置。
+- **支援 Apple Silicon**：WebKit 和 Chromium 的 Playwright 瀏覽器二進位檔現在為 Apple Silicon 建置。
 
 #### 新的 API
 - [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 用於取得目前狀態以供稍後重複使用。

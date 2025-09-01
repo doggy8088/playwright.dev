@@ -617,8 +617,8 @@ Linux support looks like this:
 ## 版本 1.35
 
 ### 重點
-* 新選項 `maskColor`用於方法[Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
-* New `uninstall` CLI command to uninstall browser binaries:
+* 新選項 `maskColor`用於方法[Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 以變更預設遮罩顏色。
+* 新的 `uninstall` CLI 命令用於解除安裝瀏覽器二進位檔：
   
   ```bash
   $ mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="uninstall" # remove browsers installed by this installation
@@ -694,7 +694,7 @@ Linux support looks like this:
 - Added Ubuntu 22.04 (Jammy) Docker image
 
 ### ⚠️ Breaking change
-* The `mcr.microsoft.com/playwright/java:v1.33.0` now serves a Playwright image based on Ubuntu Jammy. To use the focal-based image, please use `mcr.microsoft.com/playwright/java:v1.33.0-focal` instead.
+* `mcr.microsoft.com/playwright/java:v1.33.0` 現在提供基於 Ubuntu Jammy 的 Playwright 映像。若要使用基於 focal 的映像，請改用 `mcr.microsoft.com/playwright/java:v1.33.0-focal`。
 
 ### 瀏覽器版本
 * Chromium 113.0.5672.53
@@ -839,8 +839,8 @@ Linux support looks like this:
 ### 定位器
 
 With these new APIs writing locators is a joy:
-- [Page.getByText()](/api/class-page.mdx#page-get-by-text)以定位by text content.
-- [Page.getByRole()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- [Page.getByText()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
+- [Page.getByRole()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [Page.getByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
 - [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 以根據元素的 `data-testid` 屬性定位元素（可配置其他屬性）。
 - [Page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
@@ -917,7 +917,7 @@ To align with web specification, the `WaitUntilState.DOMCONTENTLOADED` value onl
 - 預設斷言逾時現在可以透過 [`setDefaultAssertionTimeout`](./api/class-playwrightassertions#playwright-assertions-set-default-assertion-timeout) 變更。
 
 ### 公告
-* 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
+* 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
 * ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
 
 ### 瀏覽器版本
@@ -1039,7 +1039,7 @@ page.route("**/*", route -> {
 ## 版本 1.22
 
 ### 重點
-- Role selectors ，允許selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 角色選擇器，允許依據 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素。
   
   ```java
   // Click a button with accessible name "log in"
@@ -1234,8 +1234,8 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
 ### Ubuntu ARM64 支援與更多功能
-- Playwright 現在支援 **Ubuntu 20.04 ARM64**. You 現在可以 run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
-- You 現在可以 use Playwright to install stable version of Edge on Linux:
+- Playwright 現在支援 **Ubuntu 20.04 ARM64**。您現在可以在 Apple M1 和 Raspberry Pi 的 Docker 中執行 Playwright 測試。
+- 您現在可以使用 Playwright 在 Linux 上安裝穩定版本的 Edge：
   
   ```bash
   mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install msedge"
@@ -1545,14 +1545,14 @@ This version of Playwright was also tested against the following stable channels
 
 ## 版本 1.7
 - **新的 Java SDK**：[Playwright for Java](https://github.com/microsoft/playwright-java) 現在與 [JavaScript](https://github.com/microsoft/playwright)、[Python](https://github.com/microsoft/playwright-python) 和 [.NET bindings](https://github.com/microsoft/playwright-dotnet) 同等。
-- **Browser storage API**: 新的 convenience APIs to save and load browser storage state (cookies, local storage) to simplify automation scenarios with authentication.
+- **瀏覽器儲存 API**：新的便利 API 用於儲存和載入瀏覽器儲存狀態（cookies、本地儲存），以簡化驗證的自動化場景。
 - **新的 CSS 選擇器**：我們聽到了您對更靈活選擇器的回饋意見，並改良了選擇器實作。Playwright 1.7 引入了[新的 CSS 擴充功能](./other-locators.mdx#css-locator)，更多功能即將推出。
-- **New website**: The docs website at [playwright.dev](https://playwright.dev/) 已被 updated and is現在built with [Docusaurus](https://v2.docusaurus.io/).
-- **支援 Apple Silicon**: Playwright browser binaries for WebKit and Chromium are現在built for Apple Silicon.
+- **新網站**：[playwright.dev](https://playwright.dev/) 的文件網站已更新，現在使用 [Docusaurus](https://v2.docusaurus.io/) 建置。
+- **支援 Apple Silicon**：WebKit 和 Chromium 的 Playwright 瀏覽器二進位檔現在為 Apple Silicon 建置。
 
 #### 新的 API
 - [BrowserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 用於取得目前狀態以供稍後重複使用。
-- `storageState` 選項 in [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [Browser.newPage()](/api/class-browser.mdx#browser-new-page) to setup browser context state.
+- [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [Browser.newPage()](/api/class-browser.mdx#browser-new-page) 中的 `storageState` 選項用於設定瀏覽器上下文狀態。
 
 #### 瀏覽器版本
 - Chromium 89.0.4344.0

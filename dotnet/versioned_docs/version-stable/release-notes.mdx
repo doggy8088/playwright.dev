@@ -164,10 +164,10 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * Added 方法 [Expect(Locator).ToHaveAccessibleErrorMessageAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-error-message) to assert the Locator points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
 
 ### UI 更新
-* New button in Codegen for picking elements to produce aria snapshots.
+* Codegen 中用於選取元素以產生 aria 快照的新按鈕。
 * 其他詳細資訊（如按下的按鍵）現在會與追蹤中的動作 API 呼叫一起顯示。
 * 在追蹤中顯示 `canvas` 內容容易出錯。顯示功能現在預設停用，可透過 `Display canvas content` UI 設定啟用。
-* `Call` and `Network` panels now display additional time information.
+* `Call` 和 `Network` 面板現在顯示其他時間資訊。
 
 ### 重大變更
 * [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-editable) 現在在目標元素不是 `<input>`、`<select>` 或其他可編輯元素時會拋出例外。
@@ -202,7 +202,7 @@ await Expect(page.Locator("body")).ToMatchAriaSnapshotAsync(@"
 
 您可以使用 [測試產生器](./codegen) 或呼叫 [Locator.AriaSnapshotAsync()](/api/class-locator.mdx#locator-aria-snapshot).
 
-在 [aria snapshots 指南](./aria-snapshots).
+在 [aria 快照指南](./aria-snapshots) 中了解更多。
 
 ### 追蹤群組
 
@@ -313,7 +313,7 @@ The Network tab in the trace viewer has several nice improvements:
 - Playwright Docker 映像的 `:latest`/`:focal`/`:jammy` 標籤不再發布。請固定到特定版本以獲得更好的穩定性和可重現性。
 - TLS 用戶端憑證現在可以透過傳遞 [ClientCertificates.Cert](/api/class-browser.mdx#browser-new-context-選項-client-certificates) 和 [ClientCertificates.Key](/api/class-browser.mdx#browser-new-context-選項-client-certificates) 作為位元組陣列而非檔案路徑從記憶體傳遞。
 - [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-選項) 中的 [NoWaitAfter](/api/class-locator.mdx#locator-select-選項-選項-no-wait-after) 已被棄用。
-- We've seen reports of WebGL in Webkit misbehaving on GitHub Actions `macos-13`. 我們建議upgrading GitHub Actions to `macos-14`.
+- 我們已看到 WebKit 中的 WebGL 在 GitHub Actions `macos-13` 上運作異常的回報。我們建議將 GitHub Actions 升級到 `macos-14`。
 
 ### 瀏覽器版本
 - Chromium 129.0.6668.29
@@ -655,7 +655,7 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 - [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially)
 
 ### 棄用
-* The following methods were deprecated: [Page.TypeAsync()](/api/class-page.mdx#page-type), [Frame.TypeAsync()](/api/class-frame.mdx#frame-type), [Locator.TypeAsync()](/api/class-locator.mdx#locator-type) 和 [ElementHandle.TypeAsync()](/api/class-elementhandle.mdx#element-handle-type). Please use [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) instead which is much faster. Use [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially) only if there is a special keyboard handling on the page, and you need to press keys one-by-one.
+* 以下方法已棄用：[Page.TypeAsync()](/api/class-page.mdx#page-type)、[Frame.TypeAsync()](/api/class-frame.mdx#frame-type)、[Locator.TypeAsync()](/api/class-locator.mdx#locator-type) 和 [ElementHandle.TypeAsync()](/api/class-elementhandle.mdx#element-handle-type)。請改用速度更快的 [Locator.FillAsync()](/api/class-locator.mdx#locator-fill)。只有在頁面有特殊的鍵盤處理需求，需要逐一按鍵時，才使用 [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially)。
 
 ### 瀏覽器版本
 * Chromium 117.0.5938.62
@@ -705,8 +705,8 @@ Linux support looks like this:
 ## 版本 1.35
 
 ### 重點
-* 新選項 `MaskColor`用於方法[Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
-* New `uninstall` CLI command to uninstall browser binaries:
+* 新選項 `MaskColor`用於方法[Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) 以變更預設遮罩顏色。
+* 新的 `uninstall` CLI 命令用於解除安裝瀏覽器二進位檔：
   
   ```bash
   $ pwsh bin/Debug/netX/playwright.ps1 uninstall # remove browsers installed by this installation
@@ -776,7 +776,7 @@ Linux support looks like this:
 - 新選項 [Timeout](/api/class-route.mdx#route-fetch-選項-timeout) in [Route.FetchAsync()](/api/class-route.mdx#route-fetch)
 
 ### ⚠️ Breaking change
-* The `mcr.microsoft.com/playwright/dotnet:v1.33.0` now serves a Playwright image based on Ubuntu Jammy. To use the focal-based image, please use `mcr.microsoft.com/playwright/dotnet:v1.33.0-focal` instead.
+* `mcr.microsoft.com/playwright/dotnet:v1.33.0` 現在提供基於 Ubuntu Jammy 的 Playwright 映像。若要使用基於 focal 的映像，請改用 `mcr.microsoft.com/playwright/dotnet:v1.33.0-focal`。
 
 ### 瀏覽器版本
 * Chromium 113.0.5672.53
@@ -927,8 +927,8 @@ Linux support looks like this:
 ### 定位器
 
 With these new APIs writing locators is a joy:
-- [Page.GetByText()](/api/class-page.mdx#page-get-by-text)以定位by text content.
-- [Page.GetByRole()](/api/class-page.mdx#page-get-by-role)以定位by [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- [Page.GetByText()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
+- [Page.GetByRole()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [Page.GetByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
 - [Page.GetByTestId()](/api/class-page.mdx#page-get-by-test-id)以定位an element based on its `data-testid` attribute (other attribute can be configured).
 - [Page.GetByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
@@ -1032,7 +1032,7 @@ The following does now work:
 ```
 
 ### 公告
-* 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
+* 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 起已棄用）。
 * ⚠️ Ubuntu 18 現已棄用，將從 2022 年 12 月起不再受支援。
 
 ### 瀏覽器版本
@@ -1188,7 +1188,7 @@ Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-ro
 ## 版本 1.22
 
 ### 重點
-- Role selectors ，允許selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 角色選擇器，允許依據 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素。
   
   ```csharp
   // Click a button with accessible name "log in"
@@ -1208,7 +1208,7 @@ Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-ro
 ## 版本 1.21
 
 ### 重點
-- New role selectors ，允許selecting elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
+- 新的角色選擇器，允許依據 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 選擇元素。
   
   ```csharp
   // Click a button with accessible name "log in"
@@ -1351,10 +1351,10 @@ Read more at [our documentation](./api/class-framelocator).
 Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace.playwright.dev！只需拖放您的 `trace.zip` 檔案即可檢查其內容。
 
 > **NOTE**: trace files are not uploaded anywhere; [trace.playwright.dev](https://trace.playwright.dev) is a [progressive web application](https://web.dev/progressive-web-apps/) that processes traces locally.
-- Playwright Test traces現在include sources by default (these could be turned off with tracing 選項)
-- Trace Viewer現在shows test name
+- Playwright 測試追蹤現在預設包含原始碼（這些可以透過追蹤選項關閉）
+- 追蹤檢視器現在顯示測試名稱
 - 含有瀏覽器詳細資訊的新追蹤中繼資料標籤
-- Snapshots現在have URL bar
+- 快照現在有 URL 列
 
 ![image](https://user-images.githubusercontent.com/746130/141877831-29e37cd1-e574-4bd9-aab5-b13a463bb4ae.png)
 
