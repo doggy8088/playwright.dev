@@ -19,7 +19,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequest.NewContextAsync</x-search>
 
-Creates new instances of [APIRequestContext].
+建立新的 [APIRequestContext] 執行個體。
 
 **使用方式**
 
@@ -31,55 +31,55 @@ await ApiRequest.NewContextAsync(options);
 - `options` `ApiRequestNewContextOptions?` *(optional)*
   - `BaseURL` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-base-url"/><a href="#api-request-new-context-option-base-url" class="list-anchor">#</a>
     
-    Methods like [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) take the base URL into consideration by using the [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor for building the corresponding URL. Examples:
-    * baseURL: `http://localhost:3000` and sending request to `/bar.html` results in `http://localhost:3000/bar.html`
-    * baseURL: `http://localhost:3000/foo/` and sending request to `./bar.html` results in `http://localhost:3000/foo/bar.html`
-    * baseURL: `http://localhost:3000/foo` (without trailing slash) and navigating to `./bar.html` results in `http://localhost:3000/bar.html`
+    像 [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) 這樣的方法會透過使用 [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 建構函式來建構對應的 URL，將基底 URL 納入考量。範例：
+    * baseURL: `http://localhost:3000` 並傳送請求到 `/bar.html` 會產生 `http://localhost:3000/bar.html`
+    * baseURL: `http://localhost:3000/foo/` 並傳送請求到 `./bar.html` 會產生 `http://localhost:3000/foo/bar.html`
+    * baseURL: `http://localhost:3000/foo` (沒有結尾斜線) 並導航到 `./bar.html` 會產生 `http://localhost:3000/bar.html`
   - `ClientCertificates` [IEnumerable]?&lt;ClientCertificates&gt; *(optional)* <font size="2">Added in: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-client-certificates"/><a href="#api-request-new-context-option-client-certificates" class="list-anchor">#</a>
     - `Origin` [string]
       
-      Exact origin that the certificate is valid for. Origin includes `https` protocol, a hostname and optionally a port.
+      憑證有效的確切來源。來源包含 `https` 通訊協定、主機名稱及可選的連接埠。
     - `CertPath` [string]? *(optional)*
       
-      Path to the file with the certificate in PEM format.
+      PEM 格式憑證檔案的路徑。
     - `Cert` [byte]&#91;&#93;? *(optional)*
       
-      Direct value of the certificate in PEM format.
+      PEM 格式憑證的直接值。
     - `KeyPath` [string]? *(optional)*
       
-      Path to the file with the private key in PEM format.
+      PEM 格式私密金鑰檔案的路徑。
     - `Key` [byte]&#91;&#93;? *(optional)*
       
-      Direct value of the private key in PEM format.
+      PEM 格式私密金鑰的直接值。
     - `PfxPath` [string]? *(optional)*
       
-      Path to the PFX or PKCS12 encoded private key and certificate chain.
+      PFX 或 PKCS12 編碼私密金鑰和憑證鏈檔案的路徑。
     - `Pfx` [byte]&#91;&#93;? *(optional)*
       
-      Direct value of the PFX or PKCS12 encoded private key and certificate chain.
+      PFX 或 PKCS12 編碼私密金鑰和憑證鏈的直接值。
     - `Passphrase` [string]? *(optional)*
       
-      Passphrase for the private key (PEM or PFX).
+      私密金鑰的密碼 (PEM 或 PFX)。
     
-    TLS Client Authentication allows the server to request a client certificate and verify it.
+    TLS 用戶端驗證允許伺服器請求用戶端憑證並驗證它。
     
-    **Details**
+    **詳細說明**
     
-    An array of client certificates to be used. Each certificate object must have either both `certPath` and `keyPath`, a single `pfxPath`, or their corresponding direct value equivalents (`cert` and `key`, or `pfx`). Optionally, `passphrase` property should be provided if the certificate is encrypted. The `origin` property should be provided with an exact match to the request origin that the certificate is valid for.
+    要使用的用戶端憑證陣列。每個憑證物件必須同時具有 `certPath` 和 `keyPath`、單個 `pfxPath`，或其對應的直接值等效項（`cert` 和 `key`，或 `pfx`）。如果憑證已加密，可選擇提供 `passphrase` 屬性。應提供 `origin` 屬性以與憑證有效的請求來源完全匹配。
     
-    Client certificate authentication is only active when at least one client certificate is provided. If you want to reject all client certificates sent by the server, you need to provide a client certificate with an `origin` that does not match any of the domains you plan to visit.
+    用戶端憑證驗證只有在至少提供一個用戶端憑證時才會啟動。如果您想拒絕伺服器傳送的所有用戶端憑證，您需要提供一個 `origin` 與您計劃造訪的任何網域都不匹配的用戶端憑證。
     
     :::note
     
-    When using WebKit on macOS, accessing `localhost` will not pick up client certificates. You can make it work by replacing `localhost` with `local.playwright`.
+    在 macOS 上使用 WebKit 時，存取 `localhost` 不會取得用戶端憑證。您可以透過將 `localhost` 替換為 `local.playwright` 來使其工作。
     :::
     
   - `ExtraHTTPHeaders` [IDictionary]?&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-extra-http-headers"/><a href="#api-request-new-context-option-extra-http-headers" class="list-anchor">#</a>
     
-    An object containing additional HTTP headers to be sent with every request. Defaults to none.
+    包含每個請求要傳送的額外 HTTP 標頭的物件。預設為無。
   - `FailOnStatusCode` [bool]? *(optional)* <font size="2">Added in: v1.51</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-fail-on-status-code"/><a href="#api-request-new-context-option-fail-on-status-code" class="list-anchor">#</a>
     
-    Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+    是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
   - `HttpCredentials` HttpCredentials? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-http-credentials"/><a href="#api-request-new-context-option-http-credentials" class="list-anchor">#</a>
     - `Username` [string]
       
@@ -89,45 +89,45 @@ await ApiRequest.NewContextAsync(options);
       
     - `Origin` [string]? *(optional)*
       
-      Restrain sending http credentials on specific origin (scheme://host:port).
+      限制在特定來源 (scheme://host:port) 傳送 http 憑證。
     - `Send` `enum HttpCredentialsSend { Unauthorized, Always }?` *(optional)*
       
-      This option only applies to the requests sent from corresponding [APIRequestContext] and does not affect requests sent from the browser. `'always'` - `Authorization` header with basic authentication credentials will be sent with the each API request. `'unauthorized` - the credentials are only sent when 401 (Unauthorized) response with `WWW-Authenticate` header is received. Defaults to `'unauthorized'`.
+      此選項僅適用於從對應 [APIRequestContext] 傳送的請求，不影響從瀏覽器傳送的請求。`'always'` - 包含基本驗證憑證的 `Authorization` 標頭將隨每個 API 請求傳送。`'unauthorized'` - 憑證只有在收到帶有 `WWW-Authenticate` 標頭的 401 (Unauthorized) 回應時才會傳送。預設為 `'unauthorized'`。
     
-    Credentials for [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). If no origin is specified, the username and password are sent to any servers upon unauthorized responses.
+    [HTTP 驗證](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) 的憑證。如果未指定來源，使用者名稱和密碼會在未授權回應時傳送到任何伺服器。
   - `IgnoreHTTPSErrors` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-ignore-https-errors"/><a href="#api-request-new-context-option-ignore-https-errors" class="list-anchor">#</a>
     
-    Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+    傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
   - `MaxRedirects` [int]? *(optional)* <font size="2">Added in: v1.52</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-max-redirects"/><a href="#api-request-new-context-option-max-redirects" class="list-anchor">#</a>
     
-    Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects. This can be overwritten for each request individually.
+    自動跟隨的請求重新導向次數上限。如果超過此數目將拋出錯誤。預設為 `20`。傳遞 `0` 表示不跟隨重新導向。此設定可以針對每個請求個別覆寫。
   - `Proxy` Proxy? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-proxy"/><a href="#api-request-new-context-option-proxy" class="list-anchor">#</a>
     - `Server` [string]
       
-      Proxy to be used for all requests. HTTP and SOCKS proxies are supported, for example `http://myproxy.com:3128` or `socks5://myproxy.com:3128`. Short form `myproxy.com:3128` is considered an HTTP proxy.
+      用於所有請求的代理。支援 HTTP 和 SOCKS 代理，例如 `http://myproxy.com:3128` 或 `socks5://myproxy.com:3128`。簡短形式 `myproxy.com:3128` 被視為 HTTP 代理。
     - `Bypass` [string]? *(optional)*
       
-      Optional comma-separated domains to bypass proxy, for example `".com, chromium.org, .domain.com"`.
+      可選的逗號分隔網域以繞過代理，例如 `".com, chromium.org, .domain.com"`。
     - `Username` [string]? *(optional)*
       
-      Optional username to use if HTTP proxy requires authentication.
+      如果 HTTP 代理需要驗證時使用的可選使用者名稱。
     - `Password` [string]? *(optional)*
       
-      Optional password to use if HTTP proxy requires authentication.
+      如果 HTTP 代理需要驗證時使用的可選密碼。
     
-    Network proxy settings.
+    網路代理設定。
   - `StorageState` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-storage-state"/><a href="#api-request-new-context-option-storage-state" class="list-anchor">#</a>
     
-    Populates context with given storage state. This option can be used to initialize context with logged-in information obtained via [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) or [ApiRequestContext.StorageStateAsync()](/api/class-apirequestcontext.mdx#api-request-context-storage-state). Either a path to the file with saved storage, or the value returned by one of [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) or [ApiRequestContext.StorageStateAsync()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) methods.
+    使用給定的儲存狀態填入情境。此選項可用於透過 [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) 或 [ApiRequestContext.StorageStateAsync()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) 取得的登入資訊來初始化情境。可以是儲存檔案的路徑，或是 [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) 或 [ApiRequestContext.StorageStateAsync()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) 方法回傳的值。
   - `StorageStatePath` [string]? *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-storage-state-path"/><a href="#api-request-new-context-option-storage-state-path" class="list-anchor">#</a>
     
-    Populates context with given storage state. This option can be used to initialize context with logged-in information obtained via [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state). Path to the file with saved storage state.
+    使用給定的儲存狀態填入情境。此選項可用於透過 [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) 取得的登入資訊來初始化情境。儲存狀態檔案的路徑。
   - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-timeout"/><a href="#api-request-new-context-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds to wait for the response. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+    等待回應的最大時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 可停用逾時。
   - `UserAgent` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-user-agent"/><a href="#api-request-new-context-option-user-agent" class="list-anchor">#</a>
     
-    Specific user agent to use in this context.
+    在此情境中使用的特定使用者代理程式。
 
 **回傳值**
 - [APIRequestContext]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-return"/><a href="#api-request-new-context-return" class="list-anchor">#</a>

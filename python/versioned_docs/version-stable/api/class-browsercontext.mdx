@@ -10,7 +10,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 BrowserContexts 提供一種操作多個獨立瀏覽器會話的方式。
 
-If a page opens another page, e.g. with a `window.open` call, the popup will belong to the parent page's browser context.
+如果一個頁面開啟另一個頁面，例如透過 `window.open` 呼叫，彈出視窗將屬於父頁面的瀏覽器情境。
 
 Playwright allows creating isolated non-persistent browser contexts with [browser.new_context()](/api/class-browser.mdx#browser-new-context) method. Non-persistent browser contexts don't write any browsing data to disk.
 
@@ -106,7 +106,7 @@ await browser_context.add_cookies([cookie_object1, cookie_object2])
     Either url or domain / path are required Optional.
   - `expires` [float] *(optional)*
     
-    Unix time in seconds. Optional.
+    Unix 時間（秒）。 Optional.
   - `httpOnly` [bool] *(optional)*
     
     Optional.
@@ -349,7 +349,7 @@ browser_context.cookies(**kwargs)
     
   - `expires` [float]
     
-    Unix time in seconds.
+    Unix 時間（秒）。
   - `httpOnly` [bool]
     
     
@@ -394,7 +394,7 @@ browser_context.expect_console_message(**kwargs)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.expect_event</x-search>
 
-Waits for event to fire and passes its value into the predicate function. Returns when the predicate returns truthy value. Will throw an error if the context closes before the event is fired. Returns the event data value.
+Waits for event to fire and passes its value into the predicate function. 回傳值 when the predicate returns truthy value. Will throw an error if the context closes before the event is fired. 回傳值 the event data value.
 
 **使用方式**
 
@@ -736,7 +736,7 @@ browser_context.grant_permissions(permissions, **kwargs)
 CDP sessions are only supported on Chromium-based browsers.
 :::
 
-Returns the newly created session.
+回傳值 the newly created session.
 
 **使用方式**
 
@@ -1184,7 +1184,7 @@ browser_context.set_offline(offline)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.storage_state</x-search>
 
-Returns storage state for this browser context, contains current cookies, local storage snapshot and IndexedDB snapshot.
+回傳值 storage state for this browser context, contains current cookies, local storage snapshot and IndexedDB snapshot.
 
 **使用方式**
 
@@ -1218,7 +1218,7 @@ browser_context.storage_state(**kwargs)
       
     - `expires` [float]
       
-      Unix time in seconds.
+      Unix 時間（秒）。
     - `httpOnly` [bool]
       
       
@@ -1358,7 +1358,7 @@ browser_context.background_pages
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.browser</x-search>
 
-Gets the browser instance that owns the context. Returns `null` if the context is created outside of normal browser, e.g. Android or Electron.
+Gets the browser instance that owns the context. 回傳值 `null` if the context is created outside of normal browser, e.g. Android or Electron.
 
 **使用方式**
 
@@ -1392,7 +1392,7 @@ browser_context.clock
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.pages</x-search>
 
-Returns all open pages in the context.
+回傳值 all open pages in the context.
 
 **使用方式**
 

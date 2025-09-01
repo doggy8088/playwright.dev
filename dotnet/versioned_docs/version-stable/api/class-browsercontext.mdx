@@ -10,9 +10,9 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 BrowserContexts 提供一種操作多個獨立瀏覽器會話的方式。
 
-If a page opens another page, e.g. with a `window.open` call, the popup will belong to the parent page's browser context.
+如果一個頁面開啟另一個頁面，例如透過 `window.open` 呼叫，彈出視窗將屬於父頁面的瀏覽器情境。
 
-Playwright allows creating isolated non-persistent browser contexts with [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) method. Non-persistent browser contexts don't write any browsing data to disk.
+Playwright 允許使用 [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 方法建立獨立的非持久性瀏覽器情境。非持久性瀏覽器情境不會將任何瀏覽資料寫入磁碟。
 
 ```csharp
 using var playwright = await Playwright.CreateAsync();
@@ -62,7 +62,7 @@ await context.AddCookiesAsync(new[] { cookie1, cookie2 });
     Either url or domain / path are required Optional.
   - `Expires` [float]? *(optional)*
     
-    Unix time in seconds. Optional.
+    Unix 時間（秒）。 Optional.
   - `HttpOnly` [bool]? *(optional)*
     
     Optional.
@@ -144,7 +144,7 @@ BrowserContext.BackgroundPages
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.Browser</x-search>
 
-Gets the browser instance that owns the context. Returns `null` if the context is created outside of normal browser, e.g. Android or Electron.
+Gets the browser instance that owns the context. 回傳值 `null` if the context is created outside of normal browser, e.g. Android or Electron.
 
 **使用方式**
 
@@ -273,7 +273,7 @@ await BrowserContext.CookiesAsync(urls);
     
   - `expires` [float]
     
-    Unix time in seconds.
+    Unix 時間（秒）。
   - `httpOnly` [bool]
     
     
@@ -463,7 +463,7 @@ await BrowserContext.GrantPermissionsAsync(permissions, options);
 CDP sessions are only supported on Chromium-based browsers.
 :::
 
-Returns the newly created session.
+回傳值 the newly created session.
 
 **使用方式**
 
@@ -502,7 +502,7 @@ await BrowserContext.NewPageAsync();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.Pages</x-search>
 
-Returns all open pages in the context.
+回傳值 all open pages in the context.
 
 **使用方式**
 
@@ -916,7 +916,7 @@ await BrowserContext.SetOfflineAsync(offline);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.StorageStateAsync</x-search>
 
-Returns storage state for this browser context, contains current cookies, local storage snapshot and IndexedDB snapshot.
+回傳值 storage state for this browser context, contains current cookies, local storage snapshot and IndexedDB snapshot.
 
 **使用方式**
 

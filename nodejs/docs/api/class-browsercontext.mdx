@@ -60,7 +60,7 @@ await browserContext.addCookies([cookieObject1, cookieObject2]);
     Either url or domain / path are required Optional.
   - `expires` [number] *(optional)*
     
-    Unix time in seconds. Optional.
+    Unix 時間（秒）。 Optional.
   - `httpOnly` [boolean] *(optional)*
     
     Optional.
@@ -154,7 +154,7 @@ browserContext.backgroundPages();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.browser</x-search>
 
-Gets the browser instance that owns the context. Returns `null` if the context is created outside of normal browser, e.g. Android or Electron.
+Gets the browser instance that owns the context. 回傳值 `null` if the context is created outside of normal browser, e.g. Android or Electron.
 
 **使用方式**
 
@@ -284,7 +284,7 @@ await browserContext.cookies(urls);
     
   - `expires` [number]
     
-    Unix time in seconds.
+    Unix 時間（秒）。
   - `httpOnly` [boolean]
     
     
@@ -466,7 +466,7 @@ await browserContext.grantPermissions(permissions, options);
 CDP sessions are only supported on Chromium-based browsers.
 :::
 
-Returns the newly created session.
+回傳值 the newly created session.
 
 **使用方式**
 
@@ -505,7 +505,7 @@ await browserContext.newPage();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.pages</x-search>
 
-Returns all open pages in the context.
+回傳值 all open pages in the context.
 
 **使用方式**
 
@@ -855,7 +855,7 @@ await browserContext.setOffline(offline);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.storageState</x-search>
 
-Returns storage state for this browser context, contains current cookies, local storage snapshot and IndexedDB snapshot.
+回傳值 storage state for this browser context, contains current cookies, local storage snapshot and IndexedDB snapshot.
 
 **使用方式**
 
@@ -890,7 +890,7 @@ await browserContext.storageState(options);
       
     - `expires` [number]
       
-      Unix time in seconds.
+      Unix 時間（秒）。
     - `httpOnly` [boolean]
       
       
@@ -973,7 +973,7 @@ await browserContext.unrouteAll(options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.waitForEvent</x-search>
 
-Waits for event to fire and passes its value into the predicate function. Returns when the predicate returns truthy value. Will throw an error if the context closes before the event is fired. Returns the event data value.
+Waits for event to fire and passes its value into the predicate function. 回傳值 when the predicate returns truthy value. Will throw an error if the context closes before the event is fired. 回傳值 the event data value.
 
 **使用方式**
 

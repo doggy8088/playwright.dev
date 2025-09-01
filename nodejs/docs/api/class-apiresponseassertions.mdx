@@ -29,7 +29,7 @@ test('navigates to login', async ({ page }) => {
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.18</font><x-search>apiResponseAssertions.toBeOK</x-search>
 
-Ensures the response status code is within `200..299` range.
+確保回應狀態碼在 `200..299` 範圍內。
 
 **使用方式**
 
@@ -48,7 +48,7 @@ await expect(response).toBeOK();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.20</font><x-search>apiResponseAssertions.not</x-search>
 
-Makes the assertion check for the opposite condition. For example, this code tests that the response status is not successful:
+使斷言檢查相反的條件。例如，此程式碼測試回應狀態不成功：
 
 ```js
 await expect(response).not.toBeOK();

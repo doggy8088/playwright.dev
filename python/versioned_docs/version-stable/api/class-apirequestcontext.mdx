@@ -161,7 +161,7 @@ api_request_context.delete(url, **kwargs)
   Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
 - `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-fail-on-status-code"/><a href="#api-request-context-delete-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+  是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
 - `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-form"/><a href="#api-request-context-delete-option-form" class="list-anchor">#</a>
   
   Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -170,7 +170,7 @@ api_request_context.delete(url, **kwargs)
   Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
 - `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-ignore-https-errors"/><a href="#api-request-context-delete-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
 - `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-max-redirects"/><a href="#api-request-context-delete-option-max-redirects" class="list-anchor">#</a>
   
   Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -265,7 +265,7 @@ api_request_context.fetch(
   Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
 - `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-fail-on-status-code"/><a href="#api-request-context-fetch-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+  是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
 - `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-form"/><a href="#api-request-context-fetch-option-form" class="list-anchor">#</a>
   
   Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -274,7 +274,7 @@ api_request_context.fetch(
   Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
 - `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-ignore-https-errors"/><a href="#api-request-context-fetch-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
 - `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-max-redirects"/><a href="#api-request-context-fetch-option-max-redirects" class="list-anchor">#</a>
   
   Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -335,7 +335,7 @@ api_request_context.get("https://example.com/api/getText", params=query_params)
   Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
 - `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-fail-on-status-code"/><a href="#api-request-context-get-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+  是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
 - `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-form"/><a href="#api-request-context-get-option-form" class="list-anchor">#</a>
   
   Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -344,7 +344,7 @@ api_request_context.get("https://example.com/api/getText", params=query_params)
   Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
 - `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-ignore-https-errors"/><a href="#api-request-context-get-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
 - `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-max-redirects"/><a href="#api-request-context-get-option-max-redirects" class="list-anchor">#</a>
   
   Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -397,7 +397,7 @@ api_request_context.head(url, **kwargs)
   Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
 - `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-fail-on-status-code"/><a href="#api-request-context-head-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+  是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
 - `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-form"/><a href="#api-request-context-head-option-form" class="list-anchor">#</a>
   
   Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -406,7 +406,7 @@ api_request_context.head(url, **kwargs)
   Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
 - `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-ignore-https-errors"/><a href="#api-request-context-head-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
 - `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-max-redirects"/><a href="#api-request-context-head-option-max-redirects" class="list-anchor">#</a>
   
   Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -459,7 +459,7 @@ api_request_context.patch(url, **kwargs)
   Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
 - `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-fail-on-status-code"/><a href="#api-request-context-patch-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+  是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
 - `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-form"/><a href="#api-request-context-patch-option-form" class="list-anchor">#</a>
   
   Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -468,7 +468,7 @@ api_request_context.patch(url, **kwargs)
   Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
 - `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-ignore-https-errors"/><a href="#api-request-context-patch-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
 - `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-max-redirects"/><a href="#api-request-context-patch-option-max-redirects" class="list-anchor">#</a>
   
   Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -550,7 +550,7 @@ api_request_context.post(
   Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
 - `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-fail-on-status-code"/><a href="#api-request-context-post-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+  是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
 - `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-form"/><a href="#api-request-context-post-option-form" class="list-anchor">#</a>
   
   Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -559,7 +559,7 @@ api_request_context.post(
   Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
 - `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-ignore-https-errors"/><a href="#api-request-context-post-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
 - `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-max-redirects"/><a href="#api-request-context-post-option-max-redirects" class="list-anchor">#</a>
   
   Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -612,7 +612,7 @@ api_request_context.put(url, **kwargs)
   Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
 - `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-fail-on-status-code"/><a href="#api-request-context-put-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+  是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
 - `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-form"/><a href="#api-request-context-put-option-form" class="list-anchor">#</a>
   
   Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -621,7 +621,7 @@ api_request_context.put(url, **kwargs)
   Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
 - `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-ignore-https-errors"/><a href="#api-request-context-put-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
 - `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-max-redirects"/><a href="#api-request-context-put-option-max-redirects" class="list-anchor">#</a>
   
   Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -656,7 +656,7 @@ api_request_context.put(url, **kwargs)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.storage_state</x-search>
 
-Returns storage state for this request context, contains current cookies and local storage snapshot if it was passed to the constructor.
+回傳值 storage state for this request context, contains current cookies and local storage snapshot if it was passed to the constructor.
 
 **使用方式**
 
@@ -690,7 +690,7 @@ api_request_context.storage_state(**kwargs)
       
     - `expires` [float]
       
-      Unix time in seconds.
+      Unix 時間（秒）。
     - `httpOnly` [bool]
       
       

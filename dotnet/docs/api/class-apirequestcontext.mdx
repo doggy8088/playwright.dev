@@ -10,13 +10,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 此 API 用於 Web API 測試。 You can use it to trigger API endpoints, configure micro-services, prepare environment or the service to your e2e test.
 
-Each Playwright browser context has associated with it [APIRequestContext] instance which shares cookie storage with the browser context and can be accessed via [BrowserContext.APIRequest](/api/class-browsercontext.mdx#browser-context-request) or [Page.APIRequest](/api/class-page.mdx#page-request). It is also possible to create a new APIRequestContext instance manually by calling [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context).
+每個 Playwright 瀏覽器情境都有一個關聯的 [APIRequestContext] 執行個體，該執行個體與瀏覽器情境共享 cookie 儲存，可透過 [BrowserContext.APIRequest](/api/class-browsercontext.mdx#browser-context-request) 或 [Page.APIRequest](/api/class-page.mdx#page-request) 存取。也可以透過呼叫 [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 手動建立新的 APIRequestContext 執行個體。
 
 **Cookie management**
 
 [APIRequestContext] returned by [BrowserContext.APIRequest](/api/class-browsercontext.mdx#browser-context-request) and [Page.APIRequest](/api/class-page.mdx#page-request) shares cookie storage with the corresponding [BrowserContext]. Each API request will have `Cookie` header populated with the values from the browser context. If the API response contains `Set-Cookie` header it will automatically update [BrowserContext] cookies and requests made from the page will pick them up. This means that if you log in using this API, your e2e test will be logged in and vice versa.
 
-If you want API requests to not interfere with the browser cookies you should create a new [APIRequestContext] by calling [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context). Such `APIRequestContext` object will have its own isolated cookie storage.
+如果您希望 API 請求不會干擾瀏覽器 cookie，您應該透過呼叫 [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 建立新的 [APIRequestContext]。這樣的 `APIRequestContext` 物件將擁有自己獨立的 cookie 儲存。
 
 
 ---
@@ -27,7 +27,7 @@ If you want API requests to not interfere with the browser cookies you should cr
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.23</font><x-search>apiRequestContext.CreateFormData</x-search>
 
-Creates a new [FormData] instance which is used for providing form and multipart data when making HTTP requests.
+建立新的 [FormData] 執行個體，用於在發出 HTTP 請求時提供表單和 multipart 資料。
 
 **使用方式**
 
@@ -62,7 +62,7 @@ await ApiRequestContext.DeleteAsync(url, options);
     Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
   - `FailOnStatusCode` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-fail-on-status-code"/><a href="#api-request-context-delete-option-fail-on-status-code" class="list-anchor">#</a>
     
-    Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+    是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
   - `Form` [FormData]? *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-form"/><a href="#api-request-context-delete-option-form" class="list-anchor">#</a>
     
     Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -73,7 +73,7 @@ await ApiRequestContext.DeleteAsync(url, options);
     Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
   - `IgnoreHTTPSErrors` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-ignore-https-errors"/><a href="#api-request-context-delete-option-ignore-https-errors" class="list-anchor">#</a>
     
-    Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+    傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
   - `MaxRedirects` [int]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-max-redirects"/><a href="#api-request-context-delete-option-max-redirects" class="list-anchor">#</a>
     
     Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -165,7 +165,7 @@ await Request.FetchAsync("https://example.com/api/uploadScript", new() { Method 
     Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
   - `FailOnStatusCode` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-fail-on-status-code"/><a href="#api-request-context-fetch-option-fail-on-status-code" class="list-anchor">#</a>
     
-    Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+    是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
   - `Form` [FormData]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-form"/><a href="#api-request-context-fetch-option-form" class="list-anchor">#</a>
     
     Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -176,7 +176,7 @@ await Request.FetchAsync("https://example.com/api/uploadScript", new() { Method 
     Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
   - `IgnoreHTTPSErrors` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-ignore-https-errors"/><a href="#api-request-context-fetch-option-ignore-https-errors" class="list-anchor">#</a>
     
-    Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+    傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
   - `MaxRedirects` [int]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-max-redirects"/><a href="#api-request-context-fetch-option-max-redirects" class="list-anchor">#</a>
     
     Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -235,7 +235,7 @@ await request.GetAsync("https://example.com/api/getText", new() { Params = query
     Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
   - `FailOnStatusCode` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-fail-on-status-code"/><a href="#api-request-context-get-option-fail-on-status-code" class="list-anchor">#</a>
     
-    Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+    是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
   - `Form` [FormData]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-form"/><a href="#api-request-context-get-option-form" class="list-anchor">#</a>
     
     Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -246,7 +246,7 @@ await request.GetAsync("https://example.com/api/getText", new() { Params = query
     Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
   - `IgnoreHTTPSErrors` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-ignore-https-errors"/><a href="#api-request-context-get-option-ignore-https-errors" class="list-anchor">#</a>
     
-    Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+    傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
   - `MaxRedirects` [int]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-max-redirects"/><a href="#api-request-context-get-option-max-redirects" class="list-anchor">#</a>
     
     Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -295,7 +295,7 @@ await ApiRequestContext.HeadAsync(url, options);
     Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
   - `FailOnStatusCode` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-fail-on-status-code"/><a href="#api-request-context-head-option-fail-on-status-code" class="list-anchor">#</a>
     
-    Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+    是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
   - `Form` [FormData]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-form"/><a href="#api-request-context-head-option-form" class="list-anchor">#</a>
     
     Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -306,7 +306,7 @@ await ApiRequestContext.HeadAsync(url, options);
     Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
   - `IgnoreHTTPSErrors` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-ignore-https-errors"/><a href="#api-request-context-head-option-ignore-https-errors" class="list-anchor">#</a>
     
-    Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+    傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
   - `MaxRedirects` [int]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-max-redirects"/><a href="#api-request-context-head-option-max-redirects" class="list-anchor">#</a>
     
     Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -355,7 +355,7 @@ await ApiRequestContext.PatchAsync(url, options);
     Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
   - `FailOnStatusCode` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-fail-on-status-code"/><a href="#api-request-context-patch-option-fail-on-status-code" class="list-anchor">#</a>
     
-    Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+    是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
   - `Form` [FormData]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-form"/><a href="#api-request-context-patch-option-form" class="list-anchor">#</a>
     
     Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -366,7 +366,7 @@ await ApiRequestContext.PatchAsync(url, options);
     Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
   - `IgnoreHTTPSErrors` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-ignore-https-errors"/><a href="#api-request-context-patch-option-ignore-https-errors" class="list-anchor">#</a>
     
-    Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+    傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
   - `MaxRedirects` [int]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-max-redirects"/><a href="#api-request-context-patch-option-max-redirects" class="list-anchor">#</a>
     
     Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -444,7 +444,7 @@ await request.PostAsync("https://example.com/api/uploadScript", new() { Multipar
     Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
   - `FailOnStatusCode` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-fail-on-status-code"/><a href="#api-request-context-post-option-fail-on-status-code" class="list-anchor">#</a>
     
-    Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+    是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
   - `Form` [FormData]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-form"/><a href="#api-request-context-post-option-form" class="list-anchor">#</a>
     
     Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -455,7 +455,7 @@ await request.PostAsync("https://example.com/api/uploadScript", new() { Multipar
     Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
   - `IgnoreHTTPSErrors` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-ignore-https-errors"/><a href="#api-request-context-post-option-ignore-https-errors" class="list-anchor">#</a>
     
-    Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+    傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
   - `MaxRedirects` [int]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-max-redirects"/><a href="#api-request-context-post-option-max-redirects" class="list-anchor">#</a>
     
     Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -504,7 +504,7 @@ await ApiRequestContext.PutAsync(url, options);
     Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
   - `FailOnStatusCode` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-fail-on-status-code"/><a href="#api-request-context-put-option-fail-on-status-code" class="list-anchor">#</a>
     
-    Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
+    是否對 2xx 和 3xx 以外的回應代碼拋出錯誤。預設情況下會為所有狀態代碼回傳回應物件。
   - `Form` [FormData]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-form"/><a href="#api-request-context-put-option-form" class="list-anchor">#</a>
     
     Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
@@ -515,7 +515,7 @@ await ApiRequestContext.PutAsync(url, options);
     Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
   - `IgnoreHTTPSErrors` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-ignore-https-errors"/><a href="#api-request-context-put-option-ignore-https-errors" class="list-anchor">#</a>
     
-    Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+    傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
   - `MaxRedirects` [int]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-max-redirects"/><a href="#api-request-context-put-option-max-redirects" class="list-anchor">#</a>
     
     Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
@@ -546,7 +546,7 @@ await ApiRequestContext.PutAsync(url, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.StorageStateAsync</x-search>
 
-Returns storage state for this request context, contains current cookies and local storage snapshot if it was passed to the constructor.
+回傳值 storage state for this request context, contains current cookies and local storage snapshot if it was passed to the constructor.
 
 **使用方式**
 

@@ -70,7 +70,7 @@ asyncio.run(main())
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.body</x-search>
 
-Returns the buffer with response body.
+回傳包含回應主體的緩衝區。
 
 **使用方式**
 
@@ -87,7 +87,7 @@ api_response.body()
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.dispose</x-search>
 
-Disposes the body of this response. If not called then the body will stay in memory until the context closes.
+釋放此回應的主體。如果未呼叫，主體將保留在記憶體中直到情境關閉。
 
 **使用方式**
 
@@ -104,7 +104,7 @@ api_response.dispose()
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.json</x-search>
 
-Returns the JSON representation of response body.
+回傳值 the JSON representation of response body.
 
 This method will throw if the response body is not parsable via `JSON.parse`.
 
@@ -123,7 +123,7 @@ api_response.json()
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.text</x-search>
 
-Returns the text representation of response body.
+回傳值 the text representation of response body.
 
 **使用方式**
 
@@ -142,7 +142,7 @@ api_response.text()
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.headers</x-search>
 
-An object with all the response HTTP headers associated with this response.
+包含與此回應相關的所有回應 HTTP 標頭的物件。
 
 **使用方式**
 
