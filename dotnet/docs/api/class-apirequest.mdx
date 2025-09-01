@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-Exposes API that can be used for the Web API testing. This class is used for creating [APIRequestContext] instance which in turn can be used for sending web requests. An instance of this class can be obtained via [Playwright.APIRequest](/api/class-playwright.mdx#playwright-request). For more information see [APIRequestContext].
+公開可用於 Web API 測試的 API。此類別用於建立 [APIRequestContext] 執行個體，該執行個體可用於傳送 Web 請求。可透過 [Playwright.APIRequest](/api/class-playwright.mdx#playwright-request) 取得此類別的執行個體。如需更多資訊，請參閱 [APIRequestContext]。
 
 
 ---
@@ -19,7 +19,7 @@ Exposes API that can be used for the Web API testing. This class is used for cre
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequest.NewContextAsync</x-search>
 
-Creates new instances of [APIRequestContext].
+建立新的 [APIRequestContext] 執行個體。
 
 **使用方式**
 
@@ -31,43 +31,43 @@ await ApiRequest.NewContextAsync(options);
 - `options` `ApiRequestNewContextOptions?` *(optional)*
   - `BaseURL` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-base-url"/><a href="#api-request-new-context-option-base-url" class="list-anchor">#</a>
     
-    Methods like [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) take the base URL into consideration by using the [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor for building the corresponding URL. Examples:
-    * baseURL: `http://localhost:3000` and sending request to `/bar.html` results in `http://localhost:3000/bar.html`
-    * baseURL: `http://localhost:3000/foo/` and sending request to `./bar.html` results in `http://localhost:3000/foo/bar.html`
-    * baseURL: `http://localhost:3000/foo` (without trailing slash) and navigating to `./bar.html` results in `http://localhost:3000/bar.html`
+    像 [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) 這樣的方法會透過使用 [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 建構函式來建構對應的 URL，將基底 URL 納入考量。範例：
+    * baseURL: `http://localhost:3000` 並傳送請求到 `/bar.html` 會產生 `http://localhost:3000/bar.html`
+    * baseURL: `http://localhost:3000/foo/` 並傳送請求到 `./bar.html` 會產生 `http://localhost:3000/foo/bar.html`
+    * baseURL: `http://localhost:3000/foo` (沒有結尾斜線) 並導航到 `./bar.html` 會產生 `http://localhost:3000/bar.html`
   - `ClientCertificates` [IEnumerable]?&lt;ClientCertificates&gt; *(optional)* <font size="2">Added in: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-client-certificates"/><a href="#api-request-new-context-option-client-certificates" class="list-anchor">#</a>
     - `Origin` [string]
       
-      Exact origin that the certificate is valid for. Origin includes `https` protocol, a hostname and optionally a port.
+      憑證有效的確切來源。來源包含 `https` 通訊協定、主機名稱及可選的連接埠。
     - `CertPath` [string]? *(optional)*
       
-      Path to the file with the certificate in PEM format.
+      PEM 格式憑證檔案的路徑。
     - `Cert` [byte]&#91;&#93;? *(optional)*
       
-      Direct value of the certificate in PEM format.
+      PEM 格式憑證的直接值。
     - `KeyPath` [string]? *(optional)*
       
-      Path to the file with the private key in PEM format.
+      PEM 格式私密金鑰檔案的路徑。
     - `Key` [byte]&#91;&#93;? *(optional)*
       
-      Direct value of the private key in PEM format.
+      PEM 格式私密金鑰的直接值。
     - `PfxPath` [string]? *(optional)*
       
-      Path to the PFX or PKCS12 encoded private key and certificate chain.
+      PFX 或 PKCS12 編碼私密金鑰和憑證鏈檔案的路徑。
     - `Pfx` [byte]&#91;&#93;? *(optional)*
       
-      Direct value of the PFX or PKCS12 encoded private key and certificate chain.
+      PFX 或 PKCS12 編碼私密金鑰和憑證鏈的直接值。
     - `Passphrase` [string]? *(optional)*
       
-      Passphrase for the private key (PEM or PFX).
+      私密金鑰的密碼 (PEM 或 PFX)。
     
-    TLS Client Authentication allows the server to request a client certificate and verify it.
+    TLS 用戶端驗證允許伺服器請求用戶端憑證並驗證它。
     
-    **Details**
+    **詳細說明**
     
-    An array of client certificates to be used. Each certificate object must have either both `certPath` and `keyPath`, a single `pfxPath`, or their corresponding direct value equivalents (`cert` and `key`, or `pfx`). Optionally, `passphrase` property should be provided if the certificate is encrypted. The `origin` property should be provided with an exact match to the request origin that the certificate is valid for.
+    要使用的用戶端憑證陣列。每個憑證物件必須同時具有 `certPath` 和 `keyPath`、單個 `pfxPath`，或其對應的直接值等效項（`cert` 和 `key`，或 `pfx`）。如果憑證已加密，可選擇提供 `passphrase` 屬性。應提供 `origin` 屬性以與憑證有效的請求來源完全匹配。
     
-    Client certificate authentication is only active when at least one client certificate is provided. If you want to reject all client certificates sent by the server, you need to provide a client certificate with an `origin` that does not match any of the domains you plan to visit.
+    用戶端憑證驗證只有在至少提供一個用戶端憑證時才會啟動。如果您想拒絕伺服器傳送的所有用戶端憑證，您需要提供一個 `origin` 與您計劃造訪的任何網域都不匹配的用戶端憑證。
     
     :::note
     
