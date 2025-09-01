@@ -102,7 +102,7 @@
 - [x] nodejs/docs/codegen.mdx
 - [x] nodejs/docs/debug.mdx
 - [x] nodejs/docs/dialogs.mdx
-- [ ] nodejs/docs/docker.mdx
+- [x] nodejs/docs/docker.mdx
 - [x] nodejs/docs/downloads.mdx
 - [x] nodejs/docs/emulation.mdx
 - [x] nodejs/docs/evaluating.mdx
@@ -111,7 +111,7 @@
 - [x] nodejs/docs/frames.mdx
 - [x] nodejs/docs/getting-started-vscode.mdx
 - [x] nodejs/docs/handles.mdx
-- [ ] nodejs/docs/input.mdx
+- [x] nodejs/docs/input.mdx
 - [x] nodejs/docs/intro.mdx
 - [x] nodejs/docs/languages.mdx
 - [x] nodejs/docs/library.mdx
@@ -134,17 +134,17 @@
 - [x] nodejs/docs/test-assertions.mdx
 - [x] nodejs/docs/test-cli.mdx
 - [x] nodejs/docs/test-components.mdx
-- [ ] nodejs/docs/test-configuration.mdx
-- [ ] nodejs/docs/test-fixtures.mdx
+- [x] nodejs/docs/test-configuration.mdx
+- [x] nodejs/docs/test-fixtures.mdx
 - [x] nodejs/docs/test-global-setup-teardown.mdx
 - [x] nodejs/docs/test-parallel.mdx
-- [ ] nodejs/docs/test-parameterize.mdx
+- [x] nodejs/docs/test-parameterize.mdx
 - [x] nodejs/docs/test-projects.mdx
 - [x] nodejs/docs/test-reporters.mdx
-- [ ] nodejs/docs/test-retries.mdx
-- [ ] nodejs/docs/test-sharding.mdx
+- [x] nodejs/docs/test-retries.mdx
+- [x] nodejs/docs/test-sharding.mdx
 - [x] nodejs/docs/test-snapshots.mdx
-- [ ] nodejs/docs/test-timeouts.mdx
+- [x] nodejs/docs/test-timeouts.mdx
 - [x] nodejs/docs/test-typescript.mdx
 - [x] nodejs/docs/test-ui-mode.mdx
 - [x] nodejs/docs/test-use-options.mdx
@@ -244,7 +244,7 @@
 - [x] nodejs/versioned_docs/version-stable/codegen.mdx
 - [x] nodejs/versioned_docs/version-stable/debug.mdx
 - [x] nodejs/versioned_docs/version-stable/dialogs.mdx
-- [ ] nodejs/versioned_docs/version-stable/docker.mdx
+- [x] nodejs/versioned_docs/version-stable/docker.mdx
 - [x] nodejs/versioned_docs/version-stable/downloads.mdx
 - [x] nodejs/versioned_docs/version-stable/emulation.mdx
 - [x] nodejs/versioned_docs/version-stable/evaluating.mdx
@@ -253,7 +253,7 @@
 - [x] nodejs/versioned_docs/version-stable/frames.mdx
 - [x] nodejs/versioned_docs/version-stable/getting-started-vscode.mdx
 - [x] nodejs/versioned_docs/version-stable/handles.mdx
-- [ ] nodejs/versioned_docs/version-stable/input.mdx
+- [x] nodejs/versioned_docs/version-stable/input.mdx
 - [x] nodejs/versioned_docs/version-stable/intro.mdx
 - [x] nodejs/versioned_docs/version-stable/languages.mdx
 - [x] nodejs/versioned_docs/version-stable/library.mdx
@@ -276,17 +276,17 @@
 - [x] nodejs/versioned_docs/version-stable/test-assertions.mdx
 - [x] nodejs/versioned_docs/version-stable/test-cli.mdx
 - [x] nodejs/versioned_docs/version-stable/test-components.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-configuration.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-fixtures.mdx
+- [x] nodejs/versioned_docs/version-stable/test-configuration.mdx
+- [x] nodejs/versioned_docs/version-stable/test-fixtures.mdx
 - [x] nodejs/versioned_docs/version-stable/test-global-setup-teardown.mdx
 - [x] nodejs/versioned_docs/version-stable/test-parallel.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-parameterize.mdx
+- [x] nodejs/versioned_docs/version-stable/test-parameterize.mdx
 - [x] nodejs/versioned_docs/version-stable/test-projects.mdx
 - [x] nodejs/versioned_docs/version-stable/test-reporters.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-retries.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-sharding.mdx
+- [x] nodejs/versioned_docs/version-stable/test-retries.mdx
+- [x] nodejs/versioned_docs/version-stable/test-sharding.mdx
 - [x] nodejs/versioned_docs/version-stable/test-snapshots.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-timeouts.mdx
+- [x] nodejs/versioned_docs/version-stable/test-timeouts.mdx
 - [x] nodejs/versioned_docs/version-stable/test-typescript.mdx
 - [x] nodejs/versioned_docs/version-stable/test-ui-mode.mdx
 - [x] nodejs/versioned_docs/version-stable/test-use-options.mdx
@@ -353,7 +353,7 @@
 - [x] python/docs/codegen.mdx
 - [x] python/docs/debug.mdx
 - [x] python/docs/dialogs.mdx
-- [ ] python/docs/docker.mdx
+- [x] python/docs/docker.mdx
 - [x] python/docs/downloads.mdx
 - [x] python/docs/emulation.mdx
 - [x] python/docs/evaluating.mdx
@@ -361,7 +361,7 @@
 - [x] python/docs/extensibility.mdx
 - [x] python/docs/frames.mdx
 - [x] python/docs/handles.mdx
-- [ ] python/docs/input.mdx
+- [x] python/docs/input.mdx
 - [x] python/docs/intro.mdx
 - [x] python/docs/languages.mdx
 - [x] python/docs/library.mdx
@@ -439,7 +439,7 @@
 - [x] python/versioned_docs/version-stable/codegen.mdx
 - [x] python/versioned_docs/version-stable/debug.mdx
 - [x] python/versioned_docs/version-stable/dialogs.mdx
-- [ ] python/versioned_docs/version-stable/docker.mdx
+- [x] python/versioned_docs/version-stable/docker.mdx
 - [x] python/versioned_docs/version-stable/downloads.mdx
 - [x] python/versioned_docs/version-stable/emulation.mdx
 - [x] python/versioned_docs/version-stable/evaluating.mdx
@@ -447,7 +447,7 @@
 - [x] python/versioned_docs/version-stable/extensibility.mdx
 - [x] python/versioned_docs/version-stable/frames.mdx
 - [x] python/versioned_docs/version-stable/handles.mdx
-- [ ] python/versioned_docs/version-stable/input.mdx
+- [x] python/versioned_docs/version-stable/input.mdx
 - [x] python/versioned_docs/version-stable/intro.mdx
 - [x] python/versioned_docs/version-stable/languages.mdx
 - [x] python/versioned_docs/version-stable/library.mdx
@@ -528,7 +528,7 @@
 - [x] java/docs/codegen.mdx
 - [x] java/docs/debug.mdx
 - [x] java/docs/dialogs.mdx
-- [ ] java/docs/docker.mdx
+- [x] java/docs/docker.mdx
 - [x] java/docs/downloads.mdx
 - [x] java/docs/emulation.mdx
 - [x] java/docs/evaluating.mdx
@@ -536,7 +536,7 @@
 - [x] java/docs/extensibility.mdx
 - [x] java/docs/frames.mdx
 - [x] java/docs/handles.mdx
-- [ ] java/docs/input.mdx
+- [x] java/docs/input.mdx
 - [x] java/docs/intro.mdx
 - [ ] java/docs/junit.mdx
 - [x] java/docs/languages.mdx
@@ -618,7 +618,7 @@
 - [x] java/versioned_docs/version-stable/codegen.mdx
 - [x] java/versioned_docs/version-stable/debug.mdx
 - [x] java/versioned_docs/version-stable/dialogs.mdx
-- [ ] java/versioned_docs/version-stable/docker.mdx
+- [x] java/versioned_docs/version-stable/docker.mdx
 - [x] java/versioned_docs/version-stable/downloads.mdx
 - [x] java/versioned_docs/version-stable/emulation.mdx
 - [x] java/versioned_docs/version-stable/evaluating.mdx
@@ -626,7 +626,7 @@
 - [x] java/versioned_docs/version-stable/extensibility.mdx
 - [x] java/versioned_docs/version-stable/frames.mdx
 - [x] java/versioned_docs/version-stable/handles.mdx
-- [ ] java/versioned_docs/version-stable/input.mdx
+- [x] java/versioned_docs/version-stable/input.mdx
 - [x] java/versioned_docs/version-stable/intro.mdx
 - [ ] java/versioned_docs/version-stable/junit.mdx
 - [x] java/versioned_docs/version-stable/languages.mdx
@@ -707,7 +707,7 @@
 - [x] dotnet/docs/codegen.mdx
 - [x] dotnet/docs/debug.mdx
 - [x] dotnet/docs/dialogs.mdx
-- [ ] dotnet/docs/docker.mdx
+- [x] dotnet/docs/docker.mdx
 - [x] dotnet/docs/downloads.mdx
 - [x] dotnet/docs/emulation.mdx
 - [x] dotnet/docs/evaluating.mdx
@@ -715,7 +715,7 @@
 - [x] dotnet/docs/extensibility.mdx
 - [x] dotnet/docs/frames.mdx
 - [x] dotnet/docs/handles.mdx
-- [ ] dotnet/docs/input.mdx
+- [x] dotnet/docs/input.mdx
 - [x] dotnet/docs/intro.mdx
 - [x] dotnet/docs/languages.mdx
 - [x] dotnet/docs/library.mdx
@@ -795,7 +795,7 @@
 - [x] dotnet/versioned_docs/version-stable/codegen.mdx
 - [x] dotnet/versioned_docs/version-stable/debug.mdx
 - [x] dotnet/versioned_docs/version-stable/dialogs.mdx
-- [ ] dotnet/versioned_docs/version-stable/docker.mdx
+- [x] dotnet/versioned_docs/version-stable/docker.mdx
 - [x] dotnet/versioned_docs/version-stable/downloads.mdx
 - [x] dotnet/versioned_docs/version-stable/emulation.mdx
 - [x] dotnet/versioned_docs/version-stable/evaluating.mdx
@@ -803,7 +803,7 @@
 - [x] dotnet/versioned_docs/version-stable/extensibility.mdx
 - [x] dotnet/versioned_docs/version-stable/frames.mdx
 - [x] dotnet/versioned_docs/version-stable/handles.mdx
-- [ ] dotnet/versioned_docs/version-stable/input.mdx
+- [x] dotnet/versioned_docs/version-stable/input.mdx
 - [x] dotnet/versioned_docs/version-stable/intro.mdx
 - [x] dotnet/versioned_docs/version-stable/languages.mdx
 - [x] dotnet/versioned_docs/version-stable/library.mdx
