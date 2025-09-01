@@ -8,43 +8,43 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-This API is used for the Web API testing. You can use it to trigger API endpoints, configure micro-services, prepare environment or the service to your e2e test.
+此 API 用於 Web API 測試。您可以使用它來觸發 API 端點、設定微服務、準備環境或為您的端對端測試準備服務。
 
-Each Playwright browser context has associated with it [APIRequestContext] instance which shares cookie storage with the browser context and can be accessed via [BrowserContext.request()](/api/class-browsercontext.mdx#browser-context-request) or [Page.request()](/api/class-page.mdx#page-request). It is also possible to create a new APIRequestContext instance manually by calling [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context).
+每個 Playwright 瀏覽器情境都有與其關聯的 [APIRequestContext] 實例，該實例與瀏覽器情境共享 cookie 儲存，並可透過 [BrowserContext.request()](/api/class-browsercontext.mdx#browser-context-request) 或 [Page.request()](/api/class-page.mdx#page-request) 存取。也可以透過呼叫 [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 手動建立新的 APIRequestContext 實例。
 
-**Cookie management**
+**Cookie 管理**
 
-[APIRequestContext] returned by [BrowserContext.request()](/api/class-browsercontext.mdx#browser-context-request) and [Page.request()](/api/class-page.mdx#page-request) shares cookie storage with the corresponding [BrowserContext]. Each API request will have `Cookie` header populated with the values from the browser context. If the API response contains `Set-Cookie` header it will automatically update [BrowserContext] cookies and requests made from the page will pick them up. This means that if you log in using this API, your e2e test will be logged in and vice versa.
+由 [BrowserContext.request()](/api/class-browsercontext.mdx#browser-context-request) 和 [Page.request()](/api/class-page.mdx#page-request) 回傳的 [APIRequestContext] 與對應的 [BrowserContext] 共享 cookie 儲存。每個 API 請求都會使用來自瀏覽器情境的值填入 `Cookie` 標頭。如果 API 回應包含 `Set-Cookie` 標頭，它會自動更新 [BrowserContext] cookie，並且從頁面發出的請求會選取它們。這意味著如果您使用此 API 登入，您的端對端測試將會被登入，反之亦然。
 
-If you want API requests to not interfere with the browser cookies you should create a new [APIRequestContext] by calling [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context). Such `APIRequestContext` object will have its own isolated cookie storage.
+如果您希望 API 請求不干擾瀏覽器 cookie，您應該透過呼叫 [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 建立新的 [APIRequestContext]。這樣的 `APIRequestContext` 物件將擁有自己的隔離 cookie 儲存。
 
 
 ---
 
-## Methods
+## 方法
 
 ### delete {#api-request-context-delete}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.delete</x-search>
 
-Sends HTTP(S) [DELETE](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [DELETE](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE) 請求並回傳其回應。此方法會從情境填入請求 cookie，並從回應更新情境 cookie。此方法會自動追蹤重新導向。
 
-**Usage**
+**使用方式**
 
 ```java
 APIRequestContext.delete(url);
 APIRequestContext.delete(url, options);
 ```
 
-**Arguments**
+**參數**
 - `url` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-url"/><a href="#api-request-context-delete-option-url" class="list-anchor">#</a>
   
-  Target URL.
+  目標 URL。
 - `options` [RequestOptions] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-params"/><a href="#api-request-context-delete-option-params" class="list-anchor">#</a>
   
   Optional request parameters.
 
-**Returns**
+**回傳值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-return"/><a href="#api-request-context-delete-return" class="list-anchor">#</a>
 
 ---
@@ -55,20 +55,20 @@ APIRequestContext.delete(url, options);
 
 All responses returned by [APIRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and similar methods are stored in the memory, so that you can later call [APIResponse.body()](/api/class-apiresponse.mdx#api-response-body).This method discards all its resources, calling any method on disposed [APIRequestContext] will throw an exception.
 
-**Usage**
+**使用方式**
 
 ```java
 APIRequestContext.dispose();
 APIRequestContext.dispose(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ApiRequestContext.DisposeOptions` *(optional)*
   - `setReason` [String] *(optional)* <font size="2">Added in: v1.45</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-dispose-option-reason"/><a href="#api-request-context-dispose-option-reason" class="list-anchor">#</a>
     
     The reason to be reported to the operations interrupted by the context disposal.
 
-**Returns**
+**回傳值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-dispose-return"/><a href="#api-request-context-dispose-return" class="list-anchor">#</a>
 
 ---
@@ -79,7 +79,7 @@ APIRequestContext.dispose(options);
 
 Sends HTTP(S) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
 
-**Usage**
+**使用方式**
 
 JSON objects can be passed directly to the request:
 
@@ -107,7 +107,7 @@ APIResponse response = request.fetch("https://example.com/api/uploadScript",
     FormData.create().set("fileField", filePayload)));
 ```
 
-**Arguments**
+**參數**
 - `urlOrRequest` [String] | [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-url-or-request"/><a href="#api-request-context-fetch-option-url-or-request" class="list-anchor">#</a>
   
   Target URL or Request to get all parameters from.
@@ -115,7 +115,7 @@ APIResponse response = request.fetch("https://example.com/api/uploadScript",
   
   Optional request parameters.
 
-**Returns**
+**回傳值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-return"/><a href="#api-request-context-fetch-return" class="list-anchor">#</a>
 
 ---
@@ -124,9 +124,9 @@ APIResponse response = request.fetch("https://example.com/api/uploadScript",
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.get</x-search>
 
-Sends HTTP(S) [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) 請求並回傳其回應。此方法會從情境填入請求 cookie，並從回應更新情境 cookie。此方法會自動追蹤重新導向。
 
-**Usage**
+**使用方式**
 
 Request parameters can be configured with `params` option, they will be serialized into the URL search parameters:
 
@@ -136,15 +136,15 @@ request.get("https://example.com/api/getText", RequestOptions.create()
   .setQueryParam("page", 23));
 ```
 
-**Arguments**
+**參數**
 - `url` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-url"/><a href="#api-request-context-get-option-url" class="list-anchor">#</a>
   
-  Target URL.
+  目標 URL。
 - `options` [RequestOptions] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-params"/><a href="#api-request-context-get-option-params" class="list-anchor">#</a>
   
   Optional request parameters.
 
-**Returns**
+**回傳值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-return"/><a href="#api-request-context-get-return" class="list-anchor">#</a>
 
 ---
@@ -153,24 +153,24 @@ request.get("https://example.com/api/getText", RequestOptions.create()
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.head</x-search>
 
-Sends HTTP(S) [HEAD](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [HEAD](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD) 請求並回傳其回應。此方法會從情境填入請求 cookie，並從回應更新情境 cookie。此方法會自動追蹤重新導向。
 
-**Usage**
+**使用方式**
 
 ```java
 APIRequestContext.head(url);
 APIRequestContext.head(url, options);
 ```
 
-**Arguments**
+**參數**
 - `url` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-url"/><a href="#api-request-context-head-option-url" class="list-anchor">#</a>
   
-  Target URL.
+  目標 URL。
 - `options` [RequestOptions] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-params"/><a href="#api-request-context-head-option-params" class="list-anchor">#</a>
   
   Optional request parameters.
 
-**Returns**
+**回傳值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-return"/><a href="#api-request-context-head-return" class="list-anchor">#</a>
 
 ---
@@ -179,24 +179,24 @@ APIRequestContext.head(url, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.patch</x-search>
 
-Sends HTTP(S) [PATCH](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [PATCH](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH) 請求並回傳其回應。此方法會從情境填入請求 cookie，並從回應更新情境 cookie。此方法會自動追蹤重新導向。
 
-**Usage**
+**使用方式**
 
 ```java
 APIRequestContext.patch(url);
 APIRequestContext.patch(url, options);
 ```
 
-**Arguments**
+**參數**
 - `url` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-url"/><a href="#api-request-context-patch-option-url" class="list-anchor">#</a>
   
-  Target URL.
+  目標 URL。
 - `options` [RequestOptions] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-params"/><a href="#api-request-context-patch-option-params" class="list-anchor">#</a>
   
   Optional request parameters.
 
-**Returns**
+**回傳值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-return"/><a href="#api-request-context-patch-return" class="list-anchor">#</a>
 
 ---
@@ -205,9 +205,9 @@ APIRequestContext.patch(url, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.post</x-search>
 
-Sends HTTP(S) [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) 請求並回傳其回應。此方法會從情境填入請求 cookie，並從回應更新情境 cookie。此方法會自動追蹤重新導向。
 
-**Usage**
+**使用方式**
 
 JSON objects can be passed directly to the request:
 
@@ -243,15 +243,15 @@ APIResponse response = request.post("https://example.com/api/uploadScript",
     FormData.create().set("fileField", filePayload)));
 ```
 
-**Arguments**
+**參數**
 - `url` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-url"/><a href="#api-request-context-post-option-url" class="list-anchor">#</a>
   
-  Target URL.
+  目標 URL。
 - `options` [RequestOptions] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-params"/><a href="#api-request-context-post-option-params" class="list-anchor">#</a>
   
   Optional request parameters.
 
-**Returns**
+**回傳值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-return"/><a href="#api-request-context-post-return" class="list-anchor">#</a>
 
 ---
@@ -260,24 +260,24 @@ APIResponse response = request.post("https://example.com/api/uploadScript",
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.put</x-search>
 
-Sends HTTP(S) [PUT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [PUT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT) 請求並回傳其回應。此方法會從情境填入請求 cookie，並從回應更新情境 cookie。此方法會自動追蹤重新導向。
 
-**Usage**
+**使用方式**
 
 ```java
 APIRequestContext.put(url);
 APIRequestContext.put(url, options);
 ```
 
-**Arguments**
+**參數**
 - `url` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-url"/><a href="#api-request-context-put-option-url" class="list-anchor">#</a>
   
-  Target URL.
+  目標 URL。
 - `options` [RequestOptions] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-params"/><a href="#api-request-context-put-option-params" class="list-anchor">#</a>
   
   Optional request parameters.
 
-**Returns**
+**回傳值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-return"/><a href="#api-request-context-put-return" class="list-anchor">#</a>
 
 ---
@@ -288,23 +288,23 @@ APIRequestContext.put(url, options);
 
 Returns storage state for this request context, contains current cookies and local storage snapshot if it was passed to the constructor.
 
-**Usage**
+**使用方式**
 
 ```java
 APIRequestContext.storageState();
 APIRequestContext.storageState(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ApiRequestContext.StorageStateOptions` *(optional)*
   - `setIndexedDB` [boolean] *(optional)* <font size="2">Added in: v1.51</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-option-indexed-db"/><a href="#api-request-context-storage-state-option-indexed-db" class="list-anchor">#</a>
     
     Set to `true` to include IndexedDB in the storage state snapshot.
   - `setPath` [Path] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-option-path"/><a href="#api-request-context-storage-state-option-path" class="list-anchor">#</a>
     
-    The file path to save the storage state to. If [setPath](/api/class-apirequestcontext.mdx#api-request-context-storage-state-option-path) is a relative path, then it is resolved relative to current working directory. If no path is provided, storage state is still returned, but won't be saved to the disk.
+    儲存儲存狀態的檔案路徑。 If [setPath](/api/class-apirequestcontext.mdx#api-request-context-storage-state-option-path) is a relative path, then it is resolved relative to current working directory. If no path is provided, storage state is still returned, but won't be saved to the disk.
 
-**Returns**
+**回傳值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-return"/><a href="#api-request-context-storage-state-return" class="list-anchor">#</a>
 
 

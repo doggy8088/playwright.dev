@@ -8,7 +8,7 @@
 
 總計：790 檔
 
-更新時間：2025-09-01T04:11:43.183Z
+更新時間：2025-09-01T04:25:40.998Z
 
 ## 社群（community）（2）
 
@@ -26,8 +26,8 @@
 - [ ] nodejs/docs/api/class-androidinput.mdx
 - [ ] nodejs/docs/api/class-androidsocket.mdx
 - [ ] nodejs/docs/api/class-androidwebview.mdx
-- [ ] nodejs/docs/api/class-apirequest.mdx
-- [ ] nodejs/docs/api/class-apirequestcontext.mdx
+- [x] nodejs/docs/api/class-apirequest.mdx
+- [x] nodejs/docs/api/class-apirequestcontext.mdx
 - [ ] nodejs/docs/api/class-apiresponse.mdx
 - [ ] nodejs/docs/api/class-apiresponseassertions.mdx
 - [ ] nodejs/docs/api/class-browser.mdx
@@ -168,8 +168,8 @@
 - [ ] nodejs/versioned_docs/version-stable/api/class-androidinput.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-androidsocket.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-androidwebview.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-apirequest.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-apirequestcontext.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-apirequest.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-apirequestcontext.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-apiresponse.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-browser.mdx
@@ -304,8 +304,8 @@
 - [ ] python/docs/actionability.mdx
 - [ ] python/docs/api-testing.mdx
 - [ ] python/docs/api/class-accessibility.mdx
-- [ ] python/docs/api/class-apirequest.mdx
-- [ ] python/docs/api/class-apirequestcontext.mdx
+- [x] python/docs/api/class-apirequest.mdx
+- [x] python/docs/api/class-apirequestcontext.mdx
 - [ ] python/docs/api/class-apiresponse.mdx
 - [ ] python/docs/api/class-apiresponseassertions.mdx
 - [ ] python/docs/api/class-browser.mdx
@@ -390,8 +390,8 @@
 - [ ] python/versioned_docs/version-stable/actionability.mdx
 - [ ] python/versioned_docs/version-stable/api-testing.mdx
 - [ ] python/versioned_docs/version-stable/api/class-accessibility.mdx
-- [ ] python/versioned_docs/version-stable/api/class-apirequest.mdx
-- [ ] python/versioned_docs/version-stable/api/class-apirequestcontext.mdx
+- [x] python/versioned_docs/version-stable/api/class-apirequest.mdx
+- [x] python/versioned_docs/version-stable/api/class-apirequestcontext.mdx
 - [ ] python/versioned_docs/version-stable/api/class-apiresponse.mdx
 - [ ] python/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
 - [ ] python/versioned_docs/version-stable/api/class-browser.mdx
@@ -476,8 +476,8 @@
 - [ ] java/docs/accessibility-testing.mdx
 - [ ] java/docs/actionability.mdx
 - [ ] java/docs/api-testing.mdx
-- [ ] java/docs/api/class-apirequest.mdx
-- [ ] java/docs/api/class-apirequestcontext.mdx
+- [x] java/docs/api/class-apirequest.mdx
+- [x] java/docs/api/class-apirequestcontext.mdx
 - [ ] java/docs/api/class-apiresponse.mdx
 - [ ] java/docs/api/class-apiresponseassertions.mdx
 - [ ] java/docs/api/class-browser.mdx
@@ -566,8 +566,8 @@
 - [ ] java/versioned_docs/version-stable/accessibility-testing.mdx
 - [ ] java/versioned_docs/version-stable/actionability.mdx
 - [ ] java/versioned_docs/version-stable/api-testing.mdx
-- [ ] java/versioned_docs/version-stable/api/class-apirequest.mdx
-- [ ] java/versioned_docs/version-stable/api/class-apirequestcontext.mdx
+- [x] java/versioned_docs/version-stable/api/class-apirequest.mdx
+- [x] java/versioned_docs/version-stable/api/class-apirequestcontext.mdx
 - [ ] java/versioned_docs/version-stable/api/class-apiresponse.mdx
 - [ ] java/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
 - [ ] java/versioned_docs/version-stable/api/class-browser.mdx
@@ -656,8 +656,8 @@
 - [ ] dotnet/docs/actionability.mdx
 - [ ] dotnet/docs/api-testing.mdx
 - [ ] dotnet/docs/api/class-accessibility.mdx
-- [ ] dotnet/docs/api/class-apirequest.mdx
-- [ ] dotnet/docs/api/class-apirequestcontext.mdx
+- [x] dotnet/docs/api/class-apirequest.mdx
+- [x] dotnet/docs/api/class-apirequestcontext.mdx
 - [ ] dotnet/docs/api/class-apiresponse.mdx
 - [ ] dotnet/docs/api/class-apiresponseassertions.mdx
 - [ ] dotnet/docs/api/class-browser.mdx
@@ -744,8 +744,8 @@
 - [ ] dotnet/versioned_docs/version-stable/actionability.mdx
 - [ ] dotnet/versioned_docs/version-stable/api-testing.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-accessibility.mdx
-- [ ] dotnet/versioned_docs/version-stable/api/class-apirequest.mdx
-- [ ] dotnet/versioned_docs/version-stable/api/class-apirequestcontext.mdx
+- [x] dotnet/versioned_docs/version-stable/api/class-apirequest.mdx
+- [x] dotnet/versioned_docs/version-stable/api/class-apirequestcontext.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-apiresponse.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-browser.mdx
