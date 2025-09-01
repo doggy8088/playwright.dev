@@ -8,22 +8,22 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-Playwright has **experimental** support for Android automation. This includes Chrome for Android and Android WebView.
+Playwright 對 Android 自動化有**實驗性**支援。這包括 Chrome for Android 和 Android WebView。
 
-*Requirements*
-* Android device or AVD Emulator.
-* [ADB daemon](https://developer.android.com/studio/command-line/adb) running and authenticated with your device. Typically running `adb devices` is all you need to do.
-* [`Chrome 87`](https://play.google.com/store/apps/details?id=com.android.chrome) or newer installed on the device
-* "Enable command line on non-rooted devices" enabled in `chrome://flags`.
+*需求*
+* Android 裝置或 AVD 模擬器。
+* 執行並與您的裝置已驗證的 [ADB daemon](https://developer.android.com/studio/command-line/adb)。通常執行 `adb devices` 就是您需要做的全部。
+* 裝置上已安裝 [`Chrome 87`](https://play.google.com/store/apps/details?id=com.android.chrome) 或更新版本
+* 在 `chrome://flags` 中啟用「Enable command line on non-rooted devices」。
 
-*Known limitations*
-* Raw USB operation is not yet supported, so you need ADB.
-* Device needs to be awake to produce screenshots. Enabling "Stay awake" developer mode will help.
-* We didn't run all the tests against the device, so not everything works.
+*已知限制*
+* 尚未支援原始 USB 操作，因此您需要 ADB。
+* 裝置需要保持喚醒狀態才能產生螢幕截圖。啟用「保持喚醒」開發者模式會有所幫助。
+* 我們沒有針對裝置執行所有測試，因此並非所有功能都能運作。
 
-*How to run*
+*如何執行*
 
-An example of the Android automation script would be:
+Android 自動化腳本的範例如下：
 
 ```js
 const { _android: android } = require('playwright');
@@ -83,37 +83,37 @@ const { _android: android } = require('playwright');
 
 ---
 
-## Methods
+## 方法
 
 ### connect {#android-connect}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.28</font><x-search>android.connect</x-search>
 
-This methods attaches Playwright to an existing Android device. Use [android.launchServer()](/api/class-android.mdx#android-launch-server) to launch a new Android server instance.
+此方法將 Playwright 連接到現有的 Android 裝置。使用 [android.launchServer()](/api/class-android.mdx#android-launch-server) 來啟動新的 Android 伺服器實例。
 
-**Usage**
+**用法**
 
 ```js
 await android.connect(wsEndpoint);
 await android.connect(wsEndpoint, options);
 ```
 
-**Arguments**
+**參數**
 - `wsEndpoint` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-ws-endpoint"/><a href="#android-connect-option-ws-endpoint" class="list-anchor">#</a>
   
-  A browser websocket endpoint to connect to.
-- `options` [Object] *(optional)*
-  - `headers` [Object]&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-headers"/><a href="#android-connect-option-headers" class="list-anchor">#</a>
+  要連接的瀏覽器 websocket 端點。
+- `options` [Object] *(可選)*
+  - `headers` [Object]&lt;[string], [string]&gt; *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-headers"/><a href="#android-connect-option-headers" class="list-anchor">#</a>
     
-    Additional HTTP headers to be sent with web socket connect request. Optional.
-  - `slowMo` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-slow-mo"/><a href="#android-connect-option-slow-mo" class="list-anchor">#</a>
+    要與 web socket 連接請求一起發送的額外 HTTP 標頭。可選。
+  - `slowMo` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-slow-mo"/><a href="#android-connect-option-slow-mo" class="list-anchor">#</a>
     
-    Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on. Defaults to `0`.
-  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-timeout"/><a href="#android-connect-option-timeout" class="list-anchor">#</a>
+    將 Playwright 操作減慢指定的毫秒數。這很有用，這樣您就可以看到正在發生的事情。預設為 `0`。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-timeout"/><a href="#android-connect-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds to wait for the connection to be established. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+    等待建立連接的最長時間（毫秒）。預設為 `30000`（30 秒）。傳遞 `0` 停用逾時。
 
-**Returns**
+**回傳**
 - [Promise]&lt;[AndroidDevice]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-return"/><a href="#android-connect-return" class="list-anchor">#</a>
 
 ---
@@ -122,28 +122,28 @@ await android.connect(wsEndpoint, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>android.devices</x-search>
 
-Returns the list of detected Android devices.
+回傳已偵測到的 Android 裝置清單。
 
-**Usage**
+**用法**
 
 ```js
 await android.devices();
 await android.devices(options);
 ```
 
-**Arguments**
-- `options` [Object] *(optional)*
-  - `host` [string] *(optional)* <font size="2">Added in: v1.22</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-option-host"/><a href="#android-devices-option-host" class="list-anchor">#</a>
+**參數**
+- `options` [Object] *(可選)*
+  - `host` [string] *(可選)* <font size="2">Added in: v1.22</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-option-host"/><a href="#android-devices-option-host" class="list-anchor">#</a>
     
-    Optional host to establish ADB server connection. Default to `127.0.0.1`.
-  - `omitDriverInstall` [boolean] *(optional)* <font size="2">Added in: v1.21</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-option-omit-driver-install"/><a href="#android-devices-option-omit-driver-install" class="list-anchor">#</a>
+    建立 ADB 伺服器連線的可選主機。預設為 `127.0.0.1`。
+  - `omitDriverInstall` [boolean] *(可選)* <font size="2">Added in: v1.21</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-option-omit-driver-install"/><a href="#android-devices-option-omit-driver-install" class="list-anchor">#</a>
     
-    Prevents automatic playwright driver installation on attach. Assumes that the drivers have been installed already.
-  - `port` [number] *(optional)* <font size="2">Added in: v1.20</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-option-port"/><a href="#android-devices-option-port" class="list-anchor">#</a>
+    在附加時阻止自動安裝 playwright 驅動程式。假設驅動程式已經安裝。
+  - `port` [number] *(可選)* <font size="2">Added in: v1.20</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-option-port"/><a href="#android-devices-option-port" class="list-anchor">#</a>
     
-    Optional port to establish ADB server connection. Default to `5037`.
+    建立 ADB 伺服器連線的可選連接埠。預設為 `5037`。
 
-**Returns**
+**回傳**
 - [Promise]&lt;[Array]&lt;[AndroidDevice]&gt;&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-return"/><a href="#android-devices-return" class="list-anchor">#</a>
 
 ---
@@ -152,11 +152,11 @@ await android.devices(options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.28</font><x-search>android.launchServer</x-search>
 
-Launches Playwright Android server that clients can connect to. See the following example:
+啟動客戶端可以連接的 Playwright Android 伺服器。請參閱以下範例：
 
-**Usage**
+**用法**
 
-Server Side:
+伺服器端：
 
 ```js
 const { _android } = require('playwright');
@@ -171,7 +171,7 @@ const { _android } = require('playwright');
 })();
 ```
 
-Client Side:
+客戶端：
 
 ```js
 const { _android } = require('playwright');
@@ -193,36 +193,36 @@ const { _android } = require('playwright');
 })();
 ```
 
-**Arguments**
-- `options` [Object] *(optional)*
-  - `adbHost` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-adb-host"/><a href="#android-launch-server-option-adb-host" class="list-anchor">#</a>
+**參數**
+- `options` [Object] *(可選)*
+  - `adbHost` [string] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-adb-host"/><a href="#android-launch-server-option-adb-host" class="list-anchor">#</a>
     
-    Optional host to establish ADB server connection. Default to `127.0.0.1`.
-  - `adbPort` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-adb-port"/><a href="#android-launch-server-option-adb-port" class="list-anchor">#</a>
+    建立 ADB 伺服器連線的可選主機。預設為 `127.0.0.1`。
+  - `adbPort` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-adb-port"/><a href="#android-launch-server-option-adb-port" class="list-anchor">#</a>
     
-    Optional port to establish ADB server connection. Default to `5037`.
-  - `deviceSerialNumber` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-device-serial-number"/><a href="#android-launch-server-option-device-serial-number" class="list-anchor">#</a>
+    建立 ADB 伺服器連線的可選連接埠。預設為 `5037`。
+  - `deviceSerialNumber` [string] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-device-serial-number"/><a href="#android-launch-server-option-device-serial-number" class="list-anchor">#</a>
     
-    Optional device serial number to launch the browser on. If not specified, it will throw if multiple devices are connected.
-  - `host` [string] *(optional)* <font size="2">Added in: v1.45</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-host"/><a href="#android-launch-server-option-host" class="list-anchor">#</a>
+    要啟動瀏覽器的可選裝置序號。如果未指定，當連接多個裝置時會拋出錯誤。
+  - `host` [string] *(可選)* <font size="2">Added in: v1.45</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-host"/><a href="#android-launch-server-option-host" class="list-anchor">#</a>
     
-    Host to use for the web socket. It is optional and if it is omitted, the server will accept connections on the unspecified IPv6 address (::) when IPv6 is available, or the unspecified IPv4 address (0.0.0.0) otherwise. Consider hardening it with picking a specific interface.
-  - `omitDriverInstall` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-omit-driver-install"/><a href="#android-launch-server-option-omit-driver-install" class="list-anchor">#</a>
+    用於 web socket 的主機。這是可選的，如果省略，當 IPv6 可用時，伺服器將接受未指定的 IPv6 位址 (::) 上的連接，否則接受未指定的 IPv4 位址 (0.0.0.0) 上的連接。建議選擇特定介面來加強安全性。
+  - `omitDriverInstall` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-omit-driver-install"/><a href="#android-launch-server-option-omit-driver-install" class="list-anchor">#</a>
     
-    Prevents automatic playwright driver installation on attach. Assumes that the drivers have been installed already.
-  - `port` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-port"/><a href="#android-launch-server-option-port" class="list-anchor">#</a>
+    在附加時阻止自動安裝 playwright 驅動程式。假設驅動程式已經安裝。
+  - `port` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-port"/><a href="#android-launch-server-option-port" class="list-anchor">#</a>
     
-    Port to use for the web socket. Defaults to 0 that picks any available port.
-  - `wsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-ws-path"/><a href="#android-launch-server-option-ws-path" class="list-anchor">#</a>
+    用於 web socket 的連接埠。預設為 0，會選擇任何可用的連接埠。
+  - `wsPath` [string] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-ws-path"/><a href="#android-launch-server-option-ws-path" class="list-anchor">#</a>
     
-    Path at which to serve the Android Server. For security, this defaults to an unguessable string.
+    服務 Android 伺服器的路徑。為了安全起見，預設為一個無法猜測的字串。
     
     :::warning
     
-    Any process or web page (including those running in Playwright) with knowledge of the `wsPath` can take control of the OS user. For this reason, you should use an unguessable token when using this option.
+    任何知道 `wsPath` 的程序或網頁（包括在 Playwright 中執行的那些）都可以取得作業系統使用者的控制權。因此，使用此選項時，您應該使用無法猜測的令牌。
     :::
     
-**Returns**
+**回傳**
 - [Promise]&lt;[BrowserServer]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-return"/><a href="#android-launch-server-return" class="list-anchor">#</a>
 
 ---
@@ -231,18 +231,18 @@ const { _android } = require('playwright');
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>android.setDefaultTimeout</x-search>
 
-This setting will change the default maximum time for all the methods accepting [timeout](/api/class-android.mdx#android-set-default-timeout-option-timeout) option.
+此設定將變更所有接受 [timeout](/api/class-android.mdx#android-set-default-timeout-option-timeout) 選項的方法的預設最長時間。
 
-**Usage**
+**用法**
 
 ```js
 android.setDefaultTimeout(timeout);
 ```
 
-**Arguments**
+**參數**
 - `timeout` [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-set-default-timeout-option-timeout"/><a href="#android-set-default-timeout-option-timeout" class="list-anchor">#</a>
   
-  Maximum time in milliseconds
+  最長時間（毫秒）
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

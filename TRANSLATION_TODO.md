@@ -20,12 +20,12 @@
 - [x] nodejs/docs/accessibility-testing.mdx
 - [x] nodejs/docs/actionability.mdx
 - [x] nodejs/docs/api-testing.mdx
-- [ ] nodejs/docs/api/class-accessibility.mdx
-- [ ] nodejs/docs/api/class-android.mdx
-- [ ] nodejs/docs/api/class-androiddevice.mdx
-- [ ] nodejs/docs/api/class-androidinput.mdx
-- [ ] nodejs/docs/api/class-androidsocket.mdx
-- [ ] nodejs/docs/api/class-androidwebview.mdx
+- [x] nodejs/docs/api/class-accessibility.mdx
+- [x] nodejs/docs/api/class-android.mdx
+- [x] nodejs/docs/api/class-androiddevice.mdx
+- [x] nodejs/docs/api/class-androidinput.mdx
+- [x] nodejs/docs/api/class-androidsocket.mdx
+- [x] nodejs/docs/api/class-androidwebview.mdx
 - [ ] nodejs/docs/api/class-apirequest.mdx
 - [ ] nodejs/docs/api/class-apirequestcontext.mdx
 - [ ] nodejs/docs/api/class-apiresponse.mdx
@@ -162,12 +162,12 @@
 - [x] nodejs/versioned_docs/version-stable/accessibility-testing.mdx
 - [x] nodejs/versioned_docs/version-stable/actionability.mdx
 - [x] nodejs/versioned_docs/version-stable/api-testing.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-accessibility.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-android.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-androiddevice.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-androidinput.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-androidsocket.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-androidwebview.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-accessibility.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-android.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-androiddevice.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-androidinput.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-androidsocket.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-androidwebview.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-apirequest.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-apirequestcontext.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-apiresponse.mdx
@@ -303,7 +303,7 @@
 
 - [x] python/docs/actionability.mdx
 - [x] python/docs/api-testing.mdx
-- [ ] python/docs/api/class-accessibility.mdx
+- [x] python/docs/api/class-accessibility.mdx
 - [ ] python/docs/api/class-apirequest.mdx
 - [ ] python/docs/api/class-apirequestcontext.mdx
 - [ ] python/docs/api/class-apiresponse.mdx
@@ -389,7 +389,7 @@
 
 - [x] python/versioned_docs/version-stable/actionability.mdx
 - [x] python/versioned_docs/version-stable/api-testing.mdx
-- [ ] python/versioned_docs/version-stable/api/class-accessibility.mdx
+- [x] python/versioned_docs/version-stable/api/class-accessibility.mdx
 - [ ] python/versioned_docs/version-stable/api/class-apirequest.mdx
 - [ ] python/versioned_docs/version-stable/api/class-apirequestcontext.mdx
 - [ ] python/versioned_docs/version-stable/api/class-apiresponse.mdx
@@ -655,7 +655,7 @@
 
 - [x] dotnet/docs/actionability.mdx
 - [x] dotnet/docs/api-testing.mdx
-- [ ] dotnet/docs/api/class-accessibility.mdx
+- [x] dotnet/docs/api/class-accessibility.mdx
 - [ ] dotnet/docs/api/class-apirequest.mdx
 - [ ] dotnet/docs/api/class-apirequestcontext.mdx
 - [ ] dotnet/docs/api/class-apiresponse.mdx
@@ -743,7 +743,7 @@
 
 - [x] dotnet/versioned_docs/version-stable/actionability.mdx
 - [x] dotnet/versioned_docs/version-stable/api-testing.mdx
-- [ ] dotnet/versioned_docs/version-stable/api/class-accessibility.mdx
+- [x] dotnet/versioned_docs/version-stable/api/class-accessibility.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-apirequest.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-apirequestcontext.mdx
 - [ ] dotnet/versioned_docs/version-stable/api/class-apiresponse.mdx
