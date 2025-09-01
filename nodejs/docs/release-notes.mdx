@@ -1027,7 +1027,7 @@ Linux 支援如下所示：
 * UI 模式現在顯示步驟、佈置和附件：![UI 模式附件](https://github.com/microsoft/playwright/assets/746130/1d280419-d79a-4a56-b2dc-54d631281d56)
 * 新屬性 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) 用於指定在此專案和所有相依專案完成後需要執行的專案。清理對於清理此專案取得的任何資源很有用。
   
-  A common pattern would be a `setup` dependency with a corresponding `teardown`:
+  常見的模式是 `setup` 相依性搭配對應的 `teardown`：
   
   ```js title="playwright.config.ts"
   import { defineConfig } from '@playwright/test';
@@ -1188,7 +1188,7 @@ npx playwright test --ui
 
 ### ⚠️ Breaking change in component tests
 
-Note: **component tests only**, does not affect end-to-end tests.
+注意：**僅適用於元件測試**，不影響端對端測試。
 * `@playwright/experimental-ct-react` 現在支援 **React 18 only**.
 * 如果您正在使用 React 16 或 17 執行元件測試，請將 `@playwright/experimental-ct-react` 替換為 `@playwright/experimental-ct-react17`。
 
@@ -1262,9 +1262,9 @@ Note: **component tests only**, does not affect end-to-end tests.
 
 ### ⚠️ Breaking change in component tests
 
-Note: **component tests only**, does not affect end-to-end tests.
+注意：**僅適用於元件測試**，不影響端對端測試。
 
-`playwright-ct.config` configuration file for [component testing](./test-components.mdx) now requires calling `defineConfig`.
+[元件測試](./test-components.mdx)的 `playwright-ct.config` 配置檔現在需要呼叫 `defineConfig`。
 
 ```js
 // Before
@@ -2397,7 +2397,7 @@ test.describe.parallel('group', () => {
 
 選擇器歧義是自動化測試中的常見問題。**「嚴格」模式**確保您的選擇器指向單一元素，否則會拋出例外。
 
-Pass `strict: true` into your action calls to opt in.
+在您的動作呼叫中傳遞 `strict: true` 以啟用此功能。
 
 ```js
 // 如果您有超過一個按鈕，這會拋出例外！
@@ -2421,7 +2421,7 @@ await locator.click();
 
 #### 🧩 Experimental [**React**](./other-locators.mdx#react-locator) 和 [**Vue**](./other-locators.mdx#vue-locator) selector engines
 
-React and Vue selectors allow selecting elements by its component name and/or 屬性 values. The syntax is very similar to [attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) and supports all attribute selector operators.
+React 和 Vue 選擇器允許透過元件名稱和/或屬性值來選擇元素。語法與[屬性選擇器](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)非常相似，並支援所有屬性選擇器運算子。
 
 ```js
 await page.locator('_react=SubmitButton[enabled=true]').click();
@@ -2583,13 +2583,13 @@ export default defineConfig({
 - 在失敗時擷取影片、螢幕截圖和其他製品。
 - 將您的 POM 整合為可擴充的佈置。
 
-Installation:
+安裝：
 
 ```bash
 npm i -D @playwright/test
 ```
 
-Simple test `tests/foo.spec.ts`:
+簡單測試 `tests/foo.spec.ts`：
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -2601,7 +2601,7 @@ test('basic test', async ({ page }) => {
 });
 ```
 
-Running:
+執行：
 
 ```bash
 npx playwright test
