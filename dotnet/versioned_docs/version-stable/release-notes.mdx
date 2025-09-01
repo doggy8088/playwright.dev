@@ -367,7 +367,7 @@ var context = await Browser.NewContextAsync(new() {
 
 ### 時鐘
 
-Utilizing the new [Clock] API 允許 manipulate and control time within tests to verify time-related behavior. This API covers many common scenarios, including:
+利用新的 [Clock] API 允許在測試中操控和控制時間以驗證與時間相關的行為。此 API 涵蓋許多常見場景，包括：
 * testing with predefined time;
 * keeping consistent time and timers;
 * monitoring inactivity;
@@ -672,7 +672,7 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 
 Playwright 現在支援 Debian 12 Bookworm on both x86_64 and arm64 for Chromium, Firefox and WebKit. 如果您遇到任何問題，請告訴我們！
 
-Linux support looks like this:
+Linux 支援如下：
 
 |          | Ubuntu 20.04 | Ubuntu 22.04 | Debian 11 | Debian 12 |
 | :--- | :---: | :---: | :---: | :---: |
@@ -926,7 +926,7 @@ Linux support looks like this:
 
 ### 定位器
 
-With these new APIs writing locators is a joy:
+使用這些新 API 編寫定位器是一種樂趣：
 - [Page.GetByText()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
 - [Page.GetByRole()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [Page.GetByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
@@ -990,7 +990,7 @@ await Page.GotoAsync("https://playwright.dev", new() { WaitUntil = WaitUntilStat
 
 在 1.26 之前，這將等待所有 iframe 觸發 `DOMContentLoaded` 事件。
 
-To align with web specification, the `WaitUntilState.DOMContentLoaded` value only waits for the target frame to fire the `'DOMContentLoaded'` event. Use `WaitUntil: WaitUntilState.Load` to wait for all iframes.
+為了與網頁規範保持一致，`WaitUntilState.DOMContentLoaded` 值只會等待目標框架觸發 `'DOMContentLoaded'` 事件。使用 `WaitUntil: WaitUntilState.Load` 來等待所有 iframe。
 
 ### 瀏覽器版本
 * Chromium 106.0.5249.30
@@ -1005,7 +1005,7 @@ To align with web specification, the `WaitUntilState.DOMContentLoaded` value onl
 
 ### New .runsettings file的支援
 
-`Microsoft.Playwright.NUnit` and `Microsoft.Playwright.MSTest` 現在會 consider the `.runsettings` file and passed settings via the CLI when running end-to-end tests. See in the [documentation](./test-runners) for a full list of supported settings.
+`Microsoft.Playwright.NUnit` 和 `Microsoft.Playwright.MSTest` 現在會在執行端對端測試時考慮 `.runsettings` 檔案和透過 CLI 傳遞的設定。請參閱[文件](./test-runners)以取得支援設定的完整清單。
 
 以下現在可以正常運作：
 
@@ -1056,7 +1056,7 @@ To align with web specification, the `WaitUntilState.DOMContentLoaded` value onl
 
 Playwright 現在支援 Debian 11 Bullseye on x86_64 for Chromium, Firefox and WebKit. 如果您遇到任何問題，請告訴我們！
 
-Linux support looks like this:
+Linux 支援如下：
 
 |          | Ubuntu 20.04 | Ubuntu 22.04 | Debian 11
 | :--- | :---: | :---: | :---: | :---: |
@@ -1077,7 +1077,7 @@ Playwright for .NET 1.23 引入新的 [API 測試](./api/class-apirequestcontext
 - prepare server side state before visiting the web application in a test
 - validate server side post-conditions after running some actions in the browser
 
-To do a request on behalf of Playwright's Page, use **new [Page.APIRequest](/api/class-page.mdx#page-request) API**:
+要代表 Playwright 的 Page 執行請求，請使用**新的 [Page.APIRequest](/api/class-page.mdx#page-request) API**：
 
 ```csharp
 // Do a GET request on behalf of page
@@ -1102,7 +1102,7 @@ To record network into HAR file:
 pwsh bin/Debug/netX/playwright.ps1 open --save-har=example.har --save-har-glob="**/api/**" https://example.com
 ```
 
-Alternatively, you can record HAR programmatically:
+或者，您可以透過程式方式錄製 HAR：
 
 ```csharp
 var context = await browser.NewContextAsync(new()
@@ -1402,7 +1402,7 @@ orderSent.WaitForAsync();
 - Mozilla Firefox 93.0
 - WebKit 15.4
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 94
 - Microsoft Edge 94
 
@@ -1538,7 +1538,7 @@ await button.ClickAsync("button >> visible=true");
 - Mozilla Firefox 89.0
 - WebKit 14.2
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 91
 - Microsoft Edge 91
 

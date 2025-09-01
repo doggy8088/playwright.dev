@@ -748,11 +748,11 @@ test('pass', async ({ page }) => {
 });
 ```
 
-See the documentation [for a full example](./test-assertions#add-custom-matchers-using-expectextend).
+查看[完整範例](./test-assertions#add-custom-matchers-using-expectextend)的文件。
 
 ### 合併測試佈置
 
-You 現在可以 merge test fixtures from multiple files or modules:
+您現在可以合併來自多個檔案或模組的測試佈置：
 
 ```js title="fixtures.ts"
 import { mergeTests } from '@playwright/test';
@@ -902,9 +902,9 @@ Add `@playwright/browser-chromium`, `@playwright/browser-firefox` and `@playwrig
 
 ### 新的 `npx playwright merge-reports` 工具
 
-If you run tests on multiple shards, you 現在可以 merge all reports in a single HTML report (or any other report) using the new `merge-reports` CLI tool.
+如果您在多個分片上執行測試，您現在可以使用新的 `merge-reports` CLI 工具將所有報告合併為單一 HTML 報告（或任何其他報告）。
 
-Using `merge-reports` tool requires the following steps:
+使用 `merge-reports` 工具需要以下步驟：
 1. Adding a new "blob" reporter to the config when running on CI:
    
    ```js title="playwright.config.ts"
@@ -928,7 +928,7 @@ npx playwright merge-reports --reporter html ./all-blob-reports
 
 Playwright 現在支援 Debian 12 Bookworm on both x86_64 and arm64 for Chromium, Firefox and WebKit. 如果您遇到任何問題，請告訴我們！
 
-Linux support looks like this:
+Linux 支援如下：
 
 |          | Ubuntu 20.04 | Ubuntu 22.04 | Debian 11 | Debian 12 |
 | :--- | :---: | :---: | :---: | :---: |
@@ -1461,7 +1461,7 @@ await page.getByRole('button', { name: 'Sign in' }).click();
 await expect(page.getByText('Welcome, John!')).toBeVisible();
 ```
 
-All the same methods are also available on [Locator], [FrameLocator] 和 [Frame] classes.
+[Locator]、[FrameLocator] 和 [Frame] 類別也都提供相同的方法。
 
 ### 其他重點
 - `workers` 選項在 `playwright.config.ts` 中現在接受百分比字串以使用部分可用的 CPU。您也可以在命令列中傳遞它：
@@ -1526,9 +1526,9 @@ await page.goto('https://playwright.dev', {
 });
 ```
 
-Prior to 1.26, this would wait for all iframes to fire the `DOMContentLoaded` event.
+在 1.26 之前，這將等待所有 iframe 觸發 `DOMContentLoaded` 事件。
 
-To align with web specification, the `'domcontentloaded'` value only waits for the target frame to fire the `'DOMContentLoaded'` event. Use `waitUntil: 'load'` to wait for all iframes.
+為了與網頁規範保持一致，`'domcontentloaded'` 值只會等待目標框架觸發 `'DOMContentLoaded'` 事件。使用 `waitUntil: 'load'` 來等待所有 iframe。
 
 ### 瀏覽器版本
 * Chromium 106.0.5249.30
@@ -1714,7 +1714,7 @@ To record network into HAR file:
 npx playwright open --save-har=github.har.zip https://github.com/microsoft
 ```
 
-Alternatively, you can record HAR programmatically:
+或者，您可以透過程式方式錄製 HAR：
 
 ```js
 const context = await browser.newContext({
@@ -1758,7 +1758,7 @@ test('should work', async ({ page }) => {
 });
 ```
 
-Note that the new methods [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 和 [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) also participate in routing and could be deferred to.
+請注意，新方法 [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 和 [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) 也會參與路由處理，並且可以被延遲。
 
 ### Web-First 斷言更新
 * 新方法 [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選取值。
@@ -2323,7 +2323,7 @@ Playwright Docker image is now published for Arm64 so it 可以使用 on Apple S
 - Mozilla Firefox 93.0
 - WebKit 15.4
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 94
 - Microsoft Edge 94
 
@@ -2645,7 +2645,7 @@ That will open the following GUI:
 - Mozilla Firefox 89.0
 - WebKit 14.2
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 91
 - Microsoft Edge 91
 
@@ -2693,7 +2693,7 @@ This version of Playwright was also tested against the following stable channels
 - Mozilla Firefox 87.0b10
 - WebKit 14.2
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 89
 - Microsoft Edge 89
 

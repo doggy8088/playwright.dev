@@ -60,7 +60,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
   button.click()
   ```
   
-- `python -m playwright install --list` 現在會 list all installed browsers, versions and locations.
+- `python -m playwright install --list` 現在會列出所有已安裝的瀏覽器、版本和位置。
 
 ### 瀏覽器版本
 - Chromium 138.0.7204.4
@@ -439,7 +439,7 @@ def test_example(page: Page) -> None:
 
 ## 版本 1.39
 
-Evergreen browsers update.
+更新長青瀏覽器。
 
 ### 瀏覽器版本
 * Chromium 119.0.6045.9
@@ -485,7 +485,7 @@ Evergreen browsers update.
 
 Playwright 現在支援 Debian 12 Bookworm on both x86_64 and arm64 for Chromium, Firefox and WebKit. 如果您遇到任何問題，請告訴我們！
 
-Linux support looks like this:
+Linux 支援如下：
 
 |          | Ubuntu 20.04 | Ubuntu 22.04 | Debian 11 | Debian 12 |
 | :--- | :---: | :---: | :---: | :---: |
@@ -742,7 +742,7 @@ Linux support looks like this:
 
 ### 定位器
 
-With these new APIs writing locators is a joy:
+使用這些新 API 編寫定位器是一種樂趣：
 - [page.get_by_text()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
 - [page.get_by_role()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [page.get_by_label()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
@@ -761,7 +761,7 @@ page.get_by_role("button", name="Sign in").click()
 expect(page.get_by_text("Welcome, John!")).to_be_visible()
 ```
 
-All the same methods are also available on [Locator], [FrameLocator] 和 [Frame] classes.
+[Locator]、[FrameLocator] 和 [Frame] 類別也都提供相同的方法。
 
 ### 其他重點
 - 如 v1.25 中所宣布，Ubuntu 18 將在 2022 年 12 月起不再受支援。除此之外，從下一個 Playwright 版本開始，Ubuntu 18 上將不會有 WebKit 更新。
@@ -802,9 +802,9 @@ A bunch of Playwright APIs already support the `wait_until: "domcontentloaded"` 
 page.goto("https://playwright.dev", wait_until="domcontentloaded")
 ```
 
-Prior to 1.26, this would wait for all iframes to fire the `DOMContentLoaded` event.
+在 1.26 之前，這將等待所有 iframe 觸發 `DOMContentLoaded` 事件。
 
-To align with web specification, the `'domcontentloaded'` value only waits for the target frame to fire the `'DOMContentLoaded'` event. Use `wait_until="load"` to wait for all iframes.
+為了與網頁規範保持一致，`'domcontentloaded'` 值只會等待目標框架觸發 `'DOMContentLoaded'` 事件。使用 `wait_until="load"` 來等待所有 iframe。
 
 ### 瀏覽器版本
 * Chromium 106.0.5249.30
@@ -843,7 +843,7 @@ To align with web specification, the `'domcontentloaded'` value only waits for t
 
 Playwright 現在支援 Debian 11 Bullseye on x86_64 for Chromium, Firefox and WebKit. 如果您遇到任何問題，請告訴我們！
 
-Linux support looks like this:
+Linux 支援如下：
 
 |          | Ubuntu 20.04 | Ubuntu 22.04 | Debian 11
 | :--- | :---: | :---: | :---: | :---: |
@@ -859,7 +859,7 @@ We rewrote our Getting Started docs to be more end-to-end testing focused. Check
 
 ### 網路重播
 
-Now you can record network traffic into a HAR file and re-use this traffic in your tests.
+現在您可以將網路流量錄製到 HAR 檔案中，並在測試中重複使用此流量。
 
 To record network into HAR file:
 
@@ -867,7 +867,7 @@ To record network into HAR file:
 npx playwright open --save-har=github.har.zip https://github.com/microsoft
 ```
 
-Alternatively, you can record HAR programmatically:
+或者，您可以透過程式方式錄製 HAR：
 
 <Tabs
   groupId="python-flavor"
@@ -1417,7 +1417,7 @@ Playwright Docker image is now published for Arm64 so it 可以使用 on Apple S
 - Mozilla Firefox 93.0
 - WebKit 15.4
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 94
 - Microsoft Edge 94
 
@@ -1581,7 +1581,7 @@ That will open the following GUI:
 - Mozilla Firefox 89.0
 - WebKit 14.2
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 91
 - Microsoft Edge 91
 
@@ -1629,7 +1629,7 @@ This version of Playwright was also tested against the following stable channels
 - Mozilla Firefox 87.0b10
 - WebKit 14.2
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 89
 - Microsoft Edge 89
 

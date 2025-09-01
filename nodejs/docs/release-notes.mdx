@@ -756,7 +756,7 @@ test('pass', async ({ page }) => {
 
 ### 合併測試佈置
 
-您現在可以 merge test fixtures from multiple files or modules:
+您現在可以合併來自多個檔案或模組的測試佈置：
 
 ```js title="fixtures.ts"
 import { mergeTests } from '@playwright/test';
@@ -776,7 +776,7 @@ test('passes', async ({ database, page, a11y }) => {
 
 ### 合併自定義 expect 比對器
 
-您現在可以 merge custom expect matchers from multiple files or modules:
+您現在可以合併來自多個檔案或模組的自訂 expect 匹配器：
 
 ```js title="fixtures.ts"
 import { mergeTests, mergeExpects } from '@playwright/test';
@@ -1718,7 +1718,7 @@ beforeMount(async ({ hooksConfig }) => {
 npx playwright open --save-har=github.har.zip https://github.com/microsoft
 ```
 
-Alternatively, you can record HAR programmatically:
+或者，您可以透過程式方式錄製 HAR：
 
 ```js
 const context = await browser.newContext({
@@ -2376,7 +2376,7 @@ test.describe.parallel('group', () => {
 });
 ```
 
-By default, tests in a single file are run in order. If you have many independent tests in a single file, 您現在可以 run them in parallel with [test.describe.parallel(title, callback)](./api/class-test#test-describe-parallel).
+預設情況下，單一檔案中的測試會按順序執行。如果您在單一檔案中有許多獨立測試，您現在可以使用 [test.describe.parallel(title, callback)](./api/class-test#test-describe-parallel) 平行執行它們。
 
 #### 🛠 Add `--debug` CLI flag
 
@@ -2408,7 +2408,7 @@ await page.click('button', { strict: true });
 
 定位器代表頁面上元素的檢視。它擷取在任何給定時刻檢索元素所需的邏輯。
 
-The difference between the [Locator](./api/class-locator) 和 [ElementHandle](./api/class-elementhandle) is that the latter points to a particular element, while [Locator](./api/class-locator) captures the logic of how to retrieve that element.
+[Locator](./api/class-locator) 和 [ElementHandle](./api/class-elementhandle) 之間的差異在於後者指向特定元素，而 [Locator](./api/class-locator) 捕獲如何檢索該元素的邏輯。
 
 Also, locators are **"strict" by default**!
 
@@ -2483,7 +2483,7 @@ Playwright Test 會重複測試具有選擇器 `.status` 的節點，直到取�
 
 #### ⛓ Serial mode with [`describe.serial`](./api/class-test#test-describe-serial)
 
-Declares a group of tests that should always be run serially. If one of the tests fails, all subsequent tests are skipped. All tests in a group are retried together.
+宣告一組應該始終序列執行的測試。如果其中一個測試失敗，所有後續測試都會被跳過。群組中的所有測試會一起重試。
 
 ```js
 test.describe.serial('group', () => {
@@ -2496,7 +2496,7 @@ test.describe.serial('group', () => {
 
 #### 🐾 Steps API with [`test.step`](./api/class-test#test-step)
 
-Split long tests into multiple steps using `test.step()` API:
+使用 `test.step()` API 將長測試分割為多個步驟：
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -2511,11 +2511,11 @@ test('test', async ({ page }) => {
 });
 ```
 
-Step information is exposed in reporters API.
+步驟資訊會在報告 API 中公開。
 
 #### 🌎 Launch web server before running tests
 
-To launch a server during the tests, use the [`webServer`](./test-webserver) 選項 in the configuration file. The server will wait for a given url to be available before running the tests, and the url will be passed over to Playwright as a [`baseURL`](./api/class-testoptions#test-options-base-url) when creating a context.
+要在測試期間啟動伺服器，請在配置檔案中使用 [`webServer`](./test-webserver) 選項。伺服器會等待指定的 URL 可用後才執行測試，並且該 URL 會在建立情境時作為 [`baseURL`](./api/class-testoptions#test-options-base-url) 傳遞給 Playwright。
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -2616,7 +2616,7 @@ npx playwright test
 - page rendering before and after each Playwright action
 - browser network during script execution
 
-Traces are recorded using the new [browserContext.tracing](/api/class-browsercontext.mdx#browser-context-tracing) API:
+使用新的 [browserContext.tracing](/api/class-browsercontext.mdx#browser-context-tracing) API 錄製追蹤：
 
 ```js
 const browser = await chromium.launch();
@@ -2632,13 +2632,13 @@ await page.goto('https://playwright.dev');
 await context.tracing.stop({ path: 'trace.zip' });
 ```
 
-Traces are examined later with the Playwright CLI:
+稍後使用 Playwright CLI 檢查追蹤：
 
 ```sh
 npx playwright show-trace trace.zip
 ```
 
-That will open the following GUI:
+這將開啟以下 GUI：
 
 ![image](https://user-images.githubusercontent.com/746130/121109654-d66c4480-c7c0-11eb-8d4d-eb70d2b03811.png)
 
@@ -2649,7 +2649,7 @@ That will open the following GUI:
 - Mozilla Firefox 89.0
 - WebKit 14.2
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 91
 - Microsoft Edge 91
 
@@ -2697,7 +2697,7 @@ This version of Playwright was also tested against the following stable channels
 - Mozilla Firefox 87.0b10
 - WebKit 14.2
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 89
 - Microsoft Edge 89
 

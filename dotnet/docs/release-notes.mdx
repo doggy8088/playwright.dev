@@ -926,13 +926,13 @@ Linux 支援情況如下：
 
 ### 定位器
 
-With these new APIs writing locators is a joy:
+使用這些新 API 編寫定位器是一種樂趣：
 - [Page.GetByText()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
 - [Page.GetByRole()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
-- [Page.GetByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
+- [Page.GetByLabel()](/api/class-page.mdx#page-get-by-label) 透過關聯標籤的文字定位表單控制項。
 - [Page.GetByTestId()](/api/class-page.mdx#page-get-by-test-id) 以根據元素的 `data-testid` 屬性定位元素（可配置其他屬性）。
-- [Page.GetByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder)以定位an input by placeholder.
-- [Page.GetByAltText()](/api/class-page.mdx#page-get-by-alt-text)以定位an element, usually image, by its text alternative.
+- [Page.GetByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder) 根據預留位置文字定位輸入元素。
+- [Page.GetByAltText()](/api/class-page.mdx#page-get-by-alt-text) 根據替代文字定位元素，通常是圖像。
 - [Page.GetByTitle()](/api/class-page.mdx#page-get-by-title)以定位an element by its title.
 
 ```csharp
@@ -1056,7 +1056,7 @@ await Page.GotoAsync("https://playwright.dev", new() { WaitUntil = WaitUntilStat
 
 Playwright 現在支援 Debian 11 Bullseye on x86_64 for Chromium, Firefox and WebKit. 如果您遇到任何問題，請告訴我們！
 
-Linux support looks like this:
+Linux 支援如下：
 
 |          | Ubuntu 20.04 | Ubuntu 22.04 | Debian 11
 | :--- | :---: | :---: | :---: | :---: |
@@ -1077,7 +1077,7 @@ Playwright for .NET 1.23 引入新的 [API 測試](./api/class-apirequestcontext
 - prepare server side state before visiting the web application in a test
 - validate server side post-conditions after running some actions in the browser
 
-To do a request on behalf of Playwright's Page, use **new [Page.APIRequest](/api/class-page.mdx#page-request) API**:
+要代表 Playwright 的 Page 執行請求，請使用**新的 [Page.APIRequest](/api/class-page.mdx#page-request) API**：
 
 ```csharp
 // Do a GET request on behalf of page
@@ -1096,13 +1096,13 @@ Console.WriteLine((await response.JsonAsync())?.GetProperty("foo").GetString());
 
 現在您可以將網路流量錄製到 HAR 檔案中，並在測試中重複使用此流量。
 
-To record network into HAR file:
+要將網路錄製到 HAR 檔案：
 
 ```bash
 pwsh bin/Debug/netX/playwright.ps1 open --save-har=example.har --save-har-glob="**/api/**" https://example.com
 ```
 
-Alternatively, you can record HAR programmatically:
+或者，您可以透過程式方式錄製 HAR：
 
 ```csharp
 var context = await browser.NewContextAsync(new()
@@ -1129,7 +1129,7 @@ await context.RouteFromHARAsync("example.har");
 
 您現在可以使用 [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) 將路由延遲到其他處理程序。
 
-Consider the following example:
+考慮以下範例：
 
 ```csharp
 // Remove a header from all requests.
@@ -1238,7 +1238,7 @@ await page.RouteAsync("**/*", async route =>
 
 Playwright for .NET 1.20 引入了 [Web-First 斷言](./test-assertions)。
 
-Consider the following example:
+考慮以下範例：
 
 ```csharp
 using System.Threading.Tasks;
@@ -1382,7 +1382,7 @@ Playwright Trace Viewer 現在 **可在線上使用**，網址為 https://trace.
 
 #### Locator.WaitForAsync
 
-Wait for a locator to resolve to a single element with a given state. Defaults to the `state: 'visible'`.
+等待定位器解析為具有指定狀態的單一元素。預設為 `state: 'visible'`。
 
 ```csharp
 var orderSent = page.Locator("#order-sent");
@@ -1402,7 +1402,7 @@ orderSent.WaitForAsync();
 - Mozilla Firefox 93.0
 - WebKit 15.4
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 94
 - Microsoft Edge 94
 
@@ -1538,7 +1538,7 @@ await button.ClickAsync("button >> visible=true");
 - Mozilla Firefox 89.0
 - WebKit 14.2
 
-This version of Playwright was also tested against the following stable channels:
+此版本也對以下穩定頻道進行了測試：
 - Google Chrome 91
 - Microsoft Edge 91
 
