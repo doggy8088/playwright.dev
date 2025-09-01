@@ -544,8 +544,8 @@ assertThat(page.getByPlaceholder("Search docs")).hasValue("locator");
 ### 追蹤檢視器更新
 
 ![Playwright Trace Viewer](https://github.com/microsoft/playwright/assets/746130/0c41e20d-c54b-4600-8ca8-1cbb6393ddef)
-1. Zoom into time range.
-1. Network panel redesign.
+1. 放大到時間範圍。
+1. 網路面板重新設計。
 
 ### 新的 API
 - [BrowserContext.onWebError(handler)](/api/class-browsercontext.mdx#browser-context-event-web-error)
@@ -603,7 +603,7 @@ Linux 支援如下：
 
 ## 版本 1.36
 
-🏝️ Summer maintenance release.
+🏝️ 夏季維護版本。
 
 ### 瀏覽器版本
 * Chromium 115.0.5790.75
@@ -1458,7 +1458,7 @@ That will open the following GUI:
 - We talked about Playwright
 - Showed engineering work behind the scenes
 - Did live demos with new features ✨
-- **Special thanks** to [applitools](http://applitools.com/) 主辦活動並邀請我們!
+- **特別感謝** [applitools](http://applitools.com/) 主辦活動並邀請我們!
 
 #### 瀏覽器版本
 - Chromium 92.0.4498.0
@@ -1495,9 +1495,9 @@ That will open the following GUI:
 
 ## 版本 1.9
 - [Playwright Inspector](./debug.mdx) 是一個**新的 GUI 工具**，用於編寫和偵錯您的測試。
-  - **Line-by-line debugging** of your Playwright scripts, with play, pause and step-through.
-  - Author new scripts by **recording user actions**.
-  - **Generate element selectors** for your script by hovering over elements.
+  - **逐行偵錯**您的 Playwright 腳本，支援播放、暫停和逐步執行。
+  - 透過**錄製使用者操作**編寫新腳本。
+  - 透過滑鼠懸停在元素上為您的腳本**產生元素選擇器**。
   - Set the `PWDEBUG=1` environment variable to launch the Inspector
 - **Pause script execution** with [Page.pause()](/api/class-page.mdx#page-pause) in headed mode. Pausing the page launches [Playwright Inspector](./debug.mdx) for debugging.
 - **New has-text pseudo-class** for CSS selectors. `:has-text("example")` matches any element containing `"example"` somewhere inside, possibly in a child or a descendant element. See [more examples](./other-locators.mdx#css-matching-by-text).
@@ -1513,7 +1513,7 @@ That will open the following GUI:
 - [Page.pause()](/api/class-page.mdx#page-pause).
 
 ## 版本 1.8
-- [Selecting elements based on layout](./other-locators.mdx#css-matching-elements-based-on-layout) with `:left-of()`, `:right-of()`, `:above()` and `:below()`.
+- [基於佈局選擇元素](./other-locators.mdx#css-matching-elements-based-on-layout)，使用 `:left-of()`、`:right-of()`、`:above()` 和 `:below()`。
 - Playwright現在includes command line interface, former playwright-cli.
   
   ```bash

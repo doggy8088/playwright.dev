@@ -839,8 +839,8 @@ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
 ### UI 模式更新
 
 ![Playwright UI Mode](https://github.com/microsoft/playwright/assets/746130/8ba27be0-58fd-4f62-8561-950480610369)
-1. Zoom into time range.
-1. Network panel redesign.
+1. 放大到時間範圍。
+1. 網路面板重新設計。
 
 ### 新的 API
 - [browserContext.on('weberror')](/api/class-browsercontext.mdx#browser-context-event-web-error)
@@ -955,7 +955,7 @@ Linux 支援如下所示：
 
 ## 版本 1.36
 
-🏝️ Summer maintenance release.
+🏝️ 夏季維護版本。
 
 ### 瀏覽器版本
 * Chromium 115.0.5790.75
@@ -1939,7 +1939,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   });
   ```
   
-  It is most convenient以指定`maxDiffPixels` or `maxDiffPixelRatio` once in [testConfig.expect](/api/class-testconfig.mdx#test-config-expect).
+  最便利的方式是在 [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) 中一次指定 `maxDiffPixels` 或 `maxDiffPixelRatio`。
 - Playwright Test 現在新增 [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel) 模式。預設情況下，Playwright Test 在檔案間平行化。在完全平行模式中，單一檔案內的測試也會平行執行。您也可以使用 `--fully-parallel` 命令列旗標。
   
   ```js title="playwright.config.ts"
@@ -2130,8 +2130,8 @@ module.exports = {
 
 // fixtures.js
 const test = base.extend({
-  // Fixtures marked as "選項: true" will get a value specified in the config,
-  // or fallback to the default value.
+  // 標記為「選項: true」的 fixture 將取得在配置中指定的值，
+  // 或回到預設值。
   myParameter: ['default', { 選項: true }],
 });
 
@@ -2690,7 +2690,7 @@ npx playwright show-trace trace.zip
 ## 版本 1.10
 - [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) 現在**穩定**！
 - 使用[新的頻道 API](./browsers) 在 **Google Chrome** 和 **Microsoft Edge** 穩定頻道上執行 Playwright。
-- Chromium screenshots are **fast** on Mac & Windows.
+- Chromium 截圖在 Mac 和 Windows 上**快速**。
 
 #### Bundled Browser Versions
 - Chromium 90.0.4430.0
@@ -2707,8 +2707,8 @@ npx playwright show-trace trace.zip
 ## 版本 1.9
 - [Playwright Inspector](./debug.mdx) 是一個**新的 GUI 工具**，用於編寫和偵錯您的測試。
   - **逐行除錯**您的 Playwright 腳本，包含播放、暫停和逐步執行。
-  - Author new scripts by **recording user actions**.
-  - **Generate element selectors** for your script by hovering over elements.
+  - 透過**錄製使用者操作**編寫新腳本。
+  - 透過滑鼠懸停在元素上為您的腳本**產生元素選擇器**。
   - 設定 `PWDEBUG=1` 環境變數以啟動檢查器
 - 在有頭模式中使用 [page.pause()](/api/class-page.mdx#page-pause) **暫停腳本執行**。暫停頁面會啟動 [Playwright Inspector](./debug.mdx) 進行除錯。
 - **新的 has-text 偽類**用於 CSS 選擇器。`:has-text("example")` 匹配任何在內部包含 `"example"` 的元素，可能在子元素或後代元素中。請參閱[更多範例](./other-locators.mdx#css-matching-by-text)。
