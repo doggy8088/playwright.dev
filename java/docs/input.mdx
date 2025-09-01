@@ -187,7 +187,7 @@ page.getByLabel("Upload file").setInputFiles(new FilePayload(
   "file.txt", "text/plain", "this is test".getBytes(StandardCharsets.UTF_8)));
 ```
 
-If you don't have input element in hand (it is created dynamically), you can handle the [Page.onFileChooser(handler)](/api/class-page.mdx#page-event-file-chooser) event or use a corresponding waiting method upon your action:
+如果您手邊沒有輸入元素（它是動態建立的），您可以處理 [`Page.onFileChooser(handler)`](/api/class-page.mdx#page-event-file-chooser) 事件或在您的操作中使用對應的等待方法：
 
 ```java
 FileChooser fileChooser = page.waitForFileChooser(() -> {

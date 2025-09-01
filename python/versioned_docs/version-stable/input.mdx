@@ -459,7 +459,7 @@ await page.get_by_label("Upload file").set_input_files(
 </TabItem>
 </Tabs>
 
-If you don't have input element in hand (it is created dynamically), you can handle the [page.on("filechooser")](/api/class-page.mdx#page-event-file-chooser) event or use a corresponding waiting method upon your action:
+如果您手邊沒有輸入元素（它是動態建立的），您可以處理 [`page.on("filechooser")`](/api/class-page.mdx#page-event-file-chooser) 事件或在您的操作中使用對應的等待方法：
 
 <Tabs
   groupId="python-flavor"
@@ -587,7 +587,7 @@ await page.mouse.up()
 
 :::note
 
-If your page relies on the `dragover` event being dispatched, you need at least two mouse moves to trigger it in all browsers. To reliably issue the second mouse move, repeat your [mouse.move()](/api/class-mouse.mdx#mouse-move) or [locator.hover()](/api/class-locator.mdx#locator-hover) twice. The sequence of operations would be: hover the drag element, mouse down, hover the drop element, hover the drop element second time, mouse up.
+如果您的頁面依賴於分派 `dragover` 事件，您需要至少兩次滑鼠移動才能在所有瀏覽器中觸發它。要可靠地發出第二次滑鼠移動，請重複您的 [`mouse.move()`](/api/class-mouse.mdx#mouse-move) 或 [`locator.hover()`](/api/class-locator.mdx#locator-hover) 兩次。操作序列應為：懸停拖動元素、滑鼠按下、懸停放置元素、第二次懸停放置元素、滑鼠釋放。
 :::
 
 ## 滾動

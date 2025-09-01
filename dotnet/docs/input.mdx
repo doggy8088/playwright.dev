@@ -191,7 +191,7 @@ await page.GetByLabel("Upload file").SetInputFilesAsync(new FilePayload
 });
 ```
 
-If you don't have input element in hand (it is created dynamically), you can handle the [Page.FileChooser](/api/class-page.mdx#page-event-file-chooser) event or use a corresponding waiting method upon your action:
+如果您手邊沒有輸入元素（它是動態建立的），您可以處理 [`Page.FileChooser`](/api/class-page.mdx#page-event-file-chooser) 事件或在您的操作中使用對應的等待方法：
 
 ```csharp
 var fileChooser = page.RunAndWaitForFileChooserAsync(async () =>
@@ -223,7 +223,7 @@ await page.Locator("#item-to-be-dragged").DragToAsync(page.Locator("#item-to-dro
 
 ### Dragging manually
 
-If you want precise control over the drag operation, use lower-level methods like [Locator.HoverAsync()](/api/class-locator.mdx#locator-hover), [Mouse.DownAsync()](/api/class-mouse.mdx#mouse-down), [Mouse.MoveAsync()](/api/class-mouse.mdx#mouse-move) and [Mouse.UpAsync()](/api/class-mouse.mdx#mouse-up).
+如果您想要對拖放操作進行精確控制，請使用較低階的方法，如 [`Locator.HoverAsync()`](/api/class-locator.mdx#locator-hover)、[`Mouse.DownAsync()`](/api/class-mouse.mdx#mouse-down)、[`Mouse.MoveAsync()`](/api/class-mouse.mdx#mouse-move) 和 [`Mouse.UpAsync()`](/api/class-mouse.mdx#mouse-up)。
 
 ```csharp
 await page.Locator("#item-to-be-dragged").HoverAsync();
@@ -233,7 +233,7 @@ await page.Mouse.UpAsync();
 ```
 
 :::note
-If your page relies on the `dragover` event being dispatched, you need at least two mouse moves to trigger it in all browsers. To reliably issue the second mouse move, repeat your [Mouse.MoveAsync()](/api/class-mouse.mdx#mouse-move) or [Locator.HoverAsync()](/api/class-locator.mdx#locator-hover) twice. The sequence of operations would be: hover the drag element, mouse down, hover the drop element, hover the drop element second time, mouse up.
+如果您的頁面依賴於分派 `dragover` 事件，您需要至少兩次滑鼠移動才能在所有瀏覽器中觸發它。要可靠地發出第二次滑鼠移動，請重複您的 [`Mouse.MoveAsync()`](/api/class-mouse.mdx#mouse-move) 或 [`Locator.HoverAsync()`](/api/class-locator.mdx#locator-hover) 兩次。操作序列應為：懸停拖動元素、滑鼠按下、懸停放置元素、第二次懸停放置元素、滑鼠釋放。
 :::
 
 ## 滾動
@@ -252,7 +252,7 @@ await page.GetByRole(AriaRole.Button).ClickAsync();
 await page.GetByText("Footer text").ScrollIntoViewIfNeededAsync();
 ```
 
-If you would like to control the scrolling more precisely, use [Mouse.WheelAsync()](/api/class-mouse.mdx#mouse-wheel) or [Locator.EvaluateAsync()](/api/class-locator.mdx#locator-evaluate):
+如果您想要更精確地控制滾動，請使用 [`Mouse.WheelAsync()`](/api/class-mouse.mdx#mouse-wheel) 或 [`Locator.EvaluateAsync()`](/api/class-locator.mdx#locator-evaluate)：
 
 ```csharp
 // Position the mouse and scroll with the mouse wheel
