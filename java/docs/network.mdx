@@ -33,7 +33,7 @@ page.navigate("https://example.com");
 
 您可以配置頁面通過 HTTP(S) 代理或 SOCKSv5 加載。代理可以為整個瀏覽器全域設置，也可以為每個瀏覽器上下文單獨設置。
 
-You can optionally specify username and password for HTTP(S) proxy, you can also specify hosts to bypass the [setProxy](/api/class-browser.mdx#browser-new-context-option-proxy) for.
+您可以選擇性地指定 HTTP(S) 代理的使用者名稱和密碼，也可以指定要略過 [setProxy](/api/class-browser.mdx#browser-new-context-option-proxy) 的主機。
 
 這裡是一個全域代理的範例：
 
@@ -74,7 +74,7 @@ public class Example {
 }
 ```
 
-Or wait for a network response after the button click with [Page.waitForResponse()](/api/class-page.mdx#page-wait-for-response):
+或者等待按鈕點擊後的網路回應，使用 [Page.waitForResponse()](/api/class-page.mdx#page-wait-for-response)：
 
 ```java
 // Use a glob URL pattern
@@ -85,7 +85,7 @@ Response response = page.waitForResponse("**/api/fetch_data", () -> {
 
 #### 變體
 
-Wait for [Response]s with [Page.waitForResponse()](/api/class-page.mdx#page-wait-for-response)
+使用 [Page.waitForResponse()](/api/class-page.mdx#page-wait-for-response) 等待 [Response] 回應
 
 ```java
 // Use a RegExp
@@ -112,7 +112,7 @@ page.navigate("https://example.com");
 
 #### 變體
 
-Set up route on the entire browser context with [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) or page with [Page.route()](/api/class-page.mdx#page-route). It will apply to popup windows and opened links.
+在整個瀏覽器情境上使用 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 或頁面上使用 [Page.route()](/api/class-page.mdx#page-route) 設定路由。這將適用於彈出視窗和開啟的連結。
 
 ```java
 browserContext.route("**/api/login", route -> route.fulfill(new Route.FulfillOptions()
@@ -139,7 +139,7 @@ page.route("**/*", route -> route.resume(new Route.ResumeOptions().setMethod("PO
 
 ## 中止請求
 
-You can abort requests using [Page.route()](/api/class-page.mdx#page-route) and [Route.abort()](/api/class-route.mdx#route-abort).
+您可以使用 [Page.route()](/api/class-page.mdx#page-route) 和 [Route.abort()](/api/class-route.mdx#route-abort) 中止請求。
 
 ```java
 page.route("**/*.{png,jpg,jpeg}", route -> route.abort());

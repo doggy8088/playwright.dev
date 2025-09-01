@@ -39,7 +39,7 @@ await page.GotoAsync("https://example.com");
 
 您可以配置頁面通過 HTTP(S) 代理或 SOCKSv5 加載。代理可以為整個瀏覽器全域設置，也可以為每個瀏覽器上下文單獨設置。
 
-You can optionally specify username and password for HTTP(S) proxy, you can also specify hosts to bypass the [Proxy](/api/class-browser.mdx#browser-new-context-option-proxy) for.
+您可以選擇性地指定 HTTP(S) 代理的使用者名稱和密碼，也可以指定要略過 [Proxy](/api/class-browser.mdx#browser-new-context-option-proxy) 的主機。
 
 這裡是一個全域代理的範例：
 
@@ -81,7 +81,7 @@ page.Response += (_, response) => Console.WriteLine("<< " + response.Status + " 
 await page.GotoAsync("https://example.com");
 ```
 
-Or wait for a network response after the button click with [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response):
+或者等待按鈕點擊後的網路回應，使用 [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response)：
 
 ```csharp
 // Use a glob URL pattern
@@ -92,7 +92,7 @@ var response = await waitForResponseTask;
 
 #### 變體
 
-Wait for [Response]s with [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response)
+使用 [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response) 等待 [Response] 回應
 
 ```csharp
 // Use a regular expression
@@ -112,7 +112,7 @@ var response = await waitForResponseTask;
 
 #### 變體
 
-Set up route on the entire browser context with [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) or page with [Page.RouteAsync()](/api/class-page.mdx#page-route). It will apply to popup windows and opened links.
+在整個瀏覽器情境上使用 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 或頁面上使用 [Page.RouteAsync()](/api/class-page.mdx#page-route) 設定路由。這將適用於彈出視窗和開啟的連結。
 
 ```csharp
 await page.RouteAsync("**/api/fetch_data", async route => {
@@ -139,7 +139,7 @@ await Page.RouteAsync("**/*", async route => await route.ContinueAsync(new() { M
 
 ## 中止請求
 
-You can abort requests using [Page.RouteAsync()](/api/class-page.mdx#page-route) and [Route.AbortAsync()](/api/class-route.mdx#route-abort).
+您可以使用 [Page.RouteAsync()](/api/class-page.mdx#page-route) 和 [Route.AbortAsync()](/api/class-route.mdx#route-abort) 中止請求。
 
 ```csharp
 await page.RouteAsync("**/*.{png,jpg,jpeg}", route => route.AbortAsync());

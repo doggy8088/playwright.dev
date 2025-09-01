@@ -179,7 +179,7 @@ asyncio.run(main())
 </TabItem>
 </Tabs>
 
-Or wait for a network response after the button click with [page.expect_response()](/api/class-page.mdx#page-wait-for-response):
+或者等待按鈕點擊後的網路回應，使用 [page.expect_response()](/api/class-page.mdx#page-wait-for-response)：
 
 <Tabs
   groupId="python-flavor"
@@ -213,7 +213,7 @@ response = await response_info.value
 
 #### 變體
 
-Wait for [Response]s with [page.expect_response()](/api/class-page.mdx#page-wait-for-response)
+使用 [page.expect_response()](/api/class-page.mdx#page-wait-for-response) 等待 [Response] 回應
 
 <Tabs
   groupId="python-flavor"
@@ -291,7 +291,7 @@ await page.goto("https://example.com")
 
 #### 變體
 
-Set up route on the entire browser context with [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) or page with [page.route()](/api/class-page.mdx#page-route). It will apply to popup windows and opened links.
+在整個瀏覽器情境上使用 [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) 或頁面上使用 [page.route()](/api/class-page.mdx#page-route) 設定路由。這將適用於彈出視窗和開啟的連結。
 
 <Tabs
   groupId="python-flavor"
