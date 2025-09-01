@@ -168,9 +168,9 @@ browserType.executablePath();
 
 回傳瀏覽器實例。
 
-**Usage**
+**使用方式**
 
-You can use [ignoreDefaultArgs](/api/class-browsertype.mdx#browser-type-launch-option-ignore-default-args) to filter out `--mute-audio` from default arguments:
+您可以使用 [ignoreDefaultArgs](/api/class-browsertype.mdx#browser-type-launch-option-ignore-default-args) 從預設參數中過濾掉 `--mute-audio`：
 
 ```js
 const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
@@ -178,46 +178,46 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
 });
 ```
 
-> **Chromium-only** Playwright can also be used to control the Google Chrome or Microsoft Edge browsers, but it works best with the version of Chromium it is bundled with. There is no guarantee it will work with any other version. Use [executablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) option with extreme caution.
+> **僅限 Chromium** Playwright 也可以用來控制 Google Chrome 或 Microsoft Edge 瀏覽器，但它與所綁定的 Chromium 版本配合得最好。不保證它會與任何其他版本配合。使用 [executablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) 選項時要極其謹慎。
 >
-> If Google Chrome (rather than Chromium) is preferred, a [Chrome Canary](https://www.google.com/chrome/browser/canary.html) or [Dev Channel](https://www.chromium.org/getting-involved/dev-channel) build is suggested.
+> 如果偏好 Google Chrome（而非 Chromium），建議使用 [Chrome Canary](https://www.google.com/chrome/browser/canary.html) 或 [Dev Channel](https://www.chromium.org/getting-involved/dev-channel) 建置版本。
 >
-> Stock browsers like Google Chrome and Microsoft Edge are suitable for tests that require proprietary media codecs for video playback. See [this article](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/) for other differences between Chromium and Chrome. [This article](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md) describes some differences for Linux users.
+> 像 Google Chrome 和 Microsoft Edge 這樣的原廠瀏覽器適合需要專有媒體編解碼器進行視訊播放的測試。請參閱[這篇文章](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/)了解 Chromium 和 Chrome 之間的其他差異。[這篇文章](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md)描述了 Linux 使用者的一些差異。
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-args"/><a href="#browser-type-launch-option-args" class="list-anchor">#</a>
     
     :::warning
     
-    Use custom browser args at your own risk, as some of them may break Playwright functionality.
+    自行承擔使用自訂瀏覽器參數的風險，因為其中一些可能會破壞 Playwright 功能。
     :::
     
-    Additional arguments to pass to the browser instance. The list of Chromium flags can be found [here](https://peter.sh/experiments/chromium-command-line-switches/).
+    傳遞給瀏覽器實例的額外參數。Chromium 旗標清單可在[這裡](https://peter.sh/experiments/chromium-command-line-switches/)找到。
   - `channel` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-channel"/><a href="#browser-type-launch-option-channel" class="list-anchor">#</a>
     
-    Browser distribution channel.
+    瀏覽器分發通道。
     
-    Use "chromium" to [opt in to new headless mode](../browsers.mdx#chromium-new-headless-mode).
+    使用 "chromium" 來[選擇使用新的無頭模式](../browsers.mdx#chromium-new-headless-mode)。
     
-    Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
+    使用 "chrome"、"chrome-beta"、"chrome-dev"、"chrome-canary"、"msedge"、"msedge-beta"、"msedge-dev" 或 "msedge-canary" 來使用品牌[Google Chrome 和 Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge)。
   - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-chromium-sandbox"/><a href="#browser-type-launch-option-chromium-sandbox" class="list-anchor">#</a>
     
-    Enable Chromium sandboxing. Defaults to `false`.
+    啟用 Chromium 沙盒。預設值為 `false`。
   - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-devtools"/><a href="#browser-type-launch-option-devtools" class="list-anchor">#</a>
     
-    :::warning[Deprecated]
-    Use [debugging tools](../debug.mdx) instead.
+    :::warning[已棄用]
+    請改用[偵錯工具](../debug.mdx)。
     :::
     
     
-    **Chromium-only** Whether to auto-open a Developer Tools panel for each tab. If this option is `true`, the [headless](/api/class-browsertype.mdx#browser-type-launch-option-headless) option will be set `false`.
+    **僅限 Chromium** 是否為每個分頁自動開啟開發者工具面板。如果此選項為 `true`，[headless](/api/class-browsertype.mdx#browser-type-launch-option-headless) 選項將設定為 `false`。
   - `downloadsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-downloads-path"/><a href="#browser-type-launch-option-downloads-path" class="list-anchor">#</a>
     
-    If specified, accepted downloads are downloaded into this directory. Otherwise, temporary directory is created and is deleted when browser is closed. In either case, the downloads are deleted when the browser context they were created in is closed.
+    如果指定，已接受的下載會下載到此目錄。否則，會建立暫存目錄，並在瀏覽器關閉時刪除。無論哪種情況，下載都會在建立它們的瀏覽器情境關閉時被刪除。
   - `env` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-env"/><a href="#browser-type-launch-option-env" class="list-anchor">#</a>
     
-    Specify environment variables that will be visible to the browser. Defaults to `process.env`.
+    指定瀏覽器可見的環境變數。預設值為 `process.env`。
   - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-executable-path"/><a href="#browser-type-launch-option-executable-path" class="list-anchor">#</a>
     
     Path to a browser executable to run instead of the bundled one. If [executablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) is a relative path, then it is resolved relative to the current working directory. Note that Playwright only works with the bundled Chromium, Firefox or WebKit, use at your own risk.
@@ -269,12 +269,12 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
     Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
   - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-timeout"/><a href="#browser-type-launch-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds to wait for the browser instance to start. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+    等待瀏覽器實例啟動的最大時間（毫秒）。預設值為 `30000`（30 秒）。傳遞 `0` 可停用逾時。
   - `tracesDir` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-traces-dir"/><a href="#browser-type-launch-option-traces-dir" class="list-anchor">#</a>
     
-    If specified, traces are saved into this directory.
+    如果指定，追蹤會儲存到此目錄。
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-return"/><a href="#browser-type-launch-return" class="list-anchor">#</a>
 
 ---
@@ -283,11 +283,11 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launchPersistentContext</x-search>
 
-Returns the persistent browser context instance.
+回傳持久瀏覽器情境實例。
 
-Launches browser that uses persistent storage located at [userDataDir](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-user-data-dir) and returns the only context. Closing this context will automatically close the browser.
+啟動使用位於 [userDataDir](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-user-data-dir) 的持久儲存的瀏覽器，並回傳唯一的情境。關閉此情境會自動關閉瀏覽器。
 
-**Usage**
+**使用方式**
 
 ```js
 await browserType.launchPersistentContext(userDataDir);
@@ -609,11 +609,11 @@ await browserType.launchPersistentContext(userDataDir, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launchServer</x-search>
 
-Returns the browser app instance. You can connect to it via [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect), which requires the major/minor client/server version to match (1.2.3 → is compatible with 1.2.x).
+回傳瀏覽器應用程式實例。您可以透過 [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect) 連接到它，這需要主要/次要用戶端/伺服器版本相符（1.2.3 → 與 1.2.x 相容）。
 
-**Usage**
+**使用方式**
 
-Launches browser server that client can connect to. An example of launching a browser executable and connecting to it later:
+啟動用戶端可以連接的瀏覽器伺服器。啟動瀏覽器可執行檔並稍後連接到它的範例：
 
 ```js
 const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
@@ -738,15 +738,15 @@ const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.name</x-search>
 
-Returns browser name. For example: `'chromium'`, `'webkit'` or `'firefox'`.
+回傳瀏覽器名稱。例如：`'chromium'`、`'webkit'` 或 `'firefox'`。
 
-**Usage**
+**使用方式**
 
 ```js
 browserType.name();
 ```
 
-**Returns**
+**回傳值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-name-return"/><a href="#browser-type-name-return" class="list-anchor">#</a>
 
 
