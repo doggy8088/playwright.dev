@@ -1,23 +1,23 @@
 ---
 id: evaluating
-title: "Evaluating JavaScript"
+title: "執行 JavaScript 求值"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright scripts run in your Playwright environment. Your page scripts run in the browser page environment. Those environments don't intersect, they are running in different virtual machines in different processes and even potentially on different computers.
+Playwright 腳本在您的 Playwright 環境中執行。您的頁面腳本在瀏覽器頁面環境中執行。這些環境不會相交，它們在不同的虛擬機器、不同的程序中執行，甚至可能在不同的電腦上執行。
 
-The [Page.evaluate()](/api/class-page.mdx#page-evaluate) API can run a JavaScript function in the context of the web page and bring results back to the Playwright environment. Browser globals like `window` and `document` can be used in `evaluate`.
+[`Page.evaluate()`](/api/class-page.mdx#page-evaluate) API 可以在網頁的情境中執行 JavaScript 函式，並將結果帶回到 Playwright 環境。瀏覽器全域變數如 `window` 和 `document` 可以在 `evaluate` 中使用。
 
 ```java
 String href = (String) page.evaluate("document.location.href");
 ```
 
-If the result is a Promise or if the function is asynchronous evaluate will automatically wait until it's resolved:
+如果結果是一個 Promise 或函式是非同步的，`evaluate` 會自動等待直到它被解析：
 
 ```java
 int status = (int) page.evaluate("async () => {\n" +
@@ -26,54 +26,54 @@ int status = (int) page.evaluate("async () => {\n" +
   "}");
 ```
 
-## Different environments
+## 不同環境
 
-Evaluated scripts run in the browser environment, while your test runs in a testing environments. This means you cannot use variables from your test in the page and vice versa. Instead, you should pass them explicitly as an argument.
+執行求值的腳本在瀏覽器環境中執行，而您的測試在測試環境中執行。這意味著您無法在頁面中使用測試中的變數，反之亦然。相反地，您應該明確地將它們作為參數傳遞。
 
-The following snippet is **WRONG** because it uses the variable directly:
+以下程式碼片段是**錯誤的**，因為它直接使用變數：
 
 ```java
 String data = "some data";
 Object result = page.evaluate("() => {\n" +
-  "  // WRONG: there is no 'data' in the web page.\n" +
+  "  // 錯誤：在網頁中沒有 'data'\n" +
   "  window.myApp.use(data);\n" +
   "}");
 ```
 
-The following snippet is **CORRECT** because it passes the value explicitly as an argument:
+以下程式碼片段是**正確的**，因為它明確地將值作為參數傳遞：
 
 ```java
 String data = "some data";
-// Pass |data| as a parameter.
+// 將 |data| 作為參數傳遞
 Object result = page.evaluate("data => {\n" +
   "  window.myApp.use(data);\n" +
   "}", data);
 ```
 
-## Evaluation Argument
+## 求值參數
 
-Playwright evaluation methods like [Page.evaluate()](/api/class-page.mdx#page-evaluate) take a single optional argument. This argument can be a mix of [Serializable] values and [JSHandle] instances. Handles are automatically converted to the value they represent.
+Playwright 求值方法如 [`Page.evaluate()`](/api/class-page.mdx#page-evaluate) 接受一個可選參數。此參數可以是 [Serializable] 值和 [JSHandle] 實例的混合。控制代碼會自動轉換為它們所代表的值。
 
 ```java
-// A primitive value.
+// 基本型別值
 page.evaluate("num => num", 42);
 
-// An array.
+// 陣列
 page.evaluate("array => array.length", Arrays.asList(1, 2, 3));
 
-// An object.
+// 物件
 Map<String, Object> obj = new HashMap<>();
 obj.put("foo", "bar");
 page.evaluate("object => object.foo", obj);
 
-// A single handle.
+// 單一控制代碼
 ElementHandle button = page.evaluateHandle("window.button");
 page.evaluate("button => button.textContent", button);
 
-// Alternative notation using JSHandle.evaluate.
+// 使用 JSHandle.evaluate 的替代寫法
 button.evaluate("(button, from) => button.textContent.substring(from)", 5);
 
-// Object with multiple handles.
+// 具有多個控制代碼的物件
 ElementHandle button1 = page.evaluateHandle("window.button1");
 ElementHandle button2 = page.evaluateHandle("window.button2");
 Map<String, ElementHandle> arg = new HashMap<>();
@@ -81,21 +81,21 @@ arg.put("button1", button1);
 arg.put("button2", button2);
 page.evaluate("o => o.button1.textContent + o.button2.textContent", arg);
 
-// Object destructuring works. Note that property names must match
-// between the destructured object and the argument.
-// Also note the required parenthesis.
+// 物件解構也可以運作。注意屬性名稱必須在
+// 解構物件和參數之間相符
+// 同時注意必須的括號
 Map<String, ElementHandle> arg = new HashMap<>();
 arg.put("button1", button1);
 arg.put("button2", button2);
 page.evaluate("({ button1, button2 }) => button1.textContent + button2.textContent", arg);
 
-// Array works as well. Arbitrary names can be used for destructuring.
-// Note the required parenthesis.
+// 陣列也可以運作。可以使用任意名稱進行解構
+// 注意必須的括號
 page.evaluate(
   "([b1, b2]) => b1.textContent + b2.textContent",
   Arrays.asList(button1, button2));
 
-// Any mix of serializables and handles works.
+// 可序列化值和控制代碼的任何組合都可以運作
 Map<String, Object> arg = new HashMap<>();
 arg.put("button1", button1);
 arg.put("list", Arrays.asList(button2));
@@ -105,23 +105,23 @@ page.evaluate(
   arg);
 ```
 
-## Init scripts
+## 初始化腳本
 
-Sometimes it is convenient to evaluate something in the page before it starts loading. For example, you might want to setup some mocks or test data.
+有時在頁面開始載入之前在頁面中求值某些內容很方便。例如，您可能想要設定一些模擬或測試資料。
 
-In this case, use [Page.addInitScript()](/api/class-page.mdx#page-add-init-script) or [BrowserContext.addInitScript()](/api/class-browsercontext.mdx#browser-context-add-init-script). In the example below, we will replace `Math.random()` with a constant value.
+在這種情況下，使用 [`Page.addInitScript()`](/api/class-page.mdx#page-add-init-script) 或 [`BrowserContext.addInitScript()`](/api/class-browsercontext.mdx#browser-context-add-init-script)。在下面的範例中，我們將用常數值替換 `Math.random()`。
 
-First, create a `preload.js` file that contains the mock.
+首先，建立一個包含模擬的 `preload.js` 檔案。
 
 ```js
 // preload.js
 Math.random = () => 42;
 ```
 
-Next, add init script to the page.
+接下來，將初始化腳本新增到頁面。
 
 ```java
-// In your test, assuming the "preload.js" file is in the "mocks" directory.
+// 在您的測試中，假設 "preload.js" 檔案在 "mocks" 目錄中
 page.addInitScript(Paths.get("mocks/preload.js"));
 ```
 

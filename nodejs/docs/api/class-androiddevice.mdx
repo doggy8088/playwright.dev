@@ -8,26 +8,26 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-[AndroidDevice] represents a connected device, either real hardware or emulated. Devices can be obtained using [android.devices()](/api/class-android.mdx#android-devices).
+[AndroidDevice] 代表一個已連接的裝置，可以是真實硬體或模擬器。可以使用 [android.devices()](/api/class-android.mdx#android-devices) 來取得裝置。
 
 
 ---
 
-## Methods
+## 方法
 
 ### close {#android-device-close}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidDevice.close</x-search>
 
-Disconnects from the device.
+從裝置斷開連接。
 
-**Usage**
+**用法**
 
 ```js
 await androidDevice.close();
 ```
 
-**Returns**
+**回傳**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-close-return"/><a href="#android-device-close-return" class="list-anchor">#</a>
 
 ---
@@ -36,19 +36,19 @@ await androidDevice.close();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidDevice.drag</x-search>
 
-Drags the widget defined by [selector](/api/class-androiddevice.mdx#android-device-drag-option-selector) towards [dest](/api/class-androiddevice.mdx#android-device-drag-option-dest) point.
+將由 [selector](/api/class-androiddevice.mdx#android-device-drag-option-selector) 定義的元件拖曳到 [dest](/api/class-androiddevice.mdx#android-device-drag-option-dest) 點。
 
-**Usage**
+**用法**
 
 ```js
 await androidDevice.drag(selector, dest);
 await androidDevice.drag(selector, dest, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-selector"/><a href="#android-device-drag-option-selector" class="list-anchor">#</a>
   
-  Selector to drag.
+  要拖曳的選擇器。
 - `dest` [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-dest"/><a href="#android-device-drag-option-dest" class="list-anchor">#</a>
   - `x` [number]
     
@@ -56,16 +56,16 @@ await androidDevice.drag(selector, dest, options);
   - `y` [number]
     
     
-  Point to drag to.
-- `options` [Object] *(optional)*
-  - `speed` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-speed"/><a href="#android-device-drag-option-speed" class="list-anchor">#</a>
+  要拖曳到的點。
+- `options` [Object] *(可選)*
+  - `speed` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-speed"/><a href="#android-device-drag-option-speed" class="list-anchor">#</a>
     
-    Optional speed of the drag in pixels per second.
-  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-timeout"/><a href="#android-device-drag-option-timeout" class="list-anchor">#</a>
+    拖曳的可選速度（每秒像素）。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-timeout"/><a href="#android-device-drag-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
+    最長時間（毫秒），預設為 30 秒，傳遞 `0` 停用逾時。預設值可以使用 [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) 方法變更。
 
-**Returns**
+**回傳**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-return"/><a href="#android-device-drag-return" class="list-anchor">#</a>
 
 ---
@@ -74,28 +74,28 @@ await androidDevice.drag(selector, dest, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidDevice.fill</x-search>
 
-Fills the specific [selector](/api/class-androiddevice.mdx#android-device-fill-option-selector) input box with [text](/api/class-androiddevice.mdx#android-device-fill-option-text).
+在特定的 [selector](/api/class-androiddevice.mdx#android-device-fill-option-selector) 輸入框中填入 [text](/api/class-androiddevice.mdx#android-device-fill-option-text)。
 
-**Usage**
+**用法**
 
 ```js
 await androidDevice.fill(selector, text);
 await androidDevice.fill(selector, text, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fill-option-selector"/><a href="#android-device-fill-option-selector" class="list-anchor">#</a>
   
-  Selector to fill.
+  要填入的選擇器。
 - `text` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fill-option-text"/><a href="#android-device-fill-option-text" class="list-anchor">#</a>
   
-  Text to be filled in the input box.
-- `options` [Object] *(optional)*
-  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fill-option-timeout"/><a href="#android-device-fill-option-timeout" class="list-anchor">#</a>
+  要在輸入框中填入的文字。
+- `options` [Object] *(可選)*
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fill-option-timeout"/><a href="#android-device-fill-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
+    最長時間（毫秒），預設為 30 秒，傳遞 `0` 停用逾時。預設值可以使用 [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) 方法變更。
 
-**Returns**
+**回傳**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fill-return"/><a href="#android-device-fill-return" class="list-anchor">#</a>
 
 ---
@@ -104,31 +104,31 @@ await androidDevice.fill(selector, text, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidDevice.fling</x-search>
 
-Flings the widget defined by [selector](/api/class-androiddevice.mdx#android-device-fling-option-selector) in  the specified [direction](/api/class-androiddevice.mdx#android-device-fling-option-direction).
+在指定的 [direction](/api/class-androiddevice.mdx#android-device-fling-option-direction) 方向快速滑動由 [selector](/api/class-androiddevice.mdx#android-device-fling-option-selector) 定義的元件。
 
-**Usage**
+**用法**
 
 ```js
 await androidDevice.fling(selector, direction);
 await androidDevice.fling(selector, direction, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-selector"/><a href="#android-device-fling-option-selector" class="list-anchor">#</a>
   
-  Selector to fling.
+  要快速滑動的選擇器。
 - `direction` "down" | "up" | "left" | "right"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-direction"/><a href="#android-device-fling-option-direction" class="list-anchor">#</a>
   
-  Fling direction.
-- `options` [Object] *(optional)*
-  - `speed` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-speed"/><a href="#android-device-fling-option-speed" class="list-anchor">#</a>
+  快速滑動方向。
+- `options` [Object] *(可選)*
+  - `speed` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-speed"/><a href="#android-device-fling-option-speed" class="list-anchor">#</a>
     
-    Optional speed of the fling in pixels per second.
-  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-timeout"/><a href="#android-device-fling-option-timeout" class="list-anchor">#</a>
+    快速滑動的可選速度（每秒像素）。
+  - `timeout` [number] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-timeout"/><a href="#android-device-fling-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
+    最長時間（毫秒），預設為 30 秒，傳遞 `0` 停用逾時。預設值可以使用 [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) 方法變更。
 
-**Returns**
+**回傳**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-return"/><a href="#android-device-fling-return" class="list-anchor">#</a>
 
 ---
@@ -137,20 +137,20 @@ await androidDevice.fling(selector, direction, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidDevice.info</x-search>
 
-Returns information about a widget defined by [selector](/api/class-androiddevice.mdx#android-device-info-option-selector).
+回傳由 [selector](/api/class-androiddevice.mdx#android-device-info-option-selector) 定義的元件資訊。
 
-**Usage**
+**用法**
 
 ```js
 await androidDevice.info(selector);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-info-option-selector"/><a href="#android-device-info-option-selector" class="list-anchor">#</a>
   
-  Selector to return information about.
+  要回傳資訊的選擇器。
 
-**Returns**
+**回傳**
 - [Promise]&lt;[AndroidElementInfo]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-info-return"/><a href="#android-device-info-return" class="list-anchor">#</a>
 
 ---
@@ -159,25 +159,25 @@ await androidDevice.info(selector);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidDevice.installApk</x-search>
 
-Installs an apk on the device.
+在裝置上安裝 apk。
 
-**Usage**
+**用法**
 
 ```js
 await androidDevice.installApk(file);
 await androidDevice.installApk(file, options);
 ```
 
-**Arguments**
+**參數**
 - `file` [string] | [Buffer]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-install-apk-option-file"/><a href="#android-device-install-apk-option-file" class="list-anchor">#</a>
   
-  Either a path to the apk file, or apk file content.
-- `options` [Object] *(optional)*
-  - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-install-apk-option-args"/><a href="#android-device-install-apk-option-args" class="list-anchor">#</a>
+  apk 檔案的路徑或 apk 檔案內容。
+- `options` [Object] *(可選)*
+  - `args` [Array]&lt;[string]&gt; *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-install-apk-option-args"/><a href="#android-device-install-apk-option-args" class="list-anchor">#</a>
     
-    Optional arguments to pass to the `shell:cmd package install` call. Defaults to `-r -t -S`.
+    傳遞給 `shell:cmd package install` 呼叫的可選參數。預設為 `-r -t -S`。
 
-**Returns**
+**回傳**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-install-apk-return"/><a href="#android-device-install-apk-return" class="list-anchor">#</a>
 
 ---
@@ -186,18 +186,18 @@ await androidDevice.installApk(file, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidDevice.launchBrowser</x-search>
 
-Launches Chrome browser on the device, and returns its persistent context.
+在裝置上啟動 Chrome 瀏覽器，並回傳其持久情境。
 
-**Usage**
+**用法**
 
 ```js
 await androidDevice.launchBrowser();
 await androidDevice.launchBrowser(options);
 ```
 
-**Arguments**
-- `options` [Object] *(optional)*
-  - `acceptDownloads` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-launch-browser-option-accept-downloads"/><a href="#android-device-launch-browser-option-accept-downloads" class="list-anchor">#</a>
+**參數**
+- `options` [Object] *(可選)*
+  - `acceptDownloads` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-launch-browser-option-accept-downloads"/><a href="#android-device-launch-browser-option-accept-downloads" class="list-anchor">#</a>
     
     Whether to automatically download all the attachments. Defaults to `true` where all the downloads are accepted.
   - `args` [Array]&lt;[string]&gt; *(optional)* <font size="2">Added in: v1.29</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-launch-browser-option-args"/><a href="#android-device-launch-browser-option-args" class="list-anchor">#</a>

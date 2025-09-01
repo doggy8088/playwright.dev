@@ -7,13 +7,13 @@ import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright can interact with HTML Input elements such as text inputs, checkboxes, radio buttons, select options, mouse clicks, type characters, keys and shortcuts as well as upload files and focus elements.
+Playwright 可以與 HTML 輸入元素互動，包括文字輸入、核取方塊、單選按鈕、選擇選項、滑鼠點擊、輸入字元、按鍵和快捷鍵，以及上傳檔案和聚焦元素。
 
-## Text input
+## 文字輸入
 
-Using [Locator.fill()](/api/class-locator.mdx#locator-fill) is the easiest way to fill out the form fields. It focuses the element and triggers an `input` event with the entered text. It works for `<input>`, `<textarea>` and `[contenteditable]` elements.
+使用 [`Locator.fill()`](/api/class-locator.mdx#locator-fill) 是填寫表單欄位最簡單的方式。它會聚焦元素並觸發包含輸入文字的 `input` 事件。適用於 `<input>`、`<textarea>` 和 `[contenteditable]` 元素。
 
 ```java
 // Text input
@@ -29,9 +29,9 @@ page.getByLabel("Appointment time").fill("13-15");
 page.getByLabel("Local time").fill("2020-03-02T05:15");
 ```
 
-## Checkboxes and radio buttons
+## 核取方塊和單選按鈕
 
-Using [Locator.setChecked()](/api/class-locator.mdx#locator-set-checked) is the easiest way to check and uncheck a checkbox or a radio button. This method can be used with `input[type=checkbox]`, `input[type=radio]` and `[role=checkbox]` elements.
+使用 [`Locator.setChecked()`](/api/class-locator.mdx#locator-set-checked) 是勾選和取消勾選核取方塊或單選按鈕最簡單的方式。此方法適用於 `input[type=checkbox]`、`input[type=radio]` 和 `[role=checkbox]` 元素。
 
 ```java
 // Check the checkbox
@@ -44,9 +44,9 @@ assertTrue(page.getByLabel("Subscribe to newsletter")).isChecked();
 page.getByLabel("XL").check();
 ```
 
-## Select options
+## 選擇選項
 
-Selects one or multiple options in the `<select>` element with [Locator.selectOption()](/api/class-locator.mdx#locator-select-option). You can specify option `value`, or `label` to select. Multiple options can be selected.
+使用 [`Locator.selectOption()`](/api/class-locator.mdx#locator-select-option) 在 `<select>` 元素中選擇一個或多個選項。您可以指定選項的 `value` 或 `label` 來選擇。可以選擇多個選項。
 
 ```java
 // Single selection matching the value or label
@@ -59,9 +59,9 @@ page.getByLabel("Choose a color").selectOption(new SelectOption().setLabel("Blue
 page.getByLabel("Choose multiple colors").selectOption(new String[] {"red", "green", "blue"});
 ```
 
-## Mouse click
+## 滑鼠點擊
 
-Performs a simple human click.
+執行簡單的人為點擊操作。
 
 ```java
 // Generic click
@@ -87,47 +87,47 @@ page.getByText("Item").hover();
 page.getByText("Item").click(new Locator.ClickOptions().setPosition(0, 0));
 ```
 
-Under the hood, this and other pointer-related methods:
-- wait for element with given selector to be in DOM
-- wait for it to become displayed, i.e. not empty, no `display:none`, no `visibility:hidden`
-- wait for it to stop moving, for example, until css transition finishes
-- scroll the element into view
-- wait for it to receive pointer events at the action point, for example, waits until element becomes non-obscured by other elements
-- retry if the element is detached during any of the above checks
+在底層，這個方法以及其他指標相關方法會：
+- 等待具有指定選擇器的元素出現在 DOM 中
+- 等待元素變為可顯示狀態，即不為空、沒有 `display:none`、沒有 `visibility:hidden`
+- 等待元素停止移動，例如等待 CSS 轉場效果完成
+- 將元素滾動到視圖中
+- 等待元素在操作點接收指標事件，例如等待元素不被其他元素遮蔽
+- 如果在上述任何檢查過程中元素被分離，則重試
 
-#### Forcing the click
+#### 強制點擊
 
-Sometimes, apps use non-trivial logic where hovering the element overlays it with another element that intercepts the click. This behavior is indistinguishable from a bug where element gets covered and the click is dispatched elsewhere. If you know this is taking place, you can bypass the [actionability](./actionability.mdx) checks and force the click:
+有時，應用程式使用非平凡的邏輯，其中懸停元素會用另一個攔截點擊的元素覆蓋它。這種行為與元素被覆蓋且點擊被分派到其他地方的錯誤無法區分。如果您知道正在發生這種情況，可以繞過[可操作性](./actionability.mdx)檢查並強制點擊：
 
 ```java
 page.getByRole(AriaRole.BUTTON).click(new Locator.ClickOptions().setForce(true));
 ```
 
-#### Programmatic click
+#### 程式化點擊
 
-If you are not interested in testing your app under the real conditions and want to simulate the click by any means possible, you can trigger the [`HTMLElement.click()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click) behavior via simply dispatching a click event on the element with [Locator.dispatchEvent()](/api/class-locator.mdx#locator-dispatch-event):
+如果您不想在真實條件下測試應用程式，而想要以任何可能的方式模擬點擊，可以透過使用 [`Locator.dispatchEvent()`](/api/class-locator.mdx#locator-dispatch-event) 在元素上簡單地分派點擊事件來觸發 [`HTMLElement.click()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click) 行為：
 
 ```java
 page.getByRole(AriaRole.BUTTON).dispatchEvent("click");
 ```
 
-## Type characters
+## 輸入字元
 
 :::caution
 
-Most of the time, you should input text with [Locator.fill()](/api/class-locator.mdx#locator-fill). See the [Text input](#text-input) section above. You only need to type characters if there is special keyboard handling on the page.
+大多數情況下，您應該使用 [`Locator.fill()`](/api/class-locator.mdx#locator-fill) 來輸入文字。請參閱上面的[文字輸入](#文字輸入)部分。只有當頁面上有特殊的鍵盤處理時，才需要輸入字元。
 :::
 
-Type into the field character by character, as if it was a user with a real keyboard with [Locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially).
+使用 [`Locator.pressSequentially()`](/api/class-locator.mdx#locator-press-sequentially) 逐個字元地輸入到欄位中，就像使用真實鍵盤的使用者一樣。
 
 ```java
 // Press keys one by one
 page.locator("#area").pressSequentially("Hello World!");
 ```
 
-This method will emit all the necessary keyboard events, with all the `keydown`, `keyup`, `keypress` events in place. You can even specify the optional `delay` between the key presses to simulate real user behavior.
+此方法會發出所有必要的鍵盤事件，包括所有的 `keydown`、`keyup`、`keypress` 事件。您甚至可以指定按鍵之間的可選 `delay` 來模擬真實使用者行為。
 
-## Keys and shortcuts
+## 按鍵和快捷鍵
 
 ```java
 // Hit Enter
@@ -140,7 +140,7 @@ page.getByRole(AriaRole.TEXTBOX).press("Control+ArrowRight");
 page.getByRole(AriaRole.TEXTBOX).press("$");
 ```
 
-The [Locator.press()](/api/class-locator.mdx#locator-press) method focuses the selected element and produces a single keystroke. It accepts the logical key names that are emitted in the [keyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) property of the keyboard events:
+[`Locator.press()`](/api/class-locator.mdx#locator-press) 方法會聚焦選定的元素並產生單個按鍵操作。它接受在鍵盤事件的 [keyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) 屬性中發出的邏輯按鍵名稱：
 
 ```txt
 Backquote, Minus, Equal, Backslash, Backspace, Tab, Delete, Escape,
@@ -148,10 +148,10 @@ ArrowDown, End, Enter, Home, Insert, PageDown, PageUp, ArrowRight,
 ArrowUp, F1 - F12, Digit0 - Digit9, KeyA - KeyZ, etc.
 ```
 
-- You can alternatively specify a single character you'd like to produce such as `"a"` or `"#"`.
-- Following modification shortcuts are also supported: `Shift, Control, Alt, Meta`.
+- 您也可以指定想要產生的單個字元，例如 `"a"` 或 `"#"`。
+- 也支援以下修飾快捷鍵：`Shift, Control, Alt, Meta`。
 
-Simple version produces a single character. This character is case-sensitive, so `"a"` and `"A"` will produce different results.
+簡單版本會產生單個字元。此字元區分大小寫，因此 `"a"` 和 `"A"` 會產生不同的結果。
 
 ```java
 // <input id=name>
@@ -161,13 +161,13 @@ page.locator("#name").press("Shift+A");
 page.locator("#name").press("Shift+ArrowLeft");
 ```
 
-Shortcuts such as `"Control+o"` or `"Control+Shift+T"` are supported as well. When specified with the modifier, modifier is pressed and being held while the subsequent key is being pressed.
+也支援 `"Control+o"` 或 `"Control+Shift+T"` 等快捷鍵。當與修飾鍵一起指定時，修飾鍵會被按下並保持，而後續的按鍵被按下。
 
-Note that you still need to specify the capital `A` in `Shift-A` to produce the capital character. `Shift-a` produces a lower-case one as if you had the `CapsLock` toggled.
+請注意，您仍然需要在 `Shift-A` 中指定大寫 `A` 才能產生大寫字元。`Shift-a` 會產生小寫字元，就像您切換了 `CapsLock` 一樣。
 
-## Upload files
+## 上傳檔案
 
-You can select input files for upload using the [Locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) method. It expects first argument to point to an [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) with the type `"file"`. Multiple files can be passed in the array. If some of the file paths are relative, they are resolved relative to the current working directory. Empty array clears the selected files.
+您可以使用 [`Locator.setInputFiles()`](/api/class-locator.mdx#locator-set-input-files) 方法選擇要上傳的輸入檔案。它期望第一個參數指向類型為 `"file"` 的[輸入元素](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)。可以在陣列中傳遞多個檔案。如果某些檔案路徑是相對的，它們會相對於當前工作目錄解析。空陣列會清除選定的檔案。
 
 ```java
 // Select one file
@@ -187,7 +187,7 @@ page.getByLabel("Upload file").setInputFiles(new FilePayload(
   "file.txt", "text/plain", "this is test".getBytes(StandardCharsets.UTF_8)));
 ```
 
-If you don't have input element in hand (it is created dynamically), you can handle the [Page.onFileChooser(handler)](/api/class-page.mdx#page-event-file-chooser) event or use a corresponding waiting method upon your action:
+如果您手邊沒有輸入元素（它是動態建立的），您可以處理 [`Page.onFileChooser(handler)`](/api/class-page.mdx#page-event-file-chooser) 事件或在您的操作中使用對應的等待方法：
 
 ```java
 FileChooser fileChooser = page.waitForFileChooser(() -> {
@@ -196,29 +196,29 @@ FileChooser fileChooser = page.waitForFileChooser(() -> {
 fileChooser.setFiles(Paths.get("myfile.pdf"));
 ```
 
-## Focus element
+## 聚焦元素
 
-For the dynamic pages that handle focus events, you can focus the given element with [Locator.focus()](/api/class-locator.mdx#locator-focus).
+對於處理聚焦事件的動態頁面，您可以使用 [`Locator.focus()`](/api/class-locator.mdx#locator-focus) 聚焦指定的元素。
 
 ```java
 page.getByLabel("Password").focus();
 ```
 
-## Drag and Drop
+## 拖放
 
-You can perform drag&drop operation with [Locator.dragTo()](/api/class-locator.mdx#locator-drag-to). This method will:
-- Hover the element that will be dragged.
-- Press left mouse button.
-- Move mouse to the element that will receive the drop.
-- Release left mouse button.
+您可以使用 [`Locator.dragTo()`](/api/class-locator.mdx#locator-drag-to) 執行拖放操作。此方法會：
+- 懸停要拖動的元素。
+- 按下滑鼠左鍵。
+- 將滑鼠移動到將接收放置的元素。
+- 釋放滑鼠左鍵。
 
 ```java
 page.locator("#item-to-be-dragged").dragTo(page.locator("#item-to-drop-at"));
 ```
 
-### Dragging manually
+### 手動拖放
 
-If you want precise control over the drag operation, use lower-level methods like [Locator.hover()](/api/class-locator.mdx#locator-hover), [Mouse.down()](/api/class-mouse.mdx#mouse-down), [Mouse.move()](/api/class-mouse.mdx#mouse-move) and [Mouse.up()](/api/class-mouse.mdx#mouse-up).
+如果您想要對拖放操作進行精確控制，請使用較低階的方法，如 [`Locator.hover()`](/api/class-locator.mdx#locator-hover)、[`Mouse.down()`](/api/class-mouse.mdx#mouse-down)、[`Mouse.move()`](/api/class-mouse.mdx#mouse-move) 和 [`Mouse.up()`](/api/class-mouse.mdx#mouse-up)。
 
 ```java
 page.locator("#item-to-be-dragged").hover();
@@ -228,26 +228,26 @@ page.mouse().up();
 ```
 
 :::note
-If your page relies on the `dragover` event being dispatched, you need at least two mouse moves to trigger it in all browsers. To reliably issue the second mouse move, repeat your [Mouse.move()](/api/class-mouse.mdx#mouse-move) or [Locator.hover()](/api/class-locator.mdx#locator-hover) twice. The sequence of operations would be: hover the drag element, mouse down, hover the drop element, hover the drop element second time, mouse up.
+如果您的頁面依賴於分派 `dragover` 事件，您需要至少兩次滑鼠移動才能在所有瀏覽器中觸發它。要可靠地發出第二次滑鼠移動，請重複您的 [`Mouse.move()`](/api/class-mouse.mdx#mouse-move) 或 [`Locator.hover()`](/api/class-locator.mdx#locator-hover) 兩次。操作序列應為：懸停拖動元素、滑鼠按下、懸停放置元素、第二次懸停放置元素、滑鼠釋放。
 :::
 
-## Scrolling
+## 滾動
 
-Most of the time, Playwright will automatically scroll for you before doing any actions. Therefore, you do not need to scroll explicitly.
+大多數情況下，Playwright 會在執行任何操作之前自動為您滾動。因此，您不需要明確地滾動。
 
 ```java
 // Scrolls automatically so that button is visible
 page.getByRole(AriaRole.BUTTON).click();
 ```
 
-However, in rare cases you might need to manually scroll. For example, you might want to force an "infinite list" to load more elements, or position the page for a specific screenshot. In such a case, the most reliable way is to find an element that you want to make visible at the bottom, and scroll it into view.
+然而，在極少數情況下，您可能需要手動滾動。例如，您可能想要強制「無限清單」載入更多元素，或者為特定螢幕截圖定位頁面。在這種情況下，最可靠的方法是找到您想要在底部顯示的元素，並將其滾動到視圖中。
 
 ```java
 // Scroll the footer into view, forcing an "infinite list" to load more content
 page.getByText("Footer text").scrollIntoViewIfNeeded();
 ```
 
-If you would like to control the scrolling more precisely, use [Mouse.wheel()](/api/class-mouse.mdx#mouse-wheel) or [Locator.evaluate()](/api/class-locator.mdx#locator-evaluate):
+如果您想要更精確地控制滾動，請使用 [`Mouse.wheel()`](/api/class-mouse.mdx#mouse-wheel) 或 [`Locator.evaluate()`](/api/class-locator.mdx#locator-evaluate)：
 
 ```java
 // Position the mouse and scroll with the mouse wheel

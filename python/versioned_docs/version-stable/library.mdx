@@ -1,13 +1,13 @@
 ---
 id: library
-title: "Getting started - Library"
+title: "入門 - 程式庫"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Installation
+## 安裝
 
 ### Pip
 
@@ -30,11 +30,11 @@ conda install playwright
 playwright install
 ```
 
-These commands download the Playwright package and install browser binaries for Chromium, Firefox and WebKit. To modify this behavior see [installation parameters](./browsers.mdx#install-browsers).
+這些命令會下載 Playwright 套件並為 Chromium、Firefox 和 WebKit 安裝瀏覽器二進位檔案。要修改此行為，請參閱[安裝參數](./browsers.mdx#install-browsers)。
 
-## Usage
+## 使用方式
 
-Once installed, you can `import` Playwright in a Python script, and launch any of the 3 browsers (`chromium`, `firefox` and `webkit`).
+安裝後，您可以在 Python 腳本中 `import` Playwright，並啟動 3 種瀏覽器中的任何一種（`chromium`、`firefox` 和 `webkit`）。
 
 ```py
 from playwright.sync_api import sync_playwright
@@ -47,7 +47,7 @@ with sync_playwright() as p:
     browser.close()
 ```
 
-Playwright supports two variations of the API: synchronous and asynchronous. If your modern project uses [asyncio](https://docs.python.org/3/library/asyncio.html), you should use async API:
+Playwright 支援兩種 API 變體：同步和非同步。如果您的現代專案使用 [asyncio](https://docs.python.org/3/library/asyncio.html)，您應該使用非同步 API：
 
 ```py
 import asyncio
@@ -64,9 +64,9 @@ async def main():
 asyncio.run(main())
 ```
 
-## First script
+## 第一個腳本
 
-In our first script, we will navigate to `https://playwright.dev/` and take a screenshot in WebKit.
+在我們的第一個腳本中，我們將導航到 `https://playwright.dev/` 並在 WebKit 中截取螢幕截圖。
 
 ```py
 from playwright.sync_api import sync_playwright
@@ -79,21 +79,21 @@ with sync_playwright() as p:
     browser.close()
 ```
 
-By default, Playwright runs the browsers in headless mode. To see the browser UI, set [headless](/api/class-browsertype.mdx#browser-type-launch-option-headless) option to `False`. You can also use [slow_mo](/api/class-browsertype.mdx#browser-type-launch-option-slow-mo) to slow down execution. Learn more in the debugging tools [section](./debug.mdx).
+預設情況下，Playwright 在無頭模式下執行瀏覽器。要查看瀏覽器 UI，請將 [`headless`](/api/class-browsertype.mdx#browser-type-launch-option-headless) 選項設定為 `False`。您也可以使用 [`slow_mo`](/api/class-browsertype.mdx#browser-type-launch-option-slow-mo) 來減慢執行速度。在偵錯工具[章節](./debug.mdx)中了解更多。
 
 ```py
 firefox.launch(headless=False, slow_mo=50)
 ```
 
-## Interactive mode (REPL)
+## 互動模式（REPL）
 
-You can launch the interactive python REPL:
+您可以啟動互動式 Python REPL：
 
 ```bash
 python
 ```
 
-and then launch Playwright within it for quick experimentation:
+然後在其中啟動 Playwright 進行快速實驗：
 
 ```py
 from playwright.sync_api import sync_playwright
@@ -181,18 +181,18 @@ pyinstaller -F main.py
 
 :::note
 
-Bundling the browsers with the executables will generate bigger binaries. It is recommended to only bundle the browsers you use.
+將瀏覽器與可執行檔一起打包會產生更大的二進位檔案。建議只打包您使用的瀏覽器。
 :::
 
-## Known issues
+## 已知問題
 
-### `time.sleep()` leads to outdated state
+### `time.sleep()` 導致過時狀態
 
-Most likely you don't need to wait manually, since Playwright has [auto-waiting](./actionability.mdx). If you still rely on it, you should use `page.wait_for_timeout(5000)` instead of `time.sleep(5)` and it is better to not wait for a timeout at all, but sometimes it is useful for debugging. In these cases, use our wait (`wait_for_timeout`) method instead of the `time` module. This is because we internally rely on asynchronous operations and when using `time.sleep(5)` they can't get processed correctly.
+您很可能不需要手動等待，因為 Playwright 具有[自動等待](./actionability.mdx)功能。如果您仍然依賴它，您應該使用 `page.wait_for_timeout(5000)` 而不是 `time.sleep(5)`，最好根本不等待逾時，但有時對於偵錯很有用。在這些情況下，請使用我們的等待（`wait_for_timeout`）方法而不是 `time` 模組。這是因為我們內部依賴非同步操作，當使用 `time.sleep(5)` 時，它們無法正確處理。
 
-### incompatible with `SelectorEventLoop` of `asyncio` on Windows
+### 與 Windows 上 `asyncio` 的 `SelectorEventLoop` 不相容
 
-Playwright runs the driver in a subprocess, so it requires `ProactorEventLoop` of `asyncio` on Windows because `SelectorEventLoop` does not supports async subprocesses.
+Playwright 在子程序中執行驅動程式，因此在 Windows 上需要 `asyncio` 的 `ProactorEventLoop`，因為 `SelectorEventLoop` 不支援非同步子程序。
 
 On Windows Python 3.7, Playwright sets the default event loop to `ProactorEventLoop` as it is default on Python 3.8+.
 
