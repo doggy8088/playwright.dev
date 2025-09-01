@@ -155,7 +155,7 @@ else
 
 ## 修改回應
 
-To modify a response use [APIRequestContext] to get the original response and then pass the response to [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill). You can override individual fields on the response via options:
+使用 [APIRequestContext] 來修改回應，獲取原始回應，然後將回應傳遞給 [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill)。您可以透過選項覆寫回應中的個別欄位：
 
 ```csharp
 await Page.RouteAsync("**/title.html", async route =>
@@ -221,8 +221,8 @@ page.WebSocket += (_, ws) =>
 ## 缺少網路事件和服務工作者
 
 Playwright 的內建 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route) 允許你的測試原生地路由請求並執行模擬和攔截。
-1. If you're using Playwright's native [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) and [Page.RouteAsync()](/api/class-page.mdx#page-route), and it appears network events are missing, disable Service Workers by setting [ServiceWorkers](/api/class-browser.mdx#browser-new-context-option-service-workers) to `'block'`.
-1. It might be that you are using a mock tool such as Mock Service Worker (MSW). While this tool works out of the box for mocking responses, it adds its own Service Worker that takes over the network requests, hence making them invisible to [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) and [Page.RouteAsync()](/api/class-page.mdx#page-route). If you are interested in both network testing and mocking, consider using built-in [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) and [Page.RouteAsync()](/api/class-page.mdx#page-route) for [response mocking](#handle-requests).
+1. 如果您使用 Playwright 的原生 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route)，並且發現缺少網路事件，請將 [ServiceWorkers](/api/class-browser.mdx#browser-new-context-option-service-workers) 設定為 `'block'` 來停用 Service Workers。
+1. 您可能正在使用諸如 Mock Service Worker (MSW) 之類的模擬工具。雖然此工具可以直接用於模擬回應，但它會新增自己的 Service Worker 來接管網路請求，因此使 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route) 無法看到這些請求。如果您對網路測試和模擬都感興趣，請考慮使用內建的 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route) 進行[回應模擬](#handle-requests)。
 1. 如果你不僅僅對使用 Service Workers 進行測試和網路模擬感興趣，還對路由和監聽由 Service Workers 自己發出的請求感興趣，請參閱[這個實驗性功能](https://github.com/microsoft/playwright/issues/15684)。
 
 
