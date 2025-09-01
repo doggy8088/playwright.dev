@@ -218,53 +218,53 @@ browser = await playwright.chromium.launch( # or "firefox" or "webkit".
 </TabItem>
 </Tabs>
 
-> **Chromium-only** Playwright can also be used to control the Google Chrome or Microsoft Edge browsers, but it works best with the version of Chromium it is bundled with. There is no guarantee it will work with any other version. Use [executable_path](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) option with extreme caution.
+> **僅限 Chromium** Playwright 也可以用來控制 Google Chrome 或 Microsoft Edge 瀏覽器，但它與所綁定的 Chromium 版本配合得最好。不保證它會與任何其他版本配合。使用 [executable_path](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) 選項時要極其謹慎。
 >
-> If Google Chrome (rather than Chromium) is preferred, a [Chrome Canary](https://www.google.com/chrome/browser/canary.html) or [Dev Channel](https://www.chromium.org/getting-involved/dev-channel) build is suggested.
+> 如果偏好 Google Chrome（而非 Chromium），建議使用 [Chrome Canary](https://www.google.com/chrome/browser/canary.html) 或 [Dev Channel](https://www.chromium.org/getting-involved/dev-channel) 建置版本。
 >
-> Stock browsers like Google Chrome and Microsoft Edge are suitable for tests that require proprietary media codecs for video playback. See [this article](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/) for other differences between Chromium and Chrome. [This article](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md) describes some differences for Linux users.
+> 像 Google Chrome 和 Microsoft Edge 這樣的原廠瀏覽器適合需要專有媒體編解碼器進行視訊播放的測試。請參閱[這篇文章](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/)了解 Chromium 和 Chrome 之間的其他差異。[這篇文章](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md)描述了 Linux 使用者的一些差異。
 
 **參數**
 - `args` [List]\[[str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-args"/><a href="#browser-type-launch-option-args" class="list-anchor">#</a>
   
   :::warning
   
-  Use custom browser args at your own risk, as some of them may break Playwright functionality.
+  自行承擔使用自訂瀏覽器參數的風險，因為其中一些可能會破壞 Playwright 功能。
   :::
   
-  Additional arguments to pass to the browser instance. The list of Chromium flags can be found [here](https://peter.sh/experiments/chromium-command-line-switches/).
+  傳遞給瀏覽器實例的額外參數。Chromium 旗標清單可在[這裡](https://peter.sh/experiments/chromium-command-line-switches/)找到。
 - `channel` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-channel"/><a href="#browser-type-launch-option-channel" class="list-anchor">#</a>
   
-  Browser distribution channel.
+  瀏覽器分發通道。
   
-  Use "chromium" to [opt in to new headless mode](../browsers.mdx#chromium-new-headless-mode).
+  使用 "chromium" 來[選擇使用新的無頭模式](../browsers.mdx#chromium-new-headless-mode)。
   
-  Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
+  使用 "chrome"、"chrome-beta"、"chrome-dev"、"chrome-canary"、"msedge"、"msedge-beta"、"msedge-dev" 或 "msedge-canary" 來使用品牌[Google Chrome 和 Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge)。
 - `chromium_sandbox` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-chromium-sandbox"/><a href="#browser-type-launch-option-chromium-sandbox" class="list-anchor">#</a>
   
-  Enable Chromium sandboxing. Defaults to `false`.
+  啟用 Chromium 沙盒。預設值為 `false`。
 - `devtools` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-devtools"/><a href="#browser-type-launch-option-devtools" class="list-anchor">#</a>
   
-  :::warning[Deprecated]
-  Use [debugging tools](../debug.mdx) instead.
+  :::warning[已棄用]
+  請改用[偵錯工具](../debug.mdx)。
   :::
   
   
-  **Chromium-only** Whether to auto-open a Developer Tools panel for each tab. If this option is `true`, the [headless](/api/class-browsertype.mdx#browser-type-launch-option-headless) option will be set `false`.
+  **僅限 Chromium** 是否為每個分頁自動開啟開發者工具面板。如果此選項為 `true`，[headless](/api/class-browsertype.mdx#browser-type-launch-option-headless) 選項將設定為 `false`。
 - `downloads_path` [Union]\[[str], [pathlib.Path]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-downloads-path"/><a href="#browser-type-launch-option-downloads-path" class="list-anchor">#</a>
   
-  If specified, accepted downloads are downloaded into this directory. Otherwise, temporary directory is created and is deleted when browser is closed. In either case, the downloads are deleted when the browser context they were created in is closed.
+  如果指定，已接受的下載會下載到此目錄。否則，會建立暫存目錄，並在瀏覽器關閉時刪除。無論哪種情況，下載都會在建立它們的瀏覽器情境關閉時被刪除。
 - `env` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-env"/><a href="#browser-type-launch-option-env" class="list-anchor">#</a>
   
-  Specify environment variables that will be visible to the browser. Defaults to `process.env`.
+  指定瀏覽器可見的環境變數。預設值為 `process.env`。
 - `executable_path` [Union]\[[str], [pathlib.Path]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-executable-path"/><a href="#browser-type-launch-option-executable-path" class="list-anchor">#</a>
   
-  Path to a browser executable to run instead of the bundled one. If [executable_path](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) is a relative path, then it is resolved relative to the current working directory. Note that Playwright only works with the bundled Chromium, Firefox or WebKit, use at your own risk.
+  要執行的瀏覽器可執行檔路徑，用來替代綁定的瀏覽器。如果 [executable_path](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) 是相對路徑，則會相對於目前工作目錄進行解析。請注意，Playwright 僅與綁定的 Chromium、Firefox 或 WebKit 配合運作，請自行承擔使用風險。
 - `firefox_user_prefs` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-firefox-user-prefs"/><a href="#browser-type-launch-option-firefox-user-prefs" class="list-anchor">#</a>
   
-  Firefox user preferences. Learn more about the Firefox user preferences at [`about:config`](https://support.mozilla.org/en-US/kb/about-config-editor-firefox).
+  Firefox 使用者偏好設定。深入了解 Firefox 使用者偏好設定，請參考 [`about:config`](https://support.mozilla.org/en-US/kb/about-config-editor-firefox)。
   
-  You can also provide a path to a custom [`policies.json` file](https://mozilla.github.io/policy-templates/) via `PLAYWRIGHT_FIREFOX_POLICIES_JSON` environment variable.
+  您也可以透過 `PLAYWRIGHT_FIREFOX_POLICIES_JSON` 環境變數提供自訂 [`policies.json` 檔案](https://mozilla.github.io/policy-templates/)的路徑。
 - `handle_sighup` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-handle-sighup"/><a href="#browser-type-launch-option-handle-sighup" class="list-anchor">#</a>
   
   Close the browser process on SIGHUP. Defaults to `true`.
