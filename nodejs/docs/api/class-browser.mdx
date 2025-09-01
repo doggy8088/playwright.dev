@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-A Browser is created via [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch). An example of using a [Browser] to create a [Page]:
+`Browser` 是透過 [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 建立的。以下是使用 [Browser] 建立 [Page] 的範例：
 
 ```js
 const { firefox } = require('playwright');  // Or 'chromium' or 'webkit'.
@@ -24,21 +24,21 @@ const { firefox } = require('playwright');  // Or 'chromium' or 'webkit'.
 
 ---
 
-## Methods
+## 方法
 
 ### browserType {#browser-browser-type}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.23</font><x-search>browser.browserType</x-search>
 
-Get the browser type (chromium, firefox or webkit) that the browser belongs to.
+取得瀏覽器所屬的瀏覽器類型（chromium、firefox 或 webkit）。
 
-**Usage**
+**用法**
 
 ```js
 browser.browserType();
 ```
 
-**Returns**
+**回傳值**
 - [BrowserType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-browser-type-return"/><a href="#browser-browser-type-return" class="list-anchor">#</a>
 
 ---
@@ -47,31 +47,31 @@ browser.browserType();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.close</x-search>
 
-In case this browser is obtained using [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch), closes the browser and all of its pages (if any were opened).
+如果此瀏覽器是使用 [browserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 取得的，則關閉瀏覽器及其所有頁面（如果有開啟的話）。
 
-In case this browser is connected to, clears all created contexts belonging to this browser and disconnects from the browser server.
+如果此瀏覽器是連接到的，則清除屬於此瀏覽器的所有已建立的情境並與瀏覽器伺服器斷開連接。
 
 :::note
 
-This is similar to force-quitting the browser. To close pages gracefully and ensure you receive page close events, call [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) on any [BrowserContext] instances you explicitly created earlier using [browser.newContext()](/api/class-browser.mdx#browser-new-context) **before** calling [browser.close()](/api/class-browser.mdx#browser-close).
+這類似於強制退出瀏覽器。若要優雅地關閉頁面並確保您接收到頁面關閉事件，請在呼叫 [browser.close()](/api/class-browser.mdx#browser-close) **之前**，對您先前使用 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 明確建立的任何 [BrowserContext] 實例呼叫 [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close)。
 :::
 
-The [Browser] object itself is considered to be disposed and cannot be used anymore.
+[Browser] 物件本身被視為已丟棄，無法再使用。
 
-**Usage**
+**用法**
 
 ```js
 await browser.close();
 await browser.close(options);
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `reason` [string] *(optional)* <font size="2">Added in: v1.40</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-close-option-reason"/><a href="#browser-close-option-reason" class="list-anchor">#</a>
     
-    The reason to be reported to the operations interrupted by the browser closure.
+    要回報給因瀏覽器關閉而中斷的操作的原因。
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-close-return"/><a href="#browser-close-return" class="list-anchor">#</a>
 
 ---
@@ -80,9 +80,9 @@ await browser.close(options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.contexts</x-search>
 
-Returns an array of all open browser contexts. In a newly created browser, this will return zero browser contexts.
+回傳所有開啟的瀏覽器情境陣列。在新建立的瀏覽器中，這將回傳零個瀏覽器情境。
 
-**Usage**
+**用法**
 
 ```js
 const browser = await pw.webkit.launch();
@@ -92,7 +92,7 @@ const context = await browser.newContext();
 console.log(browser.contexts().length); // prints `1`
 ```
 
-**Returns**
+**回傳值**
 - [Array]&lt;[BrowserContext]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-contexts-return"/><a href="#browser-contexts-return" class="list-anchor">#</a>
 
 ---
@@ -101,15 +101,15 @@ console.log(browser.contexts().length); // prints `1`
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.isConnected</x-search>
 
-Indicates that the browser is connected.
+指示瀏覽器已連接。
 
-**Usage**
+**用法**
 
 ```js
 browser.isConnected();
 ```
 
-**Returns**
+**回傳值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-is-connected-return"/><a href="#browser-is-connected-return" class="list-anchor">#</a>
 
 ---
@@ -120,18 +120,18 @@ browser.isConnected();
 
 :::note
 
-CDP Sessions are only supported on Chromium-based browsers.
+CDP Session 僅在基於 Chromium 的瀏覽器上支援。
 :::
 
-Returns the newly created browser session.
+回傳新建立的瀏覽器工作階段。
 
-**Usage**
+**用法**
 
 ```js
 await browser.newBrowserCDPSession();
 ```
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[CDPSession]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-browser-cdp-session-return"/><a href="#browser-new-browser-cdp-session-return" class="list-anchor">#</a>
 
 ---
@@ -140,14 +140,14 @@ await browser.newBrowserCDPSession();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.newContext</x-search>
 
-Creates a new browser context. It won't share cookies/cache with other browser contexts.
+建立新的瀏覽器情境。它不會與其他瀏覽器情境共享 cookies/快取。
 
 :::note
 
-If directly using this method to create [BrowserContext]s, it is best practice to explicitly close the returned context via [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) when your code is done with the [BrowserContext], and before calling [browser.close()](/api/class-browser.mdx#browser-close). This will ensure the `context` is closed gracefully and any artifacts—like HARs and videos—are fully flushed and saved.
+如果直接使用此方法建立 [BrowserContext]，最佳實務是在您的程式碼完成 [BrowserContext] 的使用時，且在呼叫 [browser.close()](/api/class-browser.mdx#browser-close) 之前，透過 [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) 明確關閉回傳的情境。這將確保 `context` 優雅地關閉，並且任何工件（如 HAR 和影片）都能完全刷新並儲存。
 :::
 
-**Usage**
+**用法**
 
 ```js
 (async () => {
@@ -164,7 +164,7 @@ If directly using this method to create [BrowserContext]s, it is best practice t
 })();
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `acceptDownloads` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-accept-downloads"/><a href="#browser-new-context-option-accept-downloads" class="list-anchor">#</a>
     
@@ -438,7 +438,7 @@ If directly using this method to create [BrowserContext]s, it is best practice t
     The `null` value opts out from the default presets, makes viewport depend on the host window size defined by the operating system. It makes the execution of the tests non-deterministic.
     :::
     
-**Returns**
+**回傳值**
 - [Promise]&lt;[BrowserContext]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-return"/><a href="#browser-new-context-return" class="list-anchor">#</a>
 
 ---
@@ -447,11 +447,11 @@ If directly using this method to create [BrowserContext]s, it is best practice t
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.newPage</x-search>
 
-Creates a new page in a new browser context. Closing this page will close the context as well.
+在新的瀏覽器情境中建立新頁面。關閉此頁面也會關閉情境。
 
-This is a convenience API that should only be used for the single-page scenarios and short snippets. Production code and testing frameworks should explicitly create [browser.newContext()](/api/class-browser.mdx#browser-new-context) followed by the [browserContext.newPage()](/api/class-browsercontext.mdx#browser-context-new-page) to control their exact life times.
+這是一個便利的 API，僅應用於單頁場景和簡短片段。正式環境程式碼和測試框架應明確建立 [browser.newContext()](/api/class-browser.mdx#browser-new-context)，然後再使用 [browserContext.newPage()](/api/class-browsercontext.mdx#browser-context-new-page) 來控制它們的確切生命週期。
 
-**Usage**
+**用法**
 
 ```js
 await browser.newPage();
@@ -729,10 +729,10 @@ await browser.newPage(options);
     
     :::note
     
-    The `null` value opts out from the default presets, makes viewport depend on the host window size defined by the operating system. It makes the execution of the tests non-deterministic.
+    `null` 值會退出預設預設值，使檢視區依賴作業系統定義的主機視窗大小。這會使測試執行變得不確定。
     :::
     
-**Returns**
+**回傳值**
 - [Promise]&lt;[Page]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-page-return"/><a href="#browser-new-page-return" class="list-anchor">#</a>
 
 ---
@@ -741,26 +741,26 @@ await browser.newPage(options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.47</font><x-search>browser.removeAllListeners</x-search>
 
-Removes all the listeners of the given type (or all registered listeners if no type given). Allows to wait for async listeners to complete or to ignore subsequent errors from these listeners.
+移除給定類型的所有監聽器（如果未給定類型，則移除所有已註冊的監聽器）。允許等待非同步監聽器完成或忽略這些監聽器的後續錯誤。
 
-**Usage**
+**用法**
 
 ```js
 await browser.removeAllListeners();
 await browser.removeAllListeners(type, options);
 ```
 
-**Arguments**
+**參數**
 - `type` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-remove-all-listeners-option-type"/><a href="#browser-remove-all-listeners-option-type" class="list-anchor">#</a>
 - `options` [Object] *(optional)*
   - `behavior` "wait" | "ignoreErrors" | "default" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-remove-all-listeners-option-behavior"/><a href="#browser-remove-all-listeners-option-behavior" class="list-anchor">#</a>
     
-    Specifies whether to wait for already running listeners and what to do if they throw errors:
-    * `'default'` - do not wait for current listener calls (if any) to finish, if the listener throws, it may result in unhandled error
-    * `'wait'` - wait for current listener calls (if any) to finish
-    * `'ignoreErrors'` - do not wait for current listener calls (if any) to finish, all errors thrown by the listeners after removal are silently caught
+    指定是否等待已執行的監聽器以及如果它們拋出錯誤該怎麼辦：
+    * `'default'` - 不等待目前的監聽器呼叫（如果有的話）完成，如果監聽器拋出錯誤，可能導致未處理的錯誤
+    * `'wait'` - 等待目前的監聽器呼叫（如果有的話）完成
+    * `'ignoreErrors'` - 不等待目前的監聽器呼叫（如果有的話）完成，移除後監聽器拋出的所有錯誤都會被靜默捕獲
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-remove-all-listeners-return"/><a href="#browser-remove-all-listeners-return" class="list-anchor">#</a>
 
 ---
@@ -771,12 +771,12 @@ await browser.removeAllListeners(type, options);
 
 :::note
 
-This API controls [Chromium Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) which is a low-level chromium-specific debugging tool. API to control [Playwright Tracing](../trace-viewer) could be found [here](./class-tracing).
+此 API 控制 [Chromium Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool)，這是一個低階的 Chromium 特定偵錯工具。控制 [Playwright Tracing](../trace-viewer) 的 API 可在[這裡](./class-tracing)找到。
 :::
 
-You can use [browser.startTracing()](/api/class-browser.mdx#browser-start-tracing) and [browser.stopTracing()](/api/class-browser.mdx#browser-stop-tracing) to create a trace file that can be opened in Chrome DevTools performance panel.
+您可以使用 [browser.startTracing()](/api/class-browser.mdx#browser-start-tracing) 和 [browser.stopTracing()](/api/class-browser.mdx#browser-stop-tracing) 來建立可在 Chrome DevTools 效能面板中開啟的追蹤檔案。
 
-**Usage**
+**用法**
 
 ```js
 await browser.startTracing(page, { path: 'trace.json' });
@@ -784,22 +784,22 @@ await page.goto('https://www.google.com');
 await browser.stopTracing();
 ```
 
-**Arguments**
+**參數**
 - `page` [Page] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-start-tracing-option-page"/><a href="#browser-start-tracing-option-page" class="list-anchor">#</a>
   
-  Optional, if specified, tracing includes screenshots of the given page.
+  選用，如果指定，追蹤將包含給定頁面的螢幕截圖。
 - `options` [Object] *(optional)*
   - `categories` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-start-tracing-option-categories"/><a href="#browser-start-tracing-option-categories" class="list-anchor">#</a>
     
-    specify custom categories to use instead of default.
+    指定要使用的自訂類別，而非預設值。
   - `path` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-start-tracing-option-path"/><a href="#browser-start-tracing-option-path" class="list-anchor">#</a>
     
-    A path to write the trace file to.
+    寫入追蹤檔案的路徑。
   - `screenshots` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-start-tracing-option-screenshots"/><a href="#browser-start-tracing-option-screenshots" class="list-anchor">#</a>
     
-    captures screenshots in the trace.
+    在追蹤中擷取螢幕截圖。
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-start-tracing-return"/><a href="#browser-start-tracing-return" class="list-anchor">#</a>
 
 ---
@@ -810,18 +810,18 @@ await browser.stopTracing();
 
 :::note
 
-This API controls [Chromium Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) which is a low-level chromium-specific debugging tool. API to control [Playwright Tracing](../trace-viewer) could be found [here](./class-tracing).
+此 API 控制 [Chromium Tracing](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool)，這是一個低階的 Chromium 特定偵錯工具。控制 [Playwright Tracing](../trace-viewer) 的 API 可在[這裡](./class-tracing)找到。
 :::
 
-Returns the buffer with trace data.
+回傳包含追蹤資料的緩衝區。
 
-**Usage**
+**用法**
 
 ```js
 await browser.stopTracing();
 ```
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[Buffer]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-stop-tracing-return"/><a href="#browser-stop-tracing-return" class="list-anchor">#</a>
 
 ---
@@ -830,36 +830,36 @@ await browser.stopTracing();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.version</x-search>
 
-Returns the browser version.
+回傳瀏覽器版本。
 
-**Usage**
+**用法**
 
 ```js
 browser.version();
 ```
 
-**Returns**
+**回傳值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-version-return"/><a href="#browser-version-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### on('disconnected') {#browser-event-disconnected}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browser.on('disconnected')</x-search>
 
-Emitted when Browser gets disconnected from the browser application. This might happen because of one of the following:
-* Browser application is closed or crashed.
-* The [browser.close()](/api/class-browser.mdx#browser-close) method was called.
+當 Browser 與瀏覽器應用程式斷開連接時觸發。這可能是由於以下原因之一：
+* 瀏覽器應用程式關閉或當機。
+* 呼叫了 [browser.close()](/api/class-browser.mdx#browser-close) 方法。
 
-**Usage**
+**用法**
 
 ```js
 browser.on('disconnected', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Browser]
 
 
