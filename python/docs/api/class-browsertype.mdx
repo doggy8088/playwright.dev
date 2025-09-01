@@ -279,22 +279,22 @@ browser = await playwright.chromium.launch( # or "firefox" or "webkit".
   Whether to run browser in headless mode. More details for [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/). Defaults to `true` unless the [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) option is `true`.
 - `ignore_default_args` [bool] | [List]\[[str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-ignore-default-args"/><a href="#browser-type-launch-option-ignore-default-args" class="list-anchor">#</a>
   
-  If `true`, Playwright does not pass its own configurations args and only uses the ones from [args](/api/class-browsertype.mdx#browser-type-launch-option-args). If an array is given, then filters out the given default arguments. Dangerous option; use with care. Defaults to `false`.
+  如果為 `true`，Playwright 不會傳遞自己的配置參數，而只使用 [args](/api/class-browsertype.mdx#browser-type-launch-option-args) 中的參數。如果給予陣列，則會過濾掉指定的預設參數。危險選項；請謹慎使用。預設值為 `false`。
 - `proxy` [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-proxy"/><a href="#browser-type-launch-option-proxy" class="list-anchor">#</a>
   - `server` [str]
     
-    Proxy to be used for all requests. HTTP and SOCKS proxies are supported, for example `http://myproxy.com:3128` or `socks5://myproxy.com:3128`. Short form `myproxy.com:3128` is considered an HTTP proxy.
+    用於所有請求的代理伺服器。支援 HTTP 和 SOCKS 代理，例如 `http://myproxy.com:3128` 或 `socks5://myproxy.com:3128`。簡短形式 `myproxy.com:3128` 被視為 HTTP 代理。
   - `bypass` [str] *(optional)*
     
-    Optional comma-separated domains to bypass proxy, for example `".com, chromium.org, .domain.com"`.
+    選擇性的逗號分隔網域清單，用於繞過代理，例如 `".com, chromium.org, .domain.com"`。
   - `username` [str] *(optional)*
     
-    Optional username to use if HTTP proxy requires authentication.
+    如果 HTTP 代理需要驗證時使用的選擇性使用者名稱。
   - `password` [str] *(optional)*
     
-    Optional password to use if HTTP proxy requires authentication.
+    如果 HTTP 代理需要驗證時使用的選擇性密碼。
   
-  Network proxy settings.
+  網路代理設定。
 - `slow_mo` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-slow-mo"/><a href="#browser-type-launch-option-slow-mo" class="list-anchor">#</a>
   
   Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
@@ -314,9 +314,9 @@ browser = await playwright.chromium.launch( # or "firefox" or "webkit".
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launch_persistent_context</x-search>
 
-Returns the persistent browser context instance.
+回傳持久瀏覽器情境實例。
 
-Launches browser that uses persistent storage located at [user_data_dir](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-user-data-dir) and returns the only context. Closing this context will automatically close the browser.
+啟動使用位於 [user_data_dir](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-user-data-dir) 的持久儲存的瀏覽器，並回傳唯一的情境。關閉此情境會自動關閉瀏覽器。
 
 **使用方式**
 
@@ -368,34 +368,34 @@ browser_type.launch_persistent_context(user_data_dir, **kwargs)
   Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
 - `chromium_sandbox` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-chromium-sandbox"/><a href="#browser-type-launch-persistent-context-option-chromium-sandbox" class="list-anchor">#</a>
   
-  Enable Chromium sandboxing. Defaults to `false`.
+  啟用 Chromium 沙盒。預設值為 `false`。
 - `client_certificates` [List]\[[Dict]\] *(optional)* <font size="2">Added in: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-client-certificates"/><a href="#browser-type-launch-persistent-context-option-client-certificates" class="list-anchor">#</a>
   - `origin` [str]
     
-    Exact origin that the certificate is valid for. Origin includes `https` protocol, a hostname and optionally a port.
+    憑證有效的確切來源。來源包含 `https` 協定、主機名稱和選擇性的連接埠。
   - `certPath` [Union]\[[str], [pathlib.Path]\] *(optional)*
     
-    Path to the file with the certificate in PEM format.
+    PEM 格式憑證檔案的路徑。
   - `cert` [bytes] *(optional)*
     
-    Direct value of the certificate in PEM format.
+    PEM 格式憑證的直接值。
   - `keyPath` [Union]\[[str], [pathlib.Path]\] *(optional)*
     
-    Path to the file with the private key in PEM format.
+    PEM 格式私密金鑰檔案的路徑。
   - `key` [bytes] *(optional)*
     
-    Direct value of the private key in PEM format.
+    PEM 格式私密金鑰的直接值。
   - `pfxPath` [Union]\[[str], [pathlib.Path]\] *(optional)*
     
-    Path to the PFX or PKCS12 encoded private key and certificate chain.
+    PFX 或 PKCS12 編碼私密金鑰和憑證鏈的路徑。
   - `pfx` [bytes] *(optional)*
     
-    Direct value of the PFX or PKCS12 encoded private key and certificate chain.
+    PFX 或 PKCS12 編碼私密金鑰和憑證鏈的直接值。
   - `passphrase` [str] *(optional)*
     
-    Passphrase for the private key (PEM or PFX).
+    私密金鑰（PEM 或 PFX）的密碼。
   
-  TLS Client Authentication allows the server to request a client certificate and verify it.
+  TLS 用戶端驗證允許伺服器請求用戶端憑證並進行驗證。
   
   **Details**
   
@@ -444,53 +444,53 @@ browser_type.launch_persistent_context(user_data_dir, **kwargs)
   You can also provide a path to a custom [`policies.json` file](https://mozilla.github.io/policy-templates/) via `PLAYWRIGHT_FIREFOX_POLICIES_JSON` environment variable.
 - `forced_colors` "active" | "none" | "null" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-forced-colors"/><a href="#browser-type-launch-persistent-context-option-forced-colors" class="list-anchor">#</a>
   
-  Emulates `'forced-colors'` media feature, supported values are `'active'`, `'none'`. See [page.emulate_media()](/api/class-page.mdx#page-emulate-media) for more details. Passing `'null'` resets emulation to system defaults. Defaults to `'none'`.
+  模擬 `'forced-colors'` 媒體功能，支援的值為 `'active'`、`'none'`。更多詳細資訊請參考 [page.emulate_media()](/api/class-page.mdx#page-emulate-media)。傳遞 `'null'` 會重設模擬為系統預設值。預設值為 `'none'`。
 - `geolocation` [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-geolocation"/><a href="#browser-type-launch-persistent-context-option-geolocation" class="list-anchor">#</a>
   - `latitude` [float]
     
-    Latitude between -90 and 90.
+    緯度，範圍在 -90 到 90 之間。
   - `longitude` [float]
     
-    Longitude between -180 and 180.
+    經度，範圍在 -180 到 180 之間。
   - `accuracy` [float] *(optional)*
     
-    Non-negative accuracy value. Defaults to `0`.
+    非負準確度值。預設值為 `0`。
 - `handle_sighup` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-handle-sighup"/><a href="#browser-type-launch-persistent-context-option-handle-sighup" class="list-anchor">#</a>
   
-  Close the browser process on SIGHUP. Defaults to `true`.
+  在收到 SIGHUP 信號時關閉瀏覽器程序。預設值為 `true`。
 - `handle_sigint` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-handle-sigint"/><a href="#browser-type-launch-persistent-context-option-handle-sigint" class="list-anchor">#</a>
   
-  Close the browser process on Ctrl-C. Defaults to `true`.
+  在收到 Ctrl-C 時關閉瀏覽器程序。預設值為 `true`。
 - `handle_sigterm` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-handle-sigterm"/><a href="#browser-type-launch-persistent-context-option-handle-sigterm" class="list-anchor">#</a>
   
-  Close the browser process on SIGTERM. Defaults to `true`.
+  在收到 SIGTERM 信號時關閉瀏覽器程序。預設值為 `true`。
 - `has_touch` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-has-touch"/><a href="#browser-type-launch-persistent-context-option-has-touch" class="list-anchor">#</a>
   
-  Specifies if viewport supports touch events. Defaults to false. Learn more about [mobile emulation](../emulation.mdx#devices).
+  指定檢視區是否支援觸控事件。預設值為 false。深入了解[行動裝置模擬](../emulation.mdx#devices)。
 - `headless` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-headless"/><a href="#browser-type-launch-persistent-context-option-headless" class="list-anchor">#</a>
   
-  Whether to run browser in headless mode. More details for [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/). Defaults to `true` unless the [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) option is `true`.
+  是否以無頭模式執行瀏覽器。更多詳細資訊請參考 [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) 和 [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/)。預設值為 `true`，除非 [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) 選項為 `true`。
 - `http_credentials` [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-http-credentials"/><a href="#browser-type-launch-persistent-context-option-http-credentials" class="list-anchor">#</a>
   - `username` [str]
     
-    
+    使用者名稱。
   - `password` [str]
     
-    
+    密碼。
   - `origin` [str] *(optional)*
     
-    Restrain sending http credentials on specific origin (scheme://host:port).
+    限制在特定來源（scheme://host:port）發送 HTTP 憑證。
   - `send` "unauthorized" | "always" *(optional)*
     
-    This option only applies to the requests sent from corresponding [APIRequestContext] and does not affect requests sent from the browser. `'always'` - `Authorization` header with basic authentication credentials will be sent with the each API request. `'unauthorized` - the credentials are only sent when 401 (Unauthorized) response with `WWW-Authenticate` header is received. Defaults to `'unauthorized'`.
+    此選項僅適用於從對應 [APIRequestContext] 發送的請求，不影響從瀏覽器發送的請求。`'always'` - 每個 API 請求都會發送帶有基本驗證憑證的 `Authorization` 標頭。`'unauthorized'` - 只有在接收到帶有 `WWW-Authenticate` 標頭的 401（未授權）回應時才發送憑證。預設值為 `'unauthorized'`。
   
-  Credentials for [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). If no origin is specified, the username and password are sent to any servers upon unauthorized responses.
+  [HTTP 驗證](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)的憑證。如果未指定來源，使用者名稱和密碼會在未授權回應時發送到任何伺服器。
 - `ignore_default_args` [bool] | [List]\[[str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-ignore-default-args"/><a href="#browser-type-launch-persistent-context-option-ignore-default-args" class="list-anchor">#</a>
   
-  If `true`, Playwright does not pass its own configurations args and only uses the ones from [args](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-args). If an array is given, then filters out the given default arguments. Dangerous option; use with care. Defaults to `false`.
+  如果為 `true`，Playwright 不會傳遞自己的配置參數，而只使用 [args](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-args) 中的參數。如果給予陣列，則會過濾掉指定的預設參數。危險選項；請謹慎使用。預設值為 `false`。
 - `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-ignore-https-errors"/><a href="#browser-type-launch-persistent-context-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+  發送網路請求時是否忽略 HTTPS 錯誤。預設值為 `false`。
 - `is_mobile` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-is-mobile"/><a href="#browser-type-launch-persistent-context-option-is-mobile" class="list-anchor">#</a>
   
   Whether the `meta viewport` tag is taken into account and touch events are enabled. isMobile is a part of device, so you don't actually need to set it manually. Defaults to `false` and is not supported in Firefox. Learn more about [mobile emulation](../emulation.mdx#ismobile).
@@ -508,25 +508,25 @@ browser_type.launch_persistent_context(user_data_dir, **kwargs)
   Whether to emulate network being offline. Defaults to `false`. Learn more about [network emulation](../emulation.mdx#offline).
 - `permissions` [List]\[[str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-permissions"/><a href="#browser-type-launch-persistent-context-option-permissions" class="list-anchor">#</a>
   
-  A list of permissions to grant to all pages in this context. See [browser_context.grant_permissions()](/api/class-browsercontext.mdx#browser-context-grant-permissions) for more details. Defaults to none.
+  授予此情境中所有頁面的權限清單。更多詳細資訊請參考 [browser_context.grant_permissions()](/api/class-browsercontext.mdx#browser-context-grant-permissions)。預設值為無。
 - `proxy` [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-proxy"/><a href="#browser-type-launch-persistent-context-option-proxy" class="list-anchor">#</a>
   - `server` [str]
     
-    Proxy to be used for all requests. HTTP and SOCKS proxies are supported, for example `http://myproxy.com:3128` or `socks5://myproxy.com:3128`. Short form `myproxy.com:3128` is considered an HTTP proxy.
+    用於所有請求的代理伺服器。支援 HTTP 和 SOCKS 代理，例如 `http://myproxy.com:3128` 或 `socks5://myproxy.com:3128`。簡短形式 `myproxy.com:3128` 被視為 HTTP 代理。
   - `bypass` [str] *(optional)*
     
-    Optional comma-separated domains to bypass proxy, for example `".com, chromium.org, .domain.com"`.
+    選擇性的逗號分隔網域清單，用於繞過代理，例如 `".com, chromium.org, .domain.com"`。
   - `username` [str] *(optional)*
     
-    Optional username to use if HTTP proxy requires authentication.
+    如果 HTTP 代理需要驗證時使用的選擇性使用者名稱。
   - `password` [str] *(optional)*
     
-    Optional password to use if HTTP proxy requires authentication.
+    如果 HTTP 代理需要驗證時使用的選擇性密碼。
   
-  Network proxy settings.
+  網路代理設定。
 - `record_har_content` "omit" | "embed" | "attach" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-record-har-content"/><a href="#browser-type-launch-persistent-context-option-record-har-content" class="list-anchor">#</a>
   
-  Optional setting to control resource content management. If `omit` is specified, content is not persisted. If `attach` is specified, resources are persisted as separate files and all of these files are archived along with the HAR file. Defaults to `embed`, which stores content inline the HAR file as per HAR specification.
+  控制資源內容管理的選擇性設定。如果指定 `omit`，內容不會被保存。如果指定 `attach`，資源會作為獨立檔案保存，且所有這些檔案會與 HAR 檔案一起封存。預設值為 `embed`，根據 HAR 規範將內容內嵌儲存在 HAR 檔案中。
 - `record_har_mode` "full" | "minimal" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-record-har-mode"/><a href="#browser-type-launch-persistent-context-option-record-har-mode" class="list-anchor">#</a>
   
   When set to `minimal`, only record information necessary for routing from HAR. This omits sizes, timing, page, cookies, security and other types of HAR information that are not used when replaying from HAR. Defaults to `full`.
@@ -539,23 +539,23 @@ browser_type.launch_persistent_context(user_data_dir, **kwargs)
 - `record_har_url_filter` [str] | [Pattern] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-record-har-url-filter"/><a href="#browser-type-launch-persistent-context-option-record-har-url-filter" class="list-anchor">#</a>
 - `record_video_dir` [Union]\[[str], [pathlib.Path]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-record-video-dir"/><a href="#browser-type-launch-persistent-context-option-record-video-dir" class="list-anchor">#</a>
   
-  Enables video recording for all pages into the specified directory. If not specified videos are not recorded. Make sure to call [browser_context.close()](/api/class-browsercontext.mdx#browser-context-close) for videos to be saved.
+  為所有頁面啟用影片錄製到指定目錄。如果未指定，則不會錄製影片。請確保呼叫 [browser_context.close()](/api/class-browsercontext.mdx#browser-context-close) 以儲存影片。
 - `record_video_size` [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-record-video-size"/><a href="#browser-type-launch-persistent-context-option-record-video-size" class="list-anchor">#</a>
   - `width` [int]
     
-    Video frame width.
+    影片畫面寬度。
   - `height` [int]
     
-    Video frame height.
+    影片畫面高度。
   
-  Dimensions of the recorded videos. If not specified the size will be equal to `viewport` scaled down to fit into 800x800. If `viewport` is not configured explicitly the video size defaults to 800x450. Actual picture of each page will be scaled down if necessary to fit the specified size.
+  錄製影片的尺寸。如果未指定，大小將等於縮放後適合 800x800 的 `viewport`。如果未明確配置 `viewport`，影片大小預設為 800x450。如有需要，每個頁面的實際畫面會縮放以適合指定大小。
 - `reduced_motion` "reduce" | "no-preference" | "null" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-reduced-motion"/><a href="#browser-type-launch-persistent-context-option-reduced-motion" class="list-anchor">#</a>
   
-  Emulates `'prefers-reduced-motion'` media feature, supported values are `'reduce'`, `'no-preference'`. See [page.emulate_media()](/api/class-page.mdx#page-emulate-media) for more details. Passing `'null'` resets emulation to system defaults. Defaults to `'no-preference'`.
+  模擬 `'prefers-reduced-motion'` 媒體功能，支援的值為 `'reduce'`、`'no-preference'`。更多詳細資訊請參考 [page.emulate_media()](/api/class-page.mdx#page-emulate-media)。傳遞 `'null'` 會重設模擬為系統預設值。預設值為 `'no-preference'`。
 - `screen` [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-screen"/><a href="#browser-type-launch-persistent-context-option-screen" class="list-anchor">#</a>
   - `width` [int]
     
-    page width in pixels.
+    頁面寬度（像素）。
   - `height` [int]
     
     page height in pixels.
