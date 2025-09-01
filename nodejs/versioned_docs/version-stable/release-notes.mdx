@@ -565,12 +565,12 @@ await page.removeLocatorHandler(locator);
 ### UI 模式更新
 
 ![Playwright UI Mode](https://github.com/microsoft/playwright/assets/9881434/61ca7cfc-eb7a-4305-8b62-b6c9f098f300)
-* See tags in the test list.
-* Filter by tags by typing `@fast` or clicking on the tag itself.
+* 在測試清單中查看標籤。
+* 透過輸入 `@fast` 或點擊標籤本身來按標籤篩選。
 * 新的快捷鍵：
-  - "F5" to run tests.
-  - "Shift F5" to stop running tests.
-  - "Ctrl `" to toggle test output.
+  - "F5" 執行測試。
+  - "Shift F5" 停止執行測試。
+  - "Ctrl `" 切換測試輸出。
 
 ### 瀏覽器版本
 * Chromium 124.0.6367.8
@@ -666,8 +666,8 @@ test('test full report', {
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [page.unrouteAll()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) 和 [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
-- 新方法 [browserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [page.unrouteAll()](/api/class-page.mdx#page-unroute-all) 移除由 [page.route()](/api/class-page.mdx#page-route) 和 [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 註冊的所有路由。可選擇等待進行中的路由完成，或忽略來自它們的任何錯誤。
+- 新方法 [browserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除由 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的所有路由。可選擇等待進行中的路由完成，或忽略來自它們的任何錯誤。
 - 新選項s [style](/api/class-page.mdx#page-screenshot-選項-style) in [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [style](/api/class-locator.mdx#locator-screenshot-選項-style) in [locator.screenshot()](/api/class-locator.mdx#locator-screenshot)以新增custom CSS to the page在執行...之前a screenshot.
 - 新選項 `stylePath`用於方法[expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1)以套用a custom stylesheet在製作...時the screenshot.
 - [Blob reporter](./test-reporters#blob-reporter) 的新 `fileName` 選項，用於指定要建立的報告名稱。
@@ -691,8 +691,8 @@ test('test full report', {
 
 新的產生斷言工具：
 - "Assert visibility" 工具產生 [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
-- "Assert value" tool generates [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
-- "Assert text" tool generates [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).
+- "Assert value" 工具產生 [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
+- "Assert text" 工具產生 [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
 Here is an example of a generated test with assertions:
 
@@ -1091,7 +1091,7 @@ Linux support looks like this:
   const button = page.getByRole('button').and(page.getByTitle('Subscribe'));
   ```
   
-* New events [browserContext.on('console')](/api/class-browsercontext.mdx#browser-context-event-console) 和 [browserContext.on('dialog')](/api/class-browsercontext.mdx#browser-context-event-dialog) to subscribe to any dialogs and console messages from any page from the given browser context. Use the new methods [consoleMessage.page()](/api/class-consolemessage.mdx#console-message-page) 和 [dialog.page()](/api/class-dialog.mdx#dialog-page) to pin-point event source.
+* 新事件 [browserContext.on('console')](/api/class-browsercontext.mdx#browser-context-event-console) 和 [browserContext.on('dialog')](/api/class-browsercontext.mdx#browser-context-event-dialog) 用於訂閱來自給定瀏覽器上下文中任何頁面的對話框和主控台訊息。使用新方法 [consoleMessage.page()](/api/class-consolemessage.mdx#console-message-page) 和 [dialog.page()](/api/class-dialog.mdx#dialog-page) 精確定位事件來源。
 
 ### ⚠️ Breaking changes
 * `npx playwright test` no longer works if you install both `playwright` and `@playwright/test`. There's no need to install both, since you can always import browser automation APIs from `@playwright/test` directly:
@@ -1138,7 +1138,7 @@ Linux support looks like this:
       .screenshot();
   ```
   
-* Use new web-first assertion [expect(locator).toBeAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) to ensure that the element is present in the page's DOM. Do not confuse with the [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) that ensures that element is both attached & visible.
+* 使用新的網頁優先斷言 [expect(locator).toBeAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 確保元素存在於頁面的 DOM 中。不要與 [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既附加又可見。
 
 ### 新的 API
 - [locator.or()](/api/class-locator.mdx#locator-or)
@@ -2033,7 +2033,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 - New [locator.page()](/api/class-locator.mdx#locator-page)
 - [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot)現在automatically hide blinking caret
 - Playwright Codegen現在generates locators and frame locators
-- 新選項 `url`  in [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) to ensure your web server is ready before running the tests
+- 新選項 `url` 在 [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server) 中，確保您的網頁伺服器在執行測試前已準備就緒
 - New [testInfo.errors](/api/class-testinfo.mdx#test-info-errors) 和 [testResult.errors](/api/class-testresult.mdx#test-result-errors) that contain all failed assertions and soft assertions.
 
 ### Playwright Test 全域設定中的潛在重大變更
@@ -2572,12 +2572,12 @@ Learn more in the [documentation](./test-webserver).
 
 #### ⚡️ Introducing Playwright Test
 
-[Playwright Test](./intro.mdx) is a **new test runner** built from scratch by Playwright team specifically to accommodate end-to-end testing needs:
-- Run tests across all browsers.
-- Execute tests in parallel.
-- Enjoy context isolation and sensible defaults out of the box.
-- Capture videos, screenshots and other artifacts on failure.
-- Integrate your POMs as extensible fixtures.
+[Playwright Test](./intro.mdx) 是 Playwright 團隊從頭開始建立的**新測試執行器**，專門為滿足端到端測試需求而設計：
+- 在所有瀏覽器中執行測試。
+- 並行執行測試。
+- 享受開箱即用的上下文隔離和合理預設值。
+- 在失敗時擷取影片、螢幕截圖和其他製品。
+- 將您的 POM 整合為可擴充的設備。
 
 Installation:
 

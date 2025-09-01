@@ -382,8 +382,8 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [page.unroute_all()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [page.route()](/api/class-page.mdx#page-route) 和 [page.route_from_har()](/api/class-page.mdx#page-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
-- 新方法 [browser_context.unroute_all()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [page.unroute_all()](/api/class-page.mdx#page-unroute-all) 移除由 [page.route()](/api/class-page.mdx#page-route) 和 [page.route_from_har()](/api/class-page.mdx#page-route-from-har) 註冊的所有路由。可選擇等待進行中的路由完成，或忽略來自它們的任何錯誤。
+- 新方法 [browser_context.unroute_all()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除由 [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的所有路由。可選擇等待進行中的路由完成，或忽略來自它們的任何錯誤。
 - 新選項s [style](/api/class-page.mdx#page-screenshot-選項-style) in [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [style](/api/class-locator.mdx#locator-screenshot-選項-style) in [locator.screenshot()](/api/class-locator.mdx#locator-screenshot)以新增custom CSS to the page在執行...之前a screenshot.
 
 ### 瀏覽器版本
@@ -1645,7 +1645,7 @@ This version of Playwright was also tested against the following stable channels
 - **Pause script execution** with [page.pause()](/api/class-page.mdx#page-pause) in headed mode. Pausing the page launches [Playwright Inspector](./debug.mdx) for debugging.
 - **New has-text pseudo-class** for CSS selectors. `:has-text("example")` matches any element containing `"example"` somewhere inside, possibly in a child or a descendant element. See [more examples](./other-locators.mdx#css-matching-by-text).
 - **頁面對話框現在自動關閉**：除非配置了 `dialog` 事件的監聽器，否則在執行過程中會自動關閉頁面對話框。[了解更多](./dialogs.mdx)相關資訊。
-- [Playwright for Python](https://github.com/microsoft/playwright-python) is **now stable** with an idiomatic snake case API and pre-built [Docker image](./docker.mdx) to run tests in CI/CD.
+- [Playwright for Python](https://github.com/microsoft/playwright-python) 現在**穩定**，具有慣用的蛇形命名法 API 和預建的 [Docker 映像](./docker.mdx) 用於在 CI/CD 中執行測試。
 
 #### 瀏覽器版本
 - Chromium 90.0.4421.0

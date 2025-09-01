@@ -162,7 +162,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * `Call` and `Network` panels now display additional time information.
 
 ### 重大變更
-* [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.isEditable()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
+* [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.isEditable()](/api/class-locator.mdx#locator-is-editable) 現在在目標元素不是 `<input>`、`<select>` 或其他可編輯元素時會拋出例外。
 
 ### 瀏覽器版本
 * Chromium 133.0.6943.16
@@ -474,8 +474,8 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [Page.unrouteAll()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [Page.route()](/api/class-page.mdx#page-route) 和 [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har).
-- 新方法 [BrowserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har).
+- 新方法 [Page.unrouteAll()](/api/class-page.mdx#page-unroute-all) 移除由 [Page.route()](/api/class-page.mdx#page-route) 和 [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 註冊的所有路由。
+- 新方法 [BrowserContext.unrouteAll()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除由 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的所有路由。
 - 新選項s [setStyle](/api/class-page.mdx#page-screenshot-選項-style) in [Page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [setStyle](/api/class-locator.mdx#locator-screenshot-選項-style) in [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot)以新增custom CSS to the page在執行...之前a screenshot.
 
 ### 瀏覽器版本
@@ -643,7 +643,7 @@ Linux support looks like this:
   Locator button = page.getByRole(AriaRole.BUTTON).and(page.getByTitle("Subscribe"));
   ```
   
-* New events [BrowserContext.onConsoleMessage(handler)](/api/class-browsercontext.mdx#browser-context-event-console) 和 [BrowserContext.onDialog(handler)](/api/class-browsercontext.mdx#browser-context-event-dialog) to subscribe to any dialogs and console messages from any page from the given browser context. Use the new methods [ConsoleMessage.page()](/api/class-consolemessage.mdx#console-message-page) 和 [Dialog.page()](/api/class-dialog.mdx#dialog-page) to pin-point event source.
+* 新事件 [BrowserContext.onConsoleMessage(handler)](/api/class-browsercontext.mdx#browser-context-event-console) 和 [BrowserContext.onDialog(handler)](/api/class-browsercontext.mdx#browser-context-event-dialog) 用於訂閱來自給定瀏覽器上下文中任何頁面的對話框和主控台訊息。使用新方法 [ConsoleMessage.page()](/api/class-consolemessage.mdx#console-message-page) 和 [Dialog.page()](/api/class-dialog.mdx#dialog-page) 精確定位事件來源。
 
 ### 瀏覽器版本
 * Chromium 114.0.5735.26
@@ -680,7 +680,7 @@ Linux support looks like this:
       .screenshot();
   ```
   
-* Use new web-first assertion [assertThat(locator).isAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) to ensure that the element is present in the page's DOM. Do not confuse with the [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) that ensures that element is both attached & visible.
+* 使用新的網頁優先斷言 [assertThat(locator).isAttached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 確保元素存在於頁面的 DOM 中。不要與 [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既附加又可見。
 
 ### 新的 API
 - [Locator.or()](/api/class-locator.mdx#locator-or)
@@ -970,7 +970,7 @@ BrowserContext context = browser.newContext(new Browser.NewContextOptions()
 
 // ... Perform actions ...
 
-// Close context to ensure HAR is saved to disk.
+// 關閉上下文以確保 HAR 儲存到磁碟。
 context.close();
 ```
 
@@ -1477,9 +1477,9 @@ This version of Playwright was also tested against the following stable channels
   * `trial` 選項 to dry-run actions in [Page.check()](/api/class-page.mdx#page-check), [Page.uncheck()](/api/class-page.mdx#page-uncheck), [Page.click()](/api/class-page.mdx#page-click), [Page.dblclick()](/api/class-page.mdx#page-dblclick), [Page.hover()](/api/class-page.mdx#page-hover) 和 [Page.tap()](/api/class-page.mdx#page-tap)
 
 ## 版本 1.10
-- [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) is **now stable**!
-- Run Playwright against **Google Chrome** and **Microsoft Edge** stable channels with the [new channels API](./browsers).
-- Chromium screenshots are **fast** on Mac & Windows.
+- [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) 現在**穩定**！
+- 透過[新的頻道 API](./browsers) 在 **Google Chrome** 和 **Microsoft Edge** 穩定頻道上執行 Playwright。
+- Chromium 螢幕截圖在 Mac 和 Windows 上**快速**。
 
 #### Bundled Browser Versions
 - Chromium 90.0.4430.0
@@ -1502,7 +1502,7 @@ This version of Playwright was also tested against the following stable channels
 - **Pause script execution** with [Page.pause()](/api/class-page.mdx#page-pause) in headed mode. Pausing the page launches [Playwright Inspector](./debug.mdx) for debugging.
 - **New has-text pseudo-class** for CSS selectors. `:has-text("example")` matches any element containing `"example"` somewhere inside, possibly in a child or a descendant element. See [more examples](./other-locators.mdx#css-matching-by-text).
 - **頁面對話框現在自動關閉**：除非配置了 `dialog` 事件的監聽器，否則在執行過程中會自動關閉頁面對話框。[了解更多](./dialogs.mdx)相關資訊。
-- [Playwright for Python](https://github.com/microsoft/playwright-python) is **now stable** with an idiomatic snake case API and pre-built [Docker image](./docker.mdx) to run tests in CI/CD.
+- [Playwright for Python](https://github.com/microsoft/playwright-python) 現在**穩定**，具有慣用的蛇形命名法 API 和預建的 [Docker 映像](./docker.mdx) 用於在 CI/CD 中執行測試。
 
 #### 瀏覽器版本
 - Chromium 90.0.4421.0

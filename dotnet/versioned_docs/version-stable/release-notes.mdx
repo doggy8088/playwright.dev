@@ -170,7 +170,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 * `Call` and `Network` panels now display additional time information.
 
 ### 重大變更
-* [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-editable) now throw if the target element is not `<input>`, `<select>`, or a number of other editable elements.
+* [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) 和 [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-editable) 現在在目標元素不是 `<input>`、`<select>` 或其他可編輯元素時會拋出例外。
 
 ### 瀏覽器版本
 * Chromium 133.0.6943.16
@@ -576,8 +576,8 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 ## 版本 1.41
 
 ### 新的 API
-- 新方法 [Page.UnrouteAllAsync()](/api/class-page.mdx#page-unroute-all) removes all routes registered by [Page.RouteAsync()](/api/class-page.mdx#page-route) 和 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
-- 新方法 [BrowserContext.UnrouteAllAsync()](/api/class-browsercontext.mdx#browser-context-unroute-all) removes all routes registered by [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har). Optionally 允許 wait for ongoing routes to finish, or ignore any errors from them.
+- 新方法 [Page.UnrouteAllAsync()](/api/class-page.mdx#page-unroute-all) 移除由 [Page.RouteAsync()](/api/class-page.mdx#page-route) 和 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 註冊的所有路由。可選擇等待進行中的路由完成，或忽略來自它們的任何錯誤。
+- 新方法 [BrowserContext.UnrouteAllAsync()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除由 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的所有路由。可選擇等待進行中的路由完成，或忽略來自它們的任何錯誤。
 - 新選項s [Style](/api/class-page.mdx#page-screenshot-選項-style) in [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Style](/api/class-locator.mdx#locator-screenshot-選項-style) in [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot)以新增custom CSS to the page在執行...之前a screenshot.
 
 ### 瀏覽器版本
@@ -596,9 +596,9 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 ![Playwright Test Generator](https://github.com/microsoft/playwright/assets/9881434/e8d67e2e-f36d-4301-8631-023948d3e190)
 
 新的產生斷言工具：
-- "Assert visibility" tool generates [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible).
-- "Assert value" tool generates [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value).
-- "Assert text" tool generates [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text).
+- "Assert visibility" 工具產生 [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible)。
+- "Assert value" 工具產生 [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value)。
+- "Assert text" 工具產生 [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text)。
 
 Here is an example of a generated test with assertions:
 
@@ -731,7 +731,7 @@ Linux support looks like this:
   var button = page.GetByRole(AriaRole.BUTTON).And(page.GetByTitle("Subscribe"));
   ```
   
-* New events [BrowserContext.Console](/api/class-browsercontext.mdx#browser-context-event-console) 和 [BrowserContext.Dialog](/api/class-browsercontext.mdx#browser-context-event-dialog) to subscribe to any dialogs and console messages from any page from the given browser context. Use the new methods [ConsoleMessage.Page](/api/class-consolemessage.mdx#console-message-page) 和 [Dialog.Page](/api/class-dialog.mdx#dialog-page) to pin-point event source.
+* 新事件 [BrowserContext.Console](/api/class-browsercontext.mdx#browser-context-event-console) 和 [BrowserContext.Dialog](/api/class-browsercontext.mdx#browser-context-event-dialog) 用於訂閱來自給定瀏覽器上下文中任何頁面的對話框和主控台訊息。使用新方法 [ConsoleMessage.Page](/api/class-consolemessage.mdx#console-message-page) 和 [Dialog.Page](/api/class-dialog.mdx#dialog-page) 精確定位事件來源。
 
 ### 瀏覽器版本
 * Chromium 114.0.5735.26
@@ -766,7 +766,7 @@ Linux support looks like this:
       .ScreenshotAsync();
   ```
   
-* Use new web-first assertion [Expect(Locator).ToBeAttachedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) to ensure that the element is present in the page's DOM. Do not confuse with the [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) that ensures that element is both attached & visible.
+* 使用新的網頁優先斷言 [Expect(Locator).ToBeAttachedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) 確保元素存在於頁面的 DOM 中。不要與 [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) 混淆，後者確保元素既附加又可見。
 
 ### 新的 API
 - [Locator.Or()](/api/class-locator.mdx#locator-or)
@@ -1113,7 +1113,7 @@ var context = await browser.NewContextAsync(new()
 
 // ... Perform actions ...
 
-// Close context to ensure HAR is saved to disk.
+// 關閉上下文以確保 HAR 儲存到磁碟。
 context.CloseAsync();
 ```
 
