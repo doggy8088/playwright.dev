@@ -725,7 +725,7 @@ Linux support looks like this:
 ## 版本 1.34
 
 ### 重點
-* New [Locator.And()](/api/class-locator.mdx#locator-and) to create a locator that matches both locators.
+* 新的 [Locator.And()](/api/class-locator.mdx#locator-and) 用於建立符合兩個定位器的定位器。
   
   ```csharp
   var button = page.GetByRole(AriaRole.BUTTON).And(page.GetByTitle("Subscribe"));
@@ -756,7 +756,7 @@ Linux support looks like this:
   await newEmail.ClickAsync();
   ```
   
-* Use new options [HasNot](/api/class-locator.mdx#locator-filter-選項-has-not) 和 [HasNotText|HasNotTextRegex](/api/class-locator.mdx#locator-filter-選項-has-not-text) in [Locator.Filter()](/api/class-locator.mdx#locator-filter) to find elements that **do not match** certain conditions.
+* 在 [Locator.Filter()](/api/class-locator.mdx#locator-filter) 中使用新選項 [HasNot](/api/class-locator.mdx#locator-filter-選項-has-not) 和 [HasNotText|HasNotTextRegex](/api/class-locator.mdx#locator-filter-選項-has-not-text) 來尋找**不符合**特定條件的元素。
   
   ```csharp
   var rowLocator = Page.Locator("tr");
@@ -1157,11 +1157,11 @@ await page.RouteAsync("**/*", async route =>
 請注意，新方法 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 和 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) 也參與路由，並且可以被延遲到。
 
 ### Web-First 斷言更新
-* 新方法 [Expect(Locator).ToHaveValuesAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
+* 新方法 [Expect(Locator).ToHaveValuesAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選取值。
 * Methods [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
 
 ### 其他
-* If there's a service worker that's in your way, you 現在可以 easily disable it with a new context 選項 `serviceWorkers`:
+* 如果有阻礙您的 Service Worker，您現在可以透過新的上下文選項 `serviceWorkers` 輕鬆停用它：
   
   ```csharp
   var context = await Browser.NewContextAsync(new()
@@ -1176,7 +1176,7 @@ await page.RouteAsync("**/*", async route =>
   var context = await Browser.NewContextAsync(new() { RecordHarPath = "example.har.zip" });
   ```
   
-* If you intend to edit HAR by hand, consider using the `"minimal"` HAR recording mode that only records information that is essential for replaying:
+* 如果您打算手動編輯 HAR，請考慮使用僅記錄重播所需基本資訊的 `"minimal"` HAR 記錄模式：
   
   ```csharp
   var context = await Browser.NewContextAsync(new() { RecordHarPath = "example.har", RecordHarMode = HarMode.Minimal });
@@ -1264,8 +1264,8 @@ Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節�
 
 ### 其他更新
 - 新選項s用於方法[Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot), [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) 和 [ElementHandle.ScreenshotAsync()](/api/class-elementhandle.mdx#element-handle-screenshot):
-  * 選項 `ScreenshotAnimations.Disabled` rewinds all CSS animations and transitions to a consistent state
-  * 選項 `mask: Locator[]` masks given elements, overlaying them with pink `#FF00FF` boxes.
+  * 選項 `ScreenshotAnimations.Disabled` 將所有 CSS 動畫和轉場重置為一致狀態
+  * 選項 `mask: Locator[]` 遮罩指定的元素，在其上方覆蓋粉色 `#FF00FF` 方框。
 - [Locator.HighlightAsync()](/api/class-locator.mdx#locator-highlight)視覺化地顯示element(s)以便更輕鬆地debugging.
 
 ### 公告

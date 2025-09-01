@@ -656,7 +656,7 @@ test('test full report', {
 - [page.pdf()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [`tagged`](./api/class-page#page-pdf-選項-tagged) 和 [`outline`](./api/class-page#page-pdf-選項-outline)。
 
 ### 公告
-* ⚠️ Ubuntu 18 is not supported anymore.
+* ⚠️ Ubuntu 18 已不再支援。
 
 ### 瀏覽器版本
 * Chromium 123.0.6312.4
@@ -974,10 +974,10 @@ Linux 支援如下所示：
 * UI mode 現在可用 in VSCode Playwright extension via a new "Show trace viewer" button:
   
   ![Playwright UI Mode](https://github.com/microsoft/playwright/assets/746130/13094128-259b-477a-8bbb-c1181178e8a2)
-* UI mode and trace viewer mark network requests handled with [page.route()](/api/class-page.mdx#page-route) 和 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) handlers, as well as those issued via the [API testing](./api-testing):
+* UI 模式和追蹤檢視器會標記由 [page.route()](/api/class-page.mdx#page-route) 和 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 處理器處理的網路請求，以及透過 [API testing](./api-testing) 發出的請求：
   
   ![Trace Viewer](https://github.com/microsoft/playwright/assets/746130/0df2d4b6-faa3-465c-aff3-c435b430bfe1)
-* 新選項 `maskColor`用於方法[page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot), [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) to change default masking color:
+* 新選項 `maskColor`用於方法[page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot), [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) 以變更預設遮罩顏色：
   
   ```js
   await page.goto('https://playwright.dev');
@@ -1002,7 +1002,7 @@ Linux 支援如下所示：
   ```
   
 ### ⚠️ Breaking changes
-* `playwright-core` binary got renamed from `playwright` to `playwright-core`. So if you use `playwright-core` CLI, make sure to update the name:
+* `playwright-core` 執行檔已從 `playwright` 重新命名為 `playwright-core`。因此，如果您使用 `playwright-core` CLI，請務必更新名稱：
   
   ```bash
   $ npx playwright-core install # the new way to install browsers when using playwright-core
@@ -1132,7 +1132,7 @@ Linux 支援如下所示：
   await newEmail.click();
   ```
   
-* Use new options [hasNot](/api/class-locator.mdx#locator-filter-選項-has-not) 和 [hasNotText](/api/class-locator.mdx#locator-filter-選項-has-not-text) in [locator.filter()](/api/class-locator.mdx#locator-filter) to find elements that **do not match** certain conditions.
+* 在 [locator.filter()](/api/class-locator.mdx#locator-filter) 中使用新選項 [hasNot](/api/class-locator.mdx#locator-filter-選項-has-not) 和 [hasNotText](/api/class-locator.mdx#locator-filter-選項-has-not-text) 來尋找**不符合**特定條件的元素。
   
   ```js
   const rowLocator = page.locator('tr');
@@ -1190,7 +1190,7 @@ npx playwright test --ui
 
 Note: **component tests only**, does not affect end-to-end tests.
 * `@playwright/experimental-ct-react` 現在支援 **React 18 only**.
-* If you're running component tests with React 16 or 17, please replace `@playwright/experimental-ct-react` with `@playwright/experimental-ct-react17`.
+* 如果您正在使用 React 16 或 17 執行元件測試，請將 `@playwright/experimental-ct-react` 替換為 `@playwright/experimental-ct-react17`。
 
 ### 瀏覽器版本
 * Chromium 112.0.5615.29
@@ -1328,7 +1328,7 @@ export default defineConfig({
   });
   ```
   
-- 新方法 [locator.all()](/api/class-locator.mdx#locator-all) to iterate over all matching elements:
+- 新方法 [locator.all()](/api/class-locator.mdx#locator-all) 用於遍歷所有符合的元素：
   
   ```js
   // Check all checkboxes!
@@ -1406,7 +1406,7 @@ export default defineConfig({
 ![Dark Theme](https://user-images.githubusercontent.com/746130/201797969-603f74df-d7cf-4c56-befd-798dbd269796.png)
 
 ### 測試執行器
-* Configure retries and test timeout for a file or a test with [test.describe.configure()](/api/class-test.mdx#test-describe-configure).
+* 使用 [test.describe.configure()](/api/class-test.mdx#test-describe-configure) 為檔案或測試配置重試次數和測試逾時。
   
   ```js
   // Each test in the file will be retried twice and have a timeout of 20 seconds.
@@ -1765,17 +1765,17 @@ test('should work', async ({ page }) => {
 請注意，新方法 [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 和 [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) 也參與路由，可以延後處理。
 
 ### Web-First 斷言更新
-* 新方法 [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
+* 新方法 [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選取值。
 * Methods [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
 
 ### 元件測試更新
 * 支援 Vue2 via the [`@playwright/experimental-ct-vue2`](https://www.npmjs.com/package/@playwright/experimental-ct-vue2) package.
-* 支援 component tests for [create-react-app](https://www.npmjs.com/package/create-react-app) with components in `.js` files.
+* 支援與在 `.js` 檔案中包含元件的 [create-react-app](https://www.npmjs.com/package/create-react-app) 進行元件測試。
 
 在[使用 Playwright 進行元件測試](./test-components)中閱讀更多。
 
 ### 其他
-* If there's a service worker that's in your way, 您現在可以 easily disable it with a new context 選項 `serviceWorkers`:
+* 如果有阻礙您的 Service Worker，您現在可以透過新的上下文選項 `serviceWorkers` 輕鬆停用它：
   
   ```js title="playwright.config.ts"
   export default {
@@ -1795,7 +1795,7 @@ test('should work', async ({ page }) => {
   });
   ```
   
-* If you intend to edit HAR by hand, consider using the `"minimal"` HAR recording mode that only records information that is essential for replaying:
+* 如果您打算手動編輯 HAR，請考慮使用僅記錄重播所需基本資訊的 `"minimal"` HAR 記錄模式：
   
   ```js
   const context = await browser.newContext({
@@ -1891,7 +1891,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   在我們的[文件](./locators.mdx#locate-by-role)中閱讀更多。
 - 新 `scale` 選項 in [page.screenshot()](/api/class-page.mdx#page-screenshot) 用於產生較小的螢幕截圖。
 - 新 `caret` 選項 in [page.screenshot()](/api/class-page.mdx#page-screenshot) 用於控制文字游標。預設為 `"hide"`。
-- 新方法 `expect.poll` to wait for an arbitrary condition:
+- 新方法 `expect.poll` 用於等待任意條件：
   
   ```js
   // Poll the 方法 until it 回傳 an expected result.
@@ -1923,8 +1923,8 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 
 ### 重點
 - 新選項用於方法 [page.screenshot()](/api/class-page.mdx#page-screenshot)、[locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 和 [elementHandle.screenshot()](/api/class-elementhandle.mdx#element-handle-screenshot)：
-  * 選項 `animations: "disabled"` rewinds all CSS animations and transitions to a consistent state
-  * 選項 `mask: Locator[]` masks given elements, overlaying them with pink `#FF00FF` boxes.
+  * 選項 `animations: "disabled"` 將所有 CSS 動畫和轉場重置為一致狀態
+  * 選項 `mask: Locator[]` 遮罩指定的元素，在其上方覆蓋粉色 `#FF00FF` 方框。
 - `expect().toMatchSnapshot()` 現在支援匿名快照：當快照名稱缺少時，Playwright Test 將自動產生一個：
   
   ```js
@@ -2009,7 +2009,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
       Error: should be logged in
   
       Call log:
-        - expect.toBeVisible with timeout 5000ms
+        - expect.toBeVisible 逾時 5000ms
         - waiting for "getByText('Name')"
   
   
@@ -2191,7 +2191,7 @@ Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace
 
 ### Ubuntu ARM64 支援與更多功能
 - Playwright 現在支援 **Ubuntu 20.04 ARM64**。您現在可以在 Apple M1 和 Raspberry Pi 上的 Docker 內執行 Playwright 測試。
-- 您現在可以 use Playwright to install stable version of Edge on Linux:
+- 您現在可以使用 Playwright 在 Linux 上安裝穩定版本的 Edge：
   
   ```bash
   npx playwright install msedge
@@ -2316,8 +2316,8 @@ Playwright Docker 映像現在發佈用於 Arm64，因此可以在 Apple Silicon
 
 ### 🎭 Playwright Trace Viewer
 - web-first assertions inside trace viewer
-- run trace viewer with `npx playwright show-trace` and drop trace files to the trace viewer PWA
-- API testing is integrated with trace viewer
+- 使用 `npx playwright show-trace` 執行追蹤檢視器並將追蹤檔案拖放到追蹤檢視器 PWA
+- API 測試與追蹤檢視器整合
 - better visual attribution of action targets
 
 在[追蹤檢視器](./trace-viewer)中閱讀更多。
@@ -2431,8 +2431,8 @@ await page.locator('_vue=submit-button[enabled=true]').click();
 在 [react 選擇器文件](./other-locators.mdx#react-locator)和 [vue 選擇器文件](./other-locators.mdx#vue-locator)中了解更多。
 
 #### ✨ 新的 [**`nth`**](./other-locators.mdx#n-th-element-locator) 和 [**`visible`**](./other-locators.mdx#css-matching-only-visible-elements) 選擇器引擎
-- [`nth`](./other-locators.mdx#n-th-element-locator) selector engine is equivalent to the `:nth-match` pseudo class, but could be combined with other selector engines.
-- [`visible`](./other-locators.mdx#css-matching-only-visible-elements) selector engine is equivalent to the `:visible` pseudo class, but could be combined with other selector engines.
+- [`nth`](./other-locators.mdx#n-th-element-locator) 選擇器引擎等同於 `:nth-match` 偽類別，但可以與其他選擇器引擎結合使用。
+- [`visible`](./other-locators.mdx#css-matching-only-visible-elements) 選擇器引擎等同於 `:visible` 偽類別，但可以與其他選擇器引擎結合使用。
 
 ```js
 // select the first button among all buttons
@@ -2732,7 +2732,7 @@ This version of Playwright was also tested against the following stable channels
   ```
   
 - [page.selectOption()](/api/class-page.mdx#page-select-選項) 現在會等待選項出現。
-- 新方法 to [assert element state](./actionability#assertions) like [page.isEditable()](/api/class-page.mdx#page-is-editable).
+- 新方法用於[斷言元素狀態](./actionability#assertions)，如 [page.isEditable()](/api/class-page.mdx#page-is-editable)。
 
 #### 新的 API
 - [elementHandle.isChecked()](/api/class-elementhandle.mdx#element-handle-is-checked).
@@ -2763,7 +2763,7 @@ This version of Playwright was also tested against the following stable channels
 
 #### 新的 API
 - [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state) 用於取得目前狀態以供稍後重複使用。
-- `storageState` 選項 in [browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [browser.newPage()](/api/class-browser.mdx#browser-new-page) to setup browser context state.
+- `storageState` 選項在 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [browser.newPage()](/api/class-browser.mdx#browser-new-page) 中用於設定瀏覽器上下文狀態。
 
 #### 瀏覽器版本
 - Chromium 89.0.4344.0

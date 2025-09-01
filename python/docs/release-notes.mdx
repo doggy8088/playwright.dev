@@ -306,7 +306,7 @@ page.remove_locator_handler(locator)
 ## 版本 1.43
 
 ### 新的 API
-- 方法 [browser_context.clear_cookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援 filters to remove only some cookies.
+- 方法 [browser_context.clear_cookies()](/api/class-browsercontext.mdx#browser-context-clear-cookies) 現在支援篩選器以僅移除某些 Cookie。
   
   ```python
   # Clear all cookies.
@@ -384,7 +384,7 @@ expect(page.get_by_role("heading", name="Light and easy")).to_be_visible()
 ### 新的 API
 - 新方法 [page.unroute_all()](/api/class-page.mdx#page-unroute-all) 移除所有由 [page.route()](/api/class-page.mdx#page-route) 和 [page.route_from_har()](/api/class-page.mdx#page-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
 - 新方法 [browser_context.unroute_all()](/api/class-browsercontext.mdx#browser-context-unroute-all) 移除所有由 [browser_context.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [browser_context.route_from_har()](/api/class-browsercontext.mdx#browser-context-route-from-har) 註冊的路由。可選擇等待正在進行的路由完成，或忽略來自它們的任何錯誤。
-- 新選項s [style](/api/class-page.mdx#page-screenshot-選項-style) in [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [style](/api/class-locator.mdx#locator-screenshot-選項-style) in [locator.screenshot()](/api/class-locator.mdx#locator-screenshot)以新增custom CSS to the page在執行...之前a screenshot.
+- 新選項 [style](/api/class-page.mdx#page-screenshot-選項-style) 在 [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [style](/api/class-locator.mdx#locator-screenshot-選項-style) 在 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 中，用於在執行螢幕截圖之前將自訂 CSS 新增至頁面。
 
 ### 瀏覽器版本
 * Chromium 121.0.6167.57
@@ -518,7 +518,7 @@ Linux support looks like this:
 ## 版本 1.35
 
 ### 重點
-* 新選項 `mask_color`用於方法[page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) to change default masking color.
+* 新選項 `mask_color`用於方法[page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 以變更預設遮罩顏色。
 * 新的 `uninstall` CLI 指令用於解除安裝瀏覽器二進位檔：
   
   ```bash
@@ -569,7 +569,7 @@ Linux support looks like this:
   new_email.click()
   ```
   
-* Use new options [has_not](/api/class-locator.mdx#locator-filter-選項-has-not) 和 [has_not_text](/api/class-locator.mdx#locator-filter-選項-has-not-text) in [locator.filter()](/api/class-locator.mdx#locator-filter) to find elements that **do not match** certain conditions.
+* 在 [locator.filter()](/api/class-locator.mdx#locator-filter) 中使用新選項 [has_not](/api/class-locator.mdx#locator-filter-選項-has-not) 和 [has_not_text](/api/class-locator.mdx#locator-filter-選項-has-not-text) 來尋找**不符合**特定條件的元素。
   
   ```python
   row_locator = page.locator("tr")
@@ -819,7 +819,7 @@ To align with web specification, the `'domcontentloaded'` value only waits for t
 
 ### 公告
 * 🎁 We now ship Ubuntu 22.04 Jammy Jellyfish docker image: `mcr.microsoft.com/playwright/python:v1.34.0-jammy`.
-* 🪦 This is the last release with macOS 10.15 support (deprecated as of 1.21).
+* 🪦 這是最後一個支援 macOS 10.15 的版本（自 1.21 版起已棄用）。
 * ⚠️ Ubuntu 18 is now deprecated and will not be supported as of Dec 2022.
 
 ### 瀏覽器版本
@@ -994,7 +994,7 @@ await page.route("**/*", abort_images_handler)
 * Methods [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 現在接受 `ignore_case` 選項。
 
 ### 其他
-* If there's a service worker that's in your way, you 現在可以 easily disable it with a new context 選項 `service_workers`:
+* 如果有阻礙您的 Service Worker，您現在可以透過新的上下文選項 `service_workers` 輕鬆停用它：
   
   <Tabs
     groupId="python-flavor"
@@ -1046,7 +1046,7 @@ await page.route("**/*", abort_images_handler)
   
   </TabItem>
   </Tabs>
-* If you intend to edit HAR by hand, consider using the `"minimal"` HAR recording mode that only records information that is essential for replaying:
+* 如果您打算手動編輯 HAR，請考慮使用僅記錄重播所需基本資訊的 `"minimal"` HAR 記錄模式：
   
   <Tabs
     groupId="python-flavor"
@@ -1149,8 +1149,8 @@ await page.route("**/*", abort_images_handler)
 
 ### 重點
 - 新選項s用於方法[page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 和 [element_handle.screenshot()](/api/class-elementhandle.mdx#element-handle-screenshot):
-  * 選項 `animations: "disabled"` rewinds all CSS animations and transitions to a consistent state
-  * 選項 `mask: Locator[]` masks given elements, overlaying them with pink `#FF00FF` boxes.
+  * 選項 `animations: "disabled"` 將所有 CSS 動畫和轉場重置為一致狀態
+  * 選項 `mask: Locator[]` 遮罩指定的元素，在其上方覆蓋粉色 `#FF00FF` 方框。
 - [Trace Viewer](./trace-viewer)現在shows [API testing requests](./api-testing).
 - [locator.highlight()](/api/class-locator.mdx#locator-highlight)視覺化地顯示element(s)以便更輕鬆地debugging.
 
