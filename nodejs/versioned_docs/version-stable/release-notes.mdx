@@ -922,7 +922,7 @@ Using `merge-reports` tool requires the following steps:
 npx playwright merge-reports --reporter html ./all-blob-reports
 ```
 
-Read more in [our documentation](./test-sharding.mdx).
+在[我們的文件](./test-sharding.mdx)中閱讀更多。
 
 ### 📚 Debian 12 Bookworm Support
 
@@ -1356,7 +1356,7 @@ export default defineConfig({
   }).toPass();
   ```
   
-  Read more in [our documentation](./test-assertions.mdx#expecttopass).
+  在[我們的文件](./test-assertions.mdx#expecttopass)中閱讀更多。
 - Automatically capture **full page screenshot** on test failure:
   
   ```js title="playwright.config.ts"
@@ -1730,7 +1730,7 @@ Use the new methods [page.routeFromHAR()](/api/class-page.mdx#page-route-from-ha
 await context.routeFromHAR('github.har.zip');
 ```
 
-Read more in [our documentation](./mock.mdx#mocking-with-har-files).
+在[我們的文件](./mock.mdx#mocking-with-har-files)中閱讀更多。
 
 ### 進階路由
 
@@ -1768,7 +1768,7 @@ Note that the new methods [page.routeFromHAR()](/api/class-page.mdx#page-route-f
 * 支援 Vue2 via the [`@playwright/experimental-ct-vue2`](https://www.npmjs.com/package/@playwright/experimental-ct-vue2) package.
 * 支援與在 `.js` 檔案中包含元件的 [create-react-app](https://www.npmjs.com/package/create-react-app) 進行元件測試。
 
-Read more about [component testing with Playwright](./test-components).
+在[component testing with Playwright](./test-components).
 
 ### 其他
 * 如果有阻礙您的 Service Worker，您現在可以透過新的上下文選項 `serviceWorkers` 輕鬆停用它：
@@ -1841,7 +1841,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   });
   ```
   
-  Read more in [our documentation](./test-components).
+  在[我們的文件](./test-components)中閱讀更多。
 - 角色選擇器，允許依據其 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和[無障礙名稱](https://w3c.github.io/accname/#dfn-accessible-name)選取元素。
   
   ```js
@@ -1849,7 +1849,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   await page.locator('role=button[name="log in"]').click();
   ```
   
-  Read more in [our documentation](./locators.mdx#locate-by-role).
+  在[我們的文件](./locators.mdx#locate-by-role)中閱讀更多。
 - 新的 [locator.filter()](/api/class-locator.mdx#locator-filter) API 用於篩選現有定位器
   
   ```js
@@ -1884,7 +1884,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   await page.locator('role=button[name="log in"]').click();
   ```
   
-  Read more in [our documentation](./locators.mdx#locate-by-role).
+  在[我們的文件](./locators.mdx#locate-by-role)中閱讀更多。
 - [page.screenshot()](/api/class-page.mdx#page-screenshot) 中的新 `scale` 選項，用於產生較小尺寸的螢幕截圖。
 - [page.screenshot()](/api/class-page.mdx#page-screenshot) 中的新 `caret` 選項控制文字游標。預設為 `"hide"`。
 - 新方法 `expect.poll` to wait for an arbitrary condition:
@@ -1897,7 +1897,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
   }).toBe(200);
   ```
   
-  `expect.poll` supports most synchronous matchers, like `.toBe()`, `.toContain()`, etc. Read more in [our documentation](./test-assertions.mdx#expectpoll).
+  `expect.poll` supports most synchronous matchers, like `.toBe()`, `.toContain()`, etc. 在[我們的文件](./test-assertions.mdx#expectpoll)中閱讀更多。
 
 ### 行為變更
 - 在執行 TypeScript 測試時，ESM 支援現在預設啟用。不再需要 `PLAYWRIGHT_EXPERIMENTAL_TS_ESM` 環境變數。
@@ -2268,7 +2268,7 @@ test('response interception', async ({ page }) => {
 });
 ```
 
-Read more about [response interception](./network#modify-responses).
+在[response interception](./network#modify-responses).
 
 #### New HTML reporter
 
@@ -2282,7 +2282,7 @@ The HTML reporter has all the information about tests and their failures, includ
 
 ![html reporter](https://user-images.githubusercontent.com/746130/138324311-94e68b39-b51a-4776-a446-f60037a77f32.png)
 
-Read more about [our reporters](./test-reporters#html-reporter).
+在[our reporters](./test-reporters#html-reporter).
 
 ### 🎭 Playwright Library
 
@@ -2302,13 +2302,13 @@ test('context fetch', async ({ page }) => {
 });
 ```
 
-Read more about [locator.waitFor()](/api/class-locator.mdx#locator-wait-for).
+在[locator.waitFor()](/api/class-locator.mdx#locator-wait-for).
 
 ### Docker support for Arm64
 
 Playwright Docker image is now published for Arm64 so it 可以使用 on Apple Silicon.
 
-Read more about [Docker integration](./docker).
+在[Docker integration](./docker).
 
 ### 🎭 Playwright Trace Viewer
 - web-first assertions inside trace viewer
@@ -2316,7 +2316,7 @@ Read more about [Docker integration](./docker).
 - API testing is integrated with trace viewer
 - better visual attribution of action targets
 
-Read more about [Trace Viewer](./trace-viewer).
+在[Trace Viewer](./trace-viewer).
 
 ### 瀏覽器版本
 - Chromium 97.0.4666.0
@@ -2339,7 +2339,7 @@ This version of Playwright was also tested against the following stable channels
 
 #### 📜 新的 Headers API
 
-Previously it was not possible to get multiple header values of a response. This is now  possible and additional helper functions are available:
+以前無法取得回應的多個標頭值。現在這是可能的，並且有額外的輔助函數可用：
 - [request.allHeaders()](/api/class-request.mdx#request-all-headers)
 - [request.headersArray()](/api/class-request.mdx#request-headers-array)
 - [request.headerValue()](/api/class-request.mdx#request-header-value)
@@ -2376,7 +2376,7 @@ By default, tests in a single file are run in order. If you have many independen
 
 #### 🛠 Add `--debug` CLI flag
 
-By using `npx playwright test --debug` it will enable the [Playwright Inspector](./debug#playwright-inspector) for you to debug your tests.
+透過使用 `npx playwright test --debug`，它將為您啟用 [Playwright Inspector](./debug#playwright-inspector) 來偵錯您的測試。
 
 ### 瀏覽器版本
 - Chromium 96.0.4641.0

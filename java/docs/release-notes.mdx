@@ -980,7 +980,7 @@ context.close();
 context.routeFromHAR(Paths.get("example.har"));
 ```
 
-Read more in [our documentation](./mock.mdx#mocking-with-har-files).
+在[我們的文件](./mock.mdx#mocking-with-har-files)中閱讀更多。
 
 ### 進階路由
 
@@ -1046,7 +1046,7 @@ page.route("**/*", route -> {
   page.locator("role=button[name='log in']").click();
   ```
   
-  Read more in [our documentation](./locators.mdx#locate-by-role).
+  在[我們的文件](./locators.mdx#locate-by-role)中閱讀更多。
 - 新 API [Locator.filter()](/api/class-locator.mdx#locator-filter) 用於篩選現有定位器
   
   ```java
@@ -1068,7 +1068,7 @@ page.route("**/*", route -> {
   page.locator("role=button[name='log in']").click();
   ```
   
-  Read more in [our documentation](./locators.mdx#locate-by-role).
+  在[我們的文件](./locators.mdx#locate-by-role)中閱讀更多。
 - [Page.screenshot()](/api/class-page.mdx#page-screenshot) 中新的 `scale` 選項，用於較小尺寸的螢幕截圖。
 - [Page.screenshot()](/api/class-page.mdx#page-screenshot) 中新的 `caret` 選項，用於控制文字游標。預設為 `"hide"`。
 
@@ -1167,7 +1167,7 @@ public class TestExample {
 
 Playwright will be re-testing the node with the selector `.status` until fetched Node has the `"Submitted"` text. It will be re-fetching the node and checking it over and over, until the condition is met or until the timeout is reached. 您可以pass this timeout as an 選項.
 
-Read more in [our documentation](./test-assertions).
+在[我們的文件](./test-assertions)中閱讀更多。
 
 ### 定位器改進
 - [Locator.dragTo()](/api/class-locator.mdx#locator-drag-to)
@@ -1258,13 +1258,13 @@ Locator orderSent = page.locator("#order-sent");
 orderSent.waitFor();
 ```
 
-Read more about [Locator.waitFor()](/api/class-locator.mdx#locator-wait-for).
+在[Locator.waitFor()](/api/class-locator.mdx#locator-wait-for).
 
 ### 🎭 Playwright Trace Viewer
 - run trace viewer with `mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="show-trace"` and drop trace files to the trace viewer PWA
 - better visual attribution of action targets
 
-Read more about [Trace Viewer](./trace-viewer).
+在[Trace Viewer](./trace-viewer).
 
 ### 瀏覽器版本
 - Chromium 97.0.4666.0

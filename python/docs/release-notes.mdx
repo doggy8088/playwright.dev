@@ -1083,7 +1083,7 @@ await page.route("**/*", abort_images_handler)
   page.locator("role=button[name='log in']").click()
   ```
   
-  Read more in [our documentation](./locators.mdx#locate-by-role).
+  在[我們的文件](./locators.mdx#locate-by-role)中閱讀更多。
 - 新 API [locator.filter()](/api/class-locator.mdx#locator-filter) 用於篩選現有定位器
   
   ```py
@@ -1128,7 +1128,7 @@ await page.route("**/*", abort_images_handler)
   </TabItem>
   </Tabs>
   
-  Read more in [our documentation](./locators.mdx#locate-by-role).
+  在[我們的文件](./locators.mdx#locate-by-role)中閱讀更多。
 - [page.screenshot()](/api/class-page.mdx#page-screenshot) 中新的 `scale` 選項，用於較小尺寸的螢幕截圖。
 - [page.screenshot()](/api/class-page.mdx#page-screenshot) 中新的 `caret` 選項，用於控制文字游標。預設為 `"hide"`。
 
@@ -1247,7 +1247,7 @@ res = await page.request.get("http://example.com/foo.json")
 </TabItem>
 </Tabs>
 
-Read more in [our documentation](./api/class-apirequestcontext).
+在[我們的文件](./api/class-apirequestcontext)中閱讀更多。
 
 ### Web-First 斷言
 
@@ -1291,7 +1291,7 @@ async def test_status_becomes_submitted(page: Page) -> None:
 
 Playwright will be re-testing the node with the selector `.status` until fetched Node has the `"Submitted"` text. It will be re-fetching the node and checking it over and over, until the condition is met or until the timeout is reached. 您可以pass this timeout as an 選項.
 
-Read more in [our documentation](./test-assertions).
+在[我們的文件](./test-assertions)中閱讀更多。
 
 ### 定位器改進
 - [locator.drag_to()](/api/class-locator.mdx#locator-drag-to)
@@ -1398,19 +1398,19 @@ order_sent = page.locator("#order-sent")
 order_sent.wait_for()
 ```
 
-Read more about [locator.wait_for()](/api/class-locator.mdx#locator-wait-for).
+在[locator.wait_for()](/api/class-locator.mdx#locator-wait-for).
 
 ### Docker support for Arm64
 
 Playwright Docker image is now published for Arm64 so it 可以使用 on Apple Silicon.
 
-Read more about [Docker integration](./docker).
+在[Docker integration](./docker).
 
 ### 🎭 Playwright Trace Viewer
 - run trace viewer with `npx playwright show-trace` and drop trace files to the trace viewer PWA
 - better visual attribution of action targets
 
-Read more about [Trace Viewer](./trace-viewer).
+在[Trace Viewer](./trace-viewer).
 
 ### 瀏覽器版本
 - Chromium 97.0.4666.0
@@ -1429,7 +1429,7 @@ This version of Playwright was also tested against the following stable channels
 
 ### 📜 新的 Headers API
 
-Previously it was not possible to get multiple header values of a response. This is now  possible and additional helper functions are available:
+以前無法取得回應的多個標頭值。現在這是可能的，並且有額外的輔助函數可用：
 - [request.all_headers()](/api/class-request.mdx#request-all-headers)
 - [request.headers_array()](/api/class-request.mdx#request-headers-array)
 - [request.header_value()](/api/class-request.mdx#request-header-value)
