@@ -220,53 +220,53 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
     指定瀏覽器可見的環境變數。預設值為 `process.env`。
   - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-executable-path"/><a href="#browser-type-launch-option-executable-path" class="list-anchor">#</a>
     
-    Path to a browser executable to run instead of the bundled one. If [executablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) is a relative path, then it is resolved relative to the current working directory. Note that Playwright only works with the bundled Chromium, Firefox or WebKit, use at your own risk.
+    要執行的瀏覽器可執行檔路徑，用來替代綁定的瀏覽器。如果 [executablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) 是相對路徑，則會相對於目前工作目錄進行解析。請注意，Playwright 僅與綁定的 Chromium、Firefox 或 WebKit 配合運作，請自行承擔使用風險。
   - `firefoxUserPrefs` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-firefox-user-prefs"/><a href="#browser-type-launch-option-firefox-user-prefs" class="list-anchor">#</a>
     
-    Firefox user preferences. Learn more about the Firefox user preferences at [`about:config`](https://support.mozilla.org/en-US/kb/about-config-editor-firefox).
+    Firefox 使用者偏好設定。深入了解 Firefox 使用者偏好設定，請參考 [`about:config`](https://support.mozilla.org/en-US/kb/about-config-editor-firefox)。
     
-    You can also provide a path to a custom [`policies.json` file](https://mozilla.github.io/policy-templates/) via `PLAYWRIGHT_FIREFOX_POLICIES_JSON` environment variable.
+    您也可以透過 `PLAYWRIGHT_FIREFOX_POLICIES_JSON` 環境變數提供自訂 [`policies.json` 檔案](https://mozilla.github.io/policy-templates/)的路徑。
   - `handleSIGHUP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-handle-sighup"/><a href="#browser-type-launch-option-handle-sighup" class="list-anchor">#</a>
     
-    Close the browser process on SIGHUP. Defaults to `true`.
+    在收到 SIGHUP 信號時關閉瀏覽器程序。預設值為 `true`。
   - `handleSIGINT` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-handle-sigint"/><a href="#browser-type-launch-option-handle-sigint" class="list-anchor">#</a>
     
-    Close the browser process on Ctrl-C. Defaults to `true`.
+    在收到 Ctrl-C 時關閉瀏覽器程序。預設值為 `true`。
   - `handleSIGTERM` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-handle-sigterm"/><a href="#browser-type-launch-option-handle-sigterm" class="list-anchor">#</a>
     
-    Close the browser process on SIGTERM. Defaults to `true`.
+    在收到 SIGTERM 信號時關閉瀏覽器程序。預設值為 `true`。
   - `headless` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-headless"/><a href="#browser-type-launch-option-headless" class="list-anchor">#</a>
     
-    Whether to run browser in headless mode. More details for [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/). Defaults to `true` unless the [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) option is `true`.
+    是否以無頭模式執行瀏覽器。更多詳細資訊請參考 [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) 和 [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/)。預設值為 `true`，除非 [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) 選項為 `true`。
   - `ignoreDefaultArgs` [boolean] | [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-ignore-default-args"/><a href="#browser-type-launch-option-ignore-default-args" class="list-anchor">#</a>
     
-    If `true`, Playwright does not pass its own configurations args and only uses the ones from [args](/api/class-browsertype.mdx#browser-type-launch-option-args). If an array is given, then filters out the given default arguments. Dangerous option; use with care. Defaults to `false`.
+    如果為 `true`，Playwright 不會傳遞自己的配置參數，而只使用 [args](/api/class-browsertype.mdx#browser-type-launch-option-args) 中的參數。如果給予陣列，則會過濾掉指定的預設參數。危險選項；請謹慎使用。預設值為 `false`。
   - `logger` [Logger] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-logger"/><a href="#browser-type-launch-option-logger" class="list-anchor">#</a>
     
-    :::warning[Deprecated]
-    The logs received by the logger are incomplete. Please use tracing instead.
+    :::warning[已棄用]
+    記錄器接收的日誌不完整。請改用追蹤。
     :::
     
     
-    Logger sink for Playwright logging.
+    Playwright 記錄的記錄器接收器。
   - `proxy` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-proxy"/><a href="#browser-type-launch-option-proxy" class="list-anchor">#</a>
     - `server` [string]
       
-      Proxy to be used for all requests. HTTP and SOCKS proxies are supported, for example `http://myproxy.com:3128` or `socks5://myproxy.com:3128`. Short form `myproxy.com:3128` is considered an HTTP proxy.
+      用於所有請求的代理伺服器。支援 HTTP 和 SOCKS 代理，例如 `http://myproxy.com:3128` 或 `socks5://myproxy.com:3128`。簡短形式 `myproxy.com:3128` 被視為 HTTP 代理。
     - `bypass` [string] *(optional)*
       
-      Optional comma-separated domains to bypass proxy, for example `".com, chromium.org, .domain.com"`.
+      選擇性的逗號分隔網域清單，用於繞過代理，例如 `".com, chromium.org, .domain.com"`。
     - `username` [string] *(optional)*
       
-      Optional username to use if HTTP proxy requires authentication.
+      如果 HTTP 代理需要驗證時使用的選擇性使用者名稱。
     - `password` [string] *(optional)*
       
-      Optional password to use if HTTP proxy requires authentication.
+      如果 HTTP 代理需要驗證時使用的選擇性密碼。
     
-    Network proxy settings.
+    網路代理設定。
   - `slowMo` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-slow-mo"/><a href="#browser-type-launch-option-slow-mo" class="list-anchor">#</a>
     
-    Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
+    將 Playwright 操作減慢指定的毫秒數。這樣您可以看到正在發生的事情，很有用。
   - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-timeout"/><a href="#browser-type-launch-option-timeout" class="list-anchor">#</a>
     
     等待瀏覽器實例啟動的最大時間（毫秒）。預設值為 `30000`（30 秒）。傳遞 `0` 可停用逾時。
@@ -294,51 +294,51 @@ await browserType.launchPersistentContext(userDataDir);
 await browserType.launchPersistentContext(userDataDir, options);
 ```
 
-**Arguments**
+**參數**
 - `userDataDir` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-user-data-dir"/><a href="#browser-type-launch-persistent-context-option-user-data-dir" class="list-anchor">#</a>
   
-  Path to a User Data Directory, which stores browser session data like cookies and local storage. Pass an empty string to create a temporary directory.
+  使用者資料目錄的路徑，用於儲存瀏覽器會話資料，例如 Cookie 和本機儲存。傳遞空字串可建立暫存目錄。
   
-  More details for [Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md#introduction) and [Firefox](https://wiki.mozilla.org/Firefox/CommandLineOptions#User_profile). Chromium's user data directory is the **parent** directory of the "Profile Path" seen at `chrome://version`.
+  更多詳細資訊請參考 [Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md#introduction) 和 [Firefox](https://wiki.mozilla.org/Firefox/CommandLineOptions#User_profile)。Chromium 的使用者資料目錄是在 `chrome://version` 中看到的「設定檔路徑」的**上層**目錄。
   
-  Note that browsers do not allow launching multiple instances with the same User Data Directory.
+  請注意，瀏覽器不允許使用相同的使用者資料目錄啟動多個實例。
   
   :::warning
   
-  Chromium/Chrome: Due to recent Chrome policy changes, automating the default Chrome user profile is not supported. Pointing `userDataDir` to Chrome's main "User Data" directory (the profile used for your regular browsing) may result in pages not loading or the browser exiting. Create and use a separate directory (for example, an empty folder) as your automation profile instead. See https://developer.chrome.com/blog/remote-debugging-port for details.
+  Chromium/Chrome：由於最近的 Chrome 政策變更，不支援自動化預設的 Chrome 使用者設定檔。將 `userDataDir` 指向 Chrome 的主要「使用者資料」目錄（用於日常瀏覽的設定檔）可能會導致頁面無法載入或瀏覽器退出。請建立並使用獨立的目錄（例如空資料夾）作為您的自動化設定檔。詳細資訊請參考 https://developer.chrome.com/blog/remote-debugging-port。
   :::
   
 - `options` [Object] *(optional)*
   - `acceptDownloads` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-accept-downloads"/><a href="#browser-type-launch-persistent-context-option-accept-downloads" class="list-anchor">#</a>
     
-    Whether to automatically download all the attachments. Defaults to `true` where all the downloads are accepted.
+    是否自動下載所有附件。預設值為 `true`，接受所有下載。
   - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-args"/><a href="#browser-type-launch-persistent-context-option-args" class="list-anchor">#</a>
     
     :::warning
     
-    Use custom browser args at your own risk, as some of them may break Playwright functionality.
+    自行承擔使用自訂瀏覽器參數的風險，因為其中一些可能會破壞 Playwright 功能。
     :::
     
-    Additional arguments to pass to the browser instance. The list of Chromium flags can be found [here](https://peter.sh/experiments/chromium-command-line-switches/).
+    傳遞給瀏覽器實例的額外參數。Chromium 旗標清單可在[這裡](https://peter.sh/experiments/chromium-command-line-switches/)找到。
   - `baseURL` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-base-url"/><a href="#browser-type-launch-persistent-context-option-base-url" class="list-anchor">#</a>
     
-    When using [page.goto()](/api/class-page.mdx#page-goto), [page.route()](/api/class-page.mdx#page-route), [page.waitForURL()](/api/class-page.mdx#page-wait-for-url), [page.waitForRequest()](/api/class-page.mdx#page-wait-for-request), or [page.waitForResponse()](/api/class-page.mdx#page-wait-for-response) it takes the base URL in consideration by using the [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor for building the corresponding URL. Unset by default. Examples:
-    * baseURL: `http://localhost:3000` and navigating to `/bar.html` results in `http://localhost:3000/bar.html`
-    * baseURL: `http://localhost:3000/foo/` and navigating to `./bar.html` results in `http://localhost:3000/foo/bar.html`
-    * baseURL: `http://localhost:3000/foo` (without trailing slash) and navigating to `./bar.html` results in `http://localhost:3000/bar.html`
+    當使用 [page.goto()](/api/class-page.mdx#page-goto)、[page.route()](/api/class-page.mdx#page-route)、[page.waitForURL()](/api/class-page.mdx#page-wait-for-url)、[page.waitForRequest()](/api/class-page.mdx#page-wait-for-request) 或 [page.waitForResponse()](/api/class-page.mdx#page-wait-for-response) 時，會使用 [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) 建構函式將基礎 URL 納入考量來建立對應的 URL。預設未設定。範例：
+    * baseURL: `http://localhost:3000` 並導航到 `/bar.html` 會產生 `http://localhost:3000/bar.html`
+    * baseURL: `http://localhost:3000/foo/` 並導航到 `./bar.html` 會產生 `http://localhost:3000/foo/bar.html`
+    * baseURL: `http://localhost:3000/foo`（無尾隨斜線）並導航到 `./bar.html` 會產生 `http://localhost:3000/bar.html`
   - `bypassCSP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-bypass-csp"/><a href="#browser-type-launch-persistent-context-option-bypass-csp" class="list-anchor">#</a>
     
-    Toggles bypassing page's Content-Security-Policy. Defaults to `false`.
+    切換是否繞過頁面的內容安全政策。預設值為 `false`。
   - `channel` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-channel"/><a href="#browser-type-launch-persistent-context-option-channel" class="list-anchor">#</a>
     
-    Browser distribution channel.
+    瀏覽器分發通道。
     
-    Use "chromium" to [opt in to new headless mode](../browsers.mdx#chromium-new-headless-mode).
+    使用 "chromium" 來[選擇使用新的無頭模式](../browsers.mdx#chromium-new-headless-mode)。
     
-    Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
+    使用 "chrome"、"chrome-beta"、"chrome-dev"、"chrome-canary"、"msedge"、"msedge-beta"、"msedge-dev" 或 "msedge-canary" 來使用品牌[Google Chrome 和 Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge)。
   - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-chromium-sandbox"/><a href="#browser-type-launch-persistent-context-option-chromium-sandbox" class="list-anchor">#</a>
     
-    Enable Chromium sandboxing. Defaults to `false`.
+    啟用 Chromium 沙盒。預設值為 `false`。
   - `clientCertificates` [Array]&lt;[Object]&gt; *(optional)* <font size="2">Added in: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-client-certificates"/><a href="#browser-type-launch-persistent-context-option-client-certificates" class="list-anchor">#</a>
     - `origin` [string]
       
