@@ -134,17 +134,17 @@
 - [x] nodejs/docs/test-assertions.mdx
 - [x] nodejs/docs/test-cli.mdx
 - [x] nodejs/docs/test-components.mdx
-- [ ] nodejs/docs/test-configuration.mdx
-- [ ] nodejs/docs/test-fixtures.mdx
+- [x] nodejs/docs/test-configuration.mdx
+- [x] nodejs/docs/test-fixtures.mdx
 - [x] nodejs/docs/test-global-setup-teardown.mdx
 - [x] nodejs/docs/test-parallel.mdx
-- [ ] nodejs/docs/test-parameterize.mdx
+- [x] nodejs/docs/test-parameterize.mdx
 - [x] nodejs/docs/test-projects.mdx
 - [x] nodejs/docs/test-reporters.mdx
-- [ ] nodejs/docs/test-retries.mdx
-- [ ] nodejs/docs/test-sharding.mdx
+- [x] nodejs/docs/test-retries.mdx
+- [x] nodejs/docs/test-sharding.mdx
 - [x] nodejs/docs/test-snapshots.mdx
-- [ ] nodejs/docs/test-timeouts.mdx
+- [x] nodejs/docs/test-timeouts.mdx
 - [x] nodejs/docs/test-typescript.mdx
 - [x] nodejs/docs/test-ui-mode.mdx
 - [x] nodejs/docs/test-use-options.mdx
@@ -276,17 +276,17 @@
 - [x] nodejs/versioned_docs/version-stable/test-assertions.mdx
 - [x] nodejs/versioned_docs/version-stable/test-cli.mdx
 - [x] nodejs/versioned_docs/version-stable/test-components.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-configuration.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-fixtures.mdx
+- [x] nodejs/versioned_docs/version-stable/test-configuration.mdx
+- [x] nodejs/versioned_docs/version-stable/test-fixtures.mdx
 - [x] nodejs/versioned_docs/version-stable/test-global-setup-teardown.mdx
 - [x] nodejs/versioned_docs/version-stable/test-parallel.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-parameterize.mdx
+- [x] nodejs/versioned_docs/version-stable/test-parameterize.mdx
 - [x] nodejs/versioned_docs/version-stable/test-projects.mdx
 - [x] nodejs/versioned_docs/version-stable/test-reporters.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-retries.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-sharding.mdx
+- [x] nodejs/versioned_docs/version-stable/test-retries.mdx
+- [x] nodejs/versioned_docs/version-stable/test-sharding.mdx
 - [x] nodejs/versioned_docs/version-stable/test-snapshots.mdx
-- [ ] nodejs/versioned_docs/version-stable/test-timeouts.mdx
+- [x] nodejs/versioned_docs/version-stable/test-timeouts.mdx
 - [x] nodejs/versioned_docs/version-stable/test-typescript.mdx
 - [x] nodejs/versioned_docs/version-stable/test-ui-mode.mdx
 - [x] nodejs/versioned_docs/version-stable/test-use-options.mdx

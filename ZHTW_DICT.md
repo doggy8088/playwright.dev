@@ -183,3 +183,29 @@
 - character → 字元
 - flaky → 不穩定（測試）
 - retry → 重試
+
+## 新增術語（test-retries/sharding/timeouts 相關）
+- sharding → 分片
+- shard → 分片
+- worker process → 工作程序
+- parallelization → 平行化
+- granularity → 細度
+- CI pipeline → CI 管道
+- matrix → 矩陣
+- blob report → blob 報告
+- artifacts → 工件/成品
+- retention → 保留
+- merge-reports → 合併報告
+- timeout → 逾時
+- assertion → 斷言
+- fixture teardown → 佈置拆除
+- global timeout → 全域逾時
+- action timeout → 動作逾時
+- navigation timeout → 導航逾時
+- low-level → 低階
+- pre-configured → 預先組態設定
+- resource usage → 資源使用
+- serial mode → 序列模式
+- independent → 獨立的
+- dependent → 相依的
+- subsequent → 後續的
