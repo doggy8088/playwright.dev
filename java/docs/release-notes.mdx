@@ -362,7 +362,7 @@ page.removeLocatorHandler(locator);
 
 ### 實驗性 JUnit 整合
 
-Add new [`@UsePlaywright`](./junit.mdx) annotation to your test classes to start using Playwright fixtures for [Page], [BrowserContext], [Browser], [APIRequestContext]和 [Playwright] 在the test methods.
+新增 [`@UsePlaywright`](./junit.mdx) 註解至您的測試類別，以開始在測試方法中使用 Playwright 固件，包括 [Page]、[BrowserContext]、[Browser]、[APIRequestContext] 和 [Playwright]。
 
 ```java
 package org.example;
@@ -984,7 +984,7 @@ context.routeFromHAR(Paths.get("example.har"));
 
 ### 進階路由
 
-You 現在可以 use [Route.fallback()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
+您現在可以使用 [Route.fallback()](/api/class-route.mdx#route-fallback) 將路由移交給其他處理器。
 
 Consider the following example:
 
@@ -1034,7 +1034,7 @@ page.route("**/*", route -> {
       .setRecordHarMode(HarMode.MINIMAL));
   ```
   
-* Playwright now runs on Ubuntu 22 amd64 and Ubuntu 22 arm64.
+* Playwright 現在在 Ubuntu 22 amd64 和 Ubuntu 22 arm64 上執行。
 
 ## 版本 1.22
 
@@ -1056,7 +1056,7 @@ page.route("**/*", route -> {
   submitButton.click();
   ```
   
-- Playwright for Java 現在支援 **Ubuntu 20.04 ARM64** and **Apple M1**. You 現在可以 run Playwright for Java tests on Apple M1, inside Docker on Apple M1, and on Raspberry Pi.
+- Playwright for Java 現在支援 **Ubuntu 20.04 ARM64** 和 **Apple M1**。您現在可以在 Apple M1、Apple M1 的 Docker 內以及 Raspberry Pi 上執行 Playwright for Java 測試。
 
 ## 版本 1.21
 
@@ -1187,7 +1187,7 @@ Playwright will be re-testing the node with the selector `.status` until fetched
 ![tracing-java-sources](https://user-images.githubusercontent.com/746130/150180856-40a7df71-370c-4597-8665-40c77a5e06ad.png)
 
 ### 新的 API 與變更
-- [`acceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在defaults to `true`.
+- [`acceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在預設為 `true`。
 
 ### 瀏覽器版本
 - Chromium 99.0.4812.0
@@ -1251,7 +1251,7 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 
 #### Locator.waitFor
 
-Wait for a locator to resolve to a single element with a given state. Defaults to the `state: 'visible'`.
+等待定位器解析為具有給定狀態的單一元素。預設為 `state: 'visible'`。
 
 ```java
 Locator orderSent = page.locator("#order-sent");
@@ -1431,7 +1431,7 @@ That will open the following GUI:
 
 ![image](https://user-images.githubusercontent.com/746130/121109654-d66c4480-c7c0-11eb-8d4d-eb70d2b03811.png)
 
-👉 Read more in [trace viewer documentation](./trace-viewer.mdx).
+👉 在[追蹤檢視器文件](./trace-viewer.mdx)中閱讀更多。
 
 #### 瀏覽器版本
 - Chromium 93.0.4530.0

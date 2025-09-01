@@ -117,7 +117,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ### 重點
 * 新選項 [IndexedDB](/api/class-browsercontext.mdx#browser-context-storage-state-選項-indexed-db) 用於 [BrowserContext.StorageStateAsync()](/api/class-browsercontext.mdx#browser-context-storage-state) 允許儲存和還原 IndexedDB 內容。當您的應用程式使用 [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 儲存身份驗證權杖（如 Firebase Authentication）時很有用。
   
-  Here is an example following the [authentication guide](./auth.mdx#reusing-signed-in-state):
+  以下是遵循[身份驗證指南](./auth.mdx#reusing-signed-in-state)的範例：
   
   ```csharp
   // Save storage state into the file. Make sure to include IndexedDB.
@@ -301,7 +301,7 @@ await page.RouteWebSocketAsync("/ws", ws => {
 
 ### 網路分頁改進
 
-The Network tab in the trace viewer has several nice improvements:
+追蹤檢視器中的網路頁籤有幾項不錯的改進：
 - filtering by asset type and URL
 - better display of query string parameters
 - preview of font assets
@@ -328,9 +328,9 @@ The Network tab in the trace viewer has several nice improvements:
 
 ### TLS Client Certificates
 
-Playwright now 允許 supply client-side certificates, so that server can verify them, as specified by TLS Client Authentication.
+Playwright 現在允許提供用戶端憑證，以便伺服器可以根據 TLS 用戶端驗證的規定來驗證它們。
 
-您可以provide client certificates as a parameter of [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 和 [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context). The following snippet sets up a client certificate for `https://example.com`:
+您可以將用戶端憑證作為 [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) 和 [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 的參數提供。以下程式碼片段設定 `https://example.com` 的用戶端憑證：
 
 ```csharp
 var context = await Browser.NewContextAsync(new() {
@@ -1182,7 +1182,7 @@ await page.RouteAsync("**/*", async route =>
   var context = await Browser.NewContextAsync(new() { RecordHarPath = "example.har", RecordHarMode = HarMode.Minimal });
   ```
   
-* Playwright now runs on Ubuntu 22 amd64 and Ubuntu 22 arm64.
+* Playwright 現在在 Ubuntu 22 amd64 和 Ubuntu 22 arm64 上執行。
 * Playwright for .NET 現在支援 **linux-arm64** and provides a **arm64 Ubuntu 20.04 Docker image** for it.
 
 ## 版本 1.22
@@ -1317,7 +1317,7 @@ Playwright will be re-testing the node with the selector `.status` until fetched
   在[定位器文件](./api/class-locator#locator-locator)中閱讀更多
 
 ### 新的 API 與變更
-- [`AcceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在defaults to `true`.
+- [`AcceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在預設為 `true`。
 - [`Sources`](./api/class-tracing#tracing-start-選項-sources) 選項 to embed sources into traces.
 
 ### 瀏覽器版本
@@ -1365,8 +1365,8 @@ Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
 ### Ubuntu ARM64 支援與更多功能
-- Playwright 現在支援 **Ubuntu 20.04 ARM64**. You 現在可以 run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
-- You 現在可以 use Playwright to install stable version of Edge on Linux:
+- Playwright 現在支援 **Ubuntu 20.04 ARM64**。您現在可以在 Apple M1 的 Docker 內和 Raspberry Pi 上執行 Playwright 測試。
+- 您現在可以使用 Playwright 在 Linux 上安裝穩定版本的 Edge：
   
   ```bash
   pwsh bin/Debug/netX/playwright.ps1 install msedge
@@ -1382,7 +1382,7 @@ Playwright 追蹤檢視器現在**可在線上使用**，網址為 https://trace
 
 #### Locator.WaitForAsync
 
-Wait for a locator to resolve to a single element with a given state. Defaults to the `state: 'visible'`.
+等待定位器解析為具有給定狀態的單一元素。預設為 `state: 'visible'`。
 
 ```csharp
 var orderSent = page.Locator("#order-sent");

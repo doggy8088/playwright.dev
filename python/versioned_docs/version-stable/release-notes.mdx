@@ -115,7 +115,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ### 重點
 * 新選項 [indexed_db](/api/class-browsercontext.mdx#browser-context-storage-state-選項-indexed-db) for [browser_context.storage_state()](/api/class-browsercontext.mdx#browser-context-storage-state) 允許 save and restore IndexedDB contents. Useful when your application uses [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store authentication tokens, like Firebase Authentication.
   
-  Here is an example following the [authentication guide](./auth.mdx#reusing-signed-in-state):
+  以下是遵循[身份驗證指南](./auth.mdx#reusing-signed-in-state)的範例：
   
   ```python
   # Save storage state into the file. Make sure to include IndexedDB.
@@ -927,7 +927,7 @@ await context.route_from_har("github.har.zip")
 
 ### 進階路由
 
-You 現在可以 use [route.fallback()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
+您現在可以使用 [route.fallback()](/api/class-route.mdx#route-fallback) 將路由移交給其他處理器。
 
 Consider the following example:
 
@@ -1071,7 +1071,7 @@ await page.route("**/*", abort_images_handler)
   
   </TabItem>
   </Tabs>
-* Playwright now runs on Ubuntu 22 amd64 and Ubuntu 22 arm64.
+* Playwright 現在在 Ubuntu 22 amd64 和 Ubuntu 22 arm64 上執行。
 
 ## 版本 1.22
 
@@ -1196,10 +1196,10 @@ await page.route("**/*", abort_images_handler)
   </TabItem>
   </Tabs>
   
-  Read more in [locator documentation](./api/class-locator#locator-locator)
-- New [locator.page](/api/class-locator.mdx#locator-page)
-- [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot)現在automatically hide blinking caret
-- Playwright Codegen現在generates locators and frame locators
+  在[定位器文件](./api/class-locator#locator-locator)中閱讀更多
+- 新的 [locator.page](/api/class-locator.mdx#locator-page)
+- [page.screenshot()](/api/class-page.mdx#page-screenshot) 和 [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 現在會自動隐藏閃爍的游標
+- Playwright 錄製器現在會產生定位器和框架定位器
 
 ### 瀏覽器版本
 - Chromium 100.0.4863.0
@@ -1321,10 +1321,10 @@ Playwright will be re-testing the node with the selector `.status` until fetched
   </TabItem>
   </Tabs>
   
-  Read more in [locator documentation](./api/class-locator#locator-locator)
+  在[定位器文件](./api/class-locator#locator-locator)中閱讀更多
 
 ### 新的 API 與變更
-- [`accept_downloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在defaults to `True`.
+- [`accept_downloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在預設為 `True`。
 - [`sources`](./api/class-tracing#tracing-start-選項-sources) 選項 to embed sources into traces.
 
 ### 瀏覽器版本
@@ -1372,8 +1372,8 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 ![image](https://user-images.githubusercontent.com/746130/141877402-e486643d-72c7-4db3-8844-ed2072c5d676.png)
 
 ### Ubuntu ARM64 支援與更多功能
-- Playwright 現在支援 **Ubuntu 20.04 ARM64**. You 現在可以 run Playwright tests inside Docker on Apple M1 and on Raspberry Pi.
-- You 現在可以 use Playwright to install stable version of Edge on Linux:
+- Playwright 現在支援 **Ubuntu 20.04 ARM64**。您現在可以在 Apple M1 的 Docker 內和 Raspberry Pi 上執行 Playwright 測試。
+- 您現在可以使用 Playwright 在 Linux 上安裝穩定版本的 Edge：
   
   ```bash
   npx playwright install msedge
@@ -1389,9 +1389,9 @@ Playwright Trace Viewer is now **available online** at https://trace.playwright.
 
 #### `locator.wait_for`
 
-Wait for a locator to resolve to a single element with a given state. Defaults to the `state: 'visible'`.
+等待定位器解析為具有給定狀態的單一元素。預設為 `state: 'visible'`。
 
-Comes especially handy when working with lists:
+在處理清單時特別有用：
 
 ```python
 order_sent = page.locator("#order-sent")
@@ -1574,7 +1574,7 @@ That will open the following GUI:
 
 ![image](https://user-images.githubusercontent.com/746130/121109654-d66c4480-c7c0-11eb-8d4d-eb70d2b03811.png)
 
-👉 Read more in [trace viewer documentation](./trace-viewer.mdx).
+👉 在[追蹤檢視器文件](./trace-viewer.mdx)中閱讀更多。
 
 #### 瀏覽器版本
 - Chromium 93.0.4530.0
