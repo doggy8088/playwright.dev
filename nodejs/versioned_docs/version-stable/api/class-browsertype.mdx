@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-BrowserType provides methods to launch a specific browser instance or connect to an existing one. The following is a typical example of using Playwright to drive automation:
+`BrowserType` 提供方法來啟動特定的瀏覽器實例或連接到現有實例。以下是使用 Playwright 進行自動化的典型範例：
 
 ```js
 const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
@@ -25,63 +25,63 @@ const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
 
 ---
 
-## Methods
+## 方法
 
 ### connect {#browser-type-connect}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.connect</x-search>
 
-This method attaches Playwright to an existing browser instance created via `BrowserType.launchServer` in Node.js.
+此方法將 Playwright 連接到透過 Node.js 中的 `BrowserType.launchServer` 建立的現有瀏覽器實例。
 
 :::note
 
-The major and minor version of the Playwright instance that connects needs to match the version of Playwright that launches the browser (1.2.3 → is compatible with 1.2.x).
+連接的 Playwright 實例的主要和次要版本需要與啟動瀏覽器的 Playwright 版本相符（1.2.3 → 與 1.2.x 相容）。
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 await browserType.connect(wsEndpoint);
 await browserType.connect(wsEndpoint, options);
 ```
 
-**Arguments**
+**參數**
 - `wsEndpoint` [string] <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-ws-endpoint"/><a href="#browser-type-connect-option-ws-endpoint" class="list-anchor">#</a>
   
-  A Playwright browser websocket endpoint to connect to. You obtain this endpoint via `BrowserServer.wsEndpoint`.
+  要連接的 Playwright 瀏覽器 websocket 端點。您可以透過 `BrowserServer.wsEndpoint` 取得此端點。
 - `options` [Object] *(optional)*
   - `exposeNetwork` [string] *(optional)* <font size="2">Added in: v1.37</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-expose-network"/><a href="#browser-type-connect-option-expose-network" class="list-anchor">#</a>
     
-    This option exposes network available on the connecting client to the browser being connected to. Consists of a list of rules separated by comma.
+    此選項將連接用戶端可用的網路公開給要連接的瀏覽器。由以逗號分隔的規則清單組成。
     
-    Available rules:
-    1. Hostname pattern, for example: `example.com`, `*.org:99`, `x.*.y.com`, `*foo.org`.
-    1. IP literal, for example: `127.0.0.1`, `0.0.0.0:99`, `[::1]`, `[0:0::1]:99`.
-    1. `<loopback>` that matches local loopback interfaces: `localhost`, `*.localhost`, `127.0.0.1`, `[::1]`.
+    可用規則：
+    1. 主機名稱樣式，例如：`example.com`、`*.org:99`、`x.*.y.com`、`*foo.org`。
+    1. IP 位址字面值，例如：`127.0.0.1`、`0.0.0.0:99`、`[::1]`、`[0:0::1]:99`。
+    1. `<loopback>` 符合本機迴環介面：`localhost`、`*.localhost`、`127.0.0.1`、`[::1]`。
     
-    Some common examples:
-    1. `"*"` to expose all network.
-    1. `"<loopback>"` to expose localhost network.
-    1. `"*.test.internal-domain,*.staging.internal-domain,<loopback>"` to expose test/staging deployments and localhost.
+    一些常見範例：
+    1. `"*"` 公開所有網路。
+    1. `"<loopback>"` 公開 localhost 網路。
+    1. `"*.test.internal-domain,*.staging.internal-domain,<loopback>"` 公開測試/測試環境部署和 localhost。
   - `headers` [Object]&lt;[string], [string]&gt; *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-headers"/><a href="#browser-type-connect-option-headers" class="list-anchor">#</a>
     
-    Additional HTTP headers to be sent with web socket connect request. Optional.
+    與 web socket 連接請求一起傳送的額外 HTTP 標頭。選擇性。
   - `logger` [Logger] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-logger"/><a href="#browser-type-connect-option-logger" class="list-anchor">#</a>
     
-    :::warning[Deprecated]
-    The logs received by the logger are incomplete. Please use tracing instead.
+    :::warning[已棄用]
+    記錄器接收的日誌不完整。請改用追蹤。
     :::
     
     
-    Logger sink for Playwright logging. Optional.
+    Playwright 記錄的記錄器接收器。選擇性。
   - `slowMo` [number] *(optional)* <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-slow-mo"/><a href="#browser-type-connect-option-slow-mo" class="list-anchor">#</a>
     
-    Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on. Defaults to 0.
+    將 Playwright 操作減慢指定的毫秒數。這樣您可以看到正在發生的事情，很有用。預設值為 0。
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-timeout"/><a href="#browser-type-connect-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds to wait for the connection to be established. Defaults to `0` (no timeout).
+    等待建立連接的最大時間（毫秒）。預設值為 `0`（無逾時）。
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-return"/><a href="#browser-type-connect-return" class="list-anchor">#</a>
 
 ---
@@ -90,20 +90,20 @@ await browserType.connect(wsEndpoint, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>browserType.connectOverCDP</x-search>
 
-This method attaches Playwright to an existing browser instance using the Chrome DevTools Protocol.
+此方法使用 Chrome DevTools Protocol 將 Playwright 連接到現有的瀏覽器實例。
 
-The default browser context is accessible via [browser.contexts()](/api/class-browser.mdx#browser-contexts).
+預設瀏覽器情境可透過 [browser.contexts()](/api/class-browser.mdx#browser-contexts) 存取。
 
 :::note
 
-Connecting over the Chrome DevTools Protocol is only supported for Chromium-based browsers.
+透過 Chrome DevTools Protocol 連接僅支援基於 Chromium 的瀏覽器。
 :::
 
 :::note
-This connection is significantly lower fidelity than the Playwright protocol connection via [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect). If you are experiencing issues or attempting to use advanced functionality, you probably want to use [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect).
+此連接的保真度遠低於透過 [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect) 的 Playwright 協定連接。如果您遇到問題或嘗試使用進階功能，您可能會想要使用 [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect)。
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 const browser = await playwright.chromium.connectOverCDP('http://localhost:9222');
@@ -111,36 +111,36 @@ const defaultContext = browser.contexts()[0];
 const page = defaultContext.pages()[0];
 ```
 
-**Arguments**
+**參數**
 - `endpointURL` [string] <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
   
-  A CDP websocket endpoint or http url to connect to. For example `http://localhost:9222/` or `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`.
+  要連接的 CDP websocket 端點或 http url。例如 `http://localhost:9222/` 或 `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`。
 - `options` [Object] *(optional)*
   - `endpointURL` [string] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
     
-    :::warning[Deprecated]
-    Use the first argument instead.
+    :::warning[已棄用]
+    請改用第一個參數。
     :::
     
   - `headers` [Object]&lt;[string], [string]&gt; *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-headers"/><a href="#browser-type-connect-over-cdp-option-headers" class="list-anchor">#</a>
     
-    Additional HTTP headers to be sent with connect request. Optional.
+    與連接請求一起傳送的額外 HTTP 標頭。選擇性。
   - `logger` [Logger] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-logger"/><a href="#browser-type-connect-over-cdp-option-logger" class="list-anchor">#</a>
     
-    :::warning[Deprecated]
-    The logs received by the logger are incomplete. Please use tracing instead.
+    :::warning[已棄用]
+    記錄器接收的日誌不完整。請改用追蹤。
     :::
     
     
-    Logger sink for Playwright logging. Optional.
+    Playwright 記錄的記錄器接收器。選擇性。
   - `slowMo` [number] *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-slow-mo"/><a href="#browser-type-connect-over-cdp-option-slow-mo" class="list-anchor">#</a>
     
-    Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on. Defaults to 0.
+    將 Playwright 操作減慢指定的毫秒數。這樣您可以看到正在發生的事情，很有用。預設值為 0。
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-timeout"/><a href="#browser-type-connect-over-cdp-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds to wait for the connection to be established. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+    等待建立連接的最大時間（毫秒）。預設值為 `30000`（30 秒）。傳遞 `0` 可停用逾時。
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-return"/><a href="#browser-type-connect-over-cdp-return" class="list-anchor">#</a>
 
 ---
@@ -149,15 +149,15 @@ const page = defaultContext.pages()[0];
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.executablePath</x-search>
 
-A path where Playwright expects to find a bundled browser executable.
+Playwright 期望找到綁定瀏覽器可執行檔的路徑。
 
-**Usage**
+**使用方式**
 
 ```js
 browserType.executablePath();
 ```
 
-**Returns**
+**回傳值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-executable-path-return"/><a href="#browser-type-executable-path-return" class="list-anchor">#</a>
 
 ---
@@ -166,11 +166,11 @@ browserType.executablePath();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launch</x-search>
 
-Returns the browser instance.
+回傳瀏覽器實例。
 
-**Usage**
+**使用方式**
 
-You can use [ignoreDefaultArgs](/api/class-browsertype.mdx#browser-type-launch-option-ignore-default-args) to filter out `--mute-audio` from default arguments:
+您可以使用 [ignoreDefaultArgs](/api/class-browsertype.mdx#browser-type-launch-option-ignore-default-args) 從預設參數中過濾掉 `--mute-audio`：
 
 ```js
 const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
@@ -178,46 +178,46 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
 });
 ```
 
-> **Chromium-only** Playwright can also be used to control the Google Chrome or Microsoft Edge browsers, but it works best with the version of Chromium it is bundled with. There is no guarantee it will work with any other version. Use [executablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) option with extreme caution.
+> **僅限 Chromium** Playwright 也可以用來控制 Google Chrome 或 Microsoft Edge 瀏覽器，但它與所綁定的 Chromium 版本配合得最好。不保證它會與任何其他版本配合。使用 [executablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) 選項時要極其謹慎。
 >
-> If Google Chrome (rather than Chromium) is preferred, a [Chrome Canary](https://www.google.com/chrome/browser/canary.html) or [Dev Channel](https://www.chromium.org/getting-involved/dev-channel) build is suggested.
+> 如果偏好 Google Chrome（而非 Chromium），建議使用 [Chrome Canary](https://www.google.com/chrome/browser/canary.html) 或 [Dev Channel](https://www.chromium.org/getting-involved/dev-channel) 建置版本。
 >
-> Stock browsers like Google Chrome and Microsoft Edge are suitable for tests that require proprietary media codecs for video playback. See [this article](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/) for other differences between Chromium and Chrome. [This article](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md) describes some differences for Linux users.
+> 像 Google Chrome 和 Microsoft Edge 這樣的原廠瀏覽器適合需要專有媒體編解碼器進行視訊播放的測試。請參閱[這篇文章](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/)了解 Chromium 和 Chrome 之間的其他差異。[這篇文章](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md)描述了 Linux 使用者的一些差異。
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-args"/><a href="#browser-type-launch-option-args" class="list-anchor">#</a>
     
     :::warning
     
-    Use custom browser args at your own risk, as some of them may break Playwright functionality.
+    自行承擔使用自訂瀏覽器參數的風險，因為其中一些可能會破壞 Playwright 功能。
     :::
     
-    Additional arguments to pass to the browser instance. The list of Chromium flags can be found [here](https://peter.sh/experiments/chromium-command-line-switches/).
+    傳遞給瀏覽器實例的額外參數。Chromium 旗標清單可在[這裡](https://peter.sh/experiments/chromium-command-line-switches/)找到。
   - `channel` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-channel"/><a href="#browser-type-launch-option-channel" class="list-anchor">#</a>
     
-    Browser distribution channel.
+    瀏覽器分發通道。
     
-    Use "chromium" to [opt in to new headless mode](../browsers.mdx#chromium-new-headless-mode).
+    使用 "chromium" 來[選擇使用新的無頭模式](../browsers.mdx#chromium-new-headless-mode)。
     
-    Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
+    使用 "chrome"、"chrome-beta"、"chrome-dev"、"chrome-canary"、"msedge"、"msedge-beta"、"msedge-dev" 或 "msedge-canary" 來使用品牌[Google Chrome 和 Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge)。
   - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-chromium-sandbox"/><a href="#browser-type-launch-option-chromium-sandbox" class="list-anchor">#</a>
     
-    Enable Chromium sandboxing. Defaults to `false`.
+    啟用 Chromium 沙盒。預設值為 `false`。
   - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-devtools"/><a href="#browser-type-launch-option-devtools" class="list-anchor">#</a>
     
-    :::warning[Deprecated]
-    Use [debugging tools](../debug.mdx) instead.
+    :::warning[已棄用]
+    請改用[偵錯工具](../debug.mdx)。
     :::
     
     
-    **Chromium-only** Whether to auto-open a Developer Tools panel for each tab. If this option is `true`, the [headless](/api/class-browsertype.mdx#browser-type-launch-option-headless) option will be set `false`.
+    **僅限 Chromium** 是否為每個分頁自動開啟開發者工具面板。如果此選項為 `true`，[headless](/api/class-browsertype.mdx#browser-type-launch-option-headless) 選項將設定為 `false`。
   - `downloadsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-downloads-path"/><a href="#browser-type-launch-option-downloads-path" class="list-anchor">#</a>
     
-    If specified, accepted downloads are downloaded into this directory. Otherwise, temporary directory is created and is deleted when browser is closed. In either case, the downloads are deleted when the browser context they were created in is closed.
+    如果指定，已接受的下載會下載到此目錄。否則，會建立暫存目錄，並在瀏覽器關閉時刪除。無論哪種情況，下載都會在建立它們的瀏覽器情境關閉時被刪除。
   - `env` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-env"/><a href="#browser-type-launch-option-env" class="list-anchor">#</a>
     
-    Specify environment variables that will be visible to the browser. Defaults to `process.env`.
+    指定瀏覽器可見的環境變數。預設值為 `process.env`。
   - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-executable-path"/><a href="#browser-type-launch-option-executable-path" class="list-anchor">#</a>
     
     Path to a browser executable to run instead of the bundled one. If [executablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) is a relative path, then it is resolved relative to the current working directory. Note that Playwright only works with the bundled Chromium, Firefox or WebKit, use at your own risk.
@@ -269,12 +269,12 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
     Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
   - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-timeout"/><a href="#browser-type-launch-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds to wait for the browser instance to start. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+    等待瀏覽器實例啟動的最大時間（毫秒）。預設值為 `30000`（30 秒）。傳遞 `0` 可停用逾時。
   - `tracesDir` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-traces-dir"/><a href="#browser-type-launch-option-traces-dir" class="list-anchor">#</a>
     
-    If specified, traces are saved into this directory.
+    如果指定，追蹤會儲存到此目錄。
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-return"/><a href="#browser-type-launch-return" class="list-anchor">#</a>
 
 ---
@@ -283,11 +283,11 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launchPersistentContext</x-search>
 
-Returns the persistent browser context instance.
+回傳持久瀏覽器情境實例。
 
-Launches browser that uses persistent storage located at [userDataDir](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-user-data-dir) and returns the only context. Closing this context will automatically close the browser.
+啟動使用位於 [userDataDir](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-user-data-dir) 的持久儲存的瀏覽器，並回傳唯一的情境。關閉此情境會自動關閉瀏覽器。
 
-**Usage**
+**使用方式**
 
 ```js
 await browserType.launchPersistentContext(userDataDir);
@@ -609,11 +609,11 @@ await browserType.launchPersistentContext(userDataDir, options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launchServer</x-search>
 
-Returns the browser app instance. You can connect to it via [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect), which requires the major/minor client/server version to match (1.2.3 → is compatible with 1.2.x).
+回傳瀏覽器應用程式實例。您可以透過 [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect) 連接到它，這需要主要/次要用戶端/伺服器版本相符（1.2.3 → 與 1.2.x 相容）。
 
-**Usage**
+**使用方式**
 
-Launches browser server that client can connect to. An example of launching a browser executable and connecting to it later:
+啟動用戶端可以連接的瀏覽器伺服器。啟動瀏覽器可執行檔並稍後連接到它的範例：
 
 ```js
 const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
@@ -738,15 +738,15 @@ const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.name</x-search>
 
-Returns browser name. For example: `'chromium'`, `'webkit'` or `'firefox'`.
+回傳瀏覽器名稱。例如：`'chromium'`、`'webkit'` 或 `'firefox'`。
 
-**Usage**
+**使用方式**
 
 ```js
 browserType.name();
 ```
 
-**Returns**
+**回傳值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-name-return"/><a href="#browser-type-name-return" class="list-anchor">#</a>
 
 

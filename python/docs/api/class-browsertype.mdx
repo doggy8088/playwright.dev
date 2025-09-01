@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-BrowserType provides methods to launch a specific browser instance or connect to an existing one. The following is a typical example of using Playwright to drive automation:
+`BrowserType` 提供方法來啟動特定的瀏覽器實例或連接到現有實例。以下是使用 Playwright 進行自動化的典型範例：
 
 <Tabs
   groupId="python-flavor"
@@ -62,27 +62,27 @@ asyncio.run(main())
 
 ---
 
-## Methods
+## 方法
 
 ### connect {#browser-type-connect}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.connect</x-search>
 
-This method attaches Playwright to an existing browser instance created via `BrowserType.launchServer` in Node.js.
+此方法將 Playwright 連接到透過 Node.js 中的 `BrowserType.launchServer` 建立的現有瀏覽器實例。
 
 :::note
 
-The major and minor version of the Playwright instance that connects needs to match the version of Playwright that launches the browser (1.2.3 → is compatible with 1.2.x).
+連接的 Playwright 實例的主要和次要版本需要與啟動瀏覽器的 Playwright 版本相符（1.2.3 → 與 1.2.x 相容）。
 :::
 
-**Usage**
+**使用方式**
 
 ```python
 browser_type.connect(ws_endpoint)
 browser_type.connect(ws_endpoint, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `ws_endpoint` [str] <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-ws-endpoint"/><a href="#browser-type-connect-option-ws-endpoint" class="list-anchor">#</a>
   
   A Playwright browser websocket endpoint to connect to. You obtain this endpoint via `BrowserServer.wsEndpoint`.
@@ -109,7 +109,7 @@ browser_type.connect(ws_endpoint, **kwargs)
   
   Maximum time in milliseconds to wait for the connection to be established. Defaults to `0` (no timeout).
 
-**Returns**
+**回傳值**
 - [Browser]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-return"/><a href="#browser-type-connect-return" class="list-anchor">#</a>
 
 ---
@@ -118,20 +118,20 @@ browser_type.connect(ws_endpoint, **kwargs)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>browserType.connect_over_cdp</x-search>
 
-This method attaches Playwright to an existing browser instance using the Chrome DevTools Protocol.
+此方法使用 Chrome DevTools Protocol 將 Playwright 連接到現有的瀏覽器實例。
 
-The default browser context is accessible via [browser.contexts](/api/class-browser.mdx#browser-contexts).
+預設瀏覽器情境可透過 [browser.contexts](/api/class-browser.mdx#browser-contexts) 存取。
 
 :::note
 
-Connecting over the Chrome DevTools Protocol is only supported for Chromium-based browsers.
+透過 Chrome DevTools Protocol 連接僅支援基於 Chromium 的瀏覽器。
 :::
 
 :::note
-This connection is significantly lower fidelity than the Playwright protocol connection via [browser_type.connect()](/api/class-browsertype.mdx#browser-type-connect). If you are experiencing issues or attempting to use advanced functionality, you probably want to use [browser_type.connect()](/api/class-browsertype.mdx#browser-type-connect).
+此連接的保真度遠低於透過 [browser_type.connect()](/api/class-browsertype.mdx#browser-type-connect) 的 Playwright 協定連接。如果您遇到問題或嘗試使用進階功能，您可能會想要使用 [browser_type.connect()](/api/class-browsertype.mdx#browser-type-connect)。
 :::
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -161,7 +161,7 @@ page = default_context.pages[0]
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `endpoint_url` [str] <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
   
   A CDP websocket endpoint or http url to connect to. For example `http://localhost:9222/` or `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`.
@@ -175,7 +175,7 @@ page = default_context.pages[0]
   
   Maximum time in milliseconds to wait for the connection to be established. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**Returns**
+**回傳值**
 - [Browser]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-return"/><a href="#browser-type-connect-over-cdp-return" class="list-anchor">#</a>
 
 ---
@@ -184,11 +184,11 @@ page = default_context.pages[0]
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launch</x-search>
 
-Returns the browser instance.
+回傳瀏覽器實例。
 
-**Usage**
+**使用方式**
 
-You can use [ignore_default_args](/api/class-browsertype.mdx#browser-type-launch-option-ignore-default-args) to filter out `--mute-audio` from default arguments:
+您可以使用 [ignore_default_args](/api/class-browsertype.mdx#browser-type-launch-option-ignore-default-args) 從預設參數中過濾掉 `--mute-audio`：
 
 <Tabs
   groupId="python-flavor"
@@ -224,7 +224,7 @@ browser = await playwright.chromium.launch( # or "firefox" or "webkit".
 >
 > Stock browsers like Google Chrome and Microsoft Edge are suitable for tests that require proprietary media codecs for video playback. See [this article](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/) for other differences between Chromium and Chrome. [This article](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md) describes some differences for Linux users.
 
-**Arguments**
+**參數**
 - `args` [List]\[[str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-args"/><a href="#browser-type-launch-option-args" class="list-anchor">#</a>
   
   :::warning
@@ -305,7 +305,7 @@ browser = await playwright.chromium.launch( # or "firefox" or "webkit".
   
   If specified, traces are saved into this directory.
 
-**Returns**
+**回傳值**
 - [Browser]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-return"/><a href="#browser-type-launch-return" class="list-anchor">#</a>
 
 ---
@@ -318,14 +318,14 @@ Returns the persistent browser context instance.
 
 Launches browser that uses persistent storage located at [user_data_dir](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-user-data-dir) and returns the only context. Closing this context will automatically close the browser.
 
-**Usage**
+**使用方式**
 
 ```python
 browser_type.launch_persistent_context(user_data_dir)
 browser_type.launch_persistent_context(user_data_dir, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `user_data_dir` [Union]\[[str], [pathlib.Path]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-user-data-dir"/><a href="#browser-type-launch-persistent-context-option-user-data-dir" class="list-anchor">#</a>
   
   Path to a User Data Directory, which stores browser session data like cookies and local storage. Pass an empty string to create a temporary directory.
@@ -594,7 +594,7 @@ browser_type.launch_persistent_context(user_data_dir, **kwargs)
   
   Sets a consistent viewport for each page. Defaults to an 1280x720 viewport. `no_viewport` disables the fixed viewport. Learn more about [viewport emulation](../emulation.mdx#viewport).
 
-**Returns**
+**回傳值**
 - [BrowserContext]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-return"/><a href="#browser-type-launch-persistent-context-return" class="list-anchor">#</a>
 
 ---
@@ -605,15 +605,15 @@ browser_type.launch_persistent_context(user_data_dir, **kwargs)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.executable_path</x-search>
 
-A path where Playwright expects to find a bundled browser executable.
+Playwright 期望找到綁定瀏覽器可執行檔的路徑。
 
-**Usage**
+**使用方式**
 
 ```python
 browser_type.executable_path
 ```
 
-**Returns**
+**回傳值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-executable-path-return"/><a href="#browser-type-executable-path-return" class="list-anchor">#</a>
 
 ---
@@ -622,15 +622,15 @@ browser_type.executable_path
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.name</x-search>
 
-Returns browser name. For example: `'chromium'`, `'webkit'` or `'firefox'`.
+回傳瀏覽器名稱。例如：`'chromium'`、`'webkit'` 或 `'firefox'`。
 
-**Usage**
+**使用方式**
 
 ```python
 browser_type.name
 ```
 
-**Returns**
+**回傳值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-name-return"/><a href="#browser-type-name-return" class="list-anchor">#</a>
 
 
