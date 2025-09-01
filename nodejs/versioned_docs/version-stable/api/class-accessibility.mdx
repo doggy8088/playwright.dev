@@ -8,52 +8,52 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-:::warning[Deprecated]
-This class is deprecated. Please use other libraries such as [Axe](https://www.deque.com/axe/) if you need to test page accessibility. See our Node.js [guide](https://playwright.dev/docs/accessibility-testing) for integration with Axe.
+:::warning[已棄用]
+此類別已棄用。如果您需要測試頁面無障礙性，請使用其他函式庫，例如 [Axe](https://www.deque.com/axe/)。請參閱我們的 Node.js [指南](https://playwright.dev/docs/accessibility-testing)以了解如何與 Axe 整合。
 :::
 
 
-The Accessibility class provides methods for inspecting Chromium's accessibility tree. The accessibility tree is used by assistive technology such as [screen readers](https://en.wikipedia.org/wiki/Screen_reader) or [switches](https://en.wikipedia.org/wiki/Switch_access).
+`Accessibility` 類別提供檢查 Chromium 無障礙樹的方法。無障礙樹被輔助技術使用，例如[螢幕閱讀器](https://en.wikipedia.org/wiki/Screen_reader)或[開關存取](https://en.wikipedia.org/wiki/Switch_access)。
 
-Accessibility is a very platform-specific thing. On different platforms, there are different screen readers that might have wildly different output.
+無障礙是一個非常特定於平台的功能。在不同的平台上，有不同的螢幕閱讀器，它們可能有截然不同的輸出。
 
-Rendering engines of Chromium, Firefox and WebKit have a concept of "accessibility tree", which is then translated into different platform-specific APIs. Accessibility namespace gives access to this Accessibility Tree.
+Chromium、Firefox 和 WebKit 的渲染引擎都有「無障礙樹」的概念，然後將其轉換為不同的特定於平台的 API。`Accessibility` 命名空間提供對此無障礙樹的存取。
 
-Most of the accessibility tree gets filtered out when converting from internal browser AX Tree to Platform-specific AX-Tree or by assistive technologies themselves. By default, Playwright tries to approximate this filtering, exposing only the "interesting" nodes of the tree.
+當從內部瀏覽器 AX 樹轉換為特定於平台的 AX 樹或由輔助技術本身進行轉換時，大部分無障礙樹會被過濾掉。預設情況下，Playwright 會嘗試近似此過濾，只公開樹中「有趣」的節點。
 
 
 ---
 
-## Deprecated
+## 已棄用
 
 ### snapshot {#accessibility-snapshot}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>accessibility.snapshot</x-search>
 
-:::warning Deprecated
+:::warning 已棄用
 
-This method is deprecated. Please use other libraries such as [Axe](https://www.deque.com/axe/) if you need to test page accessibility. See our Node.js [guide](https://playwright.dev/docs/accessibility-testing) for integration with Axe.
+此方法已棄用。如果您需要測試頁面無障礙性，請使用其他函式庫，例如 [Axe](https://www.deque.com/axe/)。請參閱我們的 Node.js [指南](https://playwright.dev/docs/accessibility-testing)以了解如何與 Axe 整合。
 
 :::
 
 
-Captures the current state of the accessibility tree. The returned object represents the root accessible node of the page.
+擷取無障礙樹的目前狀態。回傳的物件代表頁面的根無障礙節點。
 
 :::note
 
-The Chromium accessibility tree contains nodes that go unused on most platforms and by most screen readers. Playwright will discard them as well for an easier to process tree, unless [interestingOnly](/api/class-accessibility.mdx#accessibility-snapshot-option-interesting-only) is set to `false`.
+Chromium 無障礙樹包含在大多數平台和大多數螢幕閱讀器上未使用的節點。Playwright 也會捨棄它們以獲得更易於處理的樹，除非將 [interestingOnly](/api/class-accessibility.mdx#accessibility-snapshot-option-interesting-only) 設定為 `false`。
 :::
 
-**Usage**
+**用法**
 
-An example of dumping the entire accessibility tree:
+傾印整個無障礙樹的範例：
 
 ```js
 const snapshot = await page.accessibility.snapshot();
 console.log(snapshot);
 ```
 
-An example of logging the focused node's name:
+記錄聚焦節點名稱的範例：
 
 ```js
 const snapshot = await page.accessibility.snapshot();
@@ -72,95 +72,95 @@ function findFocusedNode(node) {
 }
 ```
 
-**Arguments**
-- `options` [Object] *(optional)*
-  - `interestingOnly` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-option-interesting-only"/><a href="#accessibility-snapshot-option-interesting-only" class="list-anchor">#</a>
+**參數**
+- `options` [Object] *(可選)*
+  - `interestingOnly` [boolean] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-option-interesting-only"/><a href="#accessibility-snapshot-option-interesting-only" class="list-anchor">#</a>
     
-    Prune uninteresting nodes from the tree. Defaults to `true`.
-  - `root` [ElementHandle] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-option-root"/><a href="#accessibility-snapshot-option-root" class="list-anchor">#</a>
+    從樹中修剪無趣的節點。預設為 `true`。
+  - `root` [ElementHandle] *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-option-root"/><a href="#accessibility-snapshot-option-root" class="list-anchor">#</a>
     
-    The root DOM element for the snapshot. Defaults to the whole page.
+    快照的根 DOM 元素。預設為整個頁面。
 
-**Returns**
+**回傳**
 - [Promise]&lt;[null] | [Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-return"/><a href="#accessibility-snapshot-return" class="list-anchor">#</a>
   - `role` [string]
     
-    The [role](https://www.w3.org/TR/wai-aria/#usage).
+    [角色](https://www.w3.org/TR/wai-aria/#usage)。
   - `name` [string]
     
-    A human readable name for the node.
+    節點的人類可讀名稱。
   - `value` [string] | [number]
     
-    The current value of the node, if applicable.
+    節點的目前值（如果適用）。
   - `description` [string]
     
-    An additional human readable description of the node, if applicable.
+    節點的額外人類可讀描述（如果適用）。
   - `keyshortcuts` [string]
     
-    Keyboard shortcuts associated with this node, if applicable.
+    與此節點關聯的鍵盤快速鍵（如果適用）。
   - `roledescription` [string]
     
-    A human readable alternative to the role, if applicable.
+    角色的人類可讀替代方案（如果適用）。
   - `valuetext` [string]
     
-    A description of the current value, if applicable.
+    目前值的描述（如果適用）。
   - `disabled` [boolean]
     
-    Whether the node is disabled, if applicable.
+    節點是否被停用（如果適用）。
   - `expanded` [boolean]
     
-    Whether the node is expanded or collapsed, if applicable.
+    節點是否展開或摺疊（如果適用）。
   - `focused` [boolean]
     
-    Whether the node is focused, if applicable.
+    節點是否聚焦（如果適用）。
   - `modal` [boolean]
     
-    Whether the node is [modal](https://en.wikipedia.org/wiki/Modal_window), if applicable.
+    節點是否為[強制回應](https://en.wikipedia.org/wiki/Modal_window)（如果適用）。
   - `multiline` [boolean]
     
-    Whether the node text input supports multiline, if applicable.
+    節點文字輸入是否支援多行（如果適用）。
   - `multiselectable` [boolean]
     
-    Whether more than one child can be selected, if applicable.
+    是否可以選擇多個子項（如果適用）。
   - `readonly` [boolean]
     
-    Whether the node is read only, if applicable.
+    節點是否為唯讀（如果適用）。
   - `required` [boolean]
     
-    Whether the node is required, if applicable.
+    節點是否為必填（如果適用）。
   - `selected` [boolean]
     
-    Whether the node is selected in its parent node, if applicable.
+    節點是否在其父節點中被選中（如果適用）。
   - `checked` [boolean] | "mixed"
     
-    Whether the checkbox is checked, or "mixed", if applicable.
+    核取方塊是否被勾選，或「混合」（如果適用）。
   - `pressed` [boolean] | "mixed"
     
-    Whether the toggle button is checked, or "mixed", if applicable.
+    切換按鈕是否被勾選，或「混合」（如果適用）。
   - `level` [number]
     
-    The level of a heading, if applicable.
+    標題的層級（如果適用）。
   - `valuemin` [number]
     
-    The minimum value in a node, if applicable.
+    節點中的最小值（如果適用）。
   - `valuemax` [number]
     
-    The maximum value in a node, if applicable.
+    節點中的最大值（如果適用）。
   - `autocomplete` [string]
     
-    What kind of autocomplete is supported by a control, if applicable.
+    控制項支援何種自動完成（如果適用）。
   - `haspopup` [string]
     
-    What kind of popup is currently being shown for a node, if applicable.
+    目前為節點顯示何種彈出視窗（如果適用）。
   - `invalid` [string]
     
-    Whether and in what way this node's value is invalid, if applicable.
+    此節點的值是否以及以何種方式無效（如果適用）。
   - `orientation` [string]
     
-    Whether the node is oriented horizontally or vertically, if applicable.
+    節點是水平方向還是垂直方向（如果適用）。
   - `children` [Array]&lt;[Object]&gt;
     
-    Child nodes, if any, if applicable.
+    子節點（如果有且適用）。
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"
