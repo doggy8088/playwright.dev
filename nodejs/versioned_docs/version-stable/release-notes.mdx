@@ -312,7 +312,7 @@ await page.goto('https://playwright.dev');
 await expect(page.locator('body')).toMatchAriaSnapshot(`
   - banner:
     - heading /Playwright enables reliable/ [level=1]
-    - link "Get started"
+    - link "開始使用"
     - link "Star microsoft/playwright on GitHub"
   - main:
     - img "Browsers (Chromium, Firefox, WebKit)"
@@ -701,7 +701,7 @@ import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
   await page.goto('https://playwright.dev/');
-  await page.getByRole('link', { name: 'Get started' }).click();
+  await page.getByRole('link', { name: '開始使用' }).click();
   await expect(page.getByLabel('Breadcrumbs').getByRole('list')).toContainText('Installation');
   await expect(page.getByLabel('Search')).toBeVisible();
   await page.getByLabel('Search').click();
@@ -1402,7 +1402,7 @@ export default defineConfig({
 ![Dark Theme](https://user-images.githubusercontent.com/746130/201797969-603f74df-d7cf-4c56-befd-798dbd269796.png)
 
 ### 測試執行器
-* Configure retries and test timeout for a file or a test with [test.describe.configure()](/api/class-test.mdx#test-describe-configure).
+* 配置重試次數和測試逾時 for a file or a test with [test.describe.configure()](/api/class-test.mdx#test-describe-configure).
   
   ```js
   // Each test in the file will be retried twice and have a timeout of 20 seconds.
@@ -2786,7 +2786,7 @@ That will open the following GUI:
 [ConsoleMessage]: /api/class-consolemessage.mdx "ConsoleMessage"
 [Coverage]: /api/class-coverage.mdx "Coverage"
 [Dialog]: /api/class-dialog.mdx "Dialog"
-[Download]: /api/class-download.mdx "Download"
+[Download]: /api/class-download.mdx "下載"
 [Electron]: /api/class-electron.mdx "Electron"
 [ElectronApplication]: /api/class-electronapplication.mdx "ElectronApplication"
 [ElementHandle]: /api/class-elementhandle.mdx "ElementHandle"

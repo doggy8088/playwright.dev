@@ -316,7 +316,7 @@ await page.goto('https://playwright.dev');
 await expect(page.locator('body')).toMatchAriaSnapshot(`
   - banner:
     - heading /Playwright enables reliable/ [level=1]
-    - link "Get started"
+    - link "開始使用"
     - link "Star microsoft/playwright on GitHub"
   - main:
     - img "Browsers (Chromium, Firefox, WebKit)"
@@ -705,7 +705,7 @@ import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
   await page.goto('https://playwright.dev/');
-  await page.getByRole('link', { name: 'Get started' }).click();
+  await page.getByRole('link', { name: '開始使用' }).click();
   await expect(page.getByLabel('Breadcrumbs').getByRole('list')).toContainText('Installation');
   await expect(page.getByLabel('Search')).toBeVisible();
   await page.getByLabel('Search').click();
@@ -2790,7 +2790,7 @@ npx playwright show-trace trace.zip
 [ConsoleMessage]: /api/class-consolemessage.mdx "ConsoleMessage"
 [Coverage]: /api/class-coverage.mdx "Coverage"
 [Dialog]: /api/class-dialog.mdx "Dialog"
-[Download]: /api/class-download.mdx "Download"
+[Download]: /api/class-download.mdx "下載"
 [Electron]: /api/class-electron.mdx "Electron"
 [ElectronApplication]: /api/class-electronapplication.mdx "ElectronApplication"
 [ElementHandle]: /api/class-elementhandle.mdx "ElementHandle"

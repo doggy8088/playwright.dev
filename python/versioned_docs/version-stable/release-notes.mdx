@@ -183,7 +183,7 @@ page.goto("https://playwright.dev")
 expect(page.locator('body')).to_match_aria_snapshot('''
   - banner:
     - heading /Playwright enables reliable/ [level=1]
-    - link "Get started"
+    - link "開始使用"
     - link "Star microsoft/playwright on GitHub"
   - main:
     - img "Browsers (Chromium, Firefox, WebKit)"
@@ -413,7 +413,7 @@ from playwright.sync_api import Page, expect
 
 def test_example(page: Page) -> None:
     page.goto("https://playwright.dev/")
-    page.get_by_role("link", name="Get started").click()
+    page.get_by_role("link", name="開始使用").click()
     expect(page.get_by_label("Breadcrumbs").get_by_role("list")).to_contain_text("Installation")
     expect(page.get_by_label("Search")).to_be_visible()
     page.get_by_label("Search").click()
@@ -1715,7 +1715,7 @@ That will open the following GUI:
 [Clock]: /api/class-clock.mdx "Clock"
 [ConsoleMessage]: /api/class-consolemessage.mdx "ConsoleMessage"
 [Dialog]: /api/class-dialog.mdx "Dialog"
-[Download]: /api/class-download.mdx "Download"
+[Download]: /api/class-download.mdx "下載"
 [ElementHandle]: /api/class-elementhandle.mdx "ElementHandle"
 [Error]: /api/class-error.mdx "Error"
 [FileChooser]: /api/class-filechooser.mdx "FileChooser"

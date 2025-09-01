@@ -184,7 +184,7 @@ page.navigate("https://playwright.dev");
 assertThat(page.locator("body")).matchesAriaSnapshot("""
   - banner:
     - heading /Playwright enables reliable/ [level=1]
-    - link "Get started"
+    - link "開始使用"
     - link "Star microsoft/playwright on GitHub"
   - main:
     - img "Browsers (Chromium, Firefox, WebKit)"
@@ -502,7 +502,7 @@ assertThat(page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(
 
 ```java
 page.navigate("https://playwright.dev/");
-page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Get started")).click();
+page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("開始使用")).click();
 assertThat(page.getByLabel("Breadcrumbs").getByRole(AriaRole.LIST)).containsText("Installation");
 assertThat(page.getByLabel("Search")).isVisible();
 page.getByLabel("Search").click();
@@ -1571,7 +1571,7 @@ mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="sh
 [Clock]: /api/class-clock.mdx "Clock"
 [ConsoleMessage]: /api/class-consolemessage.mdx "ConsoleMessage"
 [Dialog]: /api/class-dialog.mdx "Dialog"
-[Download]: /api/class-download.mdx "Download"
+[Download]: /api/class-download.mdx "下載"
 [ElementHandle]: /api/class-elementhandle.mdx "ElementHandle"
 [FileChooser]: /api/class-filechooser.mdx "FileChooser"
 [FormData]: /api/class-formdata.mdx "FormData"
