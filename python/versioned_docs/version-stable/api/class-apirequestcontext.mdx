@@ -8,15 +8,15 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-This API is used for the Web API testing. You can use it to trigger API endpoints, configure micro-services, prepare environment or the service to your e2e test.
+此 API 用於 Web API 測試。您可以使用它來觸發 API 端點、組態設定微服務、準備環境或服務以進行端對端測試。
 
-Each Playwright browser context has associated with it [APIRequestContext] instance which shares cookie storage with the browser context and can be accessed via [browser_context.request](/api/class-browsercontext.mdx#browser-context-request) or [page.request](/api/class-page.mdx#page-request). It is also possible to create a new APIRequestContext instance manually by calling [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context).
+每個 Playwright 瀏覽器情境都有一個關聯的 [APIRequestContext] 實例，它與瀏覽器情境共享 cookie 儲存，並可透過 [browser_context.request](/api/class-browsercontext.mdx#browser-context-request) 或 [page.request](/api/class-page.mdx#page-request) 存取。也可以透過呼叫 [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) 手動建立新的 `APIRequestContext` 實例。
 
-**Cookie management**
+**Cookie 管理**
 
-[APIRequestContext] returned by [browser_context.request](/api/class-browsercontext.mdx#browser-context-request) and [page.request](/api/class-page.mdx#page-request) shares cookie storage with the corresponding [BrowserContext]. Each API request will have `Cookie` header populated with the values from the browser context. If the API response contains `Set-Cookie` header it will automatically update [BrowserContext] cookies and requests made from the page will pick them up. This means that if you log in using this API, your e2e test will be logged in and vice versa.
+由 [browser_context.request](/api/class-browsercontext.mdx#browser-context-request) 和 [page.request](/api/class-page.mdx#page-request) 傳回的 [APIRequestContext] 與對應的 [BrowserContext] 共享 cookie 儲存。每個 API 請求都會有 `Cookie` 標頭，填入來自瀏覽器情境的值。如果 API 回應包含 `Set-Cookie` 標頭，它會自動更新 [BrowserContext] cookies，並且從頁面發出的請求會取得它們。這意味著如果您使用此 API 登入，您的端對端測試將會登入，反之亦然。
 
-If you want API requests to not interfere with the browser cookies you should create a new [APIRequestContext] by calling [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context). Such `APIRequestContext` object will have its own isolated cookie storage.
+如果您想要 API 請求不干擾瀏覽器 cookies，您應該透過呼叫 [api_request.new_context()](/api/class-apirequest.mdx#api-request-new-context) 建立新的 [APIRequestContext]。這樣的 `APIRequestContext` 物件將擁有自己的隔離 cookie 儲存。
 
 <Tabs
   groupId="python-flavor"
@@ -137,66 +137,66 @@ asyncio.run(main())
 
 ---
 
-## Methods
+## 方法
 
 ### delete {#api-request-context-delete}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.delete</x-search>
 
-Sends HTTP(S) [DELETE](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [DELETE](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE) 請求並傳回其回應。此方法會從情境填入請求 cookies，並從回應更新情境 cookies。此方法會自動跟隨重新導向。
 
-**Usage**
+**使用方式**
 
 ```python
 api_request_context.delete(url)
 api_request_context.delete(url, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `url` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-url"/><a href="#api-request-context-delete-option-url" class="list-anchor">#</a>
   
-  Target URL.
-- `data` [str] | [bytes] | [Dict] *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-data"/><a href="#api-request-context-delete-option-data" class="list-anchor">#</a>
+  目標 URL。
+- `data` [str] | [bytes] | [Dict] *(選用)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-data"/><a href="#api-request-context-delete-option-data" class="list-anchor">#</a>
   
-  Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
-- `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-fail-on-status-code"/><a href="#api-request-context-delete-option-fail-on-status-code" class="list-anchor">#</a>
+  允許設定請求的 post 資料。如果 data 參數是物件，它會被序列化為 json 字串，並且如果未明確設定，`content-type` 標頭會設定為 `application/json`。否則如果未明確設定，`content-type` 標頭會設定為 `application/octet-stream`。
+- `fail_on_status_code` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-fail-on-status-code"/><a href="#api-request-context-delete-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
-- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-form"/><a href="#api-request-context-delete-option-form" class="list-anchor">#</a>
+  是否在回應碼不是 2xx 和 3xx 時拋出例外。預設情況下，所有狀態碼都會傳回回應物件。
+- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(選用)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-form"/><a href="#api-request-context-delete-option-form" class="list-anchor">#</a>
   
-  Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
-- `headers` [Dict]\[[str], [str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-headers"/><a href="#api-request-context-delete-option-headers" class="list-anchor">#</a>
+  提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
+- `headers` [Dict]\[[str], [str]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-headers"/><a href="#api-request-context-delete-option-headers" class="list-anchor">#</a>
   
-  Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
-- `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-ignore-https-errors"/><a href="#api-request-context-delete-option-ignore-https-errors" class="list-anchor">#</a>
+  允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
+- `ignore_https_errors` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-ignore-https-errors"/><a href="#api-request-context-delete-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
-- `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-max-redirects"/><a href="#api-request-context-delete-option-max-redirects" class="list-anchor">#</a>
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+- `max_redirects` [int] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-max-redirects"/><a href="#api-request-context-delete-option-max-redirects" class="list-anchor">#</a>
   
-  Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
-- `max_retries` [int] *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-max-retries"/><a href="#api-request-context-delete-option-max-retries" class="list-anchor">#</a>
+  將自動跟隨的請求重新導向最大數量。如果超出數量將拋出錯誤。預設為 `20`。傳遞 `0` 表示不跟隨重新導向。
+- `max_retries` [int] *(選用)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-max-retries"/><a href="#api-request-context-delete-option-max-retries" class="list-anchor">#</a>
   
-  Maximum number of times network errors should be retried. Currently only `ECONNRESET` error is retried. Does not retry based on HTTP response codes. An error will be thrown if the limit is exceeded. Defaults to `0` - no retries.
-- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(optional)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-multipart"/><a href="#api-request-context-delete-option-multipart" class="list-anchor">#</a>
+  網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
+- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(選用)* <font size="2">Added in: v1.17</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-multipart"/><a href="#api-request-context-delete-option-multipart" class="list-anchor">#</a>
   - `name` [str]
     
-    File name
+    檔案名稱
   - `mimeType` [str]
     
-    File type
+    檔案類型
   - `buffer` [bytes]
     
-    File content
+    檔案內容
   
   Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
-- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-params"/><a href="#api-request-context-delete-option-params" class="list-anchor">#</a>
+- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-params"/><a href="#api-request-context-delete-option-params" class="list-anchor">#</a>
   
-  Query parameters to be sent with the URL.
-- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-timeout"/><a href="#api-request-context-delete-option-timeout" class="list-anchor">#</a>
+  要與 URL 一起傳送的查詢參數。
+- `timeout` [float] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-timeout"/><a href="#api-request-context-delete-option-timeout" class="list-anchor">#</a>
   
-  Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+  請求逾時時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 表示停用逾時。
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-return"/><a href="#api-request-context-delete-return" class="list-anchor">#</a>
 
 ---
@@ -207,19 +207,19 @@ api_request_context.delete(url, **kwargs)
 
 All responses returned by [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and similar methods are stored in the memory, so that you can later call [api_response.body()](/api/class-apiresponse.mdx#api-response-body).This method discards all its resources, calling any method on disposed [APIRequestContext] will throw an exception.
 
-**Usage**
+**使用方式**
 
 ```python
 api_request_context.dispose()
 api_request_context.dispose(**kwargs)
 ```
 
-**Arguments**
-- `reason` [str] *(optional)* <font size="2">Added in: v1.45</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-dispose-option-reason"/><a href="#api-request-context-dispose-option-reason" class="list-anchor">#</a>
+**參數**
+- `reason` [str] *(選用)* <font size="2">Added in: v1.45</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-dispose-option-reason"/><a href="#api-request-context-dispose-option-reason" class="list-anchor">#</a>
   
-  The reason to be reported to the operations interrupted by the context disposal.
+  由情境釋放中斷的操作要回報的原因。
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-dispose-return"/><a href="#api-request-context-dispose-return" class="list-anchor">#</a>
 
 ---
@@ -228,11 +228,11 @@ api_request_context.dispose(**kwargs)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.fetch</x-search>
 
-Sends HTTP(S) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) 請求並傳回其回應。此方法會從情境填入請求 cookies，並從回應更新情境 cookies。此方法會自動跟隨重新導向。
 
-**Usage**
+**使用方式**
 
-JSON objects can be passed directly to the request:
+JSON 物件可以直接傳遞給請求：
 
 ```python
 data = {
@@ -242,7 +242,7 @@ data = {
 api_request_context.fetch("https://example.com/api/createBook", method="post", data=data)
 ```
 
-The common way to send file(s) in the body of a request is to upload them as form fields with `multipart/form-data` encoding, by specifiying the `multipart` parameter:
+在請求主體中傳送檔案的常見方式是透過指定 `multipart` 參數，將它們作為 `multipart/form-data` 編碼的表單欄位上傳：
 
 ```python
 api_request_context.fetch(
@@ -256,54 +256,54 @@ api_request_context.fetch(
   })
 ```
 
-**Arguments**
+**參數**
 - `url_or_request` [str] | [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-url-or-request"/><a href="#api-request-context-fetch-option-url-or-request" class="list-anchor">#</a>
   
-  Target URL or Request to get all parameters from.
-- `data` [str] | [bytes] | [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-data"/><a href="#api-request-context-fetch-option-data" class="list-anchor">#</a>
+  目標 URL 或要從中取得所有參數的 Request。
+- `data` [str] | [bytes] | [Dict] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-data"/><a href="#api-request-context-fetch-option-data" class="list-anchor">#</a>
   
-  Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
-- `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-fail-on-status-code"/><a href="#api-request-context-fetch-option-fail-on-status-code" class="list-anchor">#</a>
+  允許設定請求的 post 資料。如果 data 參數是物件，它會被序列化為 json 字串，並且如果未明確設定，`content-type` 標頭會設定為 `application/json`。否則如果未明確設定，`content-type` 標頭會設定為 `application/octet-stream`。
+- `fail_on_status_code` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-fail-on-status-code"/><a href="#api-request-context-fetch-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
-- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-form"/><a href="#api-request-context-fetch-option-form" class="list-anchor">#</a>
+  是否在回應碼不是 2xx 和 3xx 時拋出例外。預設情況下，所有狀態碼都會傳回回應物件。
+- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-form"/><a href="#api-request-context-fetch-option-form" class="list-anchor">#</a>
   
-  Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
-- `headers` [Dict]\[[str], [str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-headers"/><a href="#api-request-context-fetch-option-headers" class="list-anchor">#</a>
+  提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
+- `headers` [Dict]\[[str], [str]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-headers"/><a href="#api-request-context-fetch-option-headers" class="list-anchor">#</a>
   
-  Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
-- `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-ignore-https-errors"/><a href="#api-request-context-fetch-option-ignore-https-errors" class="list-anchor">#</a>
+  允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
+- `ignore_https_errors` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-ignore-https-errors"/><a href="#api-request-context-fetch-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
-- `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-max-redirects"/><a href="#api-request-context-fetch-option-max-redirects" class="list-anchor">#</a>
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+- `max_redirects` [int] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-max-redirects"/><a href="#api-request-context-fetch-option-max-redirects" class="list-anchor">#</a>
   
-  Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
-- `max_retries` [int] *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-max-retries"/><a href="#api-request-context-fetch-option-max-retries" class="list-anchor">#</a>
+  將自動跟隨的請求重新導向最大數量。如果超出數量將拋出錯誤。預設為 `20`。傳遞 `0` 表示不跟隨重新導向。
+- `max_retries` [int] *(選用)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-max-retries"/><a href="#api-request-context-fetch-option-max-retries" class="list-anchor">#</a>
   
-  Maximum number of times network errors should be retried. Currently only `ECONNRESET` error is retried. Does not retry based on HTTP response codes. An error will be thrown if the limit is exceeded. Defaults to `0` - no retries.
-- `method` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-method"/><a href="#api-request-context-fetch-option-method" class="list-anchor">#</a>
+  網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
+- `method` [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-method"/><a href="#api-request-context-fetch-option-method" class="list-anchor">#</a>
   
-  If set changes the fetch method (e.g. [PUT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT) or [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)). If not specified, GET method is used.
-- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-multipart"/><a href="#api-request-context-fetch-option-multipart" class="list-anchor">#</a>
+  如果設定會變更 fetch 方法（例如 [PUT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT) 或 [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)）。如果未指定，會使用 GET 方法。
+- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-multipart"/><a href="#api-request-context-fetch-option-multipart" class="list-anchor">#</a>
   - `name` [str]
     
-    File name
+    檔案名稱
   - `mimeType` [str]
     
-    File type
+    檔案類型
   - `buffer` [bytes]
     
-    File content
+    檔案內容
   
   Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
-- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-params"/><a href="#api-request-context-fetch-option-params" class="list-anchor">#</a>
+- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-params"/><a href="#api-request-context-fetch-option-params" class="list-anchor">#</a>
   
-  Query parameters to be sent with the URL.
-- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-timeout"/><a href="#api-request-context-fetch-option-timeout" class="list-anchor">#</a>
+  要與 URL 一起傳送的查詢參數。
+- `timeout` [float] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-timeout"/><a href="#api-request-context-fetch-option-timeout" class="list-anchor">#</a>
   
-  Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+  請求逾時時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 表示停用逾時。
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-return"/><a href="#api-request-context-fetch-return" class="list-anchor">#</a>
 
 ---
@@ -312,11 +312,11 @@ api_request_context.fetch(
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.get</x-search>
 
-Sends HTTP(S) [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) 請求並傳回其回應。此方法會從情境填入請求 cookies，並從回應更新情境 cookies。此方法會自動跟隨重新導向。
 
-**Usage**
+**使用方式**
 
-Request parameters can be configured with `params` option, they will be serialized into the URL search parameters:
+請求參數可以使用 `params` 選項組態設定，它們會被序列化為 URL 搜尋參數：
 
 ```python
 query_params = {
@@ -326,51 +326,51 @@ query_params = {
 api_request_context.get("https://example.com/api/getText", params=query_params)
 ```
 
-**Arguments**
+**參數**
 - `url` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-url"/><a href="#api-request-context-get-option-url" class="list-anchor">#</a>
   
-  Target URL.
-- `data` [str] | [bytes] | [Dict] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-data"/><a href="#api-request-context-get-option-data" class="list-anchor">#</a>
+  目標 URL。
+- `data` [str] | [bytes] | [Dict] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-data"/><a href="#api-request-context-get-option-data" class="list-anchor">#</a>
   
-  Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
-- `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-fail-on-status-code"/><a href="#api-request-context-get-option-fail-on-status-code" class="list-anchor">#</a>
+  允許設定請求的 post 資料。如果 data 參數是物件，它會被序列化為 json 字串，並且如果未明確設定，`content-type` 標頭會設定為 `application/json`。否則如果未明確設定，`content-type` 標頭會設定為 `application/octet-stream`。
+- `fail_on_status_code` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-fail-on-status-code"/><a href="#api-request-context-get-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
-- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-form"/><a href="#api-request-context-get-option-form" class="list-anchor">#</a>
+  是否在回應碼不是 2xx 和 3xx 時拋出例外。預設情況下，所有狀態碼都會傳回回應物件。
+- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-form"/><a href="#api-request-context-get-option-form" class="list-anchor">#</a>
   
-  Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
-- `headers` [Dict]\[[str], [str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-headers"/><a href="#api-request-context-get-option-headers" class="list-anchor">#</a>
+  提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
+- `headers` [Dict]\[[str], [str]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-headers"/><a href="#api-request-context-get-option-headers" class="list-anchor">#</a>
   
-  Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
-- `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-ignore-https-errors"/><a href="#api-request-context-get-option-ignore-https-errors" class="list-anchor">#</a>
+  允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
+- `ignore_https_errors` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-ignore-https-errors"/><a href="#api-request-context-get-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
-- `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-max-redirects"/><a href="#api-request-context-get-option-max-redirects" class="list-anchor">#</a>
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+- `max_redirects` [int] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-max-redirects"/><a href="#api-request-context-get-option-max-redirects" class="list-anchor">#</a>
   
-  Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
-- `max_retries` [int] *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-max-retries"/><a href="#api-request-context-get-option-max-retries" class="list-anchor">#</a>
+  將自動跟隨的請求重新導向最大數量。如果超出數量將拋出錯誤。預設為 `20`。傳遞 `0` 表示不跟隨重新導向。
+- `max_retries` [int] *(選用)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-max-retries"/><a href="#api-request-context-get-option-max-retries" class="list-anchor">#</a>
   
-  Maximum number of times network errors should be retried. Currently only `ECONNRESET` error is retried. Does not retry based on HTTP response codes. An error will be thrown if the limit is exceeded. Defaults to `0` - no retries.
-- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-multipart"/><a href="#api-request-context-get-option-multipart" class="list-anchor">#</a>
+  網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
+- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-multipart"/><a href="#api-request-context-get-option-multipart" class="list-anchor">#</a>
   - `name` [str]
     
-    File name
+    檔案名稱
   - `mimeType` [str]
     
-    File type
+    檔案類型
   - `buffer` [bytes]
     
-    File content
+    檔案內容
   
   Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
-- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-params"/><a href="#api-request-context-get-option-params" class="list-anchor">#</a>
+- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-params"/><a href="#api-request-context-get-option-params" class="list-anchor">#</a>
   
-  Query parameters to be sent with the URL.
-- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-timeout"/><a href="#api-request-context-get-option-timeout" class="list-anchor">#</a>
+  要與 URL 一起傳送的查詢參數。
+- `timeout` [float] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-timeout"/><a href="#api-request-context-get-option-timeout" class="list-anchor">#</a>
   
-  Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+  請求逾時時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 表示停用逾時。
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-return"/><a href="#api-request-context-get-return" class="list-anchor">#</a>
 
 ---
@@ -379,60 +379,60 @@ api_request_context.get("https://example.com/api/getText", params=query_params)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.head</x-search>
 
-Sends HTTP(S) [HEAD](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [HEAD](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD) 請求並傳回其回應。此方法會從情境填入請求 cookies，並從回應更新情境 cookies。此方法會自動跟隨重新導向。
 
-**Usage**
+**使用方式**
 
 ```python
 api_request_context.head(url)
 api_request_context.head(url, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `url` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-url"/><a href="#api-request-context-head-option-url" class="list-anchor">#</a>
   
-  Target URL.
-- `data` [str] | [bytes] | [Dict] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-data"/><a href="#api-request-context-head-option-data" class="list-anchor">#</a>
+  目標 URL。
+- `data` [str] | [bytes] | [Dict] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-data"/><a href="#api-request-context-head-option-data" class="list-anchor">#</a>
   
-  Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
-- `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-fail-on-status-code"/><a href="#api-request-context-head-option-fail-on-status-code" class="list-anchor">#</a>
+  允許設定請求的 post 資料。如果 data 參數是物件，它會被序列化為 json 字串，並且如果未明確設定，`content-type` 標頭會設定為 `application/json`。否則如果未明確設定，`content-type` 標頭會設定為 `application/octet-stream`。
+- `fail_on_status_code` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-fail-on-status-code"/><a href="#api-request-context-head-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
-- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-form"/><a href="#api-request-context-head-option-form" class="list-anchor">#</a>
+  是否在回應碼不是 2xx 和 3xx 時拋出例外。預設情況下，所有狀態碼都會傳回回應物件。
+- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-form"/><a href="#api-request-context-head-option-form" class="list-anchor">#</a>
   
-  Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
-- `headers` [Dict]\[[str], [str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-headers"/><a href="#api-request-context-head-option-headers" class="list-anchor">#</a>
+  提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
+- `headers` [Dict]\[[str], [str]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-headers"/><a href="#api-request-context-head-option-headers" class="list-anchor">#</a>
   
-  Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
-- `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-ignore-https-errors"/><a href="#api-request-context-head-option-ignore-https-errors" class="list-anchor">#</a>
+  允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
+- `ignore_https_errors` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-ignore-https-errors"/><a href="#api-request-context-head-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
-- `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-max-redirects"/><a href="#api-request-context-head-option-max-redirects" class="list-anchor">#</a>
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+- `max_redirects` [int] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-max-redirects"/><a href="#api-request-context-head-option-max-redirects" class="list-anchor">#</a>
   
-  Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
-- `max_retries` [int] *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-max-retries"/><a href="#api-request-context-head-option-max-retries" class="list-anchor">#</a>
+  將自動跟隨的請求重新導向最大數量。如果超出數量將拋出錯誤。預設為 `20`。傳遞 `0` 表示不跟隨重新導向。
+- `max_retries` [int] *(選用)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-max-retries"/><a href="#api-request-context-head-option-max-retries" class="list-anchor">#</a>
   
-  Maximum number of times network errors should be retried. Currently only `ECONNRESET` error is retried. Does not retry based on HTTP response codes. An error will be thrown if the limit is exceeded. Defaults to `0` - no retries.
-- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-multipart"/><a href="#api-request-context-head-option-multipart" class="list-anchor">#</a>
+  網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
+- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-multipart"/><a href="#api-request-context-head-option-multipart" class="list-anchor">#</a>
   - `name` [str]
     
-    File name
+    檔案名稱
   - `mimeType` [str]
     
-    File type
+    檔案類型
   - `buffer` [bytes]
     
-    File content
+    檔案內容
   
   Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
-- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-params"/><a href="#api-request-context-head-option-params" class="list-anchor">#</a>
+- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-params"/><a href="#api-request-context-head-option-params" class="list-anchor">#</a>
   
-  Query parameters to be sent with the URL.
-- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-timeout"/><a href="#api-request-context-head-option-timeout" class="list-anchor">#</a>
+  要與 URL 一起傳送的查詢參數。
+- `timeout` [float] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-timeout"/><a href="#api-request-context-head-option-timeout" class="list-anchor">#</a>
   
-  Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+  請求逾時時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 表示停用逾時。
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-return"/><a href="#api-request-context-head-return" class="list-anchor">#</a>
 
 ---
@@ -441,60 +441,60 @@ api_request_context.head(url, **kwargs)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.patch</x-search>
 
-Sends HTTP(S) [PATCH](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [PATCH](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH) 請求並傳回其回應。此方法會從情境填入請求 cookies，並從回應更新情境 cookies。此方法會自動跟隨重新導向。
 
-**Usage**
+**使用方式**
 
 ```python
 api_request_context.patch(url)
 api_request_context.patch(url, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `url` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-url"/><a href="#api-request-context-patch-option-url" class="list-anchor">#</a>
   
-  Target URL.
-- `data` [str] | [bytes] | [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-data"/><a href="#api-request-context-patch-option-data" class="list-anchor">#</a>
+  目標 URL。
+- `data` [str] | [bytes] | [Dict] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-data"/><a href="#api-request-context-patch-option-data" class="list-anchor">#</a>
   
-  Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
-- `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-fail-on-status-code"/><a href="#api-request-context-patch-option-fail-on-status-code" class="list-anchor">#</a>
+  允許設定請求的 post 資料。如果 data 參數是物件，它會被序列化為 json 字串，並且如果未明確設定，`content-type` 標頭會設定為 `application/json`。否則如果未明確設定，`content-type` 標頭會設定為 `application/octet-stream`。
+- `fail_on_status_code` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-fail-on-status-code"/><a href="#api-request-context-patch-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
-- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-form"/><a href="#api-request-context-patch-option-form" class="list-anchor">#</a>
+  是否在回應碼不是 2xx 和 3xx 時拋出例外。預設情況下，所有狀態碼都會傳回回應物件。
+- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-form"/><a href="#api-request-context-patch-option-form" class="list-anchor">#</a>
   
-  Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
-- `headers` [Dict]\[[str], [str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-headers"/><a href="#api-request-context-patch-option-headers" class="list-anchor">#</a>
+  提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
+- `headers` [Dict]\[[str], [str]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-headers"/><a href="#api-request-context-patch-option-headers" class="list-anchor">#</a>
   
-  Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
-- `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-ignore-https-errors"/><a href="#api-request-context-patch-option-ignore-https-errors" class="list-anchor">#</a>
+  允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
+- `ignore_https_errors` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-ignore-https-errors"/><a href="#api-request-context-patch-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
-- `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-max-redirects"/><a href="#api-request-context-patch-option-max-redirects" class="list-anchor">#</a>
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+- `max_redirects` [int] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-max-redirects"/><a href="#api-request-context-patch-option-max-redirects" class="list-anchor">#</a>
   
-  Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
-- `max_retries` [int] *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-max-retries"/><a href="#api-request-context-patch-option-max-retries" class="list-anchor">#</a>
+  將自動跟隨的請求重新導向最大數量。如果超出數量將拋出錯誤。預設為 `20`。傳遞 `0` 表示不跟隨重新導向。
+- `max_retries` [int] *(選用)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-max-retries"/><a href="#api-request-context-patch-option-max-retries" class="list-anchor">#</a>
   
-  Maximum number of times network errors should be retried. Currently only `ECONNRESET` error is retried. Does not retry based on HTTP response codes. An error will be thrown if the limit is exceeded. Defaults to `0` - no retries.
-- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-multipart"/><a href="#api-request-context-patch-option-multipart" class="list-anchor">#</a>
+  網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
+- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-multipart"/><a href="#api-request-context-patch-option-multipart" class="list-anchor">#</a>
   - `name` [str]
     
-    File name
+    檔案名稱
   - `mimeType` [str]
     
-    File type
+    檔案類型
   - `buffer` [bytes]
     
-    File content
+    檔案內容
   
   Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
-- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-params"/><a href="#api-request-context-patch-option-params" class="list-anchor">#</a>
+- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-params"/><a href="#api-request-context-patch-option-params" class="list-anchor">#</a>
   
-  Query parameters to be sent with the URL.
-- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-timeout"/><a href="#api-request-context-patch-option-timeout" class="list-anchor">#</a>
+  要與 URL 一起傳送的查詢參數。
+- `timeout` [float] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-timeout"/><a href="#api-request-context-patch-option-timeout" class="list-anchor">#</a>
   
-  Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+  請求逾時時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 表示停用逾時。
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-return"/><a href="#api-request-context-patch-return" class="list-anchor">#</a>
 
 ---
@@ -503,11 +503,11 @@ api_request_context.patch(url, **kwargs)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.post</x-search>
 
-Sends HTTP(S) [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) 請求並傳回其回應。此方法會從情境填入請求 cookies，並從回應更新情境 cookies。此方法會自動跟隨重新導向。
 
-**Usage**
+**使用方式**
 
-JSON objects can be passed directly to the request:
+JSON 物件可以直接傳遞給請求：
 
 ```python
 data = {
@@ -517,7 +517,7 @@ data = {
 api_request_context.post("https://example.com/api/createBook", data=data)
 ```
 
-To send form data to the server use `form` option. Its value will be encoded into the request body with `application/x-www-form-urlencoded` encoding (see below how to use `multipart/form-data` form encoding to send files):
+要將表單資料傳送到伺服器，請使用 `form` 選項。其值會使用 `application/x-www-form-urlencoded` 編碼編碼到請求主體中（請參閱下方如何使用 `multipart/form-data` 表單編碼傳送檔案）：
 
 ```python
 formData = {
@@ -527,7 +527,7 @@ formData = {
 api_request_context.post("https://example.com/api/findBook", form=formData)
 ```
 
-The common way to send file(s) in the body of a request is to upload them as form fields with `multipart/form-data` encoding. Use [FormData] to construct request body and pass it to the request as `multipart` parameter:
+在請求主體中傳送檔案的常見方式是將它們作為具有 `multipart/form-data` 編碼的表單欄位上傳。使用 [FormData] 建構請求主體，並將其作為 `multipart` 參數傳遞給請求：
 
 ```python
 api_request_context.post(
@@ -541,51 +541,51 @@ api_request_context.post(
   })
 ```
 
-**Arguments**
+**參數**
 - `url` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-url"/><a href="#api-request-context-post-option-url" class="list-anchor">#</a>
   
-  Target URL.
-- `data` [str] | [bytes] | [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-data"/><a href="#api-request-context-post-option-data" class="list-anchor">#</a>
+  目標 URL。
+- `data` [str] | [bytes] | [Dict] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-data"/><a href="#api-request-context-post-option-data" class="list-anchor">#</a>
   
-  Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
-- `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-fail-on-status-code"/><a href="#api-request-context-post-option-fail-on-status-code" class="list-anchor">#</a>
+  允許設定請求的 post 資料。如果 data 參數是物件，它會被序列化為 json 字串，並且如果未明確設定，`content-type` 標頭會設定為 `application/json`。否則如果未明確設定，`content-type` 標頭會設定為 `application/octet-stream`。
+- `fail_on_status_code` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-fail-on-status-code"/><a href="#api-request-context-post-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
-- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-form"/><a href="#api-request-context-post-option-form" class="list-anchor">#</a>
+  是否在回應碼不是 2xx 和 3xx 時拋出例外。預設情況下，所有狀態碼都會傳回回應物件。
+- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-form"/><a href="#api-request-context-post-option-form" class="list-anchor">#</a>
   
-  Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
-- `headers` [Dict]\[[str], [str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-headers"/><a href="#api-request-context-post-option-headers" class="list-anchor">#</a>
+  提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
+- `headers` [Dict]\[[str], [str]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-headers"/><a href="#api-request-context-post-option-headers" class="list-anchor">#</a>
   
-  Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
-- `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-ignore-https-errors"/><a href="#api-request-context-post-option-ignore-https-errors" class="list-anchor">#</a>
+  允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
+- `ignore_https_errors` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-ignore-https-errors"/><a href="#api-request-context-post-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
-- `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-max-redirects"/><a href="#api-request-context-post-option-max-redirects" class="list-anchor">#</a>
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+- `max_redirects` [int] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-max-redirects"/><a href="#api-request-context-post-option-max-redirects" class="list-anchor">#</a>
   
-  Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
-- `max_retries` [int] *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-max-retries"/><a href="#api-request-context-post-option-max-retries" class="list-anchor">#</a>
+  將自動跟隨的請求重新導向最大數量。如果超出數量將拋出錯誤。預設為 `20`。傳遞 `0` 表示不跟隨重新導向。
+- `max_retries` [int] *(選用)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-max-retries"/><a href="#api-request-context-post-option-max-retries" class="list-anchor">#</a>
   
-  Maximum number of times network errors should be retried. Currently only `ECONNRESET` error is retried. Does not retry based on HTTP response codes. An error will be thrown if the limit is exceeded. Defaults to `0` - no retries.
-- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-multipart"/><a href="#api-request-context-post-option-multipart" class="list-anchor">#</a>
+  網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
+- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-multipart"/><a href="#api-request-context-post-option-multipart" class="list-anchor">#</a>
   - `name` [str]
     
-    File name
+    檔案名稱
   - `mimeType` [str]
     
-    File type
+    檔案類型
   - `buffer` [bytes]
     
-    File content
+    檔案內容
   
   Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
-- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-params"/><a href="#api-request-context-post-option-params" class="list-anchor">#</a>
+- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-params"/><a href="#api-request-context-post-option-params" class="list-anchor">#</a>
   
-  Query parameters to be sent with the URL.
-- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-timeout"/><a href="#api-request-context-post-option-timeout" class="list-anchor">#</a>
+  要與 URL 一起傳送的查詢參數。
+- `timeout` [float] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-timeout"/><a href="#api-request-context-post-option-timeout" class="list-anchor">#</a>
   
-  Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+  請求逾時時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 表示停用逾時。
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-return"/><a href="#api-request-context-post-return" class="list-anchor">#</a>
 
 ---
@@ -594,60 +594,60 @@ api_request_context.post(
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.put</x-search>
 
-Sends HTTP(S) [PUT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
+傳送 HTTP(S) [PUT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT) 請求並傳回其回應。此方法會從情境填入請求 cookies，並從回應更新情境 cookies。此方法會自動跟隨重新導向。
 
-**Usage**
+**使用方式**
 
 ```python
 api_request_context.put(url)
 api_request_context.put(url, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `url` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-url"/><a href="#api-request-context-put-option-url" class="list-anchor">#</a>
   
-  Target URL.
-- `data` [str] | [bytes] | [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-data"/><a href="#api-request-context-put-option-data" class="list-anchor">#</a>
+  目標 URL。
+- `data` [str] | [bytes] | [Dict] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-data"/><a href="#api-request-context-put-option-data" class="list-anchor">#</a>
   
-  Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
-- `fail_on_status_code` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-fail-on-status-code"/><a href="#api-request-context-put-option-fail-on-status-code" class="list-anchor">#</a>
+  允許設定請求的 post 資料。如果 data 參數是物件，它會被序列化為 json 字串，並且如果未明確設定，`content-type` 標頭會設定為 `application/json`。否則如果未明確設定，`content-type` 標頭會設定為 `application/octet-stream`。
+- `fail_on_status_code` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-fail-on-status-code"/><a href="#api-request-context-put-option-fail-on-status-code" class="list-anchor">#</a>
   
-  Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
-- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-form"/><a href="#api-request-context-put-option-form" class="list-anchor">#</a>
+  是否在回應碼不是 2xx 和 3xx 時拋出例外。預設情況下，所有狀態碼都會傳回回應物件。
+- `form` [Dict]\[[str], [str] | [float] | [bool]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-form"/><a href="#api-request-context-put-option-form" class="list-anchor">#</a>
   
-  Provides an object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
-- `headers` [Dict]\[[str], [str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-headers"/><a href="#api-request-context-put-option-headers" class="list-anchor">#</a>
+  提供一個物件，該物件會使用 `application/x-www-form-urlencoded` 編碼序列化為 html 表單，並作為此請求主體傳送。如果指定此參數，除非明確提供，否則 `content-type` 標頭會設定為 `application/x-www-form-urlencoded`。
+- `headers` [Dict]\[[str], [str]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-headers"/><a href="#api-request-context-put-option-headers" class="list-anchor">#</a>
   
-  Allows to set HTTP headers. These headers will apply to the fetched request as well as any redirects initiated by it.
-- `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-ignore-https-errors"/><a href="#api-request-context-put-option-ignore-https-errors" class="list-anchor">#</a>
+  允許設定 HTTP 標頭。這些標頭會套用到取得的請求以及任何由其起始的重新導向。
+- `ignore_https_errors` [bool] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-ignore-https-errors"/><a href="#api-request-context-put-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
-- `max_redirects` [int] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-max-redirects"/><a href="#api-request-context-put-option-max-redirects" class="list-anchor">#</a>
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
+- `max_redirects` [int] *(選用)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-max-redirects"/><a href="#api-request-context-put-option-max-redirects" class="list-anchor">#</a>
   
-  Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
-- `max_retries` [int] *(optional)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-max-retries"/><a href="#api-request-context-put-option-max-retries" class="list-anchor">#</a>
+  將自動跟隨的請求重新導向最大數量。如果超出數量將拋出錯誤。預設為 `20`。傳遞 `0` 表示不跟隨重新導向。
+- `max_retries` [int] *(選用)* <font size="2">Added in: v1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-max-retries"/><a href="#api-request-context-put-option-max-retries" class="list-anchor">#</a>
   
-  Maximum number of times network errors should be retried. Currently only `ECONNRESET` error is retried. Does not retry based on HTTP response codes. An error will be thrown if the limit is exceeded. Defaults to `0` - no retries.
-- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-multipart"/><a href="#api-request-context-put-option-multipart" class="list-anchor">#</a>
+  網路錯誤應重試的最大次數。目前僅重試 `ECONNRESET` 錯誤。不會根據 HTTP 回應碼重試。如果超出限制將拋出錯誤。預設為 `0` - 不重試。
+- `multipart` [Dict]\[[str], [str] | [float] | [bool] | [ReadStream] | [Dict]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-multipart"/><a href="#api-request-context-put-option-multipart" class="list-anchor">#</a>
   - `name` [str]
     
-    File name
+    檔案名稱
   - `mimeType` [str]
     
-    File type
+    檔案類型
   - `buffer` [bytes]
     
-    File content
+    檔案內容
   
   Provides an object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided. File values can be passed as file-like object containing file name, mime-type and its content.
-- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-params"/><a href="#api-request-context-put-option-params" class="list-anchor">#</a>
+- `params` [Dict]\[[str], [str] | [float] | [bool]\] | [str] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-params"/><a href="#api-request-context-put-option-params" class="list-anchor">#</a>
   
-  Query parameters to be sent with the URL.
-- `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-timeout"/><a href="#api-request-context-put-option-timeout" class="list-anchor">#</a>
+  要與 URL 一起傳送的查詢參數。
+- `timeout` [float] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-timeout"/><a href="#api-request-context-put-option-timeout" class="list-anchor">#</a>
   
-  Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
+  請求逾時時間，以毫秒為單位。預設為 `30000`（30 秒）。傳遞 `0` 表示停用逾時。
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-return"/><a href="#api-request-context-put-return" class="list-anchor">#</a>
 
 ---
@@ -656,24 +656,24 @@ api_request_context.put(url, **kwargs)
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequestContext.storage_state</x-search>
 
-Returns storage state for this request context, contains current cookies and local storage snapshot if it was passed to the constructor.
+傳回此請求情境的儲存狀態，包含目前的 cookies 和本機儲存快照（如果已傳遞給建構函式）。
 
-**Usage**
+**使用方式**
 
 ```python
 api_request_context.storage_state()
 api_request_context.storage_state(**kwargs)
 ```
 
-**Arguments**
-- `indexed_db` [bool] *(optional)* <font size="2">Added in: v1.51</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-option-indexed-db"/><a href="#api-request-context-storage-state-option-indexed-db" class="list-anchor">#</a>
+**參數**
+- `indexed_db` [bool] *(選用)* <font size="2">Added in: v1.51</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-option-indexed-db"/><a href="#api-request-context-storage-state-option-indexed-db" class="list-anchor">#</a>
   
-  Set to `true` to include IndexedDB in the storage state snapshot.
-- `path` [Union]\[[str], [pathlib.Path]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-option-path"/><a href="#api-request-context-storage-state-option-path" class="list-anchor">#</a>
+  設定為 `true` 以在儲存狀態快照中包含 IndexedDB。
+- `path` [Union]\[[str], [pathlib.Path]\] *(選用)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-option-path"/><a href="#api-request-context-storage-state-option-path" class="list-anchor">#</a>
   
-  The file path to save the storage state to. If [path](/api/class-apirequestcontext.mdx#api-request-context-storage-state-option-path) is a relative path, then it is resolved relative to current working directory. If no path is provided, storage state is still returned, but won't be saved to the disk.
+  儲存儲存狀態的檔案路徑。如果 [path](/api/class-apirequestcontext.mdx#api-request-context-storage-state-option-path) 是相對路徑，則會相對於目前工作目錄解析。如果未提供路徑，仍會傳回儲存狀態，但不會儲存到磁碟。
 
-**Returns**
+**傳回值**
 - [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-return"/><a href="#api-request-context-storage-state-return" class="list-anchor">#</a>
   - `cookies` [List]\[[Dict]\]
     - `name` [str]
@@ -690,7 +690,7 @@ api_request_context.storage_state(**kwargs)
       
     - `expires` [float]
       
-      Unix time in seconds.
+      以秒為單位的 Unix 時間。
     - `httpOnly` [bool]
       
       
