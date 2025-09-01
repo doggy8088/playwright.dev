@@ -637,7 +637,7 @@ Linux support looks like this:
 ## 版本 1.34
 
 ### 重點
-* New [Locator.and()](/api/class-locator.mdx#locator-and) to create a locator that matches both locators.
+* 新的 [Locator.and()](/api/class-locator.mdx#locator-and) 用於建立符合兩個定位器的定位器。
   
   ```java
   Locator button = page.getByRole(AriaRole.BUTTON).and(page.getByTitle("Subscribe"));
@@ -1008,11 +1008,11 @@ page.route("**/*", route -> {
 Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 和 [BrowserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) also participate in routing and could be deferred to.
 
 ### Web-First 斷言更新
-* 新方法 [assertThat(locator).hasValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
+* 新方法 [assertThat(locator).hasValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選取值。
 * Methods [assertThat(locator).containsText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
 
 ### 其他
-* If there's a service worker that's in your way, you 現在可以 easily disable it with a new context 選項 `serviceWorkers`:
+* 如果有阻礙您的 Service Worker，您現在可以透過新的上下文選項 `serviceWorkers` 輕鬆停用它：
   
   ```java
   BrowserContext context = browser.newContext(new Browser.NewContextOptions()
@@ -1026,7 +1026,7 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
       .setRecordHarPath(Paths.get("example.har.zip")));
   ```
   
-* If you intend to edit HAR by hand, consider using the `"minimal"` HAR recording mode that only records information that is essential for replaying:
+* 如果您打算手動編輯 HAR，請考慮使用僅記錄重播所需基本資訊的 `"minimal"` HAR 記錄模式：
   
   ```java
   BrowserContext context = browser.newContext(new Browser.NewContextOptions()
@@ -1088,8 +1088,8 @@ Note that the new methods [Page.routeFromHAR()](/api/class-page.mdx#page-route-f
 
 ### 重點
 - 新選項s用於方法[Page.screenshot()](/api/class-page.mdx#page-screenshot), [Locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 和 [ElementHandle.screenshot()](/api/class-elementhandle.mdx#element-handle-screenshot):
-  * 選項 `ScreenshotAnimations.DISABLED` rewinds all CSS animations and transitions to a consistent state
-  * 選項 `mask: Locator[]` masks given elements, overlaying them with pink `#FF00FF` boxes.
+  * 選項 `ScreenshotAnimations.DISABLED` 將所有 CSS 動畫和轉場重置為一致狀態
+  * 選項 `mask: Locator[]` 遮罩指定的元素，在其上方覆蓋粉色 `#FF00FF` 方框。
 - [Trace Viewer](./trace-viewer)現在shows [API testing requests](./api-testing).
 - [Locator.highlight()](/api/class-locator.mdx#locator-highlight)視覺化地顯示element(s)以便更輕鬆地debugging.
 

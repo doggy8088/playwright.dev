@@ -973,7 +973,7 @@ Linux support looks like this:
 * UI mode and trace viewer mark network requests handled with [page.route()](/api/class-page.mdx#page-route) 和 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) handlers, as well as those issued via the [API testing](./api-testing):
   
   ![Trace Viewer](https://github.com/microsoft/playwright/assets/746130/0df2d4b6-faa3-465c-aff3-c435b430bfe1)
-* 新選項 `maskColor`用於方法[page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot), [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) to change default masking color:
+* 新選項 `maskColor`用於方法[page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot), [expect(page).toHaveScreenshot()](/api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 和 [expect(locator).toHaveScreenshot()](/api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) 以變更預設遮罩顏色：
   
   ```js
   await page.goto('https://playwright.dev');
@@ -1085,7 +1085,7 @@ Linux support looks like this:
   });
   ```
   
-* New [locator.and()](/api/class-locator.mdx#locator-and) to create a locator that matches both locators.
+* 新的 [locator.and()](/api/class-locator.mdx#locator-and) 用於建立符合兩個定位器的定位器。
   
   ```js
   const button = page.getByRole('button').and(page.getByTitle('Subscribe'));
@@ -1186,7 +1186,7 @@ npx playwright test --ui
 
 Note: **component tests only**, does not affect end-to-end tests.
 * `@playwright/experimental-ct-react` 現在支援 **React 18 only**.
-* If you're running component tests with React 16 or 17, please replace `@playwright/experimental-ct-react` with `@playwright/experimental-ct-react17`.
+* 如果您正在使用 React 16 或 17 執行元件測試，請將 `@playwright/experimental-ct-react` 替換為 `@playwright/experimental-ct-react17`。
 
 ### 瀏覽器版本
 * Chromium 112.0.5615.29
@@ -1761,17 +1761,17 @@ test('should work', async ({ page }) => {
 Note that the new methods [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 和 [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) also participate in routing and could be deferred to.
 
 ### Web-First 斷言更新
-* 新方法 [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) that asserts all selected values of `<select multiple>` element.
+* 新方法 [expect(locator).toHaveValues()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選取值。
 * Methods [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) 和 [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) now accept `ignoreCase` 選項.
 
 ### 元件測試更新
 * 支援 Vue2 via the [`@playwright/experimental-ct-vue2`](https://www.npmjs.com/package/@playwright/experimental-ct-vue2) package.
-* 支援 component tests for [create-react-app](https://www.npmjs.com/package/create-react-app) with components in `.js` files.
+* 支援與在 `.js` 檔案中包含元件的 [create-react-app](https://www.npmjs.com/package/create-react-app) 進行元件測試。
 
 Read more about [component testing with Playwright](./test-components).
 
 ### 其他
-* If there's a service worker that's in your way, you 現在可以 easily disable it with a new context 選項 `serviceWorkers`:
+* 如果有阻礙您的 Service Worker，您現在可以透過新的上下文選項 `serviceWorkers` 輕鬆停用它：
   
   ```js title="playwright.config.ts"
   export default {
@@ -1791,7 +1791,7 @@ Read more about [component testing with Playwright](./test-components).
   });
   ```
   
-* If you intend to edit HAR by hand, consider using the `"minimal"` HAR recording mode that only records information that is essential for replaying:
+* 如果您打算手動編輯 HAR，請考慮使用僅記錄重播所需基本資訊的 `"minimal"` HAR 記錄模式：
   
   ```js
   const context = await browser.newContext({
@@ -1919,8 +1919,8 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
 
 ### 重點
 - 新選項s用於方法[page.screenshot()](/api/class-page.mdx#page-screenshot), [locator.screenshot()](/api/class-locator.mdx#locator-screenshot) 和 [elementHandle.screenshot()](/api/class-elementhandle.mdx#element-handle-screenshot):
-  * 選項 `animations: "disabled"` rewinds all CSS animations and transitions to a consistent state
-  * 選項 `mask: Locator[]` masks given elements, overlaying them with pink `#FF00FF` boxes.
+  * 選項 `animations: "disabled"` 將所有 CSS 動畫和轉場重置為一致狀態
+  * 選項 `mask: Locator[]` 遮罩指定的元素，在其上方覆蓋粉色 `#FF00FF` 方框。
 - `expect().toMatchSnapshot()` 現在支援 anonymous snapshots: 當快照名稱缺少時, Playwright Test 將自動產生一個:
   
   ```js
@@ -2005,7 +2005,7 @@ WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼�
       Error: should be logged in
   
       Call log:
-        - expect.toBeVisible with timeout 5000ms
+        - expect.toBeVisible 逾時 5000ms
         - waiting for "getByText('Name')"
   
   

@@ -2689,7 +2689,7 @@ This version of Playwright was also tested against the following stable channels
 
 ## 版本 1.10
 - [Playwright for Java v1.10](https://github.com/microsoft/playwright-java) 現在**穩定**！
-- Run Playwright against **Google Chrome** and **Microsoft Edge** stable channels with the [new channels API](./browsers).
+- 使用[新的頻道 API](./browsers) 在 **Google Chrome** 和 **Microsoft Edge** 穩定頻道上執行 Playwright。
 - Chromium screenshots are **fast** on Mac & Windows.
 
 #### Bundled Browser Versions
@@ -2706,11 +2706,11 @@ This version of Playwright was also tested against the following stable channels
 
 ## 版本 1.9
 - [Playwright Inspector](./debug.mdx) 是一個**新的 GUI 工具**，用於編寫和偵錯您的測試。
-  - **Line-by-line debugging** of your Playwright scripts, with play, pause and step-through.
+  - **逐行除錯**您的 Playwright 腳本，包含播放、暫停和逐步執行。
   - Author new scripts by **recording user actions**.
   - **Generate element selectors** for your script by hovering over elements.
-  - Set the `PWDEBUG=1` environment variable to launch the Inspector
-- **Pause script execution** with [page.pause()](/api/class-page.mdx#page-pause) in headed mode. Pausing the page launches [Playwright Inspector](./debug.mdx) for debugging.
+  - 設定 `PWDEBUG=1` 環境變數以啟動檢查器
+- 在有頭模式中使用 [page.pause()](/api/class-page.mdx#page-pause) **暫停腳本執行**。暫停頁面會啟動 [Playwright Inspector](./debug.mdx) 進行除錯。
 - **新的 has-text 偽類**用於 CSS 選擇器。`:has-text("example")` 匹配任何在內部包含 `"example"` 的元素，可能在子元素或後代元素中。請參閱[更多範例](./other-locators.mdx#css-matching-by-text)。
 - **頁面對話框現在會自動關閉**在執行期間，除非為 `dialog` 事件配置了監聽器。[了解更多](./dialogs.mdx)相關資訊。
 - [Playwright for Python](https://github.com/microsoft/playwright-python) 現在**穩定**，具有符合慣用語的 snake case API 和預建的 [Docker 映像](./docker.mdx) 以在 CI/CD 中執行測試。
@@ -2724,7 +2724,7 @@ This version of Playwright was also tested against the following stable channels
 - [page.pause()](/api/class-page.mdx#page-pause).
 
 ## 版本 1.8
-- [Selecting elements based on layout](./other-locators.mdx#css-matching-elements-based-on-layout) with `:left-of()`, `:right-of()`, `:above()` and `:below()`.
+- 使用 `:left-of()`、`:right-of()`、`:above()` 和 `:below()` 進行[基於佈局的元素選擇](./other-locators.mdx#css-matching-elements-based-on-layout)。
 - Playwright 現在包含[命令列介面](./test-cli.mdx)，以前稱為 playwright-cli。
   
   ```bash
