@@ -470,10 +470,10 @@ Playwright 在網路攔截方法（如 [page.route()](/api/class-page.mdx#page-r
 1. 反斜線 `\` 可用來跳脫任何特殊字元（注意將反斜線本身跳脫為 `\\`）
 
 範例：
-- `https://example.com/*.js` matches `https://example.com/file.js` but not `https://example.com/path/file.js`
-- `https://example.com/?page=1` matches `https://example.com/?page=1` but not `https://example.com`
-- `**/*.js` matches both `https://example.com/file.js` and `https://example.com/path/file.js`
-- `**/*.{png,jpg,jpeg}` matches all image requests
+- `https://example.com/*.js` 匹配 `https://example.com/file.js` 但不匹配 `https://example.com/path/file.js`
+- `https://example.com/?page=1` 匹配 `https://example.com/?page=1` 但不匹配 `https://example.com`
+- `**/*.js` 同時匹配 `https://example.com/file.js` 和 `https://example.com/path/file.js`
+- `**/*.{png,jpg,jpeg}` 匹配所有圖片請求
 
 重要注意事項：
 - glob 模式必須匹配整個 URL，而不僅是其中一部分。
