@@ -80,9 +80,9 @@ await page.GotoAsync("https://playwright.dev/dotnet");
 await Expect(page.GetByRole(AriaRole.Link, new() { Name = "Get started" })).ToBeVisibleAsync();
 ```
 
-## Bundle drivers for different platforms
+## 為不同平台打包驅動程式
 
-Playwright by default does bundle only the driver for the .NET publish target runtime. If you want to bundle for additional platforms, you can override this behavior by using either `all`, `none` or `linux`, `win`, `osx` in your project file.
+Playwright 預設只為 .NET 發布目標執行階段打包驅動程式。如果您想為其他平台打包，您可以在專案檔中使用 `all`、`none` 或 `linux`、`win`、`osx` 來覆寫此行為。
 
 ```xml
 <PropertyGroup>
