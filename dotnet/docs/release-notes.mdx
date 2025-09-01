@@ -1195,8 +1195,8 @@ await page.RouteAsync("**/*", async route =>
   await page.Locator("role=button[name='log in']").ClickAsync();
   ```
   
-  Read more in [our documentation](./locators.mdx#locate-by-role).
-- 新的 [Locator.Filter()](/api/class-locator.mdx#locator-filter) API to filter an existing locator
+  在[我們的文件](./locators.mdx#locate-by-role)中閱讀更多。
+- 新的 [Locator.Filter()](/api/class-locator.mdx#locator-filter) API 用於篩選現有的定位器
   
   ```csharp
   var buttons = page.Locator("role=button");
@@ -1215,7 +1215,7 @@ await page.RouteAsync("**/*", async route =>
   await page.Locator("role=button[name='log in']").ClickAsync();
   ```
   
-  Read more in [our documentation](./locators.mdx#locate-by-role).
+  在[我們的文件](./locators.mdx#locate-by-role)中閱讀更多。
 - [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 中新的 `scale` 選項，用於較小尺寸的螢幕截圖。
 - [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 中新的 `caret` 選項，控制文字游標。預設為 `"hide"`。
 - 我們現在提供專用的 .NET docker 映像 `mcr.microsoft.com/playwright/dotnet`。在[我們的文件](./docker)中閱讀更多。
@@ -1289,9 +1289,9 @@ Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節�
   await Page.Locator("article", new() { Has = Page.Locator(".highlight") }).ClickAsync();
   ```
   
-  Read more in [locator documentation](./api/class-locator#locator-locator)
+  在[定位器文件](./api/class-locator#locator-locator)中閱讀更多
 - 新的 [Locator.Page](/api/class-locator.mdx#locator-page)
-- [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot)現在automatically hide blinking caret
+- [Page.ScreenshotAsync()](/api/class-page.mdx#page-screenshot) 和 [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) 現在會自動隱藏閃爍的游標
 - Playwright Codegen 現在會產生定位器和框架定位器
 
 ### 瀏覽器版本
@@ -1314,10 +1314,10 @@ Playwright 將使用選擇器 `.status` 重新測試節點，直到取得的節�
             .Locator("button").click();
   ```
   
-  Read more in [locator documentation](./api/class-locator#locator-locator)
+  在[定位器文件](./api/class-locator#locator-locator)中閱讀更多
 
 ### 新的 API 與變更
-- [`AcceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在defaults to `true`.
+- [`AcceptDownloads`](./api/class-browser#browser-new-context-選項-accept-downloads) 選項現在預設為 `true`。
 - [`Sources`](./api/class-tracing#tracing-start-選項-sources) 選項 to embed sources into traces.
 
 ### 瀏覽器版本
@@ -1389,13 +1389,13 @@ var orderSent = page.Locator("#order-sent");
 orderSent.WaitForAsync();
 ```
 
-Read more about [Locator.WaitForAsync()](/api/class-locator.mdx#locator-wait-for).
+在 [Locator.WaitForAsync()](/api/class-locator.mdx#locator-wait-for) 閱讀更多。
 
 ### 🎭 Playwright Trace Viewer
-- run trace viewer with `pwsh bin/Debug/netX/playwright.ps1 show-trace` and drop trace files to the trace viewer PWA
-- better visual attribution of action targets
+- 使用 `pwsh bin/Debug/netX/playwright.ps1 show-trace` 執行追蹤檢視器，並將追蹤檔案拖曳至追蹤檢視器 PWA
+- 改善動作目標的視覺標示
 
-Read more about [Trace Viewer](./trace-viewer).
+在[追蹤檢視器](./trace-viewer)閱讀更多。
 
 ### 瀏覽器版本
 - Chromium 97.0.4666.0

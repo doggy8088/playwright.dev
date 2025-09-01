@@ -559,7 +559,7 @@ await Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Light and easy" })
 ```
 
 ### 新的 API
-- [Page.PdfAsync()](/api/class-page.mdx#page-pdf) accepts two new options [Tagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [Outline](/api/class-page.mdx#page-pdf-選項-outline).
+- [Page.PdfAsync()](/api/class-page.mdx#page-pdf) 接受兩個新選項 [Tagged](/api/class-page.mdx#page-pdf-選項-tagged) 和 [Outline](/api/class-page.mdx#page-pdf-選項-outline)。
 
 ### 公告
 * ⚠️ 不再支援 Ubuntu 18。
@@ -1117,7 +1117,7 @@ var context = await browser.NewContextAsync(new()
 context.CloseAsync();
 ```
 
-Use the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) or [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) to serve matching responses from the [HAR](http://www.softwareishard.com/blog/har-12-spec/) file:
+使用新方法 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 或 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) 從 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 檔案提供符合的回應：
 
 ```csharp
 await context.RouteFromHARAsync("example.har");
@@ -1154,7 +1154,7 @@ await page.RouteAsync("**/*", async route =>
 });
 ```
 
-Note that the new methods [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 和 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) also participate in routing and could be deferred to.
+請注意，新方法 [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har) 和 [BrowserContext.RouteFromHARAsync()](/api/class-browsercontext.mdx#browser-context-route-from-har) 也會參與路由處理，並且可以被延遲。
 
 ### Web-First 斷言更新
 * 新方法 [Expect(Locator).ToHaveValuesAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) 用於斷言 `<select multiple>` 元素的所有選取值。
