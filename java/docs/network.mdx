@@ -178,7 +178,7 @@ page.route("**/title.html", route -> {
 
 ## Glob URL 模式
 
-Playwright uses simplified glob patterns for URL matching in network interception methods like [Page.route()](/api/class-page.mdx#page-route) or [Page.waitForResponse()](/api/class-page.mdx#page-wait-for-response). These patterns support basic wildcards:
+Playwright 在網路攔截方法（如 [Page.route()](/api/class-page.mdx#page-route) 或 [Page.waitForResponse()](/api/class-page.mdx#page-wait-for-response)）中使用簡化的 glob 模式進行 URL 比對。這些模式支援基本的萬用字元：
 1. 星號：
    - 單個 `*` 匹配除 `/` 以外的任何字元
    - 雙重 `**` 匹配包括 `/` 在內的任何字元
@@ -201,7 +201,7 @@ Playwright uses simplified glob patterns for URL matching in network interceptio
 
 Playwright 支援 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) 檢查、模擬和修改的開箱即用功能。查看我們的 [API mocking 指南](./mock.mdx#mock-websockets) 以了解如何模擬 WebSockets。
 
-Every time a WebSocket is created, the [Page.onWebSocket(handler)](/api/class-page.mdx#page-event-web-socket) event is fired. This event contains the [WebSocket] instance for further web socket frames inspection:
+每次建立 WebSocket 時，會觸發 [Page.onWebSocket(handler)](/api/class-page.mdx#page-event-web-socket) 事件。此事件包含 [WebSocket] 實例以進一步檢查 web socket 幀：
 
 ```java
 page.onWebSocket(ws -> {
@@ -214,7 +214,7 @@ page.onWebSocket(ws -> {
 
 ## 缺少網路事件和服務工作者
 
-Playwright's built-in [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [Page.route()](/api/class-page.mdx#page-route) allow your tests to natively route requests and perform mocking and interception.
+Playwright 的內建 [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.route()](/api/class-page.mdx#page-route) 允許你的測試原生地路由請求並執行模擬和攔截。
 1. If you're using Playwright's native [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [Page.route()](/api/class-page.mdx#page-route), and it appears network events are missing, disable Service Workers by setting [setServiceWorkers](/api/class-browser.mdx#browser-new-context-option-service-workers) to `'block'`.
 1. It might be that you are using a mock tool such as Mock Service Worker (MSW). While this tool works out of the box for mocking responses, it adds its own Service Worker that takes over the network requests, hence making them invisible to [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [Page.route()](/api/class-page.mdx#page-route). If you are interested in both network testing and mocking, consider using built-in [BrowserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [Page.route()](/api/class-page.mdx#page-route) for [response mocking](#handle-requests).
 1. 如果你不僅僅對使用 Service Workers 進行測試和網路模擬感興趣，還對路由和監聽由 Service Workers 自己發出的請求感興趣，請參閱[這個實驗性功能](https://github.com/microsoft/playwright/issues/15684)。
