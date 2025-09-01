@@ -200,7 +200,7 @@ await Expect(page.Locator("body")).ToMatchAriaSnapshotAsync(@"
 ");
 ```
 
-您可以使用 [測試產生器](./codegen) 或呼叫 [Locator.AriaSnapshotAsync()](/api/class-locator.mdx#locator-aria-snapshot).
+您可以使用 [測試產生器](./codegen) 或呼叫 [Locator.AriaSnapshotAsync()](/api/class-locator.mdx#locator-aria-snapshot) 來產生此斷言。
 
 在 [aria 快照指南](./aria-snapshots) 中了解更多。
 
@@ -349,7 +349,7 @@ var context = await Browser.NewContextAsync(new() {
 - 新設定以顯示/隱藏路由動作，如 [Route.ContinueAsync()](/api/class-route.mdx#route-continue)。
 - Request 方法 and status are shown in the network details tab.
 - 複製源檔案位置到剪貼簿的新按鈕。
-- Metadata pane現在displays the `BaseURL`.
+- Metadata pane 現在顯示 `BaseURL`。
 
 ### 其他
 - [ApiRequestContext.FetchAsync()](/api/class-apirequestcontext.mdx#api-request-context-fetch) 中的新 `maxRetries` 選項，在 `ECONNRESET` 網路錯誤時重試。
@@ -411,7 +411,7 @@ await Expect(Page.GetByTestId("current-time")).ToHaveTextAsync("2/2/2024, 10:30:
   ```
   
 - 新屬性 `httpCredentials.send` 在 [ApiRequest.NewContextAsync()](/api/class-apirequest.mdx#api-request-new-context) 中，允許永遠傳送 `Authorization` 標頭或僅在回應 `401 Unauthorized` 時傳送。
-- Playwright 現在支援 Chromium, Firefox and WebKit on Ubuntu 24.04.
+- Playwright 現在支援在 Ubuntu 24.04 上的 Chromium、Firefox 和 WebKit。
 - v1.45是最後一個接收receive WebKit update for macOS 12 Monterey. 請更新macOS以繼續使用the latest WebKit.
 
 ### 瀏覽器版本
@@ -670,7 +670,7 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 
 ### 📚 Debian 12 Bookworm Support
 
-Playwright 現在支援 Debian 12 Bookworm on both x86_64 and arm64 for Chromium, Firefox and WebKit. 如果您遇到任何問題，請告訴我們！
+Playwright 現在支援 Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下：
 
@@ -982,7 +982,7 @@ await Expect(Page.GetByText("Welcome, John!")).ToBeVisibleAsync();
 
 ### 行為變更
 
-A bunch of Playwright APIs already support the `WaitUntil: WaitUntilState.DOMContentLoaded` 選項. For example:
+許多 Playwright API 已經支援 `WaitUntil: WaitUntilState.DOMContentLoaded` 選項。例如：
 
 ```csharp
 await Page.GotoAsync("https://playwright.dev", new() { WaitUntil = WaitUntilState.DOMContentLoaded });
@@ -1054,7 +1054,7 @@ await Page.GotoAsync("https://playwright.dev", new() { WaitUntil = WaitUntilStat
 
 ### 🐂 Debian 11 Bullseye Support
 
-Playwright 現在支援 Debian 11 Bullseye on x86_64 for Chromium, Firefox and WebKit. 如果您遇到任何問題，請告訴我們！
+Playwright 現在支援 Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下：
 
@@ -1333,7 +1333,7 @@ Playwright 將使用選擇器 `.status` 重複測試節點，直到擷取的節�
 
 ### 框架定位器
 
-Playwright 1.17 introduces [frame locators](./api/class-framelocator) - a locator to the iframe on the page. Frame locators capture the logic sufficient to retrieve the `iframe` and then locate elements in that iframe. Frame locators are strict by default, will wait for `iframe` to appear and 可以使用 in Web-First assertions.
+Playwright 1.17 引入了[框架定位器](./api/class-framelocator) - 用於頁面上 iframe 的定位器。框架定位器捕獲足以擷取 `iframe` 然後在該 iframe 中定位元素的邏輯。框架定位器預設為嚴格模式，會等待 `iframe` 出現，並可用於 Web-First 斷言。
 
 ![Graphics](https://user-images.githubusercontent.com/746130/142082759-2170db38-370d-43ec-8d41-5f9941f57d83.png)
 
@@ -1446,9 +1446,9 @@ orderSent.WaitForAsync();
 
 #### ⚡️ New "strict" mode
 
-Selector ambiguity is a common problem in automation testing. **"strict" mode** ensures that your selector points to a single element and throws otherwise.
+選擇器歧義是自動化測試中的常見問題。**「嚴格」模式**確保您的選擇器指向單一元素，否則會拋出例外。
 
-Set `setStrict(true)` in your action calls to opt in.
+在您的動作呼叫中設定 `setStrict(true)` 以啟用。
 
 ```csharp
 // This will throw if you have more than one button!
@@ -1457,9 +1457,9 @@ await page.Locator("button", new() { Strict = true });
 
 #### 📍 新的 [**Locators API**](./api/class-locator)
 
-Locator represents a view to the element(s) on the page. It captures the logic sufficient to retrieve the element at any given moment.
+Locator 代表頁面上元素的檢視。它捕獲在任何時刻擷取元素所需的邏輯。
 
-The difference between the [Locator](./api/class-locator) 和 [ElementHandle](./api/class-elementhandle) is that the latter points to a particular element, while [Locator](./api/class-locator) captures the logic of how to retrieve that element.
+[Locator](./api/class-locator) 和 [ElementHandle](./api/class-elementhandle) 之間的差異在於，後者指向特定元素，而 [Locator](./api/class-locator) 捕獲如何擷取該元素的邏輯。
 
 Also, locators are **"strict" by default**!
 
