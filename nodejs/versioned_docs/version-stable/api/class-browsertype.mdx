@@ -46,11 +46,11 @@ await browserType.connect(wsEndpoint, options);
 ```
 
 **參數**
-- `wsEndpoint` [string] <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-ws-endpoint"/><a href="#browser-type-connect-option-ws-endpoint" class="list-anchor">#</a>
+- `wsEndpoint` [string] <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-選項-ws-endpoint"/><a href="#browser-type-connect-option-ws-endpoint" class="list-anchor">#</a>
   
-  要連接的 Playwright 瀏覽器 websocket 端點。您可以透過 `BrowserServer.wsEndpoint` 取得此端點。
+  要連接的 Playwright 瀏覽器 WebSocket 端點。您可以透過 `BrowserServer.wsEndpoint` 取得此端點。
 - `options` [Object] *(optional)*
-  - `exposeNetwork` [string] *(optional)* <font size="2">Added in: v1.37</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-expose-network"/><a href="#browser-type-connect-option-expose-network" class="list-anchor">#</a>
+  - `exposeNetwork` [string] *(optional)* <font size="2">Added in: v1.37</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-選項-expose-網路"/><a href="#browser-type-connect-option-expose-網路" class="list-anchor">#</a>
     
     此選項將連接用戶端可用的網路公開給要連接的瀏覽器。由以逗號分隔的規則清單組成。
     
@@ -63,10 +63,10 @@ await browserType.connect(wsEndpoint, options);
     1. `"*"` 公開所有網路。
     1. `"<loopback>"` 公開 localhost 網路。
     1. `"*.test.internal-domain,*.staging.internal-domain,<loopback>"` 公開測試/測試環境部署和 localhost。
-  - `headers` [Object]&lt;[string], [string]&gt; *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-headers"/><a href="#browser-type-connect-option-headers" class="list-anchor">#</a>
+  - `headers` [Object]&lt;[string], [string]&gt; *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-選項-headers"/><a href="#browser-type-connect-option-headers" class="list-anchor">#</a>
     
     與 web socket 連接請求一起傳送的額外 HTTP 標頭。選擇性。
-  - `logger` [Logger] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-logger"/><a href="#browser-type-connect-option-logger" class="list-anchor">#</a>
+  - `logger` [Logger] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-選項-logger"/><a href="#browser-type-connect-option-logger" class="list-anchor">#</a>
     
     :::warning[已棄用]
     記錄器接收的日誌不完整。請改用追蹤。
@@ -74,15 +74,15 @@ await browserType.connect(wsEndpoint, options);
     
     
     Playwright 記錄的記錄器接收器。選擇性。
-  - `slowMo` [number] *(optional)* <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-slow-mo"/><a href="#browser-type-connect-option-slow-mo" class="list-anchor">#</a>
+  - `slowMo` [number] *(optional)* <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-選項-slow-mo"/><a href="#browser-type-connect-option-slow-mo" class="list-anchor">#</a>
     
     將 Playwright 操作減慢指定的毫秒數。這樣您可以看到正在發生的事情，很有用。預設值為 0。
-  - `timeout` [number] *(optional)* <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-timeout"/><a href="#browser-type-connect-option-timeout" class="list-anchor">#</a>
+  - `timeout` [number] *(optional)* <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-選項-timeout"/><a href="#browser-type-connect-option-timeout" class="list-anchor">#</a>
     
     等待建立連接的最大時間（毫秒）。預設值為 `0`（無逾時）。
 
 **回傳值**
-- [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-return"/><a href="#browser-type-connect-return" class="list-anchor">#</a>
+- [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-return"/><a href="#瀏覽器-type-連接-return" class="list-anchor">#</a>
 
 ---
 
@@ -112,20 +112,20 @@ const page = defaultContext.pages()[0];
 ```
 
 **參數**
-- `endpointURL` [string] <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
+- `endpointURL` [string] <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-over-cdp-選項-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
   
-  要連接的 CDP websocket 端點或 http url。例如 `http://localhost:9222/` 或 `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`。
+  要連接的 CDP WebSocket 端點或 http url。例如 `http://localhost:9222/` 或 `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`。
 - `options` [Object] *(optional)*
-  - `endpointURL` [string] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
+  - `endpointURL` [string] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-over-cdp-選項-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
     
     :::warning[已棄用]
     請改用第一個參數。
     :::
     
-  - `headers` [Object]&lt;[string], [string]&gt; *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-headers"/><a href="#browser-type-connect-over-cdp-option-headers" class="list-anchor">#</a>
+  - `headers` [Object]&lt;[string], [string]&gt; *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-over-cdp-選項-headers"/><a href="#browser-type-connect-over-cdp-option-headers" class="list-anchor">#</a>
     
     與連接請求一起傳送的額外 HTTP 標頭。選擇性。
-  - `logger` [Logger] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-logger"/><a href="#browser-type-connect-over-cdp-option-logger" class="list-anchor">#</a>
+  - `logger` [Logger] *(optional)* <font size="2">Added in: v1.14</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-over-cdp-選項-logger"/><a href="#browser-type-connect-over-cdp-option-logger" class="list-anchor">#</a>
     
     :::warning[已棄用]
     記錄器接收的日誌不完整。請改用追蹤。
@@ -133,15 +133,15 @@ const page = defaultContext.pages()[0];
     
     
     Playwright 記錄的記錄器接收器。選擇性。
-  - `slowMo` [number] *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-slow-mo"/><a href="#browser-type-connect-over-cdp-option-slow-mo" class="list-anchor">#</a>
+  - `slowMo` [number] *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-over-cdp-選項-slow-mo"/><a href="#browser-type-connect-over-cdp-option-slow-mo" class="list-anchor">#</a>
     
     將 Playwright 操作減慢指定的毫秒數。這樣您可以看到正在發生的事情，很有用。預設值為 0。
-  - `timeout` [number] *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-timeout"/><a href="#browser-type-connect-over-cdp-option-timeout" class="list-anchor">#</a>
+  - `timeout` [number] *(optional)* <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-over-cdp-選項-timeout"/><a href="#browser-type-connect-over-cdp-option-timeout" class="list-anchor">#</a>
     
     等待建立連接的最大時間（毫秒）。預設值為 `30000`（30 秒）。傳遞 `0` 可停用逾時。
 
 **回傳值**
-- [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-return"/><a href="#browser-type-connect-over-cdp-return" class="list-anchor">#</a>
+- [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-連接-over-cdp-return"/><a href="#瀏覽器-type-連接-over-cdp-return" class="list-anchor">#</a>
 
 ---
 
@@ -158,13 +158,13 @@ browserType.executablePath();
 ```
 
 **回傳值**
-- [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-executable-path-return"/><a href="#browser-type-executable-path-return" class="list-anchor">#</a>
+- [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-可執行檔-路徑-return"/><a href="#瀏覽器-type-可執行檔-路徑-return" class="list-anchor">#</a>
 
 ---
 
 ### launch {#browser-type-launch}
 
-<font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launch</x-search>
+<font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.啟動</x-search>
 
 回傳瀏覽器實例。
 
@@ -186,7 +186,7 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
 
 **參數**
 - `options` [Object] *(optional)*
-  - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-args"/><a href="#browser-type-launch-option-args" class="list-anchor">#</a>
+  - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-args"/><a href="#browser-type-launch-option-args" class="list-anchor">#</a>
     
     :::warning
     
@@ -194,17 +194,17 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
     :::
     
     傳遞給瀏覽器實例的額外參數。Chromium 旗標清單可在[這裡](https://peter.sh/experiments/chromium-command-line-switches/)找到。
-  - `channel` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-channel"/><a href="#browser-type-launch-option-channel" class="list-anchor">#</a>
+  - `channel` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-通道"/><a href="#browser-type-launch-option-通道" class="list-anchor">#</a>
     
     瀏覽器分發通道。
     
     使用 "chromium" 來[選擇使用新的無頭模式](../browsers.mdx#chromium-new-headless-mode)。
     
     使用 "chrome"、"chrome-beta"、"chrome-dev"、"chrome-canary"、"msedge"、"msedge-beta"、"msedge-dev" 或 "msedge-canary" 來使用品牌[Google Chrome 和 Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge)。
-  - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-chromium-sandbox"/><a href="#browser-type-launch-option-chromium-sandbox" class="list-anchor">#</a>
+  - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-chromium-sandbox"/><a href="#browser-type-launch-option-chromium-sandbox" class="list-anchor">#</a>
     
     啟用 Chromium 沙盒。預設值為 `false`。
-  - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-devtools"/><a href="#browser-type-launch-option-devtools" class="list-anchor">#</a>
+  - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-devtools"/><a href="#browser-type-launch-option-devtools" class="list-anchor">#</a>
     
     :::warning[已棄用]
     請改用[偵錯工具](../debug.mdx)。
@@ -212,36 +212,36 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
     
     
     **僅限 Chromium** 是否為每個分頁自動開啟開發者工具面板。如果此選項為 `true`，[headless](/api/class-browsertype.mdx#browser-type-launch-option-headless) 選項將設定為 `false`。
-  - `downloadsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-downloads-path"/><a href="#browser-type-launch-option-downloads-path" class="list-anchor">#</a>
+  - `downloadsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-downloads-路徑"/><a href="#browser-type-launch-option-downloads-路徑" class="list-anchor">#</a>
     
     如果指定，已接受的下載會下載到此目錄。否則，會建立暫存目錄，並在瀏覽器關閉時刪除。無論哪種情況，下載都會在建立它們的瀏覽器情境關閉時被刪除。
-  - `env` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-env"/><a href="#browser-type-launch-option-env" class="list-anchor">#</a>
+  - `env` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-env"/><a href="#browser-type-launch-option-env" class="list-anchor">#</a>
     
     指定瀏覽器可見的環境變數。預設值為 `process.env`。
-  - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-executable-path"/><a href="#browser-type-launch-option-executable-path" class="list-anchor">#</a>
+  - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-executable-path"/><a href="#browser-type-launch-option-executable-path" class="list-anchor">#</a>
     
-    Path to a browser executable to run instead of the bundled one. If [executablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) is a relative path, then it is resolved relative to the current working directory. Note that Playwright only works with the bundled Chromium, Firefox or WebKit, use at your own risk.
-  - `firefoxUserPrefs` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-firefox-user-prefs"/><a href="#browser-type-launch-option-firefox-user-prefs" class="list-anchor">#</a>
+    到...的路徑a 瀏覽器 可執行檔 to run instead of the bundled one. If [executablePath](/api/class-browsertype.mdx#browser-type-launch-option-executable-path) is a relative 路徑, then it is resolved relative to the current working 目錄. 請注意Playwright only works with the bundled Chromium, Firefox or WebKit, use at your own risk.
+  - `firefoxUserPrefs` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-firefox-user-prefs"/><a href="#browser-type-launch-option-firefox-user-prefs" class="list-anchor">#</a>
     
-    Firefox user preferences. Learn more about the Firefox user preferences at [`about:config`](https://support.mozilla.org/en-US/kb/about-config-editor-firefox).
+    Firefox user 偏好設定. 深入了解about the Firefox user 偏好設定 at [__CODE_BLOCK_0__](https://support.mozilla.org/en-US/kb/about-config-editor-firefox).
     
-    You can also provide a path to a custom [`policies.json` file](https://mozilla.github.io/policy-templates/) via `PLAYWRIGHT_FIREFOX_POLICIES_JSON` environment variable.
-  - `handleSIGHUP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-handle-sighup"/><a href="#browser-type-launch-option-handle-sighup" class="list-anchor">#</a>
+    You can also provide a 到...的路徑a custom [__CODE_BLOCK_0__ file](https://mozilla.github.io/policy-templates/) via `PLAYWRIGHT_FIREFOX_POLICIES_JSON` 環境 變數.
+  - `handleSIGHUP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-handle-sighup"/><a href="#browser-type-launch-option-handle-sighup" class="list-anchor">#</a>
     
-    Close the browser process on SIGHUP. Defaults to `true`.
-  - `handleSIGINT` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-handle-sigint"/><a href="#browser-type-launch-option-handle-sigint" class="list-anchor">#</a>
+    Close 瀏覽器process on SIGHUP. 預設為`true`.
+  - `handleSIGINT` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-handle-sigint"/><a href="#browser-type-launch-option-handle-sigint" class="list-anchor">#</a>
     
-    Close the browser process on Ctrl-C. Defaults to `true`.
-  - `handleSIGTERM` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-handle-sigterm"/><a href="#browser-type-launch-option-handle-sigterm" class="list-anchor">#</a>
+    Close 瀏覽器process on Ctrl-C. 預設為`true`.
+  - `handleSIGTERM` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-handle-sigterm"/><a href="#browser-type-launch-option-handle-sigterm" class="list-anchor">#</a>
     
-    Close the browser process on SIGTERM. Defaults to `true`.
-  - `headless` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-headless"/><a href="#browser-type-launch-option-headless" class="list-anchor">#</a>
+    Close 瀏覽器process on SIGTERM. 預設為`true`.
+  - `headless` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-headless"/><a href="#browser-type-launch-option-headless" class="list-anchor">#</a>
     
-    Whether to run browser in headless mode. More details for [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/). Defaults to `true` unless the [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) option is `true`.
-  - `ignoreDefaultArgs` [boolean] | [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-ignore-default-args"/><a href="#browser-type-launch-option-ignore-default-args" class="list-anchor">#</a>
+    是否run 瀏覽器 in 無頭 mode. 更多詳細資訊for [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/). 預設為`true` unless the [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) 選項 is `true`.
+  - `ignoreDefaultArgs` [boolean] | [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-ignore-預設-args"/><a href="#browser-type-launch-option-ignore-預設-args" class="list-anchor">#</a>
     
-    If `true`, Playwright does not pass its own configurations args and only uses the ones from [args](/api/class-browsertype.mdx#browser-type-launch-option-args). If an array is given, then filters out the given default arguments. Dangerous option; use with care. Defaults to `false`.
-  - `logger` [Logger] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-logger"/><a href="#browser-type-launch-option-logger" class="list-anchor">#</a>
+    If `true`, Playwright does not pass its own configurations args and only uses the ones from [args](/api/class-browsertype.mdx#browser-type-launch-option-args). If an array is given, then filters out the given 預設 arguments. Dangerous 選項; use with care. 預設為`false`.
+  - `logger` [Logger] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-logger"/><a href="#browser-type-launch-option-logger" class="list-anchor">#</a>
     
     :::warning[Deprecated]
     The logs received by the logger are incomplete. Please use tracing instead.
@@ -249,37 +249,37 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
     
     
     Logger sink for Playwright logging.
-  - `proxy` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-proxy"/><a href="#browser-type-launch-option-proxy" class="list-anchor">#</a>
+  - `proxy` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-proxy"/><a href="#browser-type-launch-option-proxy" class="list-anchor">#</a>
     - `server` [string]
       
-      Proxy to be used for all requests. HTTP and SOCKS proxies are supported, for example `http://myproxy.com:3128` or `socks5://myproxy.com:3128`. Short form `myproxy.com:3128` is considered an HTTP proxy.
+      代理 to be used for all requests. HTTP and SOCKS proxies are supported, 例如 `http://myproxy.com:3128` or `socks5://myproxy.com:3128`. Short form `myproxy.com:3128` is considered an HTTP 代理.
     - `bypass` [string] *(optional)*
       
-      Optional comma-separated domains to bypass proxy, for example `".com, chromium.org, .domain.com"`.
+      可選的comma-separated domains to bypass 代理, 例如 `".com, chromium.org, .domain.com"`.
     - `username` [string] *(optional)*
       
-      Optional username to use if HTTP proxy requires authentication.
+      可選的username to use if HTTP 代理 requires 驗證.
     - `password` [string] *(optional)*
       
-      Optional password to use if HTTP proxy requires authentication.
+      可選的password to use if HTTP 代理 requires 驗證.
     
-    Network proxy settings.
-  - `slowMo` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-slow-mo"/><a href="#browser-type-launch-option-slow-mo" class="list-anchor">#</a>
+    網路 代理 設定.
+  - `slowMo` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-slow-mo"/><a href="#browser-type-launch-option-slow-mo" class="list-anchor">#</a>
     
     Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
-  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-timeout"/><a href="#browser-type-launch-option-timeout" class="list-anchor">#</a>
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-timeout"/><a href="#browser-type-launch-option-timeout" class="list-anchor">#</a>
     
     等待瀏覽器實例啟動的最大時間（毫秒）。預設值為 `30000`（30 秒）。傳遞 `0` 可停用逾時。
-  - `tracesDir` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-traces-dir"/><a href="#browser-type-launch-option-traces-dir" class="list-anchor">#</a>
+  - `tracesDir` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-選項-traces-dir"/><a href="#browser-type-launch-option-traces-dir" class="list-anchor">#</a>
     
     如果指定，追蹤會儲存到此目錄。
 
 **回傳值**
-- [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-return"/><a href="#browser-type-launch-return" class="list-anchor">#</a>
+- [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-return"/><a href="#瀏覽器-type-啟動-return" class="list-anchor">#</a>
 
 ---
 
-### launchPersistentContext {#browser-type-launch-persistent-context}
+### launchPersistentContext {#瀏覽器-type-啟動-持久-情境}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launchPersistentContext</x-search>
 
@@ -295,152 +295,152 @@ await browserType.launchPersistentContext(userDataDir, options);
 ```
 
 **Arguments**
-- `userDataDir` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-user-data-dir"/><a href="#browser-type-launch-persistent-context-option-user-data-dir" class="list-anchor">#</a>
+- `userDataDir` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-user-data-dir"/><a href="#browser-type-launch-persistent-context-option-user-data-dir" class="list-anchor">#</a>
   
-  Path to a User Data Directory, which stores browser session data like cookies and local storage. Pass an empty string to create a temporary directory.
+  到...的路徑a User Data 目錄, which stores 瀏覽器 工作階段 data like cookies and local 儲存. Pass an empty string to create a temporary 目錄.
   
-  More details for [Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md#introduction) and [Firefox](https://wiki.mozilla.org/Firefox/CommandLineOptions#User_profile). Chromium's user data directory is the **parent** directory of the "Profile Path" seen at `chrome://version`.
+  更多詳細資訊for [Chromium](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md#introduction) and [Firefox](https://wiki.mozilla.org/Firefox/CommandLineOptions#User_profile). Chromium's user data 目錄 is the **parent** 目錄 of the "設定檔 路徑" seen at `chrome://version`.
   
-  Note that browsers do not allow launching multiple instances with the same User Data Directory.
+  請注意browsers do not allow launching multiple instances with the same User Data 目錄.
   
   :::warning
   
-  Chromium/Chrome: Due to recent Chrome policy changes, automating the default Chrome user profile is not supported. Pointing `userDataDir` to Chrome's main "User Data" directory (the profile used for your regular browsing) may result in pages not loading or the browser exiting. Create and use a separate directory (for example, an empty folder) as your automation profile instead. See https://developer.chrome.com/blog/remote-debugging-port for details.
+  Chromium/Chrome: Due to recent Chrome policy changes, automating the 預設 Chrome user 設定檔 is not supported. Pointing `userDataDir` to Chrome's main "User Data" 目錄 (the 設定檔 used for your regular browsing) may result in pages not loading or 瀏覽器exiting. Create and use a separate 目錄 (例如, an empty 資料夾) as your automation 設定檔 instead. See https://developer.chrome.com/blog/remote-debugging-port for details.
   :::
   
 - `options` [Object] *(optional)*
-  - `acceptDownloads` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-accept-downloads"/><a href="#browser-type-launch-persistent-context-option-accept-downloads" class="list-anchor">#</a>
+  - `acceptDownloads` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-accept-downloads"/><a href="#browser-type-launch-persistent-context-option-accept-downloads" class="list-anchor">#</a>
     
-    Whether to automatically download all the attachments. Defaults to `true` where all the downloads are accepted.
-  - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-args"/><a href="#browser-type-launch-persistent-context-option-args" class="list-anchor">#</a>
+    是否automatically 下載 all the attachments. 預設為`true` where all the downloads are accepted.
+  - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-args"/><a href="#browser-type-launch-persistent-context-option-args" class="list-anchor">#</a>
     
     :::warning
     
-    Use custom browser args at your own risk, as some of them may break Playwright functionality.
+    Use custom 瀏覽器 args at your own risk, as some of them may break Playwright functionality.
     :::
     
-    Additional arguments to pass to the browser instance. The list of Chromium flags can be found [here](https://peter.sh/experiments/chromium-command-line-switches/).
-  - `baseURL` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-base-url"/><a href="#browser-type-launch-persistent-context-option-base-url" class="list-anchor">#</a>
+    Additional arguments to pass to 瀏覽器instance. The list of Chromium flags can be found [here](https://peter.sh/experiments/chromium-command-line-switches/).
+  - `baseURL` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-base-url"/><a href="#browser-type-launch-persistent-context-option-base-url" class="list-anchor">#</a>
     
-    When using [page.goto()](/api/class-page.mdx#page-goto), [page.route()](/api/class-page.mdx#page-route), [page.waitForURL()](/api/class-page.mdx#page-wait-for-url), [page.waitForRequest()](/api/class-page.mdx#page-wait-for-request), or [page.waitForResponse()](/api/class-page.mdx#page-wait-for-response) it takes the base URL in consideration by using the [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor for building the corresponding URL. Unset by default. Examples:
+    When using [page.goto()](/api/class-page.mdx#page-goto), [page.route()](/api/class-page.mdx#page-route), [page.waitForURL()](/api/class-page.mdx#page-wait-for-url), [page.waitForRequest()](/api/class-page.mdx#page-wait-for-request), or [page.waitForResponse()](/api/class-page.mdx#page-wait-for-response) it takes the base URL in consideration by using the [__CODE_BLOCK_0__](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor for building the corresponding URL. Unset 預設情況下. Examples:
     * baseURL: `http://localhost:3000` and navigating to `/bar.html` results in `http://localhost:3000/bar.html`
     * baseURL: `http://localhost:3000/foo/` and navigating to `./bar.html` results in `http://localhost:3000/foo/bar.html`
     * baseURL: `http://localhost:3000/foo` (without trailing slash) and navigating to `./bar.html` results in `http://localhost:3000/bar.html`
-  - `bypassCSP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-bypass-csp"/><a href="#browser-type-launch-persistent-context-option-bypass-csp" class="list-anchor">#</a>
+  - `bypassCSP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-bypass-csp"/><a href="#browser-type-launch-persistent-context-option-bypass-csp" class="list-anchor">#</a>
     
-    Toggles bypassing page's Content-Security-Policy. Defaults to `false`.
-  - `channel` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-channel"/><a href="#browser-type-launch-persistent-context-option-channel" class="list-anchor">#</a>
+    Toggles bypassing page's Content-Security-Policy. 預設為`false`.
+  - `channel` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-通道"/><a href="#browser-type-launch-persistent-context-option-通道" class="list-anchor">#</a>
     
-    Browser distribution channel.
+    瀏覽器 distribution 通道.
     
     Use "chromium" to [opt in to new headless mode](../browsers.mdx#chromium-new-headless-mode).
     
     Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
-  - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-chromium-sandbox"/><a href="#browser-type-launch-persistent-context-option-chromium-sandbox" class="list-anchor">#</a>
+  - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-chromium-sandbox"/><a href="#browser-type-launch-persistent-context-option-chromium-sandbox" class="list-anchor">#</a>
     
-    Enable Chromium sandboxing. Defaults to `false`.
-  - `clientCertificates` [Array]&lt;[Object]&gt; *(optional)* <font size="2">Added in: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-client-certificates"/><a href="#browser-type-launch-persistent-context-option-client-certificates" class="list-anchor">#</a>
+    Enable Chromium sandboxing. 預設為`false`.
+  - `clientCertificates` [Array]&lt;[Object]&gt; *(optional)* <font size="2">Added in: 1.46</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-client-certificates"/><a href="#browser-type-launch-persistent-context-option-client-certificates" class="list-anchor">#</a>
     - `origin` [string]
       
-      Exact origin that the certificate is valid for. Origin includes `https` protocol, a hostname and optionally a port.
+      Exact origin that the 憑證 is valid for. Origin includes `https` 協定, a hostname and optionally a port.
     - `certPath` [string] *(optional)*
       
-      Path to the file with the certificate in PEM format.
+      到...的路徑the 檔案 with the 憑證 in PEM format.
     - `cert` [Buffer] *(optional)*
       
-      Direct value of the certificate in PEM format.
+      Direct value of the 憑證 in PEM format.
     - `keyPath` [string] *(optional)*
       
-      Path to the file with the private key in PEM format.
+      到...的路徑the 檔案 with the private key in PEM format.
     - `key` [Buffer] *(optional)*
       
       Direct value of the private key in PEM format.
     - `pfxPath` [string] *(optional)*
       
-      Path to the PFX or PKCS12 encoded private key and certificate chain.
+      到...的路徑the PFX or PKCS12 encoded private key and 憑證 chain.
     - `pfx` [Buffer] *(optional)*
       
-      Direct value of the PFX or PKCS12 encoded private key and certificate chain.
+      Direct value of the PFX or PKCS12 encoded private key and 憑證 chain.
     - `passphrase` [string] *(optional)*
       
       Passphrase for the private key (PEM or PFX).
     
-    TLS Client Authentication allows the server to request a client certificate and verify it.
+    TLS Client 驗證 allows the 伺服器 to request a client 憑證 and verify it.
     
     **Details**
     
-    An array of client certificates to be used. Each certificate object must have either both `certPath` and `keyPath`, a single `pfxPath`, or their corresponding direct value equivalents (`cert` and `key`, or `pfx`). Optionally, `passphrase` property should be provided if the certificate is encrypted. The `origin` property should be provided with an exact match to the request origin that the certificate is valid for.
+    An array of client certificates to be used. Each 憑證 object must have either both `certPath` and `keyPath`, a single `pfxPath`, or their corresponding direct value equivalents (`cert` and `key`, or `pfx`). Optionally, `passphrase` property should be provided if the 憑證 is encrypted. The `origin` property should be provided with an exact match to the request origin that the 憑證 is valid for.
     
-    Client certificate authentication is only active when at least one client certificate is provided. If you want to reject all client certificates sent by the server, you need to provide a client certificate with an `origin` that does not match any of the domains you plan to visit.
+    Client 憑證 驗證 is only active when at least one client 憑證 is provided. If you want to reject all client certificates sent by the 伺服器, you need to provide a client 憑證 with an `origin` that does not match any of the domains you plan to visit.
     
     :::note
     
     When using WebKit on macOS, accessing `localhost` will not pick up client certificates. You can make it work by replacing `localhost` with `local.playwright`.
     :::
     
-  - `colorScheme` [null] | "light" | "dark" | "no-preference" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-color-scheme"/><a href="#browser-type-launch-persistent-context-option-color-scheme" class="list-anchor">#</a>
+  - `colorScheme` [null] | "light" | "dark" | "no-preference" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-color-scheme"/><a href="#browser-type-launch-persistent-context-option-color-scheme" class="list-anchor">#</a>
     
-    Emulates [prefers-colors-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) media feature, supported values are `'light'` and `'dark'`. See [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) for more details. Passing `null` resets emulation to system defaults. Defaults to `'light'`.
-  - `contrast` [null] | "no-preference" | "more" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-contrast"/><a href="#browser-type-launch-persistent-context-option-contrast" class="list-anchor">#</a>
+    Emulates [prefers-colors-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) media feature, supported values are `'light'` and `'dark'`. See [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) for more details. Passing `null` resets 模擬 to system defaults. 預設為`'light'`.
+  - `contrast` [null] | "no-preference" | "more" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-contrast"/><a href="#browser-type-launch-persistent-context-option-contrast" class="list-anchor">#</a>
     
-    Emulates `'prefers-contrast'` media feature, supported values are `'no-preference'`, `'more'`. See [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) for more details. Passing `null` resets emulation to system defaults. Defaults to `'no-preference'`.
-  - `deviceScaleFactor` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-device-scale-factor"/><a href="#browser-type-launch-persistent-context-option-device-scale-factor" class="list-anchor">#</a>
+    Emulates `'prefers-contrast'` media feature, supported values are `'no-preference'`, `'more'`. See [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) for more details. Passing `null` resets 模擬 to system defaults. 預設為`'no-preference'`.
+  - `deviceScaleFactor` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-裝置-scale-factor"/><a href="#browser-type-launch-persistent-context-option-裝置-scale-factor" class="list-anchor">#</a>
     
-    Specify device scale factor (can be thought of as dpr). Defaults to `1`. Learn more about [emulating devices with device scale factor](../emulation.mdx#devices).
-  - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-devtools"/><a href="#browser-type-launch-persistent-context-option-devtools" class="list-anchor">#</a>
+    Specify 裝置 scale factor (can be thought of as dpr). 預設為`1`. 深入了解about [emulating devices with device scale factor](../emulation.mdx#devices).
+  - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-devtools"/><a href="#browser-type-launch-persistent-context-option-devtools" class="list-anchor">#</a>
     
     :::warning[Deprecated]
     Use [debugging tools](../debug.mdx) instead.
     :::
     
     
-    **Chromium-only** Whether to auto-open a Developer Tools panel for each tab. If this option is `true`, the [headless](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-headless) option will be set `false`.
-  - `downloadsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-downloads-path"/><a href="#browser-type-launch-persistent-context-option-downloads-path" class="list-anchor">#</a>
+    **Chromium-only** 是否auto-open a Developer Tools panel for each tab. If 此選項is `true`, the [headless](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-headless) 選項 will be set `false`.
+  - `downloadsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-downloads-路徑"/><a href="#browser-type-launch-persistent-context-option-downloads-路徑" class="list-anchor">#</a>
     
-    If specified, accepted downloads are downloaded into this directory. Otherwise, temporary directory is created and is deleted when browser is closed. In either case, the downloads are deleted when the browser context they were created in is closed.
-  - `env` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-env"/><a href="#browser-type-launch-persistent-context-option-env" class="list-anchor">#</a>
+    If specified, accepted downloads are downloaded into this 目錄. Otherwise, temporary 目錄 is created and is deleted when 瀏覽器 is closed. In either case, the downloads are deleted when 瀏覽器context they were created in is closed.
+  - `env` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-env"/><a href="#browser-type-launch-persistent-context-option-env" class="list-anchor">#</a>
     
-    Specify environment variables that will be visible to the browser. Defaults to `process.env`.
-  - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-executable-path"/><a href="#browser-type-launch-persistent-context-option-executable-path" class="list-anchor">#</a>
+    Specify 環境 variables that will be visible to the 瀏覽器. 預設為`process.env`.
+  - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-executable-path"/><a href="#browser-type-launch-persistent-context-option-executable-path" class="list-anchor">#</a>
     
-    Path to a browser executable to run instead of the bundled one. If [executablePath](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-executable-path) is a relative path, then it is resolved relative to the current working directory. Note that Playwright only works with the bundled Chromium, Firefox or WebKit, use at your own risk.
-  - `extraHTTPHeaders` [Object]&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-extra-http-headers"/><a href="#browser-type-launch-persistent-context-option-extra-http-headers" class="list-anchor">#</a>
+    到...的路徑a 瀏覽器 可執行檔 to run instead of the bundled one. If [executablePath](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-executable-path) is a relative 路徑, then it is resolved relative to the current working 目錄. 請注意Playwright only works with the bundled Chromium, Firefox or WebKit, use at your own risk.
+  - `extraHTTPHeaders` [Object]&lt;[string], [string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-extra-http-headers"/><a href="#browser-type-launch-persistent-context-option-extra-http-headers" class="list-anchor">#</a>
     
-    An object containing additional HTTP headers to be sent with every request. Defaults to none.
-  - `firefoxUserPrefs` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)* <font size="2">Added in: v1.40</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-firefox-user-prefs"/><a href="#browser-type-launch-persistent-context-option-firefox-user-prefs" class="list-anchor">#</a>
+    An object containing additional HTTP headers to be sent with every request. 預設為none.
+  - `firefoxUserPrefs` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)* <font size="2">Added in: v1.40</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-firefox-user-prefs"/><a href="#browser-type-launch-persistent-context-option-firefox-user-prefs" class="list-anchor">#</a>
     
-    Firefox user preferences. Learn more about the Firefox user preferences at [`about:config`](https://support.mozilla.org/en-US/kb/about-config-editor-firefox).
+    Firefox user 偏好設定. 深入了解about the Firefox user 偏好設定 at [__CODE_BLOCK_0__](https://support.mozilla.org/en-US/kb/about-config-editor-firefox).
     
-    You can also provide a path to a custom [`policies.json` file](https://mozilla.github.io/policy-templates/) via `PLAYWRIGHT_FIREFOX_POLICIES_JSON` environment variable.
-  - `forcedColors` [null] | "active" | "none" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-forced-colors"/><a href="#browser-type-launch-persistent-context-option-forced-colors" class="list-anchor">#</a>
+    You can also provide a 到...的路徑a custom [__CODE_BLOCK_0__ file](https://mozilla.github.io/policy-templates/) via `PLAYWRIGHT_FIREFOX_POLICIES_JSON` 環境 變數.
+  - `forcedColors` [null] | "active" | "none" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-forced-colors"/><a href="#browser-type-launch-persistent-context-option-forced-colors" class="list-anchor">#</a>
     
-    Emulates `'forced-colors'` media feature, supported values are `'active'`, `'none'`. See [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) for more details. Passing `null` resets emulation to system defaults. Defaults to `'none'`.
-  - `geolocation` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-geolocation"/><a href="#browser-type-launch-persistent-context-option-geolocation" class="list-anchor">#</a>
+    Emulates `'forced-colors'` media feature, supported values are `'active'`, `'none'`. See [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) for more details. Passing `null` resets 模擬 to system defaults. 預設為`'none'`.
+  - `geolocation` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-geolocation"/><a href="#browser-type-launch-persistent-context-option-geolocation" class="list-anchor">#</a>
     - `latitude` [number]
       
-      Latitude between -90 and 90.
+      緯度 between -90 and 90.
     - `longitude` [number]
       
-      Longitude between -180 and 180.
+      經度 between -180 and 180.
     - `accuracy` [number] *(optional)*
       
-      Non-negative accuracy value. Defaults to `0`.
-  - `handleSIGHUP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-handle-sighup"/><a href="#browser-type-launch-persistent-context-option-handle-sighup" class="list-anchor">#</a>
+      Non-negative 精確度 value. 預設為`0`.
+  - `handleSIGHUP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-handle-sighup"/><a href="#browser-type-launch-persistent-context-option-handle-sighup" class="list-anchor">#</a>
     
-    Close the browser process on SIGHUP. Defaults to `true`.
-  - `handleSIGINT` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-handle-sigint"/><a href="#browser-type-launch-persistent-context-option-handle-sigint" class="list-anchor">#</a>
+    Close 瀏覽器process on SIGHUP. 預設為`true`.
+  - `handleSIGINT` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-handle-sigint"/><a href="#browser-type-launch-persistent-context-option-handle-sigint" class="list-anchor">#</a>
     
-    Close the browser process on Ctrl-C. Defaults to `true`.
-  - `handleSIGTERM` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-handle-sigterm"/><a href="#browser-type-launch-persistent-context-option-handle-sigterm" class="list-anchor">#</a>
+    Close 瀏覽器process on Ctrl-C. 預設為`true`.
+  - `handleSIGTERM` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-handle-sigterm"/><a href="#browser-type-launch-persistent-context-option-handle-sigterm" class="list-anchor">#</a>
     
-    Close the browser process on SIGTERM. Defaults to `true`.
-  - `hasTouch` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-has-touch"/><a href="#browser-type-launch-persistent-context-option-has-touch" class="list-anchor">#</a>
+    Close 瀏覽器process on SIGTERM. 預設為`true`.
+  - `hasTouch` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-has-touch"/><a href="#browser-type-launch-persistent-context-option-has-touch" class="list-anchor">#</a>
     
-    Specifies if viewport supports touch events. Defaults to false. Learn more about [mobile emulation](../emulation.mdx#devices).
-  - `headless` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-headless"/><a href="#browser-type-launch-persistent-context-option-headless" class="list-anchor">#</a>
+    Specifies if 檢視區 supports touch events. 預設為false. 深入了解about [mobile emulation](../emulation.mdx#devices).
+  - `headless` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-headless"/><a href="#browser-type-launch-persistent-context-option-headless" class="list-anchor">#</a>
     
-    Whether to run browser in headless mode. More details for [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/). Defaults to `true` unless the [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) option is `true`.
-  - `httpCredentials` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-http-credentials"/><a href="#browser-type-launch-persistent-context-option-http-credentials" class="list-anchor">#</a>
+    是否run 瀏覽器 in 無頭 mode. 更多詳細資訊for [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/). 預設為`true` unless the [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) 選項 is `true`.
+  - `httpCredentials` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-http-client-certificates"/><a href="#browser-type-launch-persistent-context-option-http-client-certificates" class="list-anchor">#</a>
     - `username` [string]
       
       
@@ -449,28 +449,28 @@ await browserType.launchPersistentContext(userDataDir, options);
       
     - `origin` [string] *(optional)*
       
-      Restrain sending http credentials on specific origin (scheme://host:port).
+      Restrain sending http 憑證 on specific origin (scheme://host:port).
     - `send` "unauthorized" | "always" *(optional)*
       
-      This option only applies to the requests sent from corresponding [APIRequestContext] and does not affect requests sent from the browser. `'always'` - `Authorization` header with basic authentication credentials will be sent with the each API request. `'unauthorized` - the credentials are only sent when 401 (Unauthorized) response with `WWW-Authenticate` header is received. Defaults to `'unauthorized'`.
+      此選項only applies to the requests sent from corresponding [APIRequestContext] and does not affect requests sent from the 瀏覽器. `'always'` - `Authorization` header with basic 驗證 憑證 will be sent with the each API request. `'unauthorized` - the 憑證 are only sent when 401 (Unauthorized) response with `WWW-Authenticate` header is received. 預設為`'unauthorized'`.
     
-    Credentials for [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). If no origin is specified, the username and password are sent to any servers upon unauthorized responses.
-  - `ignoreDefaultArgs` [boolean] | [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-ignore-default-args"/><a href="#browser-type-launch-persistent-context-option-ignore-default-args" class="list-anchor">#</a>
+    憑證 for [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). If no origin is specified, the username and password are sent to any servers upon unauthorized responses.
+  - `ignoreDefaultArgs` [boolean] | [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-ignore-預設-args"/><a href="#browser-type-launch-persistent-context-option-ignore-預設-args" class="list-anchor">#</a>
     
-    If `true`, Playwright does not pass its own configurations args and only uses the ones from [args](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-args). If an array is given, then filters out the given default arguments. Dangerous option; use with care. Defaults to `false`.
-  - `ignoreHTTPSErrors` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-ignore-https-errors"/><a href="#browser-type-launch-persistent-context-option-ignore-https-errors" class="list-anchor">#</a>
+    If `true`, Playwright does not pass its own configurations args and only uses the ones from [args](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-args). If an array is given, then filters out the given 預設 arguments. Dangerous 選項; use with care. 預設為`false`.
+  - `ignoreHTTPSErrors` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-ignore-https-errors"/><a href="#browser-type-launch-persistent-context-option-ignore-https-errors" class="list-anchor">#</a>
     
-    Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
-  - `isMobile` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-is-mobile"/><a href="#browser-type-launch-persistent-context-option-is-mobile" class="list-anchor">#</a>
+    是否ignore HTTPS errors when sending 網路 requests. 預設為`false`.
+  - `isMobile` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-is-行動裝置"/><a href="#browser-type-launch-persistent-context-option-is-行動裝置" class="list-anchor">#</a>
     
-    Whether the `meta viewport` tag is taken into account and touch events are enabled. isMobile is a part of device, so you don't actually need to set it manually. Defaults to `false` and is not supported in Firefox. Learn more about [mobile emulation](../emulation.mdx#ismobile).
-  - `javaScriptEnabled` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-java-script-enabled"/><a href="#browser-type-launch-persistent-context-option-java-script-enabled" class="list-anchor">#</a>
+    Whether the `meta viewport` tag is taken into account and touch events are enabled. isMobile is a part of 裝置, so you don't actually need to set it manually. 預設為`false` and is not supported in Firefox. 深入了解about [mobile emulation](../emulation.mdx#ismobile).
+  - `javaScriptEnabled` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-java-script-enabled"/><a href="#browser-type-launch-persistent-context-option-java-script-enabled" class="list-anchor">#</a>
     
-    Whether or not to enable JavaScript in the context. Defaults to `true`. Learn more about [disabling JavaScript](../emulation.mdx#javascript-enabled).
-  - `locale` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-locale"/><a href="#browser-type-launch-persistent-context-option-locale" class="list-anchor">#</a>
+    Whether or not to enable JavaScript in the 情境. 預設為`true`. 深入了解about [disabling JavaScript](../emulation.mdx#javascript-enabled).
+  - `locale` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-地區設定"/><a href="#browser-type-launch-persistent-context-option-地區設定" class="list-anchor">#</a>
     
-    Specify user locale, for example `en-GB`, `de-DE`, etc. Locale will affect `navigator.language` value, `Accept-Language` request header value as well as number and date formatting rules. Defaults to the system default locale. Learn more about emulation in our [emulation guide](../emulation.mdx#locale--timezone).
-  - `logger` [Logger] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-logger"/><a href="#browser-type-launch-persistent-context-option-logger" class="list-anchor">#</a>
+    Specify user 地區設定, 例如 `en-GB`, `de-DE`, etc. 地區設定 will affect `navigator.language` value, `Accept-Language` request header value as well as number and date formatting rules. 預設為the system 預設 地區設定. 深入了解about 模擬 in our [emulation guide](../emulation.mdx#locale--timezone).
+  - `logger` [Logger] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-logger"/><a href="#browser-type-launch-persistent-context-option-logger" class="list-anchor">#</a>
     
     :::warning[Deprecated]
     The logs received by the logger are incomplete. Please use tracing instead.
@@ -478,64 +478,64 @@ await browserType.launchPersistentContext(userDataDir, options);
     
     
     Logger sink for Playwright logging.
-  - `offline` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-offline"/><a href="#browser-type-launch-persistent-context-option-offline" class="list-anchor">#</a>
+  - `offline` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-offline"/><a href="#browser-type-launch-persistent-context-option-offline" class="list-anchor">#</a>
     
-    Whether to emulate network being offline. Defaults to `false`. Learn more about [network emulation](../emulation.mdx#offline).
-  - `permissions` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-permissions"/><a href="#browser-type-launch-persistent-context-option-permissions" class="list-anchor">#</a>
+    是否emulate 網路 being offline. 預設為`false`. 深入了解about [network emulation](../emulation.mdx#offline).
+  - `permissions` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-permissions"/><a href="#browser-type-launch-persistent-context-option-permissions" class="list-anchor">#</a>
     
-    A list of permissions to grant to all pages in this context. See [browserContext.grantPermissions()](/api/class-browsercontext.mdx#browser-context-grant-permissions) for more details. Defaults to none.
-  - `proxy` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-proxy"/><a href="#browser-type-launch-persistent-context-option-proxy" class="list-anchor">#</a>
+    A list of permissions to grant to all pages in this 情境. See [browserContext.grantPermissions()](/api/class-browsercontext.mdx#browser-context-grant-permissions) for more details. 預設為none.
+  - `proxy` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-proxy"/><a href="#browser-type-launch-persistent-context-option-proxy" class="list-anchor">#</a>
     - `server` [string]
       
-      Proxy to be used for all requests. HTTP and SOCKS proxies are supported, for example `http://myproxy.com:3128` or `socks5://myproxy.com:3128`. Short form `myproxy.com:3128` is considered an HTTP proxy.
+      代理 to be used for all requests. HTTP and SOCKS proxies are supported, 例如 `http://myproxy.com:3128` or `socks5://myproxy.com:3128`. Short form `myproxy.com:3128` is considered an HTTP 代理.
     - `bypass` [string] *(optional)*
       
-      Optional comma-separated domains to bypass proxy, for example `".com, chromium.org, .domain.com"`.
+      可選的comma-separated domains to bypass 代理, 例如 `".com, chromium.org, .domain.com"`.
     - `username` [string] *(optional)*
       
-      Optional username to use if HTTP proxy requires authentication.
+      可選的username to use if HTTP 代理 requires 驗證.
     - `password` [string] *(optional)*
       
-      Optional password to use if HTTP proxy requires authentication.
+      可選的password to use if HTTP 代理 requires 驗證.
     
-    Network proxy settings.
-  - `recordHar` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-record-har"/><a href="#browser-type-launch-persistent-context-option-record-har" class="list-anchor">#</a>
+    網路 代理 設定.
+  - `recordHar` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-record-har"/><a href="#browser-type-launch-persistent-context-option-record-har" class="list-anchor">#</a>
     - `omitContent` [boolean] *(optional)*
       
-      Optional setting to control whether to omit request content from the HAR. Defaults to `false`. Deprecated, use `content` policy instead.
+      可選的setting to control 是否omit request content from the HAR. 預設為`false`. Deprecated, use `content` policy instead.
     - `content` "omit" | "embed" | "attach" *(optional)*
       
-      Optional setting to control resource content management. If `omit` is specified, content is not persisted. If `attach` is specified, resources are persisted as separate files or entries in the ZIP archive. If `embed` is specified, content is stored inline the HAR file as per HAR specification. Defaults to `attach` for `.zip` output files and to `embed` for all other file extensions.
+      可選的setting to control resource content management. If `omit` is specified, content is not persisted. If `attach` is specified, resources are persisted as separate files or entries in the ZIP archive. If `embed` is specified, content is stored inline the HAR 檔案 as per HAR specification. 預設為`attach` for `.zip` output files and to `embed` for all other 檔案 extensions.
     - `path` [string]
       
-      Path on the filesystem to write the HAR file to. If the file name ends with `.zip`, `content: 'attach'` is used by default.
+      路徑 on the filesystem to write the HAR 檔案 to. If the 檔案 name ends with `.zip`, `content: 'attach'` is used 預設情況下.
     - `mode` "full" | "minimal" *(optional)*
       
-      When set to `minimal`, only record information necessary for routing from HAR. This omits sizes, timing, page, cookies, security and other types of HAR information that are not used when replaying from HAR. Defaults to `full`.
+      When 設定為`minimal`, only record information necessary for routing from HAR. This omits sizes, timing, page, cookies, security and other types of HAR information that are not used when replaying from HAR. 預設為`full`.
     - `urlFilter` [string] | [RegExp] *(optional)*
       
-      A glob or regex pattern to filter requests that are stored in the HAR. When a [baseURL](/api/class-browser.mdx#browser-new-context-option-base-url) via the context options was provided and the passed URL is a path, it gets merged via the [`new URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor. Defaults to none.
+      A glob or regex pattern to filter requests that are stored in the HAR. When a [baseURL](/api/class-browser.mdx#browser-new-context-option-base-url) via the 情境 options was provided and the passed URL is a 路徑, it gets merged via the [__CODE_BLOCK_0__](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor. 預設為none.
     
-    Enables [HAR](http://www.softwareishard.com/blog/har-12-spec) recording for all pages into `recordHar.path` file. If not specified, the HAR is not recorded. Make sure to await [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) for the HAR to be saved.
-  - `recordVideo` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-record-video"/><a href="#browser-type-launch-persistent-context-option-record-video" class="list-anchor">#</a>
+    Enables [HAR](http://www.softwareishard.com/blog/har-12-spec) 錄製 for all pages into `recordHar.path` 檔案. If not specified, the HAR is not recorded. 請確保to await [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) for the HAR to be saved.
+  - `recordVideo` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-record-影片"/><a href="#browser-type-launch-persistent-context-option-record-影片" class="list-anchor">#</a>
     - `dir` [string]
       
-      Path to the directory to put videos into.
+      到...的路徑the 目錄 to put videos into.
     - `size` [Object] *(optional)*
       - `width` [number]
         
-        Video frame width.
+        影片 frame width.
       - `height` [number]
         
-        Video frame height.
+        影片 frame height.
       
-      Optional dimensions of the recorded videos. If not specified the size will be equal to `viewport` scaled down to fit into 800x800. If `viewport` is not configured explicitly the video size defaults to 800x450. Actual picture of each page will be scaled down if necessary to fit the specified size.
+      可選的dimensions of the recorded videos. If not specified the size will be equal to `viewport` scaled down to fit into 800x800. If `viewport` is not configured explicitly the 影片 size 預設為800x450. Actual picture of each page will be scaled down if necessary to fit the specified size.
     
-    Enables video recording for all pages into `recordVideo.dir` directory. If not specified videos are not recorded. Make sure to await [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) for videos to be saved.
-  - `reducedMotion` [null] | "reduce" | "no-preference" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-reduced-motion"/><a href="#browser-type-launch-persistent-context-option-reduced-motion" class="list-anchor">#</a>
+    Enables 影片 錄製 for all pages into `recordVideo.dir` 目錄. If not specified videos are not recorded. 請確保to await [browserContext.close()](/api/class-browsercontext.mdx#browser-context-close) for videos to be saved.
+  - `reducedMotion` [null] | "reduce" | "no-preference" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-reduced-motion"/><a href="#browser-type-launch-persistent-context-option-reduced-motion" class="list-anchor">#</a>
     
-    Emulates `'prefers-reduced-motion'` media feature, supported values are `'reduce'`, `'no-preference'`. See [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) for more details. Passing `null` resets emulation to system defaults. Defaults to `'no-preference'`.
-  - `screen` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-screen"/><a href="#browser-type-launch-persistent-context-option-screen" class="list-anchor">#</a>
+    Emulates `'prefers-reduced-motion'` media feature, supported values are `'reduce'`, `'no-preference'`. See [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) for more details. Passing `null` resets 模擬 to system defaults. 預設為`'no-preference'`.
+  - `screen` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-螢幕"/><a href="#browser-type-launch-persistent-context-option-螢幕" class="list-anchor">#</a>
     - `width` [number]
       
       page width in pixels.
@@ -543,31 +543,31 @@ await browserType.launchPersistentContext(userDataDir, options);
       
       page height in pixels.
     
-    Emulates consistent window screen size available inside web page via `window.screen`. Is only used when the [viewport](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-viewport) is set.
-  - `serviceWorkers` "allow" | "block" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-service-workers"/><a href="#browser-type-launch-persistent-context-option-service-workers" class="list-anchor">#</a>
+    模擬網頁內可用的一致視窗螢幕大小 via `window.screen`. Is only used when the [viewport](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-viewport) is set.
+  - `serviceWorkers` "allow" | "block" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-service-workers"/><a href="#browser-type-launch-persistent-context-option-service-workers" class="list-anchor">#</a>
     
-    Whether to allow sites to register Service workers. Defaults to `'allow'`.
+    是否允許網站註冊 Service Worker. 預設為`'allow'`.
     * `'allow'`: [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) can be registered.
     * `'block'`: Playwright will block all registration of Service Workers.
-  - `slowMo` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-slow-mo"/><a href="#browser-type-launch-persistent-context-option-slow-mo" class="list-anchor">#</a>
+  - `slowMo` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-slow-mo"/><a href="#browser-type-launch-persistent-context-option-slow-mo" class="list-anchor">#</a>
     
     Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on.
-  - `strictSelectors` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-strict-selectors"/><a href="#browser-type-launch-persistent-context-option-strict-selectors" class="list-anchor">#</a>
+  - `strictSelectors` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-strict-selectors"/><a href="#browser-type-launch-persistent-context-option-strict-selectors" class="list-anchor">#</a>
     
-    If set to true, enables strict selectors mode for this context. In the strict selectors mode all operations on selectors that imply single target DOM element will throw when more than one element matches the selector. This option does not affect any Locator APIs (Locators are always strict). Defaults to `false`. See [Locator] to learn more about the strict mode.
-  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-timeout"/><a href="#browser-type-launch-persistent-context-option-timeout" class="list-anchor">#</a>
+    若設定為 `true`，會為此情境啟用嚴格選擇器模式. In the strict selectors mode all operations on selectors that imply single target DOM element will throw when more than one element matches the selector. 此選項does not affect any Locator APIs (Locators are always strict). 預設為`false`. See [Locator] to 深入了解about the strict mode.
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-timeout"/><a href="#browser-type-launch-persistent-context-option-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds to wait for the browser instance to start. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
-  - `timezoneId` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-timezone-id"/><a href="#browser-type-launch-persistent-context-option-timezone-id" class="list-anchor">#</a>
+    等待瀏覽器實例啟動的最長時間（以毫秒為單位）. 預設為`30000` (30 seconds). Pass `0` to disable 逾時.
+  - `timezoneId` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-timezone-id"/><a href="#browser-type-launch-persistent-context-option-timezone-id" class="list-anchor">#</a>
     
-    Changes the timezone of the context. See [ICU's metaZones.txt](https://cs.chromium.org/chromium/src/third_party/icu/source/data/misc/metaZones.txt?rcl=faee8bc70570192d82d2978a71e2a615788597d1) for a list of supported timezone IDs. Defaults to the system timezone.
-  - `tracesDir` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-traces-dir"/><a href="#browser-type-launch-persistent-context-option-traces-dir" class="list-anchor">#</a>
+    變更情境的時區. See [ICU's metaZones.txt](https://cs.chromium.org/chromium/src/third_party/icu/source/data/misc/metaZones.txt?rcl=faee8bc70570192d82d2978a71e2a615788597d1) for a list of supported 時區 IDs. 預設為the system 時區.
+  - `tracesDir` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-traces-dir"/><a href="#browser-type-launch-persistent-context-option-traces-dir" class="list-anchor">#</a>
     
-    If specified, traces are saved into this directory.
-  - `userAgent` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-user-agent"/><a href="#browser-type-launch-persistent-context-option-user-agent" class="list-anchor">#</a>
+    若指定，追蹤檔案將儲存到此目錄.
+  - `userAgent` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-user-agent"/><a href="#browser-type-launch-persistent-context-option-user-agent" class="list-anchor">#</a>
     
-    Specific user agent to use in this context.
-  - `videoSize` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-video-size"/><a href="#browser-type-launch-persistent-context-option-video-size" class="list-anchor">#</a>
+    此情境要使用的特定 user agent.
+  - `videoSize` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-影片-size"/><a href="#browser-type-launch-persistent-context-option-影片-size" class="list-anchor">#</a>
     
     :::warning[Deprecated]
     Use [recordVideo](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-record-video) instead.
@@ -575,17 +575,17 @@ await browserType.launchPersistentContext(userDataDir, options);
     
     - `width` [number]
       
-      Video frame width.
+      影片 frame width.
     - `height` [number]
       
-      Video frame height.
-  - `videosPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-videos-path"/><a href="#browser-type-launch-persistent-context-option-videos-path" class="list-anchor">#</a>
+      影片 frame height.
+  - `videosPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-videos-路徑"/><a href="#browser-type-launch-persistent-context-option-videos-路徑" class="list-anchor">#</a>
     
     :::warning[Deprecated]
     Use [recordVideo](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-record-video) instead.
     :::
     
-  - `viewport` [null] | [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-viewport"/><a href="#browser-type-launch-persistent-context-option-viewport" class="list-anchor">#</a>
+  - `viewport` [null] | [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-選項-檢視區"/><a href="#browser-type-launch-persistent-context-option-檢視區" class="list-anchor">#</a>
     - `width` [number]
       
       page width in pixels.
@@ -593,19 +593,19 @@ await browserType.launchPersistentContext(userDataDir, options);
       
       page height in pixels.
     
-    Emulates consistent viewport for each page. Defaults to an 1280x720 viewport. Use `null` to disable the consistent viewport emulation. Learn more about [viewport emulation](../emulation#viewport).
+    為每個頁面模擬一致的檢視區. 預設為 1280x720 檢視區. Use `null` to disable the consistent 檢視區 模擬. 深入了解about [viewport emulation](../emulation#viewport).
     
     :::note
     
-    The `null` value opts out from the default presets, makes viewport depend on the host window size defined by the operating system. It makes the execution of the tests non-deterministic.
+    The `null` value opts out from the 預設 presets, 使檢視區取決於主機視窗大小 defined by the operating system. It makes the execution of the tests non-deterministic.
     :::
     
 **Returns**
-- [Promise]&lt;[BrowserContext]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-return"/><a href="#browser-type-launch-persistent-context-return" class="list-anchor">#</a>
+- [Promise]&lt;[BrowserContext]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-持久-情境-return"/><a href="#瀏覽器-type-啟動-持久-情境-return" class="list-anchor">#</a>
 
 ---
 
-### launchServer {#browser-type-launch-server}
+### launchServer {#瀏覽器-type-啟動-伺服器}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.launchServer</x-search>
 
@@ -621,74 +621,74 @@ const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
 (async () => {
   const browserServer = await chromium.launchServer();
   const wsEndpoint = browserServer.wsEndpoint();
-  // Use web socket endpoint later to establish a connection.
+  // Use web socket 端點 later to establish a 連接.
   const browser = await chromium.connect(wsEndpoint);
-  // Close browser instance.
+  // Close 瀏覽器 實例.
   await browserServer.close();
 })();
 ```
 
 **Arguments**
 - `options` [Object] *(optional)*
-  - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-args"/><a href="#browser-type-launch-server-option-args" class="list-anchor">#</a>
+  - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-args"/><a href="#瀏覽器-type-啟動-伺服器-選項-args" class="list-anchor">#</a>
     
     :::warning
     
-    Use custom browser args at your own risk, as some of them may break Playwright functionality.
+    Use custom 瀏覽器 args at your own risk, as some of them may break Playwright functionality.
     :::
     
-    Additional arguments to pass to the browser instance. The list of Chromium flags can be found [here](https://peter.sh/experiments/chromium-command-line-switches/).
-  - `channel` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-channel"/><a href="#browser-type-launch-server-option-channel" class="list-anchor">#</a>
+    Additional arguments to pass to 瀏覽器instance. The list of Chromium flags can be found [here](https://peter.sh/experiments/chromium-command-line-switches/).
+  - `channel` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-通道"/><a href="#瀏覽器-type-啟動-伺服器-選項-通道" class="list-anchor">#</a>
     
-    Browser distribution channel.
+    瀏覽器 distribution 通道.
     
     Use "chromium" to [opt in to new headless mode](../browsers.mdx#chromium-new-headless-mode).
     
     Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
-  - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-chromium-sandbox"/><a href="#browser-type-launch-server-option-chromium-sandbox" class="list-anchor">#</a>
+  - `chromiumSandbox` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-chromium-sandbox"/><a href="#瀏覽器-type-啟動-伺服器-選項-chromium-sandbox" class="list-anchor">#</a>
     
-    Enable Chromium sandboxing. Defaults to `false`.
-  - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-devtools"/><a href="#browser-type-launch-server-option-devtools" class="list-anchor">#</a>
+    Enable Chromium sandboxing. 預設為`false`.
+  - `devtools` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-devtools"/><a href="#瀏覽器-type-啟動-伺服器-選項-devtools" class="list-anchor">#</a>
     
     :::warning[Deprecated]
     Use [debugging tools](../debug.mdx) instead.
     :::
     
     
-    **Chromium-only** Whether to auto-open a Developer Tools panel for each tab. If this option is `true`, the [headless](/api/class-browsertype.mdx#browser-type-launch-server-option-headless) option will be set `false`.
-  - `downloadsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-downloads-path"/><a href="#browser-type-launch-server-option-downloads-path" class="list-anchor">#</a>
+    **Chromium-only** 是否auto-open a Developer Tools panel for each tab. If 此選項is `true`, the [headless](/api/class-browsertype.mdx#browser-type-launch-server-option-headless) 選項 will be set `false`.
+  - `downloadsPath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-downloads-路徑"/><a href="#瀏覽器-type-啟動-伺服器-選項-downloads-路徑" class="list-anchor">#</a>
     
-    If specified, accepted downloads are downloaded into this directory. Otherwise, temporary directory is created and is deleted when browser is closed. In either case, the downloads are deleted when the browser context they were created in is closed.
-  - `env` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-env"/><a href="#browser-type-launch-server-option-env" class="list-anchor">#</a>
+    If specified, accepted downloads are downloaded into this 目錄. Otherwise, temporary 目錄 is created and is deleted when 瀏覽器 is closed. In either case, the downloads are deleted when 瀏覽器context they were created in is closed.
+  - `env` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-env"/><a href="#瀏覽器-type-啟動-伺服器-選項-env" class="list-anchor">#</a>
     
-    Specify environment variables that will be visible to the browser. Defaults to `process.env`.
-  - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-executable-path"/><a href="#browser-type-launch-server-option-executable-path" class="list-anchor">#</a>
+    Specify 環境 variables that will be visible to the 瀏覽器. 預設為`process.env`.
+  - `executablePath` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-executable-path"/><a href="#瀏覽器-type-啟動-伺服器-選項-executable-path" class="list-anchor">#</a>
     
-    Path to a browser executable to run instead of the bundled one. If [executablePath](/api/class-browsertype.mdx#browser-type-launch-server-option-executable-path) is a relative path, then it is resolved relative to the current working directory. Note that Playwright only works with the bundled Chromium, Firefox or WebKit, use at your own risk.
-  - `firefoxUserPrefs` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-firefox-user-prefs"/><a href="#browser-type-launch-server-option-firefox-user-prefs" class="list-anchor">#</a>
+    到...的路徑a 瀏覽器 可執行檔 to run instead of the bundled one. If [executablePath](/api/class-browsertype.mdx#browser-type-launch-server-option-executable-path) is a relative 路徑, then it is resolved relative to the current working 目錄. 請注意Playwright only works with the bundled Chromium, Firefox or WebKit, use at your own risk.
+  - `firefoxUserPrefs` [Object]&lt;[string], [string] | [number] | [boolean]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-firefox-user-prefs"/><a href="#瀏覽器-type-啟動-伺服器-選項-firefox-user-prefs" class="list-anchor">#</a>
     
-    Firefox user preferences. Learn more about the Firefox user preferences at [`about:config`](https://support.mozilla.org/en-US/kb/about-config-editor-firefox).
+    Firefox user 偏好設定. 深入了解about the Firefox user 偏好設定 at [__CODE_BLOCK_0__](https://support.mozilla.org/en-US/kb/about-config-editor-firefox).
     
-    You can also provide a path to a custom [`policies.json` file](https://mozilla.github.io/policy-templates/) via `PLAYWRIGHT_FIREFOX_POLICIES_JSON` environment variable.
-  - `handleSIGHUP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-handle-sighup"/><a href="#browser-type-launch-server-option-handle-sighup" class="list-anchor">#</a>
+    You can also provide a 到...的路徑a custom [__CODE_BLOCK_0__ file](https://mozilla.github.io/policy-templates/) via `PLAYWRIGHT_FIREFOX_POLICIES_JSON` 環境 變數.
+  - `handleSIGHUP` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-handle-sighup"/><a href="#瀏覽器-type-啟動-伺服器-選項-handle-sighup" class="list-anchor">#</a>
     
-    Close the browser process on SIGHUP. Defaults to `true`.
-  - `handleSIGINT` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-handle-sigint"/><a href="#browser-type-launch-server-option-handle-sigint" class="list-anchor">#</a>
+    Close 瀏覽器process on SIGHUP. 預設為`true`.
+  - `handleSIGINT` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-handle-sigint"/><a href="#瀏覽器-type-啟動-伺服器-選項-handle-sigint" class="list-anchor">#</a>
     
-    Close the browser process on Ctrl-C. Defaults to `true`.
-  - `handleSIGTERM` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-handle-sigterm"/><a href="#browser-type-launch-server-option-handle-sigterm" class="list-anchor">#</a>
+    Close 瀏覽器process on Ctrl-C. 預設為`true`.
+  - `handleSIGTERM` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-handle-sigterm"/><a href="#瀏覽器-type-啟動-伺服器-選項-handle-sigterm" class="list-anchor">#</a>
     
-    Close the browser process on SIGTERM. Defaults to `true`.
-  - `headless` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-headless"/><a href="#browser-type-launch-server-option-headless" class="list-anchor">#</a>
+    Close 瀏覽器process on SIGTERM. 預設為`true`.
+  - `headless` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-headless"/><a href="#瀏覽器-type-啟動-伺服器-選項-headless" class="list-anchor">#</a>
     
-    Whether to run browser in headless mode. More details for [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/). Defaults to `true` unless the [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) option is `true`.
-  - `host` [string] *(optional)* <font size="2">Added in: v1.45</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-host"/><a href="#browser-type-launch-server-option-host" class="list-anchor">#</a>
+    是否run 瀏覽器 in 無頭 mode. 更多詳細資訊for [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/). 預設為`true` unless the [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) 選項 is `true`.
+  - `host` [string] *(optional)* <font size="2">Added in: v1.45</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-host"/><a href="#瀏覽器-type-啟動-伺服器-選項-host" class="list-anchor">#</a>
     
-    Host to use for the web socket. It is optional and if it is omitted, the server will accept connections on the unspecified IPv6 address (::) when IPv6 is available, or the unspecified IPv4 address (0.0.0.0) otherwise. Consider hardening it with picking a specific interface.
-  - `ignoreDefaultArgs` [boolean] | [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-ignore-default-args"/><a href="#browser-type-launch-server-option-ignore-default-args" class="list-anchor">#</a>
+    Host to use for the web socket. It is 可選的and if it is omitted, the 伺服器 will accept connections on the unspecified IPv6 address (::) when IPv6 is available, or the unspecified IPv4 address (0.0.0.0) otherwise. Consider hardening it with picking a specific interface.
+  - `ignoreDefaultArgs` [boolean] | [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-ignore-預設-args"/><a href="#瀏覽器-type-啟動-伺服器-選項-ignore-預設-args" class="list-anchor">#</a>
     
-    If `true`, Playwright does not pass its own configurations args and only uses the ones from [args](/api/class-browsertype.mdx#browser-type-launch-server-option-args). If an array is given, then filters out the given default arguments. Dangerous option; use with care. Defaults to `false`.
-  - `logger` [Logger] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-logger"/><a href="#browser-type-launch-server-option-logger" class="list-anchor">#</a>
+    If `true`, Playwright does not pass its own configurations args and only uses the ones from [args](/api/class-browsertype.mdx#browser-type-launch-server-option-args). If an array is given, then filters out the given 預設 arguments. Dangerous 選項; use with care. 預設為`false`.
+  - `logger` [Logger] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-logger"/><a href="#瀏覽器-type-啟動-伺服器-選項-logger" class="list-anchor">#</a>
     
     :::warning[Deprecated]
     The logs received by the logger are incomplete. Please use tracing instead.
@@ -696,45 +696,45 @@ const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
     
     
     Logger sink for Playwright logging.
-  - `port` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-port"/><a href="#browser-type-launch-server-option-port" class="list-anchor">#</a>
+  - `port` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-port"/><a href="#瀏覽器-type-啟動-伺服器-選項-port" class="list-anchor">#</a>
     
-    Port to use for the web socket. Defaults to 0 that picks any available port.
-  - `proxy` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-proxy"/><a href="#browser-type-launch-server-option-proxy" class="list-anchor">#</a>
+    Port to use for the web socket. 預設為0 that picks any available port.
+  - `proxy` [Object] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-proxy"/><a href="#瀏覽器-type-啟動-伺服器-選項-proxy" class="list-anchor">#</a>
     - `server` [string]
       
-      Proxy to be used for all requests. HTTP and SOCKS proxies are supported, for example `http://myproxy.com:3128` or `socks5://myproxy.com:3128`. Short form `myproxy.com:3128` is considered an HTTP proxy.
+      代理 to be used for all requests. HTTP and SOCKS proxies are supported, 例如 `http://myproxy.com:3128` or `socks5://myproxy.com:3128`. Short form `myproxy.com:3128` is considered an HTTP 代理.
     - `bypass` [string] *(optional)*
       
-      Optional comma-separated domains to bypass proxy, for example `".com, chromium.org, .domain.com"`.
+      可選的comma-separated domains to bypass 代理, 例如 `".com, chromium.org, .domain.com"`.
     - `username` [string] *(optional)*
       
-      Optional username to use if HTTP proxy requires authentication.
+      可選的username to use if HTTP 代理 requires 驗證.
     - `password` [string] *(optional)*
       
-      Optional password to use if HTTP proxy requires authentication.
+      可選的password to use if HTTP 代理 requires 驗證.
     
-    Network proxy settings.
-  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-timeout"/><a href="#browser-type-launch-server-option-timeout" class="list-anchor">#</a>
+    網路 代理 設定.
+  - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-timeout"/><a href="#瀏覽器-type-啟動-伺服器-選項-timeout" class="list-anchor">#</a>
     
-    Maximum time in milliseconds to wait for the browser instance to start. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
-  - `tracesDir` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-traces-dir"/><a href="#browser-type-launch-server-option-traces-dir" class="list-anchor">#</a>
+    等待瀏覽器實例啟動的最長時間（以毫秒為單位）. 預設為`30000` (30 seconds). Pass `0` to disable 逾時.
+  - `tracesDir` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-traces-dir"/><a href="#瀏覽器-type-啟動-伺服器-選項-traces-dir" class="list-anchor">#</a>
     
-    If specified, traces are saved into this directory.
-  - `wsPath` [string] *(optional)* <font size="2">Added in: v1.15</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-ws-path"/><a href="#browser-type-launch-server-option-ws-path" class="list-anchor">#</a>
+    若指定，追蹤檔案將儲存到此目錄.
+  - `wsPath` [string] *(optional)* <font size="2">Added in: v1.15</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-選項-ws-路徑"/><a href="#瀏覽器-type-啟動-伺服器-選項-ws-路徑" class="list-anchor">#</a>
     
-    Path at which to serve the Browser Server. For security, this defaults to an unguessable string.
+    路徑 at which to serve the 瀏覽器 伺服器. For security, this 預設為an unguessable string.
     
     :::warning
     
-    Any process or web page (including those running in Playwright) with knowledge of the `wsPath` can take control of the OS user. For this reason, you should use an unguessable token when using this option.
+    Any process or web page (including those running in Playwright) with knowledge of the `wsPath` can take control of the OS user. For this reason, you should use an unguessable token when using this 選項.
     :::
     
 **Returns**
-- [Promise]&lt;[BrowserServer]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-return"/><a href="#browser-type-launch-server-return" class="list-anchor">#</a>
+- [Promise]&lt;[BrowserServer]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-啟動-伺服器-return"/><a href="#瀏覽器-type-啟動-伺服器-return" class="list-anchor">#</a>
 
 ---
 
-### name {#browser-type-name}
+### name {#瀏覽器-type-name}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserType.name</x-search>
 
@@ -747,7 +747,7 @@ browserType.name();
 ```
 
 **回傳值**
-- [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-name-return"/><a href="#browser-type-name-return" class="list-anchor">#</a>
+- [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-name-return"/><a href="#瀏覽器-type-name-return" class="list-anchor">#</a>
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"
@@ -760,7 +760,7 @@ browserType.name();
 [APIRequestContext]: /api/class-apirequestcontext.mdx "APIRequestContext"
 [APIResponse]: /api/class-apiresponse.mdx "APIResponse"
 [APIResponseAssertions]: /api/class-apiresponseassertions.mdx "APIResponseAssertions"
-[Browser]: /api/class-browser.mdx "Browser"
+[Browser]: /api/class-瀏覽器.mdx "瀏覽器"
 [BrowserContext]: /api/class-browsercontext.mdx "BrowserContext"
 [BrowserServer]: /api/class-browserserver.mdx "BrowserServer"
 [BrowserType]: /api/class-browsertype.mdx "BrowserType"
@@ -797,7 +797,7 @@ browserType.name();
 [Tracing]: /api/class-tracing.mdx "Tracing"
 [Video]: /api/class-video.mdx "Video"
 [WebError]: /api/class-weberror.mdx "WebError"
-[WebSocket]: /api/class-websocket.mdx "WebSocket"
+[WebSocket]: /api/class-WebSocket.mdx "WebSocket"
 [WebSocketRoute]: /api/class-websocketroute.mdx "WebSocketRoute"
 [Worker]: /api/class-worker.mdx "Worker"
 [Fixtures]: /api/class-fixtures.mdx "Fixtures"
@@ -834,7 +834,7 @@ browserType.name();
 [Buffer]: https://nodejs.org/api/buffer.html#buffer_class_buffer "Buffer"
 [ChildProcess]: https://nodejs.org/api/child_process.html "ChildProcess"
 [Date]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date "Date"
-[Error]: https://nodejs.org/api/errors.html#errors_class_error "Error"
+[錯誤]: https://nodejs.org/api/errors.html#errors_class_error "錯誤"
 [EventEmitter]: https://nodejs.org/api/events.html#events_class_eventemitter "EventEmitter"
 [function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function "Function"
 [FormData]: https://developer.mozilla.org/en-US/docs/Web/API/FormData "FormData"
