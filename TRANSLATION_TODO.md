@@ -26,14 +26,14 @@
 - [x] nodejs/docs/api/class-androidinput.mdx
 - [x] nodejs/docs/api/class-androidsocket.mdx
 - [x] nodejs/docs/api/class-androidwebview.mdx
-- [ ] nodejs/docs/api/class-apirequest.mdx
-- [ ] nodejs/docs/api/class-apirequestcontext.mdx
-- [ ] nodejs/docs/api/class-apiresponse.mdx
-- [ ] nodejs/docs/api/class-apiresponseassertions.mdx
-- [ ] nodejs/docs/api/class-browser.mdx
-- [ ] nodejs/docs/api/class-browsercontext.mdx
-- [ ] nodejs/docs/api/class-browserserver.mdx
-- [ ] nodejs/docs/api/class-browsertype.mdx
+- [x] nodejs/docs/api/class-apirequest.mdx
+- [x] nodejs/docs/api/class-apirequestcontext.mdx
+- [x] nodejs/docs/api/class-apiresponse.mdx
+- [x] nodejs/docs/api/class-apiresponseassertions.mdx
+- [x] nodejs/docs/api/class-browser.mdx
+- [x] nodejs/docs/api/class-browsercontext.mdx
+- [x] nodejs/docs/api/class-browserserver.mdx
+- [x] nodejs/docs/api/class-browsertype.mdx
 - [ ] nodejs/docs/api/class-cdpsession.mdx
 - [ ] nodejs/docs/api/class-clock.mdx
 - [ ] nodejs/docs/api/class-consolemessage.mdx
@@ -168,14 +168,14 @@
 - [x] nodejs/versioned_docs/version-stable/api/class-androidinput.mdx
 - [x] nodejs/versioned_docs/version-stable/api/class-androidsocket.mdx
 - [x] nodejs/versioned_docs/version-stable/api/class-androidwebview.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-apirequest.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-apirequestcontext.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-apiresponse.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-browser.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-browsercontext.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-browserserver.mdx
-- [ ] nodejs/versioned_docs/version-stable/api/class-browsertype.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-apirequest.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-apirequestcontext.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-apiresponse.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-apiresponseassertions.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-browser.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-browsercontext.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-browserserver.mdx
+- [x] nodejs/versioned_docs/version-stable/api/class-browsertype.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-cdpsession.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-clock.mdx
 - [ ] nodejs/versioned_docs/version-stable/api/class-consolemessage.mdx

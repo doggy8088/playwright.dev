@@ -8,26 +8,26 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-[APIResponse] class represents responses returned by [apiRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) and similar methods.
+[APIResponse] 類別代表由 [apiRequestContext.get()](/api/class-apirequestcontext.mdx#api-request-context-get) 和類似方法回傳的回應。
 
 
 ---
 
-## Methods
+## 方法
 
 ### body {#api-response-body}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.body</x-search>
 
-Returns the buffer with response body.
+回傳包含回應主體的緩衝區。
 
-**Usage**
+**使用方式**
 
 ```js
 await apiResponse.body();
 ```
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[Buffer]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-body-return"/><a href="#api-response-body-return" class="list-anchor">#</a>
 
 ---
@@ -38,13 +38,13 @@ await apiResponse.body();
 
 Disposes the body of this response. If not called then the body will stay in memory until the context closes.
 
-**Usage**
+**使用方式**
 
 ```js
 await apiResponse.dispose();
 ```
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-dispose-return"/><a href="#api-response-dispose-return" class="list-anchor">#</a>
 
 ---
@@ -53,15 +53,15 @@ await apiResponse.dispose();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.headers</x-search>
 
-An object with all the response HTTP headers associated with this response.
+與此回應關聯的所有回應 HTTP 標頭的物件。
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.headers();
 ```
 
-**Returns**
+**回傳值**
 - [Object]&lt;[string], [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-headers-return"/><a href="#api-response-headers-return" class="list-anchor">#</a>
 
 ---
@@ -70,15 +70,15 @@ apiResponse.headers();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.headersArray</x-search>
 
-An array with all the response HTTP headers associated with this response. Header names are not lower-cased. Headers with multiple entries, such as `Set-Cookie`, appear in the array multiple times.
+與此回應關聯的所有回應 HTTP 標頭的陣列。標頭名稱不會轉換為小寫。具有多個項目的標頭（如 `Set-Cookie`）會在陣列中出現多次。
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.headersArray();
 ```
 
-**Returns**
+**回傳值**
 - [Array]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-headers-array-return"/><a href="#api-response-headers-array-return" class="list-anchor">#</a>
   - `name` [string]
     
@@ -93,17 +93,17 @@ apiResponse.headersArray();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.json</x-search>
 
-Returns the JSON representation of response body.
+回傳JSON representation of response body.
 
 This method will throw if the response body is not parsable via `JSON.parse`.
 
-**Usage**
+**使用方式**
 
 ```js
 await apiResponse.json();
 ```
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[Serializable]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-json-return"/><a href="#api-response-json-return" class="list-anchor">#</a>
 
 ---
@@ -112,15 +112,15 @@ await apiResponse.json();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.ok</x-search>
 
-Contains a boolean stating whether the response was successful (status in the range 200-299) or not.
+包含布林值，表示回應是否成功（狀態在 200-299 範圍內）。
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.ok();
 ```
 
-**Returns**
+**回傳值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-ok-return"/><a href="#api-response-ok-return" class="list-anchor">#</a>
 
 ---
@@ -129,15 +129,15 @@ apiResponse.ok();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.status</x-search>
 
-Contains the status code of the response (e.g., 200 for a success).
+包含status code of the response (e.g., 200 for a success).
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.status();
 ```
 
-**Returns**
+**回傳值**
 - [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-status-return"/><a href="#api-response-status-return" class="list-anchor">#</a>
 
 ---
@@ -146,15 +146,15 @@ apiResponse.status();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.statusText</x-search>
 
-Contains the status text of the response (e.g. usually an "OK" for a success).
+包含status text of the response (e.g. usually an "OK" for a success).
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.statusText();
 ```
 
-**Returns**
+**回傳值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-status-text-return"/><a href="#api-response-status-text-return" class="list-anchor">#</a>
 
 ---
@@ -163,15 +163,15 @@ apiResponse.statusText();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.text</x-search>
 
-Returns the text representation of response body.
+回傳text representation of response body.
 
-**Usage**
+**使用方式**
 
 ```js
 await apiResponse.text();
 ```
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-text-return"/><a href="#api-response-text-return" class="list-anchor">#</a>
 
 ---
@@ -180,15 +180,15 @@ await apiResponse.text();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiResponse.url</x-search>
 
-Contains the URL of the response.
+包含URL of the response.
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.url();
 ```
 
-**Returns**
+**回傳值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-url-return"/><a href="#api-response-url-return" class="list-anchor">#</a>
 
 

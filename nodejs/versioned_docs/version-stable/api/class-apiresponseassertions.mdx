@@ -8,7 +8,7 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-The [APIResponseAssertions] class provides assertion methods that can be used to make assertions about the [APIResponse] in the tests.
+[APIResponseAssertions] 類別提供可用於在測試中對 [APIResponse] 進行斷言的斷言方法。
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -23,7 +23,7 @@ test('navigates to login', async ({ page }) => {
 
 ---
 
-## Methods
+## 方法
 
 ### toBeOK {#api-response-assertions-to-be-ok}
 
@@ -31,13 +31,13 @@ test('navigates to login', async ({ page }) => {
 
 Ensures the response status code is within `200..299` range.
 
-**Usage**
+**使用方式**
 
 ```js
 await expect(response).toBeOK();
 ```
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-assertions-to-be-ok-return"/><a href="#api-response-assertions-to-be-ok-return" class="list-anchor">#</a>
 
 ---
@@ -54,7 +54,7 @@ Makes the assertion check for the opposite condition. For example, this code tes
 await expect(response).not.toBeOK();
 ```
 
-**Usage**
+**使用方式**
 
 ```js
 expect(response).not

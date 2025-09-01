@@ -11,21 +11,21 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## Methods
+## 方法
 
 ### close {#browser-server-close}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserServer.close</x-search>
 
-Closes the browser gracefully and makes sure the process is terminated.
+優雅地關閉瀏覽器並確保程序被終止。
 
-**Usage**
+**使用方式**
 
 ```js
 await browserServer.close();
 ```
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-server-close-return"/><a href="#browser-server-close-return" class="list-anchor">#</a>
 
 ---
@@ -36,13 +36,13 @@ await browserServer.close();
 
 Kills the browser process and waits for the process to exit.
 
-**Usage**
+**使用方式**
 
 ```js
 await browserServer.kill();
 ```
 
-**Returns**
+**回傳值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-server-kill-return"/><a href="#browser-server-kill-return" class="list-anchor">#</a>
 
 ---
@@ -53,13 +53,13 @@ await browserServer.kill();
 
 Spawned browser application process.
 
-**Usage**
+**使用方式**
 
 ```js
 browserServer.process();
 ```
 
-**Returns**
+**回傳值**
 - [ChildProcess]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-server-process-return"/><a href="#browser-server-process-return" class="list-anchor">#</a>
 
 ---
@@ -74,13 +74,13 @@ Browser websocket endpoint which can be used as an argument to [browserType.conn
 
 Note that if the listen `host` option in `launchServer` options is not specified, localhost will be output anyway, even if the actual listening address is an unspecified address.
 
-**Usage**
+**使用方式**
 
 ```js
 browserServer.wsEndpoint();
 ```
 
-**Returns**
+**回傳值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-server-ws-endpoint-return"/><a href="#browser-server-ws-endpoint-return" class="list-anchor">#</a>
 
 ---
@@ -93,7 +93,7 @@ browserServer.wsEndpoint();
 
 Emitted when the browser server closes.
 
-**Usage**
+**使用方式**
 
 ```js
 browserServer.on('close', data => {});
