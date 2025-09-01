@@ -892,7 +892,7 @@ assertThat(page.getByText("Welcome, John!")).isVisible();
 
 ### 行為變更
 
-A bunch of Playwright APIs already support the `setWaitUntil(WaitUntilState.DOMCONTENTLOADED)` 選項. For example:
+許多 Playwright API 已經支援 `setWaitUntil(WaitUntilState.DOMCONTENTLOADED)` 選項。例如：
 
 ```java
 page.navigate("https://playwright.dev", new Page.NavigateOptions().setWaitUntil(WaitUntilState.DOMCONTENTLOADED));

@@ -1518,7 +1518,7 @@ await expect(page.getByText('Welcome, John!')).toBeVisible();
 
 ### 行為變更
 
-A bunch of Playwright APIs already support the `waitUntil: 'domcontentloaded'` 選項. For example:
+許多 Playwright API 已經支援 `waitUntil: 'domcontentloaded'` 選項。例如：
 
 ```js
 await page.goto('https://playwright.dev', {
@@ -1588,7 +1588,7 @@ await page.goto('https://playwright.dev', {
 
 ### 🌍 Multiple Web Servers in `playwright.config.ts`
 
-Launch multiple web servers, databases, or other processes by passing an array of configurations:
+透過傳遞配置陣列來啟動多個網頁伺服器、資料庫或其他程序：
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -1647,7 +1647,7 @@ test.describe(() => {
 
 Playwright 1.24 組件測試引入了 `beforeMount` 和 `afterMount` 鉤子。使用這些來為測試配置您的應用程式。
 
-For example, this could be used to setup App router in Vue.js:
+例如，這可以用來在 Vue.js 中設定 App router：
 
 ```js title="src/component.spec.ts"
 import { test } from '@playwright/experimental-ct-vue';
@@ -1706,9 +1706,9 @@ beforeMount(async ({ hooksConfig }) => {
 
 ### 網路重播
 
-Now you can record network traffic into a HAR file and re-use this traffic in your tests.
+現在您可以將網路流量錄製到 HAR 檔案中，並在測試中重複使用此流量。
 
-To record network into HAR file:
+將網路錄製到 HAR 檔案：
 
 ```bash
 npx playwright open --save-har=github.har.zip https://github.com/microsoft
@@ -2119,7 +2119,7 @@ module.exports = {
 };
 ```
 
-The proper way to make a fixture parametrized in the config file is以指定`選項: true` when defining the fixture. For example,
+在配置檔中使佈置參數化的正確方式是在定義佈置時指定 `選項: true`。例如：
 
 ```js
 // CORRECT: THIS SNIPPET WORKS SINCE v1.18.
@@ -2247,7 +2247,7 @@ Read more about it in our [API testing guide](./api-testing).
 
 It is now possible to do response interception by combining [API Testing](./api-testing) with [request interception](./network#modify-requests).
 
-For example, we can blur all the images on the page:
+例如，我們可以模糊頁面上的所有圖片：
 
 ```js
 import { test, expect } from '@playwright/test';
