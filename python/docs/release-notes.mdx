@@ -1473,7 +1473,7 @@ Locator 代表頁面上元素的檢視。它捕獲在任何時刻擷取元素所
 
 [Locator](./api/class-locator) 和 [ElementHandle](./api/class-elementhandle) 之間的差異在於後者指向特定元素，而 [Locator](./api/class-locator) 捕獲如何擷取該元素的邏輯。
 
-Also, locators are **"strict" by default**!
+此外，定位器**預設為「嚴格」模式**！
 
 ```py
 locator = page.locator("button")
@@ -1549,7 +1549,7 @@ button.click("button >> visible=true")
 - page rendering before and after each Playwright action
 - browser network during script execution
 
-Traces are recorded using the new [browser_context.tracing](/api/class-browsercontext.mdx#browser-context-tracing) API:
+使用新的 [browser_context.tracing](/api/class-browsercontext.mdx#browser-context-tracing) API 錄製追蹤：
 
 ```python
 browser = chromium.launch()
@@ -1564,13 +1564,13 @@ page.goto("https://playwright.dev")
 context.tracing.stop(path = "trace.zip")
 ```
 
-Traces are examined later with the Playwright CLI:
+稍後使用 Playwright CLI 檢查追蹤：
 
 ```sh
 playwright show-trace trace.zip
 ```
 
-That will open the following GUI:
+這將開啟以下 GUI：
 
 ![image](https://user-images.githubusercontent.com/746130/121109654-d66c4480-c7c0-11eb-8d4d-eb70d2b03811.png)
 

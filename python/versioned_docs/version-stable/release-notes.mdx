@@ -853,7 +853,7 @@ Linux 支援如下：
 
 ### 新的介紹文件
 
-We rewrote our Getting Started docs to be more end-to-end testing focused. Check them out on [playwright.dev](https://playwright.dev/python/docs/intro).
+我們重新撰寫了入門文件，更專注於端對端測試。請在 [playwright.dev](https://playwright.dev/python/docs/intro) 查看這些文件。
 
 ## 版本 1.23
 
@@ -861,7 +861,7 @@ We rewrote our Getting Started docs to be more end-to-end testing focused. Check
 
 現在您可以將網路流量錄製到 HAR 檔案中，並在測試中重複使用此流量。
 
-To record network into HAR file:
+將網路錄製到 HAR 檔案：
 
 ```bash
 npx playwright open --save-har=github.har.zip https://github.com/microsoft
@@ -929,7 +929,7 @@ await context.route_from_har("github.har.zip")
 
 您現在可以使用 [route.fallback()](/api/class-route.mdx#route-fallback) 將路由移交給其他處理器。
 
-Consider the following example:
+請考慮以下範例：
 
 <Tabs
   groupId="python-flavor"
@@ -1219,7 +1219,7 @@ Playwright for Python 1.18 引入新的 [API 測試](./api/class-apirequestconte
 - prepare server side state before visiting the web application in a test
 - validate server side post-conditions after running some actions in the browser
 
-To do a request on behalf of Playwright's Page, use **new [page.request](/api/class-page.mdx#page-request) API**:
+要代表 Playwright 的 Page 執行請求，請使用**新的 [page.request](/api/class-page.mdx#page-request) API**：
 
 <Tabs
   groupId="python-flavor"
@@ -1251,9 +1251,9 @@ res = await page.request.get("http://example.com/foo.json")
 
 ### Web-First 斷言
 
-Playwright for Python 1.18 introduces [Web-First Assertions](./test-assertions).
+Playwright for Python 1.18 引入了 [Web-First 斷言](./test-assertions)。
 
-Consider the following example:
+請考慮以下範例：
 
 <Tabs
   groupId="python-flavor"

@@ -814,7 +814,7 @@ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
   16 | });
 ```
 
-See [test.step()](/api/class-test.mdx#test-step) documentation for a full example.
+請參閱 [test.step()](/api/class-test.mdx#test-step) 文件以取得完整範例。
 
 ### 新的 API
 - [expect(locator).toHaveAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute-2)
@@ -873,7 +873,7 @@ Playwright 建議使用 `@playwright/test` 套件，並透過 `npx playwright in
 
 **Alternative migration 選項 - not recommended**
 
-Add `@playwright/browser-chromium`, `@playwright/browser-firefox` and `@playwright/browser-webkit` as a dependency. These packages download respective browsers during `npm install`. Make sure you keep the version of all playwright packages in sync:
+新增 `@playwright/browser-chromium`、`@playwright/browser-firefox` 和 `@playwright/browser-webkit` 作為相依性。這些套件會在 `npm install` 期間下載相應的瀏覽器。請確保所有 playwright 套件的版本保持同步：
 
 ```json
 // package.json
@@ -1184,7 +1184,7 @@ npx playwright test --ui
 
 ### ⚠️ Breaking change in component tests
 
-Note: **component tests only**, does not affect end-to-end tests.
+注意：**僅適用於元件測試**，不影響端對端測試。
 * `@playwright/experimental-ct-react` 現在支援 **React 18 only**.
 * 如果您正在使用 React 16 或 17 執行元件測試，請將 `@playwright/experimental-ct-react` 替換為 `@playwright/experimental-ct-react17`。
 
@@ -1258,9 +1258,9 @@ Note: **component tests only**, does not affect end-to-end tests.
 
 ### ⚠️ Breaking change in component tests
 
-Note: **component tests only**, does not affect end-to-end tests.
+注意：**僅適用於元件測試**，不影響端對端測試。
 
-`playwright-ct.config` configuration file for [component testing](./test-components.mdx) now requires calling `defineConfig`.
+[元件測試](./test-components.mdx)的 `playwright-ct.config` 配置檔現在需要呼叫 `defineConfig`。
 
 ```js
 // Before
@@ -1272,7 +1272,7 @@ const config: PlaywrightTestConfig = {
 export default config;
 ```
 
-Replace `config` variable definition with `defineConfig` call:
+將 `config` 變數定義替換為 `defineConfig` 呼叫：
 
 ```js
 // After
@@ -1442,7 +1442,7 @@ export default defineConfig({
 
 ### 定位器
 
-With these new APIs writing locators is a joy:
+使用這些新 API 撰寫定位器是一種樂趣：
 - [page.getByText()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
 - [page.getByRole()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [page.getByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.

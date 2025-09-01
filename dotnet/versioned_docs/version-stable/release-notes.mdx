@@ -1096,7 +1096,7 @@ Console.WriteLine((await response.JsonAsync())?.GetProperty("foo").GetString());
 
 現在您可以將網路流量錄製到 HAR 檔案中，並在測試中重複使用此流量。
 
-To record network into HAR file:
+將網路錄製到 HAR 檔案：
 
 ```bash
 pwsh bin/Debug/netX/playwright.ps1 open --save-har=example.har --save-har-glob="**/api/**" https://example.com
@@ -1127,9 +1127,9 @@ await context.RouteFromHARAsync("example.har");
 
 ### 進階路由
 
-您現在可以使用 [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) to defer routing to other handlers.
+您現在可以使用 [Route.FallbackAsync()](/api/class-route.mdx#route-fallback) 將路由移交給其他處理器。
 
-Consider the following example:
+請考慮以下範例：
 
 ```csharp
 // Remove a header from all requests.
@@ -1236,9 +1236,9 @@ await page.RouteAsync("**/*", async route =>
 
 ### Web-First 斷言
 
-Playwright for .NET 1.20 引入了 [Web-First 斷言](./test-assertions).
+Playwright for .NET 1.20 引入了 [Web-First 斷言](./test-assertions)。
 
-Consider the following example:
+請考慮以下範例：
 
 ```csharp
 using System.Threading.Tasks;
@@ -1258,7 +1258,7 @@ public class ExampleTests : PageTest
 }
 ```
 
-Playwright will be re-testing the node with the selector `.status` until fetched Node has the `"Submitted"` text. It will be re-fetching the node and checking it over and over, until the condition is met or until the timeout is reached. 您可以pass this timeout as an 選項.
+Playwright 將使用選擇器 `.status` 重複測試節點，直到擷取的節點具有 `"Submitted"` 文字。它會重複擷取節點並檢查，直到滿足條件或達到逾時為止。您可以將此逾時作為選項傳遞。
 
 在 [我們的文件](./test-assertions).
 

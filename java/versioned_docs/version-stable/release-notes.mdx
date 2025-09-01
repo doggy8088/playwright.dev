@@ -838,7 +838,7 @@ Linux 支援如下：
 
 ### 定位器
 
-With these new APIs writing locators is a joy:
+使用這些新 API 撰寫定位器是一種樂趣：
 - [Page.getByText()](/api/class-page.mdx#page-get-by-text) 透過文字內容定位。
 - [Page.getByRole()](/api/class-page.mdx#page-get-by-role) 透過 [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 和 [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) 定位。
 - [Page.getByLabel()](/api/class-page.mdx#page-get-by-label)以定位a form control by associated label's text.
@@ -941,7 +941,7 @@ page.navigate("https://playwright.dev", new Page.NavigateOptions().setWaitUntil(
 
 Playwright 現在支援 Debian 11 Bullseye on x86_64 for Chromium, Firefox and WebKit. 如果您遇到任何問題，請告訴我們！
 
-Linux support looks like this:
+Linux 支援情況如下：
 
 |          | Ubuntu 20.04 | Ubuntu 22.04 | Debian 11
 | :--- | :---: | :---: | :---: | :---: |
@@ -953,9 +953,9 @@ Linux support looks like this:
 
 ### 網路重播
 
-Now you can record network traffic into a HAR file and re-use this traffic in your tests.
+現在您可以將網路流量錄製到 HAR 檔案中，並在測試中重複使用此流量。
 
-To record network into HAR file:
+將網路錄製到 HAR 檔案：
 
 ```bash
 mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="open --save-har=example.har --save-har-glob='**/api/**' https://example.com"
@@ -986,7 +986,7 @@ context.routeFromHAR(Paths.get("example.har"));
 
 您現在可以使用 [Route.fallback()](/api/class-route.mdx#route-fallback) 將路由移交給其他處理器。
 
-Consider the following example:
+請考慮以下範例：
 
 ```java
 // Remove a header from all requests.
@@ -1148,9 +1148,9 @@ Read more about it in our [API testing guide](./api-testing).
 
 ### Web-First 斷言
 
-Playwright for Java 1.18 introduces [Web-First Assertions](./test-assertions).
+Playwright for Java 1.18 引入了 [Web-First 斷言](./test-assertions)。
 
-Consider the following example:
+請考慮以下範例：
 
 ```java
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
