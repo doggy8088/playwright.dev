@@ -8,27 +8,27 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-Exposes API that can be used for the Web API testing. This class is used for creating [APIRequestContext] instance which in turn can be used for sending web requests. An instance of this class can be obtained via [playwright.request](/api/class-playwright.mdx#playwright-request). For more information see [APIRequestContext].
+公開可用於 Web API 測試的 API。此類別用於建立 [APIRequestContext] 執行個體，該執行個體可用於傳送 Web 請求。可透過 [playwright.request](/api/class-playwright.mdx#playwright-request) 取得此類別的執行個體。如需更多資訊，請參閱 [APIRequestContext]。
 
 
 ---
 
-## Methods
+## 方法
 
 ### new_context {#api-request-new-context}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.16</font><x-search>apiRequest.new_context</x-search>
 
-Creates new instances of [APIRequestContext].
+建立新的 [APIRequestContext] 執行個體。
 
-**Usage**
+**使用方式**
 
 ```python
 api_request.new_context()
 api_request.new_context(**kwargs)
 ```
 
-**Arguments**
+**參數**
 - `base_url` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-base-url"/><a href="#api-request-new-context-option-base-url" class="list-anchor">#</a>
   
   Methods like [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) take the base URL into consideration by using the [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor for building the corresponding URL. Examples:
@@ -61,7 +61,7 @@ api_request.new_context(**kwargs)
     
     Passphrase for the private key (PEM or PFX).
   
-  TLS Client Authentication allows the server to request a client certificate and verify it.
+  TLS 用戶端驗證允許伺服器請求用戶端憑證並驗證它。
   
   **Details**
   
@@ -76,7 +76,7 @@ api_request.new_context(**kwargs)
   
 - `extra_http_headers` [Dict]\[[str], [str]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-extra-http-headers"/><a href="#api-request-new-context-option-extra-http-headers" class="list-anchor">#</a>
   
-  An object containing additional HTTP headers to be sent with every request. Defaults to none.
+  包含每個請求要傳送的額外 HTTP 標頭的物件。預設為無。
 - `fail_on_status_code` [bool] *(optional)* <font size="2">Added in: v1.51</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-fail-on-status-code"/><a href="#api-request-new-context-option-fail-on-status-code" class="list-anchor">#</a>
   
   Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
@@ -97,7 +97,7 @@ api_request.new_context(**kwargs)
   Credentials for [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). If no origin is specified, the username and password are sent to any servers upon unauthorized responses.
 - `ignore_https_errors` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-ignore-https-errors"/><a href="#api-request-new-context-option-ignore-https-errors" class="list-anchor">#</a>
   
-  Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
+  傳送網路請求時是否忽略 HTTPS 錯誤。預設為 `false`。
 - `max_redirects` [int] *(optional)* <font size="2">Added in: v1.52</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-max-redirects"/><a href="#api-request-new-context-option-max-redirects" class="list-anchor">#</a>
   
   Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects. This can be overwritten for each request individually.
@@ -115,7 +115,7 @@ api_request.new_context(**kwargs)
     
     Optional password to use if HTTP proxy requires authentication.
   
-  Network proxy settings.
+  網路代理設定。
 - `storage_state` [Union]\[[str], [pathlib.Path]\] | [Dict] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-storage-state"/><a href="#api-request-new-context-option-storage-state" class="list-anchor">#</a>
   - `cookies` [List]\[[Dict]\]
     - `name` [str]
@@ -164,7 +164,7 @@ api_request.new_context(**kwargs)
   
   Specific user agent to use in this context.
 
-**Returns**
+**回傳值**
 - [APIRequestContext]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-return"/><a href="#api-request-new-context-return" class="list-anchor">#</a>
 
 
