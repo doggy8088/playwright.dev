@@ -538,7 +538,7 @@
 - [x] java/docs/handles.mdx
 - [x] java/docs/input.mdx
 - [x] java/docs/intro.mdx
-- [ ] java/docs/junit.mdx
+- [x] java/docs/junit.mdx
 - [x] java/docs/languages.mdx
 - [ ] java/docs/locators.mdx
 - [x] java/docs/mock.mdx
@@ -628,7 +628,7 @@
 - [x] java/versioned_docs/version-stable/handles.mdx
 - [x] java/versioned_docs/version-stable/input.mdx
 - [x] java/versioned_docs/version-stable/intro.mdx
-- [ ] java/versioned_docs/version-stable/junit.mdx
+- [x] java/versioned_docs/version-stable/junit.mdx
 - [x] java/versioned_docs/version-stable/languages.mdx
 - [ ] java/versioned_docs/version-stable/locators.mdx
 - [x] java/versioned_docs/version-stable/mock.mdx
