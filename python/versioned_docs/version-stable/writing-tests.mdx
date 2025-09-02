@@ -50,9 +50,9 @@ def test_get_started_link(page: Page):
     expect(page.get_by_role("heading", name="Installation")).to_be_visible()
 ```
 
-## Actions
+## 動作 {#actions}
 
-### Navigation
+### 導覽
 
 大部分的測試會先導航到 URL。之後，測試能夠與頁面元素互動。
 
@@ -62,15 +62,15 @@ page.goto("https://playwright.dev/")
 
 Playwright 會等待頁面達到載入狀態後再繼續。了解更多關於 [page.goto()](/api/class-page.mdx#page-goto) 選項的資訊。
 
-### Interactions
+### 互動
 
 執行動作始於定位元素。Playwright 使用[定位器 API](./locators.mdx) 來達成此目的。定位器代表在任何時刻尋找頁面上元素的方法，了解更多關於可用的[不同類型](./locators.mdx)定位器。Playwright 會在執行動作前等待元素變成[可動作](./actionability.mdx)狀態，因此不需要等待它變成可用狀態。
 
 ```python
-# Create a locator.
+# 建立一個定位器。
 get_started = page.get_by_role("link", name="Get started")
 
-# Click it.
+# 點擊它。
 get_started.click()
 ```
 
@@ -80,11 +80,11 @@ get_started.click()
 page.get_by_role("link", name="Get started").click()
 ```
 
-### Basic actions
+### 基本動作
 
 這是最受歡迎的 Playwright 動作清單。注意還有更多動作，請務必查看[定位器 API](./api/class-locator.mdx) 部分以了解更多。
 
-| Action | Description |
+| 動作 | 描述 |
 | :- | :- |
 | [locator.check()](/api/class-locator.mdx#locator-check) | 勾選輸入核取方塊 |
 | [locator.click()](/api/class-locator.mdx#locator-click) | 點擊元素 |
@@ -96,7 +96,7 @@ page.get_by_role("link", name="Get started").click()
 | [locator.set_input_files()](/api/class-locator.mdx#locator-set-input-files) | 選擇要上傳的檔案 |
 | [locator.select_option()](/api/class-locator.mdx#locator-select-option) | 在下拉式選單中選擇選項 |
 
-## Assertions
+## 斷言
 
 Playwright 包含會等待直到預期條件滿足的[斷言](./test-assertions.mdx)。使用這些斷言可以讓測試變得不脆弱且具有彈性。例如，此程式碼會等待直到頁面獲得包含 "Playwright" 的標題：
 
@@ -109,20 +109,20 @@ expect(page).to_have_title(re.compile("Playwright"))
 
 以下是最受歡迎的非同步斷言清單。請注意還有[更多](./test-assertions.mdx)斷言可以熟悉：
 
-| Assertion | Description |
+| 斷言 | 描述 |
 | :- | :- |
-| [expect(locator).to_be_checked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox is checked |
-| [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | Control is enabled |
-| [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | Element is visible |
-| [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | Element contains text |
-| [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | Element has attribute |
-| [expect(locator).to_have_count()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | List of elements has given length |
-| [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | Element matches text |
-| [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | Input element has value |
-| [expect(page).to_have_title()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | Page has title |
-| [expect(page).to_have_url()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | Page has URL |
+| [expect(locator).to_be_checked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 核取方塊已勾選 |
+| [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 控制項已啟用 |
+| [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
+| [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
+| [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有屬性 |
+| [expect(locator).to_have_count()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 元素清單具有指定長度 |
+| [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素符合文字 |
+| [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入元素具有值 |
+| [expect(page).to_have_title()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
+| [expect(page).to_have_url()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
 
-### Test isolation
+### 測試隔離
 
 Playwright Pytest 外掛基於測試佈置的概念，例如傳遞給測試的[內建頁面佈置](./test-runners.mdx)。由於[瀏覽器情境](./browser-contexts)，頁面在測試之間是[隔離的](./browser-contexts)，這相當於全新的瀏覽器設定檔，每個測試都獲得新的環境，即使多個測試在單一瀏覽器中執行也是如此。
 
@@ -131,14 +131,14 @@ from playwright.sync_api import Page
 
 def test_example_test(page: Page):
   pass
-  # "page" belongs to an isolated BrowserContext, created for this specific test.
+  # 「page」屬於為此測試建立的隔離 BrowserContext。
 
 def test_another_test(page: Page):
   pass
-  # "page" in this second test is completely isolated from the first test.
+  # 第二個測試中的「page」與第一個測試完全隔離。
 ```
 
-### Using fixtures
+### 使用佈置
 
 您可以使用各種[佈置](https://docs.pytest.org/en/6.2.x/fixture.html#autouse-fixtures-fixtures-you-don-t-have-to-request)在測試前後執行程式碼，並在測試之間共享物件。例如，具有自動使用功能的 `function` 範圍佈置表現得像 beforeEach/afterEach。而具有自動使用功能的 `module` 範圍佈置表現得像 beforeAll/afterAll，會在所有測試之前和之後執行。
 
@@ -149,17 +149,17 @@ from playwright.sync_api import Page, expect
 @pytest.fixture(scope="function", autouse=True)
 def before_each_after_each(page: Page):
     
-    print("before the test runs")
+  print("測試執行前")
 
-    # Go to the starting url before each test.
-    page.goto("https://playwright.dev/")
-    yield
+  # 在每個測試前導覽至起始 URL。
+  page.goto("https://playwright.dev/")
+  yield
     
-    print("after the test runs")
+  print("測試執行後")
 
 def test_main_navigation(page: Page):
-    # Assertions use the expect API.
-    expect(page).to_have_url("https://playwright.dev/")
+  # 斷言使用 expect API。
+  expect(page).to_have_url("https://playwright.dev/")
 ```
 
 ## 接下來做什麼

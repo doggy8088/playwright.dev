@@ -49,7 +49,7 @@ test('get started link', async ({ page }) => {
 在 VS Code 中使用 JavaScript 時，請在每個測試檔案開頭加入 `// @ts-check` 以獲得自動型別檢查。
 :::
 
-## 動作
+## 動作 {#actions}
 
 ### 導航
 
@@ -68,10 +68,10 @@ Playwright 會等待頁面達到載入狀態後再繼續。了解更多關於 [p
 Playwright 會在執行動作前等待元素變成[可動作](./actionability.mdx)，因此您無需等待它變成可用。
 
 ```js
-// Create a locator.
+// 建立一個定位器。
 const getStarted = page.getByRole('link', { name: 'Get started' });
 
-// Click it.
+// 點擊它。
 await getStarted.click();
 ```
 
@@ -158,7 +158,7 @@ test.describe('navigation', () => {
   });
 
   test('main navigation', async ({ page }) => {
-    // Assertions use the expect API.
+    // 斷言使用 expect API。
     await expect(page).toHaveURL('https://playwright.dev/');
   });
 });

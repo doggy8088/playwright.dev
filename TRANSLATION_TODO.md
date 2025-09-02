@@ -559,7 +559,7 @@
 - [x] java/docs/trace-viewer.mdx
 - [x] java/docs/videos.mdx
 - [x] java/docs/webview2.mdx
-- [ ] java/docs/writing-tests.mdx
+- [x] java/docs/writing-tests.mdx
 
 ## Java（java/versioned_docs）（87）
 
@@ -649,7 +649,7 @@
 - [x] java/versioned_docs/version-stable/trace-viewer.mdx
 - [x] java/versioned_docs/version-stable/videos.mdx
 - [x] java/versioned_docs/version-stable/webview2.mdx
-- [ ] java/versioned_docs/version-stable/writing-tests.mdx
+- [x] java/versioned_docs/version-stable/writing-tests.mdx
 
 ## .NET（dotnet/docs）（85）
 
@@ -737,7 +737,7 @@
 - [x] dotnet/docs/trace-viewer.mdx
 - [x] dotnet/docs/videos.mdx
 - [x] dotnet/docs/webview2.mdx
-- [ ] dotnet/docs/writing-tests.mdx
+- [x] dotnet/docs/writing-tests.mdx
 
 ## .NET（dotnet/versioned_docs）（85）
 
@@ -825,4 +825,4 @@
 - [x] dotnet/versioned_docs/version-stable/trace-viewer.mdx
 - [x] dotnet/versioned_docs/version-stable/videos.mdx
 - [x] dotnet/versioned_docs/version-stable/webview2.mdx
-- [ ] dotnet/versioned_docs/version-stable/writing-tests.mdx
+- [x] dotnet/versioned_docs/version-stable/writing-tests.mdx

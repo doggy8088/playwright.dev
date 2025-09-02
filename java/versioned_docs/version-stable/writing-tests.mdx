@@ -1,17 +1,17 @@
 ---
 id: writing-tests
-title: "Writing tests"
+title: "撰寫測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright assertions are created specifically for the dynamic web. Checks are automatically retried until the necessary conditions are met. Playwright comes with [auto-wait](./actionability.mdx) built in meaning it waits for elements to be actionable prior to performing actions. Playwright provides [assertThat](./test-assertions.mdx) overloads to write assertions.
+Playwright 的斷言是為動態網頁特別設計的。檢查會自動重試，直到必要條件滿足為止。Playwright 內建[自動等待](./actionability.mdx)機制，會在執行動作前等待元素可被操作。Playwright 提供多種 [`assertThat`](./test-assertions.mdx) 多載來撰寫斷言。
 
-Take a look at the example test below to see how to write a test using web first assertions, locators and selectors.
+請看以下範例，示範如何使用 web-first 斷言、定位器與選擇器來撰寫測試。
 
 ```java
 package org.example;
@@ -29,19 +29,19 @@ public class App {
             Page page = browser.newPage();
             page.navigate("https://playwright.dev");
 
-            // Expect a title "to contain" a substring.
+            // 期望標題「包含」某個子字串。
             assertThat(page).hasTitle(Pattern.compile("Playwright"));
 
-            // create a locator
+            // 建立一個定位器
             Locator getStarted = page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Get Started"));
 
-            // Expect an attribute "to be strictly equal" to the value.
+            // 期望屬性「嚴格等於」指定值。
             assertThat(getStarted).hasAttribute("href", "/docs/intro");
 
-            // Click the get started link.
+            // 點擊「Get started」連結。
             getStarted.click();
 
-            // Expects page to have a heading with the name of Installation.
+            // 期望頁面具有名稱為 Installation 的標題。
             assertThat(page.getByRole(AriaRole.HEADING,
                new Page.GetByRoleOptions().setName("Installation"))).isVisible();
         }
@@ -49,9 +49,9 @@ public class App {
 }
 ```
 
-### Assertions
+### 斷言 {#assertions}
 
-Playwright provides [`assertThat`](./test-assertions.mdx) overloads which will wait until the expected condition is met.
+Playwright 提供多種 [`assertThat`](./test-assertions.mdx) 多載，會等待直到預期條件被滿足。
 
 ```java
 import java.util.regex.Pattern;
@@ -60,9 +60,9 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 assertThat(page).hasTitle(Pattern.compile("Playwright"));
 ```
 
-### Locators
+### 定位器 {#locators}
 
-[Locators](./locators.mdx) are the central piece of Playwright's auto-waiting and retry-ability. Locators represent a way to find element(s) on the page at any moment and are used to perform actions on elements such as `.click` `.fill` etc. Custom locators can be created with the [Page.locator()](/api/class-page.mdx#page-locator) method.
+[定位器](./locators.mdx)是 Playwright 自動等待與可重試能力的核心。定位器代表在任意時刻於頁面上尋找元素的方法，並用來對元素執行 `.click`、`.fill` 等動作。你可以透過 [Page.locator()](/api/class-page.mdx#page-locator) 建立自訂定位器。
 
 ```java
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -73,7 +73,7 @@ assertThat(getStarted).hasAttribute("href", "/docs/intro");
 getStarted.click();
 ```
 
-Playwright supports many different locators like [role](./locators.mdx#locate-by-role) [text](./locators.mdx#get-by-text), [test id](./locators.mdx#get-by-test-id) and many more. Learn more about available locators and how to pick one in this [in-depth guide](./locators.mdx).
+Playwright 支援多種不同類型的定位器，例如 [role](./locators.mdx#locate-by-role)、[text](./locators.mdx#get-by-text)、[test id](./locators.mdx#get-by-test-id) 等。想了解有哪些定位器與如何選用，請參考這份[深入指南](./locators.mdx)。
 
 ```java
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -81,9 +81,9 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 assertThat(page.locator("text=Installation")).isVisible();
 ```
 
-### Test Isolation
+### 測試隔離 {#test-isolation}
 
-Playwright has the concept of a [BrowserContext] which is an in-memory isolated browser profile. It's recommended to create a new [BrowserContext] for each test to ensure they don't interfere with each other.
+Playwright 具有 [BrowserContext] 的概念，這是一個記憶體中的隔離瀏覽器設定檔。建議為每個測試建立新的 [BrowserContext]，以確保它們不會互相干擾。
 
 ```java
 Browser browser = playwright.chromium().launch();
@@ -91,10 +91,10 @@ BrowserContext context = browser.newContext();
 Page page = context.newPage();
 ```
 
-## What's Next
-- [Run single test, multiple tests, headed mode](./running-tests.mdx)
-- [Generate tests with Codegen](./codegen.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
+## 接下來做什麼
+- [執行單一測試、多個測試、有視窗模式](./running-tests.mdx)
+- [使用 Codegen 產生測試](./codegen.mdx)
+- [查看測試追蹤](./trace-viewer-intro.mdx)
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"
