@@ -1,17 +1,17 @@
 ---
 id: multithreading
-title: "Multithreading"
+title: "多執行緒"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright Java is not thread safe, i.e. all its methods as well as methods on all objects created by it (such as [BrowserContext], [Browser], [Page] etc.) are expected to be called on the same thread where the Playwright object was created or proper synchronization should be implemented to ensure only one thread calls Playwright methods at any given time. Having said that it's okay to create multiple Playwright instances each on its own thread.
+Playwright Java 不是執行緒安全的，也就是說它的所有方法，以及由它創建的所有物件（如 [`BrowserContext`]、[`Browser`]、[`Page`] 等）上的方法，都應該在創建 Playwright 物件的同一個執行緒上呼叫，或者應該實作適當的同步化機制，以確保在任何給定時間內只有一個執行緒呼叫 Playwright 方法。話雖如此，在各自的執行緒上創建多個 Playwright 執行個體是可以的。
 
-Here is an example where three playwright instances are created each on its own thread. Each instance launches its own browser process and runs the test against it.
+以下是一個範例，其中三個 playwright 執行個體分別在各自的執行緒上創建。每個執行個體啟動自己的瀏覽器程序並對其執行測試。
 
 ```java
 package org.example;
@@ -30,7 +30,7 @@ public class PlaywrightThread extends Thread {
   }
 
   public static void main(String[] args) throws InterruptedException {
-    // Create separate playwright thread for each browser.
+    // 為每個瀏覽器創建單獨的 playwright 執行緒。
     for (String browserName: asList("chromium", "webkit", "firefox")) {
       Thread thread = new PlaywrightThread(browserName);
       thread.start();
@@ -63,21 +63,19 @@ public class PlaywrightThread extends Thread {
 }
 ```
 
-## Synchronous API and event dispatching
+## 同步 API 和事件分派
 
-In the synchronous Playwright API all events are dispatched only when Playwright is running its message loop. This happens automatically when you call any of the API methods and doesn't happen if there are no active Playwright calls on the stack. If you need to wait for an event the best way to do this is via one of the `waitFor*` methods.
+在同步的 Playwright API 中，所有事件只有在 Playwright 執行其訊息迴圈時才會被分派。這會在您呼叫任何 API 方法時自動發生，如果堆疊上沒有作用中的 Playwright 呼叫則不會發生。如果您需要等待事件，最好的方法是透過其中一個 `waitFor*` 方法。
 
-### Page.waitForTimeout() vs. Thread.sleep()
+### `Page.waitForTimeout()` vs. `Thread.sleep()`
 
-One consequence of the synchronous API is that if you for whatever reason call `Thread.sleep()` no events will be fired while the thread is sleeping. If you want events from the browser to be dispatched while the program
-
-execution is paused use [Page.waitForTimeout()](/api/class-page.mdx#page-wait-for-timeout) or [Frame.waitForTimeout()](/api/class-frame.mdx#frame-wait-for-timeout):
+同步 API 的一個結果是，如果您因為任何原因呼叫 `Thread.sleep()`，在執行緒休眠期間不會觸發任何事件。如果您希望在程式執行暫停期間分派來自瀏覽器的事件，請使用 [`Page.waitForTimeout()`](/api/class-page.mdx#page-wait-for-timeout) 或 [`Frame.waitForTimeout()`](/api/class-frame.mdx#frame-wait-for-timeout)：
 
 ```java
 page.onResponse(response -> System.out.println(response.url()));
 page.navigate("https://playwright.dev");
 System.out.println("-- did navigate --");
-// Block current thread for 60s and ensure the events are dispatched.
+// 阻塞當前執行緒 60 秒並確保事件被分派。
 page.waitForTimeout(60_000);
 ```
 

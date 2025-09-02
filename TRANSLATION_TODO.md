@@ -553,7 +553,7 @@
 - [x] java/docs/selenium-grid.mdx
 - [ ] java/docs/test-assertions.mdx
 - [ ] java/docs/test-runners.mdx
-- [ ] java/docs/threading.mdx
+- [x] java/docs/threading.mdx
 - [x] java/docs/touch-events.mdx
 - [ ] java/docs/trace-viewer-intro.mdx
 - [x] java/docs/trace-viewer.mdx
@@ -643,7 +643,7 @@
 - [x] java/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] java/versioned_docs/version-stable/test-assertions.mdx
 - [ ] java/versioned_docs/version-stable/test-runners.mdx
-- [ ] java/versioned_docs/version-stable/threading.mdx
+- [x] java/versioned_docs/version-stable/threading.mdx
 - [x] java/versioned_docs/version-stable/touch-events.mdx
 - [ ] java/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [x] java/versioned_docs/version-stable/trace-viewer.mdx
