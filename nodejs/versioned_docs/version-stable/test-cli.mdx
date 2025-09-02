@@ -95,6 +95,7 @@ npx playwright test --ui
 | `--ignore-snapshots` | 忽略螢幕截圖與快照預期。 |
 | `-j <workers>` 或 `--workers <workers>` | 並行工作程序數量或邏輯 CPU 核心的百分比，使用 1 表示在單一工作程序中執行（預設：50%）。 |
 | `--last-failed` | 只重新執行失敗的測試。 |
+| `--last-run-file` | 最後執行文件的路徑 (預設值: "test-results/.last-run.json")。此 json 文件用於 `--last-failed` 選項。您也可以在 `filterTests` 屬性中提供 [testCase.id](/api/class-testcase.mdx#test-case-id) 陣列，以應用自定義過濾器。 |
 | `--list` | 收集所有測試並回報，但不執行。 |
 | `--max-failures <N>` 或 `-x` | 在第一個 `N` 次失敗後停止。傳遞 `-x` 會在第一次失敗後停止。 |
 | `--no-deps` | 不執行專案相依性。 |

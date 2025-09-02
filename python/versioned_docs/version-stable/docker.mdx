@@ -23,7 +23,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 ### 拉取映像檔
 
 ```bash
-docker pull mcr.microsoft.com/playwright/python:v1.54.0-noble
+docker pull mcr.microsoft.com/playwright/python:v1.55.0-noble
 ```
 
 ### 執行映像檔
@@ -35,7 +35,7 @@ docker pull mcr.microsoft.com/playwright/python:v1.54.0-noble
 在受信任的網站上，您可以避免建立獨立使用者並使用 root，因為您信任將在瀏覽器上執行的程式碼。
 
 ```bash
-docker run -it --rm --ipc=host mcr.microsoft.com/playwright/python:v1.54.0-noble /bin/bash
+docker run -it --rm --ipc=host mcr.microsoft.com/playwright/python:v1.55.0-noble /bin/bash
 ```
 
 #### 爬取和抓取
@@ -43,7 +43,7 @@ docker run -it --rm --ipc=host mcr.microsoft.com/playwright/python:v1.54.0-noble
 在不受信任的網站上，建議使用獨立使用者搭配 seccomp 設定檔來啟動瀏覽器。在容器內部或如果您使用 Docker 映像檔作為基礎映像檔，您必須使用 `adduser` 來建立使用者。
 
 ```bash
-docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json mcr.microsoft.com/playwright/python:v1.54.0-noble /bin/bash
+docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json mcr.microsoft.com/playwright/python:v1.55.0-noble /bin/bash
 ```
 
 [`seccomp_profile.json`](https://github.com/microsoft/playwright/blob/main/utils/docker/seccomp_profile.json) 是執行 Chromium 沙盒所需的檔案。這是具有額外使用者命名空間複製權限的[預設 Docker seccomp 設定檔](https://github.com/docker/engine/blob/d0d99b04cf6e00ed3fc27e81fc3d94e7eda70af3/profiles/seccomp/default.json)：
@@ -83,7 +83,7 @@ docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_prof
 在 Docker 中啟動 Playwright Server：
 
 ```bash
-docker run -p 3000:3000 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.54.0-noble /bin/sh -c "npx -y playwright@1.54.0 run-server --port 3000 --host 0.0.0.0"
+docker run -p 3000:3000 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.55.0-noble /bin/sh -c "npx -y playwright@1.54.0 run-server --port 3000 --host 0.0.0.0"
 ```
 
 #### 連線到 Server
@@ -123,7 +123,7 @@ async with async_playwright() as p:
 如果您需要從 Docker 容器內部存取本機伺服器：
 
 ```bash
-docker run --add-host=hostmachine:host-gateway -p 3000:3000 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.54.0-noble /bin/sh -c "npx -y playwright@1.54.0 run-server --port 3000 --host 0.0.0.0"
+docker run --add-host=hostmachine:host-gateway -p 3000:3000 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.55.0-noble /bin/sh -c "npx -y playwright@1.54.0 run-server --port 3000 --host 0.0.0.0"
 ```
 
 這使 `hostmachine` 指向主機的 localhost。當存取本機伺服器時，您的測試應該使用 `hostmachine` 而不是 `localhost`。
@@ -138,9 +138,9 @@ docker run --add-host=hostmachine:host-gateway -p 3000:3000 --rm --init -it --wo
 請參閱[所有可用的映像檔標籤]。
 
 我們目前發布具有以下標籤的映像檔：
-- `:v1.54.0` - 基於 Ubuntu 24.04 LTS (Noble Numbat) 的 Playwright v1.54.0 發行版 docker 映像檔。
-- `:v1.54.0-noble` - 基於 Ubuntu 24.04 LTS (Noble Numbat) 的 Playwright v1.54.0 發行版 docker 映像檔。
-- `:v1.54.0-jammy` - 基於 Ubuntu 22.04 LTS (Jammy Jellyfish) 的 Playwright v1.54.0 發行版 docker 映像檔。
+- `:v1.55.0` - 基於 Ubuntu 24.04 LTS (Noble Numbat) 的 Playwright v1.55.0 發行版 docker 映像檔。
+- `:v1.55.0-noble` - 基於 Ubuntu 24.04 LTS (Noble Numbat) 的 Playwright v1.55.0 發行版 docker 映像檔。
+- `:v1.55.0-jammy` - 基於 Ubuntu 22.04 LTS (Jammy Jellyfish) 的 Playwright v1.55.0 發行版 docker 映像檔。
 
 :::note
 
@@ -164,7 +164,7 @@ Firefox 與 WebKit 的瀏覽器建置是為 [glibc](https://en.wikipedia.org/wik
 ```Dockerfile
 FROM python:3.12-bookworm
 
-RUN pip install playwright==@1.54.0 && \
+RUN pip install playwright==@1.55.0 && \
     playwright install --with-deps
 ```
 

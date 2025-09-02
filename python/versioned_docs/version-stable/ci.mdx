@@ -84,7 +84,7 @@ jobs:
     name: 'Playwright Tests'
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright/python:v1.54.0-noble
+      image: mcr.microsoft.com/playwright/python:v1.55.0-noble
       options: --user 1001
     steps:
       - uses: actions/checkout@v4
@@ -174,7 +174,7 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-container: mcr.microsoft.com/playwright/python:v1.54.0-noble
+container: mcr.microsoft.com/playwright/python:v1.55.0-noble
 
 steps:
 - task: UsePythonVersion@0
@@ -198,7 +198,7 @@ steps:
 executors:
   pw-noble-development:
     docker:
-      - image: mcr.microsoft.com/playwright/python:v1.54.0-noble
+      - image: mcr.microsoft.com/playwright/python:v1.55.0-noble
 ```
 
 注意：使用 docker 代理定義時，您將 playwright 執行的資源類別指定為 'medium' 級別[這裡](https://circleci.com/docs/configuration-reference?#docker-execution-environment)。Playwright 的預設行為是將 workers 數量設定為偵測到的核心數（在 medium 級別的情況下為 2）。將 workers 數量覆寫為大於此數量將導致不必要的逾時和失敗。
@@ -209,7 +209,7 @@ Jenkins 支援管線的 Docker 代理。使用 [Playwright Docker 映像](./dock
 
 ```groovy
 pipeline {
-   agent { docker { image 'mcr.microsoft.com/playwright/python:v1.54.0-noble' } }
+   agent { docker { image 'mcr.microsoft.com/playwright/python:v1.55.0-noble' } }
    stages {
       stage('e2e-tests') {
          steps {
@@ -226,7 +226,7 @@ pipeline {
 Bitbucket Pipelines 可以使用公開的 [Docker 映像作為建置環境](https://confluence.atlassian.com/bitbucket/use-docker-images-as-build-environments-792298897.html)。要在 Bitbucket 上執行 Playwright 測試，請使用我們的公開 Docker 映像（[請參閱 Dockerfile](./docker.mdx)）。
 
 ```yml
-image: mcr.microsoft.com/playwright/python:v1.54.0-noble
+image: mcr.microsoft.com/playwright/python:v1.55.0-noble
 ```
 
 ### GitLab CI
@@ -239,7 +239,7 @@ stages:
 
 tests:
   stage: test
-  image: mcr.microsoft.com/playwright/python:v1.54.0-noble
+  image: mcr.microsoft.com/playwright/python:v1.55.0-noble
   script:
   ...
 ```
