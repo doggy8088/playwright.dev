@@ -4,44 +4,24 @@ module.exports = {
     'ambassadors',
     {
       type: 'category',
-      label: 'Videos',
+      label: '影片',
       items: [
-        {
-          type: 'link',
-          label: 'Conference Videos',
-          href: '/community/conference-videos'
-        },
-        {
-          type: 'link',
-          label: 'Release Videos',
-          href: '/community/release-videos'
-        },
-        {
-          type: 'link',
-          label: 'Live Streams',
-          href: '/community/live-streams'
-        },
-        {
-          type: 'link',
-          label: 'Feature Videos',
-          href: '/community/feature-videos'
-        },
-        {
-          type: 'link',
-          label: 'Learn Videos',
-          href: '/community/learn-videos'
-        }
+        { type: 'link', label: '研討會影片', href: '/community/conference-videos' },
+        { type: 'link', label: '版本發佈影片', href: '/community/release-videos' },
+        { type: 'link', label: '線上直播', href: '/community/live-streams' },
+        { type: 'link', label: '精選影片', href: '/community/feature-videos' },
+        { type: 'link', label: '教學影片', href: '/community/learn-videos' }
       ],
       collapsed: false
     },
     {
       type: 'link',
-      label: "Blog",
-      href: "https://dev.to/playwright",
+      label: '部落格',
+      href: 'https://dev.to/playwright',
     },
     {
       type: 'link',
-      label: 'Join our Community Discord',
+      label: '加入我們的 Discord 社群',
       href: 'https://aka.ms/playwright/discord'
     }
   ]
