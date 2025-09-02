@@ -1,57 +1,57 @@
 ---
 id: test-runners
-title: "Test Runners"
+title: "測試執行器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-While Playwright for .NET isn't tied to a particular test runner or testing framework, in our experience the easiest way of getting started is by using the base classes we provide for MSTest, NUnit, xUnit, or xUnit v3. These classes support running tests on multiple browser engines, adjusting launch/context options and getting a [Page]/[BrowserContext] instance per test out of the box. 
+雖然 Playwright for .NET 並不綁定特定的測試執行器或測試框架，但根據我們的經驗，最簡單的入門方式是使用我們為 MSTest、NUnit、xUnit 或 xUnit v3 提供的基底類別。這些類別支援在多個瀏覽器引擎上執行測試、調整啟動/情境選項，並為每個測試提供 [Page]/[BrowserContext] 實例。
 
-Playwright and Browser instances will be reused between tests for better performance. We recommend running each test case in a new BrowserContext, this way browser state will be isolated between the tests.
+Playwright 和 Browser 實例將在測試之間重複使用以獲得更好的效能。我們建議在新的 BrowserContext 中執行每個測試案例，這樣瀏覽器狀態就會在測試之間被隔離。
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, {label: 'xUnit', value: 'xunit'}, {label: 'xUnit v3', value: 'xunit-v3'}, ] }>
 
 <TabItem value="nunit">
 
-Playwright provides base classes to write tests with NUnit via the [`Microsoft.Playwright.NUnit`](https://www.nuget.org/packages/Microsoft.Playwright.NUnit) package.
+Playwright 透過 [`Microsoft.Playwright.NUnit`](https://www.nuget.org/packages/Microsoft.Playwright.NUnit) 套件提供基底類別來撰寫 NUnit 測試。
 
 </TabItem>
 
 <TabItem value="mstest">
 
-Playwright provides base classes to write tests with MSTest via the [`Microsoft.Playwright.MSTest`](https://www.nuget.org/packages/Microsoft.Playwright.MSTest) package.
+Playwright 透過 [`Microsoft.Playwright.MSTest`](https://www.nuget.org/packages/Microsoft.Playwright.MSTest) 套件提供基底類別來撰寫 MSTest 測試。
 
 </TabItem>
 
 <TabItem value="xunit">
 
-Playwright provides base classes to write tests with xUnit via the [`Microsoft.Playwright.Xunit`](https://www.nuget.org/packages/Microsoft.Playwright.Xunit) package.
+Playwright 透過 [`Microsoft.Playwright.Xunit`](https://www.nuget.org/packages/Microsoft.Playwright.Xunit) 套件提供基底類別來撰寫 xUnit 測試。
 
 </TabItem>
 
 <TabItem value="xunit-v3">
 
-Playwright provides base classes to write tests with xUnit v3 via the [`Microsoft.Playwright.Xunit.v3`](https://www.nuget.org/packages/Microsoft.Playwright.Xunit.v3) package.
+Playwright 透過 [`Microsoft.Playwright.Xunit.v3`](https://www.nuget.org/packages/Microsoft.Playwright.Xunit.v3) 套件提供基底類別來撰寫 xUnit v3 測試。
 
 </TabItem>
 
 </Tabs>
 
-Check out the [installation guide](./intro.mdx) to get started.
+請查看[安裝指南](./intro.mdx)以開始使用。
 
-## Running tests in Parallel
+## 平行執行測試
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, {label: 'xUnit', value: 'xunit'}, {label: 'xUnit v3', value: 'xunit-v3'}, ] }>
 
 <TabItem value="nunit">
 
-By default NUnit will run all test files in parallel, while running tests inside each file sequentially (`ParallelScope.Self`). It will create as many processes as there are cores on the host system. You can adjust this behavior using the NUnit.NumberOfTestWorkers parameter. Only `ParallelScope.Self` is supported.
+預設情況下，NUnit 會平行執行所有測試檔案，而在每個檔案內循序執行測試（`ParallelScope.Self`）。它會建立與主機系統核心數相同的工作程序。您可以使用 NUnit.NumberOfTestWorkers 參數來調整此行為。僅支援 `ParallelScope.Self`。
 
-For CPU-bound tests, we recommend using as many workers as there are cores on your system, divided by 2. For IO-bound tests you can use as many workers as you have cores.
+對於 CPU 密集型測試，我們建議使用系統核心數除以 2 的工作程序數。對於 IO 密集型測試，您可以使用與核心數相同的工作程序數。
 
 ```bash
 dotnet test -- NUnit.NumberOfTestWorkers=5
@@ -61,7 +61,7 @@ dotnet test -- NUnit.NumberOfTestWorkers=5
 
 <TabItem value="mstest">
 
-By default MSTest will run all classes in parallel, while running tests inside each class sequentially (`ExecutionScope.ClassLevel`). It will create as many processes as there are cores on the host system. You can adjust this behavior by using the following CLI parameter or using a `.runsettings` file, see below. Running tests in parallel at the method level (`ExecutionScope.MethodLevel`) is not supported.
+預設情況下，MSTest 會平行執行所有類別，而在每個類別內循序執行測試（`ExecutionScope.ClassLevel`）。它會建立與主機系統核心數相同的工作程序。您可以使用以下 CLI 參數或使用 `.runsettings` 檔案來調整此行為，請參見下文。不支援在方法層級平行執行測試（`ExecutionScope.MethodLevel`）。
 
 ```bash
 dotnet test --settings:.runsettings -- MSTest.Parallelize.Workers=4
