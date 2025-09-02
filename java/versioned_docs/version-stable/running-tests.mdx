@@ -1,19 +1,19 @@
 ---
 id: running-tests
-title: "Running and debugging tests"
+title: "執行和偵錯測試"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-Playwright tests can be run in a variety of ways. We recommend hooking it up to your favorite test runner, e.g., [JUnit](./test-runners.mdx), since it gives you the ability to run tests in parallel, run single test, etc.
+Playwright 測試可以通過多種方式執行。我們建議將其連接到您喜愛的測試執行器，例如 [JUnit](./test-runners.mdx)，因為它使您能夠平行執行測試、執行單個測試等。
 
-You can run a single test, a set of tests or all tests. Tests can be run on one browser or multiple browsers. By default tests are run in a headless manner meaning no browser window will be opened while running the tests and results will be seen in the terminal. If you prefer, you can run your tests in headed mode by using the `launch(new BrowserType.LaunchOptions().setHeadless(false))` option.
+您可以執行單一測試、一組測試或所有測試。測試可以在一個瀏覽器或多個瀏覽器上執行。測試預設以無頭模式執行，意即在執行測試時不會開啟瀏覽器視窗，結果顯示在終端機中。您可以使用 `launch(new BrowserType.LaunchOptions().setHeadless(false))` 選項在有頭模式下執行測試。
 
-In [JUnit](https://junit.org/junit5/), you can initialize [Playwright] and [Browser] in [@BeforeAll](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeAll.html) method and destroy them in [@AfterAll](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/AfterAll.html). In the example below, all three test methods use the same [Browser]. Each test uses its own [BrowserContext] and [Page].
+在 [JUnit](https://junit.org/junit5/) 中，您可以在 [@BeforeAll](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/BeforeAll.html) 方法中初始化 [Playwright] 和 [Browser]，並在 [@AfterAll](https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/AfterAll.html) 中銷毀它們。在下面的範例中，所有三個測試方法使用相同的 [Browser]。每個測試使用自己的 [BrowserContext] 和 [Page]。
 
 ```java
 package org.example;
@@ -83,18 +83,18 @@ public class TestExample {
 }
 ```
 
-See [here](./test-runners.mdx) for further details on how to run tests in parallel, etc.
+請參見[此處](./test-runners.mdx)了解有關如何平行執行測試等的更多詳細資訊。
 
-See experimental [JUnit integration](./junit.mdx) to automatically initialize Playwright objects and more.
+請參閱實驗性 [JUnit integration](./junit.mdx) 以自動初始化 Playwright 物件及更多。
 
-### Run tests in headed mode
+### 在有頭模式下執行測試
 
-If you prefer, you can run your tests in headed mode by using the `launch(new BrowserType.LaunchOptions().setHeadless(false))` option.
+您可以使用 `launch(new BrowserType.LaunchOptions().setHeadless(false))` 選項在有頭模式下執行測試。
 
-## What's Next
-- [Debugging tests](./debug.mdx)
-- [Generate tests with Codegen](./codegen.mdx)
-- [See a trace of your tests](./trace-viewer-intro.mdx)
+## 接下來是什麼
+- [偵錯測試](./debug.mdx)
+- [使用程式碼產生器生成測試](./codegen.mdx)
+- [查看測試的追蹤](./trace-viewer-intro.mdx)
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"
