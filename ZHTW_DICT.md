@@ -39,7 +39,7 @@
 - network → 網路
 - parallel → 平行
 - permission → 權限
-- playwright test → Playwright Test（不翻譯產品名）
+- playwright test → Playwright Test（產品名通常不翻；側邊欄/導覽可譯為「Playwright 測試」）
 - plugin → 外掛
 - poll → 輪詢
 - retries → 重試次數
@@ -211,3 +211,14 @@
 - independent → 獨立的
 - dependent → 相依的
 - subsequent → 後續的
+
+## 導覽／側邊欄用詞（版本側邊欄）
+- Playwright Test → Playwright 測試（側邊欄/導覽顯示；內文遇產品名仍保留 Playwright Test）
+- Migration → 遷移（也可視情境使用「移轉」，本專案一律用「遷移」以維持一致）
+- Test Runner → 測試執行器（泛稱執行器）
+- Test Reporter → 測試報告器
+- Experimental → 實驗性（功能或章節標示）
+
+說明：
+- 側邊欄屬於導覽 UI，偏向中文在地化顯示；文件內文若指涉產品或官方名詞，依「常用對照」保留原文或照既定譯法。
+- 若未來 upstream 側邊欄新增新節點，請參照本節新增或沿用用詞，避免中英混雜。
