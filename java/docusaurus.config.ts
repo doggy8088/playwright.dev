@@ -51,7 +51,7 @@ if (isProd) {
 
 module.exports = {
   title: "Playwright Java",
-  tagline: "Fast and reliable end-to-end testing for modern web apps",
+  tagline: "快速且可靠的現代 Web 應用程式端對端測試",
   // Repo config for GitHub Pages
   url: "https://playwright.dev",
   baseUrl: "/java/",
@@ -72,7 +72,7 @@ module.exports = {
       additionalLanguages: ['java', 'bash', 'batch', 'powershell'],
     },
     navbar: {
-      title: "Playwright for Java",
+      title: "Playwright（Java）",
       logo: {
         alt: "Playwright logo",
         src: "img/playwright-logo.svg",
@@ -81,7 +81,7 @@ module.exports = {
         {
           type: "doc",
           docId: "intro",
-          label: "Docs",
+          label: "文件",
           position: "left",
         },
         {
@@ -94,13 +94,13 @@ module.exports = {
           href: "https://github.com/microsoft/playwright-java",
           position: "right",
           className: "header-github-link",
-          "aria-label": "GitHub repository",
+          "aria-label": "GitHub 儲存庫",
         },
         {
           href: "https://aka.ms/playwright/discord",
           position: "right",
           className: "header-discord-link",
-          "aria-label": "Discord server",
+          "aria-label": "Discord 伺服器",
         },
         {
           label: 'Java',
@@ -130,7 +130,7 @@ module.exports = {
         },
         {
           to: '/community/welcome',
-          label: 'Community',
+          label: '社群',
           position: 'left',
           activeBaseRegex: `/community/`,
         },
@@ -140,28 +140,28 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "Learn",
+          title: "學習",
           items: [
             {
-              label: "Getting started",
+              label: "快速上手",
               to: "docs/intro",
             },
             {
-              label: "Playwright Training",
+              label: "訓練課程",
               href: "https://learn.microsoft.com/en-us/training/modules/build-with-playwright/",
             },
             {
-              label: "Learn Videos",
+              label: "教學影片",
               to: "/community/learn-videos",
             },
             {
-              label: "Feature Videos",
+              label: "精選影片",
               to: "/community/feature-videos",
             },
           ],
         },
         {
-          title: "Community",
+          title: "社群",
           items: [
             {
               label: "Stack Overflow",
@@ -182,7 +182,7 @@ module.exports = {
           ],
         },
         {
-          title: "More",
+          title: "更多",
           items: [
             {
               label: "GitHub",
@@ -193,11 +193,11 @@ module.exports = {
               href: "https://www.youtube.com/channel/UC46Zj8pDH5tDosqm1gd7WTg",
             },
             {
-              label: "Blog",
+              label: "部落格",
               href: "https://dev.to/playwright",
             },
             {
-              label: "Ambassadors",
+              label: "推廣大使",
               href: "/community/ambassadors",
             },
           ],
