@@ -538,7 +538,7 @@
 - [x] java/docs/handles.mdx
 - [x] java/docs/input.mdx
 - [x] java/docs/intro.mdx
-- [ ] java/docs/junit.mdx
+- [x] java/docs/junit.mdx
 - [x] java/docs/languages.mdx
 - [ ] java/docs/locators.mdx
 - [x] java/docs/mock.mdx
@@ -553,7 +553,7 @@
 - [x] java/docs/selenium-grid.mdx
 - [ ] java/docs/test-assertions.mdx
 - [x] java/docs/test-runners.mdx
-- [ ] java/docs/threading.mdx
+- [x] java/docs/threading.mdx
 - [x] java/docs/touch-events.mdx
 - [ ] java/docs/trace-viewer-intro.mdx
 - [x] java/docs/trace-viewer.mdx
@@ -628,7 +628,7 @@
 - [x] java/versioned_docs/version-stable/handles.mdx
 - [x] java/versioned_docs/version-stable/input.mdx
 - [x] java/versioned_docs/version-stable/intro.mdx
-- [ ] java/versioned_docs/version-stable/junit.mdx
+- [x] java/versioned_docs/version-stable/junit.mdx
 - [x] java/versioned_docs/version-stable/languages.mdx
 - [ ] java/versioned_docs/version-stable/locators.mdx
 - [x] java/versioned_docs/version-stable/mock.mdx
@@ -643,7 +643,7 @@
 - [x] java/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] java/versioned_docs/version-stable/test-assertions.mdx
 - [x] java/versioned_docs/version-stable/test-runners.mdx
-- [ ] java/versioned_docs/version-stable/threading.mdx
+- [x] java/versioned_docs/version-stable/threading.mdx
 - [x] java/versioned_docs/version-stable/touch-events.mdx
 - [ ] java/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [x] java/versioned_docs/version-stable/trace-viewer.mdx
