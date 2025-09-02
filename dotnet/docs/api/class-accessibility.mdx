@@ -8,68 +8,68 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-:::warning[已棄用]
-此類別已棄用。如果您需要測試頁面無障礙性，請使用其他函式庫，例如 [Axe](https://www.deque.com/axe/)。請參閱我們的 Node.js [指南](https://playwright.dev/docs/accessibility-testing)以了解如何與 Axe 整合。
+:::warning[Deprecated]
+This class is deprecated. Please use other libraries such as [Axe](https://www.deque.com/axe/) if you need to test page accessibility. See our Node.js [guide](https://playwright.dev/docs/accessibility-testing) for integration with Axe.
 :::
 
 
-`Accessibility` 類別提供檢查 Chromium 無障礙樹的方法。無障礙樹被輔助技術使用，例如[螢幕閱讀器](https://en.wikipedia.org/wiki/Screen_reader)或[開關存取](https://en.wikipedia.org/wiki/Switch_access)。
+The Accessibility class provides methods for inspecting Chromium's accessibility tree. The accessibility tree is used by assistive technology such as [screen readers](https://en.wikipedia.org/wiki/Screen_reader) or [switches](https://en.wikipedia.org/wiki/Switch_access).
 
-無障礙是一個非常特定於平台的功能。在不同的平台上，有不同的螢幕閱讀器，它們可能有截然不同的輸出。
+Accessibility is a very platform-specific thing. On different platforms, there are different screen readers that might have wildly different output.
 
-Chromium、Firefox 和 WebKit 的渲染引擎都有「無障礙樹」的概念，然後將其轉換為不同的特定於平台的 API。`Accessibility` 命名空間提供對此無障礙樹的存取。
+Rendering engines of Chromium, Firefox and WebKit have a concept of "accessibility tree", which is then translated into different platform-specific APIs. Accessibility namespace gives access to this Accessibility Tree.
 
-當從內部瀏覽器 AX 樹轉換為特定於平台的 AX 樹或由輔助技術本身進行轉換時，大部分無障礙樹會被過濾掉。預設情況下，Playwright 會嘗試近似此過濾，只公開樹中「有趣」的節點。
+Most of the accessibility tree gets filtered out when converting from internal browser AX Tree to Platform-specific AX-Tree or by assistive technologies themselves. By default, Playwright tries to approximate this filtering, exposing only the "interesting" nodes of the tree.
 
 
 ---
 
-## 已棄用
+## Deprecated
 
 ### SnapshotAsync {#accessibility-snapshot}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>accessibility.SnapshotAsync</x-search>
 
-:::warning 已棄用
+:::warning Deprecated
 
-此方法已棄用。如果您需要測試頁面無障礙性，請使用其他函式庫，例如 [Axe](https://www.deque.com/axe/)。請參閱我們的 Node.js [指南](https://playwright.dev/docs/accessibility-testing)以了解如何與 Axe 整合。
+This method is deprecated. Please use other libraries such as [Axe](https://www.deque.com/axe/) if you need to test page accessibility. See our Node.js [guide](https://playwright.dev/docs/accessibility-testing) for integration with Axe.
 
 :::
 
 
-擷取無障礙樹的目前狀態。回傳的物件代表頁面的根無障礙節點。
+Captures the current state of the accessibility tree. The returned object represents the root accessible node of the page.
 
 :::note
 
-Chromium 無障礙樹包含在大多數平台和大多數螢幕閱讀器上未使用的節點。Playwright 也會捨棄它們以獲得更易於處理的樹，除非將 [InterestingOnly](/api/class-accessibility.mdx#accessibility-snapshot-option-interesting-only) 設定為 `false`。
+The Chromium accessibility tree contains nodes that go unused on most platforms and by most screen readers. Playwright will discard them as well for an easier to process tree, unless [InterestingOnly](/api/class-accessibility.mdx#accessibility-snapshot-option-interesting-only) is set to `false`.
 :::
 
-**用法**
+**Usage**
 
-傾印整個無障礙樹的範例：
-
-```csharp
-var accessibilitySnapshot = await page.Accessibility.SnapshotAsync();
-Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(accessibilitySnapshot));
-```
-
-記錄聚焦節點名稱的範例：
+An example of dumping the entire accessibility tree:
 
 ```csharp
 var accessibilitySnapshot = await page.Accessibility.SnapshotAsync();
 Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(accessibilitySnapshot));
 ```
 
-**參數**
-- `options` `AccessibilitySnapshotOptions?` *(可選)*
-  - `InterestingOnly` [bool]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-option-interesting-only"/><a href="#accessibility-snapshot-option-interesting-only" class="list-anchor">#</a>
-    
-    從樹中修剪無趣的節點。預設為 `true`。
-  - `Root` [ElementHandle]? *(可選)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-option-root"/><a href="#accessibility-snapshot-option-root" class="list-anchor">#</a>
-    
-    快照的根 DOM 元素。預設為整個頁面。
+An example of logging the focused node's name:
 
-**回傳**
+```csharp
+var accessibilitySnapshot = await page.Accessibility.SnapshotAsync();
+Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(accessibilitySnapshot));
+```
+
+**Arguments**
+- `options` `AccessibilitySnapshotOptions?` *(optional)*
+  - `InterestingOnly` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-option-interesting-only"/><a href="#accessibility-snapshot-option-interesting-only" class="list-anchor">#</a>
+    
+    Prune uninteresting nodes from the tree. Defaults to `true`.
+  - `Root` [ElementHandle]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-option-root"/><a href="#accessibility-snapshot-option-root" class="list-anchor">#</a>
+    
+    The root DOM element for the snapshot. Defaults to the whole page.
+
+**Returns**
 - [JsonElement]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="accessibility-snapshot-return"/><a href="#accessibility-snapshot-return" class="list-anchor">#</a>
 
 

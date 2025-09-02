@@ -8,26 +8,26 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-[AndroidSocket] 是與在 [AndroidDevice] 上啟動的程序進行通訊的方式。使用 [androidDevice.open()](/api/class-androiddevice.mdx#android-device-open) 來開啟一個 socket。
+[AndroidSocket] is a way to communicate with a process launched on the [AndroidDevice]. Use [androidDevice.open()](/api/class-androiddevice.mdx#android-device-open) to open a socket.
 
 
 ---
 
-## 方法
+## Methods
 
 ### close {#android-socket-close}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidSocket.close</x-search>
 
-關閉 socket。
+Closes the socket.
 
-**用法**
+**Usage**
 
 ```js
 await androidSocket.close();
 ```
 
-**回傳**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-socket-close-return"/><a href="#android-socket-close-return" class="list-anchor">#</a>
 
 ---
@@ -36,33 +36,33 @@ await androidSocket.close();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidSocket.write</x-search>
 
-向 socket 寫入一些 [data](/api/class-androidsocket.mdx#android-socket-write-option-data)。
+Writes some [data](/api/class-androidsocket.mdx#android-socket-write-option-data) to the socket.
 
-**用法**
+**Usage**
 
 ```js
 await androidSocket.write(data);
 ```
 
-**參數**
+**Arguments**
 - `data` [Buffer]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-socket-write-option-data"/><a href="#android-socket-write-option-data" class="list-anchor">#</a>
   
-  要寫入的資料。
+  Data to write.
 
-**回傳**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-socket-write-return"/><a href="#android-socket-write-return" class="list-anchor">#</a>
 
 ---
 
-## 事件
+## Events
 
 ### on('close') {#android-socket-event-close}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidSocket.on('close')</x-search>
 
-當 socket 關閉時觸發。
+Emitted when the socket is closed.
 
-**用法**
+**Usage**
 
 ```js
 androidSocket.on('close', data => {});
@@ -72,17 +72,17 @@ androidSocket.on('close', data => {});
 
 ### on('data') {#android-socket-event-data}
 
-<font size="2" style={{position: "relative", top: "-20px"}">Added in: v1.9</font><x-search>androidSocket.on('data')</x-search>
+<font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidSocket.on('data')</x-search>
 
-當有資料可從 socket 讀取時觸發。
+Emitted when data is available to read from the socket.
 
-**用法**
+**Usage**
 
 ```js
 androidSocket.on('data', data => {});
 ```
 
-**事件資料**
+**Event data**
 - [Buffer]
 
 

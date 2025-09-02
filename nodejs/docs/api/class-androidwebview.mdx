@@ -8,26 +8,26 @@ import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
 
-[AndroidWebView] 代表在 [AndroidDevice] 上開啟的 WebView。WebView 通常使用 [androidDevice.webView()](/api/class-androiddevice.mdx#android-device-web-view) 取得。
+[AndroidWebView] represents a WebView open on the [AndroidDevice]. WebView is usually obtained using [androidDevice.webView()](/api/class-androiddevice.mdx#android-device-web-view).
 
 
 ---
 
-## 方法
+## Methods
 
 ### page {#android-web-view-page}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidWebView.page</x-search>
 
-連接到 WebView 並回傳一個常規的 Playwright [Page] 來互動。
+Connects to the WebView and returns a regular Playwright [Page] to interact with.
 
-**用法**
+**Usage**
 
 ```js
 await androidWebView.page();
 ```
 
-**回傳**
+**Returns**
 - [Promise]&lt;[Page]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-web-view-page-return"/><a href="#android-web-view-page-return" class="list-anchor">#</a>
 
 ---
@@ -36,15 +36,15 @@ await androidWebView.page();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidWebView.pid</x-search>
 
-WebView 程序 PID。
+WebView process PID.
 
-**用法**
+**Usage**
 
 ```js
 androidWebView.pid();
 ```
 
-**回傳**
+**Returns**
 - [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-web-view-pid-return"/><a href="#android-web-view-pid-return" class="list-anchor">#</a>
 
 ---
@@ -53,28 +53,28 @@ androidWebView.pid();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidWebView.pkg</x-search>
 
-WebView 套件識別碼。
+WebView package identifier.
 
-**用法**
+**Usage**
 
 ```js
 androidWebView.pkg();
 ```
 
-**回傳**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-web-view-pkg-return"/><a href="#android-web-view-pkg-return" class="list-anchor">#</a>
 
 ---
 
-## 事件
+## Events
 
 ### on('close') {#android-web-view-event-close}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidWebView.on('close')</x-search>
 
-當 WebView 關閉時觸發。
+Emitted when the WebView is closed.
 
-**用法**
+**Usage**
 
 ```js
 androidWebView.on('close', data => {});
