@@ -23,8 +23,8 @@ import Navigation from '@site/src/components/Navigation';
 import videoNav from '@site/src/data/video-nav';
 import liveStreams from '@site/src/data/live-streams';
 
-const TITLE = 'Live Streams';
-const DESCRIPTION = 'Check out the latest Playwright live streams';
+const TITLE = '線上直播';
+const DESCRIPTION = '查看最新的 Playwright 直播節目';
 
 export default function Video(): React.ReactElement {
   return (

@@ -1,36 +1,36 @@
 const featureVideos = [
   {
-    title: 'Debugging with AI',
+    title: '使用 AI 偵錯',
     description: '',
     id: 'Ec_3h5Q8RHY',
     year: '2025',
   },
   {
-    title: 'API Mocking',
+    title: 'API 模擬',
     description: '',
     id: 'kvGszYAYQ6M',
     year: '2024',
   },
   {
-    title: 'Trace Viewer',
+    title: '追蹤檢視器',
     description: '',
     id: 'yP6AnTxC34s',
     year: '2024',
   },
   {
-    title: 'Codegen',
+    title: '錄製測試（Codegen）',
     description: '',
     id: '5XIZPqKkdBA',
     year: '2024',
   },
   {
-    title: 'UI Mode',
+    title: 'UI 模式',
     description: '',
     id: 'd0u6XhXknzU',
     year: '2023',
   },
   {
-    title: 'Component Tests (preview)',
+    title: '元件測試（預覽）',
     description: '',
     id: 'y3YxX4sFJbM',
     year: '2022',

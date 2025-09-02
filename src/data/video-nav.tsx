@@ -1,26 +1,26 @@
 const videoNav = [
   {
-    label: 'Conference Videos',
+    label: '研討會影片',
     href: '/community/conference-videos'
   },
   {
-    label: 'Release Videos',
+    label: '版本發佈影片',
     href: '/community/release-videos'
   },
   {
-    label: 'Live Streams',
+    label: '線上直播',
     href: '/community/live-streams'
   },
   {
-    label: 'Feature Videos',
+    label: '功能影片',
     href: '/community/feature-videos'
   },
   {
-    label: 'Learn Videos',
+    label: '教學影片',
     href: '/community/learn-videos'
   },
   {
-    label: 'MCP Videos',
+    label: 'MCP 影片',
     href: '/community/mcp-videos'
   }
 ];

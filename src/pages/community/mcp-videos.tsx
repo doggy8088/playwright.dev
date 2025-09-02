@@ -23,8 +23,8 @@ import Navigation from '@site/src/components/Navigation';
 import videoNav from '@site/src/data/video-nav';
 import mcpVideos from '@site/src/data/mcp-videos';
 
-const TITLE = 'MCP Videos';
-const DESCRIPTION = 'Learn about Model Context Protocol (MCP) integration with Playwright';
+const TITLE = 'MCP 影片';
+const DESCRIPTION = '了解 Model Context Protocol（MCP）與 Playwright 的整合';
 
 export default function Video(): React.ReactElement {
   return (

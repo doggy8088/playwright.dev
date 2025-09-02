@@ -23,8 +23,8 @@ import Navigation from '@site/src/components/Navigation';
 import videoNav from '@site/src/data/video-nav';
 import featureVideos from '@site/src/data/feature-videos';
 
-const TITLE = 'Feature Videos';
-const DESCRIPTION = 'Check out the latest Playwright feature videos';
+const TITLE = '功能影片';
+const DESCRIPTION = '查看最新的 Playwright 功能影片';
 
 export default function Video(): React.ReactElement {
   return (

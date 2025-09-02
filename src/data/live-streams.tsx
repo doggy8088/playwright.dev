@@ -1,7 +1,7 @@
 const liveStreams = [
  
   {
-    title: 'Testing with AI using Playwright MCP (Model Context Protocol) + Live Demo',
+    title: '使用 Playwright MCP（Model Context Protocol）的 AI 測試 + 現場示範',
     description: '',
     id: 'CNzg1aPwrKI',
     year: '2025',
@@ -9,7 +9,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien", "Simon Knott"]
   },
   {
-    title: 'Community updates and Playwright MCP Server',
+    title: '社群更新與 Playwright MCP 伺服器',
     description: '',
     id: 'P-JVscQW5AE',
     year: '2025',
@@ -17,7 +17,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien", "Ben Fellows", "Jean-Francois"]
   },
   {
-    title: 'Playwright Live: Exploring the Latest Features!',
+    title: 'Playwright Live：探索最新功能！',
     description: '',
     id: 'NcSk9fOGEac',
     year: '2025',
@@ -25,7 +25,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien", "Simon Knott"]
   },
   {
-    title: 'Playwright community updates and more',
+    title: 'Playwright 社群更新與更多內容',
     description: '',
     id: 'YH1tJs2GcUM',
     year: '2025',
@@ -33,7 +33,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien", "Ben Fellows"]
   },
   {
-    title: 'Testing with Playwright, Epic React testing tab, Epic web testing course and more',
+    title: '使用 Playwright 測試、Epic React 測試分頁、Epic web 測試課程與更多',
     description: '',
     id: 'ie2v5OVqWt4',
     year: '2024',
@@ -41,7 +41,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien", "Kent C. Dodds"]
   },
   {
-    title: 'The Playwright team demos how to iterate quickly using the new-only-changed option',
+    title: 'Playwright 團隊示範如何使用 --only-changed 迅速迭代',
     description: '',
     id: '8ssf762p3dY',
     year: '2024',
@@ -49,7 +49,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien", "Simon Knott"]
   },
   {
-    title: 'It\'s time to talk Playwright with the clock API',
+    title: '是時候用 Clock API 來聊聊 Playwright 了',
     description: '',
     id: '263x99Oe1g4',
     year: '2024',
@@ -57,15 +57,15 @@ const liveStreams = [
     speakers: ["Debbie O'Brien", "Ben Fellows"]
   },
   {
-    title: 'Comunidad de Playwright, última versión y más',
+    title: 'Playwright 社群、西班牙文最新版本與更多',
     description: '',
     id: 'WOBbNW-MApw',
     year: '2024',
-    host: 'Playwright Live Spanish',
+    host: 'Playwright Live 西語',
     speakers: ["Debbie O'Brien", "Carlos Gauto"]
   },
   {
-    title: 'Community, latest release and more',
+    title: '社群、最新版本與更多',
     description: '',
     id: 'ySBp6Kj0PVc',
     year: '2024',
@@ -73,7 +73,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien", "Ben Fellows"]
   },
   {
-    title: 'Deconstruct the E2E Workflow for Testing and Deployment',
+    title: '拆解用於測試與部署的 E2E 工作流程',
     description: '',
     id: 'FGDQIDtddsY',
     year: '2023',
@@ -81,7 +81,7 @@ const liveStreams = [
     speakers: ["Nitya Narasimhan"]
   },
   {
-    title: 'Awesome Web Testing with Playwright',
+    title: '用 Playwright 做超棒的 Web 測試',
     description: '',
     id: 'OCGef6H09fI',
     year: '2023',
@@ -89,7 +89,7 @@ const liveStreams = [
     speakers: ["Andrew Knight"]
   },
   {
-    title: 'Playwright Q&A',
+    title: 'Playwright 問與答',
     description: '',
     id: 'YSSKlt4i34Q',
     year: '2023',
@@ -97,7 +97,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien, Max Schmitt, Andrey Lushnikov"]
   },
   {
-    title: 'End to End testing with Playwright',
+    title: '使用 Playwright 進行端到端測試',
     description: '',
     id: 'sKUVyVd-nJg',
     year: '2023',
@@ -105,7 +105,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien, Tim Benniks"]
   },
   {
-    title: 'Introduction to Playwright for End-to-End Testing',
+    title: '端到端測試的 Playwright 介紹',
     description: '',
     id: 'lCb9JoZFpHI',
     year: '2023',
@@ -113,7 +113,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien"]
   },
   {
-    title: 'Let\s test with Playwright',
+    title: '讓我們用 Playwright 來測試吧',
     description: '',
     id: 'vEwCyggZzhI',
     year: '2023',
@@ -121,7 +121,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien"]
   },
   {
-    title: 'Playwright cross browser automated testing',
+    title: 'Playwright 跨瀏覽器自動化測試',
     description: '',
     id: 'jorsD4lInwA',
     year: '2022',
@@ -129,7 +129,7 @@ const liveStreams = [
     speakers: ["Debbie O'Brien"]
   },
   {
-    title: 'Testing modern web apps with Playwright and VS Code',
+    title: '使用 Playwright 與 VS Code 測試現代 Web 應用',
     description: '',
     id: 'dLj0U6BgWuw',
     year: '2022',
@@ -137,7 +137,7 @@ const liveStreams = [
     speakers: ["Marcus Felling, Burke Holland"]
   },
   {
-    title: 'End to End Testing w/ Playwright',
+    title: '端到端測試與 Playwright',
     id: 'VMl8aV-ddMA',
     year: '2021',
     host: 'Microsoft Developer',

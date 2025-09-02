@@ -23,8 +23,8 @@ import Navigation from '@site/src/components/Navigation';
 import videoNav from '@site/src/data/video-nav';
 import releaseVideos from '@site/src/data/release-videos';
 
-const TITLE = 'Release Videos';
-const DESCRIPTION = 'Check out the latest Playwright release videos';
+const TITLE = '版本發佈影片';
+const DESCRIPTION = '查看最新的 Playwright 版本發佈影片';
 
 export default function Video(): React.ReactElement {
   return (
