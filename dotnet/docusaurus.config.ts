@@ -91,6 +91,11 @@ export default {
           position: "left",
         },
         {
+          position: "right",
+          label: "🥇 多奇教育訓練課程",
+          href: "https://learn.duotify.com/courses/e2e-playwright",
+        },
+        {
           href: "https://github.com/microsoft/playwright-dotnet",
           position: "right",
           className: "header-github-link",
@@ -203,7 +208,7 @@ export default {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Microsoft`,
+      copyright: `Copyright © ${new Date().getFullYear()} Microsoft | 正體中文翻譯由 <a href="https://www.duotify.com">Will</a> 提供`,
     },
     algolia: {
       indexName: 'playwright-dotnet',
