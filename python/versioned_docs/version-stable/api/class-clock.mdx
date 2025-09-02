@@ -15,7 +15,7 @@ Note that clock is installed for the entire [BrowserContext], so the time in all
 
 ---
 
-## Methods
+## 方法
 
 ### fast_forward {#clock-fast-forward}
 
@@ -23,7 +23,7 @@ Note that clock is installed for the entire [BrowserContext], so the time in all
 
 Advance the clock by jumping forward in time. Only fires due timers at most once. This is equivalent to user closing the laptop lid for a while and reopening it later, after given time.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -51,12 +51,12 @@ await page.clock.fast_forward("30:00")
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `ticks` [int] | [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-fast-forward-option-ticks"/><a href="#clock-fast-forward-option-ticks" class="list-anchor">#</a>
   
   Time may be the number of milliseconds to advance the clock by or a human-readable string. Valid string formats are "08" for eight seconds, "01:00" for one minute and "02:34:10" for two hours, 34 minutes and ten seconds.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-fast-forward-return"/><a href="#clock-fast-forward-return" class="list-anchor">#</a>
 
 ---
@@ -79,19 +79,19 @@ Install fake implementations for the following time-related functions:
 
 Fake timers are used to manually control the flow of time in tests. They allow you to advance time, fire timers, and control the behavior of time-dependent functions. See [clock.run_for()](/api/class-clock.mdx#clock-run-for) and [clock.fast_forward()](/api/class-clock.mdx#clock-fast-forward) for more information.
 
-**Usage**
+**使用方式**
 
 ```python
 clock.install()
 clock.install(**kwargs)
 ```
 
-**Arguments**
+**參數**
 - `time` [float] | [str] | [datetime] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-install-option-time"/><a href="#clock-install-option-time" class="list-anchor">#</a>
   
   Time to initialize with, current system time by default.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-install-return"/><a href="#clock-install-return" class="list-anchor">#</a>
 
 ---
@@ -104,7 +104,7 @@ Advance the clock by jumping forward in time and pause the time. Once this metho
 
 Only fires due timers at most once. This is equivalent to user closing the laptop lid for a while and reopening it at the specified time and pausing.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -166,12 +166,12 @@ await page.clock.pause_at(datetime.datetime(2024, 12, 10, 10, 0, 0))
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `time` [float] | [str] | [datetime]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-pause-at-option-time"/><a href="#clock-pause-at-option-time" class="list-anchor">#</a>
   
   Time to pause at.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-pause-at-return"/><a href="#clock-pause-at-return" class="list-anchor">#</a>
 
 ---
@@ -182,13 +182,13 @@ await page.clock.pause_at(datetime.datetime(2024, 12, 10, 10, 0, 0))
 
 Resumes timers. Once this method is called, time resumes flowing, timers are fired as usual.
 
-**Usage**
+**使用方式**
 
 ```python
 clock.resume()
 ```
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-resume-return"/><a href="#clock-resume-return" class="list-anchor">#</a>
 
 ---
@@ -199,7 +199,7 @@ clock.resume()
 
 Advance the clock, firing all the time-related callbacks.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -227,12 +227,12 @@ await page.clock.run_for("30:00")
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `ticks` [int] | [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-run-for-option-ticks"/><a href="#clock-run-for-option-ticks" class="list-anchor">#</a>
   
   Time may be the number of milliseconds to advance the clock by or a human-readable string. Valid string formats are "08" for eight seconds, "01:00" for one minute and "02:34:10" for two hours, 34 minutes and ten seconds.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-run-for-return"/><a href="#clock-run-for-return" class="list-anchor">#</a>
 
 ---
@@ -245,7 +245,7 @@ Makes `Date.now` and `new Date()` return fixed fake time at all times, keeps all
 
 Use this method for simple scenarios where you only need to test with a predefined time. For more advanced scenarios, use [clock.install()](/api/class-clock.mdx#clock-install) instead. Read docs on [clock emulation](../clock.mdx) to learn more.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -275,12 +275,12 @@ await page.clock.set_fixed_time("2020-02-02")
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `time` [float] | [str] | [datetime]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-fixed-time-option-time"/><a href="#clock-set-fixed-time-option-time" class="list-anchor">#</a>
   
   Time to be set.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-fixed-time-return"/><a href="#clock-set-fixed-time-return" class="list-anchor">#</a>
 
 ---
@@ -291,7 +291,7 @@ await page.clock.set_fixed_time("2020-02-02")
 
 Sets system time, but does not trigger any timers. Use this to test how the web page reacts to a time shift, for example switching from summer to winter time, or changing time zones.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -321,12 +321,12 @@ await page.clock.set_system_time("2020-02-02")
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `time` [float] | [str] | [datetime]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-system-time-option-time"/><a href="#clock-set-system-time-option-time" class="list-anchor">#</a>
   
   Time to be set.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-system-time-return"/><a href="#clock-set-system-time-return" class="list-anchor">#</a>
 
 

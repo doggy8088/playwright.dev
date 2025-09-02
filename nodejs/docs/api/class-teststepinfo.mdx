@@ -24,7 +24,7 @@ test('basic test', async ({ page, browserName }) => {
 
 ---
 
-## Methods
+## 方法
 
 ### attach {#test-step-info-attach}
 
@@ -64,14 +64,14 @@ test('basic test', async ({}) => {
 [testStepInfo.attach()](/api/class-teststepinfo.mdx#test-step-info-attach) automatically takes care of copying attached files to a location that is accessible to reporters. You can safely remove the attachment after awaiting the attach call.
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 await testStepInfo.attach(name);
 await testStepInfo.attach(name, options);
 ```
 
-**Arguments**
+**參數**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-info-attach-option-name"/><a href="#test-step-info-attach-option-name" class="list-anchor">#</a>
   
   Attachment name. The name will also be sanitized and used as the prefix of file name when saving to disk.
@@ -86,7 +86,7 @@ await testStepInfo.attach(name, options);
     
     Path on the filesystem to the attached file. Mutually exclusive with [body](/api/class-teststepinfo.mdx#test-step-info-attach-option-body).
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-info-attach-return"/><a href="#test-step-info-attach-return" class="list-anchor">#</a>
 
 ---
@@ -97,7 +97,7 @@ await testStepInfo.attach(name, options);
 
 Abort the currently running step and mark it as skipped. Useful for steps that are currently failing and planned for a near-term fix.
 
-**Usage**
+**使用方式**
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -119,7 +119,7 @@ test('my test', async ({ page }) => {
 
 Conditionally abort the currently running step and mark it as skipped with an optional description. Useful for steps that should not be executed in some cases.
 
-**Usage**
+**使用方式**
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -133,7 +133,7 @@ test('my test', async ({ page, isMobile }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `condition` [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-info-skip-2-option-condition"/><a href="#test-step-info-skip-2-option-condition" class="list-anchor">#</a>
   
   A skip condition. Test step is skipped when the condition is `true`.
@@ -143,7 +143,7 @@ test('my test', async ({ page, isMobile }) => {
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### titlePath {#test-step-info-title-path}
 
@@ -151,13 +151,13 @@ test('my test', async ({ page, isMobile }) => {
 
 The full title path starting with the test file name, including the step titles. See also [testInfo.titlePath](/api/class-testinfo.mdx#test-info-title-path).
 
-**Usage**
+**使用方式**
 
 ```js
 testStepInfo.titlePath
 ```
 
-**Type**
+**型別 (Type)**
 - [Array]&lt;[string]&gt;
 
 

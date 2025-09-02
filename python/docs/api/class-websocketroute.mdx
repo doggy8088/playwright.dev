@@ -203,7 +203,7 @@ await page.route_web_socket("/ws", handler)
 
 ---
 
-## Methods
+## 方法
 
 ### close {#web-socket-route-close}
 
@@ -211,14 +211,14 @@ await page.route_web_socket("/ws", handler)
 
 Closes one side of the WebSocket connection.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket_route.close()
 web_socket_route.close(**kwargs)
 ```
 
-**Arguments**
+**參數**
 - `code` [int] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-close-option-code"/><a href="#web-socket-route-close-option-code" class="list-anchor">#</a>
   
   Optional [close code](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#code).
@@ -226,7 +226,7 @@ web_socket_route.close(**kwargs)
   
   Optional [close reason](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#reason).
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-close-return"/><a href="#web-socket-route-close-return" class="list-anchor">#</a>
 
 ---
@@ -239,13 +239,13 @@ Allows to handle [`WebSocket.close`](https://developer.mozilla.org/en-US/docs/We
 
 By default, closing one side of the connection, either in the page or on the server, will close the other side. However, when [web_socket_route.on_close()](/api/class-websocketroute.mdx#web-socket-route-on-close) handler is set up, the default forwarding of closure is disabled, and handler should take care of it.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket_route.on_close(handler)
 ```
 
-**Arguments**
+**參數**
 - `handler` [Callable]\[[int] | [undefined]\]:[Promise]\[[Any]\] | [Any]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-on-close-option-handler"/><a href="#web-socket-route-on-close-option-handler" class="list-anchor">#</a>
   
   Function that will handle WebSocket closure. Received an optional [close code](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#code) and an optional [close reason](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#reason).
@@ -264,13 +264,13 @@ Once this method is called, messages are not automatically forwarded to the serv
 
 Calling this method again will override the handler with a new one.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket_route.on_message(handler)
 ```
 
-**Arguments**
+**參數**
 - `handler` [Callable]\[[str]\]:[Promise]\[[Any]\] | [Any]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-on-message-option-handler"/><a href="#web-socket-route-on-message-option-handler" class="list-anchor">#</a>
   
   Function that will handle messages.
@@ -283,20 +283,20 @@ web_socket_route.on_message(handler)
 
 Sends a message to the WebSocket. When called on the original WebSocket, sends the message to the page. When called on the result of [web_socket_route.connect_to_server](/api/class-websocketroute.mdx#web-socket-route-connect-to-server), sends the message to the server. See examples at the top for more details.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket_route.send(message)
 ```
 
-**Arguments**
+**參數**
 - `message` [str] | [bytes]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-send-option-message"/><a href="#web-socket-route-send-option-message" class="list-anchor">#</a>
   
   Message to send.
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### connect_to_server {#web-socket-route-connect-to-server}
 
@@ -310,13 +310,13 @@ Once connected to the server:
 
 See examples at the top for more details.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket_route.connect_to_server
 ```
 
-**Returns**
+**傳回值**
 - [WebSocketRoute]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-connect-to-server-return"/><a href="#web-socket-route-connect-to-server-return" class="list-anchor">#</a>
 
 ---
@@ -327,13 +327,13 @@ web_socket_route.connect_to_server
 
 URL of the WebSocket created in the page.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket_route.url
 ```
 
-**Returns**
+**傳回值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-url-return"/><a href="#web-socket-route-url-return" class="list-anchor">#</a>
 
 

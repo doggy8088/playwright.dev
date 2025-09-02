@@ -22,7 +22,7 @@ JSHandle instances can be used as an argument in [Page.evalOnSelector()](/api/cl
 
 ---
 
-## Methods
+## 方法
 
 ### asElement {#js-handle-as-element}
 
@@ -30,13 +30,13 @@ JSHandle instances can be used as an argument in [Page.evalOnSelector()](/api/cl
 
 Returns either `null` or the object handle itself, if the object handle is an instance of [ElementHandle].
 
-**Usage**
+**使用方式**
 
 ```java
 JSHandle.asElement();
 ```
 
-**Returns**
+**傳回值**
 - [null] | [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-as-element-return"/><a href="#js-handle-as-element-return" class="list-anchor">#</a>
 
 ---
@@ -47,13 +47,13 @@ JSHandle.asElement();
 
 The `jsHandle.dispose` method stops referencing the element handle.
 
-**Usage**
+**使用方式**
 
 ```java
 JSHandle.dispose();
 ```
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-dispose-return"/><a href="#js-handle-dispose-return" class="list-anchor">#</a>
 
 ---
@@ -68,14 +68,14 @@ This method passes this handle as the first argument to [expression](/api/class-
 
 If [expression](/api/class-jshandle.mdx#js-handle-evaluate-option-expression) returns a [Promise], then `handle.evaluate` would wait for the promise to resolve and return its value.
 
-**Usage**
+**使用方式**
 
 ```java
 ElementHandle tweetHandle = page.querySelector(".tweet .retweets");
 assertEquals("10 retweets", tweetHandle.evaluate("node => node.innerText"));
 ```
 
-**Arguments**
+**參數**
 - `expression` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-evaluate-option-expression"/><a href="#js-handle-evaluate-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -83,7 +83,7 @@ assertEquals("10 retweets", tweetHandle.evaluate("node => node.innerText"));
   
   Optional argument to pass to [expression](/api/class-jshandle.mdx#js-handle-evaluate-option-expression).
 
-**Returns**
+**傳回值**
 - [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-evaluate-return"/><a href="#js-handle-evaluate-return" class="list-anchor">#</a>
 
 ---
@@ -102,14 +102,14 @@ If the function passed to the `jsHandle.evaluateHandle` returns a [Promise], the
 
 See [Page.evaluateHandle()](/api/class-page.mdx#page-evaluate-handle) for more details.
 
-**Usage**
+**使用方式**
 
 ```java
 JSHandle.evaluateHandle(expression);
 JSHandle.evaluateHandle(expression, arg);
 ```
 
-**Arguments**
+**參數**
 - `expression` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-evaluate-handle-option-expression"/><a href="#js-handle-evaluate-handle-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -117,7 +117,7 @@ JSHandle.evaluateHandle(expression, arg);
   
   Optional argument to pass to [expression](/api/class-jshandle.mdx#js-handle-evaluate-handle-option-expression).
 
-**Returns**
+**傳回值**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-evaluate-handle-return"/><a href="#js-handle-evaluate-handle-return" class="list-anchor">#</a>
 
 ---
@@ -128,7 +128,7 @@ JSHandle.evaluateHandle(expression, arg);
 
 The method returns a map with **own property names** as keys and JSHandle instances for the property values.
 
-**Usage**
+**使用方式**
 
 ```java
 JSHandle handle = page.evaluateHandle("() => ({ window, document })");
@@ -138,7 +138,7 @@ JSHandle documentHandle = properties.get("document");
 handle.dispose();
 ```
 
-**Returns**
+**傳回值**
 - [Map]&lt;[String], [JSHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-get-properties-return"/><a href="#js-handle-get-properties-return" class="list-anchor">#</a>
 
 ---
@@ -149,18 +149,18 @@ handle.dispose();
 
 Fetches a single property from the referenced object.
 
-**Usage**
+**使用方式**
 
 ```java
 JSHandle.getProperty(propertyName);
 ```
 
-**Arguments**
+**參數**
 - `propertyName` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-get-property-option-property-name"/><a href="#js-handle-get-property-option-property-name" class="list-anchor">#</a>
   
   property to get
 
-**Returns**
+**傳回值**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-get-property-return"/><a href="#js-handle-get-property-return" class="list-anchor">#</a>
 
 ---
@@ -176,13 +176,13 @@ Returns a JSON representation of the object. If the object has a `toJSON` functi
 The method will return an empty JSON object if the referenced object is not stringifiable. It will throw an error if the object has circular references.
 :::
 
-**Usage**
+**使用方式**
 
 ```java
 JSHandle.jsonValue();
 ```
 
-**Returns**
+**傳回值**
 - [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-json-value-return"/><a href="#js-handle-json-value-return" class="list-anchor">#</a>
 
 

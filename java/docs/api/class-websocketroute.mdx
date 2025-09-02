@@ -83,7 +83,7 @@ page.routeWebSocket("/ws", ws -> {
 
 ---
 
-## Methods
+## 方法
 
 ### close {#web-socket-route-close}
 
@@ -91,14 +91,14 @@ page.routeWebSocket("/ws", ws -> {
 
 Closes one side of the WebSocket connection.
 
-**Usage**
+**使用方式**
 
 ```java
 WebSocketRoute.close();
 WebSocketRoute.close(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `WebSocketRoute.CloseOptions` *(optional)*
   - `setCode` [int] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-close-option-code"/><a href="#web-socket-route-close-option-code" class="list-anchor">#</a>
     
@@ -107,7 +107,7 @@ WebSocketRoute.close(options);
     
     Optional [close reason](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#reason).
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-close-return"/><a href="#web-socket-route-close-return" class="list-anchor">#</a>
 
 ---
@@ -124,13 +124,13 @@ Once connected to the server:
 
 See examples at the top for more details.
 
-**Usage**
+**使用方式**
 
 ```java
 WebSocketRoute.connectToServer();
 ```
 
-**Returns**
+**傳回值**
 - [WebSocketRoute]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-connect-to-server-return"/><a href="#web-socket-route-connect-to-server-return" class="list-anchor">#</a>
 
 ---
@@ -143,13 +143,13 @@ Allows to handle [`WebSocket.close`](https://developer.mozilla.org/en-US/docs/We
 
 By default, closing one side of the connection, either in the page or on the server, will close the other side. However, when [WebSocketRoute.onClose()](/api/class-websocketroute.mdx#web-socket-route-on-close) handler is set up, the default forwarding of closure is disabled, and handler should take care of it.
 
-**Usage**
+**使用方式**
 
 ```java
 WebSocketRoute.onClose(handler);
 ```
 
-**Arguments**
+**參數**
 - `handler` [Consumer]&lt;[null] | [int]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-on-close-option-handler"/><a href="#web-socket-route-on-close-option-handler" class="list-anchor">#</a>
   
   Function that will handle WebSocket closure. Received an optional [close code](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#code) and an optional [close reason](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#reason).
@@ -168,13 +168,13 @@ Once this method is called, messages are not automatically forwarded to the serv
 
 Calling this method again will override the handler with a new one.
 
-**Usage**
+**使用方式**
 
 ```java
 WebSocketRoute.onMessage(handler);
 ```
 
-**Arguments**
+**參數**
 - `handler` [Consumer]&lt;[WebSocketFrame]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-on-message-option-handler"/><a href="#web-socket-route-on-message-option-handler" class="list-anchor">#</a>
   
   Function that will handle messages.
@@ -187,13 +187,13 @@ WebSocketRoute.onMessage(handler);
 
 Sends a message to the WebSocket. When called on the original WebSocket, sends the message to the page. When called on the result of [WebSocketRoute.connectToServer()](/api/class-websocketroute.mdx#web-socket-route-connect-to-server), sends the message to the server. See examples at the top for more details.
 
-**Usage**
+**使用方式**
 
 ```java
 WebSocketRoute.send(message);
 ```
 
-**Arguments**
+**參數**
 - `message` [String] | [byte&#91;&#93;]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-send-option-message"/><a href="#web-socket-route-send-option-message" class="list-anchor">#</a>
   
   Message to send.
@@ -206,13 +206,13 @@ WebSocketRoute.send(message);
 
 URL of the WebSocket created in the page.
 
-**Usage**
+**使用方式**
 
 ```java
 WebSocketRoute.url();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-url-return"/><a href="#web-socket-route-url-return" class="list-anchor">#</a>
 
 

@@ -65,7 +65,7 @@ await msg.args[1].json_value() # 42
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### args {#console-message-args}
 
@@ -73,13 +73,13 @@ await msg.args[1].json_value() # 42
 
 List of arguments passed to a `console` function call. See also [page.on("console")](/api/class-page.mdx#page-event-console).
 
-**Usage**
+**使用方式**
 
 ```python
 console_message.args
 ```
 
-**Returns**
+**傳回值**
 - [List]\[[JSHandle]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-args-return"/><a href="#console-message-args-return" class="list-anchor">#</a>
 
 ---
@@ -88,13 +88,13 @@ console_message.args
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>consoleMessage.location</x-search>
 
-**Usage**
+**使用方式**
 
 ```python
 console_message.location
 ```
 
-**Returns**
+**傳回值**
 - [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-location-return"/><a href="#console-message-location-return" class="list-anchor">#</a>
   - `url` [str]
     
@@ -114,13 +114,13 @@ console_message.location
 
 The page that produced this console message, if any.
 
-**Usage**
+**使用方式**
 
 ```python
 console_message.page
 ```
 
-**Returns**
+**傳回值**
 - [NoneType] | [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-page-return"/><a href="#console-message-page-return" class="list-anchor">#</a>
 
 ---
@@ -131,13 +131,13 @@ console_message.page
 
 The text of the console message.
 
-**Usage**
+**使用方式**
 
 ```python
 console_message.text
 ```
 
-**Returns**
+**傳回值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-text-return"/><a href="#console-message-text-return" class="list-anchor">#</a>
 
 ---
@@ -146,13 +146,13 @@ console_message.text
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>consoleMessage.type</x-search>
 
-**Usage**
+**使用方式**
 
 ```python
 console_message.type
 ```
 
-**Returns**
+**傳回值**
 - "log" | "debug" | "info" | "error" | "warning" | "dir" | "dirxml" | "table" | "trace" | "clear" | "startGroup" | "startGroupCollapsed" | "endGroup" | "assert" | "profile" | "profileEnd" | "count" | "timeEnd"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-type-return"/><a href="#console-message-type-return" class="list-anchor">#</a>
 
 

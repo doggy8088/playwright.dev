@@ -13,7 +13,7 @@ Represents a step in the [TestRun].
 
 ---
 
-## Methods
+## 方法
 
 ### titlePath {#test-step-title-path}
 
@@ -21,18 +21,18 @@ Represents a step in the [TestRun].
 
 Returns a list of step titles from the root step down to this step.
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.titlePath();
 ```
 
-**Returns**
+**傳回值**
 - [Array]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-title-path-return"/><a href="#test-step-title-path-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### annotations {#test-step-annotations}
 
@@ -40,13 +40,13 @@ testStep.titlePath();
 
 The list of annotations applicable to the current test step.
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.annotations
 ```
 
-**Type**
+**型別 (Type)**
 - [Array]&lt;[Object]&gt;
   - `type` [string]
     
@@ -66,13 +66,13 @@ testStep.annotations
 
 The list of files or buffers attached in the step execution through [testInfo.attach()](/api/class-testinfo.mdx#test-info-attach).
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.attachments
 ```
 
-**Type**
+**型別 (Type)**
 - [Array]&lt;[Object]&gt;
   - `name` [string]
     
@@ -101,13 +101,13 @@ Step category to differentiate steps with different origin and verbosity. Built-
 * `test.step` for test.step API calls.
 * `test.attach` for test attachmen calls.
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.category
 ```
 
-**Type**
+**型別 (Type)**
 - [string]
 
 ---
@@ -118,13 +118,13 @@ testStep.category
 
 Running time in milliseconds.
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.duration
 ```
 
-**Type**
+**型別 (Type)**
 - [number]
 
 ---
@@ -135,13 +135,13 @@ testStep.duration
 
 Error thrown during the step execution, if any.
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.error
 ```
 
-**Type**
+**型別 (Type)**
 - [TestError]
 
 ---
@@ -152,13 +152,13 @@ testStep.error
 
 Optional location in the source where the step is defined.
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.location
 ```
 
-**Type**
+**型別 (Type)**
 - [Location]
 
 ---
@@ -169,13 +169,13 @@ testStep.location
 
 Parent step, if any.
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.parent
 ```
 
-**Type**
+**型別 (Type)**
 - [TestStep]
 
 ---
@@ -186,13 +186,13 @@ testStep.parent
 
 Start time of this particular test step.
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.startTime
 ```
 
-**Type**
+**型別 (Type)**
 - [Date]
 
 ---
@@ -203,13 +203,13 @@ testStep.startTime
 
 List of steps inside this step.
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.steps
 ```
 
-**Type**
+**型別 (Type)**
 - [Array]&lt;[TestStep]&gt;
 
 ---
@@ -220,13 +220,13 @@ testStep.steps
 
 User-friendly test step title.
 
-**Usage**
+**使用方式**
 
 ```js
 testStep.title
 ```
 
-**Type**
+**型別 (Type)**
 - [string]
 
 

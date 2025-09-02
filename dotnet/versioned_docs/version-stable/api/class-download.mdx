@@ -27,7 +27,7 @@ await download.SaveAsAsync("/path/to/save/at/" + download.SuggestedFilename);
 
 ---
 
-## Methods
+## 方法
 
 ### CancelAsync {#download-cancel}
 
@@ -35,13 +35,13 @@ await download.SaveAsAsync("/path/to/save/at/" + download.SuggestedFilename);
 
 Cancels a download. Will not fail if the download is already finished or canceled. Upon successful cancellations, `download.failure()` would resolve to `'canceled'`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Download.CancelAsync();
 ```
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-cancel-return"/><a href="#download-cancel-return" class="list-anchor">#</a>
 
 ---
@@ -52,13 +52,13 @@ await Download.CancelAsync();
 
 Returns a readable stream for a successful download, or throws for a failed/canceled download.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Download.CreateReadStreamAsync();
 ```
 
-**Returns**
+**傳回值**
 - [Stream]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-create-read-stream-return"/><a href="#download-create-read-stream-return" class="list-anchor">#</a>
 
 ---
@@ -69,13 +69,13 @@ await Download.CreateReadStreamAsync();
 
 Deletes the downloaded file. Will wait for the download to finish if necessary.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Download.DeleteAsync();
 ```
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-delete-return"/><a href="#download-delete-return" class="list-anchor">#</a>
 
 ---
@@ -86,13 +86,13 @@ await Download.DeleteAsync();
 
 Returns download error if any. Will wait for the download to finish if necessary.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Download.FailureAsync();
 ```
 
-**Returns**
+**傳回值**
 - [string]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-failure-return"/><a href="#download-failure-return" class="list-anchor">#</a>
 
 ---
@@ -103,13 +103,13 @@ await Download.FailureAsync();
 
 Get the page that the download belongs to.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Download.Page
 ```
 
-**Returns**
+**傳回值**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-page-return"/><a href="#download-page-return" class="list-anchor">#</a>
 
 ---
@@ -122,13 +122,13 @@ Returns path to the downloaded file for a successful download, or throws for a f
 
 Note that the download's file name is a random GUID, use [Download.SuggestedFilename](/api/class-download.mdx#download-suggested-filename) to get suggested file name.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Download.PathAsync();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-path-return"/><a href="#download-path-return" class="list-anchor">#</a>
 
 ---
@@ -139,18 +139,18 @@ await Download.PathAsync();
 
 Copy the download to a user-specified path. It is safe to call this method while the download is still in progress. Will wait for the download to finish if necessary.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await download.SaveAsAsync("/path/to/save/at/" + download.SuggestedFilename);
 ```
 
-**Arguments**
+**參數**
 - `path` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-save-as-option-path"/><a href="#download-save-as-option-path" class="list-anchor">#</a>
   
   Path where the download should be copied.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-save-as-return"/><a href="#download-save-as-return" class="list-anchor">#</a>
 
 ---
@@ -161,13 +161,13 @@ await download.SaveAsAsync("/path/to/save/at/" + download.SuggestedFilename);
 
 Returns suggested filename for this download. It is typically computed by the browser from the [`Content-Disposition`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition) response header or the `download` attribute. See the spec on [whatwg](https://html.spec.whatwg.org/#downloading-resources). Different browsers can use different logic for computing it.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Download.SuggestedFilename
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-suggested-filename-return"/><a href="#download-suggested-filename-return" class="list-anchor">#</a>
 
 ---
@@ -178,13 +178,13 @@ Download.SuggestedFilename
 
 Returns downloaded url.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Download.Url
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-url-return"/><a href="#download-url-return" class="list-anchor">#</a>
 
 

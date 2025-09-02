@@ -56,7 +56,7 @@ await context.tracing.stop(path = "trace.zip")
 
 ---
 
-## Methods
+## 方法
 
 ### group {#tracing-group}
 
@@ -69,7 +69,7 @@ Use `test.step` instead when available.
 
 Creates a new group within the trace, assigning any subsequent API calls to this group, until [tracing.group_end()](/api/class-tracing.mdx#tracing-group-end) is called. Groups can be nested and will be visible in the trace viewer.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -105,7 +105,7 @@ await page.context.tracing.group_end()
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `name` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-option-name"/><a href="#tracing-group-option-name" class="list-anchor">#</a>
   
   Group name shown in the trace viewer.
@@ -121,7 +121,7 @@ await page.context.tracing.group_end()
     
   Specifies a custom location for the group to be shown in the trace viewer. Defaults to the location of the [tracing.group()](/api/class-tracing.mdx#tracing-group) call.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-return"/><a href="#tracing-group-return" class="list-anchor">#</a>
 
 ---
@@ -132,13 +132,13 @@ await page.context.tracing.group_end()
 
 Closes the last group created by [tracing.group()](/api/class-tracing.mdx#tracing-group).
 
-**Usage**
+**使用方式**
 
 ```python
 tracing.group_end()
 ```
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-end-return"/><a href="#tracing-group-end-return" class="list-anchor">#</a>
 
 ---
@@ -156,7 +156,7 @@ You probably want to [enable tracing in your config file](https://playwright.dev
 The `context.tracing` API captures browser operations and network activity, but it doesn't record test assertions (like `expect` calls). We recommend [enabling tracing through Playwright Test configuration](https://playwright.dev/docs/api/class-testoptions#test-options-trace), which includes those assertions and provides a more complete trace for debugging test failures.
 :::
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -188,7 +188,7 @@ await context.tracing.stop(path = "trace.zip")
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `name` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-name"/><a href="#tracing-start-option-name" class="list-anchor">#</a>
   
   If specified, intermediate trace files are going to be saved into the files with the given name prefix inside the [traces_dir](/api/class-browsertype.mdx#browser-type-launch-option-traces-dir) directory specified in [browser_type.launch()](/api/class-browsertype.mdx#browser-type-launch). To specify the final trace zip file name, you need to pass `path` option to [tracing.stop()](/api/class-tracing.mdx#tracing-stop) instead.
@@ -207,7 +207,7 @@ await context.tracing.stop(path = "trace.zip")
   
   Trace name to be shown in the Trace Viewer.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-return"/><a href="#tracing-start-return" class="list-anchor">#</a>
 
 ---
@@ -218,7 +218,7 @@ await context.tracing.stop(path = "trace.zip")
 
 Start a new trace chunk. If you'd like to record multiple traces on the same [BrowserContext], use [tracing.start()](/api/class-tracing.mdx#tracing-start) once, and then create multiple trace chunks with [tracing.start_chunk()](/api/class-tracing.mdx#tracing-start-chunk) and [tracing.stop_chunk()](/api/class-tracing.mdx#tracing-stop-chunk).
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -268,7 +268,7 @@ await context.tracing.stop_chunk(path = "trace2.zip")
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `name` [str] *(optional)* <font size="2">Added in: v1.32</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-name"/><a href="#tracing-start-chunk-option-name" class="list-anchor">#</a>
   
   If specified, intermediate trace files are going to be saved into the files with the given name prefix inside the [traces_dir](/api/class-browsertype.mdx#browser-type-launch-option-traces-dir) directory specified in [browser_type.launch()](/api/class-browsertype.mdx#browser-type-launch). To specify the final trace zip file name, you need to pass `path` option to [tracing.stop_chunk()](/api/class-tracing.mdx#tracing-stop-chunk) instead.
@@ -276,7 +276,7 @@ await context.tracing.stop_chunk(path = "trace2.zip")
   
   Trace name to be shown in the Trace Viewer.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-return"/><a href="#tracing-start-chunk-return" class="list-anchor">#</a>
 
 ---
@@ -287,19 +287,19 @@ await context.tracing.stop_chunk(path = "trace2.zip")
 
 Stop tracing.
 
-**Usage**
+**使用方式**
 
 ```python
 tracing.stop()
 tracing.stop(**kwargs)
 ```
 
-**Arguments**
+**參數**
 - `path` [Union]\[[str], [pathlib.Path]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-option-path"/><a href="#tracing-stop-option-path" class="list-anchor">#</a>
   
   Export trace into the file with the given path.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-return"/><a href="#tracing-stop-return" class="list-anchor">#</a>
 
 ---
@@ -310,19 +310,19 @@ tracing.stop(**kwargs)
 
 Stop the trace chunk. See [tracing.start_chunk()](/api/class-tracing.mdx#tracing-start-chunk) for more details about multiple trace chunks.
 
-**Usage**
+**使用方式**
 
 ```python
 tracing.stop_chunk()
 tracing.stop_chunk(**kwargs)
 ```
 
-**Arguments**
+**參數**
 - `path` [Union]\[[str], [pathlib.Path]\] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-chunk-option-path"/><a href="#tracing-stop-chunk-option-path" class="list-anchor">#</a>
   
   Export trace collected since the last [tracing.start_chunk()](/api/class-tracing.mdx#tracing-start-chunk) call into the file with the given path.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-chunk-return"/><a href="#tracing-stop-chunk-return" class="list-anchor">#</a>
 
 

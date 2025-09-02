@@ -34,7 +34,7 @@ context.tracing().stop(new Tracing.StopOptions()
 
 ---
 
-## Methods
+## 方法
 
 ### group {#tracing-group}
 
@@ -47,7 +47,7 @@ Use `test.step` instead when available.
 
 Creates a new group within the trace, assigning any subsequent API calls to this group, until [Tracing.groupEnd()](/api/class-tracing.mdx#tracing-group-end) is called. Groups can be nested and will be visible in the trace viewer.
 
-**Usage**
+**使用方式**
 
 ```java
 // All actions between group and groupEnd
@@ -58,7 +58,7 @@ page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("API")).click(
 page.context().tracing().groupEnd();
 ```
 
-**Arguments**
+**參數**
 - `name` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-option-name"/><a href="#tracing-group-option-name" class="list-anchor">#</a>
   
   Group name shown in the trace viewer.
@@ -75,7 +75,7 @@ page.context().tracing().groupEnd();
       
     Specifies a custom location for the group to be shown in the trace viewer. Defaults to the location of the [Tracing.group()](/api/class-tracing.mdx#tracing-group) call.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-return"/><a href="#tracing-group-return" class="list-anchor">#</a>
 
 ---
@@ -86,13 +86,13 @@ page.context().tracing().groupEnd();
 
 Closes the last group created by [Tracing.group()](/api/class-tracing.mdx#tracing-group).
 
-**Usage**
+**使用方式**
 
 ```java
 Tracing.groupEnd();
 ```
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-end-return"/><a href="#tracing-group-end-return" class="list-anchor">#</a>
 
 ---
@@ -110,7 +110,7 @@ You probably want to [enable tracing in your config file](https://playwright.dev
 The `context.tracing` API captures browser operations and network activity, but it doesn't record test assertions (like `expect` calls). We recommend [enabling tracing through Playwright Test configuration](https://playwright.dev/docs/api/class-testoptions#test-options-trace), which includes those assertions and provides a more complete trace for debugging test failures.
 :::
 
-**Usage**
+**使用方式**
 
 ```java
 context.tracing().start(new Tracing.StartOptions()
@@ -122,7 +122,7 @@ context.tracing().stop(new Tracing.StopOptions()
   .setPath(Paths.get("trace.zip")));
 ```
 
-**Arguments**
+**參數**
 - `options` `Tracing.StartOptions` *(optional)*
   - `setName` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-name"/><a href="#tracing-start-option-name" class="list-anchor">#</a>
     
@@ -142,7 +142,7 @@ context.tracing().stop(new Tracing.StopOptions()
     
     Trace name to be shown in the Trace Viewer.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-return"/><a href="#tracing-start-return" class="list-anchor">#</a>
 
 ---
@@ -153,7 +153,7 @@ context.tracing().stop(new Tracing.StopOptions()
 
 Start a new trace chunk. If you'd like to record multiple traces on the same [BrowserContext], use [Tracing.start()](/api/class-tracing.mdx#tracing-start) once, and then create multiple trace chunks with [Tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) and [Tracing.stopChunk()](/api/class-tracing.mdx#tracing-stop-chunk).
 
-**Usage**
+**使用方式**
 
 ```java
 context.tracing().start(new Tracing.StartOptions()
@@ -175,7 +175,7 @@ context.tracing().stopChunk(new Tracing.StopChunkOptions()
   .setPath(Paths.get("trace2.zip")));
 ```
 
-**Arguments**
+**參數**
 - `options` `Tracing.StartChunkOptions` *(optional)*
   - `setName` [String] *(optional)* <font size="2">Added in: v1.32</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-name"/><a href="#tracing-start-chunk-option-name" class="list-anchor">#</a>
     
@@ -184,7 +184,7 @@ context.tracing().stopChunk(new Tracing.StopChunkOptions()
     
     Trace name to be shown in the Trace Viewer.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-return"/><a href="#tracing-start-chunk-return" class="list-anchor">#</a>
 
 ---
@@ -195,20 +195,20 @@ context.tracing().stopChunk(new Tracing.StopChunkOptions()
 
 Stop tracing.
 
-**Usage**
+**使用方式**
 
 ```java
 Tracing.stop();
 Tracing.stop(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `Tracing.StopOptions` *(optional)*
   - `setPath` [Path] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-option-path"/><a href="#tracing-stop-option-path" class="list-anchor">#</a>
     
     Export trace into the file with the given path.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-return"/><a href="#tracing-stop-return" class="list-anchor">#</a>
 
 ---
@@ -219,20 +219,20 @@ Tracing.stop(options);
 
 Stop the trace chunk. See [Tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) for more details about multiple trace chunks.
 
-**Usage**
+**使用方式**
 
 ```java
 Tracing.stopChunk();
 Tracing.stopChunk(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `Tracing.StopChunkOptions` *(optional)*
   - `setPath` [Path] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-chunk-option-path"/><a href="#tracing-stop-chunk-option-path" class="list-anchor">#</a>
     
     Export trace collected since the last [Tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) call into the file with the given path.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-chunk-return"/><a href="#tracing-stop-chunk-return" class="list-anchor">#</a>
 
 

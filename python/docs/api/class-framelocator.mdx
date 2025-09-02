@@ -83,7 +83,7 @@ If you have a [FrameLocator] object it can be converted to [Locator] pointing to
 
 ---
 
-## Methods
+## 方法
 
 ### frame_locator {#frame-locator-frame-locator}
 
@@ -91,18 +91,18 @@ If you have a [FrameLocator] object it can be converted to [Locator] pointing to
 
 When working with iframes, you can create a frame locator that will enter the iframe and allow selecting elements in that iframe.
 
-**Usage**
+**使用方式**
 
 ```python
 frame_locator.frame_locator(selector)
 ```
 
-**Arguments**
+**參數**
 - `selector` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-frame-locator-option-selector"/><a href="#frame-locator-frame-locator-option-selector" class="list-anchor">#</a>
   
   A selector to use when resolving DOM element.
 
-**Returns**
+**傳回值**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-frame-locator-return"/><a href="#frame-locator-frame-locator-return" class="list-anchor">#</a>
 
 ---
@@ -113,7 +113,7 @@ frame_locator.frame_locator(selector)
 
 Allows locating elements by their alt text.
 
-**Usage**
+**使用方式**
 
 For example, this method will find the image by alt text "Playwright logo":
 
@@ -145,7 +145,7 @@ await page.get_by_alt_text("Playwright logo").click()
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `text` [str] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-alt-text-option-text"/><a href="#frame-locator-get-by-alt-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -153,7 +153,7 @@ await page.get_by_alt_text("Playwright logo").click()
   
   Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-alt-text-return"/><a href="#frame-locator-get-by-alt-text-return" class="list-anchor">#</a>
 
 ---
@@ -164,7 +164,7 @@ await page.get_by_alt_text("Playwright logo").click()
 
 Allows locating input elements by the text of the associated `<label>` or `aria-labelledby` element, or by the `aria-label` attribute.
 
-**Usage**
+**使用方式**
 
 For example, this method will find inputs by label "Username" and "Password" in the following DOM:
 
@@ -200,7 +200,7 @@ await page.get_by_label("Password").fill("secret")
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `text` [str] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-label-option-text"/><a href="#frame-locator-get-by-label-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -208,7 +208,7 @@ await page.get_by_label("Password").fill("secret")
   
   Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-label-return"/><a href="#frame-locator-get-by-label-return" class="list-anchor">#</a>
 
 ---
@@ -219,7 +219,7 @@ await page.get_by_label("Password").fill("secret")
 
 Allows locating input elements by the placeholder text.
 
-**Usage**
+**使用方式**
 
 For example, consider the following DOM structure.
 
@@ -253,7 +253,7 @@ await page.get_by_placeholder("name@example.com").fill("playwright@microsoft.com
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `text` [str] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-placeholder-option-text"/><a href="#frame-locator-get-by-placeholder-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -261,7 +261,7 @@ await page.get_by_placeholder("name@example.com").fill("playwright@microsoft.com
   
   Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-placeholder-return"/><a href="#frame-locator-get-by-placeholder-return" class="list-anchor">#</a>
 
 ---
@@ -272,7 +272,7 @@ await page.get_by_placeholder("name@example.com").fill("playwright@microsoft.com
 
 Allows locating elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure.
 
@@ -319,7 +319,7 @@ await page.get_by_role("button", name=re.compile("submit", re.IGNORECASE)).click
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `role` "alert" | "alertdialog" | "application" | "article" | "banner" | "blockquote" | "button" | "caption" | "cell" | "checkbox" | "code" | "columnheader" | "combobox" | "complementary" | "contentinfo" | "definition" | "deletion" | "dialog" | "directory" | "document" | "emphasis" | "feed" | "figure" | "form" | "generic" | "grid" | "gridcell" | "group" | "heading" | "img" | "insertion" | "link" | "list" | "listbox" | "listitem" | "log" | "main" | "marquee" | "math" | "meter" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "navigation" | "none" | "note" | "option" | "paragraph" | "presentation" | "progressbar" | "radio" | "radiogroup" | "region" | "row" | "rowgroup" | "rowheader" | "scrollbar" | "search" | "searchbox" | "separator" | "slider" | "spinbutton" | "status" | "strong" | "subscript" | "superscript" | "switch" | "tab" | "table" | "tablist" | "tabpanel" | "term" | "textbox" | "time" | "timer" | "toolbar" | "tooltip" | "tree" | "treegrid" | "treeitem"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-role-option-role"/><a href="#frame-locator-get-by-role-option-role" class="list-anchor">#</a>
   
   Required aria role.
@@ -371,7 +371,7 @@ await page.get_by_role("button", name=re.compile("submit", re.IGNORECASE)).click
   
   Learn more about [`aria-selected`](https://www.w3.org/TR/wai-aria-1.2/#aria-selected).
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-role-return"/><a href="#frame-locator-get-by-role-return" class="list-anchor">#</a>
 
 **Details**
@@ -388,7 +388,7 @@ Many html elements have an implicitly [defined role](https://w3c.github.io/html-
 
 Locate element by the test id.
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure.
 
@@ -422,12 +422,12 @@ await page.get_by_test_id("directions").click()
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `test_id` [str] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-test-id-option-test-id"/><a href="#frame-locator-get-by-test-id-option-test-id" class="list-anchor">#</a>
   
   Id to locate the element by.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-test-id-return"/><a href="#frame-locator-get-by-test-id-return" class="list-anchor">#</a>
 
 **Details**
@@ -444,7 +444,7 @@ Allows locating elements that contain given text.
 
 See also [locator.filter()](/api/class-locator.mdx#locator-filter) that allows to match by another criteria, like an accessible role, and then filter by the text content.
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure:
 
@@ -505,7 +505,7 @@ page.get_by_text(re.compile("^hello$", re.IGNORECASE))
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `text` [str] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-text-option-text"/><a href="#frame-locator-get-by-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -513,7 +513,7 @@ page.get_by_text(re.compile("^hello$", re.IGNORECASE))
   
   Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-text-return"/><a href="#frame-locator-get-by-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -530,7 +530,7 @@ Input elements of the type `button` and `submit` are matched by their `value` in
 
 Allows locating elements by their title attribute.
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure.
 
@@ -564,7 +564,7 @@ await expect(page.get_by_title("Issues count")).to_have_text("25 issues")
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `text` [str] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-title-option-text"/><a href="#frame-locator-get-by-title-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -572,7 +572,7 @@ await expect(page.get_by_title("Issues count")).to_have_text("25 issues")
   
   Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-title-return"/><a href="#frame-locator-get-by-title-return" class="list-anchor">#</a>
 
 ---
@@ -585,14 +585,14 @@ The method finds an element matching the specified selector in the locator's sub
 
 [Learn more about locators](../locators.mdx).
 
-**Usage**
+**使用方式**
 
 ```python
 frame_locator.locator(selector_or_locator)
 frame_locator.locator(selector_or_locator, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `selector_or_locator` [str] | [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-locator-option-selector-or-locator"/><a href="#frame-locator-locator-option-selector-or-locator" class="list-anchor">#</a>
   
   A selector or locator to use when resolving DOM element.
@@ -615,12 +615,12 @@ frame_locator.locator(selector_or_locator, **kwargs)
   
   Matches elements containing specified text somewhere inside, possibly in a child or a descendant element. When passed a [string], matching is case-insensitive and searches for a substring. For example, `"Playwright"` matches `<article><div>Playwright</div></article>`.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-locator-return"/><a href="#frame-locator-locator-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### owner {#frame-locator-owner}
 
@@ -632,7 +632,7 @@ Useful when you have a [FrameLocator] object obtained somewhere, and later on wo
 
 For a reverse operation, use [locator.content_frame](/api/class-locator.mdx#locator-content-frame).
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -664,7 +664,7 @@ await expect(locator).to_be_visible()
 </TabItem>
 </Tabs>
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-owner-return"/><a href="#frame-locator-owner-return" class="list-anchor">#</a>
 
 ---
@@ -684,13 +684,13 @@ Use [locator.first](/api/class-locator.mdx#locator-first) followed by [locator.c
 
 Returns locator to the first matching frame.
 
-**Usage**
+**使用方式**
 
 ```python
 frame_locator.first
 ```
 
-**Returns**
+**傳回值**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-first-return"/><a href="#frame-locator-first-return" class="list-anchor">#</a>
 
 ---
@@ -708,13 +708,13 @@ Use [locator.last](/api/class-locator.mdx#locator-last) followed by [locator.con
 
 Returns locator to the last matching frame.
 
-**Usage**
+**使用方式**
 
 ```python
 frame_locator.last
 ```
 
-**Returns**
+**傳回值**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-last-return"/><a href="#frame-locator-last-return" class="list-anchor">#</a>
 
 ---
@@ -732,16 +732,16 @@ Use [locator.nth()](/api/class-locator.mdx#locator-nth) followed by [locator.con
 
 Returns locator to the n-th matching frame. It's zero based, `nth(0)` selects the first frame.
 
-**Usage**
+**使用方式**
 
 ```python
 frame_locator.nth(index)
 ```
 
-**Arguments**
+**參數**
 - `index` [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-nth-option-index"/><a href="#frame-locator-nth-option-index" class="list-anchor">#</a>
 
-**Returns**
+**傳回值**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-nth-return"/><a href="#frame-locator-nth-return" class="list-anchor">#</a>
 
 

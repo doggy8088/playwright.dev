@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## Methods
+## 方法
 
 ### close {#android-device-close}
 
@@ -21,13 +21,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 Disconnects from the device.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.close();
 ```
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-close-return"/><a href="#android-device-close-return" class="list-anchor">#</a>
 
 ---
@@ -38,14 +38,14 @@ await androidDevice.close();
 
 Drags the widget defined by [selector](/api/class-androiddevice.mdx#android-device-drag-option-selector) towards [dest](/api/class-androiddevice.mdx#android-device-drag-option-dest) point.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.drag(selector, dest);
 await androidDevice.drag(selector, dest, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-option-selector"/><a href="#android-device-drag-option-selector" class="list-anchor">#</a>
   
   Selector to drag.
@@ -65,7 +65,7 @@ await androidDevice.drag(selector, dest, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-drag-return"/><a href="#android-device-drag-return" class="list-anchor">#</a>
 
 ---
@@ -76,14 +76,14 @@ await androidDevice.drag(selector, dest, options);
 
 Fills the specific [selector](/api/class-androiddevice.mdx#android-device-fill-option-selector) input box with [text](/api/class-androiddevice.mdx#android-device-fill-option-text).
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.fill(selector, text);
 await androidDevice.fill(selector, text, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fill-option-selector"/><a href="#android-device-fill-option-selector" class="list-anchor">#</a>
   
   Selector to fill.
@@ -95,7 +95,7 @@ await androidDevice.fill(selector, text, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fill-return"/><a href="#android-device-fill-return" class="list-anchor">#</a>
 
 ---
@@ -106,14 +106,14 @@ await androidDevice.fill(selector, text, options);
 
 Flings the widget defined by [selector](/api/class-androiddevice.mdx#android-device-fling-option-selector) in  the specified [direction](/api/class-androiddevice.mdx#android-device-fling-option-direction).
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.fling(selector, direction);
 await androidDevice.fling(selector, direction, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-option-selector"/><a href="#android-device-fling-option-selector" class="list-anchor">#</a>
   
   Selector to fling.
@@ -128,7 +128,7 @@ await androidDevice.fling(selector, direction, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-fling-return"/><a href="#android-device-fling-return" class="list-anchor">#</a>
 
 ---
@@ -139,18 +139,18 @@ await androidDevice.fling(selector, direction, options);
 
 Returns information about a widget defined by [selector](/api/class-androiddevice.mdx#android-device-info-option-selector).
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.info(selector);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-info-option-selector"/><a href="#android-device-info-option-selector" class="list-anchor">#</a>
   
   Selector to return information about.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[AndroidElementInfo]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-info-return"/><a href="#android-device-info-return" class="list-anchor">#</a>
 
 ---
@@ -161,14 +161,14 @@ await androidDevice.info(selector);
 
 Installs an apk on the device.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.installApk(file);
 await androidDevice.installApk(file, options);
 ```
 
-**Arguments**
+**參數**
 - `file` [string] | [Buffer]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-install-apk-option-file"/><a href="#android-device-install-apk-option-file" class="list-anchor">#</a>
   
   Either a path to the apk file, or apk file content.
@@ -177,7 +177,7 @@ await androidDevice.installApk(file, options);
     
     Optional arguments to pass to the `shell:cmd package install` call. Defaults to `-r -t -S`.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-install-apk-return"/><a href="#android-device-install-apk-return" class="list-anchor">#</a>
 
 ---
@@ -188,14 +188,14 @@ await androidDevice.installApk(file, options);
 
 Launches Chrome browser on the device, and returns its persistent context.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.launchBrowser();
 await androidDevice.launchBrowser(options);
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `acceptDownloads` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-launch-browser-option-accept-downloads"/><a href="#android-device-launch-browser-option-accept-downloads" class="list-anchor">#</a>
     
@@ -396,7 +396,7 @@ await androidDevice.launchBrowser(options);
     The `null` value opts out from the default presets, makes viewport depend on the host window size defined by the operating system. It makes the execution of the tests non-deterministic.
     :::
     
-**Returns**
+**傳回值**
 - [Promise]&lt;[BrowserContext]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-launch-browser-return"/><a href="#android-device-launch-browser-return" class="list-anchor">#</a>
 
 ---
@@ -407,14 +407,14 @@ await androidDevice.launchBrowser(options);
 
 Performs a long tap on the widget defined by [selector](/api/class-androiddevice.mdx#android-device-long-tap-option-selector).
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.longTap(selector);
 await androidDevice.longTap(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-long-tap-option-selector"/><a href="#android-device-long-tap-option-selector" class="list-anchor">#</a>
   
   Selector to tap on.
@@ -423,7 +423,7 @@ await androidDevice.longTap(selector, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-long-tap-return"/><a href="#android-device-long-tap-return" class="list-anchor">#</a>
 
 ---
@@ -434,13 +434,13 @@ await androidDevice.longTap(selector, options);
 
 Device model.
 
-**Usage**
+**使用方式**
 
 ```js
 androidDevice.model();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-model-return"/><a href="#android-device-model-return" class="list-anchor">#</a>
 
 ---
@@ -451,18 +451,18 @@ androidDevice.model();
 
 Launches a process in the shell on the device and returns a socket to communicate with the launched process.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.open(command);
 ```
 
-**Arguments**
+**參數**
 - `command` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-open-option-command"/><a href="#android-device-open-option-command" class="list-anchor">#</a>
   
   Shell command to execute.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[AndroidSocket]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-open-return"/><a href="#android-device-open-return" class="list-anchor">#</a>
 
 ---
@@ -473,14 +473,14 @@ await androidDevice.open(command);
 
 Pinches the widget defined by [selector](/api/class-androiddevice.mdx#android-device-pinch-close-option-selector) in the closing direction.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.pinchClose(selector, percent);
 await androidDevice.pinchClose(selector, percent, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-pinch-close-option-selector"/><a href="#android-device-pinch-close-option-selector" class="list-anchor">#</a>
   
   Selector to pinch close.
@@ -495,7 +495,7 @@ await androidDevice.pinchClose(selector, percent, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-pinch-close-return"/><a href="#android-device-pinch-close-return" class="list-anchor">#</a>
 
 ---
@@ -506,14 +506,14 @@ await androidDevice.pinchClose(selector, percent, options);
 
 Pinches the widget defined by [selector](/api/class-androiddevice.mdx#android-device-pinch-open-option-selector) in the open direction.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.pinchOpen(selector, percent);
 await androidDevice.pinchOpen(selector, percent, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-pinch-open-option-selector"/><a href="#android-device-pinch-open-option-selector" class="list-anchor">#</a>
   
   Selector to pinch open.
@@ -528,7 +528,7 @@ await androidDevice.pinchOpen(selector, percent, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-pinch-open-return"/><a href="#android-device-pinch-open-return" class="list-anchor">#</a>
 
 ---
@@ -539,14 +539,14 @@ await androidDevice.pinchOpen(selector, percent, options);
 
 Presses the specific [key](/api/class-androiddevice.mdx#android-device-press-option-key) in the widget defined by [selector](/api/class-androiddevice.mdx#android-device-press-option-selector).
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.press(selector, key);
 await androidDevice.press(selector, key, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-press-option-selector"/><a href="#android-device-press-option-selector" class="list-anchor">#</a>
   
   Selector to press the key in.
@@ -558,7 +558,7 @@ await androidDevice.press(selector, key, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-press-return"/><a href="#android-device-press-return" class="list-anchor">#</a>
 
 ---
@@ -569,14 +569,14 @@ await androidDevice.press(selector, key, options);
 
 Copies a file to the device.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.push(file, path);
 await androidDevice.push(file, path, options);
 ```
 
-**Arguments**
+**參數**
 - `file` [string] | [Buffer]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-push-option-file"/><a href="#android-device-push-option-file" class="list-anchor">#</a>
   
   Either a path to the file, or file content.
@@ -588,7 +588,7 @@ await androidDevice.push(file, path, options);
     
     Optional file mode, defaults to `644` (`rw-r--r--`).
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-push-return"/><a href="#android-device-push-return" class="list-anchor">#</a>
 
 ---
@@ -599,20 +599,20 @@ await androidDevice.push(file, path, options);
 
 Returns the buffer with the captured screenshot of the device.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.screenshot();
 await androidDevice.screenshot(options);
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `path` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-screenshot-option-path"/><a href="#android-device-screenshot-option-path" class="list-anchor">#</a>
     
     The file path to save the image to. If [path](/api/class-androiddevice.mdx#android-device-screenshot-option-path) is a relative path, then it is resolved relative to the current working directory. If no path is provided, the image won't be saved to the disk.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Buffer]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-screenshot-return"/><a href="#android-device-screenshot-return" class="list-anchor">#</a>
 
 ---
@@ -623,14 +623,14 @@ await androidDevice.screenshot(options);
 
 Scrolls the widget defined by [selector](/api/class-androiddevice.mdx#android-device-scroll-option-selector) in  the specified [direction](/api/class-androiddevice.mdx#android-device-scroll-option-direction).
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.scroll(selector, direction, percent);
 await androidDevice.scroll(selector, direction, percent, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-scroll-option-selector"/><a href="#android-device-scroll-option-selector" class="list-anchor">#</a>
   
   Selector to scroll.
@@ -648,7 +648,7 @@ await androidDevice.scroll(selector, direction, percent, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-scroll-return"/><a href="#android-device-scroll-return" class="list-anchor">#</a>
 
 ---
@@ -659,13 +659,13 @@ await androidDevice.scroll(selector, direction, percent, options);
 
 Device serial number.
 
-**Usage**
+**使用方式**
 
 ```js
 androidDevice.serial();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-serial-return"/><a href="#android-device-serial-return" class="list-anchor">#</a>
 
 ---
@@ -676,13 +676,13 @@ androidDevice.serial();
 
 This setting will change the default maximum time for all the methods accepting [timeout](/api/class-androiddevice.mdx#android-device-set-default-timeout-option-timeout) option.
 
-**Usage**
+**使用方式**
 
 ```js
 androidDevice.setDefaultTimeout(timeout);
 ```
 
-**Arguments**
+**參數**
 - `timeout` [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-set-default-timeout-option-timeout"/><a href="#android-device-set-default-timeout-option-timeout" class="list-anchor">#</a>
   
   Maximum time in milliseconds
@@ -695,18 +695,18 @@ androidDevice.setDefaultTimeout(timeout);
 
 Executes a shell command on the device and returns its output.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.shell(command);
 ```
 
-**Arguments**
+**參數**
 - `command` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-shell-option-command"/><a href="#android-device-shell-option-command" class="list-anchor">#</a>
   
   Shell command to execute.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Buffer]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-shell-return"/><a href="#android-device-shell-return" class="list-anchor">#</a>
 
 ---
@@ -717,14 +717,14 @@ await androidDevice.shell(command);
 
 Swipes the widget defined by [selector](/api/class-androiddevice.mdx#android-device-swipe-option-selector) in  the specified [direction](/api/class-androiddevice.mdx#android-device-swipe-option-direction).
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.swipe(selector, direction, percent);
 await androidDevice.swipe(selector, direction, percent, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-swipe-option-selector"/><a href="#android-device-swipe-option-selector" class="list-anchor">#</a>
   
   Selector to swipe.
@@ -742,7 +742,7 @@ await androidDevice.swipe(selector, direction, percent, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-swipe-return"/><a href="#android-device-swipe-return" class="list-anchor">#</a>
 
 ---
@@ -753,14 +753,14 @@ await androidDevice.swipe(selector, direction, percent, options);
 
 Taps on the widget defined by [selector](/api/class-androiddevice.mdx#android-device-tap-option-selector).
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.tap(selector);
 await androidDevice.tap(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-tap-option-selector"/><a href="#android-device-tap-option-selector" class="list-anchor">#</a>
   
   Selector to tap on.
@@ -772,7 +772,7 @@ await androidDevice.tap(selector, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-tap-return"/><a href="#android-device-tap-return" class="list-anchor">#</a>
 
 ---
@@ -783,14 +783,14 @@ await androidDevice.tap(selector, options);
 
 Waits for the specific [selector](/api/class-androiddevice.mdx#android-device-wait-option-selector) to either appear or disappear, depending on the [state](/api/class-androiddevice.mdx#android-device-wait-option-state).
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.wait(selector);
 await androidDevice.wait(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [AndroidSelector]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-wait-option-selector"/><a href="#android-device-wait-option-selector" class="list-anchor">#</a>
   
   Selector to wait for.
@@ -804,7 +804,7 @@ await androidDevice.wait(selector, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-wait-return"/><a href="#android-device-wait-return" class="list-anchor">#</a>
 
 ---
@@ -815,14 +815,14 @@ await androidDevice.wait(selector, options);
 
 Waits for event to fire and passes its value into the predicate function. Returns when the predicate returns truthy value.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.waitForEvent(event);
 await androidDevice.waitForEvent(event, optionsOrPredicate);
 ```
 
-**Arguments**
+**參數**
 - `event` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-wait-for-event-option-event"/><a href="#android-device-wait-for-event-option-event" class="list-anchor">#</a>
   
   Event name, same one typically passed into `*.on(event)`.
@@ -836,7 +836,7 @@ await androidDevice.waitForEvent(event, optionsOrPredicate);
   
   Either a predicate that receives an event or an options object. Optional.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-wait-for-event-return"/><a href="#android-device-wait-for-event-return" class="list-anchor">#</a>
 
 ---
@@ -847,14 +847,14 @@ await androidDevice.waitForEvent(event, optionsOrPredicate);
 
 This method waits until [AndroidWebView] matching the [selector](/api/class-androiddevice.mdx#android-device-web-view-option-selector) is opened and returns it. If there is already an open [AndroidWebView] matching the [selector](/api/class-androiddevice.mdx#android-device-web-view-option-selector), returns immediately.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidDevice.webView(selector);
 await androidDevice.webView(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-web-view-option-selector"/><a href="#android-device-web-view-option-selector" class="list-anchor">#</a>
   - `pkg` [string] *(optional)*
     
@@ -867,7 +867,7 @@ await androidDevice.webView(selector, options);
     
     Maximum time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [androidDevice.setDefaultTimeout()](/api/class-androiddevice.mdx#android-device-set-default-timeout) method.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[AndroidWebView]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-web-view-return"/><a href="#android-device-web-view-return" class="list-anchor">#</a>
 
 ---
@@ -878,35 +878,35 @@ await androidDevice.webView(selector, options);
 
 Currently open WebViews.
 
-**Usage**
+**使用方式**
 
 ```js
 androidDevice.webViews();
 ```
 
-**Returns**
+**傳回值**
 - [Array]&lt;[AndroidWebView]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-device-web-views-return"/><a href="#android-device-web-views-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### input {#android-device-input}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.9</font><x-search>androidDevice.input</x-search>
 
-**Usage**
+**使用方式**
 
 ```js
 androidDevice.input
 ```
 
-**Type**
+**型別 (Type)**
 - [AndroidInput]
 
 ---
 
-## Events
+## 事件
 
 ### on('close') {#android-device-event-close}
 
@@ -914,13 +914,13 @@ androidDevice.input
 
 Emitted when the device connection gets closed.
 
-**Usage**
+**使用方式**
 
 ```js
 androidDevice.on('close', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [AndroidDevice]
 
 ---
@@ -931,13 +931,13 @@ androidDevice.on('close', data => {});
 
 Emitted when a new WebView instance is detected.
 
-**Usage**
+**使用方式**
 
 ```js
 androidDevice.on('webview', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [AndroidWebView]
 
 

@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## Methods
+## 方法
 
 ### AllHeadersAsync {#response-all-headers}
 
@@ -21,13 +21,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 An object with all the response HTTP headers associated with this response.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Response.AllHeadersAsync();
 ```
 
-**Returns**
+**傳回值**
 - [IDictionary]&lt;[string], [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-all-headers-return"/><a href="#response-all-headers-return" class="list-anchor">#</a>
 
 ---
@@ -38,13 +38,13 @@ await Response.AllHeadersAsync();
 
 Returns the buffer with response body.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Response.BodyAsync();
 ```
 
-**Returns**
+**傳回值**
 - [byte]&#91;&#93;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-body-return"/><a href="#response-body-return" class="list-anchor">#</a>
 
 ---
@@ -55,13 +55,13 @@ await Response.BodyAsync();
 
 Waits for this response to finish, returns always `null`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Response.FinishedAsync();
 ```
 
-**Returns**
+**傳回值**
 - [string]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-finished-return"/><a href="#response-finished-return" class="list-anchor">#</a>
 
 ---
@@ -72,13 +72,13 @@ await Response.FinishedAsync();
 
 Returns the [Frame] that initiated this response.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Response.Frame
 ```
 
-**Returns**
+**傳回值**
 - [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-frame-return"/><a href="#response-frame-return" class="list-anchor">#</a>
 
 ---
@@ -89,13 +89,13 @@ Response.Frame
 
 Indicates whether this Response was fulfilled by a Service Worker's Fetch Handler (i.e. via [FetchEvent.respondWith](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith)).
 
-**Usage**
+**使用方式**
 
 ```csharp
 Response.FromServiceWorker
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-from-service-worker-return"/><a href="#response-from-service-worker-return" class="list-anchor">#</a>
 
 ---
@@ -106,18 +106,18 @@ Response.FromServiceWorker
 
 Returns the value of the header matching the name. The name is case-insensitive. If multiple headers have the same name (except `set-cookie`), they are returned as a list separated by `, `. For `set-cookie`, the `\n` separator is used. If no headers are found, `null` is returned.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Response.HeaderValueAsync(name);
 ```
 
-**Arguments**
+**參數**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-value-option-name"/><a href="#response-header-value-option-name" class="list-anchor">#</a>
   
   Name of the header.
 
-**Returns**
+**傳回值**
 - [string]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-value-return"/><a href="#response-header-value-return" class="list-anchor">#</a>
 
 ---
@@ -128,18 +128,18 @@ await Response.HeaderValueAsync(name);
 
 Returns all values of the headers matching the name, for example `set-cookie`. The name is case-insensitive.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Response.HeaderValuesAsync(name);
 ```
 
-**Arguments**
+**參數**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-values-option-name"/><a href="#response-header-values-option-name" class="list-anchor">#</a>
   
   Name of the header.
 
-**Returns**
+**傳回值**
 - [IReadOnlyList]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-values-return"/><a href="#response-header-values-return" class="list-anchor">#</a>
 
 ---
@@ -150,13 +150,13 @@ await Response.HeaderValuesAsync(name);
 
 An object with the response HTTP headers. The header names are lower-cased. Note that this method does not return security-related headers, including cookie-related ones. You can use [Response.AllHeadersAsync()](/api/class-response.mdx#response-all-headers) for complete list of headers that include `cookie` information.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Response.Headers
 ```
 
-**Returns**
+**傳回值**
 - [IDictionary]&lt;[string], [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-headers-return"/><a href="#response-headers-return" class="list-anchor">#</a>
 
 ---
@@ -167,13 +167,13 @@ Response.Headers
 
 An array with all the request HTTP headers associated with this response. Unlike [Response.AllHeadersAsync()](/api/class-response.mdx#response-all-headers), header names are NOT lower-cased. Headers with multiple entries, such as `Set-Cookie`, appear in the array multiple times.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Response.HeadersArrayAsync();
 ```
 
-**Returns**
+**傳回值**
 - [IReadOnlyList]&lt;`HttpHeader`&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-headers-array-return"/><a href="#response-headers-array-return" class="list-anchor">#</a>
   - `name` [string]
     
@@ -192,13 +192,13 @@ Returns the JSON representation of response body.
 
 This method will throw if the response body is not parsable via `JSON.parse`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Response.JsonAsync();
 ```
 
-**Returns**
+**傳回值**
 - [JsonElement]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-json-return"/><a href="#response-json-return" class="list-anchor">#</a>
 
 ---
@@ -209,13 +209,13 @@ await Response.JsonAsync();
 
 Contains a boolean stating whether the response was successful (status in the range 200-299) or not.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Response.Ok
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-ok-return"/><a href="#response-ok-return" class="list-anchor">#</a>
 
 ---
@@ -226,13 +226,13 @@ Response.Ok
 
 Returns the matching [Request] object.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Response.Request
 ```
 
-**Returns**
+**傳回值**
 - [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-request-return"/><a href="#response-request-return" class="list-anchor">#</a>
 
 ---
@@ -243,13 +243,13 @@ Response.Request
 
 Returns SSL and other security information.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Response.SecurityDetailsAsync();
 ```
 
-**Returns**
+**傳回值**
 - SecurityDetails?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-security-details-return"/><a href="#response-security-details-return" class="list-anchor">#</a>
   - `issuer` [string]? *(optional)*
     
@@ -275,13 +275,13 @@ await Response.SecurityDetailsAsync();
 
 Returns the IP address and port of the server.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Response.ServerAddrAsync();
 ```
 
-**Returns**
+**傳回值**
 - ServerAddr?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-server-addr-return"/><a href="#response-server-addr-return" class="list-anchor">#</a>
   - `ipAddress` [string]
     
@@ -297,13 +297,13 @@ await Response.ServerAddrAsync();
 
 Contains the status code of the response (e.g., 200 for a success).
 
-**Usage**
+**使用方式**
 
 ```csharp
 Response.Status
 ```
 
-**Returns**
+**傳回值**
 - [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-status-return"/><a href="#response-status-return" class="list-anchor">#</a>
 
 ---
@@ -314,13 +314,13 @@ Response.Status
 
 Contains the status text of the response (e.g. usually an "OK" for a success).
 
-**Usage**
+**使用方式**
 
 ```csharp
 Response.StatusText
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-status-text-return"/><a href="#response-status-text-return" class="list-anchor">#</a>
 
 ---
@@ -331,13 +331,13 @@ Response.StatusText
 
 Returns the text representation of response body.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Response.TextAsync();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-text-return"/><a href="#response-text-return" class="list-anchor">#</a>
 
 ---
@@ -348,13 +348,13 @@ await Response.TextAsync();
 
 Contains the URL of the response.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Response.Url
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-url-return"/><a href="#response-url-return" class="list-anchor">#</a>
 
 

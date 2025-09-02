@@ -34,7 +34,7 @@ client.send("Animation.setPlaybackRate", params);
 
 ---
 
-## Methods
+## 方法
 
 ### detach {#cdp-session-detach}
 
@@ -42,13 +42,13 @@ client.send("Animation.setPlaybackRate", params);
 
 Detaches the CDPSession from the target. Once detached, the CDPSession object won't emit any events and can't be used to send messages.
 
-**Usage**
+**使用方式**
 
 ```java
 CDPSession.detach();
 ```
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="cdp-session-detach-return"/><a href="#cdp-session-detach-return" class="list-anchor">#</a>
 
 ---
@@ -59,13 +59,13 @@ CDPSession.detach();
 
 Unregister an event handler for events with the specified event name. The given handler will not be called anymore for events with the given name.
 
-**Usage**
+**使用方式**
 
 ```java
 CDPSession.off(eventName, handler);
 ```
 
-**Arguments**
+**參數**
 - `eventName` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="cdp-session-off-option-event-name"/><a href="#cdp-session-off-option-event-name" class="list-anchor">#</a>
   
   CDP event name.
@@ -81,13 +81,13 @@ CDPSession.off(eventName, handler);
 
 Register an event handler for events with the specified event name. The given handler will be called for every event with the given name.
 
-**Usage**
+**使用方式**
 
 ```java
 CDPSession.on(eventName, handler);
 ```
 
-**Arguments**
+**參數**
 - `eventName` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="cdp-session-on-option-event-name"/><a href="#cdp-session-on-option-event-name" class="list-anchor">#</a>
   
   CDP event name.
@@ -101,14 +101,14 @@ CDPSession.on(eventName, handler);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>cdpSession.send</x-search>
 
-**Usage**
+**使用方式**
 
 ```java
 CDPSession.send(method);
 CDPSession.send(method, args);
 ```
 
-**Arguments**
+**參數**
 - `method` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="cdp-session-send-option-method"/><a href="#cdp-session-send-option-method" class="list-anchor">#</a>
   
   Protocol method name.
@@ -116,7 +116,7 @@ CDPSession.send(method, args);
   
   Optional method parameters.
 
-**Returns**
+**傳回值**
 - [JsonObject]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="cdp-session-send-return"/><a href="#cdp-session-send-return" class="list-anchor">#</a>
 
 

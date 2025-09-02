@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## Methods
+## 方法
 
 ### all_headers {#response-all-headers}
 
@@ -21,13 +21,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 An object with all the response HTTP headers associated with this response.
 
-**Usage**
+**使用方式**
 
 ```python
 response.all_headers()
 ```
 
-**Returns**
+**傳回值**
 - [Dict]\[[str], [str]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-all-headers-return"/><a href="#response-all-headers-return" class="list-anchor">#</a>
 
 ---
@@ -38,13 +38,13 @@ response.all_headers()
 
 Returns the buffer with response body.
 
-**Usage**
+**使用方式**
 
 ```python
 response.body()
 ```
 
-**Returns**
+**傳回值**
 - [bytes]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-body-return"/><a href="#response-body-return" class="list-anchor">#</a>
 
 ---
@@ -55,13 +55,13 @@ response.body()
 
 Waits for this response to finish, returns always `null`.
 
-**Usage**
+**使用方式**
 
 ```python
 response.finished()
 ```
 
-**Returns**
+**傳回值**
 - [NoneType] | [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-finished-return"/><a href="#response-finished-return" class="list-anchor">#</a>
 
 ---
@@ -72,18 +72,18 @@ response.finished()
 
 Returns the value of the header matching the name. The name is case-insensitive. If multiple headers have the same name (except `set-cookie`), they are returned as a list separated by `, `. For `set-cookie`, the `\n` separator is used. If no headers are found, `null` is returned.
 
-**Usage**
+**使用方式**
 
 ```python
 response.header_value(name)
 ```
 
-**Arguments**
+**參數**
 - `name` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-value-option-name"/><a href="#response-header-value-option-name" class="list-anchor">#</a>
   
   Name of the header.
 
-**Returns**
+**傳回值**
 - [NoneType] | [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-value-return"/><a href="#response-header-value-return" class="list-anchor">#</a>
 
 ---
@@ -94,18 +94,18 @@ response.header_value(name)
 
 Returns all values of the headers matching the name, for example `set-cookie`. The name is case-insensitive.
 
-**Usage**
+**使用方式**
 
 ```python
 response.header_values(name)
 ```
 
-**Arguments**
+**參數**
 - `name` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-values-option-name"/><a href="#response-header-values-option-name" class="list-anchor">#</a>
   
   Name of the header.
 
-**Returns**
+**傳回值**
 - [List]\[[str]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-values-return"/><a href="#response-header-values-return" class="list-anchor">#</a>
 
 ---
@@ -116,13 +116,13 @@ response.header_values(name)
 
 An array with all the request HTTP headers associated with this response. Unlike [response.all_headers()](/api/class-response.mdx#response-all-headers), header names are NOT lower-cased. Headers with multiple entries, such as `Set-Cookie`, appear in the array multiple times.
 
-**Usage**
+**使用方式**
 
 ```python
 response.headers_array()
 ```
 
-**Returns**
+**傳回值**
 - [List]\[[Dict]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-headers-array-return"/><a href="#response-headers-array-return" class="list-anchor">#</a>
   - `name` [str]
     
@@ -141,13 +141,13 @@ Returns the JSON representation of response body.
 
 This method will throw if the response body is not parsable via `JSON.parse`.
 
-**Usage**
+**使用方式**
 
 ```python
 response.json()
 ```
 
-**Returns**
+**傳回值**
 - [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-json-return"/><a href="#response-json-return" class="list-anchor">#</a>
 
 ---
@@ -158,13 +158,13 @@ response.json()
 
 Returns SSL and other security information.
 
-**Usage**
+**使用方式**
 
 ```python
 response.security_details()
 ```
 
-**Returns**
+**傳回值**
 - [NoneType] | [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-security-details-return"/><a href="#response-security-details-return" class="list-anchor">#</a>
   - `issuer` [str] *(optional)*
     
@@ -190,13 +190,13 @@ response.security_details()
 
 Returns the IP address and port of the server.
 
-**Usage**
+**使用方式**
 
 ```python
 response.server_addr()
 ```
 
-**Returns**
+**傳回值**
 - [NoneType] | [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-server-addr-return"/><a href="#response-server-addr-return" class="list-anchor">#</a>
   - `ipAddress` [str]
     
@@ -212,18 +212,18 @@ response.server_addr()
 
 Returns the text representation of response body.
 
-**Usage**
+**使用方式**
 
 ```python
 response.text()
 ```
 
-**Returns**
+**傳回值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-text-return"/><a href="#response-text-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### frame {#response-frame}
 
@@ -231,13 +231,13 @@ response.text()
 
 Returns the [Frame] that initiated this response.
 
-**Usage**
+**使用方式**
 
 ```python
 response.frame
 ```
 
-**Returns**
+**傳回值**
 - [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-frame-return"/><a href="#response-frame-return" class="list-anchor">#</a>
 
 ---
@@ -248,13 +248,13 @@ response.frame
 
 Indicates whether this Response was fulfilled by a Service Worker's Fetch Handler (i.e. via [FetchEvent.respondWith](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith)).
 
-**Usage**
+**使用方式**
 
 ```python
 response.from_service_worker
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-from-service-worker-return"/><a href="#response-from-service-worker-return" class="list-anchor">#</a>
 
 ---
@@ -265,13 +265,13 @@ response.from_service_worker
 
 An object with the response HTTP headers. The header names are lower-cased. Note that this method does not return security-related headers, including cookie-related ones. You can use [response.all_headers()](/api/class-response.mdx#response-all-headers) for complete list of headers that include `cookie` information.
 
-**Usage**
+**使用方式**
 
 ```python
 response.headers
 ```
 
-**Returns**
+**傳回值**
 - [Dict]\[[str], [str]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-headers-return"/><a href="#response-headers-return" class="list-anchor">#</a>
 
 ---
@@ -282,13 +282,13 @@ response.headers
 
 Contains a boolean stating whether the response was successful (status in the range 200-299) or not.
 
-**Usage**
+**使用方式**
 
 ```python
 response.ok
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-ok-return"/><a href="#response-ok-return" class="list-anchor">#</a>
 
 ---
@@ -299,13 +299,13 @@ response.ok
 
 Returns the matching [Request] object.
 
-**Usage**
+**使用方式**
 
 ```python
 response.request
 ```
 
-**Returns**
+**傳回值**
 - [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-request-return"/><a href="#response-request-return" class="list-anchor">#</a>
 
 ---
@@ -316,13 +316,13 @@ response.request
 
 Contains the status code of the response (e.g., 200 for a success).
 
-**Usage**
+**使用方式**
 
 ```python
 response.status
 ```
 
-**Returns**
+**傳回值**
 - [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-status-return"/><a href="#response-status-return" class="list-anchor">#</a>
 
 ---
@@ -333,13 +333,13 @@ response.status
 
 Contains the status text of the response (e.g. usually an "OK" for a success).
 
-**Usage**
+**使用方式**
 
 ```python
 response.status_text
 ```
 
-**Returns**
+**傳回值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-status-text-return"/><a href="#response-status-text-return" class="list-anchor">#</a>
 
 ---
@@ -350,13 +350,13 @@ response.status_text
 
 Contains the URL of the response.
 
-**Usage**
+**使用方式**
 
 ```python
 response.url
 ```
 
-**Returns**
+**傳回值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-url-return"/><a href="#response-url-return" class="list-anchor">#</a>
 
 

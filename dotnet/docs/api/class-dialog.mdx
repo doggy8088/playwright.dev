@@ -42,7 +42,7 @@ Dialogs are dismissed automatically, unless there is a [Page.Dialog](/api/class-
 
 ---
 
-## Methods
+## 方法
 
 ### AcceptAsync {#dialog-accept}
 
@@ -50,18 +50,18 @@ Dialogs are dismissed automatically, unless there is a [Page.Dialog](/api/class-
 
 Returns when the dialog has been accepted.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Dialog.AcceptAsync(promptText);
 ```
 
-**Arguments**
+**參數**
 - `promptText` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-accept-option-prompt-text"/><a href="#dialog-accept-option-prompt-text" class="list-anchor">#</a>
   
   A text to enter in prompt. Does not cause any effects if the dialog's `type` is not prompt. Optional.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-accept-return"/><a href="#dialog-accept-return" class="list-anchor">#</a>
 
 ---
@@ -72,13 +72,13 @@ await Dialog.AcceptAsync(promptText);
 
 If dialog is prompt, returns default prompt value. Otherwise, returns empty string.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Dialog.DefaultValue
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-default-value-return"/><a href="#dialog-default-value-return" class="list-anchor">#</a>
 
 ---
@@ -89,13 +89,13 @@ Dialog.DefaultValue
 
 Returns when the dialog has been dismissed.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Dialog.DismissAsync();
 ```
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-dismiss-return"/><a href="#dialog-dismiss-return" class="list-anchor">#</a>
 
 ---
@@ -106,13 +106,13 @@ await Dialog.DismissAsync();
 
 A message displayed in the dialog.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Dialog.Message
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-message-return"/><a href="#dialog-message-return" class="list-anchor">#</a>
 
 ---
@@ -123,13 +123,13 @@ Dialog.Message
 
 The page that initiated this dialog, if available.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Dialog.Page
 ```
 
-**Returns**
+**傳回值**
 - [Page]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-page-return"/><a href="#dialog-page-return" class="list-anchor">#</a>
 
 ---
@@ -140,13 +140,13 @@ Dialog.Page
 
 Returns dialog's type, can be one of `alert`, `beforeunload`, `confirm` or `prompt`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Dialog.Type
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-type-return"/><a href="#dialog-type-return" class="list-anchor">#</a>
 
 

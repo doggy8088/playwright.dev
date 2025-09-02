@@ -28,7 +28,7 @@ download.saveAs(Paths.get("/path/to/save/at/", download.suggestedFilename()));
 
 ---
 
-## Methods
+## 方法
 
 ### cancel {#download-cancel}
 
@@ -36,13 +36,13 @@ download.saveAs(Paths.get("/path/to/save/at/", download.suggestedFilename()));
 
 Cancels a download. Will not fail if the download is already finished or canceled. Upon successful cancellations, `download.failure()` would resolve to `'canceled'`.
 
-**Usage**
+**使用方式**
 
 ```java
 Download.cancel();
 ```
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-cancel-return"/><a href="#download-cancel-return" class="list-anchor">#</a>
 
 ---
@@ -53,13 +53,13 @@ Download.cancel();
 
 Returns a readable stream for a successful download, or throws for a failed/canceled download.
 
-**Usage**
+**使用方式**
 
 ```java
 Download.createReadStream();
 ```
 
-**Returns**
+**傳回值**
 - [InputStream]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-create-read-stream-return"/><a href="#download-create-read-stream-return" class="list-anchor">#</a>
 
 ---
@@ -70,13 +70,13 @@ Download.createReadStream();
 
 Deletes the downloaded file. Will wait for the download to finish if necessary.
 
-**Usage**
+**使用方式**
 
 ```java
 Download.delete();
 ```
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-delete-return"/><a href="#download-delete-return" class="list-anchor">#</a>
 
 ---
@@ -87,13 +87,13 @@ Download.delete();
 
 Returns download error if any. Will wait for the download to finish if necessary.
 
-**Usage**
+**使用方式**
 
 ```java
 Download.failure();
 ```
 
-**Returns**
+**傳回值**
 - [null] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-failure-return"/><a href="#download-failure-return" class="list-anchor">#</a>
 
 ---
@@ -104,13 +104,13 @@ Download.failure();
 
 Get the page that the download belongs to.
 
-**Usage**
+**使用方式**
 
 ```java
 Download.page();
 ```
 
-**Returns**
+**傳回值**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-page-return"/><a href="#download-page-return" class="list-anchor">#</a>
 
 ---
@@ -123,13 +123,13 @@ Returns path to the downloaded file for a successful download, or throws for a f
 
 Note that the download's file name is a random GUID, use [Download.suggestedFilename()](/api/class-download.mdx#download-suggested-filename) to get suggested file name.
 
-**Usage**
+**使用方式**
 
 ```java
 Download.path();
 ```
 
-**Returns**
+**傳回值**
 - [Path]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-path-return"/><a href="#download-path-return" class="list-anchor">#</a>
 
 ---
@@ -140,18 +140,18 @@ Download.path();
 
 Copy the download to a user-specified path. It is safe to call this method while the download is still in progress. Will wait for the download to finish if necessary.
 
-**Usage**
+**使用方式**
 
 ```java
 download.saveAs(Paths.get("/path/to/save/at/", download.suggestedFilename()));
 ```
 
-**Arguments**
+**參數**
 - `path` [Path]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-save-as-option-path"/><a href="#download-save-as-option-path" class="list-anchor">#</a>
   
   Path where the download should be copied.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-save-as-return"/><a href="#download-save-as-return" class="list-anchor">#</a>
 
 ---
@@ -162,13 +162,13 @@ download.saveAs(Paths.get("/path/to/save/at/", download.suggestedFilename()));
 
 Returns suggested filename for this download. It is typically computed by the browser from the [`Content-Disposition`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition) response header or the `download` attribute. See the spec on [whatwg](https://html.spec.whatwg.org/#downloading-resources). Different browsers can use different logic for computing it.
 
-**Usage**
+**使用方式**
 
 ```java
 Download.suggestedFilename();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-suggested-filename-return"/><a href="#download-suggested-filename-return" class="list-anchor">#</a>
 
 ---
@@ -179,13 +179,13 @@ Download.suggestedFilename();
 
 Returns downloaded url.
 
-**Usage**
+**使用方式**
 
 ```java
 Download.url();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-url-return"/><a href="#download-url-return" class="list-anchor">#</a>
 
 

@@ -43,7 +43,7 @@ await file_chooser.set_files("myfile.pdf")
 
 ---
 
-## Methods
+## 方法
 
 ### set_files {#file-chooser-set-files}
 
@@ -51,14 +51,14 @@ await file_chooser.set_files("myfile.pdf")
 
 Sets the value of the file input this chooser is associated with. If some of the `filePaths` are relative paths, then they are resolved relative to the current working directory. For empty array, clears the selected files.
 
-**Usage**
+**使用方式**
 
 ```python
 file_chooser.set_files(files)
 file_chooser.set_files(files, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `files` [Union]\[[str], [pathlib.Path]\] | [List]\[[Union]\[[str], [pathlib.Path]\]\] | [Dict] | [List]\[[Dict]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="file-chooser-set-files-option-files"/><a href="#file-chooser-set-files-option-files" class="list-anchor">#</a>
   - `name` [str]
     
@@ -81,12 +81,12 @@ file_chooser.set_files(files, **kwargs)
   
   Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="file-chooser-set-files-return"/><a href="#file-chooser-set-files-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### element {#file-chooser-element}
 
@@ -94,13 +94,13 @@ file_chooser.set_files(files, **kwargs)
 
 Returns input element associated with this file chooser.
 
-**Usage**
+**使用方式**
 
 ```python
 file_chooser.element
 ```
 
-**Returns**
+**傳回值**
 - [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="file-chooser-element-return"/><a href="#file-chooser-element-return" class="list-anchor">#</a>
 
 ---
@@ -111,13 +111,13 @@ file_chooser.element
 
 Returns whether this file chooser accepts multiple files.
 
-**Usage**
+**使用方式**
 
 ```python
 file_chooser.is_multiple()
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="file-chooser-is-multiple-return"/><a href="#file-chooser-is-multiple-return" class="list-anchor">#</a>
 
 ---
@@ -128,13 +128,13 @@ file_chooser.is_multiple()
 
 Returns page this file chooser belongs to.
 
-**Usage**
+**使用方式**
 
 ```python
 file_chooser.page
 ```
 
-**Returns**
+**傳回值**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="file-chooser-page-return"/><a href="#file-chooser-page-return" class="list-anchor">#</a>
 
 

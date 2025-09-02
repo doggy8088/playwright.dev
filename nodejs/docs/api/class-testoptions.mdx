@@ -40,7 +40,7 @@ test('my portrait test', async ({ page }) => {
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### acceptDownloads {#test-options-accept-downloads}
 
@@ -48,7 +48,7 @@ test('my portrait test', async ({ page }) => {
 
 Whether to automatically download all the attachments. Defaults to `true` where all the downloads are accepted.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -60,7 +60,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -73,7 +73,7 @@ Default timeout for each Playwright action in milliseconds, defaults to 0 (no ti
 
 This is a default timeout for all Playwright actions, same as configured via [page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout).
 
-**Usage**
+**使用方式**
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
@@ -88,7 +88,7 @@ export default defineConfig({
 
 Learn more about [various timeouts](../test-timeouts.mdx).
 
-**Type**
+**型別 (Type)**
 - [number]
 
 ---
@@ -102,7 +102,7 @@ When using [page.goto()](/api/class-page.mdx#page-goto), [page.route()](/api/cla
 * baseURL: `http://localhost:3000/foo/` and navigating to `./bar.html` results in `http://localhost:3000/foo/bar.html`
 * baseURL: `http://localhost:3000/foo` (without trailing slash) and navigating to `./bar.html` results in `http://localhost:3000/bar.html`
 
-**Usage**
+**使用方式**
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
@@ -115,7 +115,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [string]
 
 ---
@@ -126,7 +126,7 @@ export default defineConfig({
 
 Name of the browser that runs tests. Defaults to `'chromium'`. Most of the time you should set `browserName` in your [TestConfig]:
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig, devices } from '@playwright/test';
@@ -138,7 +138,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - "chromium" | "firefox" | "webkit"
 
 ---
@@ -149,7 +149,7 @@ export default defineConfig({
 
 Toggles bypassing page's Content-Security-Policy. Defaults to `false`.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -161,7 +161,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -176,7 +176,7 @@ Use "chromium" to [opt in to new headless mode](../browsers.mdx#chromium-new-hea
 
 Use "chrome", "chrome-beta", "chrome-dev", "chrome-canary", "msedge", "msedge-beta", "msedge-dev", or "msedge-canary" to use branded [Google Chrome and Microsoft Edge](../browsers.mdx#google-chrome--microsoft-edge).
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -194,7 +194,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [string]
 
 ---
@@ -205,7 +205,7 @@ export default defineConfig({
 
 TLS Client Authentication allows the server to request a client certificate and verify it.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -222,7 +222,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [Array]&lt;[Object]&gt;
   - `origin` [string]
     
@@ -268,7 +268,7 @@ When using WebKit on macOS, accessing `localhost` will not pick up client certif
 
 Emulates [prefers-colors-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) media feature, supported values are `'light'` and `'dark'`. See [page.emulateMedia()](/api/class-page.mdx#page-emulate-media) for more details. Passing `null` resets emulation to system defaults. Defaults to `'light'`.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -280,7 +280,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [null] | "light" | "dark" | "no-preference"
 
 ---
@@ -289,7 +289,7 @@ export default defineConfig({
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.10</font><x-search>testOptions.connectOptions</x-search>
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -305,7 +305,7 @@ export default defineConfig({
 
 When connect options are specified, default [fixtures.browser](/api/class-fixtures.mdx#fixtures-browser), [fixtures.context](/api/class-fixtures.mdx#fixtures-context) and [fixtures.page](/api/class-fixtures.mdx#fixtures-page) use the remote browser instead of launching a browser locally, and any launch options like [testOptions.headless](/api/class-testoptions.mdx#test-options-headless) or [testOptions.channel](/api/class-testoptions.mdx#test-options-channel) are ignored.
 
-**Type**
+**型別 (Type)**
 - [void] | [Object]
   - `wsEndpoint` [string]
     
@@ -328,7 +328,7 @@ When connect options are specified, default [fixtures.browser](/api/class-fixtur
 
 Options used to create the context, as passed to [browser.newContext()](/api/class-browser.mdx#browser-new-context). Specific options like [testOptions.viewport](/api/class-testoptions.mdx#test-options-viewport) take priority over this.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -342,7 +342,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [Object]
 
 ---
@@ -353,7 +353,7 @@ export default defineConfig({
 
 Specify device scale factor (can be thought of as dpr). Defaults to `1`. Learn more about [emulating devices with device scale factor](../emulation.mdx#devices).
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -366,7 +366,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [number]
 
 ---
@@ -377,7 +377,7 @@ export default defineConfig({
 
 An object containing additional HTTP headers to be sent with every request. Defaults to none.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -391,7 +391,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [Object]&lt;[string], [string]&gt;
 
 ---
@@ -400,7 +400,7 @@ export default defineConfig({
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.10</font><x-search>testOptions.geolocation</x-search>
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -414,7 +414,7 @@ export default defineConfig({
 
 Learn more about [geolocation](../emulation.mdx#color-scheme-and-media).
 
-**Type**
+**型別 (Type)**
 - [Object]
   - `latitude` [number]
     
@@ -434,7 +434,7 @@ Learn more about [geolocation](../emulation.mdx#color-scheme-and-media).
 
 Specifies if viewport supports touch events. Defaults to false. Learn more about [mobile emulation](../emulation.mdx#devices).
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -446,7 +446,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -457,7 +457,7 @@ export default defineConfig({
 
 Whether to run browser in headless mode. More details for [Chromium](https://developers.google.com/web/updates/2017/04/headless-chrome) and [Firefox](https://hacks.mozilla.org/2017/12/using-headless-mode-in-firefox/). Defaults to `true` unless the [devtools](/api/class-browsertype.mdx#browser-type-launch-option-devtools) option is `true`.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -469,7 +469,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -480,7 +480,7 @@ export default defineConfig({
 
 Credentials for [HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). If no origin is specified, the username and password are sent to any servers upon unauthorized responses.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -495,7 +495,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [Object]
   - `username` [string]
     
@@ -518,7 +518,7 @@ export default defineConfig({
 
 Whether to ignore HTTPS errors when sending network requests. Defaults to `false`.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -530,7 +530,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -541,7 +541,7 @@ export default defineConfig({
 
 Whether the `meta viewport` tag is taken into account and touch events are enabled. isMobile is a part of device, so you don't actually need to set it manually. Defaults to `false` and is not supported in Firefox. Learn more about [mobile emulation](../emulation.mdx#ismobile).
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -553,7 +553,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -564,7 +564,7 @@ export default defineConfig({
 
 Whether or not to enable JavaScript in the context. Defaults to `true`. Learn more about [disabling JavaScript](../emulation.mdx#javascript-enabled).
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -576,7 +576,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -592,7 +592,7 @@ Options used to launch the browser, as passed to [browserType.launch()](/api/cla
 Use custom browser args at your own risk, as some of them may break Playwright functionality.
 :::
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -612,7 +612,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [Object]
 
 ---
@@ -623,7 +623,7 @@ export default defineConfig({
 
 Specify user locale, for example `en-GB`, `de-DE`, etc. Locale will affect `navigator.language` value, `Accept-Language` request header value as well as number and date formatting rules. Defaults to `en-US`. Learn more about emulation in our [emulation guide](../emulation.mdx#locale--timezone).
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -635,7 +635,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [string]
 
 ---
@@ -648,7 +648,7 @@ Timeout for each navigation action in milliseconds. Defaults to 0 (no timeout).
 
 This is a default navigation timeout, same as configured via [page.setDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout).
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -662,7 +662,7 @@ export default defineConfig({
 
 Learn more about [various timeouts](../test-timeouts.mdx).
 
-**Type**
+**型別 (Type)**
 - [number]
 
 ---
@@ -673,7 +673,7 @@ Learn more about [various timeouts](../test-timeouts.mdx).
 
 Whether to emulate network being offline. Defaults to `false`. Learn more about [network emulation](../emulation.mdx#offline).
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -685,7 +685,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -696,7 +696,7 @@ export default defineConfig({
 
 A list of permissions to grant to all pages in this context. See [browserContext.grantPermissions()](/api/class-browsercontext.mdx#browser-context-grant-permissions) for more details. Defaults to none.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -708,7 +708,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [Array]&lt;[string]&gt;
 
 ---
@@ -719,7 +719,7 @@ export default defineConfig({
 
 Network proxy settings.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -734,7 +734,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [Object]
   - `server` [string]
     
@@ -761,7 +761,7 @@ Whether to automatically capture a screenshot after each test. Defaults to `'off
 * `'only-on-failure'`: Capture screenshot after each test failure.
 * `'on-first-failure'`: Capture screenshot after each test's first failure.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -775,7 +775,7 @@ export default defineConfig({
 
 Learn more about [automatic screenshots](../test-use-options.mdx#recording-options).
 
-**Type**
+**型別 (Type)**
 - [Object] | "off" | "on" | "only-on-failure" | "on-first-failure"
   - `mode` "off" | "on" | "only-on-failure" | "on-first-failure"
     
@@ -797,7 +797,7 @@ Whether to allow sites to register Service workers. Defaults to `'allow'`.
 * `'allow'`: [Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) can be registered.
 * `'block'`: Playwright will block all registration of Service Workers.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -809,7 +809,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - "allow" | "block"
 
 ---
@@ -822,7 +822,7 @@ Learn more about [storage state and auth](../auth.mdx).
 
 Populates context with given storage state. This option can be used to initialize context with logged-in information obtained via [browserContext.storageState()](/api/class-browsercontext.mdx#browser-context-storage-state).
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -834,7 +834,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [string] | [Object]
   - `cookies` [Array]&lt;[Object]&gt;
     - `name` [string]
@@ -900,7 +900,7 @@ test('not signed in test', async ({ page }) => {
 
 Custom attribute to be used in [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id). `data-testid` is used by default.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -920,7 +920,7 @@ export default defineConfig({
 
 Changes the timezone of the context. See [ICU's metaZones.txt](https://cs.chromium.org/chromium/src/third_party/icu/source/data/misc/metaZones.txt?rcl=faee8bc70570192d82d2978a71e2a615788597d1) for a list of supported timezone IDs. Defaults to the system timezone.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -932,7 +932,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [string]
 
 ---
@@ -951,7 +951,7 @@ Whether to record trace for each test. Defaults to `'off'`.
 
 For more control, pass an object that specifies `mode` and trace features to enable.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -965,7 +965,7 @@ export default defineConfig({
 
 Learn more about [recording trace](../test-use-options.mdx#recording-options).
 
-**Type**
+**型別 (Type)**
 - [Object] | "off" | "on" | "retain-on-failure" | "on-first-retry" | "retain-on-first-failure"
   - `mode` "off" | "on" | "retain-on-failure" | "on-first-retry" | "on-all-retries" | "retain-on-first-failure"
     
@@ -991,7 +991,7 @@ Learn more about [recording trace](../test-use-options.mdx#recording-options).
 
 Specific user agent to use in this context.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -1003,7 +1003,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [string]
 
 ---
@@ -1020,7 +1020,7 @@ Whether to record video for each test. Defaults to `'off'`.
 
 To control video size, pass an object with `mode` and `size` properties. If video size is not specified, it will be equal to [testOptions.viewport](/api/class-testoptions.mdx#test-options-viewport) scaled down to fit into 800x800. If `viewport` is not configured explicitly the video size defaults to 800x450. Actual picture of each page will be scaled down if necessary to fit the specified size.
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -1034,7 +1034,7 @@ export default defineConfig({
 
 Learn more about [recording video](../test-use-options.mdx#recording-options).
 
-**Type**
+**型別 (Type)**
 - [Object] | "off" | "on" | "retain-on-failure" | "on-first-retry"
   - `mode` "off" | "on" | "retain-on-failure" | "on-first-retry"
     
@@ -1061,7 +1061,7 @@ Emulates consistent viewport for each page. Defaults to an 1280x720 viewport. Us
 The `null` value opts out from the default presets, makes viewport depend on the host window size defined by the operating system. It makes the execution of the tests non-deterministic.
 :::
 
-**Usage**
+**使用方式**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -1073,7 +1073,7 @@ export default defineConfig({
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [null] | [Object]
   - `width` [number]
     

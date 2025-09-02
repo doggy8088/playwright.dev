@@ -27,7 +27,7 @@ foreach(var pageWorker in page.Workers)
 
 ---
 
-## Methods
+## 方法
 
 ### EvaluateAsync {#worker-evaluate}
 
@@ -39,13 +39,13 @@ If the function passed to the [Worker.EvaluateAsync()](/api/class-worker.mdx#wor
 
 If the function passed to the [Worker.EvaluateAsync()](/api/class-worker.mdx#worker-evaluate) returns a non-[Serializable] value, then [Worker.EvaluateAsync()](/api/class-worker.mdx#worker-evaluate) returns `undefined`. Playwright also supports transferring some additional values that are not serializable by `JSON`: `-0`, `NaN`, `Infinity`, `-Infinity`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Worker.EvaluateAsync(expression, arg);
 ```
 
-**Arguments**
+**參數**
 - `expression` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-option-expression"/><a href="#worker-evaluate-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -53,7 +53,7 @@ await Worker.EvaluateAsync(expression, arg);
   
   Optional argument to pass to [expression](/api/class-worker.mdx#worker-evaluate-option-expression).
 
-**Returns**
+**傳回值**
 - [object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-return"/><a href="#worker-evaluate-return" class="list-anchor">#</a>
 
 ---
@@ -68,13 +68,13 @@ The only difference between [Worker.EvaluateAsync()](/api/class-worker.mdx#worke
 
 If the function passed to the [Worker.EvaluateHandleAsync()](/api/class-worker.mdx#worker-evaluate-handle) returns a [Promise], then [Worker.EvaluateHandleAsync()](/api/class-worker.mdx#worker-evaluate-handle) would wait for the promise to resolve and return its value.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Worker.EvaluateHandleAsync(expression, arg);
 ```
 
-**Arguments**
+**參數**
 - `expression` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-handle-option-expression"/><a href="#worker-evaluate-handle-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -82,7 +82,7 @@ await Worker.EvaluateHandleAsync(expression, arg);
   
   Optional argument to pass to [expression](/api/class-worker.mdx#worker-evaluate-handle-option-expression).
 
-**Returns**
+**傳回值**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-handle-return"/><a href="#worker-evaluate-handle-return" class="list-anchor">#</a>
 
 ---
@@ -91,18 +91,18 @@ await Worker.EvaluateHandleAsync(expression, arg);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>worker.Url</x-search>
 
-**Usage**
+**使用方式**
 
 ```csharp
 Worker.Url
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-url-return"/><a href="#worker-url-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### event Close {#worker-event-close}
 
@@ -110,13 +110,13 @@ Worker.Url
 
 Emitted when this dedicated [WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) is terminated.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Worker.Close += async (_, worker) => {};
 ```
 
-**Event data**
+**事件資料**
 - [Worker]
 
 

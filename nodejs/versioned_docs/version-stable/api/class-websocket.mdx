@@ -15,7 +15,7 @@ If you want to intercept or modify WebSocket frames, consider using [WebSocketRo
 
 ---
 
-## Methods
+## 方法
 
 ### isClosed {#web-socket-is-closed}
 
@@ -23,13 +23,13 @@ If you want to intercept or modify WebSocket frames, consider using [WebSocketRo
 
 Indicates that the web socket has been closed.
 
-**Usage**
+**使用方式**
 
 ```js
 webSocket.isClosed();
 ```
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-is-closed-return"/><a href="#web-socket-is-closed-return" class="list-anchor">#</a>
 
 ---
@@ -40,13 +40,13 @@ webSocket.isClosed();
 
 Contains the URL of the WebSocket.
 
-**Usage**
+**使用方式**
 
 ```js
 webSocket.url();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-url-return"/><a href="#web-socket-url-return" class="list-anchor">#</a>
 
 ---
@@ -57,14 +57,14 @@ webSocket.url();
 
 Waits for event to fire and passes its value into the predicate function. Returns when the predicate returns truthy value. Will throw an error if the webSocket is closed before the event is fired. Returns the event data value.
 
-**Usage**
+**使用方式**
 
 ```js
 await webSocket.waitForEvent(event);
 await webSocket.waitForEvent(event, optionsOrPredicate, options);
 ```
 
-**Arguments**
+**參數**
 - `event` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-event-option-event"/><a href="#web-socket-wait-for-event-option-event" class="list-anchor">#</a>
   
   Event name, same one would pass into `webSocket.on(event)`.
@@ -82,12 +82,12 @@ await webSocket.waitForEvent(event, optionsOrPredicate, options);
     
     Receives the event data and resolves to truthy value when the waiting should resolve.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-event-return"/><a href="#web-socket-wait-for-event-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### on('close') {#web-socket-event-close}
 
@@ -95,13 +95,13 @@ await webSocket.waitForEvent(event, optionsOrPredicate, options);
 
 Fired when the websocket closes.
 
-**Usage**
+**使用方式**
 
 ```js
 webSocket.on('close', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [WebSocket]
 
 ---
@@ -112,13 +112,13 @@ webSocket.on('close', data => {});
 
 Fired when the websocket receives a frame.
 
-**Usage**
+**使用方式**
 
 ```js
 webSocket.on('framereceived', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Object]
   - `payload` [string] | [Buffer]
     
@@ -132,13 +132,13 @@ webSocket.on('framereceived', data => {});
 
 Fired when the websocket sends a frame.
 
-**Usage**
+**使用方式**
 
 ```js
 webSocket.on('framesent', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Object]
   - `payload` [string] | [Buffer]
     
@@ -152,13 +152,13 @@ webSocket.on('framesent', data => {});
 
 Fired when the websocket has an error.
 
-**Usage**
+**使用方式**
 
 ```js
 webSocket.on('socketerror', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [string]
 
 

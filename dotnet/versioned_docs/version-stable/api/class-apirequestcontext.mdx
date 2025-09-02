@@ -21,7 +21,7 @@ If you want API requests to not interfere with the browser cookies you should cr
 
 ---
 
-## Methods
+## 方法
 
 ### CreateFormData {#api-request-context-create-form-data}
 
@@ -29,13 +29,13 @@ If you want API requests to not interfere with the browser cookies you should cr
 
 Creates a new [FormData] instance which is used for providing form and multipart data when making HTTP requests.
 
-**Usage**
+**使用方式**
 
 ```csharp
 ApiRequestContext.CreateFormData
 ```
 
-**Returns**
+**傳回值**
 - [FormData]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-create-form-data-return"/><a href="#api-request-context-create-form-data-return" class="list-anchor">#</a>
 
 ---
@@ -46,13 +46,13 @@ ApiRequestContext.CreateFormData
 
 Sends HTTP(S) [DELETE](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ApiRequestContext.DeleteAsync(url, options);
 ```
 
-**Arguments**
+**參數**
 - `url` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-option-url"/><a href="#api-request-context-delete-option-url" class="list-anchor">#</a>
   
   Target URL.
@@ -95,7 +95,7 @@ await ApiRequestContext.DeleteAsync(url, options);
     
     Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-delete-return"/><a href="#api-request-context-delete-return" class="list-anchor">#</a>
 
 ---
@@ -106,19 +106,19 @@ await ApiRequestContext.DeleteAsync(url, options);
 
 All responses returned by [ApiRequestContext.GetAsync()](/api/class-apirequestcontext.mdx#api-request-context-get) and similar methods are stored in the memory, so that you can later call [ApiResponse.BodyAsync()](/api/class-apiresponse.mdx#api-response-body).This method discards all its resources, calling any method on disposed [APIRequestContext] will throw an exception.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ApiRequestContext.DisposeAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ApiRequestContextDisposeOptions?` *(optional)*
   - `Reason` [string]? *(optional)* <font size="2">Added in: v1.45</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-dispose-option-reason"/><a href="#api-request-context-dispose-option-reason" class="list-anchor">#</a>
     
     The reason to be reported to the operations interrupted by the context disposal.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-dispose-return"/><a href="#api-request-context-dispose-return" class="list-anchor">#</a>
 
 ---
@@ -129,7 +129,7 @@ await ApiRequestContext.DisposeAsync(options);
 
 Sends HTTP(S) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
 
-**Usage**
+**使用方式**
 
 JSON objects can be passed directly to the request:
 
@@ -155,7 +155,7 @@ multipart.Set("fileField", file);
 await Request.FetchAsync("https://example.com/api/uploadScript", new() { Method = "post", Multipart = multipart });
 ```
 
-**Arguments**
+**參數**
 - `urlOrRequest` [string] | [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-option-url-or-request"/><a href="#api-request-context-fetch-option-url-or-request" class="list-anchor">#</a>
   
   Target URL or Request to get all parameters from.
@@ -201,7 +201,7 @@ await Request.FetchAsync("https://example.com/api/uploadScript", new() { Method 
     
     Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-fetch-return"/><a href="#api-request-context-fetch-return" class="list-anchor">#</a>
 
 ---
@@ -212,7 +212,7 @@ await Request.FetchAsync("https://example.com/api/uploadScript", new() { Method 
 
 Sends HTTP(S) [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
 
-**Usage**
+**使用方式**
 
 Request parameters can be configured with `params` option, they will be serialized into the URL search parameters:
 
@@ -225,7 +225,7 @@ var queryParams = new Dictionary<string, object>()
 await request.GetAsync("https://example.com/api/getText", new() { Params = queryParams });
 ```
 
-**Arguments**
+**參數**
 - `url` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-option-url"/><a href="#api-request-context-get-option-url" class="list-anchor">#</a>
   
   Target URL.
@@ -268,7 +268,7 @@ await request.GetAsync("https://example.com/api/getText", new() { Params = query
     
     Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-get-return"/><a href="#api-request-context-get-return" class="list-anchor">#</a>
 
 ---
@@ -279,13 +279,13 @@ await request.GetAsync("https://example.com/api/getText", new() { Params = query
 
 Sends HTTP(S) [HEAD](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ApiRequestContext.HeadAsync(url, options);
 ```
 
-**Arguments**
+**參數**
 - `url` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-option-url"/><a href="#api-request-context-head-option-url" class="list-anchor">#</a>
   
   Target URL.
@@ -328,7 +328,7 @@ await ApiRequestContext.HeadAsync(url, options);
     
     Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-head-return"/><a href="#api-request-context-head-return" class="list-anchor">#</a>
 
 ---
@@ -339,13 +339,13 @@ await ApiRequestContext.HeadAsync(url, options);
 
 Sends HTTP(S) [PATCH](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ApiRequestContext.PatchAsync(url, options);
 ```
 
-**Arguments**
+**參數**
 - `url` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-option-url"/><a href="#api-request-context-patch-option-url" class="list-anchor">#</a>
   
   Target URL.
@@ -388,7 +388,7 @@ await ApiRequestContext.PatchAsync(url, options);
     
     Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-patch-return"/><a href="#api-request-context-patch-return" class="list-anchor">#</a>
 
 ---
@@ -399,7 +399,7 @@ await ApiRequestContext.PatchAsync(url, options);
 
 Sends HTTP(S) [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
 
-**Usage**
+**使用方式**
 
 JSON objects can be passed directly to the request:
 
@@ -434,7 +434,7 @@ multipart.Set("fileField", file);
 await request.PostAsync("https://example.com/api/uploadScript", new() { Multipart = multipart });
 ```
 
-**Arguments**
+**參數**
 - `url` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-option-url"/><a href="#api-request-context-post-option-url" class="list-anchor">#</a>
   
   Target URL.
@@ -477,7 +477,7 @@ await request.PostAsync("https://example.com/api/uploadScript", new() { Multipar
     
     Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-post-return"/><a href="#api-request-context-post-return" class="list-anchor">#</a>
 
 ---
@@ -488,13 +488,13 @@ await request.PostAsync("https://example.com/api/uploadScript", new() { Multipar
 
 Sends HTTP(S) [PUT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT) request and returns its response. The method will populate request cookies from the context and update context cookies from the response. The method will automatically follow redirects.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ApiRequestContext.PutAsync(url, options);
 ```
 
-**Arguments**
+**參數**
 - `url` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-option-url"/><a href="#api-request-context-put-option-url" class="list-anchor">#</a>
   
   Target URL.
@@ -537,7 +537,7 @@ await ApiRequestContext.PutAsync(url, options);
     
     Request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**Returns**
+**傳回值**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-put-return"/><a href="#api-request-context-put-return" class="list-anchor">#</a>
 
 ---
@@ -548,13 +548,13 @@ await ApiRequestContext.PutAsync(url, options);
 
 Returns storage state for this request context, contains current cookies and local storage snapshot if it was passed to the constructor.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ApiRequestContext.StorageStateAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ApiRequestContextStorageStateOptions?` *(optional)*
   - `IndexedDB` [bool]? *(optional)* <font size="2">Added in: v1.51</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-option-indexed-db"/><a href="#api-request-context-storage-state-option-indexed-db" class="list-anchor">#</a>
     
@@ -563,7 +563,7 @@ await ApiRequestContext.StorageStateAsync(options);
     
     The file path to save the storage state to. If [Path](/api/class-apirequestcontext.mdx#api-request-context-storage-state-option-path) is a relative path, then it is resolved relative to current working directory. If no path is provided, storage state is still returned, but won't be saved to the disk.
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-context-storage-state-return"/><a href="#api-request-context-storage-state-return" class="list-anchor">#</a>
 
 

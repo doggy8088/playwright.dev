@@ -15,7 +15,7 @@ This class is limited to emulating tap gestures. For examples of other gestures 
 
 ---
 
-## Methods
+## 方法
 
 ### TapAsync {#touchscreen-tap}
 
@@ -28,13 +28,13 @@ Dispatches a `touchstart` and `touchend` event with a single touch at the positi
 [Page.TapAsync()](/api/class-page.mdx#page-tap) the method will throw if [HasTouch](/api/class-browser.mdx#browser-new-context-option-has-touch) option of the browser context is false.
 :::
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Touchscreen.TapAsync(x, y);
 ```
 
-**Arguments**
+**參數**
 - `x` [float]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="touchscreen-tap-option-x"/><a href="#touchscreen-tap-option-x" class="list-anchor">#</a>
   
   X coordinate relative to the main frame's viewport in CSS pixels.
@@ -42,7 +42,7 @@ await Touchscreen.TapAsync(x, y);
   
   Y coordinate relative to the main frame's viewport in CSS pixels.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="touchscreen-tap-return"/><a href="#touchscreen-tap-return" class="list-anchor">#</a>
 
 

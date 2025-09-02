@@ -43,7 +43,7 @@ public class Example {
 
 ---
 
-## Methods
+## 方法
 
 ### addScriptTag {#frame-add-script-tag}
 
@@ -53,14 +53,14 @@ Returns the added tag when the script's onload fires or when the script content 
 
 Adds a `<script>` tag into the page with the desired url or content.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.addScriptTag();
 Frame.addScriptTag(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `Frame.AddScriptTagOptions` *(optional)*
   - `setContent` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-add-script-tag-option-content"/><a href="#frame-add-script-tag-option-content" class="list-anchor">#</a>
     
@@ -75,7 +75,7 @@ Frame.addScriptTag(options);
     
     URL of a script to be added.
 
-**Returns**
+**傳回值**
 - [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-add-script-tag-return"/><a href="#frame-add-script-tag-return" class="list-anchor">#</a>
 
 ---
@@ -88,14 +88,14 @@ Returns the added tag when the stylesheet's onload fires or when the CSS content
 
 Adds a `<link rel="stylesheet">` tag into the page with the desired url or a `<style type="text/css">` tag with the content.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.addStyleTag();
 Frame.addStyleTag(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `Frame.AddStyleTagOptions` *(optional)*
   - `setContent` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-add-style-tag-option-content"/><a href="#frame-add-style-tag-option-content" class="list-anchor">#</a>
     
@@ -107,7 +107,7 @@ Frame.addStyleTag(options);
     
     URL of the `<link>` tag.
 
-**Returns**
+**傳回值**
 - [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-add-style-tag-return"/><a href="#frame-add-style-tag-return" class="list-anchor">#</a>
 
 ---
@@ -116,13 +116,13 @@ Frame.addStyleTag(options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>frame.childFrames</x-search>
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.childFrames();
 ```
 
-**Returns**
+**傳回值**
 - [List]&lt;[Frame]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-child-frames-return"/><a href="#frame-child-frames-return" class="list-anchor">#</a>
 
 ---
@@ -133,13 +133,13 @@ Frame.childFrames();
 
 Gets the full HTML contents of the frame, including the doctype.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.content();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-content-return"/><a href="#frame-content-return" class="list-anchor">#</a>
 
 ---
@@ -148,14 +148,14 @@ Frame.content();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.13</font><x-search>frame.dragAndDrop</x-search>
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.dragAndDrop(source, target);
 Frame.dragAndDrop(source, target, options);
 ```
 
-**Arguments**
+**參數**
 - `source` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-drag-and-drop-option-source"/><a href="#frame-drag-and-drop-option-source" class="list-anchor">#</a>
   
   A selector to search for an element to drag. If there are multiple elements satisfying the selector, the first will be used.
@@ -200,7 +200,7 @@ Frame.dragAndDrop(source, target, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-drag-and-drop-return"/><a href="#frame-drag-and-drop-return" class="list-anchor">#</a>
 
 ---
@@ -215,7 +215,7 @@ If the function passed to the [Frame.evaluate()](/api/class-frame.mdx#frame-eval
 
 If the function passed to the [Frame.evaluate()](/api/class-frame.mdx#frame-evaluate) returns a non-[Serializable] value, then [Frame.evaluate()](/api/class-frame.mdx#frame-evaluate) returns `undefined`. Playwright also supports transferring some additional values that are not serializable by `JSON`: `-0`, `NaN`, `Infinity`, `-Infinity`.
 
-**Usage**
+**使用方式**
 
 ```java
 Object result = frame.evaluate("([x, y]) => {\n" +
@@ -238,7 +238,7 @@ String html = (String) frame.evaluate("([body, suffix]) => body.innerHTML + suff
 bodyHandle.dispose();
 ```
 
-**Arguments**
+**參數**
 - `expression` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-evaluate-option-expression"/><a href="#frame-evaluate-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -246,7 +246,7 @@ bodyHandle.dispose();
   
   Optional argument to pass to [expression](/api/class-frame.mdx#frame-evaluate-option-expression).
 
-**Returns**
+**傳回值**
 - [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-evaluate-return"/><a href="#frame-evaluate-return" class="list-anchor">#</a>
 
 ---
@@ -261,7 +261,7 @@ The only difference between [Frame.evaluate()](/api/class-frame.mdx#frame-evalua
 
 If the function, passed to the [Frame.evaluateHandle()](/api/class-frame.mdx#frame-evaluate-handle), returns a [Promise], then [Frame.evaluateHandle()](/api/class-frame.mdx#frame-evaluate-handle) would wait for the promise to resolve and return its value.
 
-**Usage**
+**使用方式**
 
 ```java
 // Handle for the window object.
@@ -283,7 +283,7 @@ System.out.println(resultHandle.jsonValue());
 resultHandle.dispose();
 ```
 
-**Arguments**
+**參數**
 - `expression` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-evaluate-handle-option-expression"/><a href="#frame-evaluate-handle-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -291,7 +291,7 @@ resultHandle.dispose();
   
   Optional argument to pass to [expression](/api/class-frame.mdx#frame-evaluate-handle-option-expression).
 
-**Returns**
+**傳回值**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-evaluate-handle-return"/><a href="#frame-evaluate-handle-return" class="list-anchor">#</a>
 
 ---
@@ -306,7 +306,7 @@ This is an inverse of [ElementHandle.contentFrame()](/api/class-elementhandle.md
 
 This method throws an error if the frame has been detached before `frameElement()` returns.
 
-**Usage**
+**使用方式**
 
 ```java
 ElementHandle frameElement = frame.frameElement();
@@ -314,7 +314,7 @@ Frame contentFrame = frameElement.contentFrame();
 System.out.println(frame == contentFrame);  // -> true
 ```
 
-**Returns**
+**傳回值**
 - [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-frame-element-return"/><a href="#frame-frame-element-return" class="list-anchor">#</a>
 
 ---
@@ -325,7 +325,7 @@ System.out.println(frame == contentFrame);  // -> true
 
 When working with iframes, you can create a frame locator that will enter the iframe and allow selecting elements in that iframe.
 
-**Usage**
+**使用方式**
 
 Following snippet locates element with text "Submit" in the iframe with id `my-frame`, like `<iframe id="my-frame">`:
 
@@ -334,12 +334,12 @@ Locator locator = frame.frameLocator("#my-iframe").getByText("Submit");
 locator.click();
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-frame-locator-option-selector"/><a href="#frame-frame-locator-option-selector" class="list-anchor">#</a>
   
   A selector to use when resolving DOM element.
 
-**Returns**
+**傳回值**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-frame-locator-return"/><a href="#frame-frame-locator-return" class="list-anchor">#</a>
 
 ---
@@ -350,7 +350,7 @@ locator.click();
 
 Allows locating elements by their alt text.
 
-**Usage**
+**使用方式**
 
 For example, this method will find the image by alt text "Playwright logo":
 
@@ -362,7 +362,7 @@ For example, this method will find the image by alt text "Playwright logo":
 page.getByAltText("Playwright logo").click();
 ```
 
-**Arguments**
+**參數**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-alt-text-option-text"/><a href="#frame-get-by-alt-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -371,7 +371,7 @@ page.getByAltText("Playwright logo").click();
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-alt-text-return"/><a href="#frame-get-by-alt-text-return" class="list-anchor">#</a>
 
 ---
@@ -382,7 +382,7 @@ page.getByAltText("Playwright logo").click();
 
 Allows locating input elements by the text of the associated `<label>` or `aria-labelledby` element, or by the `aria-label` attribute.
 
-**Usage**
+**使用方式**
 
 For example, this method will find inputs by label "Username" and "Password" in the following DOM:
 
@@ -397,7 +397,7 @@ page.getByLabel("Username").fill("john");
 page.getByLabel("Password").fill("secret");
 ```
 
-**Arguments**
+**參數**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-label-option-text"/><a href="#frame-get-by-label-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -406,7 +406,7 @@ page.getByLabel("Password").fill("secret");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-label-return"/><a href="#frame-get-by-label-return" class="list-anchor">#</a>
 
 ---
@@ -417,7 +417,7 @@ page.getByLabel("Password").fill("secret");
 
 Allows locating input elements by the placeholder text.
 
-**Usage**
+**使用方式**
 
 For example, consider the following DOM structure.
 
@@ -431,7 +431,7 @@ You can fill the input after locating it by the placeholder text:
 page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
 ```
 
-**Arguments**
+**參數**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-placeholder-option-text"/><a href="#frame-get-by-placeholder-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -440,7 +440,7 @@ page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-placeholder-return"/><a href="#frame-get-by-placeholder-return" class="list-anchor">#</a>
 
 ---
@@ -451,7 +451,7 @@ page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
 
 Allows locating elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure.
 
@@ -482,7 +482,7 @@ page.getByRole(AriaRole.BUTTON,
     .click();
 ```
 
-**Arguments**
+**參數**
 - `role` `enum AriaRole { ALERT, ALERTDIALOG, APPLICATION, ARTICLE, BANNER, BLOCKQUOTE, BUTTON, CAPTION, CELL, CHECKBOX, CODE, COLUMNHEADER, COMBOBOX, COMPLEMENTARY, CONTENTINFO, DEFINITION, DELETION, DIALOG, DIRECTORY, DOCUMENT, EMPHASIS, FEED, FIGURE, FORM, GENERIC, GRID, GRIDCELL, GROUP, HEADING, IMG, INSERTION, LINK, LIST, LISTBOX, LISTITEM, LOG, MAIN, MARQUEE, MATH, METER, MENU, MENUBAR, MENUITEM, MENUITEMCHECKBOX, MENUITEMRADIO, NAVIGATION, NONE, NOTE, OPTION, PARAGRAPH, PRESENTATION, PROGRESSBAR, RADIO, RADIOGROUP, REGION, ROW, ROWGROUP, ROWHEADER, SCROLLBAR, SEARCH, SEARCHBOX, SEPARATOR, SLIDER, SPINBUTTON, STATUS, STRONG, SUBSCRIPT, SUPERSCRIPT, SWITCH, TAB, TABLE, TABLIST, TABPANEL, TERM, TEXTBOX, TIME, TIMER, TOOLBAR, TOOLTIP, TREE, TREEGRID, TREEITEM }`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-option-role"/><a href="#frame-get-by-role-option-role" class="list-anchor">#</a>
   
   Required aria role.
@@ -535,7 +535,7 @@ page.getByRole(AriaRole.BUTTON,
     
     Learn more about [`aria-selected`](https://www.w3.org/TR/wai-aria-1.2/#aria-selected).
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-role-return"/><a href="#frame-get-by-role-return" class="list-anchor">#</a>
 
 **Details**
@@ -552,7 +552,7 @@ Many html elements have an implicitly [defined role](https://w3c.github.io/html-
 
 Locate element by the test id.
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure.
 
@@ -566,12 +566,12 @@ You can locate the element by it's test id:
 page.getByTestId("directions").click();
 ```
 
-**Arguments**
+**參數**
 - `testId` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-test-id-option-test-id"/><a href="#frame-get-by-test-id-option-test-id" class="list-anchor">#</a>
   
   Id to locate the element by.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-test-id-return"/><a href="#frame-get-by-test-id-return" class="list-anchor">#</a>
 
 **Details**
@@ -588,7 +588,7 @@ Allows locating elements that contain given text.
 
 See also [Locator.filter()](/api/class-locator.mdx#locator-filter) that allows to match by another criteria, like an accessible role, and then filter by the text content.
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure:
 
@@ -616,7 +616,7 @@ page.getByText(Pattern.compile("Hello"));
 page.getByText(Pattern.compile("^hello$", Pattern.CASE_INSENSITIVE));
 ```
 
-**Arguments**
+**參數**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-text-option-text"/><a href="#frame-get-by-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -625,7 +625,7 @@ page.getByText(Pattern.compile("^hello$", Pattern.CASE_INSENSITIVE));
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-text-return"/><a href="#frame-get-by-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -642,7 +642,7 @@ Input elements of the type `button` and `submit` are matched by their `value` in
 
 Allows locating elements by their title attribute.
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure.
 
@@ -656,7 +656,7 @@ You can check the issues count after locating it by the title text:
 assertThat(page.getByTitle("Issues count")).hasText("25 issues");
 ```
 
-**Arguments**
+**參數**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-title-option-text"/><a href="#frame-get-by-title-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -665,7 +665,7 @@ assertThat(page.getByTitle("Issues count")).hasText("25 issues");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-by-title-return"/><a href="#frame-get-by-title-return" class="list-anchor">#</a>
 
 ---
@@ -676,13 +676,13 @@ assertThat(page.getByTitle("Issues count")).hasText("25 issues");
 
 Returns `true` if the frame has been detached, or `false` otherwise.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.isDetached();
 ```
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-detached-return"/><a href="#frame-is-detached-return" class="list-anchor">#</a>
 
 ---
@@ -693,14 +693,14 @@ Frame.isDetached();
 
 Returns whether the element is [enabled](../actionability.mdx#enabled).
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.isEnabled(selector);
 Frame.isEnabled(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-enabled-option-selector"/><a href="#frame-is-enabled-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -712,7 +712,7 @@ Frame.isEnabled(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-enabled-return"/><a href="#frame-is-enabled-return" class="list-anchor">#</a>
 
 ---
@@ -727,14 +727,14 @@ The method returns an element locator that can be used to perform actions on thi
 
 [Learn more about locators](../locators.mdx).
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.locator(selector);
 Frame.locator(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-option-selector"/><a href="#frame-locator-option-selector" class="list-anchor">#</a>
   
   A selector to use when resolving DOM element.
@@ -758,7 +758,7 @@ Frame.locator(selector, options);
     
     Matches elements containing specified text somewhere inside, possibly in a child or a descendant element. When passed a [string], matching is case-insensitive and searches for a substring. For example, `"Playwright"` matches `<article><div>Playwright</div></article>`.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-return"/><a href="#frame-locator-return" class="list-anchor">#</a>
 
 ---
@@ -776,13 +776,13 @@ If the name is empty, returns the id attribute instead.
 This value is calculated once when the frame is created, and will not update if the attribute is changed later.
 :::
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.name();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-name-return"/><a href="#frame-name-return" class="list-anchor">#</a>
 
 ---
@@ -811,14 +811,14 @@ The method either throws an error or returns a main resource response. The only 
 Headless mode doesn't support navigation to a PDF document. See the [upstream issue](https://bugs.chromium.org/p/chromium/issues/detail?id=761295).
 :::
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.navigate(url);
 Frame.navigate(url, options);
 ```
 
-**Arguments**
+**參數**
 - `url` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-goto-option-url"/><a href="#frame-goto-option-url" class="list-anchor">#</a>
   
   URL to navigate frame to. The url should include scheme, e.g. `https://`.
@@ -837,7 +837,7 @@ Frame.navigate(url, options);
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**Returns**
+**傳回值**
 - [null] | [Response]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-goto-return"/><a href="#frame-goto-return" class="list-anchor">#</a>
 
 ---
@@ -848,13 +848,13 @@ Frame.navigate(url, options);
 
 Returns the page containing this frame.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.page();
 ```
 
-**Returns**
+**傳回值**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-page-return"/><a href="#frame-page-return" class="list-anchor">#</a>
 
 ---
@@ -865,13 +865,13 @@ Frame.page();
 
 Parent frame, if any. Detached frames and main frames return `null`.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.parentFrame();
 ```
 
-**Returns**
+**傳回值**
 - [null] | [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-parent-frame-return"/><a href="#frame-parent-frame-return" class="list-anchor">#</a>
 
 ---
@@ -882,14 +882,14 @@ Frame.parentFrame();
 
 This method internally calls [document.write()](https://developer.mozilla.org/en-US/docs/Web/API/Document/write), inheriting all its specific characteristics and behaviors.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.setContent(html);
 Frame.setContent(html, options);
 ```
 
-**Arguments**
+**參數**
 - `html` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-content-option-html"/><a href="#frame-set-content-option-html" class="list-anchor">#</a>
   
   HTML markup to assign to the page.
@@ -905,7 +905,7 @@ Frame.setContent(html, options);
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-content-return"/><a href="#frame-set-content-return" class="list-anchor">#</a>
 
 ---
@@ -916,13 +916,13 @@ Frame.setContent(html, options);
 
 Returns the page title.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.title();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-title-return"/><a href="#frame-title-return" class="list-anchor">#</a>
 
 ---
@@ -933,13 +933,13 @@ Frame.title();
 
 Returns frame's url.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.url();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-url-return"/><a href="#frame-url-return" class="list-anchor">#</a>
 
 ---
@@ -950,7 +950,7 @@ Frame.url();
 
 Returns when the [expression](/api/class-frame.mdx#frame-wait-for-function-option-expression) returns a truthy value, returns that value.
 
-**Usage**
+**使用方式**
 
 The [Frame.waitForFunction()](/api/class-frame.mdx#frame-wait-for-function) can be used to observe viewport size change:
 
@@ -978,7 +978,7 @@ String selector = ".foo";
 frame.waitForFunction("selector => !!document.querySelector(selector)", selector);
 ```
 
-**Arguments**
+**參數**
 - `expression` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-function-option-expression"/><a href="#frame-wait-for-function-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -993,7 +993,7 @@ frame.waitForFunction("selector => !!document.querySelector(selector)", selector
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-function-return"/><a href="#frame-wait-for-function-return" class="list-anchor">#</a>
 
 ---
@@ -1011,14 +1011,14 @@ This returns when the frame reaches a required load state, `load` by default. Th
 Most of the time, this method is not needed because Playwright [auto-waits before every action](../actionability.mdx).
 :::
 
-**Usage**
+**使用方式**
 
 ```java
 frame.click("button"); // Click triggers navigation.
 frame.waitForLoadState(); // Waits for "load" state by default.
 ```
 
-**Arguments**
+**參數**
 - `state` `enum LoadState { LOAD, DOMCONTENTLOADED, NETWORKIDLE }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-load-state-option-state"/><a href="#frame-wait-for-load-state-option-state" class="list-anchor">#</a>
   
   Optional load state to wait for, defaults to `load`. If the state has been already reached while loading current document, the method resolves immediately. Can be one of:
@@ -1030,7 +1030,7 @@ frame.waitForLoadState(); // Waits for "load" state by default.
     
     Maximum operation time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultNavigationTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout), [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout), [Page.setDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-load-state-return"/><a href="#frame-wait-for-load-state-return" class="list-anchor">#</a>
 
 ---
@@ -1041,14 +1041,14 @@ frame.waitForLoadState(); // Waits for "load" state by default.
 
 Waits for the frame to navigate to the given URL.
 
-**Usage**
+**使用方式**
 
 ```java
 frame.click("a.delayed-navigation"); // Clicking the link will indirectly cause a navigation
 frame.waitForURL("**/target.html");
 ```
 
-**Arguments**
+**參數**
 - `url` [String] | [Pattern] | [Predicate]&lt;[String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-url-option-url"/><a href="#frame-wait-for-url-option-url" class="list-anchor">#</a>
   
   A glob pattern, regex pattern or predicate receiving [URL] to match while waiting for the navigation. Note that if the parameter is a string without wildcard characters, the method will wait for navigation to URL that is exactly equal to the string.
@@ -1064,7 +1064,7 @@ frame.waitForURL("**/target.html");
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-url-return"/><a href="#frame-wait-for-url-return" class="list-anchor">#</a>
 
 ---
@@ -1092,14 +1092,14 @@ This method checks an element matching [selector](/api/class-frame.mdx#frame-che
 
 When all steps combined have not finished during the specified [setTimeout](/api/class-frame.mdx#frame-check-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.check(selector);
 Frame.check(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-check-option-selector"/><a href="#frame-check-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1133,7 +1133,7 @@ Frame.check(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-check-return"/><a href="#frame-check-return" class="list-anchor">#</a>
 
 ---
@@ -1158,14 +1158,14 @@ This method clicks an element matching [selector](/api/class-frame.mdx#frame-cli
 
 When all steps combined have not finished during the specified [setTimeout](/api/class-frame.mdx#frame-click-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.click(selector);
 Frame.click(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-click-option-selector"/><a href="#frame-click-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1211,7 +1211,7 @@ Frame.click(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-click-return"/><a href="#frame-click-return" class="list-anchor">#</a>
 
 ---
@@ -1240,14 +1240,14 @@ When all steps combined have not finished during the specified [setTimeout](/api
 `frame.dblclick()` dispatches two `click` events and a single `dblclick` event.
 :::
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.dblclick(selector);
 Frame.dblclick(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-option-selector"/><a href="#frame-dblclick-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1290,7 +1290,7 @@ Frame.dblclick(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dblclick-return"/><a href="#frame-dblclick-return" class="list-anchor">#</a>
 
 ---
@@ -1308,7 +1308,7 @@ Use locator-based [Locator.dispatchEvent()](/api/class-locator.mdx#locator-dispa
 
 The snippet below dispatches the `click` event on the element. Regardless of the visibility state of the element, `click` is dispatched. This is equivalent to calling [element.click()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click).
 
-**Usage**
+**使用方式**
 
 ```java
 frame.dispatchEvent("button#submit", "click");
@@ -1338,7 +1338,7 @@ arg.put("dataTransfer", dataTransfer);
 frame.dispatchEvent("#source", "dragstart", arg);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dispatch-event-option-selector"/><a href="#frame-dispatch-event-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1356,7 +1356,7 @@ frame.dispatchEvent("#source", "dragstart", arg);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-dispatch-event-return"/><a href="#frame-dispatch-event-return" class="list-anchor">#</a>
 
 ---
@@ -1378,7 +1378,7 @@ The method finds an element matching the specified selector within the frame and
 
 If [expression](/api/class-frame.mdx#frame-eval-on-selector-option-expression) returns a [Promise], then [Frame.evalOnSelector()](/api/class-frame.mdx#frame-eval-on-selector) would wait for the promise to resolve and return its value.
 
-**Usage**
+**使用方式**
 
 ```java
 String searchValue = (String) frame.evalOnSelector("#search", "el => el.value");
@@ -1386,7 +1386,7 @@ String preloadHref = (String) frame.evalOnSelector("link[rel=preload]", "el => e
 String html = (String) frame.evalOnSelector(".main-container", "(e, suffix) => e.outerHTML + suffix", "hello");
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-eval-on-selector-option-selector"/><a href="#frame-eval-on-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -1401,7 +1401,7 @@ String html = (String) frame.evalOnSelector(".main-container", "(e, suffix) => e
     
     When true, the call requires selector to resolve to a single element. If given selector resolves to more than one element, the call throws an exception.
 
-**Returns**
+**傳回值**
 - [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-eval-on-selector-return"/><a href="#frame-eval-on-selector-return" class="list-anchor">#</a>
 
 ---
@@ -1423,13 +1423,13 @@ The method finds all elements matching the specified selector within the frame a
 
 If [expression](/api/class-frame.mdx#frame-eval-on-selector-all-option-expression) returns a [Promise], then [Frame.evalOnSelectorAll()](/api/class-frame.mdx#frame-eval-on-selector-all) would wait for the promise to resolve and return its value.
 
-**Usage**
+**使用方式**
 
 ```java
 boolean divsCounts = (boolean) page.evalOnSelectorAll("div", "(divs, min) => divs.length >= min", 10);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-eval-on-selector-all-option-selector"/><a href="#frame-eval-on-selector-all-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -1440,7 +1440,7 @@ boolean divsCounts = (boolean) page.evalOnSelectorAll("div", "(divs, min) => div
   
   Optional argument to pass to [expression](/api/class-frame.mdx#frame-eval-on-selector-all-option-expression).
 
-**Returns**
+**傳回值**
 - [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-eval-on-selector-all-return"/><a href="#frame-eval-on-selector-all-return" class="list-anchor">#</a>
 
 ---
@@ -1462,14 +1462,14 @@ If the target element is not an `<input>`, `<textarea>` or `[contenteditable]` e
 
 To send fine-grained keyboard events, use [Locator.pressSequentially()](/api/class-locator.mdx#locator-press-sequentially).
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.fill(selector, value);
 Frame.fill(selector, value, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-fill-option-selector"/><a href="#frame-fill-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1495,7 +1495,7 @@ Frame.fill(selector, value, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-fill-return"/><a href="#frame-fill-return" class="list-anchor">#</a>
 
 ---
@@ -1513,14 +1513,14 @@ Use locator-based [Locator.focus()](/api/class-locator.mdx#locator-focus) instea
 
 This method fetches an element with [selector](/api/class-frame.mdx#frame-focus-option-selector) and focuses it. If there's no element matching [selector](/api/class-frame.mdx#frame-focus-option-selector), the method waits until a matching element appears in the DOM.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.focus(selector);
 Frame.focus(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-focus-option-selector"/><a href="#frame-focus-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1532,7 +1532,7 @@ Frame.focus(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-focus-return"/><a href="#frame-focus-return" class="list-anchor">#</a>
 
 ---
@@ -1550,14 +1550,14 @@ Use locator-based [Locator.getAttribute()](/api/class-locator.mdx#locator-get-at
 
 Returns element attribute value.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.getAttribute(selector, name);
 Frame.getAttribute(selector, name, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-attribute-option-selector"/><a href="#frame-get-attribute-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1572,7 +1572,7 @@ Frame.getAttribute(selector, name, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [null] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-get-attribute-return"/><a href="#frame-get-attribute-return" class="list-anchor">#</a>
 
 ---
@@ -1596,14 +1596,14 @@ This method hovers over an element matching [selector](/api/class-frame.mdx#fram
 
 When all steps combined have not finished during the specified [setTimeout](/api/class-frame.mdx#frame-hover-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.hover(selector);
 Frame.hover(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-hover-option-selector"/><a href="#frame-hover-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1640,7 +1640,7 @@ Frame.hover(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-hover-return"/><a href="#frame-hover-return" class="list-anchor">#</a>
 
 ---
@@ -1658,14 +1658,14 @@ Use locator-based [Locator.innerHTML()](/api/class-locator.mdx#locator-inner-htm
 
 Returns `element.innerHTML`.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.innerHTML(selector);
 Frame.innerHTML(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-inner-html-option-selector"/><a href="#frame-inner-html-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1677,7 +1677,7 @@ Frame.innerHTML(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-inner-html-return"/><a href="#frame-inner-html-return" class="list-anchor">#</a>
 
 ---
@@ -1695,14 +1695,14 @@ Use locator-based [Locator.innerText()](/api/class-locator.mdx#locator-inner-tex
 
 Returns `element.innerText`.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.innerText(selector);
 Frame.innerText(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-inner-text-option-selector"/><a href="#frame-inner-text-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1714,7 +1714,7 @@ Frame.innerText(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-inner-text-return"/><a href="#frame-inner-text-return" class="list-anchor">#</a>
 
 ---
@@ -1734,14 +1734,14 @@ Returns `input.value` for the selected `<input>` or `<textarea>` or `<select>` e
 
 Throws for non-input elements. However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), returns the value of the control.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.inputValue(selector);
 Frame.inputValue(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-input-value-option-selector"/><a href="#frame-input-value-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1753,7 +1753,7 @@ Frame.inputValue(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-input-value-return"/><a href="#frame-input-value-return" class="list-anchor">#</a>
 
 ---
@@ -1771,14 +1771,14 @@ Use locator-based [Locator.isChecked()](/api/class-locator.mdx#locator-is-checke
 
 Returns whether the element is checked. Throws if the element is not a checkbox or radio input.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.isChecked(selector);
 Frame.isChecked(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-checked-option-selector"/><a href="#frame-is-checked-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1790,7 +1790,7 @@ Frame.isChecked(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-checked-return"/><a href="#frame-is-checked-return" class="list-anchor">#</a>
 
 ---
@@ -1808,14 +1808,14 @@ Use locator-based [Locator.isDisabled()](/api/class-locator.mdx#locator-is-disab
 
 Returns whether the element is disabled, the opposite of [enabled](../actionability.mdx#enabled).
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.isDisabled(selector);
 Frame.isDisabled(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-disabled-option-selector"/><a href="#frame-is-disabled-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1827,7 +1827,7 @@ Frame.isDisabled(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-disabled-return"/><a href="#frame-is-disabled-return" class="list-anchor">#</a>
 
 ---
@@ -1845,14 +1845,14 @@ Use locator-based [Locator.isEditable()](/api/class-locator.mdx#locator-is-edita
 
 Returns whether the element is [editable](../actionability.mdx#editable).
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.isEditable(selector);
 Frame.isEditable(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-editable-option-selector"/><a href="#frame-is-editable-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1864,7 +1864,7 @@ Frame.isEditable(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-editable-return"/><a href="#frame-is-editable-return" class="list-anchor">#</a>
 
 ---
@@ -1882,14 +1882,14 @@ Use locator-based [Locator.isHidden()](/api/class-locator.mdx#locator-is-hidden)
 
 Returns whether the element is hidden, the opposite of [visible](../actionability.mdx#visible).  [selector](/api/class-frame.mdx#frame-is-hidden-option-selector) that does not match any elements is considered hidden.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.isHidden(selector);
 Frame.isHidden(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-hidden-option-selector"/><a href="#frame-is-hidden-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1904,7 +1904,7 @@ Frame.isHidden(selector, options);
     :::
     
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-hidden-return"/><a href="#frame-is-hidden-return" class="list-anchor">#</a>
 
 ---
@@ -1922,14 +1922,14 @@ Use locator-based [Locator.isVisible()](/api/class-locator.mdx#locator-is-visibl
 
 Returns whether the element is [visible](../actionability.mdx#visible). [selector](/api/class-frame.mdx#frame-is-visible-option-selector) that does not match any elements is considered not visible.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.isVisible(selector);
 Frame.isVisible(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-visible-option-selector"/><a href="#frame-is-visible-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -1944,7 +1944,7 @@ Frame.isVisible(selector, options);
     :::
     
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-is-visible-return"/><a href="#frame-is-visible-return" class="list-anchor">#</a>
 
 ---
@@ -1972,14 +1972,14 @@ If [key](/api/class-frame.mdx#frame-press-option-key) is a single character, it 
 
 Shortcuts such as `key: "Control+o"`, `key: "Control++` or `key: "Control+Shift+T"` are supported as well. When specified with the modifier, modifier is pressed and being held while the subsequent key is being pressed.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.press(selector, key);
 Frame.press(selector, key, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-press-option-selector"/><a href="#frame-press-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -2005,7 +2005,7 @@ Frame.press(selector, key, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-press-return"/><a href="#frame-press-return" class="list-anchor">#</a>
 
 ---
@@ -2030,14 +2030,14 @@ The use of [ElementHandle] is discouraged, use [Locator] objects and web-first a
 
 The method finds an element matching the specified selector within the frame. If no elements match the selector, returns `null`.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.querySelector(selector);
 Frame.querySelector(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-query-selector-option-selector"/><a href="#frame-query-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -2046,7 +2046,7 @@ Frame.querySelector(selector, options);
     
     When true, the call requires selector to resolve to a single element. If given selector resolves to more than one element, the call throws an exception.
 
-**Returns**
+**傳回值**
 - [null] | [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-query-selector-return"/><a href="#frame-query-selector-return" class="list-anchor">#</a>
 
 ---
@@ -2071,18 +2071,18 @@ The use of [ElementHandle] is discouraged, use [Locator] objects instead.
 
 The method finds all elements matching the specified selector within the frame. If no elements match the selector, returns empty array.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.querySelectorAll(selector);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-query-selector-all-option-selector"/><a href="#frame-query-selector-all-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
 
-**Returns**
+**傳回值**
 - [List]&lt;[ElementHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-query-selector-all-return"/><a href="#frame-query-selector-all-return" class="list-anchor">#</a>
 
 ---
@@ -2106,7 +2106,7 @@ Returns the array of option values that have been successfully selected.
 
 Triggers a `change` and `input` event once all the provided options have been selected.
 
-**Usage**
+**使用方式**
 
 ```java
 // Single selection matching the value or label
@@ -2117,7 +2117,7 @@ frame.selectOption("select#colors", new SelectOption().setLabel("Blue"));
 frame.selectOption("select#colors", new String[] {"red", "green", "blue"});
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-select-option-option-selector"/><a href="#frame-select-option-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -2152,7 +2152,7 @@ frame.selectOption("select#colors", new String[] {"red", "green", "blue"});
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [List]&lt;[String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-select-option-return"/><a href="#frame-select-option-return" class="list-anchor">#</a>
 
 ---
@@ -2179,14 +2179,14 @@ This method checks or unchecks an element matching [selector](/api/class-frame.m
 
 When all steps combined have not finished during the specified [setTimeout](/api/class-frame.mdx#frame-set-checked-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.setChecked(selector, checked);
 Frame.setChecked(selector, checked, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-checked-option-selector"/><a href="#frame-set-checked-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -2223,7 +2223,7 @@ Frame.setChecked(selector, checked, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-checked-return"/><a href="#frame-set-checked-return" class="list-anchor">#</a>
 
 ---
@@ -2243,14 +2243,14 @@ Sets the value of the file input to these file paths or files. If some of the `f
 
 This method expects [selector](/api/class-frame.mdx#frame-set-input-files-option-selector) to point to an [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input). However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), targets the control instead.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.setInputFiles(selector, files);
 Frame.setInputFiles(selector, files, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-option-selector"/><a href="#frame-set-input-files-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -2280,7 +2280,7 @@ Frame.setInputFiles(selector, files, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-set-input-files-return"/><a href="#frame-set-input-files-return" class="list-anchor">#</a>
 
 ---
@@ -2309,14 +2309,14 @@ When all steps combined have not finished during the specified [setTimeout](/api
 `frame.tap()` requires that the `hasTouch` option of the browser context be set to true.
 :::
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.tap(selector);
 Frame.tap(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-tap-option-selector"/><a href="#frame-tap-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -2353,7 +2353,7 @@ Frame.tap(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-tap-return"/><a href="#frame-tap-return" class="list-anchor">#</a>
 
 ---
@@ -2371,14 +2371,14 @@ Use locator-based [Locator.textContent()](/api/class-locator.mdx#locator-text-co
 
 Returns `element.textContent`.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.textContent(selector);
 Frame.textContent(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-text-content-option-selector"/><a href="#frame-text-content-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -2390,7 +2390,7 @@ Frame.textContent(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [null] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-text-content-return"/><a href="#frame-text-content-return" class="list-anchor">#</a>
 
 ---
@@ -2410,9 +2410,9 @@ Sends a `keydown`, `keypress`/`input`, and `keyup` event for each character in t
 
 To press a special key, like `Control` or `ArrowDown`, use [Keyboard.press()](/api/class-keyboard.mdx#keyboard-press).
 
-**Usage**
+**使用方式**
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-type-option-selector"/><a href="#frame-type-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -2438,7 +2438,7 @@ To press a special key, like `Control` or `ArrowDown`, use [Keyboard.press()](/a
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-type-return"/><a href="#frame-type-return" class="list-anchor">#</a>
 
 ---
@@ -2464,14 +2464,14 @@ This method checks an element matching [selector](/api/class-frame.mdx#frame-unc
 
 When all steps combined have not finished during the specified [setTimeout](/api/class-frame.mdx#frame-uncheck-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.uncheck(selector);
 Frame.uncheck(selector, options);
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-uncheck-option-selector"/><a href="#frame-uncheck-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -2505,7 +2505,7 @@ Frame.uncheck(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-uncheck-return"/><a href="#frame-uncheck-return" class="list-anchor">#</a>
 
 ---
@@ -2523,7 +2523,7 @@ This method is inherently racy, please use [Frame.waitForURL()](/api/class-frame
 
 Waits for the frame navigation and returns the main resource response. In case of multiple redirects, the navigation will resolve with the response of the last redirect. In case of navigation to a different anchor or navigation due to History API usage, the navigation will resolve with `null`.
 
-**Usage**
+**使用方式**
 
 This method waits for the frame to navigate to a new URL. It is useful for when you run code which will indirectly cause the frame to navigate. Consider this example:
 
@@ -2539,7 +2539,7 @@ frame.waitForNavigation(() -> {
 Usage of the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) to change the URL is considered a navigation.
 :::
 
-**Arguments**
+**參數**
 - `options` `Frame.WaitForNavigationOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-navigation-option-timeout"/><a href="#frame-wait-for-navigation-option-timeout" class="list-anchor">#</a>
     
@@ -2558,7 +2558,7 @@ Usage of the [History API](https://developer.mozilla.org/en-US/docs/Web/API/Hist
   
   Callback that performs the action triggering the event.
 
-**Returns**
+**傳回值**
 - [null] | [Response]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-navigation-return"/><a href="#frame-wait-for-navigation-return" class="list-anchor">#</a>
 
 ---
@@ -2583,7 +2583,7 @@ Playwright automatically waits for element to be ready before performing an acti
 
 Wait for the [selector](/api/class-frame.mdx#frame-wait-for-selector-option-selector) to satisfy [setState](/api/class-frame.mdx#frame-wait-for-selector-option-state) option (either appear/disappear from dom, or become visible/hidden). If at the moment of calling the method [selector](/api/class-frame.mdx#frame-wait-for-selector-option-selector) already satisfies the condition, the method will return immediately. If the selector doesn't satisfy the condition for the [setTimeout](/api/class-frame.mdx#frame-wait-for-selector-option-timeout) milliseconds, the function will throw.
 
-**Usage**
+**使用方式**
 
 This method works across navigations:
 
@@ -2607,7 +2607,7 @@ public class Example {
 }
 ```
 
-**Arguments**
+**參數**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-selector-option-selector"/><a href="#frame-wait-for-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -2626,7 +2626,7 @@ public class Example {
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [null] | [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-selector-return"/><a href="#frame-wait-for-selector-return" class="list-anchor">#</a>
 
 ---
@@ -2646,18 +2646,18 @@ Waits for the given [timeout](/api/class-frame.mdx#frame-wait-for-timeout-option
 
 Note that `frame.waitForTimeout()` should only be used for debugging. Tests using the timer in production are going to be flaky. Use signals such as network events, selectors becoming visible and others instead.
 
-**Usage**
+**使用方式**
 
 ```java
 Frame.waitForTimeout(timeout);
 ```
 
-**Arguments**
+**參數**
 - `timeout` [double]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-timeout-option-timeout"/><a href="#frame-wait-for-timeout-option-timeout" class="list-anchor">#</a>
   
   A timeout to wait for
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-wait-for-timeout-return"/><a href="#frame-wait-for-timeout-return" class="list-anchor">#</a>
 
 

@@ -60,7 +60,7 @@ asyncio.run(main())
 
 ---
 
-## Methods
+## 方法
 
 ### close {#browser-close}
 
@@ -77,19 +77,19 @@ This is similar to force-quitting the browser. To close pages gracefully and ens
 
 The [Browser] object itself is considered to be disposed and cannot be used anymore.
 
-**Usage**
+**使用方式**
 
 ```python
 browser.close()
 browser.close(**kwargs)
 ```
 
-**Arguments**
+**參數**
 - `reason` [str] *(optional)* <font size="2">Added in: v1.40</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-close-option-reason"/><a href="#browser-close-option-reason" class="list-anchor">#</a>
   
   The reason to be reported to the operations interrupted by the browser closure.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-close-return"/><a href="#browser-close-return" class="list-anchor">#</a>
 
 ---
@@ -105,13 +105,13 @@ CDP Sessions are only supported on Chromium-based browsers.
 
 Returns the newly created browser session.
 
-**Usage**
+**使用方式**
 
 ```python
 browser.new_browser_cdp_session()
 ```
 
-**Returns**
+**傳回值**
 - [CDPSession]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-browser-cdp-session-return"/><a href="#browser-new-browser-cdp-session-return" class="list-anchor">#</a>
 
 ---
@@ -127,7 +127,7 @@ Creates a new browser context. It won't share cookies/cache with other browser c
 If directly using this method to create [BrowserContext]s, it is best practice to explicitly close the returned context via [browser_context.close()](/api/class-browsercontext.mdx#browser-context-close) when your code is done with the [BrowserContext], and before calling [browser.close()](/api/class-browser.mdx#browser-close). This will ensure the `context` is closed gracefully and any artifacts—like HARs and videos—are fully flushed and saved.
 :::
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -171,7 +171,7 @@ await browser.close()
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `accept_downloads` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-option-accept-downloads"/><a href="#browser-new-context-option-accept-downloads" class="list-anchor">#</a>
   
   Whether to automatically download all the attachments. Defaults to `true` where all the downloads are accepted.
@@ -408,7 +408,7 @@ await browser.close()
   
   Sets a consistent viewport for each page. Defaults to an 1280x720 viewport. `no_viewport` disables the fixed viewport. Learn more about [viewport emulation](../emulation.mdx#viewport).
 
-**Returns**
+**傳回值**
 - [BrowserContext]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-context-return"/><a href="#browser-new-context-return" class="list-anchor">#</a>
 
 ---
@@ -421,14 +421,14 @@ Creates a new page in a new browser context. Closing this page will close the co
 
 This is a convenience API that should only be used for the single-page scenarios and short snippets. Production code and testing frameworks should explicitly create [browser.new_context()](/api/class-browser.mdx#browser-new-context) followed by the [browser_context.new_page()](/api/class-browsercontext.mdx#browser-context-new-page) to control their exact life times.
 
-**Usage**
+**使用方式**
 
 ```python
 browser.new_page()
 browser.new_page(**kwargs)
 ```
 
-**Arguments**
+**參數**
 - `accept_downloads` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-page-option-accept-downloads"/><a href="#browser-new-page-option-accept-downloads" class="list-anchor">#</a>
   
   Whether to automatically download all the attachments. Defaults to `true` where all the downloads are accepted.
@@ -665,7 +665,7 @@ browser.new_page(**kwargs)
   
   Sets a consistent viewport for each page. Defaults to an 1280x720 viewport. `no_viewport` disables the fixed viewport. Learn more about [viewport emulation](../emulation.mdx#viewport).
 
-**Returns**
+**傳回值**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-new-page-return"/><a href="#browser-new-page-return" class="list-anchor">#</a>
 
 ---
@@ -681,7 +681,7 @@ This API controls [Chromium Tracing](https://www.chromium.org/developers/how-tos
 
 You can use [browser.start_tracing()](/api/class-browser.mdx#browser-start-tracing) and [browser.stop_tracing()](/api/class-browser.mdx#browser-stop-tracing) to create a trace file that can be opened in Chrome DevTools performance panel.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -711,7 +711,7 @@ await browser.stop_tracing()
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `page` [Page] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-start-tracing-option-page"/><a href="#browser-start-tracing-option-page" class="list-anchor">#</a>
   
   Optional, if specified, tracing includes screenshots of the given page.
@@ -725,7 +725,7 @@ await browser.stop_tracing()
   
   captures screenshots in the trace.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-start-tracing-return"/><a href="#browser-start-tracing-return" class="list-anchor">#</a>
 
 ---
@@ -741,18 +741,18 @@ This API controls [Chromium Tracing](https://www.chromium.org/developers/how-tos
 
 Returns the buffer with trace data.
 
-**Usage**
+**使用方式**
 
 ```python
 browser.stop_tracing()
 ```
 
-**Returns**
+**傳回值**
 - [bytes]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-stop-tracing-return"/><a href="#browser-stop-tracing-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### browser_type {#browser-browser-type}
 
@@ -760,13 +760,13 @@ browser.stop_tracing()
 
 Get the browser type (chromium, firefox or webkit) that the browser belongs to.
 
-**Usage**
+**使用方式**
 
 ```python
 browser.browser_type
 ```
 
-**Returns**
+**傳回值**
 - [BrowserType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-browser-type-return"/><a href="#browser-browser-type-return" class="list-anchor">#</a>
 
 ---
@@ -777,7 +777,7 @@ browser.browser_type
 
 Returns an array of all open browser contexts. In a newly created browser, this will return zero browser contexts.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -809,7 +809,7 @@ print(len(browser.contexts)) # prints `1`
 </TabItem>
 </Tabs>
 
-**Returns**
+**傳回值**
 - [List]\[[BrowserContext]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-contexts-return"/><a href="#browser-contexts-return" class="list-anchor">#</a>
 
 ---
@@ -820,13 +820,13 @@ print(len(browser.contexts)) # prints `1`
 
 Indicates that the browser is connected.
 
-**Usage**
+**使用方式**
 
 ```python
 browser.is_connected()
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-is-connected-return"/><a href="#browser-is-connected-return" class="list-anchor">#</a>
 
 ---
@@ -837,18 +837,18 @@ browser.is_connected()
 
 Returns the browser version.
 
-**Usage**
+**使用方式**
 
 ```python
 browser.version
 ```
 
-**Returns**
+**傳回值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-version-return"/><a href="#browser-version-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### on("disconnected") {#browser-event-disconnected}
 
@@ -858,13 +858,13 @@ Emitted when Browser gets disconnected from the browser application. This might 
 * Browser application is closed or crashed.
 * The [browser.close()](/api/class-browser.mdx#browser-close) method was called.
 
-**Usage**
+**使用方式**
 
 ```python
 browser.on("disconnected", handler)
 ```
 
-**Event data**
+**事件資料**
 - [Browser]
 
 

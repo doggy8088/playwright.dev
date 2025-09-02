@@ -27,7 +27,7 @@ await context.close();
 
 ---
 
-## Methods
+## 方法
 
 ### addCookies {#browser-context-add-cookies}
 
@@ -35,13 +35,13 @@ await context.close();
 
 Adds cookies into this browser context. All pages within this context will have these cookies installed. Cookies can be obtained via [browserContext.cookies()](/api/class-browsercontext.mdx#browser-context-cookies).
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.addCookies([cookieObject1, cookieObject2]);
 ```
 
-**Arguments**
+**參數**
 - `cookies` [Array]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-add-cookies-option-cookies"/><a href="#browser-context-add-cookies-option-cookies" class="list-anchor">#</a>
   - `name` [string]
     
@@ -74,7 +74,7 @@ await browserContext.addCookies([cookieObject1, cookieObject2]);
     
     For partitioned third-party cookies (aka [CHIPS](https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies)), the partition key. Optional.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-add-cookies-return"/><a href="#browser-context-add-cookies-return" class="list-anchor">#</a>
 
 ---
@@ -89,7 +89,7 @@ Adds a script which would be evaluated in one of the following scenarios:
 
 The script is evaluated after the document was created but before any of its scripts were run. This is useful to amend the JavaScript environment, e.g. to seed `Math.random`.
 
-**Usage**
+**使用方式**
 
 An example of overriding `Math.random` before the page loads:
 
@@ -109,7 +109,7 @@ await browserContext.addInitScript({
 The order of evaluation of multiple scripts installed via [browserContext.addInitScript()](/api/class-browsercontext.mdx#browser-context-add-init-script) and [page.addInitScript()](/api/class-page.mdx#page-add-init-script) is not defined.
 :::
 
-**Arguments**
+**參數**
 - `script` [function] | [string] | [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-add-init-script-option-script"/><a href="#browser-context-add-init-script-option-script" class="list-anchor">#</a>
   - `path` [string] *(optional)*
     
@@ -123,7 +123,7 @@ The order of evaluation of multiple scripts installed via [browserContext.addIni
   
   Optional argument to pass to [script](/api/class-browsercontext.mdx#browser-context-add-init-script-option-script) (only supported when passing a function).
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-add-init-script-return"/><a href="#browser-context-add-init-script-return" class="list-anchor">#</a>
 
 ---
@@ -139,13 +139,13 @@ Background pages are only supported on Chromium-based browsers.
 
 All existing background pages in the context.
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.backgroundPages();
 ```
 
-**Returns**
+**傳回值**
 - [Array]&lt;[Page]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-background-pages-return"/><a href="#browser-context-background-pages-return" class="list-anchor">#</a>
 
 ---
@@ -156,13 +156,13 @@ browserContext.backgroundPages();
 
 Gets the browser instance that owns the context. Returns `null` if the context is created outside of normal browser, e.g. Android or Electron.
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.browser();
 ```
 
-**Returns**
+**傳回值**
 - [null] | [Browser]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-browser-return"/><a href="#browser-context-browser-return" class="list-anchor">#</a>
 
 ---
@@ -173,7 +173,7 @@ browserContext.browser();
 
 Removes cookies from context. Accepts optional filter.
 
-**Usage**
+**使用方式**
 
 ```js
 await context.clearCookies();
@@ -184,7 +184,7 @@ await context.clearCookies({ path: '/api/v1' });
 await context.clearCookies({ name: 'session-id', domain: 'my-origin.com' });
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `domain` [string] | [RegExp] *(optional)* <font size="2">Added in: v1.43</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-clear-cookies-option-domain"/><a href="#browser-context-clear-cookies-option-domain" class="list-anchor">#</a>
     
@@ -196,7 +196,7 @@ await context.clearCookies({ name: 'session-id', domain: 'my-origin.com' });
     
     Only removes cookies with the given path.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-clear-cookies-return"/><a href="#browser-context-clear-cookies-return" class="list-anchor">#</a>
 
 ---
@@ -207,7 +207,7 @@ await context.clearCookies({ name: 'session-id', domain: 'my-origin.com' });
 
 Clears all permission overrides for the browser context.
 
-**Usage**
+**使用方式**
 
 ```js
 const context = await browser.newContext();
@@ -216,7 +216,7 @@ await context.grantPermissions(['clipboard-read']);
 context.clearPermissions();
 ```
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-clear-permissions-return"/><a href="#browser-context-clear-permissions-return" class="list-anchor">#</a>
 
 ---
@@ -232,20 +232,20 @@ Closes the browser context. All the pages that belong to the browser context wil
 The default browser context cannot be closed.
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.close();
 await browserContext.close(options);
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `reason` [string] *(optional)* <font size="2">Added in: v1.40</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-close-option-reason"/><a href="#browser-context-close-option-reason" class="list-anchor">#</a>
     
     The reason to be reported to the operations interrupted by the context closure.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-close-return"/><a href="#browser-context-close-return" class="list-anchor">#</a>
 
 ---
@@ -256,19 +256,19 @@ await browserContext.close(options);
 
 If no URLs are specified, this method returns all cookies. If URLs are specified, only cookies that affect those URLs are returned.
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.cookies();
 await browserContext.cookies(urls);
 ```
 
-**Arguments**
+**參數**
 - `urls` [string] | [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-cookies-option-urls"/><a href="#browser-context-cookies-option-urls" class="list-anchor">#</a>
   
   Optional list of URLs.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Array]&lt;[Object]&gt;&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-cookies-return"/><a href="#browser-context-cookies-return" class="list-anchor">#</a>
   - `name` [string]
     
@@ -309,7 +309,7 @@ The first argument of the [callback](/api/class-browsercontext.mdx#browser-conte
 
 See [page.exposeBinding()](/api/class-page.mdx#page-expose-binding) for page-only version.
 
-**Usage**
+**使用方式**
 
 An example of exposing page URL to all frames in all pages in the context:
 
@@ -334,7 +334,7 @@ const { webkit } = require('playwright');  // Or 'chromium' or 'firefox'.
 })();
 ```
 
-**Arguments**
+**參數**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-expose-binding-option-name"/><a href="#browser-context-expose-binding-option-name" class="list-anchor">#</a>
   
   Name of the function on the window object.
@@ -351,7 +351,7 @@ const { webkit } = require('playwright');  // Or 'chromium' or 'firefox'.
     
     Whether to pass the argument as a handle, instead of passing by value. When passing a handle, only one argument is supported. When passing by value, multiple arguments are supported.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-expose-binding-return"/><a href="#browser-context-expose-binding-return" class="list-anchor">#</a>
 
 ---
@@ -366,7 +366,7 @@ If the [callback](/api/class-browsercontext.mdx#browser-context-expose-function-
 
 See [page.exposeFunction()](/api/class-page.mdx#page-expose-function) for page-only version.
 
-**Usage**
+**使用方式**
 
 An example of adding a `sha256` function to all pages in the context:
 
@@ -394,7 +394,7 @@ const crypto = require('crypto');
 })();
 ```
 
-**Arguments**
+**參數**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-expose-function-option-name"/><a href="#browser-context-expose-function-option-name" class="list-anchor">#</a>
   
   Name of the function on the window object.
@@ -402,7 +402,7 @@ const crypto = require('crypto');
   
   Callback function that will be called in the Playwright's context.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-expose-function-return"/><a href="#browser-context-expose-function-return" class="list-anchor">#</a>
 
 ---
@@ -413,14 +413,14 @@ const crypto = require('crypto');
 
 Grants specified permissions to the browser context. Only grants corresponding permissions to the given origin if specified.
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.grantPermissions(permissions);
 await browserContext.grantPermissions(permissions, options);
 ```
 
-**Arguments**
+**參數**
 - `permissions` [Array]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-grant-permissions-option-permissions"/><a href="#browser-context-grant-permissions-option-permissions" class="list-anchor">#</a>
   
   A list of permissions to grant.
@@ -452,7 +452,7 @@ await browserContext.grantPermissions(permissions, options);
     
     The [origin] to grant permissions to, e.g. "https://example.com".
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-grant-permissions-return"/><a href="#browser-context-grant-permissions-return" class="list-anchor">#</a>
 
 ---
@@ -468,18 +468,18 @@ CDP sessions are only supported on Chromium-based browsers.
 
 Returns the newly created session.
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.newCDPSession(page);
 ```
 
-**Arguments**
+**參數**
 - `page` [Page] | [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-new-cdp-session-option-page"/><a href="#browser-context-new-cdp-session-option-page" class="list-anchor">#</a>
   
   Target to create new session for. For backwards-compatibility, this parameter is named `page`, but it can be a `Page` or `Frame` type.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[CDPSession]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-new-cdp-session-return"/><a href="#browser-context-new-cdp-session-return" class="list-anchor">#</a>
 
 ---
@@ -490,13 +490,13 @@ await browserContext.newCDPSession(page);
 
 Creates a new page in the browser context.
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.newPage();
 ```
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Page]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-new-page-return"/><a href="#browser-context-new-page-return" class="list-anchor">#</a>
 
 ---
@@ -507,13 +507,13 @@ await browserContext.newPage();
 
 Returns all open pages in the context.
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.pages();
 ```
 
-**Returns**
+**傳回值**
 - [Array]&lt;[Page]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-pages-return"/><a href="#browser-context-pages-return" class="list-anchor">#</a>
 
 ---
@@ -524,14 +524,14 @@ browserContext.pages();
 
 Removes all the listeners of the given type (or all registered listeners if no type given). Allows to wait for async listeners to complete or to ignore subsequent errors from these listeners.
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.removeAllListeners();
 await browserContext.removeAllListeners(type, options);
 ```
 
-**Arguments**
+**參數**
 - `type` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-remove-all-listeners-option-type"/><a href="#browser-context-remove-all-listeners-option-type" class="list-anchor">#</a>
 - `options` [Object] *(optional)*
   - `behavior` "wait" | "ignoreErrors" | "default" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-remove-all-listeners-option-behavior"/><a href="#browser-context-remove-all-listeners-option-behavior" class="list-anchor">#</a>
@@ -541,7 +541,7 @@ await browserContext.removeAllListeners(type, options);
     * `'wait'` - wait for current listener calls (if any) to finish
     * `'ignoreErrors'` - do not wait for current listener calls (if any) to finish, all errors thrown by the listeners after removal are silently caught
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-remove-all-listeners-return"/><a href="#browser-context-remove-all-listeners-return" class="list-anchor">#</a>
 
 ---
@@ -557,7 +557,7 @@ Routing provides the capability to modify network requests that are made by any 
 [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) will not intercept requests intercepted by Service Worker. See [this](https://github.com/microsoft/playwright/issues/1090) issue. We recommend disabling Service Workers when using request interception by setting [serviceWorkers](/api/class-browser.mdx#browser-new-context-option-service-workers) to `'block'`.
 :::
 
-**Usage**
+**使用方式**
 
 An example of a naive handler that aborts all image requests:
 
@@ -599,7 +599,7 @@ To remove a route with its handler you can use [browserContext.unroute()](/api/c
 Enabling routing disables http cache.
 :::
 
-**Arguments**
+**參數**
 - `url` [string] | [RegExp] | [function]\([URL]\):[boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-option-url"/><a href="#browser-context-route-option-url" class="list-anchor">#</a>
   
   A glob pattern, regex pattern, or predicate that receives a [URL] to match during routing. If [baseURL](/api/class-browser.mdx#browser-new-context-option-base-url) is set in the context options and the provided URL is a string that does not start with `*`, it is resolved using the [`new URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor.
@@ -611,7 +611,7 @@ Enabling routing disables http cache.
     
     How often a route should be used. By default it will be used every time.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-return"/><a href="#browser-context-route-return" class="list-anchor">#</a>
 
 ---
@@ -624,14 +624,14 @@ If specified the network requests that are made in the context will be served fr
 
 Playwright will not serve requests intercepted by Service Worker from the HAR file. See [this](https://github.com/microsoft/playwright/issues/1090) issue. We recommend disabling Service Workers when using request interception by setting [serviceWorkers](/api/class-browser.mdx#browser-new-context-option-service-workers) to `'block'`.
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.routeFromHAR(har);
 await browserContext.routeFromHAR(har, options);
 ```
 
-**Arguments**
+**參數**
 - `har` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-from-har-option-har"/><a href="#browser-context-route-from-har-option-har" class="list-anchor">#</a>
   
   Path to a [HAR](http://www.softwareishard.com/blog/har-12-spec) file with prerecorded network data. If `path` is a relative path, then it is resolved relative to the current working directory.
@@ -654,7 +654,7 @@ await browserContext.routeFromHAR(har, options);
     
     A glob pattern, regular expression or predicate to match the request URL. Only requests with URL matching the pattern will be served from the HAR file. If not specified, all requests are served from the HAR file.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-from-har-return"/><a href="#browser-context-route-from-har-return" class="list-anchor">#</a>
 
 ---
@@ -667,7 +667,7 @@ This method allows to modify websocket connections that are made by any page in 
 
 Note that only `WebSocket`s created after this method was called will be routed. It is recommended to call this method before creating any pages.
 
-**Usage**
+**使用方式**
 
 Below is an example of a simple handler that blocks some websocket messages. See [WebSocketRoute] for more details and examples.
 
@@ -682,7 +682,7 @@ await context.routeWebSocket('/ws', async ws => {
 });
 ```
 
-**Arguments**
+**參數**
 - `url` [string] | [RegExp] | [function]\([URL]\):[boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-web-socket-option-url"/><a href="#browser-context-route-web-socket-option-url" class="list-anchor">#</a>
   
   Only WebSockets with the url matching this pattern will be routed. A string pattern can be relative to the [baseURL](/api/class-browser.mdx#browser-new-context-option-base-url) context option.
@@ -690,7 +690,7 @@ await context.routeWebSocket('/ws', async ws => {
   
   Handler function to route the WebSocket.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-route-web-socket-return"/><a href="#browser-context-route-web-socket-return" class="list-anchor">#</a>
 
 ---
@@ -706,13 +706,13 @@ Service workers are only supported on Chromium-based browsers.
 
 All existing service workers in the context.
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.serviceWorkers();
 ```
 
-**Returns**
+**傳回值**
 - [Array]&lt;[Worker]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-service-workers-return"/><a href="#browser-context-service-workers-return" class="list-anchor">#</a>
 
 ---
@@ -734,13 +734,13 @@ This setting will change the default maximum navigation time for the following m
 [page.setDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout) and [page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) take priority over [browserContext.setDefaultNavigationTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout).
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.setDefaultNavigationTimeout(timeout);
 ```
 
-**Arguments**
+**參數**
 - `timeout` [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-set-default-navigation-timeout-option-timeout"/><a href="#browser-context-set-default-navigation-timeout-option-timeout" class="list-anchor">#</a>
   
   Maximum navigation time in milliseconds
@@ -758,13 +758,13 @@ This setting will change the default maximum time for all the methods accepting 
 [page.setDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout), [page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) and [browserContext.setDefaultNavigationTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout) take priority over [browserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.setDefaultTimeout(timeout);
 ```
 
-**Arguments**
+**參數**
 - `timeout` [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-set-default-timeout-option-timeout"/><a href="#browser-context-set-default-timeout-option-timeout" class="list-anchor">#</a>
   
   Maximum time in milliseconds. Pass `0` to disable timeout.
@@ -782,18 +782,18 @@ The extra HTTP headers will be sent with every request initiated by any page in 
 [browserContext.setExtraHTTPHeaders()](/api/class-browsercontext.mdx#browser-context-set-extra-http-headers) does not guarantee the order of headers in the outgoing requests.
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.setExtraHTTPHeaders(headers);
 ```
 
-**Arguments**
+**參數**
 - `headers` [Object]&lt;[string], [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-set-extra-http-headers-option-headers"/><a href="#browser-context-set-extra-http-headers-option-headers" class="list-anchor">#</a>
   
   An object containing additional HTTP headers to be sent with every request. All header values must be strings.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-set-extra-http-headers-return"/><a href="#browser-context-set-extra-http-headers-return" class="list-anchor">#</a>
 
 ---
@@ -804,7 +804,7 @@ await browserContext.setExtraHTTPHeaders(headers);
 
 Sets the context's geolocation. Passing `null` or `undefined` emulates position unavailable.
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.setGeolocation({ latitude: 59.95, longitude: 30.31667 });
@@ -814,7 +814,7 @@ await browserContext.setGeolocation({ latitude: 59.95, longitude: 30.31667 });
 Consider using [browserContext.grantPermissions()](/api/class-browsercontext.mdx#browser-context-grant-permissions) to grant permissions for the browser context pages to read its geolocation.
 :::
 
-**Arguments**
+**參數**
 - `geolocation` [null] | [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-set-geolocation-option-geolocation"/><a href="#browser-context-set-geolocation-option-geolocation" class="list-anchor">#</a>
   - `latitude` [number]
     
@@ -826,7 +826,7 @@ Consider using [browserContext.grantPermissions()](/api/class-browsercontext.mdx
     
     Non-negative accuracy value. Defaults to `0`.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-set-geolocation-return"/><a href="#browser-context-set-geolocation-return" class="list-anchor">#</a>
 
 ---
@@ -835,18 +835,18 @@ Consider using [browserContext.grantPermissions()](/api/class-browsercontext.mdx
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>browserContext.setOffline</x-search>
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.setOffline(offline);
 ```
 
-**Arguments**
+**參數**
 - `offline` [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-set-offline-option-offline"/><a href="#browser-context-set-offline-option-offline" class="list-anchor">#</a>
   
   Whether to emulate network being offline for the browser context.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-set-offline-return"/><a href="#browser-context-set-offline-return" class="list-anchor">#</a>
 
 ---
@@ -857,14 +857,14 @@ await browserContext.setOffline(offline);
 
 Returns storage state for this browser context, contains current cookies, local storage snapshot and IndexedDB snapshot.
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.storageState();
 await browserContext.storageState(options);
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `indexedDB` [boolean] *(optional)* <font size="2">Added in: v1.51</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-storage-state-option-indexed-db"/><a href="#browser-context-storage-state-option-indexed-db" class="list-anchor">#</a>
     
@@ -873,7 +873,7 @@ await browserContext.storageState(options);
     
     The file path to save the storage state to. If [path](/api/class-browsercontext.mdx#browser-context-storage-state-option-path) is a relative path, then it is resolved relative to current working directory. If no path is provided, storage state is still returned, but won't be saved to the disk.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-storage-state-return"/><a href="#browser-context-storage-state-return" class="list-anchor">#</a>
   - `cookies` [Array]&lt;[Object]&gt;
     - `name` [string]
@@ -922,14 +922,14 @@ await browserContext.storageState(options);
 
 Removes a route created with [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route). When [handler](/api/class-browsercontext.mdx#browser-context-unroute-option-handler) is not specified, removes all routes for the [url](/api/class-browsercontext.mdx#browser-context-unroute-option-url).
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.unroute(url);
 await browserContext.unroute(url, handler);
 ```
 
-**Arguments**
+**參數**
 - `url` [string] | [RegExp] | [function]\([URL]\):[boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-unroute-option-url"/><a href="#browser-context-unroute-option-url" class="list-anchor">#</a>
   
   A glob pattern, regex pattern or predicate receiving [URL] used to register a routing with [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route).
@@ -937,7 +937,7 @@ await browserContext.unroute(url, handler);
   
   Optional handler function used to register a routing with [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route).
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-unroute-return"/><a href="#browser-context-unroute-return" class="list-anchor">#</a>
 
 ---
@@ -948,14 +948,14 @@ await browserContext.unroute(url, handler);
 
 Removes all routes created with [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) and [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har).
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.unrouteAll();
 await browserContext.unrouteAll(options);
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `behavior` "wait" | "ignoreErrors" | "default" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-unroute-all-option-behavior"/><a href="#browser-context-unroute-all-option-behavior" class="list-anchor">#</a>
     
@@ -964,7 +964,7 @@ await browserContext.unrouteAll(options);
     * `'wait'` - wait for current handler calls (if any) to finish
     * `'ignoreErrors'` - do not wait for current handler calls (if any) to finish, all errors thrown by the handlers after unrouting are silently caught
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-unroute-all-return"/><a href="#browser-context-unroute-all-return" class="list-anchor">#</a>
 
 ---
@@ -975,7 +975,7 @@ await browserContext.unrouteAll(options);
 
 Waits for event to fire and passes its value into the predicate function. Returns when the predicate returns truthy value. Will throw an error if the context closes before the event is fired. Returns the event data value.
 
-**Usage**
+**使用方式**
 
 ```js
 const pagePromise = context.waitForEvent('page');
@@ -983,7 +983,7 @@ await page.getByRole('button').click();
 const page = await pagePromise;
 ```
 
-**Arguments**
+**參數**
 - `event` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-wait-for-event-option-event"/><a href="#browser-context-wait-for-event-option-event" class="list-anchor">#</a>
   
   Event name, same one would pass into `browserContext.on(event)`.
@@ -1001,12 +1001,12 @@ const page = await pagePromise;
     
     Receives the event data and resolves to truthy value when the waiting should resolve.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-wait-for-event-return"/><a href="#browser-context-wait-for-event-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### clock {#browser-context-clock}
 
@@ -1014,13 +1014,13 @@ const page = await pagePromise;
 
 Playwright has ability to mock clock and passage of time.
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.clock
 ```
 
-**Type**
+**型別 (Type)**
 - [Clock]
 
 ---
@@ -1031,13 +1031,13 @@ browserContext.clock
 
 API testing helper associated with this context. Requests made with this API will use context cookies.
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.request
 ```
 
-**Type**
+**型別 (Type)**
 - [APIRequestContext]
 
 ---
@@ -1046,18 +1046,18 @@ browserContext.request
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.12</font><x-search>browserContext.tracing</x-search>
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.tracing
 ```
 
-**Type**
+**型別 (Type)**
 - [Tracing]
 
 ---
 
-## Events
+## 事件
 
 ### on('backgroundpage') {#browser-context-event-background-page}
 
@@ -1074,13 +1074,13 @@ Emitted when new background page is created in the context.
 const backgroundPage = await context.waitForEvent('backgroundpage');
 ```
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.on('backgroundpage', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Page]
 
 ---
@@ -1094,13 +1094,13 @@ Emitted when Browser context gets closed. This might happen because of one of th
 * Browser application is closed or crashed.
 * The [browser.close()](/api/class-browser.mdx#browser-close) method was called.
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.on('close', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [BrowserContext]
 
 ---
@@ -1113,7 +1113,7 @@ Emitted when JavaScript within the page calls one of console API methods, e.g. `
 
 The arguments passed into `console.log` and the page are available on the [ConsoleMessage] event handler argument.
 
-**Usage**
+**使用方式**
 
 ```js
 context.on('console', async msg => {
@@ -1125,7 +1125,7 @@ context.on('console', async msg => {
 await page.evaluate(() => console.log('hello', 5, { foo: 'bar' }));
 ```
 
-**Event data**
+**事件資料**
 - [ConsoleMessage]
 
 ---
@@ -1136,7 +1136,7 @@ await page.evaluate(() => console.log('hello', 5, { foo: 'bar' }));
 
 Emitted when a JavaScript dialog appears, such as `alert`, `prompt`, `confirm` or `beforeunload`. Listener **must** either [dialog.accept()](/api/class-dialog.mdx#dialog-accept) or [dialog.dismiss()](/api/class-dialog.mdx#dialog-dismiss) the dialog - otherwise the page will [freeze](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#never_blocking) waiting for the dialog, and actions like click will never finish.
 
-**Usage**
+**使用方式**
 
 ```js
 context.on('dialog', dialog => {
@@ -1148,7 +1148,7 @@ context.on('dialog', dialog => {
 When no [page.on('dialog')](/api/class-page.mdx#page-event-dialog) or [browserContext.on('dialog')](/api/class-browsercontext.mdx#browser-context-event-dialog) listeners are present, all dialogs are automatically dismissed.
 :::
 
-**Event data**
+**事件資料**
 - [Dialog]
 
 ---
@@ -1172,13 +1172,13 @@ console.log(await newPage.evaluate('location.href'));
 Use [page.waitForLoadState()](/api/class-page.mdx#page-wait-for-load-state) to wait until the page gets to a particular state (you should not need it in most cases).
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.on('page', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Page]
 
 ---
@@ -1191,13 +1191,13 @@ Emitted when a request is issued from any pages created through this context. Th
 
 In order to intercept and mutate requests, see [browserContext.route()](/api/class-browsercontext.mdx#browser-context-route) or [page.route()](/api/class-page.mdx#page-route).
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.on('request', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Request]
 
 ---
@@ -1213,13 +1213,13 @@ Emitted when a request fails, for example by timing out. To only listen for fail
 HTTP Error responses, such as 404 or 503, are still successful responses from HTTP standpoint, so request will complete with [browserContext.on('requestfinished')](/api/class-browsercontext.mdx#browser-context-event-request-finished) event and not with [browserContext.on('requestfailed')](/api/class-browsercontext.mdx#browser-context-event-request-failed).
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.on('requestfailed', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Request]
 
 ---
@@ -1230,13 +1230,13 @@ browserContext.on('requestfailed', data => {});
 
 Emitted when a request finishes successfully after downloading the response body. For a successful response, the sequence of events is `request`, `response` and `requestfinished`. To listen for successful requests from a particular page, use [page.on('requestfinished')](/api/class-page.mdx#page-event-request-finished).
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.on('requestfinished', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Request]
 
 ---
@@ -1247,13 +1247,13 @@ browserContext.on('requestfinished', data => {});
 
 Emitted when [response] status and headers are received for a request. For a successful response, the sequence of events is `request`, `response` and `requestfinished`. To listen for response events from a particular page, use [page.on('response')](/api/class-page.mdx#page-event-response).
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.on('response', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Response]
 
 ---
@@ -1269,13 +1269,13 @@ Service workers are only supported on Chromium-based browsers.
 
 Emitted when new service worker is created in the context.
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.on('serviceworker', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Worker]
 
 ---
@@ -1286,13 +1286,13 @@ browserContext.on('serviceworker', data => {});
 
 Emitted when exception is unhandled in any of the pages in this context. To listen for errors from a particular page, use [page.on('pageerror')](/api/class-page.mdx#page-event-page-error) instead.
 
-**Usage**
+**使用方式**
 
 ```js
 browserContext.on('weberror', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [WebError]
 
 ---
@@ -1310,13 +1310,13 @@ Browsers may cache credentials after successful authentication. Create a new bro
 :::
 
 
-**Usage**
+**使用方式**
 
 ```js
 await browserContext.setHTTPCredentials(httpCredentials);
 ```
 
-**Arguments**
+**參數**
 - `httpCredentials` [null] | [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-set-http-credentials-option-http-credentials"/><a href="#browser-context-set-http-credentials-option-http-credentials" class="list-anchor">#</a>
   - `username` [string]
     
@@ -1324,7 +1324,7 @@ await browserContext.setHTTPCredentials(httpCredentials);
   - `password` [string]
     
     
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-context-set-http-credentials-return"/><a href="#browser-context-set-http-credentials-return" class="list-anchor">#</a>
 
 

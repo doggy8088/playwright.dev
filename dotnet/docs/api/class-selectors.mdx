@@ -13,7 +13,7 @@ Selectors can be used to install custom selector engines. See [extensibility](..
 
 ---
 
-## Methods
+## 方法
 
 ### RegisterAsync {#selectors-register}
 
@@ -21,7 +21,7 @@ Selectors can be used to install custom selector engines. See [extensibility](..
 
 Selectors must be registered before creating the page.
 
-**Usage**
+**使用方式**
 
 An example of registering selector engine that queries elements based on a tag name:
 
@@ -55,7 +55,7 @@ await page.Locator("tag=div").GetByText("Click me").ClickAsync();
 int buttonCount = await page.Locator("tag=button").CountAsync();
 ```
 
-**Arguments**
+**參數**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="selectors-register-option-name"/><a href="#selectors-register-option-name" class="list-anchor">#</a>
   
   Name that is used in selectors as a prefix, e.g. `{name: 'foo'}` enables `foo=myselectorbody` selectors. May only contain `[a-zA-Z0-9_]` characters.
@@ -70,7 +70,7 @@ int buttonCount = await page.Locator("tag=button").CountAsync();
     
     Script that evaluates to a selector engine instance. The script is evaluated in the page context.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="selectors-register-return"/><a href="#selectors-register-return" class="list-anchor">#</a>
 
 ---
@@ -81,13 +81,13 @@ int buttonCount = await page.Locator("tag=button").CountAsync();
 
 Defines custom attribute name to be used in [Page.GetByTestId()](/api/class-page.mdx#page-get-by-test-id). `data-testid` is used by default.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Selectors.SetTestIdAttribute(attributeName);
 ```
 
-**Arguments**
+**參數**
 - `attributeName` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="selectors-set-test-id-attribute-option-attribute-name"/><a href="#selectors-set-test-id-attribute-option-attribute-name" class="list-anchor">#</a>
   
   Test id attribute name.

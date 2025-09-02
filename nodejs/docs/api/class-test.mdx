@@ -23,7 +23,7 @@ test('basic test', async ({ page }) => {
 
 ---
 
-## Methods
+## 方法
 
 ### test {#test-call}
 
@@ -33,7 +33,7 @@ Declares a test.
 * `test(title, body)`
 * `test(title, details, body)`
 
-**Usage**
+**使用方式**
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -96,7 +96,7 @@ You can also add annotations during runtime by manipulating [testInfo.annotation
 
 Learn more about [test annotations](../test-annotations.mdx).
 
-**Arguments**
+**參數**
 - `title` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-call-option-title"/><a href="#test-call-option-title" class="list-anchor">#</a>
   
   Test title.
@@ -128,7 +128,7 @@ Declares an `afterAll` hook that is executed once per worker after all tests.
 
 When called in the scope of a test file, runs after all tests in the file. When called inside a [test.describe()](/api/class-test.mdx#test-describe) group, runs after all tests in the group.
 
-**Usage**
+**使用方式**
 
 ```js
 test.afterAll(async () => {
@@ -146,7 +146,7 @@ test.afterAll('Teardown', async () => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)* <font size="2">Added in: v1.38</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-after-all-option-title"/><a href="#test-after-all-option-title" class="list-anchor">#</a>
   
   Hook title.
@@ -178,7 +178,7 @@ You can access all the same [Fixtures] as the test body itself, and also the [Te
 * `test.afterEach(hookFunction)`
 * `test.afterEach(title, hookFunction)`
 
-**Usage**
+**使用方式**
 
 ```js title="example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -204,7 +204,7 @@ test.afterEach('Status check', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)* <font size="2">Added in: v1.38</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-after-each-option-title"/><a href="#test-after-each-option-title" class="list-anchor">#</a>
   
   Hook title.
@@ -232,7 +232,7 @@ You can use [test.afterAll()](/api/class-test.mdx#test-after-all) to teardown an
 * `test.beforeAll(hookFunction)`
 * `test.beforeAll(title, hookFunction)`
 
-**Usage**
+**使用方式**
 
 ```js title="example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -258,7 +258,7 @@ test.beforeAll('Setup', async () => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)* <font size="2">Added in: v1.38</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-before-all-option-title"/><a href="#test-before-all-option-title" class="list-anchor">#</a>
   
   Hook title.
@@ -290,7 +290,7 @@ You can use [test.afterEach()](/api/class-test.mdx#test-after-each) to teardown 
 * `test.beforeEach(hookFunction)`
 * `test.beforeEach(title, hookFunction)`
 
-**Usage**
+**使用方式**
 
 ```js title="example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -314,7 +314,7 @@ test.beforeEach('Open start URL', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)* <font size="2">Added in: v1.38</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-before-each-option-title"/><a href="#test-before-each-option-title" class="list-anchor">#</a>
   
   Hook title.
@@ -339,7 +339,7 @@ Declares a group of tests.
 * `test.describe(callback)`
 * `test.describe(title, details, callback)`
 
-**Usage**
+**使用方式**
 
 You can declare a group of tests with a title. The title will be visible in the test report as a part of each test's title.
 
@@ -420,7 +420,7 @@ test.describe('two annotated tests', {
 
 Learn more about [test annotations](../test-annotations.mdx).
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-option-title"/><a href="#test-describe-option-title" class="list-anchor">#</a>
   
   Group title.
@@ -451,7 +451,7 @@ Configures the enclosing scope. Can be executed either on the top level or insid
 
 Learn more about the execution modes [here](../test-parallel.mdx).
 
-**Usage**
+**使用方式**
 * Running tests in parallel.
   
   ```js
@@ -513,7 +513,7 @@ Learn more about the execution modes [here](../test-parallel.mdx).
   });
   ```
   
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `mode` "default" | "parallel" | "serial" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-configure-option-mode"/><a href="#test-describe-configure-option-mode" class="list-anchor">#</a>
     
@@ -536,7 +536,7 @@ Declares a test group similarly to [test.describe()](/api/class-test.mdx#test-de
 * `test.describe.fixme(callback)`
 * `test.describe.fixme(title, details, callback)`
 
-**Usage**
+**使用方式**
 
 ```js
 test.describe.fixme('broken tests that should be fixed', () => {
@@ -554,7 +554,7 @@ test.describe.fixme(() => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-fixme-option-title"/><a href="#test-describe-fixme-option-title" class="list-anchor">#</a>
   
   Group title.
@@ -586,7 +586,7 @@ Declares a focused group of tests. If there are some focused tests or suites, al
 * `test.describe.only(callback)`
 * `test.describe.only(title, details, callback)`
 
-**Usage**
+**使用方式**
 
 ```js
 test.describe.only('focused group', () => {
@@ -607,7 +607,7 @@ test.describe.only(() => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-only-option-title"/><a href="#test-describe-only-option-title" class="list-anchor">#</a>
   
   Group title.
@@ -639,7 +639,7 @@ Declares a skipped test group, similarly to [test.describe()](/api/class-test.md
 * `test.describe.skip(title)`
 * `test.describe.skip(title, details, callback)`
 
-**Usage**
+**使用方式**
 
 ```js
 test.describe.skip('skipped group', () => {
@@ -657,7 +657,7 @@ test.describe.skip(() => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-skip-option-title"/><a href="#test-describe-skip-option-title" class="list-anchor">#</a>
   
   Group title.
@@ -686,7 +686,7 @@ test.describe.skip(() => {
 
 Extends the `test` object by defining fixtures and/or options that can be used in the tests.
 
-**Usage**
+**使用方式**
 
 First define a fixture and/or an option.
 
@@ -818,12 +818,12 @@ module.exports = defineConfig({
 
 Learn more about [fixtures](../test-fixtures.mdx) and [parametrizing tests](../test-parameterize.mdx).
 
-**Arguments**
+**參數**
 - `fixtures` [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-extend-option-fixtures"/><a href="#test-extend-option-fixtures" class="list-anchor">#</a>
   
   An object containing fixtures and/or options. Learn more about [fixtures format](../test-fixtures.mdx).
 
-**Returns**
+**傳回值**
 - [Test]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-extend-return"/><a href="#test-extend-return" class="list-anchor">#</a>
 
 ---
@@ -843,7 +843,7 @@ To annotate test as "failing" at runtime:
 * `test.fail(callback, description)`
 * `test.fail()`
 
-**Usage**
+**使用方式**
 
 You can declare a test as failing, so that Playwright ensures it actually fails.
 
@@ -892,7 +892,7 @@ test('less readable', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)* <font size="2">Added in: v1.42</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-fail-option-title"/><a href="#test-fail-option-title" class="list-anchor">#</a>
   
   Test title.
@@ -934,7 +934,7 @@ To declare a focused "failing" test:
 * `test.fail.only(title, body)`
 * `test.fail.only(title, details, body)`
 
-**Usage**
+**使用方式**
 
 You can declare a focused failing test, so that Playwright runs only this test and ensures it actually fails.
 
@@ -949,7 +949,7 @@ test('not in the focused group', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-fail-only-option-title"/><a href="#test-fail-only-option-title" class="list-anchor">#</a>
   
   Test title.
@@ -987,7 +987,7 @@ To annotate test as "fixme" at runtime:
 * `test.fixme(callback, description)`
 * `test.fixme()`
 
-**Usage**
+**使用方式**
 
 You can declare a test as to be fixed, and Playwright will not run it.
 
@@ -1036,7 +1036,7 @@ test('less readable', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-fixme-option-title"/><a href="#test-fixme-option-title" class="list-anchor">#</a>
   
   Test title.
@@ -1074,7 +1074,7 @@ test('less readable', async ({ page }) => {
 
 Returns information about the currently running test. This method can only be called during the test execution, otherwise it throws.
 
-**Usage**
+**使用方式**
 
 ```js
 test('example test', async ({ page }) => {
@@ -1086,7 +1086,7 @@ test('example test', async ({ page }) => {
 });
 ```
 
-**Returns**
+**傳回值**
 - [TestInfo]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-return"/><a href="#test-info-return" class="list-anchor">#</a>
 
 ---
@@ -1099,7 +1099,7 @@ Declares a focused test. If there are some focused tests or suites, all of them 
 * `test.only(title, body)`
 * `test.only(title, details, body)`
 
-**Usage**
+**使用方式**
 
 ```js
 test.only('focus this test', async ({ page }) => {
@@ -1107,7 +1107,7 @@ test.only('focus this test', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-only-option-title"/><a href="#test-only-option-title" class="list-anchor">#</a>
   
   Test title.
@@ -1138,7 +1138,7 @@ Changes the timeout for the test. Zero means no timeout. Learn more about [vario
 
 Timeout for the currently running test is available through [testInfo.timeout](/api/class-testinfo.mdx#test-info-timeout).
 
-**Usage**
+**使用方式**
 * Changing test timeout.
   
   ```js
@@ -1179,7 +1179,7 @@ Timeout for the currently running test is available through [testInfo.timeout](/
   });
   ```
   
-**Arguments**
+**參數**
 - `timeout` [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-set-timeout-option-timeout"/><a href="#test-set-timeout-option-timeout" class="list-anchor">#</a>
   
   Timeout in milliseconds.
@@ -1203,7 +1203,7 @@ To skip a test at runtime:
 * `test.skip(callback, description)`
 * `test.skip()`
 
-**Usage**
+**使用方式**
 
 You can declare a skipped test, and Playwright will not run it.
 
@@ -1252,7 +1252,7 @@ test('less readable', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-skip-option-title"/><a href="#test-skip-option-title" class="list-anchor">#</a>
   
   Test title.
@@ -1295,7 +1295,7 @@ Note that [test.slow()](/api/class-test.mdx#test-slow) cannot be used in a `befo
 * `test.slow(condition, description)`
 * `test.slow(callback, description)`
 
-**Usage**
+**使用方式**
 
 You can mark a test as slow by calling `test.slow()` inside the test body.
 
@@ -1334,7 +1334,7 @@ test('fail in Safari 2', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `condition` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-slow-option-condition"/><a href="#test-slow-option-condition" class="list-anchor">#</a>
   
   Test is marked as "slow" when the condition is `true`.
@@ -1353,7 +1353,7 @@ test('fail in Safari 2', async ({ page }) => {
 
 Declares a test step that is shown in the report.
 
-**Usage**
+**使用方式**
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -1373,7 +1373,7 @@ test('test', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-option-title"/><a href="#test-step-option-title" class="list-anchor">#</a>
   
   Step name.
@@ -1391,7 +1391,7 @@ test('test', async ({ page }) => {
     
     The maximum time, in milliseconds, allowed for the step to complete. If the step does not complete within the specified timeout, the [test.step()](/api/class-test.mdx#test-step) method will throw a [TimeoutError]. Defaults to `0` (no timeout).
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-return"/><a href="#test-step-return" class="list-anchor">#</a>
 
 **Details**
@@ -1531,7 +1531,7 @@ Mark a test step as "skip" to temporarily disable its execution, useful for step
 
 We recommend [testStepInfo.skip()](/api/class-teststepinfo.mdx#test-step-info-skip-1) instead.
 
-**Usage**
+**使用方式**
 
 You can declare a skipped step, and Playwright will not run it.
 
@@ -1546,7 +1546,7 @@ test('my test', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-skip-option-title"/><a href="#test-step-skip-option-title" class="list-anchor">#</a>
   
   Step name.
@@ -1564,7 +1564,7 @@ test('my test', async ({ page }) => {
     
     Maximum time in milliseconds for the step to finish. Defaults to `0` (no timeout).
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-step-skip-return"/><a href="#test-step-skip-return" class="list-anchor">#</a>
 
 ---
@@ -1575,7 +1575,7 @@ test('my test', async ({ page }) => {
 
 Specifies options or fixtures to use in a single test file or a [test.describe()](/api/class-test.mdx#test-describe) group. Most useful to set an option, for example set `locale` to configure `context` fixture.
 
-**Usage**
+**使用方式**
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -1587,7 +1587,7 @@ test('test with locale', async ({ page }) => {
 });
 ```
 
-**Arguments**
+**參數**
 - `options` [TestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-use-option-fixtures"/><a href="#test-use-option-fixtures" class="list-anchor">#</a>
   
   An object with local options.
@@ -1616,7 +1616,7 @@ test('test with locale', async ({ page }) => {
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### test.expect {#test-expect}
 
@@ -1624,7 +1624,7 @@ test('test with locale', async ({ page }) => {
 
 `expect` function can be used to create test assertions. Read more about [test assertions](../test-assertions.mdx).
 
-**Usage**
+**使用方式**
 
 ```js
 test('example', async ({ page }) => {
@@ -1632,7 +1632,7 @@ test('example', async ({ page }) => {
 });
 ```
 
-**Type**
+**型別 (Type)**
 - [Object]
 
 ---
@@ -1655,7 +1655,7 @@ Declares a group of tests that could be run in parallel. By default, tests in a 
 * `test.describe.parallel(callback)`
 * `test.describe.parallel(title, details, callback)`
 
-**Usage**
+**使用方式**
 
 ```js
 test.describe.parallel('group', () => {
@@ -1674,7 +1674,7 @@ test.describe.parallel(() => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-parallel-option-title"/><a href="#test-describe-parallel-option-title" class="list-anchor">#</a>
   
   Group title.
@@ -1713,7 +1713,7 @@ Declares a focused group of tests that could be run in parallel. This is similar
 * `test.describe.parallel.only(callback)`
 * `test.describe.parallel.only(title, details, callback)`
 
-**Usage**
+**使用方式**
 
 ```js
 test.describe.parallel.only('group', () => {
@@ -1730,7 +1730,7 @@ test.describe.parallel.only(() => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-parallel-only-option-title"/><a href="#test-describe-parallel-only-option-title" class="list-anchor">#</a>
   
   Group title.
@@ -1775,7 +1775,7 @@ Using serial is not recommended. It is usually better to make your tests isolate
 * `test.describe.serial(title)`
 * `test.describe.serial(title, details, callback)`
 
-**Usage**
+**使用方式**
 
 ```js
 test.describe.serial('group', () => {
@@ -1792,7 +1792,7 @@ test.describe.serial(() => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-serial-option-title"/><a href="#test-describe-serial-option-title" class="list-anchor">#</a>
   
   Group title.
@@ -1837,7 +1837,7 @@ Using serial is not recommended. It is usually better to make your tests isolate
 * `test.describe.serial.only(title)`
 * `test.describe.serial.only(title, details, callback)`
 
-**Usage**
+**使用方式**
 
 ```js
 test.describe.serial.only('group', () => {
@@ -1856,7 +1856,7 @@ test.describe.serial.only(() => {
 });
 ```
 
-**Arguments**
+**參數**
 - `title` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-describe-serial-only-option-title"/><a href="#test-describe-serial-only-option-title" class="list-anchor">#</a>
   
   Group title.

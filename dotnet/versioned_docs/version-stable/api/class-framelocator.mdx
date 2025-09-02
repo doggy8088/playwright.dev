@@ -38,7 +38,7 @@ If you have a [FrameLocator] object it can be converted to [Locator] pointing to
 
 ---
 
-## Methods
+## 方法
 
 ### FrameLocator {#frame-locator-frame-locator}
 
@@ -46,18 +46,18 @@ If you have a [FrameLocator] object it can be converted to [Locator] pointing to
 
 When working with iframes, you can create a frame locator that will enter the iframe and allow selecting elements in that iframe.
 
-**Usage**
+**使用方式**
 
 ```csharp
 FrameLocator.FrameLocator(selector);
 ```
 
-**Arguments**
+**參數**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-frame-locator-option-selector"/><a href="#frame-locator-frame-locator-option-selector" class="list-anchor">#</a>
   
   A selector to use when resolving DOM element.
 
-**Returns**
+**傳回值**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-frame-locator-return"/><a href="#frame-locator-frame-locator-return" class="list-anchor">#</a>
 
 ---
@@ -68,7 +68,7 @@ FrameLocator.FrameLocator(selector);
 
 Allows locating elements by their alt text.
 
-**Usage**
+**使用方式**
 
 For example, this method will find the image by alt text "Playwright logo":
 
@@ -80,7 +80,7 @@ For example, this method will find the image by alt text "Playwright logo":
 await page.GetByAltText("Playwright logo").ClickAsync();
 ```
 
-**Arguments**
+**參數**
 - `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-alt-text-option-text"/><a href="#frame-locator-get-by-alt-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -89,7 +89,7 @@ await page.GetByAltText("Playwright logo").ClickAsync();
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-alt-text-return"/><a href="#frame-locator-get-by-alt-text-return" class="list-anchor">#</a>
 
 ---
@@ -100,7 +100,7 @@ await page.GetByAltText("Playwright logo").ClickAsync();
 
 Allows locating input elements by the text of the associated `<label>` or `aria-labelledby` element, or by the `aria-label` attribute.
 
-**Usage**
+**使用方式**
 
 For example, this method will find inputs by label "Username" and "Password" in the following DOM:
 
@@ -115,7 +115,7 @@ await page.GetByLabel("Username").FillAsync("john");
 await page.GetByLabel("Password").FillAsync("secret");
 ```
 
-**Arguments**
+**參數**
 - `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-label-option-text"/><a href="#frame-locator-get-by-label-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -124,7 +124,7 @@ await page.GetByLabel("Password").FillAsync("secret");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-label-return"/><a href="#frame-locator-get-by-label-return" class="list-anchor">#</a>
 
 ---
@@ -135,7 +135,7 @@ await page.GetByLabel("Password").FillAsync("secret");
 
 Allows locating input elements by the placeholder text.
 
-**Usage**
+**使用方式**
 
 For example, consider the following DOM structure.
 
@@ -151,7 +151,7 @@ await page
     .FillAsync("playwright@microsoft.com");
 ```
 
-**Arguments**
+**參數**
 - `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-placeholder-option-text"/><a href="#frame-locator-get-by-placeholder-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -160,7 +160,7 @@ await page
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-placeholder-return"/><a href="#frame-locator-get-by-placeholder-return" class="list-anchor">#</a>
 
 ---
@@ -171,7 +171,7 @@ await page
 
 Allows locating elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure.
 
@@ -202,7 +202,7 @@ await page
     .ClickAsync();
 ```
 
-**Arguments**
+**參數**
 - `role` `enum AriaRole { Alert, Alertdialog, Application, Article, Banner, Blockquote, Button, Caption, Cell, Checkbox, Code, Columnheader, Combobox, Complementary, Contentinfo, Definition, Deletion, Dialog, Directory, Document, Emphasis, Feed, Figure, Form, Generic, Grid, Gridcell, Group, Heading, Img, Insertion, Link, List, Listbox, Listitem, Log, Main, Marquee, Math, Meter, Menu, Menubar, Menuitem, Menuitemcheckbox, Menuitemradio, Navigation, None, Note, Option, Paragraph, Presentation, Progressbar, Radio, Radiogroup, Region, Row, Rowgroup, Rowheader, Scrollbar, Search, Searchbox, Separator, Slider, Spinbutton, Status, Strong, Subscript, Superscript, Switch, Tab, Table, Tablist, Tabpanel, Term, Textbox, Time, Timer, Toolbar, Tooltip, Tree, Treegrid, Treeitem }`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-role-option-role"/><a href="#frame-locator-get-by-role-option-role" class="list-anchor">#</a>
   
   Required aria role.
@@ -255,7 +255,7 @@ await page
     
     Learn more about [`aria-selected`](https://www.w3.org/TR/wai-aria-1.2/#aria-selected).
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-role-return"/><a href="#frame-locator-get-by-role-return" class="list-anchor">#</a>
 
 **Details**
@@ -272,7 +272,7 @@ Many html elements have an implicitly [defined role](https://w3c.github.io/html-
 
 Locate element by the test id.
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure.
 
@@ -286,12 +286,12 @@ You can locate the element by it's test id:
 await page.GetByTestId("directions").ClickAsync();
 ```
 
-**Arguments**
+**參數**
 - `testId` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-test-id-option-test-id"/><a href="#frame-locator-get-by-test-id-option-test-id" class="list-anchor">#</a>
   
   Id to locate the element by.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-test-id-return"/><a href="#frame-locator-get-by-test-id-return" class="list-anchor">#</a>
 
 **Details**
@@ -308,7 +308,7 @@ Allows locating elements that contain given text.
 
 See also [Locator.Filter()](/api/class-locator.mdx#locator-filter) that allows to match by another criteria, like an accessible role, and then filter by the text content.
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure:
 
@@ -336,7 +336,7 @@ page.GetByText(new Regex("Hello"));
 page.GetByText(new Regex("^hello$", RegexOptions.IgnoreCase));
 ```
 
-**Arguments**
+**參數**
 - `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-text-option-text"/><a href="#frame-locator-get-by-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -345,7 +345,7 @@ page.GetByText(new Regex("^hello$", RegexOptions.IgnoreCase));
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-text-return"/><a href="#frame-locator-get-by-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -362,7 +362,7 @@ Input elements of the type `button` and `submit` are matched by their `value` in
 
 Allows locating elements by their title attribute.
 
-**Usage**
+**使用方式**
 
 Consider the following DOM structure.
 
@@ -376,7 +376,7 @@ You can check the issues count after locating it by the title text:
 await Expect(Page.GetByTitle("Issues count")).toHaveText("25 issues");
 ```
 
-**Arguments**
+**參數**
 - `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-title-option-text"/><a href="#frame-locator-get-by-title-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -385,7 +385,7 @@ await Expect(Page.GetByTitle("Issues count")).toHaveText("25 issues");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-title-return"/><a href="#frame-locator-get-by-title-return" class="list-anchor">#</a>
 
 ---
@@ -398,13 +398,13 @@ The method finds an element matching the specified selector in the locator's sub
 
 [Learn more about locators](../locators.mdx).
 
-**Usage**
+**使用方式**
 
 ```csharp
 FrameLocator.Locator(selectorOrLocator, options);
 ```
 
-**Arguments**
+**參數**
 - `selectorOrLocator` [string] | [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-locator-option-selector-or-locator"/><a href="#frame-locator-locator-option-selector-or-locator" class="list-anchor">#</a>
   
   A selector or locator to use when resolving DOM element.
@@ -428,7 +428,7 @@ FrameLocator.Locator(selectorOrLocator, options);
     
     Matches elements containing specified text somewhere inside, possibly in a child or a descendant element. When passed a [string], matching is case-insensitive and searches for a substring. For example, `"Playwright"` matches `<article><div>Playwright</div></article>`.
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-locator-return"/><a href="#frame-locator-locator-return" class="list-anchor">#</a>
 
 ---
@@ -443,7 +443,7 @@ Useful when you have a [FrameLocator] object obtained somewhere, and later on wo
 
 For a reverse operation, use [Locator.ContentFrame](/api/class-locator.mdx#locator-content-frame).
 
-**Usage**
+**使用方式**
 
 ```csharp
 var frameLocator = Page.Locator("iframe[name=\"embedded\"]").ContentFrame;
@@ -452,7 +452,7 @@ var locator = frameLocator.Owner;
 await Expect(locator).ToBeVisibleAsync();
 ```
 
-**Returns**
+**傳回值**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-owner-return"/><a href="#frame-locator-owner-return" class="list-anchor">#</a>
 
 ---
@@ -472,13 +472,13 @@ Use [Locator.First](/api/class-locator.mdx#locator-first) followed by [Locator.C
 
 Returns locator to the first matching frame.
 
-**Usage**
+**使用方式**
 
 ```csharp
 FrameLocator.First
 ```
 
-**Returns**
+**傳回值**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-first-return"/><a href="#frame-locator-first-return" class="list-anchor">#</a>
 
 ---
@@ -496,13 +496,13 @@ Use [Locator.Last](/api/class-locator.mdx#locator-last) followed by [Locator.Con
 
 Returns locator to the last matching frame.
 
-**Usage**
+**使用方式**
 
 ```csharp
 FrameLocator.Last
 ```
 
-**Returns**
+**傳回值**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-last-return"/><a href="#frame-locator-last-return" class="list-anchor">#</a>
 
 ---
@@ -520,16 +520,16 @@ Use [Locator.Nth()](/api/class-locator.mdx#locator-nth) followed by [Locator.Con
 
 Returns locator to the n-th matching frame. It's zero based, `nth(0)` selects the first frame.
 
-**Usage**
+**使用方式**
 
 ```csharp
 FrameLocator.Nth(index);
 ```
 
-**Arguments**
+**參數**
 - `index` [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-nth-option-index"/><a href="#frame-locator-nth-option-index" class="list-anchor">#</a>
 
-**Returns**
+**傳回值**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-nth-return"/><a href="#frame-locator-nth-return" class="list-anchor">#</a>
 
 

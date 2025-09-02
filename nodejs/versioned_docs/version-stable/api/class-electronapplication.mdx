@@ -43,7 +43,7 @@ const { _electron: electron } = require('playwright');
 
 ---
 
-## Methods
+## 方法
 
 ### browserWindow {#electron-application-browser-window}
 
@@ -51,18 +51,18 @@ const { _electron: electron } = require('playwright');
 
 Returns the BrowserWindow object that corresponds to the given Playwright page.
 
-**Usage**
+**使用方式**
 
 ```js
 await electronApplication.browserWindow(page);
 ```
 
-**Arguments**
+**參數**
 - `page` [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-browser-window-option-page"/><a href="#electron-application-browser-window-option-page" class="list-anchor">#</a>
   
   Page to retrieve the window for.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[JSHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-browser-window-return"/><a href="#electron-application-browser-window-return" class="list-anchor">#</a>
 
 ---
@@ -73,13 +73,13 @@ await electronApplication.browserWindow(page);
 
 Closes Electron application.
 
-**Usage**
+**使用方式**
 
 ```js
 await electronApplication.close();
 ```
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-close-return"/><a href="#electron-application-close-return" class="list-anchor">#</a>
 
 ---
@@ -90,13 +90,13 @@ await electronApplication.close();
 
 This method returns browser context that can be used for setting up context-wide routing, etc.
 
-**Usage**
+**使用方式**
 
 ```js
 electronApplication.context();
 ```
 
-**Returns**
+**傳回值**
 - [BrowserContext]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-context-return"/><a href="#electron-application-context-return" class="list-anchor">#</a>
 
 ---
@@ -111,14 +111,14 @@ If the function passed to the [electronApplication.evaluate()](/api/class-electr
 
 If the function passed to the [electronApplication.evaluate()](/api/class-electronapplication.mdx#electron-application-evaluate) returns a non-[Serializable] value, then [electronApplication.evaluate()](/api/class-electronapplication.mdx#electron-application-evaluate) returns `undefined`. Playwright also supports transferring some additional values that are not serializable by `JSON`: `-0`, `NaN`, `Infinity`, `-Infinity`.
 
-**Usage**
+**使用方式**
 
 ```js
 await electronApplication.evaluate(pageFunction);
 await electronApplication.evaluate(pageFunction, arg);
 ```
 
-**Arguments**
+**參數**
 - `pageFunction` [function] | [Electron]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-evaluate-option-expression"/><a href="#electron-application-evaluate-option-expression" class="list-anchor">#</a>
   
   Function to be evaluated in the main Electron process.
@@ -126,7 +126,7 @@ await electronApplication.evaluate(pageFunction, arg);
   
   Optional argument to pass to [pageFunction](/api/class-electronapplication.mdx#electron-application-evaluate-option-expression).
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Serializable]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-evaluate-return"/><a href="#electron-application-evaluate-return" class="list-anchor">#</a>
 
 ---
@@ -141,14 +141,14 @@ The only difference between [electronApplication.evaluate()](/api/class-electron
 
 If the function passed to the [electronApplication.evaluateHandle()](/api/class-electronapplication.mdx#electron-application-evaluate-handle) returns a [Promise], then [electronApplication.evaluateHandle()](/api/class-electronapplication.mdx#electron-application-evaluate-handle) would wait for the promise to resolve and return its value.
 
-**Usage**
+**使用方式**
 
 ```js
 await electronApplication.evaluateHandle(pageFunction);
 await electronApplication.evaluateHandle(pageFunction, arg);
 ```
 
-**Arguments**
+**參數**
 - `pageFunction` [function] | [Electron]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-evaluate-handle-option-expression"/><a href="#electron-application-evaluate-handle-option-expression" class="list-anchor">#</a>
   
   Function to be evaluated in the main Electron process.
@@ -156,7 +156,7 @@ await electronApplication.evaluateHandle(pageFunction, arg);
   
   Optional argument to pass to [pageFunction](/api/class-electronapplication.mdx#electron-application-evaluate-handle-option-expression).
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[JSHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-evaluate-handle-return"/><a href="#electron-application-evaluate-handle-return" class="list-anchor">#</a>
 
 ---
@@ -167,7 +167,7 @@ await electronApplication.evaluateHandle(pageFunction, arg);
 
 Convenience method that waits for the first application window to be opened.
 
-**Usage**
+**使用方式**
 
 ```js
 const electronApp = await electron.launch({
@@ -177,13 +177,13 @@ const window = await electronApp.firstWindow();
 // ...
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.33</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-first-window-option-timeout"/><a href="#electron-application-first-window-option-timeout" class="list-anchor">#</a>
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Page]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-first-window-return"/><a href="#electron-application-first-window-return" class="list-anchor">#</a>
 
 ---
@@ -194,13 +194,13 @@ const window = await electronApp.firstWindow();
 
 Returns the main process for this Electron Application.
 
-**Usage**
+**使用方式**
 
 ```js
 electronApplication.process();
 ```
 
-**Returns**
+**傳回值**
 - [ChildProcess]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-process-return"/><a href="#electron-application-process-return" class="list-anchor">#</a>
 
 ---
@@ -211,7 +211,7 @@ electronApplication.process();
 
 Waits for event to fire and passes its value into the predicate function. Returns when the predicate returns truthy value. Will throw an error if the application is closed before the event is fired. Returns the event data value.
 
-**Usage**
+**使用方式**
 
 ```js
 const windowPromise = electronApp.waitForEvent('window');
@@ -219,7 +219,7 @@ await mainWindow.click('button');
 const window = await windowPromise;
 ```
 
-**Arguments**
+**參數**
 - `event` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-wait-for-event-option-event"/><a href="#electron-application-wait-for-event-option-event" class="list-anchor">#</a>
   
   Event name, same one typically passed into `*.on(event)`.
@@ -233,7 +233,7 @@ const window = await windowPromise;
   
   Either a predicate that receives an event or an options object. Optional.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-wait-for-event-return"/><a href="#electron-application-wait-for-event-return" class="list-anchor">#</a>
 
 ---
@@ -244,18 +244,18 @@ const window = await windowPromise;
 
 Convenience method that returns all the opened windows.
 
-**Usage**
+**使用方式**
 
 ```js
 electronApplication.windows();
 ```
 
-**Returns**
+**傳回值**
 - [Array]&lt;[Page]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="electron-application-windows-return"/><a href="#electron-application-windows-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### on('close') {#electron-application-event-close}
 
@@ -263,7 +263,7 @@ electronApplication.windows();
 
 This event is issued when the application process has been terminated.
 
-**Usage**
+**使用方式**
 
 ```js
 electronApplication.on('close', data => {});
@@ -279,7 +279,7 @@ Emitted when JavaScript within the Electron main process calls one of console AP
 
 The arguments passed into `console.log` are available on the [ConsoleMessage] event handler argument.
 
-**Usage**
+**使用方式**
 
 ```js
 electronApp.on('console', async msg => {
@@ -291,7 +291,7 @@ electronApp.on('console', async msg => {
 await electronApp.evaluate(() => console.log('hello', 5, { foo: 'bar' }));
 ```
 
-**Event data**
+**事件資料**
 - [ConsoleMessage]
 
 ---
@@ -302,13 +302,13 @@ await electronApp.evaluate(() => console.log('hello', 5, { foo: 'bar' }));
 
 This event is issued for every window that is created **and loaded** in Electron. It contains a [Page] that can be used for Playwright automation.
 
-**Usage**
+**使用方式**
 
 ```js
 electronApplication.on('window', data => {});
 ```
 
-**Event data**
+**事件資料**
 - [Page]
 
 

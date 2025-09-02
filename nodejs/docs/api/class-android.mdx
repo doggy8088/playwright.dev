@@ -83,7 +83,7 @@ const { _android: android } = require('playwright');
 
 ---
 
-## Methods
+## 方法
 
 ### connect {#android-connect}
 
@@ -91,14 +91,14 @@ const { _android: android } = require('playwright');
 
 This methods attaches Playwright to an existing Android device. Use [android.launchServer()](/api/class-android.mdx#android-launch-server) to launch a new Android server instance.
 
-**Usage**
+**使用方式**
 
 ```js
 await android.connect(wsEndpoint);
 await android.connect(wsEndpoint, options);
 ```
 
-**Arguments**
+**參數**
 - `wsEndpoint` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-option-ws-endpoint"/><a href="#android-connect-option-ws-endpoint" class="list-anchor">#</a>
   
   A browser websocket endpoint to connect to.
@@ -113,7 +113,7 @@ await android.connect(wsEndpoint, options);
     
     Maximum time in milliseconds to wait for the connection to be established. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[AndroidDevice]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-connect-return"/><a href="#android-connect-return" class="list-anchor">#</a>
 
 ---
@@ -124,14 +124,14 @@ await android.connect(wsEndpoint, options);
 
 Returns the list of detected Android devices.
 
-**Usage**
+**使用方式**
 
 ```js
 await android.devices();
 await android.devices(options);
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `host` [string] *(optional)* <font size="2">Added in: v1.22</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-option-host"/><a href="#android-devices-option-host" class="list-anchor">#</a>
     
@@ -143,7 +143,7 @@ await android.devices(options);
     
     Optional port to establish ADB server connection. Default to `5037`.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Array]&lt;[AndroidDevice]&gt;&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-devices-return"/><a href="#android-devices-return" class="list-anchor">#</a>
 
 ---
@@ -154,7 +154,7 @@ await android.devices(options);
 
 Launches Playwright Android server that clients can connect to. See the following example:
 
-**Usage**
+**使用方式**
 
 Server Side:
 
@@ -193,7 +193,7 @@ const { _android } = require('playwright');
 })();
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `adbHost` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-option-adb-host"/><a href="#android-launch-server-option-adb-host" class="list-anchor">#</a>
     
@@ -222,7 +222,7 @@ const { _android } = require('playwright');
     Any process or web page (including those running in Playwright) with knowledge of the `wsPath` can take control of the OS user. For this reason, you should use an unguessable token when using this option.
     :::
     
-**Returns**
+**傳回值**
 - [Promise]&lt;[BrowserServer]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-launch-server-return"/><a href="#android-launch-server-return" class="list-anchor">#</a>
 
 ---
@@ -233,13 +233,13 @@ const { _android } = require('playwright');
 
 This setting will change the default maximum time for all the methods accepting [timeout](/api/class-android.mdx#android-set-default-timeout-option-timeout) option.
 
-**Usage**
+**使用方式**
 
 ```js
 android.setDefaultTimeout(timeout);
 ```
 
-**Arguments**
+**參數**
 - `timeout` [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-set-default-timeout-option-timeout"/><a href="#android-set-default-timeout-option-timeout" class="list-anchor">#</a>
   
   Maximum time in milliseconds

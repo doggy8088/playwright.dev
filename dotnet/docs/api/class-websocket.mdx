@@ -15,7 +15,7 @@ If you want to intercept or modify WebSocket frames, consider using [WebSocketRo
 
 ---
 
-## Methods
+## 方法
 
 ### IsClosed {#web-socket-is-closed}
 
@@ -23,13 +23,13 @@ If you want to intercept or modify WebSocket frames, consider using [WebSocketRo
 
 Indicates that the web socket has been closed.
 
-**Usage**
+**使用方式**
 
 ```csharp
 WebSocket.IsClosed
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-is-closed-return"/><a href="#web-socket-is-closed-return" class="list-anchor">#</a>
 
 ---
@@ -40,18 +40,18 @@ WebSocket.IsClosed
 
 Contains the URL of the WebSocket.
 
-**Usage**
+**使用方式**
 
 ```csharp
 WebSocket.Url
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-url-return"/><a href="#web-socket-url-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### event Close {#web-socket-event-close}
 
@@ -59,13 +59,13 @@ WebSocket.Url
 
 Fired when the websocket closes.
 
-**Usage**
+**使用方式**
 
 ```csharp
 WebSocket.Close += async (_, webSocket) => {};
 ```
 
-**Event data**
+**事件資料**
 - [WebSocket]
 
 ---
@@ -76,13 +76,13 @@ WebSocket.Close += async (_, webSocket) => {};
 
 Fired when the websocket receives a frame.
 
-**Usage**
+**使用方式**
 
 ```csharp
 WebSocket.FrameReceived += async (_, webSocketFrame) => {};
 ```
 
-**Event data**
+**事件資料**
 - [WebSocketFrame]
 
 ---
@@ -93,13 +93,13 @@ WebSocket.FrameReceived += async (_, webSocketFrame) => {};
 
 Fired when the websocket sends a frame.
 
-**Usage**
+**使用方式**
 
 ```csharp
 WebSocket.FrameSent += async (_, webSocketFrame) => {};
 ```
 
-**Event data**
+**事件資料**
 - [WebSocketFrame]
 
 ---
@@ -110,13 +110,13 @@ WebSocket.FrameSent += async (_, webSocketFrame) => {};
 
 Fired when the websocket has an error.
 
-**Usage**
+**使用方式**
 
 ```csharp
 WebSocket.SocketError += async (_, value) => {};
 ```
 
-**Event data**
+**事件資料**
 - [string]
 
 

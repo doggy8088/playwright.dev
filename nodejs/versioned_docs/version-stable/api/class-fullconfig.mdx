@@ -13,7 +13,7 @@ Resolved configuration which is accessible via [testInfo.config](/api/class-test
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### configFile {#full-config-config-file}
 
@@ -21,13 +21,13 @@ Resolved configuration which is accessible via [testInfo.config](/api/class-test
 
 Path to the configuration file used to run the tests. The value is an empty string if no config file was used.
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.configFile
 ```
 
-**Type**
+**型別 (Type)**
 - [string]
 
 ---
@@ -38,13 +38,13 @@ fullConfig.configFile
 
 See [testConfig.forbidOnly](/api/class-testconfig.mdx#test-config-forbid-only).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.forbidOnly
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -55,13 +55,13 @@ fullConfig.forbidOnly
 
 See [testConfig.fullyParallel](/api/class-testconfig.mdx#test-config-fully-parallel).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.fullyParallel
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -72,13 +72,13 @@ fullConfig.fullyParallel
 
 See [testConfig.globalSetup](/api/class-testconfig.mdx#test-config-global-setup).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.globalSetup
 ```
 
-**Type**
+**型別 (Type)**
 - [null] | [string]
 
 ---
@@ -89,13 +89,13 @@ fullConfig.globalSetup
 
 See [testConfig.globalTeardown](/api/class-testconfig.mdx#test-config-global-teardown).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.globalTeardown
 ```
 
-**Type**
+**型別 (Type)**
 - [null] | [string]
 
 ---
@@ -106,13 +106,13 @@ fullConfig.globalTeardown
 
 See [testConfig.globalTimeout](/api/class-testconfig.mdx#test-config-global-timeout).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.globalTimeout
 ```
 
-**Type**
+**型別 (Type)**
 - [number]
 
 ---
@@ -123,13 +123,13 @@ fullConfig.globalTimeout
 
 See [testConfig.grep](/api/class-testconfig.mdx#test-config-grep).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.grep
 ```
 
-**Type**
+**型別 (Type)**
 - [RegExp] | [Array]&lt;[RegExp]&gt;
 
 ---
@@ -140,13 +140,13 @@ fullConfig.grep
 
 See [testConfig.grepInvert](/api/class-testconfig.mdx#test-config-grep-invert).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.grepInvert
 ```
 
-**Type**
+**型別 (Type)**
 - [null] | [RegExp] | [Array]&lt;[RegExp]&gt;
 
 ---
@@ -157,13 +157,13 @@ fullConfig.grepInvert
 
 See [testConfig.maxFailures](/api/class-testconfig.mdx#test-config-max-failures).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.maxFailures
 ```
 
-**Type**
+**型別 (Type)**
 - [number]
 
 ---
@@ -174,13 +174,13 @@ fullConfig.maxFailures
 
 See [testConfig.metadata](/api/class-testconfig.mdx#test-config-metadata).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.metadata
 ```
 
-**Type**
+**型別 (Type)**
 - [Metadata]
 
 ---
@@ -191,13 +191,13 @@ fullConfig.metadata
 
 See [testConfig.preserveOutput](/api/class-testconfig.mdx#test-config-preserve-output).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.preserveOutput
 ```
 
-**Type**
+**型別 (Type)**
 - "always" | "never" | "failures-only"
 
 ---
@@ -208,13 +208,13 @@ fullConfig.preserveOutput
 
 List of resolved projects.
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.projects
 ```
 
-**Type**
+**型別 (Type)**
 - [Array]&lt;[FullProject]&gt;
 
 ---
@@ -225,13 +225,13 @@ fullConfig.projects
 
 See [testConfig.quiet](/api/class-testconfig.mdx#test-config-quiet).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.quiet
 ```
 
-**Type**
+**型別 (Type)**
 - [boolean]
 
 ---
@@ -242,13 +242,13 @@ fullConfig.quiet
 
 See [testConfig.reportSlowTests](/api/class-testconfig.mdx#test-config-report-slow-tests).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.reportSlowTests
 ```
 
-**Type**
+**型別 (Type)**
 - [null] | [Object]
   - `max` [number]
     
@@ -265,13 +265,13 @@ fullConfig.reportSlowTests
 
 See [testConfig.reporter](/api/class-testconfig.mdx#test-config-reporter).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.reporter
 ```
 
-**Type**
+**型別 (Type)**
 - [string] | [Array]&lt;[Object]&gt; | "list" | "dot" | "line" | "github" | "json" | "junit" | "null" | "html"
   - `0` [string]
     
@@ -288,13 +288,13 @@ fullConfig.reporter
 
 Base directory for all relative paths used in the reporters.
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.rootDir
 ```
 
-**Type**
+**型別 (Type)**
 - [string]
 
 ---
@@ -305,13 +305,13 @@ fullConfig.rootDir
 
 See [testConfig.shard](/api/class-testconfig.mdx#test-config-shard).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.shard
 ```
 
-**Type**
+**型別 (Type)**
 - [null] | [Object]
   - `total` [number]
     
@@ -328,13 +328,13 @@ fullConfig.shard
 
 See [testConfig.updateSnapshots](/api/class-testconfig.mdx#test-config-update-snapshots).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.updateSnapshots
 ```
 
-**Type**
+**型別 (Type)**
 - "all" | "changed" | "missing" | "none"
 
 ---
@@ -345,13 +345,13 @@ fullConfig.updateSnapshots
 
 See [testConfig.updateSourceMethod](/api/class-testconfig.mdx#test-config-update-source-method).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.updateSourceMethod
 ```
 
-**Type**
+**型別 (Type)**
 - "overwrite" | "3way" | "patch"
 
 ---
@@ -362,13 +362,13 @@ fullConfig.updateSourceMethod
 
 Playwright version.
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.version
 ```
 
-**Type**
+**型別 (Type)**
 - [string]
 
 ---
@@ -379,13 +379,13 @@ fullConfig.version
 
 See [testConfig.webServer](/api/class-testconfig.mdx#test-config-web-server).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.webServer
 ```
 
-**Type**
+**型別 (Type)**
 - [null] | [Object]
 
 ---
@@ -396,13 +396,13 @@ fullConfig.webServer
 
 See [testConfig.workers](/api/class-testconfig.mdx#test-config-workers).
 
-**Usage**
+**使用方式**
 
 ```js
 fullConfig.workers
 ```
 
-**Type**
+**型別 (Type)**
 - [number]
 
 

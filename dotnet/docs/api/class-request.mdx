@@ -25,7 +25,7 @@ If request gets a 'redirect' response, the request is successfully finished with
 
 ---
 
-## Methods
+## 方法
 
 ### AllHeadersAsync {#request-all-headers}
 
@@ -33,13 +33,13 @@ If request gets a 'redirect' response, the request is successfully finished with
 
 An object with all the request HTTP headers associated with this request. The header names are lower-cased.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Request.AllHeadersAsync();
 ```
 
-**Returns**
+**傳回值**
 - [IDictionary]&lt;[string], [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-all-headers-return"/><a href="#request-all-headers-return" class="list-anchor">#</a>
 
 ---
@@ -50,7 +50,7 @@ await Request.AllHeadersAsync();
 
 The method returns `null` unless this request has failed, as reported by `requestfailed` event.
 
-**Usage**
+**使用方式**
 
 Example of logging of all the failed requests:
 
@@ -61,7 +61,7 @@ page.RequestFailed += (_, request) =>
 };
 ```
 
-**Returns**
+**傳回值**
 - [string]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-failure-return"/><a href="#request-failure-return" class="list-anchor">#</a>
 
 ---
@@ -72,13 +72,13 @@ page.RequestFailed += (_, request) =>
 
 Returns the [Frame] that initiated this request.
 
-**Usage**
+**使用方式**
 
 ```csharp
 var frameUrl = request.Frame.Url;
 ```
 
-**Returns**
+**傳回值**
 - [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-frame-return"/><a href="#request-frame-return" class="list-anchor">#</a>
 
 **Details**
@@ -97,18 +97,18 @@ Here is an example that handles all the cases:
 
 Returns the value of the header matching the name. The name is case-insensitive.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Request.HeaderValueAsync(name);
 ```
 
-**Arguments**
+**參數**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-header-value-option-name"/><a href="#request-header-value-option-name" class="list-anchor">#</a>
   
   Name of the header.
 
-**Returns**
+**傳回值**
 - [string]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-header-value-return"/><a href="#request-header-value-return" class="list-anchor">#</a>
 
 ---
@@ -119,13 +119,13 @@ await Request.HeaderValueAsync(name);
 
 An object with the request HTTP headers. The header names are lower-cased. Note that this method does not return security-related headers, including cookie-related ones. You can use [Request.AllHeadersAsync()](/api/class-request.mdx#request-all-headers) for complete list of headers that include `cookie` information.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Request.Headers
 ```
 
-**Returns**
+**傳回值**
 - [IDictionary]&lt;[string], [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-headers-return"/><a href="#request-headers-return" class="list-anchor">#</a>
 
 ---
@@ -136,13 +136,13 @@ Request.Headers
 
 An array with all the request HTTP headers associated with this request. Unlike [Request.AllHeadersAsync()](/api/class-request.mdx#request-all-headers), header names are NOT lower-cased. Headers with multiple entries, such as `Set-Cookie`, appear in the array multiple times.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Request.HeadersArrayAsync();
 ```
 
-**Returns**
+**傳回值**
 - [IReadOnlyList]&lt;`HttpHeader`&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-headers-array-return"/><a href="#request-headers-array-return" class="list-anchor">#</a>
   - `name` [string]
     
@@ -161,13 +161,13 @@ Whether this request is driving frame's navigation.
 
 Some navigation requests are issued before the corresponding frame is created, and therefore do not have [Request.Frame](/api/class-request.mdx#request-frame) available.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Request.IsNavigationRequest
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-is-navigation-request-return"/><a href="#request-is-navigation-request-return" class="list-anchor">#</a>
 
 ---
@@ -178,13 +178,13 @@ Request.IsNavigationRequest
 
 Request's method (GET, POST, etc.)
 
-**Usage**
+**使用方式**
 
 ```csharp
 Request.Method
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-method-return"/><a href="#request-method-return" class="list-anchor">#</a>
 
 ---
@@ -195,13 +195,13 @@ Request.Method
 
 Request's post body, if any.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Request.PostData
 ```
 
-**Returns**
+**傳回值**
 - [string]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-post-data-return"/><a href="#request-post-data-return" class="list-anchor">#</a>
 
 ---
@@ -212,13 +212,13 @@ Request.PostData
 
 Request's post body in a binary form, if any.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Request.PostDataBuffer
 ```
 
-**Returns**
+**傳回值**
 - [byte]&#91;&#93;?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-post-data-buffer-return"/><a href="#request-post-data-buffer-return" class="list-anchor">#</a>
 
 ---
@@ -231,13 +231,13 @@ Returns parsed request's body for `form-urlencoded` and JSON as a fallback if an
 
 When the response is `application/x-www-form-urlencoded` then a key/value object of the values will be returned. Otherwise it will be parsed as JSON.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Request.PostDataJSON
 ```
 
-**Returns**
+**傳回值**
 - [JsonElement]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-post-data-json-return"/><a href="#request-post-data-json-return" class="list-anchor">#</a>
 
 ---
@@ -250,7 +250,7 @@ Request that was redirected by the server to this one, if any.
 
 When the server responds with a redirect, Playwright creates a new [Request] object. The two requests are connected by `redirectedFrom()` and `redirectedTo()` methods. When multiple server redirects has happened, it is possible to construct the whole redirect chain by repeatedly calling `redirectedFrom()`.
 
-**Usage**
+**使用方式**
 
 For example, if the website `http://example.com` redirects to `https://example.com`:
 
@@ -266,7 +266,7 @@ var response = await page.GotoAsync("https://www.google.com");
 Console.WriteLine(response.Request.RedirectedFrom?.Url); // null
 ```
 
-**Returns**
+**傳回值**
 - [Request]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-redirected-from-return"/><a href="#request-redirected-from-return" class="list-anchor">#</a>
 
 ---
@@ -277,7 +277,7 @@ Console.WriteLine(response.Request.RedirectedFrom?.Url); // null
 
 New request issued by the browser if the server responded with redirect.
 
-**Usage**
+**使用方式**
 
 This method is the opposite of [Request.RedirectedFrom](/api/class-request.mdx#request-redirected-from):
 
@@ -285,7 +285,7 @@ This method is the opposite of [Request.RedirectedFrom](/api/class-request.mdx#r
 Console.WriteLine(request.RedirectedFrom?.RedirectedTo == request); // True
 ```
 
-**Returns**
+**傳回值**
 - [Request]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-redirected-to-return"/><a href="#request-redirected-to-return" class="list-anchor">#</a>
 
 ---
@@ -296,13 +296,13 @@ Console.WriteLine(request.RedirectedFrom?.RedirectedTo == request); // True
 
 Contains the request's resource type as it was perceived by the rendering engine. ResourceType will be one of the following: `document`, `stylesheet`, `image`, `media`, `font`, `script`, `texttrack`, `xhr`, `fetch`, `eventsource`, `websocket`, `manifest`, `other`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Request.ResourceType
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-resource-type-return"/><a href="#request-resource-type-return" class="list-anchor">#</a>
 
 ---
@@ -313,13 +313,13 @@ Request.ResourceType
 
 Returns the matching [Response] object, or `null` if the response was not received due to error.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Request.ResponseAsync();
 ```
 
-**Returns**
+**傳回值**
 - [Response]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-response-return"/><a href="#request-response-return" class="list-anchor">#</a>
 
 ---
@@ -330,13 +330,13 @@ await Request.ResponseAsync();
 
 Returns resource size information for given request.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await Request.SizesAsync();
 ```
 
-**Returns**
+**傳回值**
 - Sizes<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-sizes-return"/><a href="#request-sizes-return" class="list-anchor">#</a>
   - `requestBodySize` [int]
     
@@ -359,7 +359,7 @@ await Request.SizesAsync();
 
 Returns resource timing information for given request. Most of the timing values become available upon the response, `responseEnd` becomes available when request finishes. Find more information at [Resource Timing API](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming).
 
-**Usage**
+**使用方式**
 
 ```csharp
 var request = await page.RunAndWaitForRequestFinishedAsync(async () =>
@@ -369,7 +369,7 @@ var request = await page.RunAndWaitForRequestFinishedAsync(async () =>
 Console.WriteLine(request.Timing.ResponseEnd);
 ```
 
-**Returns**
+**傳回值**
 - Timing<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-timing-return"/><a href="#request-timing-return" class="list-anchor">#</a>
   - `startTime` [float]
     
@@ -407,13 +407,13 @@ Console.WriteLine(request.Timing.ResponseEnd);
 
 URL of the request.
 
-**Usage**
+**使用方式**
 
 ```csharp
 Request.Url
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-url-return"/><a href="#request-url-return" class="list-anchor">#</a>
 
 

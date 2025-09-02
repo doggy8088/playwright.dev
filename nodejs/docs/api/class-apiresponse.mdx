@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## Methods
+## 方法
 
 ### body {#api-response-body}
 
@@ -21,13 +21,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 Returns the buffer with response body.
 
-**Usage**
+**使用方式**
 
 ```js
 await apiResponse.body();
 ```
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Buffer]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-body-return"/><a href="#api-response-body-return" class="list-anchor">#</a>
 
 ---
@@ -38,13 +38,13 @@ await apiResponse.body();
 
 Disposes the body of this response. If not called then the body will stay in memory until the context closes.
 
-**Usage**
+**使用方式**
 
 ```js
 await apiResponse.dispose();
 ```
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-dispose-return"/><a href="#api-response-dispose-return" class="list-anchor">#</a>
 
 ---
@@ -55,13 +55,13 @@ await apiResponse.dispose();
 
 An object with all the response HTTP headers associated with this response.
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.headers();
 ```
 
-**Returns**
+**傳回值**
 - [Object]&lt;[string], [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-headers-return"/><a href="#api-response-headers-return" class="list-anchor">#</a>
 
 ---
@@ -72,13 +72,13 @@ apiResponse.headers();
 
 An array with all the response HTTP headers associated with this response. Header names are not lower-cased. Headers with multiple entries, such as `Set-Cookie`, appear in the array multiple times.
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.headersArray();
 ```
 
-**Returns**
+**傳回值**
 - [Array]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-headers-array-return"/><a href="#api-response-headers-array-return" class="list-anchor">#</a>
   - `name` [string]
     
@@ -97,13 +97,13 @@ Returns the JSON representation of response body.
 
 This method will throw if the response body is not parsable via `JSON.parse`.
 
-**Usage**
+**使用方式**
 
 ```js
 await apiResponse.json();
 ```
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Serializable]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-json-return"/><a href="#api-response-json-return" class="list-anchor">#</a>
 
 ---
@@ -114,13 +114,13 @@ await apiResponse.json();
 
 Contains a boolean stating whether the response was successful (status in the range 200-299) or not.
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.ok();
 ```
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-ok-return"/><a href="#api-response-ok-return" class="list-anchor">#</a>
 
 ---
@@ -131,13 +131,13 @@ apiResponse.ok();
 
 Contains the status code of the response (e.g., 200 for a success).
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.status();
 ```
 
-**Returns**
+**傳回值**
 - [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-status-return"/><a href="#api-response-status-return" class="list-anchor">#</a>
 
 ---
@@ -148,13 +148,13 @@ apiResponse.status();
 
 Contains the status text of the response (e.g. usually an "OK" for a success).
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.statusText();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-status-text-return"/><a href="#api-response-status-text-return" class="list-anchor">#</a>
 
 ---
@@ -165,13 +165,13 @@ apiResponse.statusText();
 
 Returns the text representation of response body.
 
-**Usage**
+**使用方式**
 
 ```js
 await apiResponse.text();
 ```
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-text-return"/><a href="#api-response-text-return" class="list-anchor">#</a>
 
 ---
@@ -182,13 +182,13 @@ await apiResponse.text();
 
 Contains the URL of the response.
 
-**Usage**
+**使用方式**
 
 ```js
 apiResponse.url();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-url-return"/><a href="#api-response-url-return" class="list-anchor">#</a>
 
 

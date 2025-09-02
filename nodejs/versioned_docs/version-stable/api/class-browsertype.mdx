@@ -25,7 +25,7 @@ const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
 
 ---
 
-## Methods
+## 方法
 
 ### connect {#browser-type-connect}
 
@@ -38,14 +38,14 @@ This method attaches Playwright to an existing browser instance created via `Bro
 The major and minor version of the Playwright instance that connects needs to match the version of Playwright that launches the browser (1.2.3 → is compatible with 1.2.x).
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 await browserType.connect(wsEndpoint);
 await browserType.connect(wsEndpoint, options);
 ```
 
-**Arguments**
+**參數**
 - `wsEndpoint` [string] <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-ws-endpoint"/><a href="#browser-type-connect-option-ws-endpoint" class="list-anchor">#</a>
   
   A Playwright browser websocket endpoint to connect to. You obtain this endpoint via `BrowserServer.wsEndpoint`.
@@ -81,7 +81,7 @@ await browserType.connect(wsEndpoint, options);
     
     Maximum time in milliseconds to wait for the connection to be established. Defaults to `0` (no timeout).
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-return"/><a href="#browser-type-connect-return" class="list-anchor">#</a>
 
 ---
@@ -103,7 +103,7 @@ Connecting over the Chrome DevTools Protocol is only supported for Chromium-base
 This connection is significantly lower fidelity than the Playwright protocol connection via [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect). If you are experiencing issues or attempting to use advanced functionality, you probably want to use [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect).
 :::
 
-**Usage**
+**使用方式**
 
 ```js
 const browser = await playwright.chromium.connectOverCDP('http://localhost:9222');
@@ -111,7 +111,7 @@ const defaultContext = browser.contexts()[0];
 const page = defaultContext.pages()[0];
 ```
 
-**Arguments**
+**參數**
 - `endpointURL` [string] <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
   
   A CDP websocket endpoint or http url to connect to. For example `http://localhost:9222/` or `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`.
@@ -140,7 +140,7 @@ const page = defaultContext.pages()[0];
     
     Maximum time in milliseconds to wait for the connection to be established. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-return"/><a href="#browser-type-connect-over-cdp-return" class="list-anchor">#</a>
 
 ---
@@ -151,13 +151,13 @@ const page = defaultContext.pages()[0];
 
 A path where Playwright expects to find a bundled browser executable.
 
-**Usage**
+**使用方式**
 
 ```js
 browserType.executablePath();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-executable-path-return"/><a href="#browser-type-executable-path-return" class="list-anchor">#</a>
 
 ---
@@ -168,7 +168,7 @@ browserType.executablePath();
 
 Returns the browser instance.
 
-**Usage**
+**使用方式**
 
 You can use [ignoreDefaultArgs](/api/class-browsertype.mdx#browser-type-launch-option-ignore-default-args) to filter out `--mute-audio` from default arguments:
 
@@ -184,7 +184,7 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
 >
 > Stock browsers like Google Chrome and Microsoft Edge are suitable for tests that require proprietary media codecs for video playback. See [this article](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/) for other differences between Chromium and Chrome. [This article](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md) describes some differences for Linux users.
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-args"/><a href="#browser-type-launch-option-args" class="list-anchor">#</a>
     
@@ -274,7 +274,7 @@ const browser = await chromium.launch({  // Or 'firefox' or 'webkit'.
     
     If specified, traces are saved into this directory.
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Browser]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-return"/><a href="#browser-type-launch-return" class="list-anchor">#</a>
 
 ---
@@ -287,14 +287,14 @@ Returns the persistent browser context instance.
 
 Launches browser that uses persistent storage located at [userDataDir](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-user-data-dir) and returns the only context. Closing this context will automatically close the browser.
 
-**Usage**
+**使用方式**
 
 ```js
 await browserType.launchPersistentContext(userDataDir);
 await browserType.launchPersistentContext(userDataDir, options);
 ```
 
-**Arguments**
+**參數**
 - `userDataDir` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-user-data-dir"/><a href="#browser-type-launch-persistent-context-option-user-data-dir" class="list-anchor">#</a>
   
   Path to a User Data Directory, which stores browser session data like cookies and local storage. Pass an empty string to create a temporary directory.
@@ -600,7 +600,7 @@ await browserType.launchPersistentContext(userDataDir, options);
     The `null` value opts out from the default presets, makes viewport depend on the host window size defined by the operating system. It makes the execution of the tests non-deterministic.
     :::
     
-**Returns**
+**傳回值**
 - [Promise]&lt;[BrowserContext]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-return"/><a href="#browser-type-launch-persistent-context-return" class="list-anchor">#</a>
 
 ---
@@ -611,7 +611,7 @@ await browserType.launchPersistentContext(userDataDir, options);
 
 Returns the browser app instance. You can connect to it via [browserType.connect()](/api/class-browsertype.mdx#browser-type-connect), which requires the major/minor client/server version to match (1.2.3 → is compatible with 1.2.x).
 
-**Usage**
+**使用方式**
 
 Launches browser server that client can connect to. An example of launching a browser executable and connecting to it later:
 
@@ -628,7 +628,7 @@ const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
 })();
 ```
 
-**Arguments**
+**參數**
 - `options` [Object] *(optional)*
   - `args` [Array]&lt;[string]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-option-args"/><a href="#browser-type-launch-server-option-args" class="list-anchor">#</a>
     
@@ -729,7 +729,7 @@ const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
     Any process or web page (including those running in Playwright) with knowledge of the `wsPath` can take control of the OS user. For this reason, you should use an unguessable token when using this option.
     :::
     
-**Returns**
+**傳回值**
 - [Promise]&lt;[BrowserServer]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-server-return"/><a href="#browser-type-launch-server-return" class="list-anchor">#</a>
 
 ---
@@ -740,13 +740,13 @@ const { chromium } = require('playwright');  // Or 'webkit' or 'firefox'.
 
 Returns browser name. For example: `'chromium'`, `'webkit'` or `'firefox'`.
 
-**Usage**
+**使用方式**
 
 ```js
 browserType.name();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-name-return"/><a href="#browser-type-name-return" class="list-anchor">#</a>
 
 

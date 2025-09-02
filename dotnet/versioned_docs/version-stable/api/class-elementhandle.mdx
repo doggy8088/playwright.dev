@@ -46,7 +46,7 @@ await locator.ClickAsync();
 
 ---
 
-## Methods
+## 方法
 
 ### BoundingBoxAsync {#element-handle-bounding-box}
 
@@ -60,14 +60,14 @@ Elements from child frames return the bounding box relative to the main frame, u
 
 Assuming the page is static, it is safe to use bounding box coordinates to perform input. For example, the following snippet should click the center of the element.
 
-**Usage**
+**使用方式**
 
 ```csharp
 var box = await elementHandle.BoundingBoxAsync();
 await page.Mouse.ClickAsync(box.X + box.Width / 2, box.Y + box.Height / 2);
 ```
 
-**Returns**
+**傳回值**
 - BoundingBox?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-bounding-box-return"/><a href="#element-handle-bounding-box-return" class="list-anchor">#</a>
   - `x` [float]
     
@@ -90,13 +90,13 @@ await page.Mouse.ClickAsync(box.X + box.Width / 2, box.Y + box.Height / 2);
 
 Returns the content frame for element handles referencing iframe nodes, or `null` otherwise
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.ContentFrameAsync();
 ```
 
-**Returns**
+**傳回值**
 - [Frame]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-content-frame-return"/><a href="#element-handle-content-frame-return" class="list-anchor">#</a>
 
 ---
@@ -107,13 +107,13 @@ await ElementHandle.ContentFrameAsync();
 
 Returns the frame containing the given element.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.OwnerFrameAsync();
 ```
 
-**Returns**
+**傳回值**
 - [Frame]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-owner-frame-return"/><a href="#element-handle-owner-frame-return" class="list-anchor">#</a>
 
 ---
@@ -134,13 +134,13 @@ Depending on the [state](/api/class-elementhandle.mdx#element-handle-wait-for-el
 
 If the element does not satisfy the condition for the [Timeout](/api/class-elementhandle.mdx#element-handle-wait-for-element-state-option-timeout) milliseconds, this method will throw.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.WaitForElementStateAsync(state, options);
 ```
 
-**Arguments**
+**參數**
 - `state` `enum ElementState { Visible, Hidden, Stable, Enabled, Disabled, Editable }`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-element-state-option-state"/><a href="#element-handle-wait-for-element-state-option-state" class="list-anchor">#</a>
   
   A state to wait for, see below for more details.
@@ -149,7 +149,7 @@ await ElementHandle.WaitForElementStateAsync(state, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-element-state-return"/><a href="#element-handle-wait-for-element-state-return" class="list-anchor">#</a>
 
 ---
@@ -178,13 +178,13 @@ If the element is detached from the DOM at any moment during the action, this me
 
 When all steps combined have not finished during the specified [Timeout](/api/class-elementhandle.mdx#element-handle-check-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.CheckAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ElementHandleCheckOptions?` *(optional)*
   - `Force` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-check-option-force"/><a href="#element-handle-check-option-force" class="list-anchor">#</a>
     
@@ -212,7 +212,7 @@ await ElementHandle.CheckAsync(options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-check-return"/><a href="#element-handle-check-return" class="list-anchor">#</a>
 
 ---
@@ -238,13 +238,13 @@ If the element is detached from the DOM at any moment during the action, this me
 
 When all steps combined have not finished during the specified [Timeout](/api/class-elementhandle.mdx#element-handle-click-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.ClickAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ElementHandleClickOptions?` *(optional)*
   - `Button` `enum MouseButton { Left, Right, Middle }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-click-option-button"/><a href="#element-handle-click-option-button" class="list-anchor">#</a>
     
@@ -284,7 +284,7 @@ await ElementHandle.ClickAsync(options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-click-return"/><a href="#element-handle-click-return" class="list-anchor">#</a>
 
 ---
@@ -314,13 +314,13 @@ When all steps combined have not finished during the specified [Timeout](/api/cl
 `elementHandle.dblclick()` dispatches two `click` events and a single `dblclick` event.
 :::
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.DblClickAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ElementHandleDblClickOptions?` *(optional)*
   - `Button` `enum MouseButton { Left, Right, Middle }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-dblclick-option-button"/><a href="#element-handle-dblclick-option-button" class="list-anchor">#</a>
     
@@ -357,7 +357,7 @@ await ElementHandle.DblClickAsync(options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-dblclick-return"/><a href="#element-handle-dblclick-return" class="list-anchor">#</a>
 
 ---
@@ -375,7 +375,7 @@ Use locator-based [Locator.DispatchEventAsync()](/api/class-locator.mdx#locator-
 
 The snippet below dispatches the `click` event on the element. Regardless of the visibility state of the element, `click` is dispatched. This is equivalent to calling [element.click()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click).
 
-**Usage**
+**使用方式**
 
 ```csharp
 await elementHandle.DispatchEventAsync("click");
@@ -405,7 +405,7 @@ await elementHandle.DispatchEventAsync("dragstart", new Dictionary<string, objec
 });
 ```
 
-**Arguments**
+**參數**
 - `type` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-dispatch-event-option-type"/><a href="#element-handle-dispatch-event-option-type" class="list-anchor">#</a>
   
   DOM event type: `"click"`, `"dragstart"`, etc.
@@ -413,7 +413,7 @@ await elementHandle.DispatchEventAsync("dragstart", new Dictionary<string, objec
   
   Optional event-specific initialization properties.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-dispatch-event-return"/><a href="#element-handle-dispatch-event-return" class="list-anchor">#</a>
 
 ---
@@ -435,7 +435,7 @@ The method finds an element matching the specified selector in the `ElementHandl
 
 If [expression](/api/class-elementhandle.mdx#element-handle-eval-on-selector-option-expression) returns a [Promise], then [ElementHandle.EvalOnSelectorAsync()](/api/class-elementhandle.mdx#element-handle-eval-on-selector) would wait for the promise to resolve and return its value.
 
-**Usage**
+**使用方式**
 
 ```csharp
 var tweetHandle = await page.QuerySelectorAsync(".tweet");
@@ -443,7 +443,7 @@ Assert.AreEqual("100", await tweetHandle.EvalOnSelectorAsync(".like", "node => n
 Assert.AreEqual("10", await tweetHandle.EvalOnSelectorAsync(".retweets", "node => node.innerText"));
 ```
 
-**Arguments**
+**參數**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-eval-on-selector-option-selector"/><a href="#element-handle-eval-on-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -454,7 +454,7 @@ Assert.AreEqual("10", await tweetHandle.EvalOnSelectorAsync(".retweets", "node =
   
   Optional argument to pass to [expression](/api/class-elementhandle.mdx#element-handle-eval-on-selector-option-expression).
 
-**Returns**
+**傳回值**
 - [object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-eval-on-selector-return"/><a href="#element-handle-eval-on-selector-return" class="list-anchor">#</a>
 
 ---
@@ -476,7 +476,7 @@ The method finds all elements matching the specified selector in the `ElementHan
 
 If [expression](/api/class-elementhandle.mdx#element-handle-eval-on-selector-all-option-expression) returns a [Promise], then [ElementHandle.EvalOnSelectorAllAsync()](/api/class-elementhandle.mdx#element-handle-eval-on-selector-all) would wait for the promise to resolve and return its value.
 
-**Usage**
+**使用方式**
 
 ```html
 <div class="feed">
@@ -490,7 +490,7 @@ var feedHandle = await page.QuerySelectorAsync(".feed");
 Assert.AreEqual(new [] { "Hello!", "Hi!" }, await feedHandle.EvalOnSelectorAllAsync<string[]>(".tweet", "nodes => nodes.map(n => n.innerText)"));
 ```
 
-**Arguments**
+**參數**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-eval-on-selector-all-option-selector"/><a href="#element-handle-eval-on-selector-all-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -501,7 +501,7 @@ Assert.AreEqual(new [] { "Hello!", "Hi!" }, await feedHandle.EvalOnSelectorAllAs
   
   Optional argument to pass to [expression](/api/class-elementhandle.mdx#element-handle-eval-on-selector-all-option-expression).
 
-**Returns**
+**傳回值**
 - [object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-eval-on-selector-all-return"/><a href="#element-handle-eval-on-selector-all-return" class="list-anchor">#</a>
 
 ---
@@ -523,13 +523,13 @@ If the target element is not an `<input>`, `<textarea>` or `[contenteditable]` e
 
 To send fine-grained keyboard events, use [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially).
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.FillAsync(value, options);
 ```
 
-**Arguments**
+**參數**
 - `value` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-fill-option-value"/><a href="#element-handle-fill-option-value" class="list-anchor">#</a>
   
   Value to set for the `<input>`, `<textarea>` or `[contenteditable]` element.
@@ -549,7 +549,7 @@ await ElementHandle.FillAsync(value, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-fill-return"/><a href="#element-handle-fill-return" class="list-anchor">#</a>
 
 ---
@@ -567,13 +567,13 @@ Use locator-based [Locator.FocusAsync()](/api/class-locator.mdx#locator-focus) i
 
 Calls [focus](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) on the element.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.FocusAsync();
 ```
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-focus-return"/><a href="#element-handle-focus-return" class="list-anchor">#</a>
 
 ---
@@ -591,18 +591,18 @@ Use locator-based [Locator.GetAttributeAsync()](/api/class-locator.mdx#locator-g
 
 Returns element attribute value.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.GetAttributeAsync(name);
 ```
 
-**Arguments**
+**參數**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-get-attribute-option-name"/><a href="#element-handle-get-attribute-option-name" class="list-anchor">#</a>
   
   Attribute name to get the value for.
 
-**Returns**
+**傳回值**
 - [string]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-get-attribute-return"/><a href="#element-handle-get-attribute-return" class="list-anchor">#</a>
 
 ---
@@ -627,13 +627,13 @@ If the element is detached from the DOM at any moment during the action, this me
 
 When all steps combined have not finished during the specified [Timeout](/api/class-elementhandle.mdx#element-handle-hover-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.HoverAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ElementHandleHoverOptions?` *(optional)*
   - `Force` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-hover-option-force"/><a href="#element-handle-hover-option-force" class="list-anchor">#</a>
     
@@ -664,7 +664,7 @@ await ElementHandle.HoverAsync(options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-hover-return"/><a href="#element-handle-hover-return" class="list-anchor">#</a>
 
 ---
@@ -682,13 +682,13 @@ Use locator-based [Locator.InnerHTMLAsync()](/api/class-locator.mdx#locator-inne
 
 Returns the `element.innerHTML`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.InnerHTMLAsync();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-inner-html-return"/><a href="#element-handle-inner-html-return" class="list-anchor">#</a>
 
 ---
@@ -706,13 +706,13 @@ Use locator-based [Locator.InnerTextAsync()](/api/class-locator.mdx#locator-inne
 
 Returns the `element.innerText`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.InnerTextAsync();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-inner-text-return"/><a href="#element-handle-inner-text-return" class="list-anchor">#</a>
 
 ---
@@ -732,19 +732,19 @@ Returns `input.value` for the selected `<input>` or `<textarea>` or `<select>` e
 
 Throws for non-input elements. However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), returns the value of the control.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.InputValueAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ElementHandleInputValueOptions?` *(optional)*
   - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-input-value-option-timeout"/><a href="#element-handle-input-value-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-input-value-return"/><a href="#element-handle-input-value-return" class="list-anchor">#</a>
 
 ---
@@ -762,13 +762,13 @@ Use locator-based [Locator.IsCheckedAsync()](/api/class-locator.mdx#locator-is-c
 
 Returns whether the element is checked. Throws if the element is not a checkbox or radio input.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.IsCheckedAsync();
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-checked-return"/><a href="#element-handle-is-checked-return" class="list-anchor">#</a>
 
 ---
@@ -786,13 +786,13 @@ Use locator-based [Locator.IsDisabledAsync()](/api/class-locator.mdx#locator-is-
 
 Returns whether the element is disabled, the opposite of [enabled](../actionability.mdx#enabled).
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.IsDisabledAsync();
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-disabled-return"/><a href="#element-handle-is-disabled-return" class="list-anchor">#</a>
 
 ---
@@ -810,13 +810,13 @@ Use locator-based [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-
 
 Returns whether the element is [editable](../actionability.mdx#editable).
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.IsEditableAsync();
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-editable-return"/><a href="#element-handle-is-editable-return" class="list-anchor">#</a>
 
 ---
@@ -834,13 +834,13 @@ Use locator-based [Locator.IsEnabledAsync()](/api/class-locator.mdx#locator-is-e
 
 Returns whether the element is [enabled](../actionability.mdx#enabled).
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.IsEnabledAsync();
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-enabled-return"/><a href="#element-handle-is-enabled-return" class="list-anchor">#</a>
 
 ---
@@ -858,13 +858,13 @@ Use locator-based [Locator.IsHiddenAsync()](/api/class-locator.mdx#locator-is-hi
 
 Returns whether the element is hidden, the opposite of [visible](../actionability.mdx#visible).
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.IsHiddenAsync();
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-hidden-return"/><a href="#element-handle-is-hidden-return" class="list-anchor">#</a>
 
 ---
@@ -882,13 +882,13 @@ Use locator-based [Locator.IsVisibleAsync()](/api/class-locator.mdx#locator-is-v
 
 Returns whether the element is [visible](../actionability.mdx#visible).
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.IsVisibleAsync();
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-visible-return"/><a href="#element-handle-is-visible-return" class="list-anchor">#</a>
 
 ---
@@ -918,13 +918,13 @@ If [key](/api/class-elementhandle.mdx#element-handle-press-option-key) is a sing
 
 Shortcuts such as `key: "Control+o"`, `key: "Control++` or `key: "Control+Shift+T"` are supported as well. When specified with the modifier, modifier is pressed and being held while the subsequent key is being pressed.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.PressAsync(key, options);
 ```
 
-**Arguments**
+**參數**
 - `key` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-press-option-key"/><a href="#element-handle-press-option-key" class="list-anchor">#</a>
   
   Name of the key to press or a character to generate, such as `ArrowLeft` or `a`.
@@ -944,7 +944,7 @@ await ElementHandle.PressAsync(key, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-press-return"/><a href="#element-handle-press-return" class="list-anchor">#</a>
 
 ---
@@ -962,18 +962,18 @@ Use locator-based [Page.Locator()](/api/class-page.mdx#page-locator) instead. Re
 
 The method finds an element matching the specified selector in the `ElementHandle`'s subtree. If no elements match the selector, returns `null`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.QuerySelectorAsync(selector);
 ```
 
-**Arguments**
+**參數**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-query-selector-option-selector"/><a href="#element-handle-query-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
 
-**Returns**
+**傳回值**
 - [ElementHandle]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-query-selector-return"/><a href="#element-handle-query-selector-return" class="list-anchor">#</a>
 
 ---
@@ -991,18 +991,18 @@ Use locator-based [Page.Locator()](/api/class-page.mdx#page-locator) instead. Re
 
 The method finds all elements matching the specified selector in the `ElementHandle`s subtree. If no elements match the selector, returns empty array.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.QuerySelectorAllAsync(selector);
 ```
 
-**Arguments**
+**參數**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-query-selector-all-option-selector"/><a href="#element-handle-query-selector-all-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
 
-**Returns**
+**傳回值**
 - [IReadOnlyList]&lt;[ElementHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-query-selector-all-return"/><a href="#element-handle-query-selector-all-return" class="list-anchor">#</a>
 
 ---
@@ -1024,13 +1024,13 @@ This method waits for the [actionability](../actionability.mdx) checks, then scr
 
 Returns the buffer with the captured screenshot.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.ScreenshotAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ElementHandleScreenshotOptions?` *(optional)*
   - `Animations` `enum ScreenshotAnimations { Disabled, Allow }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-animations"/><a href="#element-handle-screenshot-option-animations" class="list-anchor">#</a>
     
@@ -1072,7 +1072,7 @@ await ElementHandle.ScreenshotAsync(options);
     
     Specify screenshot type, defaults to `png`.
 
-**Returns**
+**傳回值**
 - [byte]&#91;&#93;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-return"/><a href="#element-handle-screenshot-return" class="list-anchor">#</a>
 
 ---
@@ -1094,19 +1094,19 @@ Throws when `elementHandle` does not point to an element [connected](https://dev
 
 See [scrolling](../input.mdx#scrolling) for alternative ways to scroll.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.ScrollIntoViewIfNeededAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ElementHandleScrollIntoViewIfNeededOptions?` *(optional)*
   - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-scroll-into-view-if-needed-option-timeout"/><a href="#element-handle-scroll-into-view-if-needed-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-scroll-into-view-if-needed-return"/><a href="#element-handle-scroll-into-view-if-needed-return" class="list-anchor">#</a>
 
 ---
@@ -1130,7 +1130,7 @@ Returns the array of option values that have been successfully selected.
 
 Triggers a `change` and `input` event once all the provided options have been selected.
 
-**Usage**
+**使用方式**
 
 ```csharp
 // Single selection matching the value or label
@@ -1146,7 +1146,7 @@ await handle.SelectOptionAsync(new[] {
     new SelectOptionValue() { Value = "red" }});
 ```
 
-**Arguments**
+**參數**
 - `values` [string] | [ElementHandle] | [IEnumerable] | `SelectOption` | [IEnumerable] | [IEnumerable]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-option-option-values"/><a href="#element-handle-select-option-option-values" class="list-anchor">#</a>
   - `Value` [string]? *(optional)*
     
@@ -1175,7 +1175,7 @@ await handle.SelectOptionAsync(new[] {
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [IReadOnlyList]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-option-return"/><a href="#element-handle-select-option-return" class="list-anchor">#</a>
 
 ---
@@ -1195,13 +1195,13 @@ This method waits for [actionability](../actionability.mdx) checks, then focuses
 
 If the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), focuses and selects text in the control instead.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.SelectTextAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ElementHandleSelectTextOptions?` *(optional)*
   - `Force` [bool]? *(optional)* <font size="2">Added in: v1.13</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-text-option-force"/><a href="#element-handle-select-text-option-force" class="list-anchor">#</a>
     
@@ -1210,7 +1210,7 @@ await ElementHandle.SelectTextAsync(options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-text-return"/><a href="#element-handle-select-text-return" class="list-anchor">#</a>
 
 ---
@@ -1236,13 +1236,13 @@ This method checks or unchecks an element by performing the following steps:
 
 When all steps combined have not finished during the specified [Timeout](/api/class-elementhandle.mdx#element-handle-set-checked-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.SetCheckedAsync(checked, options);
 ```
 
-**Arguments**
+**參數**
 - `checkedState` [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-set-checked-option-checked"/><a href="#element-handle-set-checked-option-checked" class="list-anchor">#</a>
   
   Whether to check or uncheck the checkbox.
@@ -1273,7 +1273,7 @@ await ElementHandle.SetCheckedAsync(checked, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-set-checked-return"/><a href="#element-handle-set-checked-return" class="list-anchor">#</a>
 
 ---
@@ -1293,13 +1293,13 @@ Sets the value of the file input to these file paths or files. If some of the `f
 
 This method expects [ElementHandle] to point to an [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input). However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), targets the control instead.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.SetInputFilesAsync(files, options);
 ```
 
-**Arguments**
+**參數**
 - `files` [string] | [IEnumerable]&lt;[string]&gt; | `FilePayload` | [IEnumerable]&lt;`FilePayload`&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-set-input-files-option-files"/><a href="#element-handle-set-input-files-option-files" class="list-anchor">#</a>
   - `Name` [string]
     
@@ -1323,7 +1323,7 @@ await ElementHandle.SetInputFilesAsync(files, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-set-input-files-return"/><a href="#element-handle-set-input-files-return" class="list-anchor">#</a>
 
 ---
@@ -1353,13 +1353,13 @@ When all steps combined have not finished during the specified [Timeout](/api/cl
 `elementHandle.tap()` requires that the `hasTouch` option of the browser context be set to true.
 :::
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.TapAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ElementHandleTapOptions?` *(optional)*
   - `Force` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-tap-option-force"/><a href="#element-handle-tap-option-force" class="list-anchor">#</a>
     
@@ -1390,7 +1390,7 @@ await ElementHandle.TapAsync(options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-tap-return"/><a href="#element-handle-tap-return" class="list-anchor">#</a>
 
 ---
@@ -1408,13 +1408,13 @@ Use locator-based [Locator.TextContentAsync()](/api/class-locator.mdx#locator-te
 
 Returns the `node.textContent`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.TextContentAsync();
 ```
 
-**Returns**
+**傳回值**
 - [string]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-text-content-return"/><a href="#element-handle-text-content-return" class="list-anchor">#</a>
 
 ---
@@ -1434,9 +1434,9 @@ Focuses the element, and then sends a `keydown`, `keypress`/`input`, and `keyup`
 
 To press a special key, like `Control` or `ArrowDown`, use [ElementHandle.PressAsync()](/api/class-elementhandle.mdx#element-handle-press).
 
-**Usage**
+**使用方式**
 
-**Arguments**
+**參數**
 - `text` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-option-text"/><a href="#element-handle-type-option-text" class="list-anchor">#</a>
   
   A text to type into a focused element.
@@ -1456,7 +1456,7 @@ To press a special key, like `Control` or `ArrowDown`, use [ElementHandle.PressA
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-return"/><a href="#element-handle-type-return" class="list-anchor">#</a>
 
 ---
@@ -1483,13 +1483,13 @@ If the element is detached from the DOM at any moment during the action, this me
 
 When all steps combined have not finished during the specified [Timeout](/api/class-elementhandle.mdx#element-handle-uncheck-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await ElementHandle.UncheckAsync(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `ElementHandleUncheckOptions?` *(optional)*
   - `Force` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-uncheck-option-force"/><a href="#element-handle-uncheck-option-force" class="list-anchor">#</a>
     
@@ -1517,7 +1517,7 @@ await ElementHandle.UncheckAsync(options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-uncheck-return"/><a href="#element-handle-uncheck-return" class="list-anchor">#</a>
 
 ---
@@ -1537,7 +1537,7 @@ Returns element specified by selector when it satisfies [State](/api/class-eleme
 
 Wait for the [selector](/api/class-elementhandle.mdx#element-handle-wait-for-selector-option-selector) relative to the element handle to satisfy [State](/api/class-elementhandle.mdx#element-handle-wait-for-selector-option-state) option (either appear/disappear from dom, or become visible/hidden). If at the moment of calling the method [selector](/api/class-elementhandle.mdx#element-handle-wait-for-selector-option-selector) already satisfies the condition, the method will return immediately. If the selector doesn't satisfy the condition for the [Timeout](/api/class-elementhandle.mdx#element-handle-wait-for-selector-option-timeout) milliseconds, the function will throw.
 
-**Usage**
+**使用方式**
 
 ```csharp
 await page.SetContentAsync("<div><span></span></div>");
@@ -1550,7 +1550,7 @@ var span = await page.WaitForSelectorAsync("span", WaitForSelectorState.Attached
 This method does not work across navigations, use [Page.WaitForSelectorAsync()](/api/class-page.mdx#page-wait-for-selector) instead.
 :::
 
-**Arguments**
+**參數**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-option-selector"/><a href="#element-handle-wait-for-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -1569,7 +1569,7 @@ This method does not work across navigations, use [Page.WaitForSelectorAsync()](
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**Returns**
+**傳回值**
 - [ElementHandle]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-return"/><a href="#element-handle-wait-for-selector-return" class="list-anchor">#</a>
 
 

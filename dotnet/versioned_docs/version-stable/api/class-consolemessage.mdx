@@ -33,7 +33,7 @@ await message.Args.ElementAt(1).JsonValueAsync<int>(); // 42
 
 ---
 
-## Methods
+## 方法
 
 ### Args {#console-message-args}
 
@@ -41,13 +41,13 @@ await message.Args.ElementAt(1).JsonValueAsync<int>(); // 42
 
 List of arguments passed to a `console` function call. See also [Page.Console](/api/class-page.mdx#page-event-console).
 
-**Usage**
+**使用方式**
 
 ```csharp
 ConsoleMessage.Args
 ```
 
-**Returns**
+**傳回值**
 - [IReadOnlyList]&lt;[JSHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-args-return"/><a href="#console-message-args-return" class="list-anchor">#</a>
 
 ---
@@ -58,13 +58,13 @@ ConsoleMessage.Args
 
 URL of the resource followed by 0-based line and column numbers in the resource formatted as `URL:line:column`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 ConsoleMessage.Location
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-location-return"/><a href="#console-message-location-return" class="list-anchor">#</a>
 
 ---
@@ -75,13 +75,13 @@ ConsoleMessage.Location
 
 The page that produced this console message, if any.
 
-**Usage**
+**使用方式**
 
 ```csharp
 ConsoleMessage.Page
 ```
 
-**Returns**
+**傳回值**
 - [Page]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-page-return"/><a href="#console-message-page-return" class="list-anchor">#</a>
 
 ---
@@ -92,13 +92,13 @@ ConsoleMessage.Page
 
 The text of the console message.
 
-**Usage**
+**使用方式**
 
 ```csharp
 ConsoleMessage.Text
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-text-return"/><a href="#console-message-text-return" class="list-anchor">#</a>
 
 ---
@@ -109,13 +109,13 @@ ConsoleMessage.Text
 
 One of the following values: `'log'`, `'debug'`, `'info'`, `'error'`, `'warning'`, `'dir'`, `'dirxml'`, `'table'`, `'trace'`, `'clear'`, `'startGroup'`, `'startGroupCollapsed'`, `'endGroup'`, `'assert'`, `'profile'`, `'profileEnd'`, `'count'`, `'timeEnd'`.
 
-**Usage**
+**使用方式**
 
 ```csharp
 ConsoleMessage.Type
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-type-return"/><a href="#console-message-type-return" class="list-anchor">#</a>
 
 

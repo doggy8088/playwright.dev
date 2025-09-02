@@ -25,7 +25,7 @@ for worker in page.workers:
 
 ---
 
-## Methods
+## 方法
 
 ### evaluate {#worker-evaluate}
 
@@ -37,14 +37,14 @@ If the function passed to the [worker.evaluate()](/api/class-worker.mdx#worker-e
 
 If the function passed to the [worker.evaluate()](/api/class-worker.mdx#worker-evaluate) returns a non-[Serializable] value, then [worker.evaluate()](/api/class-worker.mdx#worker-evaluate) returns `undefined`. Playwright also supports transferring some additional values that are not serializable by `JSON`: `-0`, `NaN`, `Infinity`, `-Infinity`.
 
-**Usage**
+**使用方式**
 
 ```python
 worker.evaluate(expression)
 worker.evaluate(expression, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `expression` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-option-expression"/><a href="#worker-evaluate-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -52,7 +52,7 @@ worker.evaluate(expression, **kwargs)
   
   Optional argument to pass to [expression](/api/class-worker.mdx#worker-evaluate-option-expression).
 
-**Returns**
+**傳回值**
 - [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-return"/><a href="#worker-evaluate-return" class="list-anchor">#</a>
 
 ---
@@ -67,14 +67,14 @@ The only difference between [worker.evaluate()](/api/class-worker.mdx#worker-eva
 
 If the function passed to the [worker.evaluate_handle()](/api/class-worker.mdx#worker-evaluate-handle) returns a [Promise], then [worker.evaluate_handle()](/api/class-worker.mdx#worker-evaluate-handle) would wait for the promise to resolve and return its value.
 
-**Usage**
+**使用方式**
 
 ```python
 worker.evaluate_handle(expression)
 worker.evaluate_handle(expression, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `expression` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-handle-option-expression"/><a href="#worker-evaluate-handle-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -82,29 +82,29 @@ worker.evaluate_handle(expression, **kwargs)
   
   Optional argument to pass to [expression](/api/class-worker.mdx#worker-evaluate-handle-option-expression).
 
-**Returns**
+**傳回值**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-handle-return"/><a href="#worker-evaluate-handle-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### url {#worker-url}
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>worker.url</x-search>
 
-**Usage**
+**使用方式**
 
 ```python
 worker.url
 ```
 
-**Returns**
+**傳回值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-url-return"/><a href="#worker-url-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### on("close") {#worker-event-close}
 
@@ -112,13 +112,13 @@ worker.url
 
 Emitted when this dedicated [WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) is terminated.
 
-**Usage**
+**使用方式**
 
 ```python
 worker.on("close", handler)
 ```
 
-**Event data**
+**事件資料**
 - [Worker]
 
 

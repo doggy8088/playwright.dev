@@ -15,7 +15,7 @@ If you want to intercept or modify WebSocket frames, consider using [WebSocketRo
 
 ---
 
-## Methods
+## 方法
 
 ### expect_event {#web-socket-wait-for-event}
 
@@ -23,14 +23,14 @@ If you want to intercept or modify WebSocket frames, consider using [WebSocketRo
 
 Waits for event to fire and passes its value into the predicate function. Returns when the predicate returns truthy value. Will throw an error if the webSocket is closed before the event is fired. Returns the event data value.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket.expect_event(event)
 web_socket.expect_event(event, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `event` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-event-option-event"/><a href="#web-socket-wait-for-event-option-event" class="list-anchor">#</a>
   
   Event name, same one would pass into `webSocket.on(event)`.
@@ -41,7 +41,7 @@ web_socket.expect_event(event, **kwargs)
   
   Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**Returns**
+**傳回值**
 - [EventContextManager]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-event-return"/><a href="#web-socket-wait-for-event-return" class="list-anchor">#</a>
 
 ---
@@ -57,14 +57,14 @@ In most cases, you should use [web_socket.expect_event()](/api/class-websocket.m
 
 Waits for given `event` to fire. If predicate is provided, it passes event's value into the `predicate` function and waits for `predicate(event)` to return a truthy value. Will throw an error if the socket is closed before the `event` is fired.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket.wait_for_event(event)
 web_socket.wait_for_event(event, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `event` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-event-2-option-event"/><a href="#web-socket-wait-for-event-2-option-event" class="list-anchor">#</a>
   
   Event name, same one typically passed into `*.on(event)`.
@@ -75,12 +75,12 @@ web_socket.wait_for_event(event, **kwargs)
   
   Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**Returns**
+**傳回值**
 - [Any]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-event-2-return"/><a href="#web-socket-wait-for-event-2-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### is_closed {#web-socket-is-closed}
 
@@ -88,13 +88,13 @@ web_socket.wait_for_event(event, **kwargs)
 
 Indicates that the web socket has been closed.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket.is_closed()
 ```
 
-**Returns**
+**傳回值**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-is-closed-return"/><a href="#web-socket-is-closed-return" class="list-anchor">#</a>
 
 ---
@@ -105,18 +105,18 @@ web_socket.is_closed()
 
 Contains the URL of the WebSocket.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket.url
 ```
 
-**Returns**
+**傳回值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-url-return"/><a href="#web-socket-url-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### on("close") {#web-socket-event-close}
 
@@ -124,13 +124,13 @@ web_socket.url
 
 Fired when the websocket closes.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket.on("close", handler)
 ```
 
-**Event data**
+**事件資料**
 - [WebSocket]
 
 ---
@@ -141,13 +141,13 @@ web_socket.on("close", handler)
 
 Fired when the websocket receives a frame.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket.on("framereceived", handler)
 ```
 
-**Event data**
+**事件資料**
 - [str] | [bytes]
 
 ---
@@ -158,13 +158,13 @@ web_socket.on("framereceived", handler)
 
 Fired when the websocket sends a frame.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket.on("framesent", handler)
 ```
 
-**Event data**
+**事件資料**
 - [str] | [bytes]
 
 ---
@@ -175,13 +175,13 @@ web_socket.on("framesent", handler)
 
 Fired when the websocket has an error.
 
-**Usage**
+**使用方式**
 
 ```python
 web_socket.on("socketerror", handler)
 ```
 
-**Event data**
+**事件資料**
 - [str]
 
 

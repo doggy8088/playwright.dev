@@ -55,7 +55,7 @@ await download.save_as("/path/to/save/at/" + download.suggested_filename)
 
 ---
 
-## Methods
+## 方法
 
 ### cancel {#download-cancel}
 
@@ -63,13 +63,13 @@ await download.save_as("/path/to/save/at/" + download.suggested_filename)
 
 Cancels a download. Will not fail if the download is already finished or canceled. Upon successful cancellations, `download.failure()` would resolve to `'canceled'`.
 
-**Usage**
+**使用方式**
 
 ```python
 download.cancel()
 ```
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-cancel-return"/><a href="#download-cancel-return" class="list-anchor">#</a>
 
 ---
@@ -80,13 +80,13 @@ download.cancel()
 
 Deletes the downloaded file. Will wait for the download to finish if necessary.
 
-**Usage**
+**使用方式**
 
 ```python
 download.delete()
 ```
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-delete-return"/><a href="#download-delete-return" class="list-anchor">#</a>
 
 ---
@@ -97,13 +97,13 @@ download.delete()
 
 Returns download error if any. Will wait for the download to finish if necessary.
 
-**Usage**
+**使用方式**
 
 ```python
 download.failure()
 ```
 
-**Returns**
+**傳回值**
 - [NoneType] | [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-failure-return"/><a href="#download-failure-return" class="list-anchor">#</a>
 
 ---
@@ -116,13 +116,13 @@ Returns path to the downloaded file for a successful download, or throws for a f
 
 Note that the download's file name is a random GUID, use [download.suggested_filename](/api/class-download.mdx#download-suggested-filename) to get suggested file name.
 
-**Usage**
+**使用方式**
 
 ```python
 download.path()
 ```
 
-**Returns**
+**傳回值**
 - [pathlib.Path]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-path-return"/><a href="#download-path-return" class="list-anchor">#</a>
 
 ---
@@ -133,7 +133,7 @@ download.path()
 
 Copy the download to a user-specified path. It is safe to call this method while the download is still in progress. Will wait for the download to finish if necessary.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -159,17 +159,17 @@ await download.save_as("/path/to/save/at/" + download.suggested_filename)
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `path` [Union]\[[str], [pathlib.Path]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-save-as-option-path"/><a href="#download-save-as-option-path" class="list-anchor">#</a>
   
   Path where the download should be copied.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-save-as-return"/><a href="#download-save-as-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### page {#download-page}
 
@@ -177,13 +177,13 @@ await download.save_as("/path/to/save/at/" + download.suggested_filename)
 
 Get the page that the download belongs to.
 
-**Usage**
+**使用方式**
 
 ```python
 download.page
 ```
 
-**Returns**
+**傳回值**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-page-return"/><a href="#download-page-return" class="list-anchor">#</a>
 
 ---
@@ -194,13 +194,13 @@ download.page
 
 Returns suggested filename for this download. It is typically computed by the browser from the [`Content-Disposition`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition) response header or the `download` attribute. See the spec on [whatwg](https://html.spec.whatwg.org/#downloading-resources). Different browsers can use different logic for computing it.
 
-**Usage**
+**使用方式**
 
 ```python
 download.suggested_filename
 ```
 
-**Returns**
+**傳回值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-suggested-filename-return"/><a href="#download-suggested-filename-return" class="list-anchor">#</a>
 
 ---
@@ -211,13 +211,13 @@ download.suggested_filename
 
 Returns downloaded url.
 
-**Usage**
+**使用方式**
 
 ```python
 download.url
 ```
 
-**Returns**
+**傳回值**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-url-return"/><a href="#download-url-return" class="list-anchor">#</a>
 
 

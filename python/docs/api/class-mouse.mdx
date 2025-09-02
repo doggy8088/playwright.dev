@@ -58,7 +58,7 @@ await page.mouse.up()
 
 ---
 
-## Methods
+## 方法
 
 ### click {#mouse-click}
 
@@ -66,14 +66,14 @@ await page.mouse.up()
 
 Shortcut for [mouse.move()](/api/class-mouse.mdx#mouse-move), [mouse.down()](/api/class-mouse.mdx#mouse-down), [mouse.up()](/api/class-mouse.mdx#mouse-up).
 
-**Usage**
+**使用方式**
 
 ```python
 mouse.click(x, y)
 mouse.click(x, y, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `x` [float]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-click-option-x"/><a href="#mouse-click-option-x" class="list-anchor">#</a>
   
   X coordinate relative to the main frame's viewport in CSS pixels.
@@ -90,7 +90,7 @@ mouse.click(x, y, **kwargs)
   
   Time to wait between `mousedown` and `mouseup` in milliseconds. Defaults to 0.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-click-return"/><a href="#mouse-click-return" class="list-anchor">#</a>
 
 ---
@@ -101,14 +101,14 @@ mouse.click(x, y, **kwargs)
 
 Shortcut for [mouse.move()](/api/class-mouse.mdx#mouse-move), [mouse.down()](/api/class-mouse.mdx#mouse-down), [mouse.up()](/api/class-mouse.mdx#mouse-up), [mouse.down()](/api/class-mouse.mdx#mouse-down) and [mouse.up()](/api/class-mouse.mdx#mouse-up).
 
-**Usage**
+**使用方式**
 
 ```python
 mouse.dblclick(x, y)
 mouse.dblclick(x, y, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `x` [float]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-dblclick-option-x"/><a href="#mouse-dblclick-option-x" class="list-anchor">#</a>
   
   X coordinate relative to the main frame's viewport in CSS pixels.
@@ -122,7 +122,7 @@ mouse.dblclick(x, y, **kwargs)
   
   Time to wait between `mousedown` and `mouseup` in milliseconds. Defaults to 0.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-dblclick-return"/><a href="#mouse-dblclick-return" class="list-anchor">#</a>
 
 ---
@@ -133,14 +133,14 @@ mouse.dblclick(x, y, **kwargs)
 
 Dispatches a `mousedown` event.
 
-**Usage**
+**使用方式**
 
 ```python
 mouse.down()
 mouse.down(**kwargs)
 ```
 
-**Arguments**
+**參數**
 - `button` "left" | "right" | "middle" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-down-option-button"/><a href="#mouse-down-option-button" class="list-anchor">#</a>
   
   Defaults to `left`.
@@ -148,7 +148,7 @@ mouse.down(**kwargs)
   
   defaults to 1. See [UIEvent.detail].
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-down-return"/><a href="#mouse-down-return" class="list-anchor">#</a>
 
 ---
@@ -159,14 +159,14 @@ mouse.down(**kwargs)
 
 Dispatches a `mousemove` event.
 
-**Usage**
+**使用方式**
 
 ```python
 mouse.move(x, y)
 mouse.move(x, y, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `x` [float]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-move-option-x"/><a href="#mouse-move-option-x" class="list-anchor">#</a>
   
   X coordinate relative to the main frame's viewport in CSS pixels.
@@ -177,7 +177,7 @@ mouse.move(x, y, **kwargs)
   
   Defaults to 1. Sends intermediate `mousemove` events.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-move-return"/><a href="#mouse-move-return" class="list-anchor">#</a>
 
 ---
@@ -188,14 +188,14 @@ mouse.move(x, y, **kwargs)
 
 Dispatches a `mouseup` event.
 
-**Usage**
+**使用方式**
 
 ```python
 mouse.up()
 mouse.up(**kwargs)
 ```
 
-**Arguments**
+**參數**
 - `button` "left" | "right" | "middle" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-up-option-button"/><a href="#mouse-up-option-button" class="list-anchor">#</a>
   
   Defaults to `left`.
@@ -203,7 +203,7 @@ mouse.up(**kwargs)
   
   defaults to 1. See [UIEvent.detail].
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-up-return"/><a href="#mouse-up-return" class="list-anchor">#</a>
 
 ---
@@ -219,13 +219,13 @@ Dispatches a `wheel` event. This method is usually used to manually scroll the p
 Wheel events may cause scrolling if they are not handled, and this method does not wait for the scrolling to finish before returning.
 :::
 
-**Usage**
+**使用方式**
 
 ```python
 mouse.wheel(delta_x, delta_y)
 ```
 
-**Arguments**
+**參數**
 - `delta_x` [float]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-wheel-option-delta-x"/><a href="#mouse-wheel-option-delta-x" class="list-anchor">#</a>
   
   Pixels to scroll horizontally.
@@ -233,7 +233,7 @@ mouse.wheel(delta_x, delta_y)
   
   Pixels to scroll vertically.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-wheel-return"/><a href="#mouse-wheel-return" class="list-anchor">#</a>
 
 

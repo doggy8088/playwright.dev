@@ -49,7 +49,7 @@ async def test_navigates_to_login_page(page: Page) -> None:
 
 ---
 
-## Methods
+## 方法
 
 ### not_to_have_title {#page-assertions-not-to-have-title}
 
@@ -57,14 +57,14 @@ async def test_navigates_to_login_page(page: Page) -> None:
 
 The opposite of [expect(page).to_have_title()](/api/class-pageassertions.mdx#page-assertions-to-have-title).
 
-**Usage**
+**使用方式**
 
 ```python
 expect(page).not_to_have_title(title_or_reg_exp)
 expect(page).not_to_have_title(title_or_reg_exp, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `title_or_reg_exp` [str] | [Pattern] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-not-to-have-title-option-title-or-reg-exp"/><a href="#page-assertions-not-to-have-title-option-title-or-reg-exp" class="list-anchor">#</a>
   
   Expected title or RegExp.
@@ -72,7 +72,7 @@ expect(page).not_to_have_title(title_or_reg_exp, **kwargs)
   
   Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-not-to-have-title-return"/><a href="#page-assertions-not-to-have-title-return" class="list-anchor">#</a>
 
 ---
@@ -83,14 +83,14 @@ expect(page).not_to_have_title(title_or_reg_exp, **kwargs)
 
 The opposite of [expect(page).to_have_url()](/api/class-pageassertions.mdx#page-assertions-to-have-url).
 
-**Usage**
+**使用方式**
 
 ```python
 expect(page).not_to_have_url(url_or_reg_exp)
 expect(page).not_to_have_url(url_or_reg_exp, **kwargs)
 ```
 
-**Arguments**
+**參數**
 - `url_or_reg_exp` [str] | [Pattern] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-not-to-have-url-option-url-or-reg-exp"/><a href="#page-assertions-not-to-have-url-option-url-or-reg-exp" class="list-anchor">#</a>
   
   Expected URL string or RegExp.
@@ -101,7 +101,7 @@ expect(page).not_to_have_url(url_or_reg_exp, **kwargs)
   
   Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-not-to-have-url-return"/><a href="#page-assertions-not-to-have-url-return" class="list-anchor">#</a>
 
 ---
@@ -112,7 +112,7 @@ expect(page).not_to_have_url(url_or_reg_exp, **kwargs)
 
 Ensures the page has the given title.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -146,7 +146,7 @@ await expect(page).to_have_title(re.compile(r".*checkout"))
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `title_or_reg_exp` [str] | [Pattern] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-title-option-title-or-reg-exp"/><a href="#page-assertions-to-have-title-option-title-or-reg-exp" class="list-anchor">#</a>
   
   Expected title or RegExp.
@@ -154,7 +154,7 @@ await expect(page).to_have_title(re.compile(r".*checkout"))
   
   Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-title-return"/><a href="#page-assertions-to-have-title-return" class="list-anchor">#</a>
 
 ---
@@ -165,7 +165,7 @@ await expect(page).to_have_title(re.compile(r".*checkout"))
 
 Ensures the page is navigated to the given URL.
 
-**Usage**
+**使用方式**
 
 <Tabs
   groupId="python-flavor"
@@ -199,7 +199,7 @@ await expect(page).to_have_url(re.compile(".*checkout"))
 </TabItem>
 </Tabs>
 
-**Arguments**
+**參數**
 - `url_or_reg_exp` [str] | [Pattern] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-url-option-url-or-reg-exp"/><a href="#page-assertions-to-have-url-option-url-or-reg-exp" class="list-anchor">#</a>
   
   Expected URL string or RegExp.
@@ -210,7 +210,7 @@ await expect(page).to_have_url(re.compile(".*checkout"))
   
   Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-url-return"/><a href="#page-assertions-to-have-url-return" class="list-anchor">#</a>
 
 

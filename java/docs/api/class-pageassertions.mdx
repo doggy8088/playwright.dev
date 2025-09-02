@@ -28,7 +28,7 @@ public class TestPage {
 
 ---
 
-## Methods
+## 方法
 
 ### hasTitle {#page-assertions-to-have-title}
 
@@ -36,13 +36,13 @@ public class TestPage {
 
 Ensures the page has the given title.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page).hasTitle("Playwright");
 ```
 
-**Arguments**
+**參數**
 - `titleOrRegExp` [String] | [Pattern] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-title-option-title-or-reg-exp"/><a href="#page-assertions-to-have-title-option-title-or-reg-exp" class="list-anchor">#</a>
   
   Expected title or RegExp.
@@ -51,7 +51,7 @@ assertThat(page).hasTitle("Playwright");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-title-return"/><a href="#page-assertions-to-have-title-return" class="list-anchor">#</a>
 
 ---
@@ -62,13 +62,13 @@ assertThat(page).hasTitle("Playwright");
 
 Ensures the page is navigated to the given URL.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page).hasURL(".com");
 ```
 
-**Arguments**
+**參數**
 - `urlOrRegExp` [String] | [Pattern] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-url-option-url-or-reg-exp"/><a href="#page-assertions-to-have-url-option-url-or-reg-exp" class="list-anchor">#</a>
   
   Expected URL string or RegExp.
@@ -80,12 +80,12 @@ assertThat(page).hasURL(".com");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-url-return"/><a href="#page-assertions-to-have-url-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### not() {#page-assertions-not}
 
@@ -97,13 +97,13 @@ Makes the assertion check for the opposite condition. For example, this code tes
 assertThat(page).not().hasURL("error");
 ```
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page).not()
 ```
 
-**Returns**
+**傳回值**
 - [PageAssertions]
 
 

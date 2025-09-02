@@ -28,7 +28,7 @@ public class TestLocator {
 
 ---
 
-## Methods
+## 方法
 
 ### containsClass {#locator-assertions-to-contain-class}
 
@@ -36,7 +36,7 @@ public class TestLocator {
 
 Ensures the [Locator] points to an element with given CSS classes. All classes from the asserted value, separated by spaces, must be present in the [Element.classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) in any order.
 
-**Usage**
+**使用方式**
 
 ```html
 <div class='middle selected row' id='component'></div>
@@ -62,7 +62,7 @@ When an array is passed, the method asserts that the list of elements located ma
 assertThat(page.locator(".list > .component")).containsClass(new String[] {"inactive", "active", "inactive"});
 ```
 
-**Arguments**
+**參數**
 - `expected` [String] | [List]&lt;[String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-class-option-expected"/><a href="#locator-assertions-to-contain-class-option-expected" class="list-anchor">#</a>
   
   A string containing expected class names, separated by spaces, or a list of such strings to assert multiple elements.
@@ -71,7 +71,7 @@ assertThat(page.locator(".list > .component")).containsClass(new String[] {"inac
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-class-return"/><a href="#locator-assertions-to-contain-class-return" class="list-anchor">#</a>
 
 ---
@@ -82,7 +82,7 @@ assertThat(page.locator(".list > .component")).containsClass(new String[] {"inac
 
 Ensures the [Locator] points to an element that contains the given text. All nested elements will be considered when computing the text content of the element. You can use regular expressions for the value as well.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.locator(".title")).containsText("substring");
@@ -120,7 +120,7 @@ assertThat(page.locator("ul > li")).containsText(new String[] {"Some 33"});
 assertThat(page.locator("ul")).containsText(new String[] {"Text 3"});
 ```
 
-**Arguments**
+**參數**
 - `expected` [String] | [Pattern] | [String]&#91;&#93; | [Pattern]&#91;&#93; <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-text-option-expected"/><a href="#locator-assertions-to-contain-text-option-expected" class="list-anchor">#</a>
   
   Expected substring or RegExp or a list of those.
@@ -135,7 +135,7 @@ assertThat(page.locator("ul")).containsText(new String[] {"Text 3"});
     
     Whether to use `element.innerText` instead of `element.textContent` when retrieving DOM node text.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-text-return"/><a href="#locator-assertions-to-contain-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -150,14 +150,14 @@ When `expected` parameter is a string, Playwright will normalize whitespaces and
 
 Ensures the [Locator] points to an element with a given [accessible description](https://w3c.github.io/accname/#dfn-accessible-description).
 
-**Usage**
+**使用方式**
 
 ```java
 Locator locator = page.getByTestId("save-button");
 assertThat(locator).hasAccessibleDescription("Save results to disk");
 ```
 
-**Arguments**
+**參數**
 - `description` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-description-option-description"/><a href="#locator-assertions-to-have-accessible-description-option-description" class="list-anchor">#</a>
   
   Expected accessible description.
@@ -169,7 +169,7 @@ assertThat(locator).hasAccessibleDescription("Save results to disk");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-description-return"/><a href="#locator-assertions-to-have-accessible-description-return" class="list-anchor">#</a>
 
 ---
@@ -180,14 +180,14 @@ assertThat(locator).hasAccessibleDescription("Save results to disk");
 
 Ensures the [Locator] points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
 
-**Usage**
+**使用方式**
 
 ```java
 Locator locator = page.getByTestId("username-input");
 assertThat(locator).hasAccessibleErrorMessage("Username is required.");
 ```
 
-**Arguments**
+**參數**
 - `errorMessage` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-error-message-option-error-message"/><a href="#locator-assertions-to-have-accessible-error-message-option-error-message" class="list-anchor">#</a>
   
   Expected accessible error message.
@@ -199,7 +199,7 @@ assertThat(locator).hasAccessibleErrorMessage("Username is required.");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-error-message-return"/><a href="#locator-assertions-to-have-accessible-error-message-return" class="list-anchor">#</a>
 
 ---
@@ -210,14 +210,14 @@ assertThat(locator).hasAccessibleErrorMessage("Username is required.");
 
 Ensures the [Locator] points to an element with a given [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 
-**Usage**
+**使用方式**
 
 ```java
 Locator locator = page.getByTestId("save-button");
 assertThat(locator).hasAccessibleName("Save to disk");
 ```
 
-**Arguments**
+**參數**
 - `name` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-name-option-name"/><a href="#locator-assertions-to-have-accessible-name-option-name" class="list-anchor">#</a>
   
   Expected accessible name.
@@ -229,7 +229,7 @@ assertThat(locator).hasAccessibleName("Save to disk");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-name-return"/><a href="#locator-assertions-to-have-accessible-name-return" class="list-anchor">#</a>
 
 ---
@@ -240,13 +240,13 @@ assertThat(locator).hasAccessibleName("Save to disk");
 
 Ensures the [Locator] points to an element with given attribute.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.locator("input")).hasAttribute("type", "text");
 ```
 
-**Arguments**
+**參數**
 - `name` [String] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-attribute-option-name"/><a href="#locator-assertions-to-have-attribute-option-name" class="list-anchor">#</a>
   
   Attribute name.
@@ -261,7 +261,7 @@ assertThat(page.locator("input")).hasAttribute("type", "text");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-attribute-return"/><a href="#locator-assertions-to-have-attribute-return" class="list-anchor">#</a>
 
 ---
@@ -272,7 +272,7 @@ assertThat(page.locator("input")).hasAttribute("type", "text");
 
 Ensures the [Locator] points to an element with given CSS classes. When a string is provided, it must fully match the element's `class` attribute. To match individual classes use [assertThat(locator).containsClass()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class).
 
-**Usage**
+**使用方式**
 
 ```html
 <div class='middle selected row' id='component'></div>
@@ -289,7 +289,7 @@ When an array is passed, the method asserts that the list of elements located ma
 assertThat(page.locator(".list > .component")).hasClass(new String[] {"component", "component selected", "component"});
 ```
 
-**Arguments**
+**參數**
 - `expected` [String] | [Pattern] | [String]&#91;&#93; | [Pattern]&#91;&#93; <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-class-option-expected"/><a href="#locator-assertions-to-have-class-option-expected" class="list-anchor">#</a>
   
   Expected class or RegExp or a list of those.
@@ -298,7 +298,7 @@ assertThat(page.locator(".list > .component")).hasClass(new String[] {"component
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-class-return"/><a href="#locator-assertions-to-have-class-return" class="list-anchor">#</a>
 
 ---
@@ -309,13 +309,13 @@ assertThat(page.locator(".list > .component")).hasClass(new String[] {"component
 
 Ensures the [Locator] resolves to an exact number of DOM nodes.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.locator("list > .component")).hasCount(3);
 ```
 
-**Arguments**
+**參數**
 - `count` [int] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-count-option-count"/><a href="#locator-assertions-to-have-count-option-count" class="list-anchor">#</a>
   
   Expected count.
@@ -324,7 +324,7 @@ assertThat(page.locator("list > .component")).hasCount(3);
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-count-return"/><a href="#locator-assertions-to-have-count-return" class="list-anchor">#</a>
 
 ---
@@ -335,13 +335,13 @@ assertThat(page.locator("list > .component")).hasCount(3);
 
 Ensures the [Locator] resolves to an element with the given computed CSS style.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.getByRole(AriaRole.BUTTON)).hasCSS("display", "flex");
 ```
 
-**Arguments**
+**參數**
 - `name` [String] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-css-option-name"/><a href="#locator-assertions-to-have-css-option-name" class="list-anchor">#</a>
   
   CSS property name.
@@ -353,7 +353,7 @@ assertThat(page.getByRole(AriaRole.BUTTON)).hasCSS("display", "flex");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-css-return"/><a href="#locator-assertions-to-have-css-return" class="list-anchor">#</a>
 
 ---
@@ -364,13 +364,13 @@ assertThat(page.getByRole(AriaRole.BUTTON)).hasCSS("display", "flex");
 
 Ensures the [Locator] points to an element with the given DOM Node ID.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.getByRole(AriaRole.TEXTBOX)).hasId("lastname");
 ```
 
-**Arguments**
+**參數**
 - `id` [String] | [Pattern] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-id-option-id"/><a href="#locator-assertions-to-have-id-option-id" class="list-anchor">#</a>
   
   Element id.
@@ -379,7 +379,7 @@ assertThat(page.getByRole(AriaRole.TEXTBOX)).hasId("lastname");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-id-return"/><a href="#locator-assertions-to-have-id-return" class="list-anchor">#</a>
 
 ---
@@ -390,13 +390,13 @@ assertThat(page.getByRole(AriaRole.TEXTBOX)).hasId("lastname");
 
 Ensures the [Locator] points to an element with given JavaScript property. Note that this property can be of a primitive type as well as a plain serializable JavaScript object.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.locator("input")).hasJSProperty("loaded", true);
 ```
 
-**Arguments**
+**參數**
 - `name` [String] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-js-property-option-name"/><a href="#locator-assertions-to-have-js-property-option-name" class="list-anchor">#</a>
   
   Property name.
@@ -408,7 +408,7 @@ assertThat(page.locator("input")).hasJSProperty("loaded", true);
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-js-property-return"/><a href="#locator-assertions-to-have-js-property-return" class="list-anchor">#</a>
 
 ---
@@ -421,14 +421,14 @@ Ensures the [Locator] points to an element with a given [ARIA role](https://www.
 
 Note that role is matched as a string, disregarding the ARIA role hierarchy. For example, asserting  a superclass role `"checkbox"` on an element with a subclass role `"switch"` will fail.
 
-**Usage**
+**使用方式**
 
 ```java
 Locator locator = page.getByTestId("save-button");
 assertThat(locator).hasRole(AriaRole.BUTTON);
 ```
 
-**Arguments**
+**參數**
 - `role` `enum AriaRole { ALERT, ALERTDIALOG, APPLICATION, ARTICLE, BANNER, BLOCKQUOTE, BUTTON, CAPTION, CELL, CHECKBOX, CODE, COLUMNHEADER, COMBOBOX, COMPLEMENTARY, CONTENTINFO, DEFINITION, DELETION, DIALOG, DIRECTORY, DOCUMENT, EMPHASIS, FEED, FIGURE, FORM, GENERIC, GRID, GRIDCELL, GROUP, HEADING, IMG, INSERTION, LINK, LIST, LISTBOX, LISTITEM, LOG, MAIN, MARQUEE, MATH, METER, MENU, MENUBAR, MENUITEM, MENUITEMCHECKBOX, MENUITEMRADIO, NAVIGATION, NONE, NOTE, OPTION, PARAGRAPH, PRESENTATION, PROGRESSBAR, RADIO, RADIOGROUP, REGION, ROW, ROWGROUP, ROWHEADER, SCROLLBAR, SEARCH, SEARCHBOX, SEPARATOR, SLIDER, SPINBUTTON, STATUS, STRONG, SUBSCRIPT, SUPERSCRIPT, SWITCH, TAB, TABLE, TABLIST, TABPANEL, TERM, TEXTBOX, TIME, TIMER, TOOLBAR, TOOLTIP, TREE, TREEGRID, TREEITEM }`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-role-option-role"/><a href="#locator-assertions-to-have-role-option-role" class="list-anchor">#</a>
   
   Required aria role.
@@ -437,7 +437,7 @@ assertThat(locator).hasRole(AriaRole.BUTTON);
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-role-return"/><a href="#locator-assertions-to-have-role-return" class="list-anchor">#</a>
 
 ---
@@ -448,7 +448,7 @@ assertThat(locator).hasRole(AriaRole.BUTTON);
 
 Ensures the [Locator] points to an element with the given text. All nested elements will be considered when computing the text content of the element. You can use regular expressions for the value as well.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.locator(".title")).hasText("Welcome, Test User");
@@ -486,7 +486,7 @@ assertThat(page.locator("ul > li")).hasText(new String[] {"Text 1", "Text 2", "T
 assertThat(page.locator("ul")).hasText(new String[] {"Text 1", "Text 2", "Text 3"});
 ```
 
-**Arguments**
+**參數**
 - `expected` [String] | [Pattern] | [String]&#91;&#93; | [Pattern]&#91;&#93; <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-text-option-expected"/><a href="#locator-assertions-to-have-text-option-expected" class="list-anchor">#</a>
   
   Expected string or RegExp or a list of those.
@@ -501,7 +501,7 @@ assertThat(page.locator("ul")).hasText(new String[] {"Text 1", "Text 2", "Text 3
     
     Whether to use `element.innerText` instead of `element.textContent` when retrieving DOM node text.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-text-return"/><a href="#locator-assertions-to-have-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -516,13 +516,13 @@ When `expected` parameter is a string, Playwright will normalize whitespaces and
 
 Ensures the [Locator] points to an element with the given input value. You can use regular expressions for the value as well.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.locator("input[type=number]")).hasValue(Pattern.compile("[0-9]"));
 ```
 
-**Arguments**
+**參數**
 - `value` [String] | [Pattern] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-value-option-value"/><a href="#locator-assertions-to-have-value-option-value" class="list-anchor">#</a>
   
   Expected value.
@@ -531,7 +531,7 @@ assertThat(page.locator("input[type=number]")).hasValue(Pattern.compile("[0-9]")
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-value-return"/><a href="#locator-assertions-to-have-value-return" class="list-anchor">#</a>
 
 ---
@@ -542,7 +542,7 @@ assertThat(page.locator("input[type=number]")).hasValue(Pattern.compile("[0-9]")
 
 Ensures the [Locator] points to multi-select/combobox (i.e. a `select` with the `multiple` attribute) and the specified values are selected.
 
-**Usage**
+**使用方式**
 
 For example, given the following element:
 
@@ -559,7 +559,7 @@ page.locator("id=favorite-colors").selectOption(new String[]{"R", "G"});
 assertThat(page.locator("id=favorite-colors")).hasValues(new Pattern[] { Pattern.compile("R"), Pattern.compile("G") });
 ```
 
-**Arguments**
+**參數**
 - `values` [String]&#91;&#93; | [Pattern]&#91;&#93;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-values-option-values"/><a href="#locator-assertions-to-have-values-option-values" class="list-anchor">#</a>
   
   Expected options currently selected.
@@ -568,7 +568,7 @@ assertThat(page.locator("id=favorite-colors")).hasValues(new Pattern[] { Pattern
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-values-return"/><a href="#locator-assertions-to-have-values-return" class="list-anchor">#</a>
 
 ---
@@ -579,20 +579,20 @@ assertThat(page.locator("id=favorite-colors")).hasValues(new Pattern[] { Pattern
 
 Ensures that [Locator] points to an element that is [connected](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected) to a Document or a ShadowRoot.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.getByText("Hidden text")).isAttached();
 ```
 
-**Arguments**
+**參數**
 - `options` `LocatorAssertions.IsAttachedOptions` *(optional)*
   - `setAttached` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-attached-option-attached"/><a href="#locator-assertions-to-be-attached-option-attached" class="list-anchor">#</a>
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-attached-option-timeout"/><a href="#locator-assertions-to-be-attached-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-attached-return"/><a href="#locator-assertions-to-be-attached-return" class="list-anchor">#</a>
 
 ---
@@ -603,13 +603,13 @@ assertThat(page.getByText("Hidden text")).isAttached();
 
 Ensures the [Locator] points to a checked input.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.getByLabel("Subscribe to newsletter")).isChecked();
 ```
 
-**Arguments**
+**參數**
 - `options` `LocatorAssertions.IsCheckedOptions` *(optional)*
   - `setChecked` [boolean] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-checked-option-checked"/><a href="#locator-assertions-to-be-checked-option-checked" class="list-anchor">#</a>
     
@@ -621,7 +621,7 @@ assertThat(page.getByLabel("Subscribe to newsletter")).isChecked();
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-checked-return"/><a href="#locator-assertions-to-be-checked-return" class="list-anchor">#</a>
 
 ---
@@ -632,19 +632,19 @@ assertThat(page.getByLabel("Subscribe to newsletter")).isChecked();
 
 Ensures the [Locator] points to a disabled element. Element is disabled if it has "disabled" attribute or is disabled via ['aria-disabled'](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-disabled). Note that only native control elements such as HTML `button`, `input`, `select`, `textarea`, `option`, `optgroup` can be disabled by setting "disabled" attribute. "disabled" attribute on other elements is ignored by the browser.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.locator("button.submit")).isDisabled();
 ```
 
-**Arguments**
+**參數**
 - `options` `LocatorAssertions.IsDisabledOptions` *(optional)*
   - `setTimeout` [double] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-disabled-option-timeout"/><a href="#locator-assertions-to-be-disabled-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-disabled-return"/><a href="#locator-assertions-to-be-disabled-return" class="list-anchor">#</a>
 
 ---
@@ -655,20 +655,20 @@ assertThat(page.locator("button.submit")).isDisabled();
 
 Ensures the [Locator] points to an editable element.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.getByRole(AriaRole.TEXTBOX)).isEditable();
 ```
 
-**Arguments**
+**參數**
 - `options` `LocatorAssertions.IsEditableOptions` *(optional)*
   - `setEditable` [boolean] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-editable-option-editable"/><a href="#locator-assertions-to-be-editable-option-editable" class="list-anchor">#</a>
   - `setTimeout` [double] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-editable-option-timeout"/><a href="#locator-assertions-to-be-editable-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-editable-return"/><a href="#locator-assertions-to-be-editable-return" class="list-anchor">#</a>
 
 ---
@@ -679,19 +679,19 @@ assertThat(page.getByRole(AriaRole.TEXTBOX)).isEditable();
 
 Ensures the [Locator] points to an empty editable element or to a DOM node that has no text.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.locator("div.warning")).isEmpty();
 ```
 
-**Arguments**
+**參數**
 - `options` `LocatorAssertions.IsEmptyOptions` *(optional)*
   - `setTimeout` [double] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-empty-option-timeout"/><a href="#locator-assertions-to-be-empty-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-empty-return"/><a href="#locator-assertions-to-be-empty-return" class="list-anchor">#</a>
 
 ---
@@ -702,20 +702,20 @@ assertThat(page.locator("div.warning")).isEmpty();
 
 Ensures the [Locator] points to an enabled element.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.locator("button.submit")).isEnabled();
 ```
 
-**Arguments**
+**參數**
 - `options` `LocatorAssertions.IsEnabledOptions` *(optional)*
   - `setEnabled` [boolean] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-enabled-option-enabled"/><a href="#locator-assertions-to-be-enabled-option-enabled" class="list-anchor">#</a>
   - `setTimeout` [double] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-enabled-option-timeout"/><a href="#locator-assertions-to-be-enabled-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-enabled-return"/><a href="#locator-assertions-to-be-enabled-return" class="list-anchor">#</a>
 
 ---
@@ -726,19 +726,19 @@ assertThat(page.locator("button.submit")).isEnabled();
 
 Ensures the [Locator] points to a focused DOM node.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.getByRole(AriaRole.TEXTBOX)).isFocused();
 ```
 
-**Arguments**
+**參數**
 - `options` `LocatorAssertions.IsFocusedOptions` *(optional)*
   - `setTimeout` [double] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-focused-option-timeout"/><a href="#locator-assertions-to-be-focused-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-focused-return"/><a href="#locator-assertions-to-be-focused-return" class="list-anchor">#</a>
 
 ---
@@ -749,19 +749,19 @@ assertThat(page.getByRole(AriaRole.TEXTBOX)).isFocused();
 
 Ensures that [Locator] either does not resolve to any DOM node, or resolves to a [non-visible](../actionability.mdx#visible) one.
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(page.locator(".my-element")).isHidden();
 ```
 
-**Arguments**
+**參數**
 - `options` `LocatorAssertions.IsHiddenOptions` *(optional)*
   - `setTimeout` [double] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-hidden-option-timeout"/><a href="#locator-assertions-to-be-hidden-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-hidden-return"/><a href="#locator-assertions-to-be-hidden-return" class="list-anchor">#</a>
 
 ---
@@ -772,7 +772,7 @@ assertThat(page.locator(".my-element")).isHidden();
 
 Ensures the [Locator] points to an element that intersects viewport, according to the [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
-**Usage**
+**使用方式**
 
 ```java
 Locator locator = page.getByRole(AriaRole.BUTTON);
@@ -784,7 +784,7 @@ assertThat(locator).not().isInViewport();
 assertThat(locator).isInViewport(new LocatorAssertions.IsInViewportOptions().setRatio(0.5));
 ```
 
-**Arguments**
+**參數**
 - `options` `LocatorAssertions.IsInViewportOptions` *(optional)*
   - `setRatio` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-in-viewport-option-ratio"/><a href="#locator-assertions-to-be-in-viewport-option-ratio" class="list-anchor">#</a>
     
@@ -793,7 +793,7 @@ assertThat(locator).isInViewport(new LocatorAssertions.IsInViewportOptions().set
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-in-viewport-return"/><a href="#locator-assertions-to-be-in-viewport-return" class="list-anchor">#</a>
 
 ---
@@ -806,7 +806,7 @@ Ensures that [Locator] points to an attached and [visible](../actionability.mdx#
 
 To check that at least one element from the list is visible, use [Locator.first()](/api/class-locator.mdx#locator-first).
 
-**Usage**
+**使用方式**
 
 ```java
 // A specific element is visible.
@@ -823,14 +823,14 @@ assertThat(
 ).isVisible();
 ```
 
-**Arguments**
+**參數**
 - `options` `LocatorAssertions.IsVisibleOptions` *(optional)*
   - `setTimeout` [double] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-option-timeout"/><a href="#locator-assertions-to-be-visible-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
   - `setVisible` [boolean] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-option-visible"/><a href="#locator-assertions-to-be-visible-option-visible" class="list-anchor">#</a>
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-return"/><a href="#locator-assertions-to-be-visible-return" class="list-anchor">#</a>
 
 ---
@@ -841,7 +841,7 @@ assertThat(
 
 Asserts that the target element matches the given [accessibility snapshot](../aria-snapshots.mdx).
 
-**Usage**
+**使用方式**
 
 ```java
 page.navigate("https://demo.playwright.dev/todomvc/");
@@ -851,19 +851,19 @@ assertThat(page.locator("body")).matchesAriaSnapshot("""
 """);
 ```
 
-**Arguments**
+**參數**
 - `expected` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-option-expected"/><a href="#locator-assertions-to-match-aria-snapshot-option-expected" class="list-anchor">#</a>
 - `options` `LocatorAssertions.MatchesAriaSnapshotOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-option-timeout"/><a href="#locator-assertions-to-match-aria-snapshot-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-return"/><a href="#locator-assertions-to-match-aria-snapshot-return" class="list-anchor">#</a>
 
 ---
 
-## Properties
+## 屬性 (Properties)
 
 ### not() {#locator-assertions-not}
 
@@ -875,13 +875,13 @@ Makes the assertion check for the opposite condition. For example, this code tes
 assertThat(locator).not().containsText("error");
 ```
 
-**Usage**
+**使用方式**
 
 ```java
 assertThat(locator).not()
 ```
 
-**Returns**
+**傳回值**
 - [LocatorAssertions]
 
 

@@ -13,7 +13,7 @@ The [FormData] is used create form data that is sent via [APIRequestContext].
 
 ---
 
-## Methods
+## 方法
 
 ### Append {#form-data-append}
 
@@ -44,13 +44,13 @@ multipart.Append("attachment", new FilePayload()
 await Page.APIRequest.PostAsync("https://localhost/submit", new() { Multipart = multipart });
 ```
 
-**Usage**
+**使用方式**
 
 ```csharp
 FormData.Append(name, value);
 ```
 
-**Arguments**
+**參數**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="form-data-append-option-name"/><a href="#form-data-append-option-name" class="list-anchor">#</a>
   
   Field name.
@@ -67,7 +67,7 @@ FormData.Append(name, value);
   
   Field value.
 
-**Returns**
+**傳回值**
 - [FormData]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="form-data-append-return"/><a href="#form-data-append-return" class="list-anchor">#</a>
 
 ---
@@ -93,13 +93,13 @@ multipart.Set("age", 30);
 await Page.APIRequest.PostAsync("https://localhost/submit", new() { Multipart = multipart });
 ```
 
-**Usage**
+**使用方式**
 
 ```csharp
 FormData.Set(name, value);
 ```
 
-**Arguments**
+**參數**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="form-data-set-option-name"/><a href="#form-data-set-option-name" class="list-anchor">#</a>
   
   Field name.
@@ -116,7 +116,7 @@ FormData.Set(name, value);
   
   Field value.
 
-**Returns**
+**傳回值**
 - [FormData]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="form-data-set-return"/><a href="#form-data-set-return" class="list-anchor">#</a>
 
 

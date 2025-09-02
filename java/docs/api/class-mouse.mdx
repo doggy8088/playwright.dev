@@ -31,7 +31,7 @@ page.mouse().up();
 
 ---
 
-## Methods
+## 方法
 
 ### click {#mouse-click}
 
@@ -39,14 +39,14 @@ page.mouse().up();
 
 Shortcut for [Mouse.move()](/api/class-mouse.mdx#mouse-move), [Mouse.down()](/api/class-mouse.mdx#mouse-down), [Mouse.up()](/api/class-mouse.mdx#mouse-up).
 
-**Usage**
+**使用方式**
 
 ```java
 Mouse.click(x, y);
 Mouse.click(x, y, options);
 ```
 
-**Arguments**
+**參數**
 - `x` [double]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-click-option-x"/><a href="#mouse-click-option-x" class="list-anchor">#</a>
   
   X coordinate relative to the main frame's viewport in CSS pixels.
@@ -64,7 +64,7 @@ Mouse.click(x, y, options);
     
     Time to wait between `mousedown` and `mouseup` in milliseconds. Defaults to 0.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-click-return"/><a href="#mouse-click-return" class="list-anchor">#</a>
 
 ---
@@ -75,14 +75,14 @@ Mouse.click(x, y, options);
 
 Shortcut for [Mouse.move()](/api/class-mouse.mdx#mouse-move), [Mouse.down()](/api/class-mouse.mdx#mouse-down), [Mouse.up()](/api/class-mouse.mdx#mouse-up), [Mouse.down()](/api/class-mouse.mdx#mouse-down) and [Mouse.up()](/api/class-mouse.mdx#mouse-up).
 
-**Usage**
+**使用方式**
 
 ```java
 Mouse.dblclick(x, y);
 Mouse.dblclick(x, y, options);
 ```
 
-**Arguments**
+**參數**
 - `x` [double]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-dblclick-option-x"/><a href="#mouse-dblclick-option-x" class="list-anchor">#</a>
   
   X coordinate relative to the main frame's viewport in CSS pixels.
@@ -97,7 +97,7 @@ Mouse.dblclick(x, y, options);
     
     Time to wait between `mousedown` and `mouseup` in milliseconds. Defaults to 0.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-dblclick-return"/><a href="#mouse-dblclick-return" class="list-anchor">#</a>
 
 ---
@@ -108,14 +108,14 @@ Mouse.dblclick(x, y, options);
 
 Dispatches a `mousedown` event.
 
-**Usage**
+**使用方式**
 
 ```java
 Mouse.down();
 Mouse.down(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `Mouse.DownOptions` *(optional)*
   - `setButton` `enum MouseButton { LEFT, RIGHT, MIDDLE }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-down-option-button"/><a href="#mouse-down-option-button" class="list-anchor">#</a>
     
@@ -124,7 +124,7 @@ Mouse.down(options);
     
     defaults to 1. See [UIEvent.detail].
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-down-return"/><a href="#mouse-down-return" class="list-anchor">#</a>
 
 ---
@@ -135,14 +135,14 @@ Mouse.down(options);
 
 Dispatches a `mousemove` event.
 
-**Usage**
+**使用方式**
 
 ```java
 Mouse.move(x, y);
 Mouse.move(x, y, options);
 ```
 
-**Arguments**
+**參數**
 - `x` [double]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-move-option-x"/><a href="#mouse-move-option-x" class="list-anchor">#</a>
   
   X coordinate relative to the main frame's viewport in CSS pixels.
@@ -154,7 +154,7 @@ Mouse.move(x, y, options);
     
     Defaults to 1. Sends intermediate `mousemove` events.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-move-return"/><a href="#mouse-move-return" class="list-anchor">#</a>
 
 ---
@@ -165,14 +165,14 @@ Mouse.move(x, y, options);
 
 Dispatches a `mouseup` event.
 
-**Usage**
+**使用方式**
 
 ```java
 Mouse.up();
 Mouse.up(options);
 ```
 
-**Arguments**
+**參數**
 - `options` `Mouse.UpOptions` *(optional)*
   - `setButton` `enum MouseButton { LEFT, RIGHT, MIDDLE }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-up-option-button"/><a href="#mouse-up-option-button" class="list-anchor">#</a>
     
@@ -181,7 +181,7 @@ Mouse.up(options);
     
     defaults to 1. See [UIEvent.detail].
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-up-return"/><a href="#mouse-up-return" class="list-anchor">#</a>
 
 ---
@@ -197,13 +197,13 @@ Dispatches a `wheel` event. This method is usually used to manually scroll the p
 Wheel events may cause scrolling if they are not handled, and this method does not wait for the scrolling to finish before returning.
 :::
 
-**Usage**
+**使用方式**
 
 ```java
 Mouse.wheel(deltaX, deltaY);
 ```
 
-**Arguments**
+**參數**
 - `deltaX` [double]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-wheel-option-delta-x"/><a href="#mouse-wheel-option-delta-x" class="list-anchor">#</a>
   
   Pixels to scroll horizontally.
@@ -211,7 +211,7 @@ Mouse.wheel(deltaX, deltaY);
   
   Pixels to scroll vertically.
 
-**Returns**
+**傳回值**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="mouse-wheel-return"/><a href="#mouse-wheel-return" class="list-anchor">#</a>
 
 

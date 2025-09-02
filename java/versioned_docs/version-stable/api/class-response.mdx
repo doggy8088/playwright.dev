@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## Methods
+## 方法
 
 ### allHeaders {#response-all-headers}
 
@@ -21,13 +21,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 An object with all the response HTTP headers associated with this response.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.allHeaders();
 ```
 
-**Returns**
+**傳回值**
 - [Map]&lt;[String], [String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-all-headers-return"/><a href="#response-all-headers-return" class="list-anchor">#</a>
 
 ---
@@ -38,13 +38,13 @@ Response.allHeaders();
 
 Returns the buffer with response body.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.body();
 ```
 
-**Returns**
+**傳回值**
 - [byte&#91;&#93;]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-body-return"/><a href="#response-body-return" class="list-anchor">#</a>
 
 ---
@@ -55,13 +55,13 @@ Response.body();
 
 Waits for this response to finish, returns always `null`.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.finished();
 ```
 
-**Returns**
+**傳回值**
 - [null] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-finished-return"/><a href="#response-finished-return" class="list-anchor">#</a>
 
 ---
@@ -72,13 +72,13 @@ Response.finished();
 
 Returns the [Frame] that initiated this response.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.frame();
 ```
 
-**Returns**
+**傳回值**
 - [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-frame-return"/><a href="#response-frame-return" class="list-anchor">#</a>
 
 ---
@@ -89,13 +89,13 @@ Response.frame();
 
 Indicates whether this Response was fulfilled by a Service Worker's Fetch Handler (i.e. via [FetchEvent.respondWith](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith)).
 
-**Usage**
+**使用方式**
 
 ```java
 Response.fromServiceWorker();
 ```
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-from-service-worker-return"/><a href="#response-from-service-worker-return" class="list-anchor">#</a>
 
 ---
@@ -106,18 +106,18 @@ Response.fromServiceWorker();
 
 Returns the value of the header matching the name. The name is case-insensitive. If multiple headers have the same name (except `set-cookie`), they are returned as a list separated by `, `. For `set-cookie`, the `\n` separator is used. If no headers are found, `null` is returned.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.headerValue(name);
 ```
 
-**Arguments**
+**參數**
 - `name` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-value-option-name"/><a href="#response-header-value-option-name" class="list-anchor">#</a>
   
   Name of the header.
 
-**Returns**
+**傳回值**
 - [null] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-value-return"/><a href="#response-header-value-return" class="list-anchor">#</a>
 
 ---
@@ -128,18 +128,18 @@ Response.headerValue(name);
 
 Returns all values of the headers matching the name, for example `set-cookie`. The name is case-insensitive.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.headerValues(name);
 ```
 
-**Arguments**
+**參數**
 - `name` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-values-option-name"/><a href="#response-header-values-option-name" class="list-anchor">#</a>
   
   Name of the header.
 
-**Returns**
+**傳回值**
 - [List]&lt;[String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-header-values-return"/><a href="#response-header-values-return" class="list-anchor">#</a>
 
 ---
@@ -150,13 +150,13 @@ Response.headerValues(name);
 
 An object with the response HTTP headers. The header names are lower-cased. Note that this method does not return security-related headers, including cookie-related ones. You can use [Response.allHeaders()](/api/class-response.mdx#response-all-headers) for complete list of headers that include `cookie` information.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.headers();
 ```
 
-**Returns**
+**傳回值**
 - [Map]&lt;[String], [String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-headers-return"/><a href="#response-headers-return" class="list-anchor">#</a>
 
 ---
@@ -167,13 +167,13 @@ Response.headers();
 
 An array with all the request HTTP headers associated with this response. Unlike [Response.allHeaders()](/api/class-response.mdx#response-all-headers), header names are NOT lower-cased. Headers with multiple entries, such as `Set-Cookie`, appear in the array multiple times.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.headersArray();
 ```
 
-**Returns**
+**傳回值**
 - [List]&lt;`HttpHeader`&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-headers-array-return"/><a href="#response-headers-array-return" class="list-anchor">#</a>
   - `name` [String]
     
@@ -190,13 +190,13 @@ Response.headersArray();
 
 Contains a boolean stating whether the response was successful (status in the range 200-299) or not.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.ok();
 ```
 
-**Returns**
+**傳回值**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-ok-return"/><a href="#response-ok-return" class="list-anchor">#</a>
 
 ---
@@ -207,13 +207,13 @@ Response.ok();
 
 Returns the matching [Request] object.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.request();
 ```
 
-**Returns**
+**傳回值**
 - [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-request-return"/><a href="#response-request-return" class="list-anchor">#</a>
 
 ---
@@ -224,13 +224,13 @@ Response.request();
 
 Returns SSL and other security information.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.securityDetails();
 ```
 
-**Returns**
+**傳回值**
 - [null] | SecurityDetails<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-security-details-return"/><a href="#response-security-details-return" class="list-anchor">#</a>
   - `issuer` [String] *(optional)*
     
@@ -256,13 +256,13 @@ Response.securityDetails();
 
 Returns the IP address and port of the server.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.serverAddr();
 ```
 
-**Returns**
+**傳回值**
 - [null] | ServerAddr<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-server-addr-return"/><a href="#response-server-addr-return" class="list-anchor">#</a>
   - `ipAddress` [String]
     
@@ -278,13 +278,13 @@ Response.serverAddr();
 
 Contains the status code of the response (e.g., 200 for a success).
 
-**Usage**
+**使用方式**
 
 ```java
 Response.status();
 ```
 
-**Returns**
+**傳回值**
 - [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-status-return"/><a href="#response-status-return" class="list-anchor">#</a>
 
 ---
@@ -295,13 +295,13 @@ Response.status();
 
 Contains the status text of the response (e.g. usually an "OK" for a success).
 
-**Usage**
+**使用方式**
 
 ```java
 Response.statusText();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-status-text-return"/><a href="#response-status-text-return" class="list-anchor">#</a>
 
 ---
@@ -312,13 +312,13 @@ Response.statusText();
 
 Returns the text representation of response body.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.text();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-text-return"/><a href="#response-text-return" class="list-anchor">#</a>
 
 ---
@@ -329,13 +329,13 @@ Response.text();
 
 Contains the URL of the response.
 
-**Usage**
+**使用方式**
 
 ```java
 Response.url();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="response-url-return"/><a href="#response-url-return" class="list-anchor">#</a>
 
 

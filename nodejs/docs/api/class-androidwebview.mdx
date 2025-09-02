@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## Methods
+## 方法
 
 ### page {#android-web-view-page}
 
@@ -21,13 +21,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 Connects to the WebView and returns a regular Playwright [Page] to interact with.
 
-**Usage**
+**使用方式**
 
 ```js
 await androidWebView.page();
 ```
 
-**Returns**
+**傳回值**
 - [Promise]&lt;[Page]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-web-view-page-return"/><a href="#android-web-view-page-return" class="list-anchor">#</a>
 
 ---
@@ -38,13 +38,13 @@ await androidWebView.page();
 
 WebView process PID.
 
-**Usage**
+**使用方式**
 
 ```js
 androidWebView.pid();
 ```
 
-**Returns**
+**傳回值**
 - [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-web-view-pid-return"/><a href="#android-web-view-pid-return" class="list-anchor">#</a>
 
 ---
@@ -55,18 +55,18 @@ androidWebView.pid();
 
 WebView package identifier.
 
-**Usage**
+**使用方式**
 
 ```js
 androidWebView.pkg();
 ```
 
-**Returns**
+**傳回值**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-web-view-pkg-return"/><a href="#android-web-view-pkg-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### on('close') {#android-web-view-event-close}
 
@@ -74,7 +74,7 @@ androidWebView.pkg();
 
 Emitted when the WebView is closed.
 
-**Usage**
+**使用方式**
 
 ```js
 androidWebView.on('close', data => {});

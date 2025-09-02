@@ -23,7 +23,7 @@ for (Worker worker : page.workers())
 
 ---
 
-## Methods
+## 方法
 
 ### evaluate {#worker-evaluate}
 
@@ -35,14 +35,14 @@ If the function passed to the [Worker.evaluate()](/api/class-worker.mdx#worker-e
 
 If the function passed to the [Worker.evaluate()](/api/class-worker.mdx#worker-evaluate) returns a non-[Serializable] value, then [Worker.evaluate()](/api/class-worker.mdx#worker-evaluate) returns `undefined`. Playwright also supports transferring some additional values that are not serializable by `JSON`: `-0`, `NaN`, `Infinity`, `-Infinity`.
 
-**Usage**
+**使用方式**
 
 ```java
 Worker.evaluate(expression);
 Worker.evaluate(expression, arg);
 ```
 
-**Arguments**
+**參數**
 - `expression` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-option-expression"/><a href="#worker-evaluate-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -50,7 +50,7 @@ Worker.evaluate(expression, arg);
   
   Optional argument to pass to [expression](/api/class-worker.mdx#worker-evaluate-option-expression).
 
-**Returns**
+**傳回值**
 - [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-return"/><a href="#worker-evaluate-return" class="list-anchor">#</a>
 
 ---
@@ -65,14 +65,14 @@ The only difference between [Worker.evaluate()](/api/class-worker.mdx#worker-eva
 
 If the function passed to the [Worker.evaluateHandle()](/api/class-worker.mdx#worker-evaluate-handle) returns a [Promise], then [Worker.evaluateHandle()](/api/class-worker.mdx#worker-evaluate-handle) would wait for the promise to resolve and return its value.
 
-**Usage**
+**使用方式**
 
 ```java
 Worker.evaluateHandle(expression);
 Worker.evaluateHandle(expression, arg);
 ```
 
-**Arguments**
+**參數**
 - `expression` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-handle-option-expression"/><a href="#worker-evaluate-handle-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -80,7 +80,7 @@ Worker.evaluateHandle(expression, arg);
   
   Optional argument to pass to [expression](/api/class-worker.mdx#worker-evaluate-handle-option-expression).
 
-**Returns**
+**傳回值**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-handle-return"/><a href="#worker-evaluate-handle-return" class="list-anchor">#</a>
 
 ---
@@ -89,13 +89,13 @@ Worker.evaluateHandle(expression, arg);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>worker.url</x-search>
 
-**Usage**
+**使用方式**
 
 ```java
 Worker.url();
 ```
 
-**Returns**
+**傳回值**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-url-return"/><a href="#worker-url-return" class="list-anchor">#</a>
 
 ---
@@ -106,14 +106,14 @@ Worker.url();
 
 Performs action and waits for the Worker to close.
 
-**Usage**
+**使用方式**
 
 ```java
 Worker.waitForClose(callback);
 Worker.waitForClose(callback, options);
 ```
 
-**Arguments**
+**參數**
 - `options` `Worker.WaitForCloseOptions` *(optional)*
   - `setTimeout` [double] *(optional)* <font size="2">Added in: v1.9</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-wait-for-close-option-timeout"/><a href="#worker-wait-for-close-option-timeout" class="list-anchor">#</a>
     
@@ -122,12 +122,12 @@ Worker.waitForClose(callback, options);
   
   Callback that performs the action triggering the event.
 
-**Returns**
+**傳回值**
 - [Worker]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-wait-for-close-return"/><a href="#worker-wait-for-close-return" class="list-anchor">#</a>
 
 ---
 
-## Events
+## 事件
 
 ### onClose(handler) {#worker-event-close}
 
@@ -135,13 +135,13 @@ Worker.waitForClose(callback, options);
 
 Emitted when this dedicated [WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) is terminated.
 
-**Usage**
+**使用方式**
 
 ```java
 Worker.onClose(handler)
 ```
 
-**Event data**
+**事件資料**
 - [Worker]
 
 
