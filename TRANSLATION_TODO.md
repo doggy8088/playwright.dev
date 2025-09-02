@@ -377,7 +377,7 @@
 - [x] python/docs/screenshots.mdx
 - [x] python/docs/selenium-grid.mdx
 - [ ] python/docs/test-assertions.mdx
-- [ ] python/docs/test-runners.mdx
+- [x] python/docs/test-runners.mdx
 - [x] python/docs/touch-events.mdx
 - [ ] python/docs/trace-viewer-intro.mdx
 - [x] python/docs/trace-viewer.mdx
@@ -463,7 +463,7 @@
 - [x] python/versioned_docs/version-stable/screenshots.mdx
 - [x] python/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] python/versioned_docs/version-stable/test-assertions.mdx
-- [ ] python/versioned_docs/version-stable/test-runners.mdx
+- [x] python/versioned_docs/version-stable/test-runners.mdx
 - [x] python/versioned_docs/version-stable/touch-events.mdx
 - [ ] python/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [x] python/versioned_docs/version-stable/trace-viewer.mdx
@@ -552,7 +552,7 @@
 - [x] java/docs/screenshots.mdx
 - [x] java/docs/selenium-grid.mdx
 - [ ] java/docs/test-assertions.mdx
-- [ ] java/docs/test-runners.mdx
+- [x] java/docs/test-runners.mdx
 - [x] java/docs/threading.mdx
 - [x] java/docs/touch-events.mdx
 - [ ] java/docs/trace-viewer-intro.mdx
@@ -642,7 +642,7 @@
 - [x] java/versioned_docs/version-stable/screenshots.mdx
 - [x] java/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] java/versioned_docs/version-stable/test-assertions.mdx
-- [ ] java/versioned_docs/version-stable/test-runners.mdx
+- [x] java/versioned_docs/version-stable/test-runners.mdx
 - [x] java/versioned_docs/version-stable/threading.mdx
 - [x] java/versioned_docs/version-stable/touch-events.mdx
 - [ ] java/versioned_docs/version-stable/trace-viewer-intro.mdx
@@ -731,7 +731,7 @@
 - [x] dotnet/docs/screenshots.mdx
 - [x] dotnet/docs/selenium-grid.mdx
 - [ ] dotnet/docs/test-assertions.mdx
-- [ ] dotnet/docs/test-runners.mdx
+- [x] dotnet/docs/test-runners.mdx
 - [x] dotnet/docs/touch-events.mdx
 - [ ] dotnet/docs/trace-viewer-intro.mdx
 - [x] dotnet/docs/trace-viewer.mdx
@@ -819,7 +819,7 @@
 - [x] dotnet/versioned_docs/version-stable/screenshots.mdx
 - [x] dotnet/versioned_docs/version-stable/selenium-grid.mdx
 - [ ] dotnet/versioned_docs/version-stable/test-assertions.mdx
-- [ ] dotnet/versioned_docs/version-stable/test-runners.mdx
+- [x] dotnet/versioned_docs/version-stable/test-runners.mdx
 - [x] dotnet/versioned_docs/version-stable/touch-events.mdx
 - [ ] dotnet/versioned_docs/version-stable/trace-viewer-intro.mdx
 - [x] dotnet/versioned_docs/version-stable/trace-viewer.mdx
