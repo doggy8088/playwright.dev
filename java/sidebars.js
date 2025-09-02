@@ -2,7 +2,7 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Getting Started',
+      label: '開始使用',
       items: [
         { type: 'doc', id: 'intro' },
         { type: 'doc', id: 'writing-tests' },
@@ -18,7 +18,7 @@ module.exports = {
     { type: 'doc', id: 'release-notes' },
     {
       type: 'category',
-      label: 'Guides',
+      label: '指南',
       items: [
         { type: 'doc', id: 'accessibility-testing' },
         { type: 'doc', id: 'input' },
@@ -58,7 +58,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Integrations',
+      label: '整合',
       items: [
         { type: 'doc', id: 'docker' },
         { type: 'doc', id: 'ci' },
@@ -71,12 +71,12 @@ module.exports = {
   api: [
     {
       type: 'category',
-      label: 'API reference',
+      label: 'API 參考',
       items: [
         { type: 'doc', id: 'api/class-playwright' },
         {
           type: 'category',
-          label: 'Classes',
+          label: '類別',
           items: [
             { type: 'doc', id: 'api/class-apirequest' },
             { type: 'doc', id: 'api/class-apirequestcontext' },
@@ -119,7 +119,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Assertions',
+          label: '斷言',
           items: [
             { type: 'doc', id: 'api/class-apiresponseassertions' },
             { type: 'doc', id: 'api/class-locatorassertions' },
