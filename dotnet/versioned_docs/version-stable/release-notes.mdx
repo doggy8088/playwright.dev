@@ -368,10 +368,10 @@ var context = await Browser.NewContextAsync(new() {
 ### 時鐘
 
 利用新的 [Clock] API 允許在測試中操控和控制時間以驗證與時間相關的行為。此 API 涵蓋許多常見場景，包括：
-* testing with predefined time;
-* keeping consistent time and timers;
-* monitoring inactivity;
-* ticking through time manually.
+* 使用預定義的時間進行測試；
+* 保持一致的時間和計時器；
+* 監控不活動；
+* 手動推進時間。
 
 ```csharp
 // Initialize clock with some time before the test time and let the page load naturally.
@@ -668,9 +668,9 @@ await Expect(Page.GetByPlaceholder("Search docs")).ToHaveValueAsync("locator");
 
 ## 版本 1.37
 
-### 📚 Debian 12 Bookworm Support
+### 📚 Debian 12 Bookworm 支援
 
-Playwright 現在支援Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援 Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下：
 
@@ -775,7 +775,7 @@ Linux 支援如下：
 - [Expect(Locator).ToBeAttachedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached)
 - 新選項 [Timeout](/api/class-route.mdx#route-fetch-選項-timeout) in [Route.FetchAsync()](/api/class-route.mdx#route-fetch)
 
-### ⚠️ Breaking change
+### ⚠️ 重大變更
 * `mcr.microsoft.com/playwright/dotnet:v1.33.0` 現在提供基於 Ubuntu Jammy 的 Playwright 映像。若要使用基於 focal 的映像，請改用 `mcr.microsoft.com/playwright/dotnet:v1.33.0-focal`。
 
 ### 瀏覽器版本
@@ -826,7 +826,7 @@ Linux 支援如下：
 ### 其他
 - 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新選項 [MaxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [Route.FetchAsync()](/api/class-route.mdx#route-fetch).
-- Playwright 現在支援Debian 11 arm64.
+- Playwright 現在支援 Debian 11 arm64.
 - Official [docker images](./docker.mdx)現在include Node 18 instead of Node 16.
 
 ### 瀏覽器版本
@@ -1054,7 +1054,7 @@ await Page.GotoAsync("https://playwright.dev", new() { WaitUntil = WaitUntilStat
 
 ### 🐂 Debian 11 Bullseye Support
 
-Playwright 現在支援Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援 Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下：
 

@@ -928,9 +928,9 @@ npx playwright merge-reports --reporter html ./all-blob-reports
 
 在[我們的文件](./test-sharding.mdx)中閱讀更多。
 
-### 📚 Debian 12 Bookworm Support
+### 📚 Debian 12 Bookworm 支援
 
-Playwright 現在支援Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援 Debian 12 Bookworm 在 x86_64 和 arm64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下所示：
 
@@ -1001,7 +1001,7 @@ Linux 支援如下所示：
   $ npx playwright show-trace --port 0 # open trace viewer in tab on a random port
   ```
   
-### ⚠️ Breaking changes
+### ⚠️ 重大變更s
 * `playwright-core` 執行檔已從 `playwright` 重新命名為 `playwright-core`。因此，如果您使用 `playwright-core` CLI，請務必更新名稱：
   
   ```bash
@@ -1097,7 +1097,7 @@ Linux 支援如下所示：
   
 * 新事件 [browserContext.on('console')](/api/class-browsercontext.mdx#browser-context-event-console) 和 [browserContext.on('dialog')](/api/class-browsercontext.mdx#browser-context-event-dialog) 用於訂閱來自指定瀏覽器上下文中任何頁面的任何對話框和控制台訊息。使用新方法 [consoleMessage.page()](/api/class-consolemessage.mdx#console-message-page) 和 [dialog.page()](/api/class-dialog.mdx#dialog-page) 來精確定位事件來源。
 
-### ⚠️ Breaking changes
+### ⚠️ 重大變更s
 * `npx playwright test` 如果您同時安裝 `playwright` 和 `@playwright/test` 將不再有效。沒有必要同時安裝兩者，因為您總是可以直接從 `@playwright/test` 匯入瀏覽器自動化 API：
   
   ```js title="automation.ts"
@@ -1152,7 +1152,7 @@ Linux 支援如下所示：
 - 新選項 [timeout](/api/class-route.mdx#route-fetch-選項-timeout) in [route.fetch()](/api/class-route.mdx#route-fetch)
 - [reporter.onExit()](/api/class-reporter.mdx#reporter-on-exit)
 
-### ⚠️ Breaking change
+### ⚠️ 重大變更
 * `mcr.microsoft.com/playwright:v1.33.0` 現在提供基於 Ubuntu Jammy 的 Playwright 映像。若要使用基於 focal 的映像，請改用 `mcr.microsoft.com/playwright:v1.33.0-focal`。
 
 ### 瀏覽器版本
@@ -1186,7 +1186,7 @@ npx playwright test --ui
 - 新屬性 [testInfo.testId](/api/class-testinfo.mdx#test-info-test-id).
 - 新選項 [name](/api/class-tracing.mdx#tracing-start-chunk-選項-name) in 方法 [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk).
 
-### ⚠️ Breaking change in component tests
+### ⚠️ 重大變更 in component tests
 
 注意：**僅適用於元件測試**，不影響端對端測試。
 * `@playwright/experimental-ct-react` 現在支援 **React 18 only**.
@@ -1257,10 +1257,10 @@ npx playwright test --ui
 - 追蹤檢視器中的 DOM 快照現在可以在單獨的視窗中開啟。
 - 新方法 `defineConfig` 用於 `playwright.config`。
 - 新選項 [maxRedirects](/api/class-route.mdx#route-fetch-選項-max-redirects) 用於方法 [route.fetch()](/api/class-route.mdx#route-fetch).
-- Playwright 現在支援Debian 11 arm64.
+- Playwright 現在支援 Debian 11 arm64.
 - 官方 [docker images](./docker.mdx) 現在包含 Node 18 而非 Node 16。
 
-### ⚠️ Breaking change in component tests
+### ⚠️ 重大變更 in component tests
 
 注意：**僅適用於元件測試**，不影響端對端測試。
 
@@ -1619,7 +1619,7 @@ export default defineConfig({
 
 ### 🐂 Debian 11 Bullseye Support
 
-Playwright 現在支援Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
+Playwright 現在支援 Debian 11 Bullseye 在 x86_64 上的 Chromium、Firefox 和 WebKit。如果您遇到任何問題，請告訴我們！
 
 Linux 支援如下所示：
 
@@ -1808,7 +1808,7 @@ test('should work', async ({ page }) => {
   
 * Playwright 現在在 Ubuntu 22 amd64 和 Ubuntu 22 arm64 上執行。我們也發佈了新的 Docker 映像 `mcr.microsoft.com/playwright:v1.34.0-jammy`。
 
-### ⚠️ Breaking Changes ⚠️
+### ⚠️ 重大變更s ⚠️
 
 WebServer 現在如果對指定 URL 的請求具有以下任一 HTTP 狀態碼，就被視為「準備就緒」：
 * `200-299`
