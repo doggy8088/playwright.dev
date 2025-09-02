@@ -1,54 +1,54 @@
 ---
 id: test-assertions
-title: "Assertions"
+title: "斷言"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## List of assertions
+## 斷言列表
 
-| Assertion | Description |
+| 斷言 | 描述 |
 | :- | :- |
-| [expect(locator).to_be_attached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | Element is attached |
-| [expect(locator).to_be_checked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox is checked |
-| [expect(locator).to_be_disabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | Element is disabled |
-| [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | Element is editable |
-| [expect(locator).to_be_empty()](/api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | Container is empty |
-| [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | Element is enabled |
-| [expect(locator).to_be_focused()](/api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | Element is focused |
-| [expect(locator).to_be_hidden()](/api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | Element is not visible |
-| [expect(locator).to_be_in_viewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | Element intersects viewport |
-| [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | Element is visible |
-| [expect(locator).to_contain_class()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) | Element has specified CSS classes |
-| [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | Element contains text |
-| [expect(locator).to_have_accessible_description()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) | Element has a matching [accessible description](https://w3c.github.io/accname/#dfn-accessible-description) |
-| [expect(locator).to_have_accessible_name()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) | Element has a matching [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) |
-| [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | Element has a DOM attribute |
-| [expect(locator).to_have_class()](/api/class-locatorassertions.mdx#locator-assertions-to-have-class) | Element has a class property |
-| [expect(locator).to_have_count()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | List has exact number of children |
-| [expect(locator).to_have_css()](/api/class-locatorassertions.mdx#locator-assertions-to-have-css) | Element has CSS property |
-| [expect(locator).to_have_id()](/api/class-locatorassertions.mdx#locator-assertions-to-have-id) | Element has an ID |
-| [expect(locator).to_have_js_property()](/api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | Element has a JavaScript property |
-| [expect(locator).to_have_role()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) | Element has a specific [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles) |
-| [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | Element matches text |
-| [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | Input has a value |
-| [expect(locator).to_have_values()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) | Select has options selected |
-| [expect(locator).to_match_aria_snapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) | Element matches provided Aria snapshot |
-| [expect(page).to_have_title()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | Page has a title |
-| [expect(page).to_have_url()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | Page has a URL |
-| [expect(response).to_be_ok()](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | Response has an OK status |
+| [expect(locator).to_be_attached()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | 元素已附加 |
+| [expect(locator).to_be_checked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 勾選框已勾選 |
+| [expect(locator).to_be_disabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已停用 |
+| [expect(locator).to_be_editable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | 元素可編輯 |
+| [expect(locator).to_be_empty()](/api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | 容器為空 |
+| [expect(locator).to_be_enabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 元素已啟用 |
+| [expect(locator).to_be_focused()](/api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | 元素已聚焦 |
+| [expect(locator).to_be_hidden()](/api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | 元素不可見 |
+| [expect(locator).to_be_in_viewport()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | 元素與檢視區相交 |
+| [expect(locator).to_be_visible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
+| [expect(locator).to_contain_class()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class) | 元素具有指定的 CSS 類別 |
+| [expect(locator).to_contain_text()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
+| [expect(locator).to_have_accessible_description()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) | 元素具有匹配的[無障礙描述](https://w3c.github.io/accname/#dfn-accessible-description) |
+| [expect(locator).to_have_accessible_name()](/api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) | 元素具有匹配的[無障礙名稱](https://w3c.github.io/accname/#dfn-accessible-name) |
+| [expect(locator).to_have_attribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有 DOM 屬性 |
+| [expect(locator).to_have_class()](/api/class-locatorassertions.mdx#locator-assertions-to-have-class) | 元素具有 class 屬性 |
+| [expect(locator).to_have_count()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 清單具有確切的子項目數量 |
+| [expect(locator).to_have_css()](/api/class-locatorassertions.mdx#locator-assertions-to-have-css) | 元素具有 CSS 屬性 |
+| [expect(locator).to_have_id()](/api/class-locatorassertions.mdx#locator-assertions-to-have-id) | 元素具有 ID |
+| [expect(locator).to_have_js_property()](/api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | 元素具有 JavaScript 屬性 |
+| [expect(locator).to_have_role()](/api/class-locatorassertions.mdx#locator-assertions-to-have-role) | 元素具有特定的 [ARIA 角色](https://www.w3.org/TR/wai-aria-1.2/#roles) |
+| [expect(locator).to_have_text()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素匹配文字 |
+| [expect(locator).to_have_value()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入具有值 |
+| [expect(locator).to_have_values()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) | 選擇具有選定的選項 |
+| [expect(locator).to_match_aria_snapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) | 元素匹配提供的 Aria 快照 |
+| [expect(page).to_have_title()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
+| [expect(page).to_have_url()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
+| [expect(response).to_be_ok()](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | 回應具有 OK 狀態 |
 
-## Custom Expect Message
+## 自訂預期訊息
 
-You can specify a custom expect message as a second argument to the `expect` function, for example:
+您可以指定自訂預期訊息作為 `expect` 函式的第二個參數，例如：
 
 ```python
 expect(page.get_by_text("Name"), "should be logged in").to_be_visible()
 ```
 
-When expect fails, the error would look like this:
+當預期失敗時，錯誤會看起來像這樣：
 
 ```bash
     def test_foobar(page: Page) -> None:
@@ -63,11 +63,11 @@ E       waiting for get_by_text("Name")
 tests/test_foobar.py:22: AssertionError
 ```
 
-## Setting a custom timeout
+## 設定自訂逾時
 
-You can specify a custom timeout for assertions either globally or per assertion. The default timeout is 5 seconds.
+您可以為斷言指定自訂逾時，可以是全域設定或針對每個斷言。預設逾時為 5 秒。
 
-### Global timeout
+### 全域逾時
 
 ```python title="conftest.py"
 from playwright.sync_api import expect
@@ -75,7 +75,7 @@ from playwright.sync_api import expect
 expect.set_options(timeout=10_000)
 ```
 
-### Per assertion timeout
+### 針對每個斷言的逾時
 
 ```python title="test_foobar.py"
 from playwright.sync_api import expect
