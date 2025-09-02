@@ -1,83 +1,83 @@
 # playwright.dev
 
-This website is built using [Docusaurus](https://docusaurus.io/). Content is pulled from the microsoft/playwright repo.
+這個網站是使用 [Docusaurus](https://docusaurus.io/) 建立的。內容來自 microsoft/playwright 儲存庫。
 
-## Development
+## 開發
 
-### Setup the repo
+### 設定專案
 
 ```sh
 npm install
 ```
 
-### Roll docs
+### 生成文件
 
 ```sh
 SRC_DIR=../playwright npm run roll
 ```
 
-### Remove old release
+### 移除舊版本
 
 ```sh
 node src/versions.js --delete 1.16
 ```
 
-### Run dev server
+### 執行開發伺服器
 
 ```sh
 npm run start-nodejs
 ```
 
 > [!IMPORTANT]  
-> The docs will start up in "current release" mode by default. To see the latest version of the docs (and likely your changes), visit `/next` or press shift 5 times.
+> 文件預設會以「目前版本」模式啟動。若要查看最新版本的文件（以及你的修改），請訪問 `/next` 或連按 shift 5 次。
 
-See `package.json` for other languages (java, python, .NET).
+其他語言 (java, python, .NET) 可參考 `package.json`。
 
-### Run prod build and serve
+### 執行正式環境建置與服務
 
 ```sh
 npm run build
 npm run serve
 ```
 
-### Running this on Windows
+### 在 Windows 上執行
 
-To roll the docs in PowerShell, make sure you set the env variable correctly, i.e.:
+若要在 PowerShell 內生成文件，請正確設定環境變數，例如：
 
 ```powershell
 $env:SRC_DIR="C:\Users\user\src\playwright"; npm run roll
 ```
 
-### Run end-to-end tests
+### 執行端對端測試
 
-#### Run on local machine
+#### 在本機執行
 
-Run this on one terminal:
+在一個終端機執行：
 
 ```sh
 npm run start-nodejs
 ```
 
-and this on another, it will automatically use the local docusaurus server:
+再於另一個終端機執行，會自動使用本機 docusaurus 伺服器：
 
 ```sh
 npx playwright test nodejs
 ```
 
-#### Run on different environment
+#### 在不同環境執行
 
-You can set the `BASE_URL=https://playwright.dev` env var, otherwise `http://localhost:3000` gets used by default.
+可以設定 `BASE_URL=https://playwright.dev` 環境變數，否則預設使用 `http://localhost:3000`。
 
-### Publishing Doc Changes After a Release
+### 發佈版本後的文件更新
 
 #### Cherry-picking
 
-1. Go to the [Cherry-picking GitHub Actions workflow](https://github.com/microsoft/playwright/actions/workflows/cherry_pick_into_release_branch.yml)
-1. Execute it with the version number e.g. `1.25` and a comma separate list of commit SHA hashes (from the main branch)
-1. Wait for a PR [getting created](https://github.com/microsoft/playwright/pulls), review it and merge it
+1. 前往 [Cherry-picking GitHub Actions workflow](https://github.com/microsoft/playwright/actions/workflows/cherry_pick_into_release_branch.yml)
+1. 使用版本號 (例如 `1.25`) 和以逗號分隔的提交 SHA (從 main 分支取得) 執行
+1. 等待 PR [被建立](https://github.com/microsoft/playwright/pulls)，檢閱並合併
 
-#### Stable docs rolling
+#### 穩定文件生成
 
-1. Go to the [Release GitHub Actions workflow](https://github.com/microsoft/playwright.dev/actions/workflows/roll-stable.yml)
-1. Execute it and wait for the PR [getting created](https://github.com/microsoft/playwright.dev/pulls). The PR will copy changes from the release branch in playwright repo.
-2. Review the PR and merge it.
+1. 前往 [Release GitHub Actions workflow](https://github.com/microsoft/playwright.dev/actions/workflows/roll-stable.yml)
+1. 執行並等待 PR [被建立](https://github.com/microsoft/playwright.dev/pulls)。PR 會從 playwright 儲存庫的 release 分支複製變更。
+2. 檢閱並合併 PR。
