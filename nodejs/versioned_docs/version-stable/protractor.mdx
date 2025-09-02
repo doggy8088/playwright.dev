@@ -9,11 +9,11 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ## 遷移原則
 - 不需要 "webdriver-manager" / Selenium。
-- Protractor 的 [ElementFinder] ⇄ [Playwright Test Locator](./api/class-locator)
-- Protractor 的 [`waitForAngular`] ⇄ Playwright Test 的 [auto-waiting](./actionability.mdx)
-- 在 Playwright Test 中不要忘記使用 await
+- Protractor 的 [ElementFinder] ⇄ Playwright Test 的 [Locator](./api/class-locator)
+- Protractor 的 [`waitForAngular`] ⇄ Playwright Test 的[自動等待](./actionability.mdx)
+- 在 Playwright Test 中別忘了使用 await
 
-## 作弊表
+## 速查表
 
 | Protractor                                        | Playwright Test                         |
 |---------------------------------------------------|-----------------------------------------|
@@ -44,7 +44,7 @@ describe('angularjs homepage todo list', function() {
     expect(todoList.count()).toEqual(3);
     expect(todoList.get(2).getText()).toEqual('first test');
 
-    // 你寫了第一個測試，從清單中劃掉它
+    // 你寫下第一個測試，將它從清單中勾選
     todoList.get(2).element(by.css('input')).click();
     const completedAmount = element.all(by.css('.done-true'));
     expect(completedAmount.count()).toEqual(2);
@@ -70,7 +70,7 @@ test.describe('angularjs homepage todo list', () => {
       useInnerText: true,
     });
 
-    // 你寫了第一個測試，從清單中劃掉它
+    // 你寫下第一個測試，將它從清單中勾選
     await todoList.nth(2).getByRole('textbox').click();
     const completedAmount = page.locator('.done-true');
     await expect(completedAmount).toHaveCount(2);
@@ -78,20 +78,20 @@ test.describe('angularjs homepage todo list', () => {
 });
 ```
 
-遷移重點（請參閱 Playwright Test 代碼片段中的內聯註釋）：
-1. 每個 Playwright Test 文件都有對 `test` 和 `expect` 函數的顯式導入
-1. 測試函數標記為 `async`
-1. Playwright Test 將 `page` 作為其參數之一。這是 Playwright Test 中許多有用的 [fixtures](./api/class-fixtures) 之一。
-1. 幾乎所有 Playwright 調用都以 `await` 為前綴
-1. 使用 [page.locator()](/api/class-page.mdx#page-locator) 創建定位器是少數幾個同步方法之一。
+遷移重點（請參考 Playwright Test 程式碼片段中的行內註解）：
+1. 每個 Playwright Test 檔案都要明確匯入 `test` 與 `expect` 函式
+1. 測試函式需標記為 `async`
+1. Playwright Test 會透過參數提供 `page`。這是 Playwright Test 眾多[實用的 fixtures](./api/class-fixtures) 之一。
+1. 幾乎所有 Playwright 呼叫前都需加上 `await`
+1. 使用 [page.locator()](/api/class-page.mdx#page-locator) 建立定位器是少數同步的方法之一。
 
-## 填充 `waitForAngular`
+## 為 `waitForAngular` 提供 Polyfill
 
-Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得在一般情況下不需要 Protractor 的 [`waitForAngular`]。
+Playwright Test 內建[自動等待](./actionability.mdx)，一般情況下不需要 Protractor 的 [`waitForAngular`]。
 
-然而，在某些邊緣情況下，它可能會派上用場。以下是如何在 Playwright Test 中填充 `waitForAngular` 函數：
-1. 確保您的 package.json 中安裝了 protractor
-1. 填充函數
+不過在某些邊界情境時仍可能有用。以下是在 Playwright Test 中為 `waitForAngular` 提供 polyfill 的方式：
+1. 確保你的 package.json 已安裝 protractor
+1. 補丁函式
    
    ```js
    async function waitForAngular(page) {
@@ -115,7 +115,7 @@ Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得�
    }
    ```
    
-   如果您不想保留 protractor 的版本，您也可以使用這個更簡單的方法（僅適用於 Angular 2+）：
+   如果你不想保留某個版本的 protractor，你也可以使用更簡單的方法（只適用於 Angular 2+）：
    
    ```js
    async function waitForAngular(page) {
@@ -133,7 +133,7 @@ Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得�
    }
    ```
    
-1. 填充使用
+1. 使用方式
    
    ```js
    const page = await context.newPage();
@@ -143,26 +143,26 @@ Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得�
    
 ## Playwright Test 超能力
 
-一旦您使用 Playwright Test，您將獲得很多功能！
-- 完整的零配置 TypeScript 支持
-- 在 **所有網頁引擎**（Chrome、Firefox、Safari）上運行測試，在 **任何流行操作系統**（Windows、macOS、Ubuntu）上
-- 完全支持多個來源、[(i)frames](./api/class-frame)、[tabs 和 contexts](./pages)
-- 在多個瀏覽器中並行運行測試
-- 內建測試 [artifact collection](./test-use-options.mdx#recording-options)
+遷移到 Playwright Test 後，你能獲得很多功能！
+- 零設定的 TypeScript 支援
+- 在所有主流瀏覽器引擎（Chrome、Firefox、Safari）與常見作業系統（Windows、macOS、Ubuntu）上執行測試
+- 完整支援多來源、[(i)frame](./api/class-frame)、[分頁與情境（contexts）](./pages)
+- 在多個瀏覽器間並行執行測試
+- 內建測試[產物收集](./test-use-options.mdx#recording-options)
 
-您還獲得所有這些 ✨ 令人驚嘆的工具 ✨，它們與 Playwright Test 捆綁在一起：
+此外還有這些 ✨ 超好用工具 ✨ 與 Playwright Test 一起提供：
 - [Playwright Inspector](./debug.mdx)
-- [Playwright Test Code generation](./codegen-intro.mdx)
-- [Playwright Tracing](./trace-viewer.mdx) 用於事後調試
+- [Playwright Test 程式碼產生器](./codegen-intro.mdx)
+- 用於事後除錯的[Playwright 追蹤](./trace-viewer.mdx)
 
-## 進一步閱讀
+## 延伸閱讀
 
-了解更多關於 Playwright Test runner：
-- [入門](./intro)
+深入了解 Playwright Test 測試執行器：
+- [快速開始](./intro)
 - [Fixtures](./test-fixtures)
 - [Locators](./locators)
-- [Assertions](./test-assertions)
-- [Auto-waiting](./actionability)
+- [斷言](./test-assertions)
+- [自動等待](./actionability)
 
 [ElementFinder]: https://www.protractortest.org/#/api?view=ElementFinder
 [`waitForAngular`]: https://www.protractortest.org/#/api?view=ProtractorBrowser.prototype.waitForAngular
@@ -229,7 +229,7 @@ Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得�
 [TestOptions]: /api/class-testoptions.mdx "TestOptions"
 [TestProject]: /api/class-testproject.mdx "TestProject"
 [TestStepInfo]: /api/class-teststepinfo.mdx "TestStepInfo"
-[TestWorkerInfo]: /api/class-testworkerinfo.mdx "TestWorkerInfo"
+[WorkerInfo]: /api/class-workerinfo.mdx "WorkerInfo"
 [Reporter]: /api/class-reporter.mdx "Reporter"
 [Suite]: /api/class-suite.mdx "Suite"
 [TestCase]: /api/class-testcase.mdx "TestCase"
@@ -265,7 +265,7 @@ Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得�
 [Readable]: https://nodejs.org/api/stream.html#stream_class_stream_readable "Readable"
 [ReadStream]: https://nodejs.org/api/fs.html#class-fsreadstream "ReadStream"
 [RegExp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp "RegExp"
-[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type "string"
+[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type "String"
 [void]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined "void"
 [URL]: https://nodejs.org/api/url.html "URL"
 [URLSearchParams]: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams "URLSearchParams"

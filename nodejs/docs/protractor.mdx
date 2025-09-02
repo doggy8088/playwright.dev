@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 - Protractor 的 [`waitForAngular`] ⇄ Playwright Test 的 [auto-waiting](./actionability.mdx)
 - 在 Playwright Test 中不要忘記使用 await
 
-## 作弊表
+## 速查表
 
 | Protractor                                        | Playwright Test                         |
 |---------------------------------------------------|-----------------------------------------|
@@ -91,7 +91,7 @@ Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得�
 
 然而，在某些邊緣情況下，它可能會派上用場。以下是如何在 Playwright Test 中填充 `waitForAngular` 函數：
 1. 確保您的 package.json 中安裝了 protractor
-1. 填充函數
+1. 補丁函式
    
    ```js
    async function waitForAngular(page) {

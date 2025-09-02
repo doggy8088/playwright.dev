@@ -51,6 +51,8 @@
 - timeout → 逾時
 - viewport → 檢視區
 - WebSocket → WebSocket（不翻）
+- patch → 補丁
+- cheatsheet → 速查表
 
 ## 語體建議
 - 多用「您」與禮貌語氣，技術說明保持中性精準。
