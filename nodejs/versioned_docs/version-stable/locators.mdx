@@ -628,9 +628,9 @@ await newEmail.click();
   await page.locator('button').filter({ visible: true }).click();
   ```
   
-## Lists
+## 清單（Lists）
 
-### Count items in a list
+### 計算清單中的項目數
 
 您可以對定位器進行斷言來計算清單中的項目數量。
 
@@ -660,7 +660,7 @@ await newEmail.click();
 await expect(page.getByRole('listitem')).toHaveCount(3);
 ```
 
-### Assert all text in a list
+### 斷言清單中所有文字
 
 您可以對定位器進行斷言來尋找清單中的所有文字。
 
@@ -692,11 +692,11 @@ await expect(page
     .toHaveText(['apple', 'banana', 'orange']);
 ```
 
-### Get a specific item
+### 取得特定項目
 
 有許多方式可以取得清單中的特定項目。
 
-#### Get by text
+#### 透過文字取得
 
 使用 [page.getByText()](/api/class-page.mdx#page-get-by-text) 方法透過文字內容在清單中定位元素，然後點擊它。
 
@@ -726,7 +726,7 @@ await expect(page
 await page.getByText('orange').click();
 ```
 
-#### Filter by text
+#### 依文字篩選
 
 使用 [locator.filter()](/api/class-locator.mdx#locator-filter) 定位清單中的特定項目。
 
@@ -759,7 +759,7 @@ await page
     .click();
 ```
 
-#### Get by test id
+#### 透過測試 ID 取得
 
 使用 [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 方法定位清單中的元素。如果您還沒有測試 ID，可能需要修改 HTML 並加入測試 ID。
 
@@ -789,7 +789,7 @@ await page
 await page.getByTestId('orange').click();
 ```
 
-#### Get by nth item
+#### 透過序號取得第 N 個
 
 如果您有一個相同元素的清單，而唯一能區別它們的方式是順序，您可以使用 [locator.first()](/api/class-locator.mdx#locator-first)、[locator.last()](/api/class-locator.mdx#locator-last) 或 [locator.nth()](/api/class-locator.mdx#locator-nth) 從清單中選擇特定元素。
 
@@ -799,7 +799,7 @@ const banana = await page.getByRole('listitem').nth(1);
 
 然而，使用此方法時要小心。通常頁面可能會變更，定位器會指向與您預期完全不同的元素。相反地，嘗試想出通過[嚴格性條件](#strictness)的唯一定位器。
 
-### Chaining filters
+### 串接多重篩選
 
 當您有具有各種相似性的元素時，可以使用 [locator.filter()](/api/class-locator.mdx#locator-filter) 方法選擇正確的元素。您也可以鏈接多個篩選器以縮小選擇範圍。
 

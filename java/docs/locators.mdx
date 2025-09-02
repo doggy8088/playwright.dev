@@ -1,26 +1,26 @@
 ---
 id: locators
-title: "Locators"
+title: "定位器"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## Introduction
+## 簡介
 
-[Locator]s are the central piece of Playwright's auto-waiting and retry-ability. In a nutshell, locators represent a way to find element(s) on the page at any moment.
+[定位器][Locator] 是 Playwright 自動等待與重試能力的核心。簡而言之，定位器代表能在任意時刻於頁面上找到元素的方法。
 
-### Quick Guide
+### 快速指南
 
-These are the recommended built-in locators.
-- [Page.getByRole()](#locate-by-role) to locate by explicit and implicit accessibility attributes.
-- [Page.getByText()](#locate-by-text) to locate by text content.
-- [Page.getByLabel()](#locate-by-label) to locate a form control by associated label's text.
-- [Page.getByPlaceholder()](#locate-by-placeholder) to locate an input by placeholder.
-- [Page.getByAltText()](#locate-by-alt-text) to locate an element, usually image, by its text alternative.
-- [Page.getByTitle()](#locate-by-title) to locate an element by its title attribute.
-- [Page.getByTestId()](#locate-by-test-id) to locate an element based on its `data-testid` attribute (other attributes can be configured).
+以下是建議優先使用的內建定位器：
+- [Page.getByRole()](#locate-by-role)：透過明確與隱含的無障礙屬性定位。
+- [Page.getByText()](#locate-by-text)：透過文字內容定位。
+- [Page.getByLabel()](#locate-by-label)：透過關聯標籤文字定位表單控制項。
+- [Page.getByPlaceholder()](#locate-by-placeholder)：透過 placeholder 提示文字定位輸入框。
+- [Page.getByAltText()](#locate-by-alt-text)：透過替代文字定位元素（通常是圖片）。
+- [Page.getByTitle()](#locate-by-title)：透過 title 屬性定位元素。
+- [Page.getByTestId()](#locate-by-test-id)：透過 `data-testid` 屬性定位元素（可自訂其它屬性）。
 
 ```java
 page.getByLabel("User Name").fill("John");
@@ -33,11 +33,11 @@ page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sign in"))
 assertThat(page.getByText("Welcome, John!")).isVisible();
 ```
 
-## Locating elements
+## 定位元素
 
-Playwright comes with multiple built-in locators. To make tests resilient, we recommend prioritizing user-facing attributes and explicit contracts such as [Page.getByRole()](/api/class-page.mdx#page-get-by-role).
+Playwright 提供多種內建定位器。為了讓測試更具韌性，建議優先使用面向使用者的屬性與明確契約，例如 [Page.getByRole()](/api/class-page.mdx#page-get-by-role)。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -49,7 +49,7 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-Locate the element by its role of `button` with name "Sign in".
+透過名稱為「Sign in」的 `button` 角色來定位該元素：
 
 ```java
 page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sign in"))
@@ -57,10 +57,10 @@ page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Sign in"))
 ```
 
 :::note
-Use the [code generator](./codegen.mdx) to generate a locator, and then edit it as you'd like.
+使用 [程式碼產生器](./codegen.mdx) 來產生定位器，然後依需求編輯。
 :::
 
-Every time a locator is used for an action, an up-to-date DOM element is located in the page. In the snippet below, the underlying DOM element will be located twice, once prior to every action. This means that if the DOM changes in between the calls due to re-render, the new element corresponding to the locator will be used.
+每次使用定位器執行動作時，都會在頁面上定位到最新的 DOM 元素。以下範例中，底層 DOM 會定位兩次：每個動作前各一次。這代表如果在兩次呼叫之間因重新渲染導致 DOM 發生變化，定位器會對應到新的元素並予以使用。
 
 ```java
 Locator locator = page.getByRole(AriaRole.BUTTON,
@@ -70,7 +70,7 @@ locator.hover();
 locator.click();
 ```
 
-Note that all methods that create a locator, such as [Page.getByLabel()](/api/class-page.mdx#page-get-by-label), are also available on the [Locator] and [FrameLocator] classes, so you can chain them and iteratively narrow down your locator.
+請注意，所有建立定位器的方法，例如 [Page.getByLabel()](/api/class-page.mdx#page-get-by-label)，同樣也能在 [Locator] 與 [FrameLocator] 類別上使用，因此你可以串接它們以逐步縮小定位範圍。
 
 ```java
 Locator locator = page
@@ -80,11 +80,11 @@ Locator locator = page
 locator.click();
 ```
 
-### Locate by role
+### 透過角色定位
 
-The [Page.getByRole()](/api/class-page.mdx#page-get-by-role) locator reflects how users and assistive technology perceive the page, for example whether some element is a button or a checkbox. When locating by role, you should usually pass the accessible name as well, so that the locator pinpoints the exact element.
+[Page.getByRole()](/api/class-page.mdx#page-get-by-role) 反映使用者與輔助技術如何感知頁面，例如某元素是按鈕或核取方塊。使用角色定位時，通常也應該傳入可存取名稱，讓定位器能精準鎖定特定元素。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -106,7 +106,7 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can locate each element by its implicit role:
+你可以透過元素的隱含角色來定位每個元素：
 
 ```java
 assertThat(page
@@ -124,20 +124,19 @@ page.getByRole(AriaRole.BUTTON,
     .click();
 ```
 
-Role locators include [buttons, checkboxes, headings, links, lists, tables, and many more](https://www.w3.org/TR/html-aria/#docconformance) and follow W3C specifications for [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name). Note that many html elements like `<button>` have an [implicitly defined role](https://w3c.github.io/html-aam/#html-element-role-mappings) that is recognized by the role locator.
+角色定位器涵蓋[按鈕、核取方塊、標題、連結、清單、表格等](https://www.w3.org/TR/html-aria/#docconformance)，並遵循 W3C 針對 [ARIA 角色](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA 屬性](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) 與[可存取名稱](https://w3c.github.io/accname/#dfn-accessible-name)的規範。請注意，許多 HTML 元素如 `<button>` 具有[隱含角色定義](https://w3c.github.io/html-aam/#html-element-role-mappings)，可被角色定位器辨識。
 
-Note that role locators **do not replace** accessibility audits and conformance tests, but rather give early feedback about the ARIA guidelines.
+同時要注意，角色定位器並非用來取代無障礙稽核與相容性測試，而是能提供遵循 ARIA 準則的早期回饋。
 
-:::note[When to use role locators]
-
-We recommend prioritizing role locators to locate elements, as it is the closest way to how users and assistive technology perceive the page.
+:::note[何時使用角色定位器]
+我們建議優先使用角色定位器來定位元素，因為這最貼近使用者與輔助技術感知頁面的方式。
 :::
 
-### Locate by label
+### 透過標籤定位
 
-Most form controls usually have dedicated labels that could be conveniently used to interact with the form. In this case, you can locate the control by its associated label using [Page.getByLabel()](/api/class-page.mdx#page-get-by-label).
+多數表單控制項通常有對應的標籤，可方便地與表單互動。此時可使用 [Page.getByLabel()](/api/class-page.mdx#page-get-by-label) 透過關聯標籤文字來定位控制項。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -151,21 +150,21 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can fill the input after locating it by the label text:
+你可以先透過標籤文字定位輸入框，然後填值：
 
 ```java
 page.getByLabel("Password").fill("secret");
 ```
 
-:::note[When to use label locators]
-Use this locator when locating form fields.
+:::note[何時使用標籤定位器]
+在定位表單欄位時使用本定位器。
 :::
 
-### Locate by placeholder
+### 透過 placeholder 定位
 
-Inputs may have a placeholder attribute to hint to the user what value should be entered. You can locate such an input using [Page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder).
+輸入框可能帶有 placeholder 屬性，提示使用者應輸入的值。你可以使用 [Page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder) 來定位此類輸入框。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -177,21 +176,21 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can fill the input after locating it by the placeholder text:
+你可以先透過 placeholder 文字定位輸入框，然後填值：
 
 ```java
 page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
 ```
 
-:::note[When to use placeholder locators]
-Use this locator when locating form elements that do not have labels but do have placeholder texts.
+:::note[何時使用 placeholder 定位器]
+當定位沒有標籤但有 placeholder 文字的表單元素時使用本定位器。
 :::
 
-### Locate by text
+### 透過文字定位
 
-Find an element by the text it contains. You can match by a substring, exact string, or a regular expression when using [Page.getByText()](/api/class-page.mdx#page-get-by-text).
+依元素所含文字來尋找元素。使用 [Page.getByText()](/api/class-page.mdx#page-get-by-text) 時，可以以子字串、完全相符或正規表示式進行比對。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -203,13 +202,13 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can locate the element by the text it contains:
+你可以以其包含的文字來定位元素：
 
 ```java
 assertThat(page.getByText("Welcome, John")).isVisible();
 ```
 
-Set an exact match:
+設定完全相符：
 
 ```java
 assertThat(page
@@ -217,7 +216,7 @@ assertThat(page
     .isVisible();
 ```
 
-Match with a regular expression:
+使用正規表示式比對：
 
 ```java
 assertThat(page
@@ -226,20 +225,20 @@ assertThat(page
 ```
 
 :::note
-Matching by text always normalizes whitespace, even with exact match. For example, it turns multiple spaces into one, turns line breaks into spaces and ignores leading and trailing whitespace.
+以文字比對時一律會正規化空白，即使在完全相符的情況下也是如此。例如會把多個空格合併為一個、將換行轉成空格，並忽略前後空白。
 :::
 
-:::note[When to use text locators]
-We recommend using text locators to find non interactive elements like `div`, `span`, `p`, etc. For interactive elements like `button`, `a`, `input`, etc. use [role locators](#locate-by-role).
+:::note[何時使用文字定位器]
+建議使用文字定位器尋找非互動元素，例如 `div`、`span`、`p` 等。對於 `button`、`a`、`input` 等互動元素，請使用[角色定位器](#locate-by-role)。
 :::
 
-You can also [filter by text](#filter-by-text) which can be useful when trying to find a particular item in a list.
+你也可以[依文字過濾](#filter-by-text)，在從清單中尋找特定項目時相當實用。
 
-### Locate by alt text
+### 透過替代文字定位
 
-All images should have an `alt` attribute that describes the image. You can locate an image based on the text alternative using [Page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text).
+所有圖片都應有描述圖片內容的 `alt` 屬性。你可以使用 [Page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text) 透過替代文字來定位圖片。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -251,21 +250,21 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can click on the image after locating it by the text alternative:
+你可以透過替代文字定位圖片後進行點擊：
 
 ```java
 page.getByAltText("playwright logo").click();
 ```
 
-:::note[When to use alt locators]
-Use this locator when your element supports alt text such as `img` and `area` elements.
+:::note[何時使用替代文字定位器]
+當你的元素支援替代文字（例如 `img` 與 `area` 元素）時使用本定位器。
 :::
 
-### Locate by title
+### 透過標題定位
 
-Locate an element with a matching title attribute using [Page.getByTitle()](/api/class-page.mdx#page-get-by-title).
+使用 [Page.getByTitle()](/api/class-page.mdx#page-get-by-title) 透過 title 屬性定位元素。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -277,21 +276,21 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can check the issues count after locating it by the title text:
+你可以先透過標題文字定位，然後檢查問題數量：
 
 ```java
 assertThat(page.getByTitle("Issues count")).hasText("25 issues");
 ```
 
-:::note[When to use title locators]
-Use this locator when your element has the `title` attribute.
+:::note[何時使用標題定位器]
+當你的元素具有 `title` 屬性時使用本定位器。
 :::
 
-### Locate by test id
+### 透過測試 ID 定位
 
-Testing by test ids is the most resilient way of testing as even if your text or role of the attribute changes, the test will still pass. QA's and developers should define explicit test ids and query them with [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id). However testing by test ids is not user facing. If the role or text value is important to you then consider using user facing locators such as [role](#locate-by-role) and [text locators](#locate-by-text).
+透過測試 ID 測試是最具韌性的方式，因為即使文字或屬性的角色改變，測試仍能通過。QA 與開發者應定義明確的測試 ID，並使用 [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 來查詢。不過以測試 ID 測試並非面向使用者；若角色或文字值對你很重要，請考慮使用[角色](#locate-by-role)或[文字定位器](#locate-by-text)等面向使用者的定位方式。
 
-For example, consider the following DOM structure.
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -303,27 +302,27 @@ For example, consider the following DOM structure.
 ```
 </HTMLCard>
 
-You can locate the element by its test id:
+你可以透過測試 ID 定位元素：
 
 ```java
 page.getByTestId("directions").click();
 ```
 
-:::note[When to use testid locators]
-You can also use test ids when you choose to use the test id methodology or when you can't locate by [role](#locate-by-role) or [text](#locate-by-text).
+:::note[何時使用測試 ID 定位器]
+當你採用測試 ID 方法論，或無法透過[角色](#locate-by-role)或[文字](#locate-by-text)定位時，也可以使用測試 ID。
 :::
 
-#### Set a custom test id attribute
+#### 設定自訂測試 ID 屬性
 
-By default, [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) will locate elements based on the `data-testid` attribute, but you can configure it in your test config or by calling [Selectors.setTestIdAttribute()](/api/class-selectors.mdx#selectors-set-test-id-attribute).
+預設情況下，[Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 會以 `data-testid` 屬性來定位元素，但你可以在測試設定中或透過呼叫 [Selectors.setTestIdAttribute()](/api/class-selectors.mdx#selectors-set-test-id-attribute) 來自訂。
 
-Set the test id to use a custom data attribute for your tests.
+設定以自訂的資料屬性作為測試 ID：
 
 ```java
 playwright.selectors().setTestIdAttribute("data-pw");
 ```
 
-In your html you can now use `data-pw` as your test id instead of the default `data-testid`.
+在你的 HTML 中，現在可以使用 `data-pw` 作為測試 ID，而非預設的 `data-testid`：
 
 <HTMLCard>
 <div>
@@ -335,15 +334,15 @@ In your html you can now use `data-pw` as your test id instead of the default `d
 ```
 </HTMLCard>
 
-And then locate the element as you would normally do:
+接著便可像平常一樣定位該元素：
 
 ```java
 page.getByTestId("directions").click();
 ```
 
-### Locate by CSS or XPath
+### 使用 CSS 或 XPath 定位
 
-If you absolutely must use CSS or XPath locators, you can use [Page.locator()](/api/class-page.mdx#page-locator) to create a locator that takes a selector describing how to find an element in the page. Playwright supports CSS and XPath selectors, and auto-detects them if you omit `css=` or `xpath=` prefix.
+若你確實必須使用 CSS 或 XPath 定位器，可以使用 [Page.locator()](/api/class-page.mdx#page-locator) 建立接受選擇器的定位器，描述如何在頁面中尋找元素。Playwright 支援 CSS 與 XPath 選擇器；若省略 `css=` 或 `xpath=` 前綴，會自動偵測選擇器類型。
 
 ```java
 page.locator("css=button").click();
@@ -353,7 +352,7 @@ page.locator("button").click();
 page.locator("//button").click();
 ```
 
-XPath and CSS selectors can be tied to the DOM structure or implementation. These selectors can break when the DOM structure changes. Long CSS or XPath chains below are an example of a **bad practice** that leads to unstable tests:
+XPath 與 CSS 選擇器常與 DOM 結構或實作緊密耦合，當 DOM 結構改變時，這些選擇器可能失效。下面這類冗長的 CSS 或 XPath 鏈結就是導致測試不穩定的「不良實務」：
 
 ```java
 page.locator(
@@ -363,17 +362,17 @@ page.locator(
 page.locator("//*[@id='tsf']/div[2]/div[1]/div[1]/div/div[2]/input").click();
 ```
 
-:::note[When to use this]
-CSS and XPath are not recommended as the DOM can often change leading to non resilient tests. Instead, try to come up with a locator that is close to how the user perceives the page such as [role locators](#locate-by-role) or [define an explicit testing contract](#locate-by-test-id) using test ids.
+:::note[何時使用此作法]
+不建議使用 CSS 與 XPath，因為 DOM 經常變更會導致測試不具韌性。請嘗試設計更貼近使用者感知的定位器，例如[角色定位器](#locate-by-role)，或使用測試 ID [定義明確的測試契約](#locate-by-test-id)。
 :::
 
-## Locate in Shadow DOM
+## 在 Shadow DOM 中定位
 
-All locators in Playwright **by default** work with elements in Shadow DOM. The exceptions are:
-- Locating by XPath does not pierce shadow roots.
-- [Closed-mode shadow roots](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#parameters) are not supported.
+Playwright 中的定位器預設即可作用於 Shadow DOM 中的元素。以下為例外情況：
+- 透過 XPath 定位不會穿透 shadow root。
+- 不支援 [Closed-mode shadow roots](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#parameters)。
 
-Consider the following example with a custom web component:
+考慮下列自訂 Web Component 範例：
 
 ```html
 <x-details role=button aria-expanded=true aria-controls=inner-details>
@@ -383,9 +382,9 @@ Consider the following example with a custom web component:
 </x-details>
 ```
 
-You can locate in the same way as if the shadow root was not present at all.
+你可以如同沒有 shadow root 一樣進行定位。
 
-To click `<div>Details</div>`:
+要點擊 `<div>Details</div>`：
 
 ```java
 page.getByText("Details").click();
@@ -399,7 +398,7 @@ page.getByText("Details").click();
 </x-details>
 ```
 
-To click `<x-details>`:
+要點擊 `<x-details>`：
 
 ```java
 page.locator("x-details", new Page.LocatorOptions().setHasText("Details"))
@@ -414,15 +413,15 @@ page.locator("x-details", new Page.LocatorOptions().setHasText("Details"))
 </x-details>
 ```
 
-To ensure that `<x-details>` contains the text "Details":
+要確保 `<x-details>` 包含文字 "Details"：
 
 ```java
 assertThat(page.locator("x-details")).containsText("Details");
 ```
 
-## Filtering Locators
+## 篩選定位器
 
-Consider the following DOM structure where we want to click on the buy button of the second product card. We have a few options in order to filter the locators to get the right one.
+考慮以下 DOM 結構：我們想點擊第二張產品卡的購買按鈕。可以用數種方式來篩選定位器，得到正確的那一個。
 
 <HTMLCard>
 <div>
@@ -452,9 +451,9 @@ Consider the following DOM structure where we want to click on the buy button of
 ```
 </HTMLCard>
 
-### Filter by text
+### 依文字篩選
 
-Locators can be filtered by text with the [Locator.filter()](/api/class-locator.mdx#locator-filter) method. It will search for a particular string somewhere inside the element, possibly in a descendant element, case-insensitively. You can also pass a regular expression.
+可使用 [Locator.filter()](/api/class-locator.mdx#locator-filter) 依文字篩選定位器。它會在元素內部（可能在後代元素中）搜尋特定字串，且不區分大小寫。也可傳入正規表示式。
 
 ```java
 page.getByRole(AriaRole.LISTITEM)
@@ -464,7 +463,7 @@ page.getByRole(AriaRole.LISTITEM)
     .click();
 ```
 
-Use a regular expression:
+使用正規表示式：
 
 ```java
 page.getByRole(AriaRole.LISTITEM)
@@ -475,9 +474,9 @@ page.getByRole(AriaRole.LISTITEM)
     .click();
 ```
 
-### Filter by not having text
+### 依「沒有某段文字」篩選
 
-Alternatively, filter by **not having** text:
+或是依「不包含」某段文字來篩選：
 
 ```java
 // 5 in-stock items
@@ -486,9 +485,9 @@ assertThat(page.getByRole(AriaRole.LISTITEM)
     .hasCount(5);
 ```
 
-### Filter by child/descendant
+### 依子/後代元素篩選
 
-Locators support an option to only select elements that have or have not a descendant matching another locator. You can therefore filter by any other locator such as a [Locator.getByRole()](/api/class-locator.mdx#locator-get-by-role), [Locator.getByTestId()](/api/class-locator.mdx#locator-get-by-test-id), [Locator.getByText()](/api/class-locator.mdx#locator-get-by-text) etc.
+定位器提供選項，僅選取擁有（或沒有）符合另一個定位器之後代的元素。因此你可以透過任一定位器來篩選，例如 [Locator.getByRole()](/api/class-locator.mdx#locator-get-by-role)、[Locator.getByTestId()](/api/class-locator.mdx#locator-get-by-test-id)、[Locator.getByText()](/api/class-locator.mdx#locator-get-by-text) 等。
 
 <HTMLCard>
 <div>
@@ -528,7 +527,7 @@ page.getByRole(AriaRole.LISTITEM)
     .click();
 ```
 
-We can also assert the product card to make sure there is only one:
+我們也能針對產品卡做斷言以確保只有一個：
 
 ```java
 assertThat(page
@@ -539,7 +538,7 @@ assertThat(page
     .hasCount(1);
 ```
 
-The filtering locator **must be relative** to the original locator and is queried starting with the original locator match, not the document root. Therefore, the following will not work, because the filtering locator starts matching from the `<ul>` list element that is outside of the `<li>` list item matched by the original locator:
+篩選用的定位器「必須」相對於原始定位器，並從原始定位器的配對開始查詢，而非從文件根節點開始。因此以下範例不會生效，因為篩選定位器從 `<ul>` 清單元素開始配對，該元素在原先 `<li>` 清單項目之外：
 
 ```java
 // ✖ WRONG
@@ -552,9 +551,9 @@ assertThat(page
     .hasCount(1);
 ```
 
-### Filter by not having child/descendant
+### 依「沒有子/後代元素」篩選
 
-We can also filter by **not having** a matching element inside.
+也可以依「沒有」內部匹配元素來篩選：
 
 ```java
 assertThat(page
@@ -563,15 +562,15 @@ assertThat(page
     .hasCount(1);
 ```
 
-Note that the inner locator is matched starting from the outer one, not from the document root.
+請注意，內部定位器是從外部定位器開始配對，而非從文件根節點。
 
-## Locator operators
+## 定位器運算元
 
-### Matching inside a locator
+### 在定位器內部比對
 
-You can chain methods that create a locator, like [Page.getByText()](/api/class-page.mdx#page-get-by-text) or [Locator.getByRole()](/api/class-locator.mdx#locator-get-by-role), to narrow down the search to a particular part of the page.
+你可以串接會建立定位器的方法，例如 [Page.getByText()](/api/class-page.mdx#page-get-by-text) 或 [Locator.getByRole()](/api/class-locator.mdx#locator-get-by-role)，以將搜尋範圍縮小到頁面的特定部分。
 
-In this example we first create a locator called product by locating its role of `listitem`. We then filter by text. We can use the product locator again to get by role of button and click it and then use an assertion to make sure there is only one product with the text "Product 2".
+以下範例中，我們先以 `listitem` 角色建立名為 product 的定位器，然後依文字篩選。之後再用這個 product 定位器取得按鈕角色並點擊，最後以斷言確保只剩一個包含文字「Product 2」的產品：
 
 ```java
 Locator product = page
@@ -584,7 +583,7 @@ product
     .click();
 ```
 
-You can also chain two locators together, for example to find a "Save" button inside a particular dialog:
+你也可以將兩個定位器串接，例如在特定對話框中尋找「Save」按鈕：
 
 ```java
 Locator saveButton = page.getByRole(AriaRole.BUTTON,
@@ -594,23 +593,22 @@ Locator dialog = page.getByTestId("settings-dialog");
 dialog.locator(saveButton).click();
 ```
 
-### Matching two locators simultaneously
+### 同時比對兩個定位器
 
-Method [Locator.and()](/api/class-locator.mdx#locator-and) narrows down an existing locator by matching an additional locator. For example, you can combine [Page.getByRole()](/api/class-page.mdx#page-get-by-role) and [Page.getByTitle()](/api/class-page.mdx#page-get-by-title) to match by both role and title.
+[Locator.and()](/api/class-locator.mdx#locator-and) 會藉由再匹配一個定位器來縮小既有定位器的範圍。例如可以結合 [Page.getByRole()](/api/class-page.mdx#page-get-by-role) 與 [Page.getByTitle()](/api/class-page.mdx#page-get-by-title)，同時依角色與標題比對。
 
 ```java
 Locator button = page.getByRole(AriaRole.BUTTON).and(page.getByTitle("Subscribe"));
 ```
 
-### Matching one of the two alternative locators
+### 在多個候選定位器中擇一比對
 
-If you'd like to target one of the two or more elements, and you don't know which one it will be, use [Locator.or()](/api/class-locator.mdx#locator-or) to create a locator that matches any one or both of the alternatives.
+若你要鎖定兩個或以上元素其中之一，但不確定會是哪一個，可用 [Locator.or()](/api/class-locator.mdx#locator-or) 建立可比對任一（或兩者）替代方案的定位器。
 
-For example, consider a scenario where you'd like to click on a "New email" button, but sometimes a security settings dialog shows up instead. In this case, you can wait for either a "New email" button, or a dialog and act accordingly.
+例如，想點擊「New email」按鈕，但有時會出現安全性設定對話框。此時可以等待「New email」按鈕或對話框，並依情況採取行動。
 
 :::note
-
-If both "New email" button and security dialog appear on screen, the "or" locator will match both of them, possibly throwing the ["strict mode violation" error](#strictness). In this case, you can use [Locator.first()](/api/class-locator.mdx#locator-first) to only match one of them.
+若「New email」按鈕與安全性對話框同時出現，「or」定位器會同時比對兩者，可能會拋出[嚴格模式違規](#strictness)錯誤。此時可改用 [Locator.first()](/api/class-locator.mdx#locator-first) 只比對其中一個。
 :::
 
 ```java
@@ -622,39 +620,38 @@ if (dialog.isVisible())
 newEmail.click();
 ```
 
-### Matching only visible elements
+### 只比對可見元素
 
 :::note
-
-It's usually better to find a [more reliable way](./locators.mdx#quick-guide) to uniquely identify the element instead of checking the visibility.
+通常更好的做法是找出[更可靠](./locators.mdx#quick-guide)且能唯一識別該元素的方式，而不是檢查可見性。
 :::
 
-Consider a page with two buttons, the first invisible and the second [visible](./actionability.mdx#visible).
+考慮一個頁面有兩個按鈕，第一個不可見，第二個為[可見](./actionability.mdx#visible)：
 
 ```html
 <button style='display: none'>Invisible</button>
 <button>Visible</button>
 ```
 
-* This will find both buttons and throw a [strictness](./locators.mdx#strictness) violation error:
-  
+- 以下會同時找到兩個按鈕並拋出[嚴格性](./locators.mdx#strictness)違規錯誤：
+
   ```java
   page.locator("button").click();
   ```
   
-* This will only find a second button, because it is visible, and then click it.
+- 以下只會找到第二個（因為它是可見的），然後點擊它：
   
   ```java
-  page.locator("button").filter(new Locator.FilterOptions.setVisible(true)).click();
+  page.locator("button").filter(new Locator.FilterOptions().setVisible(true)).click();
   ```
   
-## Lists
+## 清單（Lists）
 
-### Count items in a list
+### 計算清單中的項目數
 
-You can assert locators in order to count the items in a list.
+你可以對定位器進行斷言以計算清單中的項目數量。
 
-For example, consider the following DOM structure:
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -674,17 +671,17 @@ For example, consider the following DOM structure:
 ```
 </HTMLCard>
 
-Use the count assertion to ensure that the list has 3 items.
+使用數量斷言確認清單有 3 個項目：
 
 ```java
 assertThat(page.getByRole(AriaRole.LISTITEM)).hasCount(3);
 ```
 
-### Assert all text in a list
+### 斷言清單中所有文字
 
-You can assert locators in order to find all the text in a list.
+你可以對定位器進行斷言以找出清單中的所有文字。
 
-For example, consider the following DOM structure:
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -704,7 +701,7 @@ For example, consider the following DOM structure:
 ```
 </HTMLCard>
 
-Use [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) to ensure that the list has the text "apple", "banana" and "orange".
+使用 [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 確保清單包含「apple」、「banana」與「orange」：
 
 ```java
 assertThat(page
@@ -712,15 +709,15 @@ assertThat(page
     .hasText(new String[] { "apple", "banana", "orange" });
 ```
 
-### Get a specific item
+### 取得特定項目
 
-There are many ways to get a specific item in a list.
+有許多方法可以取得清單中的特定項目。
 
-#### Get by text
+#### 透過文字取得
 
-Use the [Page.getByText()](/api/class-page.mdx#page-get-by-text) method to locate an element in a list by its text content and then click on it.
+使用 [Page.getByText()](/api/class-page.mdx#page-get-by-text) 依文字內容定位清單中的元素，然後點擊它。
 
-For example, consider the following DOM structure:
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -740,17 +737,17 @@ For example, consider the following DOM structure:
 ```
 </HTMLCard>
 
-Locate an item by its text content and click it.
+依文字內容定位並點擊：
 
 ```java
 page.getByText("orange").click();
 ```
 
-#### Filter by text
+#### 依文字篩選
 
-Use the [Locator.filter()](/api/class-locator.mdx#locator-filter) to locate a specific item in a list.
+使用 [Locator.filter()](/api/class-locator.mdx#locator-filter) 來定位清單中的特定項目。
 
-For example, consider the following DOM structure:
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -770,7 +767,7 @@ For example, consider the following DOM structure:
 ```
 </HTMLCard>
 
-Locate an item by the role of "listitem" and then filter by the text of "orange" and then click it.
+先以「listitem」角色定位項目，再依文字「orange」篩選並點擊：
 
 ```java
 page.getByRole(AriaRole.LISTITEM)
@@ -778,11 +775,11 @@ page.getByRole(AriaRole.LISTITEM)
     .click();
 ```
 
-#### Get by test id
+#### 透過測試 ID 取得
 
-Use the [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) method to locate an element in a list. You may need to modify the html and add a test id if you don't already have a test id.
+使用 [Page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 來定位清單中的元素。若你尚未有測試 ID，可能需要修改 HTML 來加入。
 
-For example, consider the following DOM structure:
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -802,27 +799,27 @@ For example, consider the following DOM structure:
 ```
 </HTMLCard>
 
-Locate an item by its test id of "orange" and then click it.
+以測試 ID「orange」定位並點擊：
 
 ```java
 page.getByTestId("orange").click();
 ```
 
-#### Get by nth item
+#### 透過序號取得第 N 個
 
-If you have a list of identical elements, and the only way to distinguish between them is the order, you can choose a specific element from a list with [Locator.first()](/api/class-locator.mdx#locator-first), [Locator.last()](/api/class-locator.mdx#locator-last) or [Locator.nth()](/api/class-locator.mdx#locator-nth).
+若你有一份相同元素的清單，而且唯一可區分的方式是順序，可以用 [Locator.first()](/api/class-locator.mdx#locator-first)、[Locator.last()](/api/class-locator.mdx#locator-last) 或 [Locator.nth()](/api/class-locator.mdx#locator-nth) 選取特定元素。
 
 ```java
 Locator banana = page.getByRole(AriaRole.LISTITEM).nth(1);
 ```
 
-However, use this method with caution. Often times, the page might change, and the locator will point to a completely different element from the one you expected. Instead, try to come up with a unique locator that will pass the [strictness criteria](#strictness).
+然而此法需謹慎使用。頁面經常會改變，定位器可能會指向與預期完全不同的元素。建議改為設計能通過[嚴格性條件](#strictness)的唯一定位器。
 
-### Chaining filters
+### 串接多重篩選
 
-When you have elements with various similarities, you can use the [Locator.filter()](/api/class-locator.mdx#locator-filter) method to select the right one. You can also chain multiple filters to narrow down the selection.
+當元素之間同時具有各種相似性時，可使用 [Locator.filter()](/api/class-locator.mdx#locator-filter) 來選出正確元素，並可串接多個篩選器以縮小選取範圍。
 
-For example, consider the following DOM structure:
+例如，考慮以下 DOM 結構：
 
 <HTMLCard>
 <div>
@@ -868,7 +865,7 @@ For example, consider the following DOM structure:
 ```
 </HTMLCard>
 
-To take a screenshot of the row with "Mary" and "Say goodbye":
+擷取同時包含「Mary」與「Say goodbye」的那一列螢幕截圖：
 
 ```java
 Locator rowLocator = page.getByRole(AriaRole.LISTITEM);
@@ -882,20 +879,20 @@ rowLocator
     .screenshot(new Page.ScreenshotOptions().setPath("screenshot.png"));
 ```
 
-You should now have a "screenshot.png" file in your project's root directory.
+現在你的專案根目錄中應該會有一個 "screenshot.png" 檔案。
 
-### Rare use cases
+### 罕見使用情境
 
-#### Do something with each element in the list
+#### 對清單中每個元素做些事情
 
-Iterate elements:
+遍歷元素：
 
 ```java
 for (Locator row : page.getByRole(AriaRole.LISTITEM).all())
   System.out.println(row.textContent());
 ```
 
-Iterate using regular for loop:
+使用一般 for 迴圈遍歷：
 
 ```java
 Locator rows = page.getByRole(AriaRole.LISTITEM);
@@ -904,9 +901,9 @@ for (int i = 0; i < count; ++i)
   System.out.println(rows.nth(i).textContent());
 ```
 
-#### Evaluate in the page
+#### 在頁面中執行評估
 
-The code inside [Locator.evaluateAll()](/api/class-locator.mdx#locator-evaluate-all) runs in the page, you can call any DOM apis there.
+[Locator.evaluateAll()](/api/class-locator.mdx#locator-evaluate-all) 內的程式碼會在頁面中執行，你可以在那裡呼叫任何 DOM API。
 
 ```java
 Locator rows = page.getByRole(AriaRole.LISTITEM);
@@ -914,29 +911,29 @@ Object texts = rows.evaluateAll(
     "list => list.map(element => element.textContent)");
 ```
 
-## Strictness
+## 嚴格性（Strictness）
 
-Locators are strict. This means that all operations on locators that imply some target DOM element will throw an exception if more than one element matches. For example, the following call throws if there are several buttons in the DOM:
+定位器具備嚴格性。也就是說，所有需要對應到目標 DOM 元素的定位器操作，若有多個元素符合就會拋出例外。例如，若 DOM 中有數個按鈕，下列呼叫會拋出例外：
 
-#### Throws an error if more than one
+#### 當符合多個元素時會拋出錯誤
 
 ```java
 page.getByRole(AriaRole.BUTTON).click();
 ```
 
-On the other hand, Playwright understands when you perform a multiple-element operation, so the following call works perfectly fine when the locator resolves to multiple elements.
+另一方面，Playwright 能理解你執行的是多元素操作，因此當定位器解析為多個元素時，以下呼叫完全沒有問題：
 
-#### Works fine with multiple elements
+#### 可在多元素情況下正常運作
 
 ```java
 page.getByRole(AriaRole.BUTTON).count();
 ```
 
-You can explicitly opt-out from strictness check by telling Playwright which element to use when multiple elements match, through [Locator.first()](/api/class-locator.mdx#locator-first), [Locator.last()](/api/class-locator.mdx#locator-last), and [Locator.nth()](/api/class-locator.mdx#locator-nth). These methods are **not recommended** because when your page changes, Playwright may click on an element you did not intend. Instead, follow best practices above to create a locator that uniquely identifies the target element.
+你可以明確地跳過嚴格性檢查，透過 [Locator.first()](/api/class-locator.mdx#locator-first)、[Locator.last()](/api/class-locator.mdx#locator-last) 與 [Locator.nth()](/api/class-locator.mdx#locator-nth) 指示 Playwright 在多個元素符合時要使用哪一個。這些方法「不建議」使用，因為當頁面變更時，Playwright 可能會點擊非預期元素。建議遵循上方最佳實務，建立能唯一識別目標元素的定位器。
 
-## More Locators
+## 更多定位器
 
-For less commonly used locators, look at the [other locators](./other-locators.mdx) guide.
+較少使用的定位器請參考[其它定位器](./other-locators.mdx)指南。
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"
