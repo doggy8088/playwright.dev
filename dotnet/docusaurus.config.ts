@@ -208,7 +208,7 @@ export default {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Microsoft | 正體中文翻譯由 <a href="https://www.duotify.com">Will</a> 提供`,
+      copyright: `Copyright © ${new Date().getFullYear()} Microsoft | 正體中文翻譯由 <a href="https://www.duotify.com">Will 保哥</a> 提供`,
     },
     algolia: {
       indexName: 'playwright-dotnet',
