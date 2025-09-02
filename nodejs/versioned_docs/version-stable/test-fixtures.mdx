@@ -446,7 +446,7 @@ export const test = base.extend<{ saveLogs: void }>({
 export { expect } from '@playwright/test';
 ```
 
-## 佈置逾時
+## 佈置逾時 (Fixture timeout)
 
 預設情況下，佈置繼承測試的逾時值。但是，對於緩慢的佈置，特別是[工作程序範圍](#worker-scoped-fixtures)的佈置，有一個單獨的逾時很方便。這樣您可以保持整體測試逾時較小，並給緩慢的佈置更多時間。
 
@@ -465,7 +465,7 @@ test('example test', async ({ slowFixture }) => {
 });
 ```
 
-## 佈置選項
+## 佈置 (Fixtures)選項
 
 Playwright Test 支援執行可以分別組態設定的多個測試專案。您可以使用「選項」佈置使您的組態設定選項具有宣告性和型別安全性。了解更多關於[參數化測試](./test-parameterize.mdx)。
 

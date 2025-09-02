@@ -9,9 +9,9 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ## 簡介
 
-Playwright Java 不是執行緒安全的，也就是說它的所有方法，以及由它創建的所有物件（如 [`BrowserContext`]、[`Browser`]、[`Page`] 等）上的方法，都應該在創建 Playwright 物件的同一個執行緒上呼叫，或者應該實作適當的同步化機制，以確保在任何給定時間內只有一個執行緒呼叫 Playwright 方法。話雖如此，在各自的執行緒上創建多個 Playwright 執行個體是可以的。
+Playwright Java 不是執行緒安全的，也就是說它的所有方法，以及由它建立的所有物件（如 [`BrowserContext`]、[`Browser`]、[`Page`] 等）上的方法，都應該在建立 Playwright 物件的同一個執行緒上呼叫，或者應該實作適當的同步化機制，以確保在任何給定時間內只有一個執行緒呼叫 Playwright 方法。話雖如此，在各自的執行緒上建立多個 Playwright 執行個體是可以的。
 
-以下是一個範例，其中三個 playwright 執行個體分別在各自的執行緒上創建。每個執行個體啟動自己的瀏覽器程序並對其執行測試。
+以下是一個範例，其中三個 playwright 執行個體分別在各自的執行緒上建立。每個執行個體啟動自己的瀏覽器程序並對其執行測試。
 
 ```java
 package org.example;
@@ -30,7 +30,7 @@ public class PlaywrightThread extends Thread {
   }
 
   public static void main(String[] args) throws InterruptedException {
-    // 為每個瀏覽器創建單獨的 playwright 執行緒。
+    // 為每個瀏覽器建立單獨的 playwright 執行緒。
     for (String browserName: asList("chromium", "webkit", "firefox")) {
       Thread thread = new PlaywrightThread(browserName);
       thread.start();
