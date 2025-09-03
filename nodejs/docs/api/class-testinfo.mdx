@@ -22,7 +22,7 @@ test('basic test', async ({ page }, testInfo) => {
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### attach {#test-info-attach}
 
@@ -58,14 +58,14 @@ test('basic test', async ({}, testInfo) => {
 [testInfo.attach()](/api/class-testinfo.mdx#test-info-attach) automatically takes care of copying attached files to a location that is accessible to reporters. You can safely remove the attachment after awaiting the attach call.
 :::
 
-**使用方式**
+**Usage**
 
 ```js
 await testInfo.attach(name);
 await testInfo.attach(name, options);
 ```
 
-**參數**
+**Arguments**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-attach-option-name"/><a href="#test-info-attach-option-name" class="list-anchor">#</a>
   
   Attachment name. The name will also be sanitized and used as the prefix of file name when saving to disk.
@@ -80,7 +80,7 @@ await testInfo.attach(name, options);
     
     Path on the filesystem to the attached file. Mutually exclusive with [body](/api/class-testinfo.mdx#test-info-attach-option-body).
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-attach-return"/><a href="#test-info-attach-return" class="list-anchor">#</a>
 
 ---
@@ -91,7 +91,7 @@ await testInfo.attach(name, options);
 
 Marks the currently running test as "should fail". Playwright Test runs this test and ensures that it is actually failing. This is useful for documentation purposes to acknowledge that some functionality is broken until it is fixed. This is similar to [test.fail()](/api/class-test.mdx#test-fail).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.fail();
@@ -105,14 +105,14 @@ testInfo.fail();
 
 Conditionally mark the currently running test as "should fail" with an optional description. This is similar to [test.fail()](/api/class-test.mdx#test-fail).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.fail(condition);
 testInfo.fail(condition, description);
 ```
 
-**參數**
+**Arguments**
 - `condition` [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-fail-2-option-condition"/><a href="#test-info-fail-2-option-condition" class="list-anchor">#</a>
   
   Test is marked as "should fail" when the condition is `true`.
@@ -128,7 +128,7 @@ testInfo.fail(condition, description);
 
 Mark a test as "fixme", with the intention to fix it. Test is immediately aborted. This is similar to [test.fixme()](/api/class-test.mdx#test-fixme).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.fixme();
@@ -142,14 +142,14 @@ testInfo.fixme();
 
 Conditionally mark the currently running test as "fixme" with an optional description. This is similar to [test.fixme()](/api/class-test.mdx#test-fixme).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.fixme(condition);
 testInfo.fixme(condition, description);
 ```
 
-**參數**
+**Arguments**
 - `condition` [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-fixme-2-option-condition"/><a href="#test-info-fixme-2-option-condition" class="list-anchor">#</a>
   
   Test is marked as "fixme" when the condition is `true`.
@@ -178,18 +178,18 @@ test('example test', async ({}, testInfo) => {
 > Note that `pathSegments` accepts path segments to the test output directory such as `testInfo.outputPath('relative', 'path', 'to', 'output')`.
 > However, this path must stay within the [testInfo.outputDir](/api/class-testinfo.mdx#test-info-output-dir) directory for each test (i.e. `test-results/a-test-title`), otherwise it will throw.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.outputPath(...pathSegments);
 ```
 
-**參數**
+**Arguments**
 - `...pathSegments` [Array]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-output-path-option-path-segments"/><a href="#test-info-output-path-option-path-segments" class="list-anchor">#</a>
   
   Path segments to append at the end of the resulting path.
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-output-path-return"/><a href="#test-info-output-path-return" class="list-anchor">#</a>
 
 ---
@@ -211,13 +211,13 @@ test.beforeEach(async ({ page }, testInfo) => {
 });
 ```
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.setTimeout(timeout);
 ```
 
-**參數**
+**Arguments**
 - `timeout` [number]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-set-timeout-option-timeout"/><a href="#test-info-set-timeout-option-timeout" class="list-anchor">#</a>
   
   Timeout in milliseconds.
@@ -230,7 +230,7 @@ testInfo.setTimeout(timeout);
 
 Unconditionally skip the currently running test. Test is immediately aborted. This is similar to [test.skip()](/api/class-test.mdx#test-skip).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.skip();
@@ -244,14 +244,14 @@ testInfo.skip();
 
 Conditionally skips the currently running test with an optional description. This is similar to [test.skip()](/api/class-test.mdx#test-skip).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.skip(condition);
 testInfo.skip(condition, description);
 ```
 
-**參數**
+**Arguments**
 - `condition` [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-skip-2-option-condition"/><a href="#test-info-skip-2-option-condition" class="list-anchor">#</a>
   
   A skip condition. Test is skipped when the condition is `true`.
@@ -267,7 +267,7 @@ testInfo.skip(condition, description);
 
 Marks the currently running test as "slow", giving it triple the default timeout. This is similar to [test.slow()](/api/class-test.mdx#test-slow).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.slow();
@@ -281,14 +281,14 @@ testInfo.slow();
 
 Conditionally mark the currently running test as "slow" with an optional description, giving it triple the default timeout. This is similar to [test.slow()](/api/class-test.mdx#test-slow).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.slow(condition);
 testInfo.slow(condition, description);
 ```
 
-**參數**
+**Arguments**
 - `condition` [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-slow-2-option-condition"/><a href="#test-info-slow-2-option-condition" class="list-anchor">#</a>
   
   Test is marked as "slow" when the condition is `true`.
@@ -307,7 +307,7 @@ Returns a path to a snapshot file with the given `name`. Pass [kind](/api/class-
 * `kind: 'aria'` for [expect(locator).toMatchAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot);
 * `kind: 'snapshot'` for [expect(value).toMatchSnapshot()](/api/class-snapshotassertions.mdx#snapshot-assertions-to-match-snapshot-1).
 
-**使用方式**
+**Usage**
 
 ```js
 await expect(page).toHaveScreenshot('header.png');
@@ -327,7 +327,7 @@ expect('some text').toMatchSnapshot(['dir', 'subdir', 'snapshot.txt']);
 const nestedPath = test.info().snapshotPath('dir', 'subdir', 'snapshot.txt');
 ```
 
-**參數**
+**Arguments**
 - `...name` [Array]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-snapshot-path-option-name"/><a href="#test-info-snapshot-path-option-name" class="list-anchor">#</a>
   
   The name of the snapshot or the path segments to define the snapshot file path. Snapshots with the same name in the same test file are expected to be the same.
@@ -338,12 +338,12 @@ const nestedPath = test.info().snapshotPath('dir', 'subdir', 'snapshot.txt');
     
     The snapshot kind controls which snapshot path template is used. See [testConfig.snapshotPathTemplate](/api/class-testconfig.mdx#test-config-snapshot-path-template) for more details. Defaults to `'snapshot'`.
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-info-snapshot-path-return"/><a href="#test-info-snapshot-path-return" class="list-anchor">#</a>
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### annotations {#test-info-annotations}
 
@@ -353,13 +353,13 @@ The list of annotations applicable to the current test. Includes annotations fro
 
 Learn more about [test annotations](../test-annotations.mdx).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.annotations
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[Object]&gt;
   - `type` [string]
     
@@ -381,13 +381,13 @@ The list of files or buffers attached to the current test. Some reporters show t
 
 To add an attachment, use [testInfo.attach()](/api/class-testinfo.mdx#test-info-attach) instead of directly pushing onto this array.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.attachments
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[Object]&gt;
   - `name` [string]
     
@@ -410,13 +410,13 @@ testInfo.attachments
 
 Column number where the currently running test is declared.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.column
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -427,13 +427,13 @@ testInfo.column
 
 Processed configuration from the [configuration file](../test-configuration.mdx).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.config
 ```
 
-**型別 (Type)**
+**Type**
 - [FullConfig]
 
 ---
@@ -444,13 +444,13 @@ testInfo.config
 
 The number of milliseconds the test took to finish. Always zero before the test finishes, either successfully or not. Can be used in [test.afterEach()](/api/class-test.mdx#test-after-each) hook.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.duration
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -461,13 +461,13 @@ testInfo.duration
 
 First error thrown during test execution, if any. This is equal to the first element in [testInfo.errors](/api/class-testinfo.mdx#test-info-errors).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.error
 ```
 
-**型別 (Type)**
+**Type**
 - [TestInfoError]
 
 ---
@@ -478,13 +478,13 @@ testInfo.error
 
 Errors thrown during test execution, if any.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.errors
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[TestInfoError]&gt;
 
 ---
@@ -508,13 +508,13 @@ test.afterEach(async ({}, testInfo) => {
 });
 ```
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.expectedStatus
 ```
 
-**型別 (Type)**
+**Type**
 - "passed" | "failed" | "timedOut" | "skipped" | "interrupted"
 
 ---
@@ -525,13 +525,13 @@ testInfo.expectedStatus
 
 Absolute path to a file where the currently running test is declared.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.file
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -542,13 +542,13 @@ testInfo.file
 
 Test function as passed to `test(title, testFunction)`.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.fn
 ```
 
-**型別 (Type)**
+**Type**
 - [function]
 
 ---
@@ -559,13 +559,13 @@ testInfo.fn
 
 Line number where the currently running test is declared.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.line
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -576,13 +576,13 @@ testInfo.line
 
 Absolute path to the output directory for this specific test run. Each test run gets its own directory so they cannot conflict.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.outputDir
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -595,13 +595,13 @@ The index of the worker between `0` and `workers - 1`. It is guaranteed that wor
 
 Also available as `process.env.TEST_PARALLEL_INDEX`. Learn more about [parallelism and sharding](../test-parallel.mdx) with Playwright Test.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.parallelIndex
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -612,13 +612,13 @@ testInfo.parallelIndex
 
 Processed project configuration from the [configuration file](../test-configuration.mdx).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.project
 ```
 
-**型別 (Type)**
+**Type**
 - [FullProject]
 
 ---
@@ -629,13 +629,13 @@ testInfo.project
 
 Specifies a unique repeat index when running in "repeat each" mode. This mode is enabled by passing `--repeat-each` to the [command line](../test-cli.mdx).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.repeatEachIndex
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -663,13 +663,13 @@ test('my test', async ({ page }, testInfo) => {
 });
 ```
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.retry
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -682,13 +682,13 @@ Absolute path to the snapshot output directory for this specific test. Each test
 
 This property does not account for the [testProject.snapshotPathTemplate](/api/class-testproject.mdx#test-project-snapshot-path-template) configuration.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.snapshotDir
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -704,13 +704,13 @@ Use of [testInfo.snapshotSuffix](/api/class-testinfo.mdx#test-info-snapshot-suff
 
 Suffix used to differentiate snapshots between multiple test configurations. For example, if snapshots depend on the platform, you can set `testInfo.snapshotSuffix` equal to `process.platform`. In this case `expect(value).toMatchSnapshot(snapshotName)` will use different snapshots depending on the platform. Learn more about [snapshots](../test-snapshots.mdx).
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.snapshotSuffix
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -732,13 +732,13 @@ test.afterEach(async ({}, testInfo) => {
 });
 ```
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.status
 ```
 
-**型別 (Type)**
+**Type**
 - "passed" | "failed" | "timedOut" | "skipped" | "interrupted"
 
 ---
@@ -754,13 +754,13 @@ Tags that apply to the test. Learn more about [tags](../test-annotations.mdx#tag
 Any changes made to this list while the test is running will not be visible to test reporters.
 :::
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.tags
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[string]&gt;
 
 ---
@@ -771,13 +771,13 @@ testInfo.tags
 
 Test id matching the test case id in the reporter API.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.testId
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -799,13 +799,13 @@ test.beforeEach(async ({ page }, testInfo) => {
 });
 ```
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.timeout
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -816,13 +816,13 @@ testInfo.timeout
 
 The title of the currently running test as passed to `test(title, testFunction)`.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.title
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -833,13 +833,13 @@ testInfo.title
 
 The full title path starting with the test file name.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.titlePath
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[string]&gt;
 
 ---
@@ -852,13 +852,13 @@ The unique index of the worker process that is running the test. When a worker i
 
 Also available as `process.env.TEST_WORKER_INDEX`. Learn more about [parallelism and sharding](../test-parallel.mdx) with Playwright Test.
 
-**使用方式**
+**Usage**
 
 ```js
 testInfo.workerIndex
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 

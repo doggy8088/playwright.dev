@@ -1,21 +1,21 @@
 ---
 id: mock-browser-apis
-title: "模擬瀏覽器 API"
+title: "Mock browser APIs"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 對大部分瀏覽器功能提供原生支援。然而，有些實驗性 API 和尚未被所有瀏覽器完全支援的 API。在這些情況下，Playwright 通常不提供專門的自動化 API。您可以使用模擬來測試應用程式在這些情況下的行為。本指南提供一些範例。
+Playwright provides native support for most of the browser features. However, there are some experimental APIs and APIs which are not (yet) fully supported by all browsers. Playwright usually doesn't provide dedicated automation APIs in such cases. You can use mocks to test the behavior of your application in such cases. This guide gives a few examples.
 
-讓我們考慮一個使用 [battery API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery) 來顯示裝置電池狀態的網頁應用程式。我們將模擬電池 API 並檢查頁面是否正確顯示電池狀態。
+Let's consider a web app that uses [battery API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery) to show your device's battery status. We'll mock the battery API and check that the page correctly displays the battery status.
 
-## 建立模擬
+## Creating mocks
 
-由於頁面可能在載入時很早就呼叫 API，因此在頁面開始載入之前設定所有模擬是很重要的。最簡單的方法是呼叫 [`page.addInitScript()`](/api/class-page.mdx#page-add-init-script)：
+Since the page may be calling the API very early while loading it's important to setup all the mocks before the page started loading. The easiest way to achieve that is to call [page.addInitScript()](/api/class-page.mdx#page-add-init-script):
 
 ```js
 await page.addInitScript(() => {
@@ -26,25 +26,25 @@ await page.addInitScript(() => {
     dischargingTime: Infinity,
     addEventListener: () => { }
   };
-  // 覆寫方法，始終回傳模擬電池資訊。
+  // Override the method to always return mock battery info.
   window.navigator.getBattery = async () => mockBattery;
 });
 ```
 
-完成此設定後，您就可以導航頁面並檢查其 UI 狀態：
+Once this is done you can navigate the page and check its UI state:
 
 ```js
-// 在每個測試之前設定模擬 API。
+// Configure mock API before each test.
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
     const mockBattery = {
       level: 0.90,
       charging: true,
-      chargingTime: 1800, // 秒
+      chargingTime: 1800, // seconds
       dischargingTime: Infinity,
       addEventListener: () => { }
     };
-    // 覆寫方法，始終回傳模擬電池資訊。
+    // Override the method to always return mock battery info.
     window.navigator.getBattery = async () => mockBattery;
   });
 });
@@ -58,16 +58,16 @@ test('show battery status', async ({ page }) => {
 
 ```
 
-## 模擬唯讀 API
+## Mocking read-only APIs
 
-有些 API 是唯讀的，因此您無法指派給 navigator 屬性。例如，
+Some APIs are read-only so you won't be able to assign to a navigator property. For example,
 
 ```js
-// 以下程式碼沒有效果。
+// Following line will have no effect.
 navigator.cookieEnabled = true;
 ```
 
-然而，如果屬性是 [configurable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#configurable)，您仍然可以使用純 JavaScript 來覆寫它：
+However, if the property is [configurable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#configurable), you can still override it using the plain JavaScript:
 
 ```js
 await page.addInitScript(() => {
@@ -75,14 +75,14 @@ await page.addInitScript(() => {
 });
 ```
 
-## 驗證 API 呼叫
+## Verifying API calls
 
-有時檢查頁面是否進行了所有預期的 API 呼叫是很有用的。您可以記錄所有 API 方法呼叫，然後與黃金結果進行比較。[`page.exposeFunction()`](/api/class-page.mdx#page-expose-function) 可能有助於將訊息從頁面傳回到測試程式碼：
+Sometimes it is useful to check if the page made all expected APIs calls. You can record all API method invocations and then compare them with golden result. [page.exposeFunction()](/api/class-page.mdx#page-expose-function) may come in handy for passing message from the page back to the test code:
 
 ```js
 test('log battery calls', async ({ page }) => {
   const log = [];
-  // 公開函式，用於將訊息推送到 Node.js 指令碼。
+  // Expose function for pushing messages to the Node.js script.
   await page.exposeFunction('logCall', msg => log.push(msg));
   await page.addInitScript(() => {
     const mockBattery = {
@@ -90,10 +90,10 @@ test('log battery calls', async ({ page }) => {
       charging: true,
       chargingTime: 1800,
       dischargingTime: Infinity,
-      // 記錄 addEventListener 呼叫。
+      // Log addEventListener calls.
       addEventListener: (name, cb) => logCall(`addEventListener:${name}`)
     };
-    // 覆寫方法，始終回傳模擬電池資訊。
+    // Override the method to always return mock battery info.
     window.navigator.getBattery = async () => {
       logCall('getBattery');
       return mockBattery;
@@ -103,7 +103,7 @@ test('log battery calls', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.battery-percentage')).toHaveText('75%');
 
-  // 將實際呼叫與黃金結果進行比較。
+  // Compare actual calls with golden.
   expect(log).toEqual([
     'getBattery',
     'addEventListener:chargingchange',
@@ -112,14 +112,14 @@ test('log battery calls', async ({ page }) => {
 });
 ```
 
-## 更新模擬
+## Updating mock
 
-為了測試應用程式是否正確反映電池狀態更新，確保模擬電池物件觸發與瀏覽器實作相同的事件是很重要的。以下測試展示如何達成這個目標：
+To test that the app correctly reflects battery status updates it's important to make sure that the mock battery object fires same events that the browser implementation would. The following test demonstrates how to achieve that:
 
 ```js
 test('update battery status (no golden)', async ({ page }) => {
   await page.addInitScript(() => {
-    // 當電池狀態變更時通知對應監聽器的模擬類別。
+    // Mock class that will notify corresponding listeners when battery status changes.
     class BatteryMock {
       level = 0.10;
       charging = false;
@@ -133,7 +133,7 @@ test('update battery status (no golden)', async ({ page }) => {
         if (eventName === 'levelchange')
           this._levelListeners.push(listener);
       }
-      // 將由測試呼叫。
+      // Will be called by the test.
       _setLevel(value) {
         this.level = value;
         this._levelListeners.forEach(cb => cb());
@@ -144,21 +144,21 @@ test('update battery status (no golden)', async ({ page }) => {
       }
     }
     const mockBattery = new BatteryMock();
-    // 覆寫方法，始終回傳模擬電池資訊。
+    // Override the method to always return mock battery info.
     window.navigator.getBattery = async () => mockBattery;
-    // 將模擬物件儲存在 window 上以便更容易存取。
+    // Save the mock object on window for easier access.
     window.mockBattery = mockBattery;
   });
 
   await page.goto('/');
   await expect(page.locator('.battery-percentage')).toHaveText('10%');
 
-  // 將等級更新為 27.5%
+  // Update level to 27.5%
   await page.evaluate(() => window.mockBattery._setLevel(0.275));
   await expect(page.locator('.battery-percentage')).toHaveText('27.5%');
   await expect(page.locator('.battery-status')).toHaveText('Battery');
 
-  // 模擬連接配接器
+  // Emulate connected adapter
   await page.evaluate(() => window.mockBattery._setCharging(true));
   await expect(page.locator('.battery-status')).toHaveText('Adapter');
   await expect(page.locator('.battery-fully')).toHaveText('00:30');

@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### close {#android-socket-close}
 
@@ -21,13 +21,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 Closes the socket.
 
-**使用方式**
+**Usage**
 
 ```js
 await androidSocket.close();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-socket-close-return"/><a href="#android-socket-close-return" class="list-anchor">#</a>
 
 ---
@@ -38,23 +38,23 @@ await androidSocket.close();
 
 Writes some [data](/api/class-androidsocket.mdx#android-socket-write-option-data) to the socket.
 
-**使用方式**
+**Usage**
 
 ```js
 await androidSocket.write(data);
 ```
 
-**參數**
+**Arguments**
 - `data` [Buffer]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-socket-write-option-data"/><a href="#android-socket-write-option-data" class="list-anchor">#</a>
   
   Data to write.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="android-socket-write-return"/><a href="#android-socket-write-return" class="list-anchor">#</a>
 
 ---
 
-## 事件 (Events)
+## Events
 
 ### on('close') {#android-socket-event-close}
 
@@ -62,7 +62,7 @@ await androidSocket.write(data);
 
 Emitted when the socket is closed.
 
-**使用方式**
+**Usage**
 
 ```js
 androidSocket.on('close', data => {});
@@ -76,13 +76,13 @@ androidSocket.on('close', data => {});
 
 Emitted when data is available to read from the socket.
 
-**使用方式**
+**Usage**
 
 ```js
 androidSocket.on('data', data => {});
 ```
 
-**事件資料**
+**Event data**
 - [Buffer]
 
 

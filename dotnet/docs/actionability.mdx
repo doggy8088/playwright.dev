@@ -1,127 +1,127 @@
 ---
 id: actionability
-title: "自動等待"
+title: "Auto-waiting"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 在對元素執行動作之前會進行一系列可操作性檢查，以確保這些動作能如預期執行。它會自動等待所有相關檢查通過，然後才執行請求的動作。如果必要的檢查在指定的 `timeout` 時間內未通過，動作將失敗並拋出 `TimeoutError`。
+Playwright performs a range of actionability checks on the elements before making actions to ensure these actions behave as expected. It auto-waits for all the relevant checks to pass and only then performs the requested action. If the required checks do not pass within the given `timeout`, action fails with the `TimeoutError`.
 
-例如，對於 [`Locator.ClickAsync()`](/api/class-locator.mdx#locator-click)，Playwright 會確保：
-- 定位器解析為恰好一個元素
-- 元素是[可見]的
-- 元素是[穩定]的，即沒有在動畫中或已完成動畫
-- 元素[接收事件]，即沒有被其他元素遮蔽
-- 元素是[啟用]的
+For example, for [Locator.ClickAsync()](/api/class-locator.mdx#locator-click), Playwright will ensure that:
+- locator resolves to exactly one element
+- element is [Visible]
+- element is [Stable], as in not animating or completed animation
+- element [Receives Events], as in not obscured by other elements
+- element is [Enabled]
 
-以下是每個動作執行的可操作性檢查完整清單：
+Here is the complete list of actionability checks performed for each action:
 
-| 動作 | [可見] | [穩定] | [接收事件] | [啟用] | [可編輯] |
+| Action | [Visible] | [Stable] | [Receives Events] | [Enabled] | [Editable] |
 | :- | :-: | :-: | :-: | :-: | :-: |
-| [`Locator.CheckAsync()`](/api/class-locator.mdx#locator-check) | 是 | 是 | 是 | 是 | - |
-| [`Locator.ClickAsync()`](/api/class-locator.mdx#locator-click) | 是 | 是 | 是 | 是 | - |
-| [`Locator.DblClickAsync()`](/api/class-locator.mdx#locator-dblclick) | 是 | 是 | 是 | 是 | - |
-| [`Locator.SetCheckedAsync()`](/api/class-locator.mdx#locator-set-checked) | 是 | 是 | 是 | 是 | - |
-| [`Locator.TapAsync()`](/api/class-locator.mdx#locator-tap) | 是 | 是 | 是 | 是 | - |
-| [`Locator.UncheckAsync()`](/api/class-locator.mdx#locator-uncheck) | 是 | 是 | 是 | 是 | - |
-| [`Locator.HoverAsync()`](/api/class-locator.mdx#locator-hover) | 是 | 是 | 是 | - | - |
-| [`Locator.DragToAsync()`](/api/class-locator.mdx#locator-drag-to) | 是 | 是 | 是 | - | - |
-| [`Locator.ScreenshotAsync()`](/api/class-locator.mdx#locator-screenshot) | 是 | 是 | - | - | - |
-| [`Locator.FillAsync()`](/api/class-locator.mdx#locator-fill) | 是 | - | - | 是 | 是 |
-| [`Locator.ClearAsync()`](/api/class-locator.mdx#locator-clear) | 是 | - | - | 是 | 是 |
-| [`Locator.SelectOptionAsync()`](/api/class-locator.mdx#locator-select-option) | 是 | - | - | 是 | - |
-| [`Locator.SelectTextAsync()`](/api/class-locator.mdx#locator-select-text) | 是 | - | - | - | - |
-| [`Locator.ScrollIntoViewIfNeededAsync()`](/api/class-locator.mdx#locator-scroll-into-view-if-needed) | - | 是 | - | - | - |
-| [`Locator.BlurAsync()`](/api/class-locator.mdx#locator-blur) | - | - | - | - | - |
-| [`Locator.DispatchEventAsync()`](/api/class-locator.mdx#locator-dispatch-event) | - | - | - | - | - |
-| [`Locator.FocusAsync()`](/api/class-locator.mdx#locator-focus) | - | - | - | - | - |
-| [`Locator.PressAsync()`](/api/class-locator.mdx#locator-press) | - | - | - | - | - |
-| [`Locator.PressSequentiallyAsync()`](/api/class-locator.mdx#locator-press-sequentially) | - | - | - | - | - |
-| [`Locator.SetInputFilesAsync()`](/api/class-locator.mdx#locator-set-input-files) | - | - | - | - | - |
+| [Locator.CheckAsync()](/api/class-locator.mdx#locator-check) | Yes | Yes | Yes | Yes | - |
+| [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) | Yes | Yes | Yes | Yes | - |
+| [Locator.DblClickAsync()](/api/class-locator.mdx#locator-dblclick) | Yes | Yes | Yes | Yes | - |
+| [Locator.SetCheckedAsync()](/api/class-locator.mdx#locator-set-checked) | Yes | Yes | Yes | Yes | - |
+| [Locator.TapAsync()](/api/class-locator.mdx#locator-tap) | Yes | Yes | Yes | Yes | - |
+| [Locator.UncheckAsync()](/api/class-locator.mdx#locator-uncheck) | Yes | Yes | Yes | Yes | - |
+| [Locator.HoverAsync()](/api/class-locator.mdx#locator-hover) | Yes | Yes | Yes | - | - |
+| [Locator.DragToAsync()](/api/class-locator.mdx#locator-drag-to) | Yes | Yes | Yes | - | - |
+| [Locator.ScreenshotAsync()](/api/class-locator.mdx#locator-screenshot) | Yes | Yes | - | - | - |
+| [Locator.FillAsync()](/api/class-locator.mdx#locator-fill) | Yes | - | - | Yes | Yes |
+| [Locator.ClearAsync()](/api/class-locator.mdx#locator-clear) | Yes | - | - | Yes | Yes |
+| [Locator.SelectOptionAsync()](/api/class-locator.mdx#locator-select-option) | Yes | - | - | Yes | - |
+| [Locator.SelectTextAsync()](/api/class-locator.mdx#locator-select-text) | Yes | - | - | - | - |
+| [Locator.ScrollIntoViewIfNeededAsync()](/api/class-locator.mdx#locator-scroll-into-view-if-needed) | - | Yes | - | - | - |
+| [Locator.BlurAsync()](/api/class-locator.mdx#locator-blur) | - | - | - | - | - |
+| [Locator.DispatchEventAsync()](/api/class-locator.mdx#locator-dispatch-event) | - | - | - | - | - |
+| [Locator.FocusAsync()](/api/class-locator.mdx#locator-focus) | - | - | - | - | - |
+| [Locator.PressAsync()](/api/class-locator.mdx#locator-press) | - | - | - | - | - |
+| [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially) | - | - | - | - | - |
+| [Locator.SetInputFilesAsync()](/api/class-locator.mdx#locator-set-input-files) | - | - | - | - | - |
 
-## 強制動作
+## Forcing actions
 
-某些動作如 [`Locator.ClickAsync()`](/api/class-locator.mdx#locator-click) 支援 `force` 選項，可停用非必要的可操作性檢查。例如，向 [`Locator.ClickAsync()`](/api/class-locator.mdx#locator-click) 方法傳遞真值的 `force` 將不會檢查目標元素是否實際接收點擊事件。
+Some actions like [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) support `force` option that disables non-essential actionability checks, for example passing truthy `force` to [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) method will not check that the target element actually receives click events.
 
-## 斷言
+## Assertions
 
-Playwright 包含自動重試斷言，透過等待直到條件符合來消除不穩定性，類似於動作前的自動等待。
+Playwright includes auto-retrying assertions that remove flakiness by waiting until the condition is met, similarly to auto-waiting before actions.
 
-| 斷言 | 描述 |
+| Assertion | Description |
 | :- | :- |
-| [`Expect(Locator).ToBeAttachedAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | 元素已附加 |
-| [`Expect(Locator).ToBeCheckedAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 核取方塊已勾選 |
-| [`Expect(Locator).ToBeDisabledAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已停用 |
-| [`Expect(Locator).ToBeEditableAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | 元素可編輯 |
-| [`Expect(Locator).ToBeEmptyAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | 容器為空 |
-| [`Expect(Locator).ToBeEnabledAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 元素已啟用 |
-| [`Expect(Locator).ToBeFocusedAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | 元素已聚焦 |
-| [`Expect(Locator).ToBeHiddenAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | 元素不可見 |
-| [`Expect(Locator).ToBeInViewportAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | 元素與檢視區相交 |
-| [`Expect(Locator).ToBeVisibleAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
-| [`Expect(Locator).ToContainTextAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
-| [`Expect(Locator).ToHaveAttributeAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有 DOM 屬性 |
-| [`Expect(Locator).ToHaveClassAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-have-class) | 元素具有 class 屬性 |
-| [`Expect(Locator).ToHaveCountAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 清單具有確切的子元素數量 |
-| [`Expect(Locator).ToHaveCSSAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-have-css) | 元素具有 CSS 屬性 |
-| [`Expect(Locator).ToHaveIdAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-have-id) | 元素具有 ID |
-| [`Expect(Locator).ToHaveJSPropertyAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | 元素具有 JavaScript 屬性 |
-| [`Expect(Locator).ToHaveTextAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素符合文字 |
-| [`Expect(Locator).ToHaveValueAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入欄位具有值 |
-| [`Expect(Locator).ToHaveValuesAsync()`](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) | 選擇框具有已選取的選項 |
-| [`Expect(Page).ToHaveTitleAsync()`](/api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
-| [`Expect(Page).ToHaveURLAsync()`](/api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
-| [`Expect(Response).ToBeOKAsync()`](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | 回應狀態為 OK |
+| [Expect(Locator).ToBeAttachedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | Element is attached |
+| [Expect(Locator).ToBeCheckedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox is checked |
+| [Expect(Locator).ToBeDisabledAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | Element is disabled |
+| [Expect(Locator).ToBeEditableAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | Element is editable |
+| [Expect(Locator).ToBeEmptyAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | Container is empty |
+| [Expect(Locator).ToBeEnabledAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | Element is enabled |
+| [Expect(Locator).ToBeFocusedAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | Element is focused |
+| [Expect(Locator).ToBeHiddenAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | Element is not visible |
+| [Expect(Locator).ToBeInViewportAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | Element intersects viewport |
+| [Expect(Locator).ToBeVisibleAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | Element is visible |
+| [Expect(Locator).ToContainTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | Element contains text |
+| [Expect(Locator).ToHaveAttributeAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | Element has a DOM attribute |
+| [Expect(Locator).ToHaveClassAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-class) | Element has a class property |
+| [Expect(Locator).ToHaveCountAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | List has exact number of children |
+| [Expect(Locator).ToHaveCSSAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-css) | Element has CSS property |
+| [Expect(Locator).ToHaveIdAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-id) | Element has an ID |
+| [Expect(Locator).ToHaveJSPropertyAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | Element has a JavaScript property |
+| [Expect(Locator).ToHaveTextAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | Element matches text |
+| [Expect(Locator).ToHaveValueAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | Input has a value |
+| [Expect(Locator).ToHaveValuesAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-have-values) | Select has options selected |
+| [Expect(Page).ToHaveTitleAsync()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | Page has a title |
+| [Expect(Page).ToHaveURLAsync()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | Page has a URL |
+| [Expect(Response).ToBeOKAsync()](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | Response has an OK status |
 
-了解更多在 [assertions 指南](./test-assertions.mdx)。
+Learn more in the [assertions guide](./test-assertions.mdx).
 
-## 可見
+## Visible
 
-當元素具有非空邊界框且沒有 `visibility:hidden` 計算樣式時，則被視為可見。
+Element is considered visible when it has non-empty bounding box and does not have `visibility:hidden` computed style.
 
-請注意，根據此定義：
-* 零尺寸的元素**不**被視為可見。
-* 具有 `display:none` 的元素**不**被視為可見。
-* 具有 `opacity:0` 的元素**被**視為可見。
+Note that according to this definition:
+* Elements of zero size **are not** considered visible.
+* Elements with `display:none` **are not** considered visible.
+* Elements with `opacity:0` **are** considered visible.
 
-## 穩定
+## Stable
 
-當元素在至少連續兩個動畫影格中保持相同的邊界框時，則被視為穩定。
+Element is considered stable when it has maintained the same bounding box for at least two consecutive animation frames.
 
-## 啟用
+## Enabled
 
-當元素**不是停用**時，則被視為啟用。
+Element is considered enabled when it is **not disabled**.
 
-在以下情況下元素**停用**：
-- 它是具有 `[disabled]` 屬性的 `<button>`、`<select>`、`<input>`、`<textarea>`、`<option>` 或 `<optgroup>`；
-- 它是屬於具有 `[disabled]` 屬性的 `<fieldset>` 中的 `<button>`、`<select>`、`<input>`、`<textarea>`、`<option>` 或 `<optgroup>`；
-- 它是具有 `[aria-disabled=true]` 屬性的元素的後代。
+Element is **disabled** when:
+- it is a `<button>`, `<select>`, `<input>`, `<textarea>`, `<option>` or `<optgroup>` with a `[disabled]` attribute;
+- it is a `<button>`, `<select>`, `<input>`, `<textarea>`, `<option>` or `<optgroup>` that is a part of a `<fieldset>` with a `[disabled]` attribute;
+- it is a descendant of an element with `[aria-disabled=true]` attribute.
 
-## 可編輯
+## Editable
 
-當元素是[啟用]的且**不是唯讀**時，則被視為可編輯。
+Element is considered editable when it is [enabled] and is **not readonly**.
 
-在以下情況下元素**唯讀**：
-- 它是具有 `[readonly]` 屬性的 `<select>`、`<input>` 或 `<textarea>`；
-- 它具有 `[aria-readonly=true]` 屬性和[支援它的](https://w3c.github.io/aria/#aria-readonly) aria 角色。
+Element is **readonly** when:
+- it is a `<select>`, `<input>` or `<textarea>` with a `[readonly]` attribute;
+- it has an `[aria-readonly=true]` attribute and an aria role that [supports it](https://w3c.github.io/aria/#aria-readonly).
 
-## 接收事件
+## Receives Events
 
-當元素是動作點指標事件的點擊目標時，則被視為接收指標事件。例如，在點 `(10;10)` 點擊時，Playwright 會檢查是否有其他元素（通常是覆蓋層）會代替捕獲在 `(10;10)` 的點擊。
+Element is considered receiving pointer events when it is the hit target of the pointer event at the action point. For example, when clicking at the point `(10;10)`, Playwright checks whether some other element (usually an overlay) will instead capture the click at `(10;10)`.
 
-例如，考慮一個情境，無論何時呼叫 [`Locator.ClickAsync()`](/api/class-locator.mdx#locator-click)，Playwright 都會點擊 `Sign Up` 按鈕：
-- 頁面正在檢查使用者名稱是否唯一，且 `Sign Up` 按鈕被停用；
-- 與伺服器檢查後，被停用的 `Sign Up` 按鈕被替換為另一個現在啟用的按鈕。
+For example, consider a scenario where Playwright will click `Sign Up` button regardless of when the [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) call was made:
+- page is checking that user name is unique and `Sign Up` button is disabled;
+- after checking with the server, the disabled `Sign Up` button is replaced with another one that is now enabled.
 
-[可見]: #visible "Visible"
-[穩定]: #stable "Stable"
-[啟用]: #enabled "Enabled"
-[可編輯]: #editable "Editable"
-[接收事件]: #receives-events "Receives Events"
+[Visible]: #visible "Visible"
+[Stable]: #stable "Stable"
+[Enabled]: #enabled "Enabled"
+[Editable]: #editable "Editable"
+[Receives Events]: #receives-events "Receives Events"
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

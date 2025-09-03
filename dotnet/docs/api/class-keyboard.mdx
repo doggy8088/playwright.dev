@@ -45,7 +45,7 @@ await page.Keyboard.PressAsync("ControlOrMeta+A");
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### DownAsync {#keyboard-down}
 
@@ -72,18 +72,18 @@ After the key is pressed once, subsequent calls to [Keyboard.DownAsync()](/api/c
 Modifier keys DO influence `keyboard.down`. Holding down `Shift` will type the text in upper case.
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Keyboard.DownAsync(key);
 ```
 
-**參數**
+**Arguments**
 - `key` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-down-option-key"/><a href="#keyboard-down-option-key" class="list-anchor">#</a>
   
   Name of the key to press or a character to generate, such as `ArrowLeft` or `a`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-down-return"/><a href="#keyboard-down-return" class="list-anchor">#</a>
 
 ---
@@ -94,7 +94,7 @@ await Keyboard.DownAsync(key);
 
 Dispatches only `input` event, does not emit the `keydown`, `keyup` or `keypress` events.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.Keyboard.PressAsync("嗨");
@@ -104,12 +104,12 @@ await page.Keyboard.PressAsync("嗨");
 Modifier keys DO NOT effect `keyboard.insertText`. Holding down `Shift` will not type the text in upper case.
 :::
 
-**參數**
+**Arguments**
 - `text` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-insert-text-option-text"/><a href="#keyboard-insert-text-option-text" class="list-anchor">#</a>
   
   Sets input to the specified text value.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-insert-text-return"/><a href="#keyboard-insert-text-return" class="list-anchor">#</a>
 
 ---
@@ -135,7 +135,7 @@ If [key](/api/class-keyboard.mdx#keyboard-press-option-key) is a single characte
 
 Shortcuts such as `key: "Control+o"`, `key: "Control++` or `key: "Control+Shift+T"` are supported as well. When specified with the modifier, modifier is pressed and being held while the subsequent key is being pressed.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.GotoAsync("https://keycode.info");
@@ -150,7 +150,7 @@ await browser.CloseAsync();
 
 Shortcut for [Keyboard.DownAsync()](/api/class-keyboard.mdx#keyboard-down) and [Keyboard.UpAsync()](/api/class-keyboard.mdx#keyboard-up).
 
-**參數**
+**Arguments**
 - `key` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-press-option-key"/><a href="#keyboard-press-option-key" class="list-anchor">#</a>
   
   Name of the key to press or a character to generate, such as `ArrowLeft` or `a`.
@@ -159,7 +159,7 @@ Shortcut for [Keyboard.DownAsync()](/api/class-keyboard.mdx#keyboard-down) and [
     
     Time to wait between `keydown` and `keyup` in milliseconds. Defaults to 0.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-press-return"/><a href="#keyboard-press-return" class="list-anchor">#</a>
 
 ---
@@ -177,7 +177,7 @@ Sends a `keydown`, `keypress`/`input`, and `keyup` event for each character in t
 
 To press a special key, like `Control` or `ArrowDown`, use [Keyboard.PressAsync()](/api/class-keyboard.mdx#keyboard-press).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.Keyboard.TypeAsync("Hello"); // types instantly
@@ -192,7 +192,7 @@ Modifier keys DO NOT effect `keyboard.type`. Holding down `Shift` will not type 
 For characters that are not on a US keyboard, only an `input` event will be sent.
 :::
 
-**參數**
+**Arguments**
 - `text` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-type-option-text"/><a href="#keyboard-type-option-text" class="list-anchor">#</a>
   
   A text to type into a focused element.
@@ -201,7 +201,7 @@ For characters that are not on a US keyboard, only an `input` event will be sent
     
     Time to wait between key presses in milliseconds. Defaults to 0.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-type-return"/><a href="#keyboard-type-return" class="list-anchor">#</a>
 
 ---
@@ -212,18 +212,18 @@ For characters that are not on a US keyboard, only an `input` event will be sent
 
 Dispatches a `keyup` event.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Keyboard.UpAsync(key);
 ```
 
-**參數**
+**Arguments**
 - `key` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-up-option-key"/><a href="#keyboard-up-option-key" class="list-anchor">#</a>
   
   Name of the key to press or a character to generate, such as `ArrowLeft` or `a`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-up-return"/><a href="#keyboard-up-return" class="list-anchor">#</a>
 
 

@@ -1,26 +1,26 @@
 ---
 id: network
-title: "網路"
+title: "Network"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 提供 API 來**監控**和**修改**瀏覽器網路流量，包括 HTTP 和 HTTPS。頁面所做的任何請求，包括 [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) 和 [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 請求，都可以被追蹤、修改和處理。
+Playwright provides APIs to **monitor** and **modify** browser network traffic, both HTTP and HTTPS. Any requests that a page does, including [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) requests, can be tracked, modified and handled.
 
-## 模擬 API
+## Mock APIs
 
-查看我們的 [API mocking 指南](./mock.mdx) 以了解更多資訊。
-- 模擬 API 請求並且不會觸發 API
-- 執行 API 請求並修改回應
-- 使用 HAR 檔案來模擬網路請求。
+Check out our [API mocking guide](./mock.mdx) to learn more on how to
+- mock API requests and never hit the API
+- perform the API request and modify the response
+- use HAR files to mock network requests.
 
-## HTTP 認證
+## HTTP Authentication
 
-執行 HTTP 認證。
+Perform HTTP Authentication.
 
 ```csharp
 using var context = await Browser.NewContextAsync(new()
@@ -37,11 +37,11 @@ await page.GotoAsync("https://example.com");
 
 ## HTTP Proxy
 
-您可以配置頁面通過 HTTP(S) 代理或 SOCKSv5 加載。代理可以為整個瀏覽器全域設置，也可以為每個瀏覽器上下文單獨設置。
+You can configure pages to load over the HTTP(S) proxy or SOCKSv5. Proxy can be either set globally for the entire browser, or for each browser context individually.
 
-您可以選擇性地指定 HTTP(S) 代理的使用者名稱和密碼，也可以指定要略過 [Proxy](/api/class-browser.mdx#browser-new-context-option-proxy) 的主機。
+You can optionally specify username and password for HTTP(S) proxy, you can also specify hosts to bypass the [Proxy](/api/class-browser.mdx#browser-new-context-option-proxy) for.
 
-這裡是一個全域代理的範例：
+Here is an example of a global proxy:
 
 ```csharp
 var proxy = new Proxy
@@ -56,7 +56,7 @@ await using var browser = await BrowserType.LaunchAsync(new()
 });
 ```
 
-也可以根據上下文指定它：
+Its also possible to specify it per context:
 
 ```csharp
 await using var browser = await BrowserType.LaunchAsync();
@@ -66,9 +66,9 @@ await using var context = await browser.NewContextAsync(new()
 });
 ```
 
-## 網路事件
+## Network events
 
-你可以監控所有的 [Request]s 和 [Response]s：
+You can monitor all the [Request]s and [Response]s:
 
 ```csharp
 using Microsoft.Playwright;
@@ -81,7 +81,7 @@ page.Response += (_, response) => Console.WriteLine("<< " + response.Status + " 
 await page.GotoAsync("https://example.com");
 ```
 
-或者等待按鈕點擊後的網路回應，使用 [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response)：
+Or wait for a network response after the button click with [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response):
 
 ```csharp
 // Use a glob URL pattern
@@ -90,9 +90,9 @@ await page.GetByText("Update").ClickAsync();
 var response = await waitForResponseTask;
 ```
 
-#### 變體
+#### Variations
 
-使用 [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response) 等待 [Response] 回應
+Wait for [Response]s with [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response)
 
 ```csharp
 // Use a regular expression
@@ -106,13 +106,13 @@ await page.GetByText("Update").ClickAsync();
 var response = await waitForResponseTask;
 ```
 
-## 處理請求
+## Handle requests
 
-您可以通過在您的 Playwright 腳本中處理網路請求來模擬 API 端點。
+You can mock API endpoints via handling the network requests in your Playwright script.
 
-#### 變體
+#### Variations
 
-在整個瀏覽器情境上使用 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 或頁面上使用 [Page.RouteAsync()](/api/class-page.mdx#page-route) 設定路由。這將適用於彈出視窗和開啟的連結。
+Set up route on the entire browser context with [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) or page with [Page.RouteAsync()](/api/class-page.mdx#page-route). It will apply to popup windows and opened links.
 
 ```csharp
 await page.RouteAsync("**/api/fetch_data", async route => {
@@ -121,7 +121,7 @@ await page.RouteAsync("**/api/fetch_data", async route => {
 await page.GotoAsync("https://example.com");
 ```
 
-## 修改請求
+## Modify requests
 
 ```csharp
 // Delete header
@@ -135,11 +135,11 @@ await page.RouteAsync("**/*", async route => {
 await Page.RouteAsync("**/*", async route => await route.ContinueAsync(new() { Method = "POST" }));
 ```
 
-你可以繼續請求並進行修改。上面的範例從傳出的請求中移除了 HTTP 標頭。
+You can continue requests with modifications. Example above removes an HTTP header from the outgoing requests.
 
-## 中止請求
+## Abort requests
 
-您可以使用 [Page.RouteAsync()](/api/class-page.mdx#page-route) 和 [Route.AbortAsync()](/api/class-route.mdx#route-abort) 中止請求。
+You can abort requests using [Page.RouteAsync()](/api/class-page.mdx#page-route) and [Route.AbortAsync()](/api/class-route.mdx#route-abort).
 
 ```csharp
 await page.RouteAsync("**/*.{png,jpg,jpeg}", route => route.AbortAsync());
@@ -153,9 +153,9 @@ else
 });
 ```
 
-## 修改回應
+## Modify responses
 
-使用 [APIRequestContext] 來修改回應，獲取原始回應，然後將回應傳遞給 [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill)。您可以透過選項覆寫回應中的個別欄位：
+To modify a response use [APIRequestContext] to get the original response and then pass the response to [Route.FulfillAsync()](/api/class-route.mdx#route-fulfill). You can override individual fields on the response via options:
 
 ```csharp
 await Page.RouteAsync("**/title.html", async route =>
@@ -181,32 +181,32 @@ await Page.RouteAsync("**/title.html", async route =>
 });
 ```
 
-## Glob URL 模式
+## Glob URL patterns
 
-Playwright 在網路攔截方法（如 [Page.RouteAsync()](/api/class-page.mdx#page-route) 或 [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response)）中使用簡化的 glob 模式進行 URL 比對。這些模式支援基本的萬用字元：
-1. 星號：
-   - 單個 `*` 匹配除 `/` 以外的任何字元
-   - 雙重 `**` 匹配包括 `/` 在內的任何字元
-1. 問號 `?` 只匹配問號 `?`。如果你想匹配任何字元，請改用 `*`。
-1. 大括號 `{}` 可用來匹配以逗號 `,` 分隔的選項清單
-1. 反斜線 `\` 可用來跳脫任何特殊字元（注意將反斜線本身跳脫為 `\\`）
+Playwright uses simplified glob patterns for URL matching in network interception methods like [Page.RouteAsync()](/api/class-page.mdx#page-route) or [Page.RunAndWaitForResponseAsync()](/api/class-page.mdx#page-wait-for-response). These patterns support basic wildcards:
+1. Asterisks:
+   - A single `*` matches any characters except `/`
+   - A double `**` matches any characters including `/`
+1. Question mark `?` matches only question mark `?`. If you want to match any character, use `*` instead.
+1. Curly braces `{}` can be used to match a list of options separated by commas `,`
+1. Backslash `\` can be used to escape any of special characters (note to escape backslash itself as `\\`)
 
-範例：
-- `https://example.com/*.js` 匹配 `https://example.com/file.js` 但不匹配 `https://example.com/path/file.js`
-- `https://example.com/?page=1` 匹配 `https://example.com/?page=1` 但不匹配 `https://example.com`
-- `**/*.js` 同時匹配 `https://example.com/file.js` 和 `https://example.com/path/file.js`
-- `**/*.{png,jpg,jpeg}` 匹配所有圖片請求
+Examples:
+- `https://example.com/*.js` matches `https://example.com/file.js` but not `https://example.com/path/file.js`
+- `https://example.com/?page=1` matches `https://example.com/?page=1` but not `https://example.com`
+- `**/*.js` matches both `https://example.com/file.js` and `https://example.com/path/file.js`
+- `**/*.{png,jpg,jpeg}` matches all image requests
 
-重要注意事項：
-- glob 模式必須匹配整個 URL，而不僅是其中一部分。
-- 使用 glob 進行 URL 匹配時，請考慮完整的 URL 結構，包括協定和路徑分隔符。
-- 對於更複雜的匹配需求，請考慮使用 [RegExp] 而不是 glob 模式。
+Important notes:
+- The glob pattern must match the entire URL, not just a part of it.
+- When using globs for URL matching, consider the full URL structure, including the protocol and path separators.
+- For more complex matching requirements, consider using [RegExp] instead of glob patterns.
 
 ## WebSockets
 
-Playwright 支援 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) 檢查、模擬和修改的開箱即用功能。查看我們的 [API mocking 指南](./mock.mdx#mock-websockets) 以了解如何模擬 WebSockets。
+Playwright supports [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) inspection, mocking and modifying out of the box. See our [API mocking guide](./mock.mdx#mock-websockets) to learn how to mock WebSockets.
 
-每次建立 WebSocket 時，會觸發 [Page.WebSocket](/api/class-page.mdx#page-event-web-socket) 事件。此事件包含 [WebSocket] 實例以進一步檢查 web socket 幀：
+Every time a WebSocket is created, the [Page.WebSocket](/api/class-page.mdx#page-event-web-socket) event is fired. This event contains the [WebSocket] instance for further web socket frames inspection:
 
 ```csharp
 page.WebSocket += (_, ws) =>
@@ -218,12 +218,12 @@ page.WebSocket += (_, ws) =>
 };
 ```
 
-## 缺少網路事件和服務工作者
+## Missing Network Events and Service Workers
 
-Playwright 的內建 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route) 允許你的測試原生地路由請求並執行模擬和攔截。
-1. 如果您使用 Playwright 的原生 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route)，並且發現缺少網路事件，請將 [ServiceWorkers](/api/class-browser.mdx#browser-new-context-option-service-workers) 設定為 `'block'` 來停用 Service Workers。
-1. 您可能正在使用諸如 Mock Service Worker (MSW) 之類的模擬工具。雖然此工具可以直接用於模擬回應，但它會新增自己的 Service Worker 來接管網路請求，因此使 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route) 無法看到這些請求。如果您對網路測試和模擬都感興趣，請考慮使用內建的 [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) 和 [Page.RouteAsync()](/api/class-page.mdx#page-route) 進行[回應模擬](#handle-requests)。
-1. 如果你不僅僅對使用 Service Workers 進行測試和網路模擬感興趣，還對路由和監聽由 Service Workers 自己發出的請求感興趣，請參閱[這個實驗性功能](https://github.com/microsoft/playwright/issues/15684)。
+Playwright's built-in [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) and [Page.RouteAsync()](/api/class-page.mdx#page-route) allow your tests to natively route requests and perform mocking and interception.
+1. If you're using Playwright's native [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) and [Page.RouteAsync()](/api/class-page.mdx#page-route), and it appears network events are missing, disable Service Workers by setting [ServiceWorkers](/api/class-browser.mdx#browser-new-context-option-service-workers) to `'block'`.
+1. It might be that you are using a mock tool such as Mock Service Worker (MSW). While this tool works out of the box for mocking responses, it adds its own Service Worker that takes over the network requests, hence making them invisible to [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) and [Page.RouteAsync()](/api/class-page.mdx#page-route). If you are interested in both network testing and mocking, consider using built-in [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) and [Page.RouteAsync()](/api/class-page.mdx#page-route) for [response mocking](#handle-requests).
+1. If you're interested in not solely using Service Workers for testing and network mocking, but in routing and listening for requests made by Service Workers themselves, please see [this experimental feature](https://github.com/microsoft/playwright/issues/15684).
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

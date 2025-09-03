@@ -24,7 +24,7 @@ for (const worker of page.workers())
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### evaluate {#worker-evaluate}
 
@@ -36,14 +36,14 @@ If the function passed to the [worker.evaluate()](/api/class-worker.mdx#worker-e
 
 If the function passed to the [worker.evaluate()](/api/class-worker.mdx#worker-evaluate) returns a non-[Serializable] value, then [worker.evaluate()](/api/class-worker.mdx#worker-evaluate) returns `undefined`. Playwright also supports transferring some additional values that are not serializable by `JSON`: `-0`, `NaN`, `Infinity`, `-Infinity`.
 
-**使用方式**
+**Usage**
 
 ```js
 await worker.evaluate(pageFunction);
 await worker.evaluate(pageFunction, arg);
 ```
 
-**參數**
+**Arguments**
 - `pageFunction` [function] | [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-option-expression"/><a href="#worker-evaluate-option-expression" class="list-anchor">#</a>
   
   Function to be evaluated in the worker context.
@@ -51,7 +51,7 @@ await worker.evaluate(pageFunction, arg);
   
   Optional argument to pass to [pageFunction](/api/class-worker.mdx#worker-evaluate-option-expression).
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[Serializable]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-return"/><a href="#worker-evaluate-return" class="list-anchor">#</a>
 
 ---
@@ -66,14 +66,14 @@ The only difference between [worker.evaluate()](/api/class-worker.mdx#worker-eva
 
 If the function passed to the [worker.evaluateHandle()](/api/class-worker.mdx#worker-evaluate-handle) returns a [Promise], then [worker.evaluateHandle()](/api/class-worker.mdx#worker-evaluate-handle) would wait for the promise to resolve and return its value.
 
-**使用方式**
+**Usage**
 
 ```js
 await worker.evaluateHandle(pageFunction);
 await worker.evaluateHandle(pageFunction, arg);
 ```
 
-**參數**
+**Arguments**
 - `pageFunction` [function] | [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-handle-option-expression"/><a href="#worker-evaluate-handle-option-expression" class="list-anchor">#</a>
   
   Function to be evaluated in the worker context.
@@ -81,7 +81,7 @@ await worker.evaluateHandle(pageFunction, arg);
   
   Optional argument to pass to [pageFunction](/api/class-worker.mdx#worker-evaluate-handle-option-expression).
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[JSHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-evaluate-handle-return"/><a href="#worker-evaluate-handle-return" class="list-anchor">#</a>
 
 ---
@@ -90,18 +90,18 @@ await worker.evaluateHandle(pageFunction, arg);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>worker.url</x-search>
 
-**使用方式**
+**Usage**
 
 ```js
 worker.url();
 ```
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="worker-url-return"/><a href="#worker-url-return" class="list-anchor">#</a>
 
 ---
 
-## 事件 (Events)
+## Events
 
 ### on('close') {#worker-event-close}
 
@@ -109,13 +109,13 @@ worker.url();
 
 Emitted when this dedicated [WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) is terminated.
 
-**使用方式**
+**Usage**
 
 ```js
 worker.on('close', data => {});
 ```
 
-**事件資料**
+**Event data**
 - [Worker]
 
 

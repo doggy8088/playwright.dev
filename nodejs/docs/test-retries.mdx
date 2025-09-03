@@ -1,21 +1,21 @@
 ---
 id: test-retries
-title: "測試重試"
+title: "Retries"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-測試重試是一種在測試失敗時自動重新執行測試的方法。當測試不穩定並間歇性失敗時，這很有用。測試重試在[組態設定檔案](./test-configuration.mdx)中組態設定。
+Test retries are a way to automatically re-run a test when it fails. This is useful when a test is flaky and fails intermittently. Test retries are configured in the [configuration file](./test-configuration.mdx).
 
-## 失敗
+## Failures
 
-Playwright Test 在工作程序中執行測試。這些程序是作業系統程序，獨立執行，由測試執行器協調。所有工作程序都有相同的環境，每個都啟動自己的瀏覽器。
+Playwright Test runs tests in worker processes. These processes are OS processes, running independently, orchestrated by the test runner. All workers have identical environments and each starts its own browser.
 
-考慮以下程式碼片段：
+Consider the following snippet:
 
 ```js
 import { test } from '@playwright/test';
@@ -29,15 +29,15 @@ test.describe('suite', () => {
 });
 ```
 
-當**所有測試通過**時，它們將在同一工作程序中按順序執行。
-* 工作程序啟動
-  * `beforeAll` 掛勾執行
-  * `first good` 通過
-  * `second flaky` 通過
-  * `third good` 通過
-  * `afterAll` 掛勾執行
+When **all tests pass**, they will run in order in the same worker process.
+* Worker process starts
+  * `beforeAll` hook runs
+  * `first good` passes
+  * `second flaky` passes
+  * `third good` passes
+  * `afterAll` hook runs
 
-如果**任何測試失敗**，Playwright Test 將丟棄整個工作程序以及瀏覽器，並啟動一個新的。測試將在新的工作程序中繼續，從下一個測試開始。
+Should **any test fail**, Playwright Test will discard the entire worker process along with the browser and will start a new one. Testing will continue in the new worker process starting with the next test.
 * Worker process #1 starts
   * `beforeAll` hook runs
   * `first good` passes
@@ -48,30 +48,30 @@ test.describe('suite', () => {
   * `third good` passes
   * `afterAll` hook runs
 
-如果您**啟用[重試](#retries)**，第二個工作程序將開始重試失敗的測試並從那裡繼續。
-* 工作程序 #1 啟動
-  * `beforeAll` 掛勾執行
-  * `first good` 通過
-  * `second flaky` 失敗
-  * `afterAll` 掛勾執行
-* 工作程序 #2 啟動
-  * `beforeAll` 掛勾再次執行
-  * `second flaky` 被重試並通過
-  * `third good` 通過
-  * `afterAll` 掛勾執行
+If you **enable [retries](#retries)**, second worker process will start by retrying the failed test and continue from there.
+* Worker process #1 starts
+  * `beforeAll` hook runs
+  * `first good` passes
+  * `second flaky` fails
+  * `afterAll` hook runs
+* Worker process #2 starts
+  * `beforeAll` hook runs again
+  * `second flaky` is retried and passes
+  * `third good` passes
+  * `afterAll` hook runs
 
-這種機制對於獨立測試非常有效，並保證失敗的測試不會影響健康的測試。
+This scheme works perfectly for independent tests and guarantees that failing tests can't affect healthy ones.
 
-## 重試
+## Retries
 
-Playwright 支援**測試重試**。啟用時，失敗的測試將被多次重試，直到它們通過，或直到達到最大重試次數。預設情況下，失敗的測試不會重試。
+Playwright supports **test retries**. When enabled, failing tests will be retried multiple times until they pass, or until the maximum number of retries is reached. By default failing tests are not retried.
 
 ```bash
 # Give failing tests 3 retry attempts
 npx playwright test --retries=3
 ```
 
-您可以在組態設定檔案中設定重試次數：
+You can configure retries in the configuration file:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -82,10 +82,10 @@ export default defineConfig({
 });
 ```
 
-Playwright Test 會將測試分類如下：
-- "passed" - 第一次執行就通過的測試；
-- "flaky" - 第一次執行失敗，但重試時通過的測試；
-- "failed" - 第一次執行失敗且所有重試都失敗的測試。
+Playwright Test will categorize tests as follows:
+- "passed" - tests that passed on the first run;
+- "flaky" - tests that failed on the first run, but passed when retried;
+- "failed" - tests that failed on the first run and failed all retries.
 
 ```bash
 Running 3 tests using 1 worker
@@ -100,7 +100,7 @@ Running 3 tests using 1 worker
   2 passed (4s)
 ```
 
-您可以在執行時使用 [testInfo.retry](/api/class-testinfo.mdx#test-info-retry) 檢測重試，它可以在任何測試、掛勾或佈置中存取。以下是在重試前清除一些伺服器端狀態的範例。
+You can detect retries at runtime with [testInfo.retry](/api/class-testinfo.mdx#test-info-retry), which is accessible to any test, hook or fixture. Here is an example that clears some server-side state before a retry.
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -112,7 +112,7 @@ test('my test', async ({ page }, testInfo) => {
 });
 ```
 
-您可以使用 [test.describe.configure()](/api/class-test.mdx#test-describe-configure) 為特定的測試群組或單一檔案指定重試次數。
+You can specify retries for a specific group of tests or a single file with [test.describe.configure()](/api/class-test.mdx#test-describe-configure).
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -131,11 +131,11 @@ test.describe(() => {
 });
 ```
 
-## 序列模式
+## Serial mode
 
-使用 [test.describe.serial()](/api/class-test.mdx#test-describe-serial) 將相依的測試分組，以確保它們總是一起按順序執行。如果其中一個測試失敗，所有後續的測試都會被跳過。群組中的所有測試會一起重試。
+Use [test.describe.serial()](/api/class-test.mdx#test-describe-serial) to group dependent tests to ensure they will always run together and in order. If one of the tests fails, all subsequent tests are skipped. All tests in the group are retried together.
 
-考慮以下使用 `test.describe.serial` 的程式碼片段：
+Consider the following snippet that uses `test.describe.serial`:
 
 ```js
 import { test } from '@playwright/test';
@@ -148,33 +148,33 @@ test('second flaky', async ({ page }) => { /* ... */ });
 test('third good', async ({ page }) => { /* ... */ });
 ```
 
-在沒有[重試](#retries)的情況下執行時，失敗後的所有測試都會被跳過：
-* 工作程序 #1：
-  * `beforeAll` 掛勾執行
-  * `first good` 通過
-  * `second flaky` 失敗
-  * `third good` 完全被跳過
+When running without [retries](#retries), all tests after the failure are skipped:
+* Worker process #1:
+  * `beforeAll` hook runs
+  * `first good` passes
+  * `second flaky` fails
+  * `third good` is skipped entirely
 
-在有[重試](#retries)的情況下執行時，所有測試會一起重試：
-* 工作程序 #1：
-  * `beforeAll` 掛勾執行
-  * `first good` 通過
-  * `second flaky` 失敗
-  * `third good` 被跳過
-* 工作程序 #2：
-  * `beforeAll` 掛勾再次執行
-  * `first good` 再次通過
-  * `second flaky` 通過
-  * `third good` 通過
+When running with [retries](#retries), all tests are retried together:
+* Worker process #1:
+  * `beforeAll` hook runs
+  * `first good` passes
+  * `second flaky` fails
+  * `third good` is skipped
+* Worker process #2:
+  * `beforeAll` hook runs again
+  * `first good` passes again
+  * `second flaky` passes
+  * `third good` passes
 
 :::note
 
-通常最好讓您的測試獨立，這樣它們可以有效地執行和獨立重試。
+It is usually better to make your tests isolated, so they can be efficiently run and retried independently.
 :::
 
-## 在測試之間重複使用單一頁面
+## Reuse single page between tests
 
-Playwright Test 為每個測試建立一個獨立的 [Page] 物件。然而，如果您想在多個測試之間重複使用單一 [Page] 物件，您可以在 [test.beforeAll()](/api/class-test.mdx#test-before-all) 中建立自己的頁面，並在 [test.afterAll()](/api/class-test.mdx#test-after-all) 中關閉它。
+Playwright Test creates an isolated [Page] object for each test. However, if you'd like to reuse a single [Page] object between multiple tests, you can create your own in [test.beforeAll()](/api/class-test.mdx#test-before-all) and close it in [test.afterAll()](/api/class-test.mdx#test-after-all).
 
 <Tabs
   groupId="js-flavor"

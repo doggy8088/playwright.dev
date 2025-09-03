@@ -27,7 +27,7 @@ Playwright Test comes with builtin fixtures listed below, and you can add your o
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### browser {#fixtures-browser}
 
@@ -37,7 +37,7 @@ Playwright Test comes with builtin fixtures listed below, and you can add your o
 
 Learn how to [configure browser](../test-configuration.mdx) and see [available options][TestOptions].
 
-**使用方式**
+**Usage**
 
 ```js
 test.beforeAll(async ({ browser }) => {
@@ -46,7 +46,7 @@ test.beforeAll(async ({ browser }) => {
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [Browser]
 
 ---
@@ -57,7 +57,7 @@ test.beforeAll(async ({ browser }) => {
 
 Name of the browser that runs tests. Defaults to `'chromium'`. Useful to [annotate tests](../test-annotations.mdx) based on the browser.
 
-**使用方式**
+**Usage**
 
 ```js
 test('skip this test in Firefox', async ({ page, browserName }) => {
@@ -66,7 +66,7 @@ test('skip this test in Firefox', async ({ page, browserName }) => {
 });
 ```
 
-**型別 (Type)**
+**Type**
 - "chromium" | "firefox" | "webkit"
 
 ---
@@ -81,7 +81,7 @@ Learn how to [configure context](../test-configuration.mdx) and see [available o
 
 Default [fixtures.page](/api/class-fixtures.mdx#fixtures-page) belongs to this context.
 
-**使用方式**
+**Usage**
 
 ```js
 test('example test', async ({ page, context }) => {
@@ -90,7 +90,7 @@ test('example test', async ({ page, context }) => {
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [BrowserContext]
 
 ---
@@ -103,7 +103,7 @@ Isolated [Page] instance, created for each test. Pages are isolated between test
 
 This is the most common fixture used in a test.
 
-**使用方式**
+**Usage**
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -117,7 +117,7 @@ test('basic test', async ({ page }) => {
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [Page]
 
 ---
@@ -128,7 +128,7 @@ test('basic test', async ({ page }) => {
 
 Isolated [APIRequestContext] instance for each test.
 
-**使用方式**
+**Usage**
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -144,7 +144,7 @@ test('basic test', async ({ request }) => {
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [APIRequestContext]
 
 

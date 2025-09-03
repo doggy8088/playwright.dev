@@ -38,7 +38,7 @@ If you have a [FrameLocator] object it can be converted to [Locator] pointing to
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### frameLocator {#frame-locator-frame-locator}
 
@@ -46,18 +46,18 @@ If you have a [FrameLocator] object it can be converted to [Locator] pointing to
 
 When working with iframes, you can create a frame locator that will enter the iframe and allow selecting elements in that iframe.
 
-**使用方式**
+**Usage**
 
 ```java
 FrameLocator.frameLocator(selector);
 ```
 
-**參數**
+**Arguments**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-frame-locator-option-selector"/><a href="#frame-locator-frame-locator-option-selector" class="list-anchor">#</a>
   
   A selector to use when resolving DOM element.
 
-**傳回值**
+**Returns**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-frame-locator-return"/><a href="#frame-locator-frame-locator-return" class="list-anchor">#</a>
 
 ---
@@ -68,7 +68,7 @@ FrameLocator.frameLocator(selector);
 
 Allows locating elements by their alt text.
 
-**使用方式**
+**Usage**
 
 For example, this method will find the image by alt text "Playwright logo":
 
@@ -80,7 +80,7 @@ For example, this method will find the image by alt text "Playwright logo":
 page.getByAltText("Playwright logo").click();
 ```
 
-**參數**
+**Arguments**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-alt-text-option-text"/><a href="#frame-locator-get-by-alt-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -89,7 +89,7 @@ page.getByAltText("Playwright logo").click();
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-alt-text-return"/><a href="#frame-locator-get-by-alt-text-return" class="list-anchor">#</a>
 
 ---
@@ -100,7 +100,7 @@ page.getByAltText("Playwright logo").click();
 
 Allows locating input elements by the text of the associated `<label>` or `aria-labelledby` element, or by the `aria-label` attribute.
 
-**使用方式**
+**Usage**
 
 For example, this method will find inputs by label "Username" and "Password" in the following DOM:
 
@@ -115,7 +115,7 @@ page.getByLabel("Username").fill("john");
 page.getByLabel("Password").fill("secret");
 ```
 
-**參數**
+**Arguments**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-label-option-text"/><a href="#frame-locator-get-by-label-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -124,7 +124,7 @@ page.getByLabel("Password").fill("secret");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-label-return"/><a href="#frame-locator-get-by-label-return" class="list-anchor">#</a>
 
 ---
@@ -135,7 +135,7 @@ page.getByLabel("Password").fill("secret");
 
 Allows locating input elements by the placeholder text.
 
-**使用方式**
+**Usage**
 
 For example, consider the following DOM structure.
 
@@ -149,7 +149,7 @@ You can fill the input after locating it by the placeholder text:
 page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
 ```
 
-**參數**
+**Arguments**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-placeholder-option-text"/><a href="#frame-locator-get-by-placeholder-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -158,7 +158,7 @@ page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-placeholder-return"/><a href="#frame-locator-get-by-placeholder-return" class="list-anchor">#</a>
 
 ---
@@ -169,7 +169,7 @@ page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
 
 Allows locating elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure.
 
@@ -200,7 +200,7 @@ page.getByRole(AriaRole.BUTTON,
     .click();
 ```
 
-**參數**
+**Arguments**
 - `role` `enum AriaRole { ALERT, ALERTDIALOG, APPLICATION, ARTICLE, BANNER, BLOCKQUOTE, BUTTON, CAPTION, CELL, CHECKBOX, CODE, COLUMNHEADER, COMBOBOX, COMPLEMENTARY, CONTENTINFO, DEFINITION, DELETION, DIALOG, DIRECTORY, DOCUMENT, EMPHASIS, FEED, FIGURE, FORM, GENERIC, GRID, GRIDCELL, GROUP, HEADING, IMG, INSERTION, LINK, LIST, LISTBOX, LISTITEM, LOG, MAIN, MARQUEE, MATH, METER, MENU, MENUBAR, MENUITEM, MENUITEMCHECKBOX, MENUITEMRADIO, NAVIGATION, NONE, NOTE, OPTION, PARAGRAPH, PRESENTATION, PROGRESSBAR, RADIO, RADIOGROUP, REGION, ROW, ROWGROUP, ROWHEADER, SCROLLBAR, SEARCH, SEARCHBOX, SEPARATOR, SLIDER, SPINBUTTON, STATUS, STRONG, SUBSCRIPT, SUPERSCRIPT, SWITCH, TAB, TABLE, TABLIST, TABPANEL, TERM, TEXTBOX, TIME, TIMER, TOOLBAR, TOOLTIP, TREE, TREEGRID, TREEITEM }`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-role-option-role"/><a href="#frame-locator-get-by-role-option-role" class="list-anchor">#</a>
   
   Required aria role.
@@ -253,7 +253,7 @@ page.getByRole(AriaRole.BUTTON,
     
     Learn more about [`aria-selected`](https://www.w3.org/TR/wai-aria-1.2/#aria-selected).
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-role-return"/><a href="#frame-locator-get-by-role-return" class="list-anchor">#</a>
 
 **Details**
@@ -270,7 +270,7 @@ Many html elements have an implicitly [defined role](https://w3c.github.io/html-
 
 Locate element by the test id.
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure.
 
@@ -284,12 +284,12 @@ You can locate the element by it's test id:
 page.getByTestId("directions").click();
 ```
 
-**參數**
+**Arguments**
 - `testId` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-test-id-option-test-id"/><a href="#frame-locator-get-by-test-id-option-test-id" class="list-anchor">#</a>
   
   Id to locate the element by.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-test-id-return"/><a href="#frame-locator-get-by-test-id-return" class="list-anchor">#</a>
 
 **Details**
@@ -306,7 +306,7 @@ Allows locating elements that contain given text.
 
 See also [Locator.filter()](/api/class-locator.mdx#locator-filter) that allows to match by another criteria, like an accessible role, and then filter by the text content.
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure:
 
@@ -334,7 +334,7 @@ page.getByText(Pattern.compile("Hello"));
 page.getByText(Pattern.compile("^hello$", Pattern.CASE_INSENSITIVE));
 ```
 
-**參數**
+**Arguments**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-text-option-text"/><a href="#frame-locator-get-by-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -343,7 +343,7 @@ page.getByText(Pattern.compile("^hello$", Pattern.CASE_INSENSITIVE));
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-text-return"/><a href="#frame-locator-get-by-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -360,7 +360,7 @@ Input elements of the type `button` and `submit` are matched by their `value` in
 
 Allows locating elements by their title attribute.
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure.
 
@@ -374,7 +374,7 @@ You can check the issues count after locating it by the title text:
 assertThat(page.getByTitle("Issues count")).hasText("25 issues");
 ```
 
-**參數**
+**Arguments**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-title-option-text"/><a href="#frame-locator-get-by-title-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -383,7 +383,7 @@ assertThat(page.getByTitle("Issues count")).hasText("25 issues");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-get-by-title-return"/><a href="#frame-locator-get-by-title-return" class="list-anchor">#</a>
 
 ---
@@ -396,14 +396,14 @@ The method finds an element matching the specified selector in the locator's sub
 
 [Learn more about locators](../locators.mdx).
 
-**使用方式**
+**Usage**
 
 ```java
 FrameLocator.locator(selectorOrLocator);
 FrameLocator.locator(selectorOrLocator, options);
 ```
 
-**參數**
+**Arguments**
 - `selectorOrLocator` [String] | [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-locator-option-selector-or-locator"/><a href="#frame-locator-locator-option-selector-or-locator" class="list-anchor">#</a>
   
   A selector or locator to use when resolving DOM element.
@@ -427,7 +427,7 @@ FrameLocator.locator(selectorOrLocator, options);
     
     Matches elements containing specified text somewhere inside, possibly in a child or a descendant element. When passed a [string], matching is case-insensitive and searches for a substring. For example, `"Playwright"` matches `<article><div>Playwright</div></article>`.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-locator-return"/><a href="#frame-locator-locator-return" class="list-anchor">#</a>
 
 ---
@@ -442,7 +442,7 @@ Useful when you have a [FrameLocator] object obtained somewhere, and later on wo
 
 For a reverse operation, use [Locator.contentFrame()](/api/class-locator.mdx#locator-content-frame).
 
-**使用方式**
+**Usage**
 
 ```java
 FrameLocator frameLocator = page.locator("iframe[name=\"embedded\"]").contentFrame();
@@ -451,12 +451,12 @@ Locator locator = frameLocator.owner();
 assertThat(locator).isVisible();
 ```
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-owner-return"/><a href="#frame-locator-owner-return" class="list-anchor">#</a>
 
 ---
 
-## 已棄用 (Deprecated)
+## Deprecated
 
 ### first {#frame-locator-first}
 
@@ -471,13 +471,13 @@ Use [Locator.first()](/api/class-locator.mdx#locator-first) followed by [Locator
 
 Returns locator to the first matching frame.
 
-**使用方式**
+**Usage**
 
 ```java
 FrameLocator.first();
 ```
 
-**傳回值**
+**Returns**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-first-return"/><a href="#frame-locator-first-return" class="list-anchor">#</a>
 
 ---
@@ -495,13 +495,13 @@ Use [Locator.last()](/api/class-locator.mdx#locator-last) followed by [Locator.c
 
 Returns locator to the last matching frame.
 
-**使用方式**
+**Usage**
 
 ```java
 FrameLocator.last();
 ```
 
-**傳回值**
+**Returns**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-last-return"/><a href="#frame-locator-last-return" class="list-anchor">#</a>
 
 ---
@@ -519,16 +519,16 @@ Use [Locator.nth()](/api/class-locator.mdx#locator-nth) followed by [Locator.con
 
 Returns locator to the n-th matching frame. It's zero based, `nth(0)` selects the first frame.
 
-**使用方式**
+**Usage**
 
 ```java
 FrameLocator.nth(index);
 ```
 
-**參數**
+**Arguments**
 - `index` [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-nth-option-index"/><a href="#frame-locator-nth-option-index" class="list-anchor">#</a>
 
-**傳回值**
+**Returns**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="frame-locator-nth-return"/><a href="#frame-locator-nth-return" class="list-anchor">#</a>
 
 

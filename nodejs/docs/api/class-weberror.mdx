@@ -23,7 +23,7 @@ await page.goto('data:text/html,<script>throw new Error("Test")</script>');
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### error {#web-error-error}
 
@@ -31,13 +31,13 @@ await page.goto('data:text/html,<script>throw new Error("Test")</script>');
 
 Unhandled error that was thrown.
 
-**使用方式**
+**Usage**
 
 ```js
 webError.error();
 ```
 
-**傳回值**
+**Returns**
 - [Error]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-error-error-return"/><a href="#web-error-error-return" class="list-anchor">#</a>
 
 ---
@@ -48,13 +48,13 @@ webError.error();
 
 The page that produced this unhandled exception, if any.
 
-**使用方式**
+**Usage**
 
 ```js
 webError.page();
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-error-page-return"/><a href="#web-error-page-return" class="list-anchor">#</a>
 
 

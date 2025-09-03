@@ -32,7 +32,7 @@ const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### isEnabled {#logger-is-enabled}
 
@@ -40,19 +40,19 @@ const { chromium } = require('playwright');  // Or 'firefox' or 'webkit'.
 
 Determines whether sink is interested in the logger with the given name and severity.
 
-**使用方式**
+**Usage**
 
 ```js
 logger.isEnabled(name, severity);
 ```
 
-**參數**
+**Arguments**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="logger-is-enabled-option-name"/><a href="#logger-is-enabled-option-name" class="list-anchor">#</a>
   
   logger name
 - `severity` "verbose" | "info" | "warning" | "error"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="logger-is-enabled-option-severity"/><a href="#logger-is-enabled-option-severity" class="list-anchor">#</a>
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="logger-is-enabled-return"/><a href="#logger-is-enabled-return" class="list-anchor">#</a>
 
 ---
@@ -61,13 +61,13 @@ logger.isEnabled(name, severity);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>logger.log</x-search>
 
-**使用方式**
+**Usage**
 
 ```js
 logger.log(name, severity, message, args, hints);
 ```
 
-**參數**
+**Arguments**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="logger-log-option-name"/><a href="#logger-log-option-name" class="list-anchor">#</a>
   
   logger name

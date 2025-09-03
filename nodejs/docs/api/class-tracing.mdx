@@ -12,9 +12,9 @@ API for collecting and saving Playwright traces. Playwright traces can be opened
 
 :::note
 
-You probably want to [enable tracing in your config file](https://playwright.tw/docs/api/class-testoptions#test-options-trace) instead of using `context.tracing`.
+You probably want to [enable tracing in your config file](https://playwright.dev/docs/api/class-testoptions#test-options-trace) instead of using `context.tracing`.
 
-The `context.tracing` API captures browser operations and network activity, but it doesn't record test assertions (like `expect` calls). We recommend [enabling tracing through Playwright Test configuration](https://playwright.tw/docs/api/class-testoptions#test-options-trace), which includes those assertions and provides a more complete trace for debugging test failures.
+The `context.tracing` API captures browser operations and network activity, but it doesn't record test assertions (like `expect` calls). We recommend [enabling tracing through Playwright Test configuration](https://playwright.dev/docs/api/class-testoptions#test-options-trace), which includes those assertions and provides a more complete trace for debugging test failures.
 :::
 
 Start recording a trace before performing actions. At the end, stop tracing and save it to a file.
@@ -32,7 +32,7 @@ await context.tracing.stop({ path: 'trace.zip' });
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### group {#tracing-group}
 
@@ -45,7 +45,7 @@ Use `test.step` instead when available.
 
 Creates a new group within the trace, assigning any subsequent API calls to this group, until [tracing.groupEnd()](/api/class-tracing.mdx#tracing-group-end) is called. Groups can be nested and will be visible in the trace viewer.
 
-**使用方式**
+**Usage**
 
 ```js
 // use test.step instead
@@ -54,7 +54,7 @@ await test.step('Log in', async () => {
 });
 ```
 
-**參數**
+**Arguments**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-option-name"/><a href="#tracing-group-option-name" class="list-anchor">#</a>
   
   Group name shown in the trace viewer.
@@ -71,7 +71,7 @@ await test.step('Log in', async () => {
       
     Specifies a custom location for the group to be shown in the trace viewer. Defaults to the location of the [tracing.group()](/api/class-tracing.mdx#tracing-group) call.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-return"/><a href="#tracing-group-return" class="list-anchor">#</a>
 
 ---
@@ -82,13 +82,13 @@ await test.step('Log in', async () => {
 
 Closes the last group created by [tracing.group()](/api/class-tracing.mdx#tracing-group).
 
-**使用方式**
+**Usage**
 
 ```js
 await tracing.groupEnd();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-end-return"/><a href="#tracing-group-end-return" class="list-anchor">#</a>
 
 ---
@@ -101,12 +101,12 @@ Start tracing.
 
 :::note
 
-You probably want to [enable tracing in your config file](https://playwright.tw/docs/api/class-testoptions#test-options-trace) instead of using `Tracing.start`.
+You probably want to [enable tracing in your config file](https://playwright.dev/docs/api/class-testoptions#test-options-trace) instead of using `Tracing.start`.
 
-The `context.tracing` API captures browser operations and network activity, but it doesn't record test assertions (like `expect` calls). We recommend [enabling tracing through Playwright Test configuration](https://playwright.tw/docs/api/class-testoptions#test-options-trace), which includes those assertions and provides a more complete trace for debugging test failures.
+The `context.tracing` API captures browser operations and network activity, but it doesn't record test assertions (like `expect` calls). We recommend [enabling tracing through Playwright Test configuration](https://playwright.dev/docs/api/class-testoptions#test-options-trace), which includes those assertions and provides a more complete trace for debugging test failures.
 :::
 
-**使用方式**
+**Usage**
 
 ```js
 await context.tracing.start({ screenshots: true, snapshots: true });
@@ -116,7 +116,7 @@ expect(page.url()).toBe('https://playwright.dev');
 await context.tracing.stop({ path: 'trace.zip' });
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `name` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-name"/><a href="#tracing-start-option-name" class="list-anchor">#</a>
     
@@ -136,7 +136,7 @@ await context.tracing.stop({ path: 'trace.zip' });
     
     Trace name to be shown in the Trace Viewer.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-return"/><a href="#tracing-start-return" class="list-anchor">#</a>
 
 ---
@@ -147,7 +147,7 @@ await context.tracing.stop({ path: 'trace.zip' });
 
 Start a new trace chunk. If you'd like to record multiple traces on the same [BrowserContext], use [tracing.start()](/api/class-tracing.mdx#tracing-start) once, and then create multiple trace chunks with [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) and [tracing.stopChunk()](/api/class-tracing.mdx#tracing-stop-chunk).
 
-**使用方式**
+**Usage**
 
 ```js
 await context.tracing.start({ screenshots: true, snapshots: true });
@@ -165,7 +165,7 @@ await page.goto('http://example.com');
 await context.tracing.stopChunk({ path: 'trace2.zip' });
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `name` [string] *(optional)* <font size="2">Added in: v1.32</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-name"/><a href="#tracing-start-chunk-option-name" class="list-anchor">#</a>
     
@@ -174,7 +174,7 @@ await context.tracing.stopChunk({ path: 'trace2.zip' });
     
     Trace name to be shown in the Trace Viewer.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-return"/><a href="#tracing-start-chunk-return" class="list-anchor">#</a>
 
 ---
@@ -185,20 +185,20 @@ await context.tracing.stopChunk({ path: 'trace2.zip' });
 
 Stop tracing.
 
-**使用方式**
+**Usage**
 
 ```js
 await tracing.stop();
 await tracing.stop(options);
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `path` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-option-path"/><a href="#tracing-stop-option-path" class="list-anchor">#</a>
     
     Export trace into the file with the given path.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-return"/><a href="#tracing-stop-return" class="list-anchor">#</a>
 
 ---
@@ -209,20 +209,20 @@ await tracing.stop(options);
 
 Stop the trace chunk. See [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) for more details about multiple trace chunks.
 
-**使用方式**
+**Usage**
 
 ```js
 await tracing.stopChunk();
 await tracing.stopChunk(options);
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `path` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-chunk-option-path"/><a href="#tracing-stop-chunk-option-path" class="list-anchor">#</a>
     
     Export trace collected since the last [tracing.startChunk()](/api/class-tracing.mdx#tracing-start-chunk) call into the file with the given path.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-chunk-return"/><a href="#tracing-stop-chunk-return" class="list-anchor">#</a>
 
 

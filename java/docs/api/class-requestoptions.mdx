@@ -49,7 +49,7 @@ APIResponse response = context.request().post("https://example.com/upload_member
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### create {#request-options-create}
 
@@ -57,13 +57,13 @@ APIResponse response = context.request().post("https://example.com/upload_member
 
 Creates new instance of [RequestOptions].
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.create();
 ```
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-create-return"/><a href="#request-options-create-return" class="list-anchor">#</a>
 
 ---
@@ -74,18 +74,18 @@ RequestOptions.create();
 
 Sets the request's post data.
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setData(data);
 ```
 
-**參數**
+**Arguments**
 - `data` [String] | [byte&#91;&#93;] | [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-data-option-data"/><a href="#request-options-set-data-option-data" class="list-anchor">#</a>
   
   Allows to set post data of the request. If the data parameter is an object, it will be serialized to json string and `content-type` header will be set to `application/json` if not explicitly set. Otherwise the `content-type` header will be set to `application/octet-stream` if not explicitly set.
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-data-return"/><a href="#request-options-set-data-return" class="list-anchor">#</a>
 
 ---
@@ -94,18 +94,18 @@ RequestOptions.setData(data);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.18</font><x-search>requestOptions.setFailOnStatusCode</x-search>
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setFailOnStatusCode(failOnStatusCode);
 ```
 
-**參數**
+**Arguments**
 - `failOnStatusCode` [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-fail-on-status-code-option-fail-on-status-code"/><a href="#request-options-set-fail-on-status-code-option-fail-on-status-code" class="list-anchor">#</a>
   
   Whether to throw on response codes other than 2xx and 3xx. By default response object is returned for all status codes.
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-fail-on-status-code-return"/><a href="#request-options-set-fail-on-status-code-return" class="list-anchor">#</a>
 
 ---
@@ -116,18 +116,18 @@ RequestOptions.setFailOnStatusCode(failOnStatusCode);
 
 Provides [FormData] object that will be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `application/x-www-form-urlencoded` unless explicitly provided.
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setForm(form);
 ```
 
-**參數**
+**Arguments**
 - `form` [FormData]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-form-option-form"/><a href="#request-options-set-form-option-form" class="list-anchor">#</a>
   
   Form data to be serialized as html form using `application/x-www-form-urlencoded` encoding and sent as this request body.
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-form-return"/><a href="#request-options-set-form-return" class="list-anchor">#</a>
 
 ---
@@ -138,13 +138,13 @@ RequestOptions.setForm(form);
 
 Sets an HTTP header to the request. This header will apply to the fetched request as well as any redirects initiated by it.
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setHeader(name, value);
 ```
 
-**參數**
+**Arguments**
 - `name` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-header-option-name"/><a href="#request-options-set-header-option-name" class="list-anchor">#</a>
   
   Header name.
@@ -152,7 +152,7 @@ RequestOptions.setHeader(name, value);
   
   Header value.
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-header-return"/><a href="#request-options-set-header-return" class="list-anchor">#</a>
 
 ---
@@ -161,18 +161,18 @@ RequestOptions.setHeader(name, value);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.18</font><x-search>requestOptions.setIgnoreHTTPSErrors</x-search>
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setIgnoreHTTPSErrors(ignoreHTTPSErrors);
 ```
 
-**參數**
+**Arguments**
 - `ignoreHTTPSErrors` [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-ignore-https-errors-option-ignore-https-errors"/><a href="#request-options-set-ignore-https-errors-option-ignore-https-errors" class="list-anchor">#</a>
   
   Whether to ignore HTTPS errors when sending network requests.
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-ignore-https-errors-return"/><a href="#request-options-set-ignore-https-errors-return" class="list-anchor">#</a>
 
 ---
@@ -181,18 +181,18 @@ RequestOptions.setIgnoreHTTPSErrors(ignoreHTTPSErrors);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.26</font><x-search>requestOptions.setMaxRedirects</x-search>
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setMaxRedirects(maxRedirects);
 ```
 
-**參數**
+**Arguments**
 - `maxRedirects` [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-max-redirects-option-max-redirects"/><a href="#request-options-set-max-redirects-option-max-redirects" class="list-anchor">#</a>
   
   Maximum number of request redirects that will be followed automatically. An error will be thrown if the number is exceeded. Defaults to `20`. Pass `0` to not follow redirects.
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-max-redirects-return"/><a href="#request-options-set-max-redirects-return" class="list-anchor">#</a>
 
 ---
@@ -201,18 +201,18 @@ RequestOptions.setMaxRedirects(maxRedirects);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added in: v1.46</font><x-search>requestOptions.setMaxRetries</x-search>
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setMaxRetries(maxRetries);
 ```
 
-**參數**
+**Arguments**
 - `maxRetries` [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-max-retries-option-max-retries"/><a href="#request-options-set-max-retries-option-max-retries" class="list-anchor">#</a>
   
   Maximum number of times network errors should be retried. Currently only `ECONNRESET` error is retried. Does not retry based on HTTP response codes. An error will be thrown if the limit is exceeded. Defaults to `0` - no retries.
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-max-retries-return"/><a href="#request-options-set-max-retries-return" class="list-anchor">#</a>
 
 ---
@@ -223,18 +223,18 @@ RequestOptions.setMaxRetries(maxRetries);
 
 Changes the request method (e.g. [PUT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT) or [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST)).
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setMethod(method);
 ```
 
-**參數**
+**Arguments**
 - `method` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-method-option-method"/><a href="#request-options-set-method-option-method" class="list-anchor">#</a>
   
   Request method, e.g. [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST).
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-method-return"/><a href="#request-options-set-method-return" class="list-anchor">#</a>
 
 ---
@@ -245,18 +245,18 @@ RequestOptions.setMethod(method);
 
 Provides [FormData] object that will be serialized as html form using `multipart/form-data` encoding and sent as this request body. If this parameter is specified `content-type` header will be set to `multipart/form-data` unless explicitly provided.
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setMultipart(form);
 ```
 
-**參數**
+**Arguments**
 - `form` [FormData]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-multipart-option-form"/><a href="#request-options-set-multipart-option-form" class="list-anchor">#</a>
   
   Form data to be serialized as html form using `multipart/form-data` encoding and sent as this request body.
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-multipart-return"/><a href="#request-options-set-multipart-return" class="list-anchor">#</a>
 
 ---
@@ -267,13 +267,13 @@ RequestOptions.setMultipart(form);
 
 Adds a query parameter to the request URL.
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setQueryParam(name, value);
 ```
 
-**參數**
+**Arguments**
 - `name` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-query-param-option-name"/><a href="#request-options-set-query-param-option-name" class="list-anchor">#</a>
   
   Parameter name.
@@ -281,7 +281,7 @@ RequestOptions.setQueryParam(name, value);
   
   Parameter value.
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-query-param-return"/><a href="#request-options-set-query-param-return" class="list-anchor">#</a>
 
 ---
@@ -292,18 +292,18 @@ RequestOptions.setQueryParam(name, value);
 
 Sets request timeout in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**使用方式**
+**Usage**
 
 ```java
 RequestOptions.setTimeout(timeout);
 ```
 
-**參數**
+**Arguments**
 - `timeout` [double]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-timeout-option-timeout"/><a href="#request-options-set-timeout-option-timeout" class="list-anchor">#</a>
   
   Request timeout in milliseconds.
 
-**傳回值**
+**Returns**
 - [RequestOptions]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-options-set-timeout-return"/><a href="#request-options-set-timeout-return" class="list-anchor">#</a>
 
 

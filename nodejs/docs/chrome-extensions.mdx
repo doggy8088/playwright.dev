@@ -1,24 +1,24 @@
 ---
 id: chrome-extensions
-title: "Chrome 擴充功能"
+title: "Chrome extensions"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
 :::note
 
-擴充功能只能在使用持久情境啟動的 Chromium 中運作。使用自訂瀏覽器參數需自行承擔風險，因為其中某些參數可能會破壞 Playwright 功能。
+Extensions only work in Chromium when launched with a persistent context. Use custom browser args at your own risk, as some of them may break Playwright functionality.
 
-Google Chrome 和 Microsoft Edge [移除了載入擴充功能所需的命令列旗標](https://groups.google.com/a/chromium.org/g/chromium-extensions/c/FxMU1TvxWWg/m/daZVTYNlBQAJ)，因此請使用 Playwright 隨附的 Chromium。
+Google Chrome and Microsoft Edge [removed the command-line flags needed to side-load extensions](https://groups.google.com/a/chromium.org/g/chromium-extensions/c/FxMU1TvxWWg/m/daZVTYNlBQAJ), so use Chromium that comes bundled with Playwright.
 :::
 
-下面的程式碼片段會取得 [Manifest v3](https://developer.chrome.com/docs/extensions/develop/migrate) 擴充功能的 [Service Worker](https://developer.chrome.com/docs/extensions/develop/concepts/service-workers)，其原始碼位於 `./my-extension`。
+The snippet below retrieves the [service worker](https://developer.chrome.com/docs/extensions/develop/concepts/service-workers) of a [Manifest v3](https://developer.chrome.com/docs/extensions/develop/migrate) extension whose source is located in `./my-extension`.
 
-請注意使用 `chromium` 通道來允許在無頭模式下執行擴充功能。或者，您也可以在有頭模式下啟動瀏覽器。
+Note the use of the `chromium` channel that allows to run extensions in headless mode. Alternatively, you can launch the browser in headed mode.
 
 ```js
 const { chromium } = require('playwright');
@@ -37,18 +37,18 @@ const { chromium } = require('playwright');
   if (!serviceWorker)
     serviceWorker = await browserContext.waitForEvent('serviceworker');
 
-  // 像測試任何其他 worker 一樣測試 Service Worker。
+  // Test the service worker as you would any other worker.
   await browserContext.close();
 })();
 ```
 
-## 測試
+## Testing
 
-要讓擴充功能在執行測試時載入，您可以使用測試佈置來設定情境。您還可以動態取得擴充功能 ID，並使用它來載入和測試 popup 頁面。
+To have the extension loaded when running tests you can use a test fixture to set the context. You can also dynamically retrieve the extension id and use it to load and test the popup page for example.
 
-請注意使用 `chromium` 通道來允許在無頭模式下執行擴充功能。或者，您也可以在有頭模式下啟動瀏覽器。
+Note the use of the `chromium` channel that allows to run extensions in headless mode. Alternatively, you can launch the browser in headed mode.
 
-首先，新增會載入擴充功能的佈置：
+First, add fixtures that will load the extension:
 
 ```js title="fixtures.ts"
 import { test as base, chromium, type BrowserContext } from '@playwright/test';
@@ -83,7 +83,7 @@ export const test = base.extend<{
 export const expect = test.expect;
 ```
 
-然後在測試中使用這些佈置：
+Then use these fixtures in a test:
 
 ```js
 import { test, expect } from './fixtures';

@@ -1,105 +1,105 @@
 ---
 id: handles
-title: "控制代碼"
+title: "Handles"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 可以建立頁面 DOM 元素或頁面內任何其他物件的控制代碼。這些控制代碼存在於 Playwright 程序中，而實際物件存在於瀏覽器中。有兩種類型的控制代碼：
-- [JSHandle] 用於參考頁面中的任何 JavaScript 物件
-- [ElementHandle] 用於參考頁面中的 DOM 元素，它具有額外的方法，允許對元素執行動作和斷言其屬性。
+Playwright can create handles to the page DOM elements or any other objects inside the page. These handles live in the Playwright process, whereas the actual objects live in the browser. There are two types of handles:
+- [JSHandle] to reference any JavaScript objects in the page
+- [ElementHandle] to reference DOM elements in the page, it has extra methods that allow performing actions on the elements and asserting their properties.
 
-由於頁面中的任何 DOM 元素也是 JavaScript 物件，因此任何 [ElementHandle] 也是 [JSHandle]。
+Since any DOM element in the page is also a JavaScript object, any [ElementHandle] is a [JSHandle] as well.
 
-控制代碼用於對頁面中的實際物件執行操作。您可以對控制代碼進行求值、取得控制代碼屬性、將控制代碼作為求值參數傳遞、將頁面物件序列化為 JSON 等。請參閱 [JSHandle] 類別 API 以了解這些方法。
+Handles are used to perform operations on those actual objects in the page. You can evaluate on a handle, get handle properties, pass handle as an evaluation parameter, serialize page object into JSON etc. See the [JSHandle] class API for these and methods.
 
-### API 參考
+### API reference
 - [JSHandle]
 - [ElementHandle]
 
-以下是取得 [JSHandle] 的最簡單方法。
+Here is the easiest way to obtain a [JSHandle].
 
 ```csharp
 var jsHandle = await page.EvaluateHandleAsync("window");
-//  使用 jsHandle 進行求值
+//  Use jsHandle for evaluations.
 ```
 
-## 元素控制代碼
+## Element Handles
 
 :::warning[Discouraged]
 
-不建議使用 [ElementHandle]，請改用 [Locator] 物件和網頁優先斷言。
+The use of [ElementHandle] is discouraged, use [Locator] objects and web-first assertions instead.
 :::
 
-當需要 [ElementHandle] 時，建議使用 [`Page.WaitForSelectorAsync()`](/api/class-page.mdx#page-wait-for-selector) 或 [`Frame.WaitForSelectorAsync()`](/api/class-frame.mdx#frame-wait-for-selector) 方法來取得它。這些 API 會等待元素附加且可見。
+When [ElementHandle] is required, it is recommended to fetch it with the [Page.WaitForSelectorAsync()](/api/class-page.mdx#page-wait-for-selector) or [Frame.WaitForSelectorAsync()](/api/class-frame.mdx#frame-wait-for-selector) methods. These APIs wait for the element to be attached and visible.
 
 ```csharp
-// 取得元素控制代碼
+// Get the element handle
 var jsHandle = await page.WaitForSelectorAsync("#box");
 var elementHandle = jsHandle as ElementHandle;
 
-// 斷言元素的邊界框
+// Assert bounding box for the element
 var boundingBox = await elementHandle.BoundingBoxAsync();
 Assert.AreEqual(100, boundingBox.Width);
 
-// 斷言元素的屬性
+// Assert attribute for the element
 var classNames = await elementHandle.GetAttributeAsync("class");
 Assert.True(classNames.Contains("highlighted"));
 ```
 
-## 控制代碼作為參數
+## Handles as parameters
 
-控制代碼可以傳遞到 [`Page.EvaluateAsync()`](/api/class-page.mdx#page-evaluate) 和類似的方法中。以下程式碼片段在頁面中建立一個新陣列，用資料初始化它，並將該陣列的控制代碼返回到 Playwright。然後在後續的求值中使用該控制代碼：
+Handles can be passed into the [Page.EvaluateAsync()](/api/class-page.mdx#page-evaluate) and similar methods. The following snippet creates a new array in the page, initializes it with data and returns a handle to this array into Playwright. It then uses the handle in subsequent evaluations:
 
 ```csharp
-// 在頁面中建立新陣列
+// Create new array in page.
 var myArrayHandle = await page.EvaluateHandleAsync(@"() => {
     window.myArray = [1];
     return myArray;
 }");
 
-// 取得陣列的長度
+// Get the length of the array.
 var length = await page.EvaluateAsync<int>("a => a.length", myArrayHandle);
 
-// 使用控制代碼向陣列新增一個元素
+// Add one more element to the array using the handle
 await page.EvaluateAsync("arg => arg.myArray.add(arg.newElement)",
     new { myArray = myArrayHandle, newElement = 2 });
 
-// 當不再需要物件時釋放它
+// Release the object when it is no longer needed.
 await myArrayHandle.DisposeAsync();
 ```
 
-## 控制代碼生命週期
+## Handle Lifecycle
 
-控制代碼可以使用頁面方法（如 [`Page.EvaluateHandleAsync()`](/api/class-page.mdx#page-evaluate-handle)、[`Page.QuerySelectorAsync()`](/api/class-page.mdx#page-query-selector) 或 [`Page.QuerySelectorAllAsync()`](/api/class-page.mdx#page-query-selector-all)）或其框架對應方法（[`Frame.EvaluateHandleAsync()`](/api/class-frame.mdx#frame-evaluate-handle)、[`Frame.QuerySelectorAsync()`](/api/class-frame.mdx#frame-query-selector) 或 [`Frame.QuerySelectorAllAsync()`](/api/class-frame.mdx#frame-query-selector-all)）取得。一旦建立，控制代碼將保留物件不被[垃圾回收](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)，除非頁面導航或通過 [`JsHandle.DisposeAsync()`](/api/class-jshandle.mdx#js-handle-dispose) 方法手動處置控制代碼。
+Handles can be acquired using the page methods such as [Page.EvaluateHandleAsync()](/api/class-page.mdx#page-evaluate-handle), [Page.QuerySelectorAsync()](/api/class-page.mdx#page-query-selector) or [Page.QuerySelectorAllAsync()](/api/class-page.mdx#page-query-selector-all) or their frame counterparts [Frame.EvaluateHandleAsync()](/api/class-frame.mdx#frame-evaluate-handle), [Frame.QuerySelectorAsync()](/api/class-frame.mdx#frame-query-selector) or [Frame.QuerySelectorAllAsync()](/api/class-frame.mdx#frame-query-selector-all). Once created, handles will retain object from [garbage collection](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management) unless page navigates or the handle is manually disposed via the [JsHandle.DisposeAsync()](/api/class-jshandle.mdx#js-handle-dispose) method.
 
-### API 參考
+### API reference
 - [JSHandle]
 - [ElementHandle]
-- [`ElementHandle.BoundingBoxAsync()`](/api/class-elementhandle.mdx#element-handle-bounding-box)
-- [`ElementHandle.GetAttributeAsync()`](/api/class-elementhandle.mdx#element-handle-get-attribute)
-- [`ElementHandle.InnerTextAsync()`](/api/class-elementhandle.mdx#element-handle-inner-text)
-- [`ElementHandle.InnerHTMLAsync()`](/api/class-elementhandle.mdx#element-handle-inner-html)
-- [`ElementHandle.TextContentAsync()`](/api/class-elementhandle.mdx#element-handle-text-content)
-- [`JsHandle.EvaluateAsync()`](/api/class-jshandle.mdx#js-handle-evaluate)
-- [`Page.EvaluateHandleAsync()`](/api/class-page.mdx#page-evaluate-handle)
-- [`Page.QuerySelectorAsync()`](/api/class-page.mdx#page-query-selector)
-- [`Page.QuerySelectorAllAsync()`](/api/class-page.mdx#page-query-selector-all)
+- [ElementHandle.BoundingBoxAsync()](/api/class-elementhandle.mdx#element-handle-bounding-box)
+- [ElementHandle.GetAttributeAsync()](/api/class-elementhandle.mdx#element-handle-get-attribute)
+- [ElementHandle.InnerTextAsync()](/api/class-elementhandle.mdx#element-handle-inner-text)
+- [ElementHandle.InnerHTMLAsync()](/api/class-elementhandle.mdx#element-handle-inner-html)
+- [ElementHandle.TextContentAsync()](/api/class-elementhandle.mdx#element-handle-text-content)
+- [JsHandle.EvaluateAsync()](/api/class-jshandle.mdx#js-handle-evaluate)
+- [Page.EvaluateHandleAsync()](/api/class-page.mdx#page-evaluate-handle)
+- [Page.QuerySelectorAsync()](/api/class-page.mdx#page-query-selector)
+- [Page.QuerySelectorAllAsync()](/api/class-page.mdx#page-query-selector-all)
 
-## 定位器與元素控制代碼的比較
+## Locator vs ElementHandle
 
 :::caution
 
-我們只建議在需要對靜態頁面執行大量 DOM 遍歷的罕見情況下使用 [ElementHandle]。對於所有使用者動作和斷言，請改用定位器。
+We only recommend using [ElementHandle] in the rare cases when you need to perform extensive DOM traversal on a static page. For all user actions and assertions use locator instead.
 :::
 
-[Locator] 和 [ElementHandle] 的區別在於，後者指向特定元素，而定位器捕獲如何檢索該元素的邏輯。
+The difference between the [Locator] and [ElementHandle] is that the latter points to a particular element, while Locator captures the logic of how to retrieve that element.
 
-在下面的範例中，控制代碼指向頁面上的特定 DOM 元素。如果該元素更改文字或被 React 用來呈現完全不同的元件，控制代碼仍然指向那個非常過時的 DOM 元素。這可能導致意外的行為。
+In the example below, handle points to a particular DOM element on page. If that element changes text or is used by React to render an entirely different component, handle is still pointing to that very stale DOM element. This can lead to unexpected behaviors.
 
 ```csharp
 var handle = await page.QuerySelectorAsync("text=Submit");
@@ -107,7 +107,7 @@ await handle.HoverAsync();
 await handle.ClickAsync();
 ```
 
-使用定位器時，每次使用定位器時，都會使用選擇器在頁面中定位最新的 DOM 元素。因此在下面的程式碼片段中，底層 DOM 元素將被定位兩次。
+With the locator, every time the locator is used, up-to-date DOM element is located in the page using the selector. So in the snippet below, underlying DOM element is going to be located twice.
 
 ```csharp
 var locator = page.GetByText("Submit");

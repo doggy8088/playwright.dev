@@ -1,19 +1,19 @@
 ---
 id: mock
-title: "模擬 API"
+title: "Mock APIs"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Web API 通常以 HTTP 端點的方式實作。Playwright 提供 API 來**模擬**和**修改**網路流量，包含 HTTP 和 HTTPS。頁面發出的任何請求，包括 [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) 和 [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 請求，都可以被追蹤、修改和模擬。您也可以使用包含頁面多個網路請求的 HAR 檔案進行模擬。
+Web APIs are usually implemented as HTTP endpoints. Playwright provides APIs to **mock** and **modify** network traffic, both HTTP and HTTPS. Any requests that a page does, including [XHRs](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) requests, can be tracked, modified and mocked. With Playwright you can also mock using HAR files that contain multiple network requests made by the page.
 
-## 模擬 API 請求
+## Mock API requests
 
-下列程式碼會攔截所有對 `*/**/api/v1/fruits` 的呼叫，並回傳自訂回應。不會對實際 API 發出請求。測試會前往使用模擬路由的 URL，並斷言模擬資料出現在頁面上。
+The following code will intercept all the calls to `*/**/api/v1/fruits` and will return a custom response instead. No requests to the API will be made. The test goes to the URL that uses the mocked route and asserts that mock data is present on the page.
 
 ```js
 test("mocks a fruit and doesn't call api", async ({ page }) => {
@@ -30,15 +30,15 @@ test("mocks a fruit and doesn't call api", async ({ page }) => {
 });
 ```
 
-從範例測試的追蹤中可以看到，API 從未被呼叫，而是由模擬資料完成了回應。![api mocking trace](https://github.com/microsoft/playwright/assets/13063165/3dc14cbf-c100-4efc-ac21-d7b52d698b53)
+You can see from the trace of the example test that the API was never called, it was however fulfilled with the mock data. ![api mocking trace](https://github.com/microsoft/playwright/assets/13063165/3dc14cbf-c100-4efc-ac21-d7b52d698b53)
 
-了解更多關於[進階網路](./network.mdx)。
+Read more about [advanced networking](./network.mdx).
 
-## 修改 API 回應
+## Modify API responses
 
-有時候需要發出 API 請求，但回應需要修改以確保測試的可重現性。在這種情況下，不是模擬請求，而是執行請求並以修改後的回應來完成。
+Sometimes, it is essential to make an API request, but the response needs to be patched to allow for reproducible testing. In that case, instead of mocking the request, one can perform the request and fulfill it with the modified response.
 
-下列範例中，我們攔截對水果 API 的呼叫，並將名為 'Loquat' 的新水果加入資料中。然後前往 URL 並斷言該資料存在：
+In the example below we intercept the call to the fruit API and add a new fruit called 'Loquat', to the data. We then go to the url and assert that this data is there:
 
 ```js
 test('gets the json from api and adds a new fruit', async ({ page }) => {
@@ -60,31 +60,31 @@ test('gets the json from api and adds a new fruit', async ({ page }) => {
 });
 ```
 
-在測試的追蹤中，我們可以看到 API 被呼叫了，而回應被修改了。![trace of test showing api being called and fulfilled](https://github.com/microsoft/playwright/assets/13063165/8b8dd82d-1b3e-428e-871b-840581fed439)
+In the trace of our test we can see that the API was called and the response was modified. ![trace of test showing api being called and fulfilled](https://github.com/microsoft/playwright/assets/13063165/8b8dd82d-1b3e-428e-871b-840581fed439)
 
-透過檢查回應，我們可以看到我們的新水果已被新增到列表中。![trace of test showing the mock response](https://github.com/microsoft/playwright/assets/13063165/03e6c87c-4ecc-47e8-9ca0-30fface25e9d)
+By inspecting the response we can see that our new fruit was added to the list. ![trace of test showing the mock response](https://github.com/microsoft/playwright/assets/13063165/03e6c87c-4ecc-47e8-9ca0-30fface25e9d)
 
-了解更多關於[進階網路](./network.mdx)。
+Read more about [advanced networking](./network.mdx).
 
-## 使用 HAR 檔案進行模擬
+## Mocking with HAR files
 
-HAR 檔案是 [HTTP Archive](http://www.softwareishard.com/blog/har-12-spec/) 檔案，包含頁面載入時所有網路請求的記錄。它包含請求和回應標頭、Cookie、內容、時間等資訊。您可以在測試中使用 HAR 檔案來模擬網路請求。您需要：
-1. 錄製 HAR 檔案。
-1. 將 HAR 檔案與測試一起提交。
-1. 在測試中使用已儲存的 HAR 檔案來路由請求。
+A HAR file is an [HTTP Archive](http://www.softwareishard.com/blog/har-12-spec/) file that contains a record of all the network requests that are made when a page is loaded. It contains information about the request and response headers, cookies, content, timings, and more. You can use HAR files to mock network requests in your tests. You'll need to:
+1. Record a HAR file.
+1. Commit the HAR file alongside the tests.
+1. Route requests using the saved HAR files in the tests.
 
-### 錄製 HAR 檔案
+### Recording a HAR file
 
-要錄製 HAR 檔案，我們使用 [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) 或 [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) 方法。此方法接受 HAR 檔案的路徑和可選的選項物件。選項物件可以包含 URL，這樣只有符合指定萬用字元模式的 URL 請求才會從 HAR 檔案提供。如果未指定，所有請求都會從 HAR 檔案提供。
+To record a HAR file we use [page.routeFromHAR()](/api/class-page.mdx#page-route-from-har) or [browserContext.routeFromHAR()](/api/class-browsercontext.mdx#browser-context-route-from-har) method. This method takes in the path to the HAR file and an optional object of options. The options object can contain the URL so that only requests with the URL matching the specified glob pattern will be served from the HAR File. If not specified, all requests will be served from the HAR file.
 
-將 `update` 選項設為 true 會建立或更新 HAR 檔案，包含實際的網路資訊，而不是從 HAR 檔案提供請求。建立測試時使用此選項可以用真實資料填充 HAR。
+Setting `update` option to true will create or update the HAR file with the actual network information instead of serving the requests from the HAR file. Use it when creating a test to populate the HAR with real data.
 
 #### 
-或者，您也可以在建立瀏覽器情境時，於 [browser.newContext()](/api/class-browser.mdx#browser-new-context) 中使用 [recordHar](/api/class-browser.mdx#browser-new-context-option-record-har) 選項來錄製 HAR 檔案。這可以擷取整個情境的所有網路流量，直到情境關閉。
+Alternatively, you can also record HAR files by using the [recordHar](/api/class-browser.mdx#browser-new-context-option-record-har) option in [browser.newContext()](/api/class-browser.mdx#browser-new-context) when creating a browser context. This allows you to capture all network traffic for the entire context until the context is closed.
 
-### 修改 HAR 檔案
+### Modifying a HAR file
 
-錄製好 HAR 檔案後，您可以打開 'hars' 資料夾中的雜湊 .txt 檔案並編輯 JSON 來修改它。此檔案應該提交到您的原始碼控制。只要您以 `update: true` 執行此測試，它就會以來自 API 的請求更新您的 HAR 檔案。
+Once you have recorded a HAR file you can modify it by opening the hashed .txt file inside your 'hars' folder and editing the JSON. This file should be committed to your source control. Anytime you run this test with `update: true` it will update your HAR file with the request from the API.
 
 ```json
 [
@@ -96,9 +96,9 @@ HAR 檔案是 [HTTP Archive](http://www.softwareishard.com/blog/har-12-spec/) �
 ]
 ```
 
-### 從 HAR 重播
+### Replaying from HAR
 
-現在您已經錄製了 HAR 檔案並修改了模擬資料，可以在測試中用它來提供相符的回應。為此，只需關閉或移除 `update` 選項。這將針對 HAR 檔案執行測試，而不是存取 API。
+Now that you have the HAR file recorded and modified the mock data, it can be used to serve matching responses in the test. For this, just turn off or simply remove the `update` option. This will run the test against the HAR file instead of hitting the API.
 
 ```js
 test('gets the json from HAR and checks the new fruit has been added', async ({ page }) => {
@@ -118,30 +118,30 @@ test('gets the json from HAR and checks the new fruit has been added', async ({ 
 });
 ```
 
-在測試的追蹤中，我們可以看到路由從 HAR 檔案完成了，API 沒有被呼叫。![trace showing the HAR file being used](https://github.com/microsoft/playwright/assets/13063165/1bd7ab66-ea4f-43c2-a4e5-ca17d4837ff1)
+In the trace of our test we can see that the route was fulfilled from the HAR file and the API was not called. ![trace showing the HAR file being used](https://github.com/microsoft/playwright/assets/13063165/1bd7ab66-ea4f-43c2-a4e5-ca17d4837ff1)
 
-如果我們檢查回應，可以看到我們的新水果已新增到 JSON 中，這是透過手動更新 `hars` 資料夾中的雜湊 `.txt` 檔案完成的。![trace showing response from HAR file](https://github.com/microsoft/playwright/assets/13063165/db3117fc-7b02-4973-9a51-29e213261a6a)
+If we inspect the response we can see our new fruit was added to the JSON, which was done by manually updating the hashed `.txt` file inside the `hars` folder. ![trace showing response from HAR file](https://github.com/microsoft/playwright/assets/13063165/db3117fc-7b02-4973-9a51-29e213261a6a)
 
-HAR 重播嚴格比對 URL 和 HTTP 方法。對於 POST 請求，它也嚴格比對 POST 負載。如果多個錄音比對一個請求，則選擇標頭比對最多的那個。導致重新導向的條目會自動跟隨。
+HAR replay matches URL and HTTP method strictly. For POST requests, it also matches POST payloads strictly. If multiple recordings match a request, the one with the most matching headers is picked. An entry resulting in a redirect will be followed automatically.
 
-與錄製時類似，如果給定的 HAR 檔案名稱以 `.zip` 結尾，它會被視為包含 HAR 檔案以及儲存為單獨條目的網路負載的封存檔。您也可以解壓縮此封存檔，手動編輯負載或 HAR 記錄，並指向解壓縮的 har 檔案。所有負載都會相對於檔案系統上解壓縮的 har 檔案進行解析。
+Similar to when recording, if given HAR file name ends with `.zip`, it is considered an archive containing the HAR file along with network payloads stored as separate entries. You can also extract this archive, edit payloads or HAR log manually and point to the extracted har file. All the payloads will be resolved relative to the extracted har file on the file system.
 
-#### 使用 CLI 錄製 HAR
+#### Recording HAR with CLI
 
-我們建議使用 `update` 選項為您的測試錄製 HAR 檔案。不過，您也可以使用 Playwright CLI 錄製 HAR。
+We recommend the `update` option to record HAR file for your test. However, you can also record the HAR with Playwright CLI.
 
-使用 Playwright CLI 開啟瀏覽器，並傳遞 `--save-har` 選項來產生 HAR 檔案。可選用 `--save-har-glob` 來只儲存您感興趣的請求，例如 API 端點。如果 har 檔案名稱以 `.zip` 結尾，會將產生物件寫成單獨檔案，並全部壓縮成單一 `zip`。
+Open the browser with Playwright CLI and pass `--save-har` option to produce a HAR file. Optionally, use `--save-har-glob` to only save requests you are interested in, for example API endpoints. If the har file name ends with `.zip`, artifacts are written as separate files and are all compressed into a single `zip`.
 
 ```bash
 # Save API requests from example.com as "example.har" archive.
 npx playwright open --save-har=example.har --save-har-glob="**/api/**" https://example.com
 ```
 
-了解更多關於[進階網路](./network.mdx)。
+Read more about [advanced networking](./network.mdx).
 
-## 模擬 WebSocket
+## Mock WebSockets
 
-下列程式碼會攔截 WebSocket 連線，並模擬整個 WebSocket 上的通訊，而不是連接到伺服器。此範例以 `"response"` 回應 `"request"`。
+The following code will intercept WebSocket connections and mock entire communication over the WebSocket, instead of connecting to the server. This example responds to a `"request"` with a `"response"`.
 
 ```js
 await page.routeWebSocket('wss://example.com/ws', ws => {
@@ -152,7 +152,7 @@ await page.routeWebSocket('wss://example.com/ws', ws => {
 });
 ```
 
-或者，您可能想要連接到實際伺服器，但攔截中間的訊息並修改或封鎖它們。以下範例修改了頁面傳送到伺服器的某些訊息，其餘保持不變。
+Alternatively, you may want to connect to the actual server, but intercept messages in-between and modify or block them. Here is an example that modifies some of the messages sent by the page to the server, and leaves the rest unmodified.
 
 ```js
 await page.routeWebSocket('wss://example.com/ws', ws => {
@@ -166,7 +166,7 @@ await page.routeWebSocket('wss://example.com/ws', ws => {
 });
 ```
 
-如需更多詳細資訊，請參閱 [WebSocketRoute]。
+For more details, see [WebSocketRoute].
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

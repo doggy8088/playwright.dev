@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### body {#api-response-body}
 
@@ -21,13 +21,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 Returns the buffer with response body.
 
-**使用方式**
+**Usage**
 
 ```java
 APIResponse.body();
 ```
 
-**傳回值**
+**Returns**
 - [byte&#91;&#93;]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-body-return"/><a href="#api-response-body-return" class="list-anchor">#</a>
 
 ---
@@ -38,13 +38,13 @@ APIResponse.body();
 
 Disposes the body of this response. If not called then the body will stay in memory until the context closes.
 
-**使用方式**
+**Usage**
 
 ```java
 APIResponse.dispose();
 ```
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-dispose-return"/><a href="#api-response-dispose-return" class="list-anchor">#</a>
 
 ---
@@ -55,13 +55,13 @@ APIResponse.dispose();
 
 An object with all the response HTTP headers associated with this response.
 
-**使用方式**
+**Usage**
 
 ```java
 APIResponse.headers();
 ```
 
-**傳回值**
+**Returns**
 - [Map]&lt;[String], [String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-headers-return"/><a href="#api-response-headers-return" class="list-anchor">#</a>
 
 ---
@@ -72,13 +72,13 @@ APIResponse.headers();
 
 An array with all the response HTTP headers associated with this response. Header names are not lower-cased. Headers with multiple entries, such as `Set-Cookie`, appear in the array multiple times.
 
-**使用方式**
+**Usage**
 
 ```java
 APIResponse.headersArray();
 ```
 
-**傳回值**
+**Returns**
 - [List]&lt;`HttpHeader`&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-headers-array-return"/><a href="#api-response-headers-array-return" class="list-anchor">#</a>
   - `name` [String]
     
@@ -95,13 +95,13 @@ APIResponse.headersArray();
 
 Contains a boolean stating whether the response was successful (status in the range 200-299) or not.
 
-**使用方式**
+**Usage**
 
 ```java
 APIResponse.ok();
 ```
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-ok-return"/><a href="#api-response-ok-return" class="list-anchor">#</a>
 
 ---
@@ -112,13 +112,13 @@ APIResponse.ok();
 
 Contains the status code of the response (e.g., 200 for a success).
 
-**使用方式**
+**Usage**
 
 ```java
 APIResponse.status();
 ```
 
-**傳回值**
+**Returns**
 - [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-status-return"/><a href="#api-response-status-return" class="list-anchor">#</a>
 
 ---
@@ -129,13 +129,13 @@ APIResponse.status();
 
 Contains the status text of the response (e.g. usually an "OK" for a success).
 
-**使用方式**
+**Usage**
 
 ```java
 APIResponse.statusText();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-status-text-return"/><a href="#api-response-status-text-return" class="list-anchor">#</a>
 
 ---
@@ -146,13 +146,13 @@ APIResponse.statusText();
 
 Returns the text representation of response body.
 
-**使用方式**
+**Usage**
 
 ```java
 APIResponse.text();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-text-return"/><a href="#api-response-text-return" class="list-anchor">#</a>
 
 ---
@@ -163,13 +163,13 @@ APIResponse.text();
 
 Contains the URL of the response.
 
-**使用方式**
+**Usage**
 
 ```java
 APIResponse.url();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-url-return"/><a href="#api-response-url-return" class="list-anchor">#</a>
 
 

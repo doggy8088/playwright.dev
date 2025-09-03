@@ -1,15 +1,15 @@
 ---
 id: test-snapshots
-title: "視覺比較"
+title: "Visual comparisons"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 介紹
+## Introduction
 
-Playwright Test 包含使用 `await expect(page).toHaveScreenshot()` 產生和視覺比較螢幕截圖的能力。在第一次執行時，Playwright Test 將產生參考螢幕截圖。後續執行將與參考比較。
+Playwright Test includes the ability to produce and visually compare screenshots using `await expect(page).toHaveScreenshot()`. On first execution, Playwright test will generate reference screenshots. Subsequent runs will compare against the reference.
 
 ```js title="example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -21,20 +21,20 @@ test('example test', async ({ page }) => {
 ```
 
 :::warning
-瀏覽器渲染可能因主機 OS、版本、設定、硬體、電源來源（電池 vs. 電源適配器）、無頭模式和其他因素而異。為了獲得一致的螢幕截圖，請在產生基準螢幕截圖的相同環境中執行測試。
+Browser rendering can vary based on the host OS, version, settings, hardware, power source (battery vs. power adapter), headless mode, and other factors. For consistent screenshots, run tests in the same environment where the baseline screenshots were generated.
 :::
 
-## 產生螢幕截圖
+## Generating screenshots
 
-當您第一次執行上述程式時，測試執行器會說：
+When you run above for the first time, test runner will say:
 
 ```txt
 Error: A snapshot doesn't exist at example.spec.ts-snapshots/example-test-1-chromium-darwin.png, writing actual.
 ```
 
-那是因為還沒有黃金檔案。此方法拍攝了多張螢幕截圖，直到兩張連續螢幕截圖匹配，並將最後一張螢幕截圖儲存到檔案系統。現在它已準備好新增到儲存庫。
+That's because there was no golden file yet. This method took a bunch of screenshots until two consecutive screenshots matched, and saved the last screenshot to file system. It is now ready to be added to the repository.
 
-黃金期望資料夾的名稱以您的測試檔案名稱開頭：
+The name of the folder with the golden expectations starts with the name of your test file:
 
 ```bash
 drwxr-xr-x  5 user  group  160 Jun  4 11:46 .
@@ -43,33 +43,33 @@ drwxr-xr-x  6 user  group  192 Jun  4 11:45 ..
 drwxr-xr-x  3 user  group   96 Jun  4 11:46 example.spec.ts-snapshots
 ```
 
-快照名稱 `example-test-1-chromium-darwin.png` 由幾個部分組成：
-- `example-test-1.png` - 快照的自動產生名稱。或者，您可以將快照名稱指定為 `toHaveScreenshot()` 方法的第一個參數：
+The snapshot name `example-test-1-chromium-darwin.png` consists of a few parts:
+- `example-test-1.png` - an auto-generated name of the snapshot. Alternatively you can specify snapshot name as the first argument of the `toHaveScreenshot()` method:
   
   ```js
   await expect(page).toHaveScreenshot('landing.png');
   ```
   
-- `chromium-darwin` - 瀏覽器名稱和平台。由於不同的渲染、字體等，螢幕截圖在瀏覽器和平台之間不同，因此您需要為它們準備不同的快照。如果您在 [設定檔案](./test-configuration.mdx) 中使用多個專案，則會使用專案名稱而不是 `chromium`。
+- `chromium-darwin` - the browser name and the platform. Screenshots differ between browsers and platforms due to different rendering, fonts and more, so you will need different snapshots for them. If you use multiple projects in your [configuration file](./test-configuration.mdx), project name will be used instead of `chromium`.
 
-快照名稱和路徑可以使用 Playwright 設定中的 [testConfig.snapshotPathTemplate](/api/class-testconfig.mdx#test-config-snapshot-path-template) 來設定。
+The snapshot name and path can be configured with [testConfig.snapshotPathTemplate](/api/class-testconfig.mdx#test-config-snapshot-path-template) in the playwright config.
 
-> 注意，`toHaveScreenshot()` 也接受快照檔案的路徑段陣列，例如 `expect().toHaveScreenshot(['relative', 'path', 'to', 'snapshot.png'])`。
-> 但是，此路徑必須留在每個測試檔案的快照目錄內（即 `a.spec.js-snapshots`），否則會拋出錯誤。
+> Note that `toHaveScreenshot()` also accepts an array of path segments to the snapshot file such as `expect().toHaveScreenshot(['relative', 'path', 'to', 'snapshot.png'])`.
+> However, this path must stay within the snapshots directory for each test file (i.e. `a.spec.js-snapshots`), otherwise it will throw.
 
-## 更新螢幕截圖
+## Updating screenshots
 
-有時您需要更新參考螢幕截圖，例如當頁面發生變化時。使用 `--update-snapshots` 旗標來執行此操作。
+Sometimes you need to update the reference screenshot, for example when the page has changed. Do this with the  `--update-snapshots` flag.
 
 ```bash
 npx playwright test --update-snapshots
 ```
 
-## 選項
+## Options
 
 ### maxDiffPixels
 
-Playwright Test 使用 [pixelmatch](https://github.com/mapbox/pixelmatch) 程式庫。您可以 [傳遞各種選項](./api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) 來修改其行為：
+Playwright Test uses the [pixelmatch](https://github.com/mapbox/pixelmatch) library. You can [pass various options](./api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) to modify its behavior:
 
 ```js title="example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -80,7 +80,7 @@ test('example test', async ({ page }) => {
 });
 ```
 
-如果您想在專案中的所有測試之間共享預設值，您可以在 Playwright 設定中指定它，全域或每個專案：
+If you'd like to share the default value among all the tests in the project, you can specify it in the playwright config, either globally or per project:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -93,7 +93,7 @@ export default defineConfig({
 
 ### stylePath
 
-您可以在拍攝螢幕截圖時將自訂樣式表應用到您的頁面。這允許過濾動態或易變元素，從而改善螢幕截圖的確定性。
+You can apply a custom stylesheet to your page while taking screenshot. This allows filtering out dynamic or volatile elements, hence improving the screenshot determinism.
 
 ```css title="screenshot.css"
 iframe {
@@ -110,7 +110,7 @@ test('example test', async ({ page }) => {
 });
 ```
 
-如果您想在專案中的所有測試之間共享預設值，您可以在 Playwright 設定中指定它，全域或每個專案：
+If you'd like to share the default value among all the tests in the project, you can specify it in the playwright config, either globally or per project:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -123,11 +123,11 @@ export default defineConfig({
 });
 ```
 
-## 非影像快照
+## Non-image snapshots
 
-除了螢幕截圖，您可以使用 `expect(value).toMatchSnapshot(snapshotName)` 來比較文字或任意二進位資料。Playwright Test 自動檢測內容類型並使用適當的比較演算法。
+Apart from screenshots, you can use `expect(value).toMatchSnapshot(snapshotName)` to compare text or arbitrary binary data. Playwright Test auto-detects the content type and uses the appropriate comparison algorithm.
 
-這裡我們比較文字內容與參考。
+Here we compare text content against the reference.
 
 ```js title="example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -138,7 +138,7 @@ test('example test', async ({ page }) => {
 });
 ```
 
-快照儲存在測試檔案旁邊，在單獨的目錄中。例如，`my.spec.ts` 檔案將產生並儲存快照在 `my.spec.ts-snapshots` 目錄中。您應該將此目錄提交到您的版本控制（例如 `git`），並檢視對其的任何變更。
+Snapshots are stored next to the test file, in a separate directory. For example, `my.spec.ts` file will produce and store snapshots in the `my.spec.ts-snapshots` directory. You should commit this directory to your version control (e.g. `git`), and review any changes to it.
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

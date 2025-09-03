@@ -1,29 +1,29 @@
 ---
 id: intro
-title: "安裝"
+title: "Installation"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright Test 是現代 Web 應用程式的端對端測試框架。它整合了測試執行器、斷言、隔離、平行處理和豐富的工具。Playwright 支援 Chromium、WebKit 和 Firefox，可在 Windows、Linux 和 macOS 上執行，無論是本機或在 CI 環境中，支援無頭或有頭模式，並提供 Chrome (Android) 和 Mobile Safari 的原生行動裝置模擬。
+Playwright Test is an end-to-end test framework for modern web apps. It bundles test runner, assertions, isolation, parallelization and rich tooling. Playwright supports Chromium, WebKit and Firefox on Windows, Linux and macOS, locally or in CI, headless or headed, with native mobile emulation for Chrome (Android) and Mobile Safari.
 
-**您將學習**
-- [如何安裝 Playwright](/intro.mdx#installing-playwright)
-- [安裝了什麼](/intro.mdx#whats-installed)
-- [如何執行範例測試](/intro.mdx#running-the-example-test)
-- [如何開啟 HTML 測試報告](/intro.mdx#html-test-reports)
+**You will learn**
+- [How to install Playwright](/intro.mdx#installing-playwright)
+- [What's installed](/intro.mdx#whats-installed)
+- [How to run the example test](/intro.mdx#running-the-example-test)
+- [How to open the HTML test report](/intro.mdx#html-test-reports)
 
-## 安裝 Playwright
+## Installing Playwright
 
-使用以下其中一種方法安裝 Playwright 來開始使用。
+Get started by installing Playwright using one of the following methods.
 
-### 使用 npm、yarn 或 pnpm
+### Using npm, yarn or pnpm
 
-下面的指令可初始化新專案或將 Playwright 加入現有專案。
+The command below either initializes a new project or adds Playwright to an existing one.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -53,39 +53,39 @@ pnpm create playwright
 
 </Tabs>
 
-當提示時，選擇/確認：
-- TypeScript 或 JavaScript（預設：TypeScript）
-- 測試資料夾名稱（預設：`tests`，若 `tests` 已存在則為 `e2e`）
-- 加入 GitHub Actions 工作流程（建議用於 CI）
-- 安裝 Playwright 瀏覽器（預設：是）
+When prompted, choose / confirm:
+- TypeScript or JavaScript (default: TypeScript)
+- Tests folder name (default: `tests`, or `e2e` if `tests` already exists)
+- Add a GitHub Actions workflow (recommended for CI)
+- Install Playwright browsers (default: yes)
 
-您可以之後重新執行此指令；它不會覆蓋現有測試。
+You can re-run the command later; it does not overwrite existing tests.
 
-### 使用 VS Code 擴充功能
+### Using the VS Code Extension
 
-您也可以使用 [VS Code 擴充功能](./getting-started-vscode.mdx)建立並執行測試。
+You can also create and run tests with the [VS Code Extension](./getting-started-vscode.mdx).
 
-## 安裝了什麼
+## What's Installed
 
-Playwright 會下載所需的瀏覽器二進制檔案並建立如下架構。
+Playwright downloads required browser binaries and creates the scaffold below.
 
 ```bash
-playwright.config.ts         # 測試組態
+playwright.config.ts         # Test configuration
 package.json
-package-lock.json            # 或 yarn.lock / pnpm-lock.yaml
+package-lock.json            # Or yarn.lock / pnpm-lock.yaml
 tests/
-  example.spec.ts            # 最小範例測試
+  example.spec.ts            # Minimal example test
 tests-examples/
-  demo-todo-app.spec.ts      # 更豐富的範例測試
+  demo-todo-app.spec.ts      # Richer example tests
 ```
 
-[playwright.config](./test-configuration.mdx) 集中管理組態：目標瀏覽器、逾時、重試、專案、報告器等等。在現有專案中，相依套件會加入到您目前的 `package.json`。
+The [playwright.config](./test-configuration.mdx) centralizes configuration: target browsers, timeouts, retries, projects, reporters and more. In existing projects dependencies are added to your current `package.json`.
 
-`tests/` 包含最小的入門測試。`tests-examples/` 提供更豐富的範例（例如 todo 應用程式）來探索模式。
+`tests/` contains a minimal starter test. `tests-examples/` provides richer samples (e.g. a todo app) to explore patterns.
 
-## 執行範例測試
+## Running the Example Test
 
-預設情況下，測試會在 Chromium、Firefox 和 WebKit 上以無頭模式平行執行（可在 [playwright.config](./test-configuration.mdx) 中設定）。輸出和彙總結果會顯示在終端機中。
+By default tests run headless in parallel across Chromium, Firefox and WebKit (configurable in [playwright.config](./test-configuration.mdx)). Output and aggregated results display in the terminal.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -117,17 +117,17 @@ pnpm exec playwright test
 
 <ProgressiveImage image={require("../images/getting-started/run-tests-cli.png")} alt="tests running in command line" />
 
-提示：
-- 查看瀏覽器視窗：加入 `--headed`。
-- 執行單一專案/瀏覽器：`--project=chromium`。
-- 執行單一檔案：`npx playwright test tests/example.spec.ts`。
-- 開啟測試 UI：`--ui`。
+Tips:
+- See the browser window: add `--headed`.
+- Run a single project/browser: `--project=chromium`.
+- Run one file: `npx playwright test tests/example.spec.ts`.
+- Open testing UI: `--ui`.
 
-詳細內容請參閱[執行測試](./running-tests.mdx)，包括篩選、有頭模式、分片和重試。
+See [Running Tests](./running-tests.mdx) for details on filtering, headed mode, sharding and retries.
 
-## HTML 測試報告
+## HTML Test Reports
 
-測試執行後，[HTML 報告器](./test-reporters.mdx#html-reporter)提供可依瀏覽器、通過、失敗、跳過、不穩定等篩選的儀表板。點擊測試可檢查錯誤、附件和步驟。它只在發生失敗時自動開啟；使用下面的指令手動開啟。
+After a test run, the [HTML Reporter](./test-reporters.mdx#html-reporter) provides a dashboard filterable by the browser, passed, failed, skipped, flaky and more. Click a test to inspect errors, attachments and steps. It auto-opens only when failures occur; open manually with the command below.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -159,9 +159,9 @@ pnpm exec playwright show-report
 
 <ProgressiveImage image={require("../images/getting-started/html-report-basic.png")} alt="HTML Report" />
 
-## 在 UI 模式下執行範例測試
+## Running the Example Test in UI Mode
 
-使用 [UI 模式](./test-ui-mode.mdx)執行測試，提供監看模式、即時步驟檢視、時光倒流偵錯等功能。
+Run tests with [UI Mode](./test-ui-mode.mdx) for watch mode, live step view, time travel debugging and more.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -193,11 +193,11 @@ pnpm exec playwright test --ui
 
 <ProgressiveImage image={require("../images/getting-started/ui-mode.png")} alt="UI Mode" />
 
-詳細的 [UI 模式指南](./test-ui-mode.mdx)請參閱監看篩選器、步驟詳情和追蹤整合。
+See the [detailed guide on UI Mode](./test-ui-mode.mdx) for watch filters, step details and trace integration.
 
-## 更新 Playwright
+## Updating Playwright
 
-更新 Playwright 並下載新的瀏覽器二進制檔案及其相依套件：
+Update Playwright and download new browser binaries and their dependencies:
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -230,7 +230,7 @@ pnpm exec playwright install --with-deps
 
 </Tabs>
 
-檢查您安裝的版本：
+Check your installed version:
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -260,17 +260,17 @@ pnpm exec playwright --version
 
 </Tabs>
 
-## 系統需求
-- Node.js：最新的 20.x、22.x 或 24.x。
-- Windows 11+、Windows Server 2019+ 或 Windows Subsystem for Linux (WSL)。
-- macOS 14 (Ventura) 或更新版本。
-- Debian 12 / 13、Ubuntu 22.04 / 24.04 (x86-64 或 arm64)。
+## System requirements
+- Node.js: latest 20.x, 22.x or 24.x.
+- Windows 11+, Windows Server 2019+ or Windows Subsystem for Linux (WSL).
+- macOS 14 (Ventura) or later.
+- Debian 12 / 13, Ubuntu 22.04 / 24.04 (x86-64 or arm64).
 
-## 接下來做什麼
-- [使用 web-first 斷言、佈置和定位器撰寫測試](./writing-tests.mdx)
-- [執行單一或多個測試；有頭模式](./running-tests.mdx)
-- [使用 Codegen 產生測試](./codegen-intro.mdx)
-- [檢視測試追蹤](./trace-viewer-intro.mdx)
+## What's next
+- [Write tests using web-first assertions, fixtures and locators](./writing-tests.mdx)
+- [Run single or multiple tests; headed mode](./running-tests.mdx)
+- [Generate tests with Codegen](./codegen-intro.mdx)
+- [View a trace of your tests](./trace-viewer-intro.mdx)
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

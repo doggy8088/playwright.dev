@@ -1,158 +1,158 @@
 ---
 id: test-cli
-title: "命令列"
+title: "Command line"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-Playwright 提供強大的命令列介面，用於執行測試、產生程式碼、偵錯等等。您可以透過 `npx playwright --help` 隨時取得 CLI 上最新的指令與參數清單。
+Playwright provides a powerful command line interface for running tests, generating code, debugging, and more. The most up to date list of commands and arguments available on the CLI can always be retrieved via `npx playwright --help`.
 
-## 基本指令
+## Essential Commands
 
-### 執行測試
+### Run Tests
 
-執行您的 Playwright 測試。[閱讀更多關於執行測試的資訊](./running-tests.mdx)。
+Run your Playwright tests. [Read more about running tests](./running-tests.mdx).
 
-#### 語法
+#### Syntax
 
 ```bash
 npx playwright test [options] [test-filter...]
 ```
 
-#### 範例
+#### Examples
 
 ```bash
-# 執行所有測試
+# Run all tests
 npx playwright test
 
-# 執行單一測試檔案
+# Run a single test file
 npx playwright test tests/todo-page.spec.ts
 
-# 執行一組測試檔案
+# Run a set of test files
 npx playwright test tests/todo-page/ tests/landing-page/
 
-# 執行特定行的測試
+# Run tests at a specific line
 npx playwright test my-spec.ts:42
 
-# 依標題執行測試
+# Run tests by title
 npx playwright test -g "add a todo item"
 
-# 在有頭瀏覽器中執行測試
+# Run tests in headed browsers
 npx playwright test --headed
 
-# 執行特定專案的測試
+# Run tests for a specific project
 npx playwright test --project=chromium
 
-# 取得幫助
+# Get help
 npx playwright test --help
 ```
 
-**停用[平行化](./test-parallel.mdx)**
+**Disable [parallelization](./test-parallel.mdx)**
 
 ```bash
 npx playwright test --workers=1
 ```
 
-**使用 [Playwright Inspector](./debug.mdx) 在偵錯模式中執行**
+**Run in debug mode with [Playwright Inspector](./debug.mdx)**
 
 ```bash
 npx playwright test --debug
 ```
 
-**在互動式 [UI 模式](./test-ui-mode.mdx)下執行測試**
+**Run tests in interactive [UI mode](./test-ui-mode.mdx)**
 
 ```bash
 npx playwright test --ui
 ```
 
-#### 常用選項
+#### Common Options
 
-| 選項 | 說明 |
+| Option | Description |
 | :--- | :--- |
-| `--debug` | 使用 Playwright Inspector 執行測試。等同於 `PWDEBUG=1` 環境變數與 `--timeout=0 --max-failures=1 --headed --workers=1` 選項的快捷方式。 |
-| `--headed` | 在有頭瀏覽器中執行測試（預設：無頭）。 |
-| `-g <grep>` 或 `--grep <grep>` | 只執行符合此正規表示式的測試（預設：".*"）。 |
-| `--project <project-name...>` | 只執行指定專案清單中的測試，支援 '*' 萬用字元（預設：執行所有專案）。 |
-| `--ui` | 在互動式 UI 模式中執行測試。 |
-| `-j <workers>` 或 `--workers <workers>` | 並行工作程序數量或邏輯 CPU 核心的百分比，使用 1 表示在單一工作程序中執行（預設：50%）。 |
+| `--debug` | Run tests with Playwright Inspector. Shortcut for `PWDEBUG=1` environment variable and `--timeout=0 --max-failures=1 --headed --workers=1` options. |
+| `--headed` | Run tests in headed browsers (default: headless). |
+| `-g <grep>` or `--grep <grep>` | Only run tests matching this regular expression (default: ".*"). |
+| `--project <project-name...>` | Only run tests from the specified list of projects, supports '*' wildcard (default: run all projects). |
+| `--ui` | Run tests in interactive UI mode. |
+| `-j <workers>` or `--workers <workers>` | Number of concurrent workers or percentage of logical CPU cores, use 1 to run in a single worker (default: 50%). |
 
-#### 所有選項
+#### All Options
 
-| 選項 | 說明 |
+| Option | Description |
 | :--- | :--- |
-| 非選項參數 | 每個參數都被視為針對完整測試檔案路徑的正規表示式。只有來自符合模式的檔案的測試會被執行。特殊符號如 `$` 或 `*` 應該使用 `\` 跳脫。在許多 shell/終端機中，您可能需要將參數加上引號。 |
-| `-c <file>` 或 `--config <file>` | 組態檔案，或包含可選 "playwright.config.&#123;m,c&#125;?&#123;js,ts&#125;" 的測試目錄。預設為目前目錄中的 `playwright.config.ts` 或 `playwright.config.js`。 |
-| `--debug` | 使用 Playwright Inspector 執行測試。等同於 `PWDEBUG=1` 環境變數與 `--timeout=0 --max-failures=1 --headed --workers=1` 選項的快捷方式。 |
-| `--fail-on-flaky-tests` | 如果有任何測試被標記為不穩定則失敗（預設：false）。 |
-| `--forbid-only` | 如果呼叫 `test.only` 則失敗（預設：false）。在 CI 上很有用。 |
-| `--fully-parallel` | 平行執行所有測試（預設：false）。 |
-| `--global-timeout <timeout>` | 此測試套件可執行的最大時間（毫秒）（預設：無限制）。 |
-| `-g <grep>` 或 `--grep <grep>` | 只執行符合此正規表示式的測試（預設：".*"）。 |
-| `--grep-invert <grep>` | 只執行不符合此正規表示式的測試。 |
-| `--headed` | 在有頭瀏覽器中執行測試（預設：無頭）。 |
-| `--ignore-snapshots` | 忽略螢幕截圖與快照預期。 |
-| `-j <workers>` 或 `--workers <workers>` | 並行工作程序數量或邏輯 CPU 核心的百分比，使用 1 表示在單一工作程序中執行（預設：50%）。 |
-| `--last-failed` | 只重新執行失敗的測試。 |
-| `--last-run-file` | 最後執行文件的路徑 (預設值: "test-results/.last-run.json")。此 json 文件用於 `--last-failed` 選項。您也可以在 `filterTests` 屬性中提供 [testCase.id](/api/class-testcase.mdx#test-case-id) 陣列，以應用自定義過濾器。 |
-| `--list` | 收集所有測試並回報，但不執行。 |
-| `--max-failures <N>` 或 `-x` | 在第一個 `N` 次失敗後停止。傳遞 `-x` 會在第一次失敗後停止。 |
-| `--no-deps` | 不執行專案相依性。 |
-| `--output <dir>` | 輸出成品的資料夾（預設："test-results"）。 |
-| `--only-changed [ref]` | 只執行在 'HEAD' 與 'ref' 之間已變更的測試檔案。預設執行所有未提交的變更。僅支援 Git。 |
-| `--pass-with-no-tests` | 即使沒有找到測試，也讓測試執行成功。 |
-| `--project <project-name...>` | 只執行指定專案清單中的測試，支援 '*' 萬用字元（預設：執行所有專案）。 |
-| `--quiet` | 隱藏標準輸入輸出。 |
-| `--repeat-each <N>` | 每個測試執行 `N` 次（預設：1）。 |
-| `--reporter <reporter>` | 要使用的報告器，以逗號分隔，可以是 "dot"、"line"、"list" 或其他（預設："list"）。您也可以傳遞自訂報告器檔案的路徑。 |
-| `--retries <retries>` | 不穩定測試的最大重試次數，零表示不重試（預設：不重試）。 |
-| `--shard <shard>` | 分片測試並只執行選定的分片，以 "current/all" 形式指定，從 1 開始，例如 "3/5"。 |
-| `--timeout <timeout>` | 指定測試逾時閾值（毫秒），零表示無限制（預設：30 秒）。 |
-| `--trace <mode>` | 強制追蹤模式，可以是 `on`、`off`、`on-first-retry`、`on-all-retries`、`retain-on-failure`、`retain-on-first-failure`。 |
-| `--tsconfig <path>` | 適用於所有匯入檔案的單一 tsconfig 路徑（預設：為每個匯入檔案分別查找 tsconfig）。 |
-| `--ui` | 在互動式 UI 模式中執行測試。 |
-| `--ui-host <host>` | 提供 UI 服務的主機；指定此選項會在瀏覽器分頁中開啟 UI。 |
-| `--ui-port <port>` | 提供 UI 服務的連接埠，0 表示任何可用的連接埠；指定此選項會在瀏覽器分頁中開啟 UI。 |
-| `-u` 或 `--update-snapshots [mode]` | 使用實際結果更新快照。可能的值有 "all"、"changed"、"missing" 與 "none"。不使用旗標執行測試預設為 "missing"；使用旗標但不提供值執行測試預設為 "changed"。 |
-| `--update-source-method [mode]` | 使用實際結果更新快照。可能的值有 "patch"（預設）、"3way" 與 "overwrite"。"Patch" 建立統一的差異檔案，可稍後用於更新原始碼。"3way" 在原始碼中產生合併衝突標記。"Overwrite" 使用新的快照值覆寫原始碼。|
-| `-x` | 在第一次失敗後停止。 |
+| Non-option arguments | Each argument is treated as a regular expression matched against the full test file path. Only tests from files matching the pattern will be executed. Special symbols like `$` or `*` should be escaped with `\`. In many shells/terminals you may need to quote the arguments. |
+| `-c <file>` or `--config <file>` | Configuration file, or a test directory with optional "playwright.config.&#123;m,c&#125;?&#123;js,ts&#125;". Defaults to `playwright.config.ts` or `playwright.config.js` in the current directory. |
+| `--debug` | Run tests with Playwright Inspector. Shortcut for `PWDEBUG=1` environment variable and `--timeout=0 --max-failures=1 --headed --workers=1` options. |
+| `--fail-on-flaky-tests` | Fail if any test is flagged as flaky (default: false). |
+| `--forbid-only` | Fail if `test.only` is called (default: false). Useful on CI. |
+| `--fully-parallel` | Run all tests in parallel (default: false). |
+| `--global-timeout <timeout>` | Maximum time this test suite can run in milliseconds (default: unlimited). |
+| `-g <grep>` or `--grep <grep>` | Only run tests matching this regular expression (default: ".*"). |
+| `--grep-invert <grep>` | Only run tests that do not match this regular expression. |
+| `--headed` | Run tests in headed browsers (default: headless). |
+| `--ignore-snapshots` | Ignore screenshot and snapshot expectations. |
+| `-j <workers>` or `--workers <workers>` | Number of concurrent workers or percentage of logical CPU cores, use 1 to run in a single worker (default: 50%). |
+| `--last-failed` | Only re-run the failures. |
+| `--last-run-file` | Path to the last-run file (default: "test-results/.last-run.json"). This json file is used for the `--last-failed` option. You can also apply a custom filter by providing an array of [testCase.id](/api/class-testcase.mdx#test-case-id) in the `filterTests` property. |
+| `--list` | Collect all the tests and report them, but do not run. |
+| `--max-failures <N>` or `-x` | Stop after the first `N` failures. Passing `-x` stops after the first failure. |
+| `--no-deps` | Do not run project dependencies. |
+| `--output <dir>` | Folder for output artifacts (default: "test-results"). |
+| `--only-changed [ref]` | Only run test files that have been changed between 'HEAD' and 'ref'. Defaults to running all uncommitted changes. Only supports Git. |
+| `--pass-with-no-tests` | Makes test run succeed even if no tests were found. |
+| `--project <project-name...>` | Only run tests from the specified list of projects, supports '*' wildcard (default: run all projects). |
+| `--quiet` | Suppress stdio. |
+| `--repeat-each <N>` | Run each test `N` times (default: 1). |
+| `--reporter <reporter>` | Reporter to use, comma-separated, can be "dot", "line", "list", or others (default: "list"). You can also pass a path to a custom reporter file. |
+| `--retries <retries>` | Maximum retry count for flaky tests, zero for no retries (default: no retries). |
+| `--shard <shard>` | Shard tests and execute only the selected shard, specified in the form "current/all", 1-based, e.g., "3/5". |
+| `--timeout <timeout>` | Specify test timeout threshold in milliseconds, zero for unlimited (default: 30 seconds). |
+| `--trace <mode>` | Force tracing mode, can be `on`, `off`, `on-first-retry`, `on-all-retries`, `retain-on-failure`, `retain-on-first-failure`. |
+| `--tsconfig <path>` | Path to a single tsconfig applicable to all imported files (default: look up tsconfig for each imported file separately). |
+| `--ui` | Run tests in interactive UI mode. |
+| `--ui-host <host>` | Host to serve UI on; specifying this option opens UI in a browser tab. |
+| `--ui-port <port>` | Port to serve UI on, 0 for any free port; specifying this option opens UI in a browser tab. |
+| `-u` or `--update-snapshots [mode]` | Update snapshots with actual results. Possible values are "all", "changed", "missing", and "none". Running tests without the flag defaults to "missing"; running tests with the flag but without a value defaults to "changed". |
+| `--update-source-method [mode]` | Update snapshots with actual results. Possible values are "patch" (default), "3way" and "overwrite". "Patch" creates a unified diff file that can be used to update the source code later. "3way" generates merge conflict markers in source code. "Overwrite" overwrites the source code with the new snapshot values.|
+| `-x` | Stop after the first failure. |
 
-### 顯示報告
+### Show Report
 
-顯示先前測試執行的 HTML 報告。[閱讀更多關於 HTML 報告器的資訊](./test-reporters#html-reporter)。
+Display HTML report from previous test run. [Read more about the HTML reporter](./test-reporters#html-reporter).
 
-#### 語法
+#### Syntax
 
 ```bash
 npx playwright show-report [report] [options]
 ```
 
-#### 範例
+#### Examples
 
 ```bash
-# 顯示最新的測試報告
+# Show latest test report
 npx playwright show-report
 
-# 顯示特定報告
+# Show a specific report
 npx playwright show-report playwright-report/
 
-# 在自訂連接埠上顯示報告
+# Show report on custom port
 npx playwright show-report --port 8080
 ```
 
-#### 選項
+#### Options
 
-| 選項 | 說明 |
+| Option | Description |
 | :--- | :--- |
-| `--host <host>` | 提供報告服務的主機（預設：localhost） |
-| `--port <port>` | 提供報告服務的連接埠（預設：9323） |
+| `--host <host>` | Host to serve report on (default: localhost) |
+| `--port <port>` | Port to serve report on (default: 9323) |
 
-### 安裝瀏覽器
+### Install Browsers
 
-安裝 Playwright 所需的瀏覽器。[閱讀更多關於 Playwright 瀏覽器支援的資訊](./browsers.mdx)。
+Install browsers required by Playwright. [Read more about Playwright's browser support](./browsers.mdx).
 
-#### 語法
+#### Syntax
 
 ```bash
 npx playwright install [options] [browser...]
@@ -160,131 +160,131 @@ npx playwright install-deps [options] [browser...]
 npx playwright uninstall
 ```
 
-#### 範例
+#### Examples
 
 ```bash
-# 安裝所有瀏覽器
+# Install all browsers
 npx playwright install
 
-# 只安裝 Chromium
+# Install only Chromium
 npx playwright install chromium
 
-# 安裝特定瀏覽器
+# Install specific browsers
 npx playwright install chromium webkit
 
-# 安裝瀏覽器與相依性
+# Install browsers with dependencies
 npx playwright install --with-deps
 ```
 
-#### 安裝選項
+#### Install Options
 
-| 選項 | 說明 |
+| Option | Description |
 | :--- | :--- |
-| `--force` | 強制重新安裝穩定的瀏覽器通道 |
-| `--with-deps` | 安裝瀏覽器系統相依性 |
-| `--dry-run` | 不執行安裝，只列印資訊 |
-| `--only-shell` | 只安裝 chromium-headless-shell，而不是完整的 Chromium |
-| `--no-shell` | 不安裝 chromium-headless-shell |
+| `--force` | Force reinstall of stable browser channels |
+| `--with-deps` | Install browser system dependencies |
+| `--dry-run` | Don't perform installation, just print information |
+| `--only-shell` | Only install chromium-headless-shell instead of full Chromium |
+| `--no-shell` | Don't install chromium-headless-shell |
 
-#### 安裝相依性選項
+#### Install Deps Options
 
-| 選項 | 說明 |
+| Option | Description |
 | :--- | :--- |
-| `--dry-run` | 不執行安裝，只列印資訊 |
+| `--dry-run` | Don't perform installation, just print information |
 
-## 產生與偵錯工具
+## Generation & Debugging Tools
 
-### 程式碼產生
+### Code Generation
 
-錄製動作並為多種語言產生測試。[閱讀更多關於 Codegen 的資訊](./codegen-intro.mdx)。
+Record actions and generate tests for multiple languages. [Read more about Codegen](./codegen-intro.mdx).
 
-#### 語法
+#### Syntax
 
 ```bash
 npx playwright codegen [options] [url]
 ```
 
-#### 範例
+#### Examples
 
 ```bash
-# 開始使用互動式 UI 錄製
+# Start recording with interactive UI
 npx playwright codegen
 
-# 在特定網站上錄製
+# Record on specific site
 npx playwright codegen https://playwright.dev
 
-# 產生 Python 程式碼
+# Generate Python code
 npx playwright codegen --target=python
 ```
 
-#### 選項
+#### Options
 
-| 選項 | 說明 |
+| Option | Description |
 | :--- | :--- |
-| `-b, --browser <name>` | 要使用的瀏覽器：chromium、firefox 或 webkit（預設：chromium） |
-| `-o, --output <file>` | 產生的腳本輸出檔案 |
-| `--target <language>` | 要使用的語言：javascript、playwright-test、python 等 |
-| `--test-id-attribute <attr>` | 用於測試 ID 的屬性 |
+| `-b, --browser <name>` | Browser to use: chromium, firefox, or webkit (default: chromium) |
+| `-o, --output <file>` | Output file for the generated script |
+| `--target <language>` | Language to use: javascript, playwright-test, python, etc. |
+| `--test-id-attribute <attr>` | Attribute to use for test IDs |
 
-### 追蹤檢視器
+### Trace Viewer
 
-分析並檢視測試追蹤以進行偵錯。[閱讀更多關於追蹤檢視器的資訊](./trace-viewer.mdx)。
+Analyze and view test traces for debugging. [Read more about Trace Viewer](./trace-viewer.mdx).
 
-#### 語法
+#### Syntax
 
 ```bash
 npx playwright show-trace [options] <trace>
 ```
 
-#### 範例
+#### Examples
 
 ```bash
-# 檢視追蹤檔案
+# View a trace file
 npx playwright show-trace trace.zip
 
-# 從目錄檢視追蹤
+# View trace from directory
 npx playwright show-trace trace/
 ```
 
-#### 選項
+#### Options
 
-| 選項 | 說明 |
+| Option | Description |
 | :--- | :--- |
-| `-b, --browser <name>` | 要使用的瀏覽器：chromium、firefox 或 webkit（預設：chromium） |
-| `-h, --host <host>` | 提供追蹤服務的主機 |
-| `-p, --port <port>` | 提供追蹤服務的連接埠 |
+| `-b, --browser <name>` | Browser to use: chromium, firefox, or webkit (default: chromium) |
+| `-h, --host <host>` | Host to serve trace on |
+| `-p, --port <port>` | Port to serve trace on |
 
-## 專用指令
+## Specialized Commands
 
-### 合併報告
+### Merge Reports
 
-讀取 [blob](./test-reporters#blob-reporter) 報告並合併它們。[閱讀更多關於 merge-reports 的資訊](./test-sharding.mdx)。
+Read [blob](./test-reporters#blob-reporter) reports and combine them. [Read more about merge-reports](./test-sharding.mdx).
 
-#### 語法
+#### Syntax
 
 ```bash
 npx playwright merge-reports [options] <blob dir>
 ```
 
-#### 範例
+#### Examples
 
 ```bash
-# 合併測試報告
+# Combine test reports
 npx playwright merge-reports ./reports
 ```
 
-#### 選項
+#### Options
 
-| 選項 | 說明 |
+| Option | Description |
 | :--- | :--- |
-| `-c, --config <file>` | 組態檔案。可用於為輸出報告指定額外的組態設定 |
-| `--reporter <reporter>` | 要使用的報告器，以逗號分隔，可以是 "list"、"line"、"dot"、"json"、"junit"、"null"、"github"、"html"、"blob"（預設："list"） |
+| `-c, --config <file>` | Configuration file. Can be used to specify additional configuration for the output report |
+| `--reporter <reporter>` | Reporter to use, comma-separated, can be "list", "line", "dot", "json", "junit", "null", "github", "html", "blob" (default: "list") |
 
-### 清除快取
+### Clear Cache
 
-清除所有 Playwright 快取。
+Clear all Playwright caches.
 
-#### 語法
+#### Syntax
 
 ```bash
 npx playwright clear-cache

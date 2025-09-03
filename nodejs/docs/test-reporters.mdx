@@ -1,21 +1,21 @@
 ---
 id: test-reporters
-title: "報告器"
+title: "Reporters"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright Test 提供多種內建報告器以滿足不同需求，也支援自訂報告器。試用內建報告器最簡單的方式是傳遞 `--reporter` [命令列選項](./test-cli.mdx)。
+Playwright Test comes with a few built-in reporters for different needs and ability to provide custom reporters. The easiest way to try out built-in reporters is to pass `--reporter` [command line option](./test-cli.mdx).
 
 ```bash
 npx playwright test --reporter=line
 ```
 
-若要更多控制，您可以在[組態設定檔](./test-configuration.mdx)中以程式方式指定報告器。
+For more control, you can specify reporters programmatically in the [configuration file](./test-configuration.mdx).
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -25,9 +25,9 @@ export default defineConfig({
 });
 ```
 
-### 多重報告器
+### Multiple reporters
 
-您可以同時使用多個報告器。例如，您可以使用 `'list'` 來產生美觀的終端機輸出，並使用 `'json'` 來取得包含測試結果的全面 json 檔案。
+You can use multiple reporters at the same time. For example  you can use `'list'` for nice terminal output and `'json'` to get a comprehensive json file with the test results.
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -40,26 +40,26 @@ export default defineConfig({
 });
 ```
 
-### CI 上的報告器
+### Reporters on CI
 
-您可以在本機和 CI 上使用不同的報告器。例如，使用簡潔的 `'dot'` 報告器可以避免產生過多輸出。這是 CI 上的預設選項。
+You can use different reporters locally and on CI. For example, using concise `'dot'` reporter avoids too much output. This is the default on CI.
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  // CI 使用簡潔的 'dot'，本機執行時預設使用 'list'
+  // Concise 'dot' for CI, default 'list' when running locally
   reporter: process.env.CI ? 'dot' : 'list',
 });
 ```
 
-## 內建報告器
+## Built-in reporters
 
-所有內建報告器都會顯示失敗的詳細資訊，主要差異在於成功執行時的詳細程度。
+All built-in reporters show detailed information about failures, and mostly differ in verbosity for successful runs.
 
-### List 報告器
+### List reporter
 
-List 報告器是預設選項（除了 CI 上預設使用 `dot` 報告器）。它會為每個執行的測試列印一行。
+List reporter is default (except on CI where the `dot` reporter is default). It prints a line for each test being run.
 
 ```bash
 npx playwright test --reporter=list
@@ -73,7 +73,7 @@ export default defineConfig({
 });
 ```
 
-以下是測試執行過程中的範例輸出。失敗將在最後列出。
+Here is an example output in the middle of a test run. Failures will be listed at the end.
 
 ```bash
 npx playwright test --reporter=list
@@ -91,7 +91,7 @@ Running 124 tests using 6 workers
 10    should respect enclosing .gitignore:
 ```
 
-您可以透過傳遞以下組態選項來選擇加入步驟渲染：
+You can opt into the step rendering via passing the following config option:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -101,17 +101,17 @@ export default defineConfig({
 });
 ```
 
-List 報告器支援以下組態選項和環境變數：
+List report supports the following configuration options and environment variables:
 
-| 環境變數名稱 | 報告器組態選項| 說明 | 預設值
+| Environment Variable Name | Reporter Config Option| Description | Default
 |---|---|---|---|
-| `PLAYWRIGHT_LIST_PRINT_STEPS` | `printSteps` | 是否在各自行上列印每個步驟。 | `false`
-| `PLAYWRIGHT_FORCE_TTY` | | 是否產生適合即時終端機的輸出。支援 `true`、`1`、`false`、`0`、`[WIDTH]` 和 `[WIDTH]x[HEIGHT]`。`[WIDTH]` 和 `[WIDTH]x[HEIGHT]` 指定 TTY 尺寸。 | 終端機在 TTY 模式時為 `true`，否則為 `false`。
-| `FORCE_COLOR` | | 是否產生彩色輸出。 | 終端機在 TTY 模式時為 `true`，否則為 `false`。
+| `PLAYWRIGHT_LIST_PRINT_STEPS` | `printSteps` | Whether to print each step on its own line. | `false`
+| `PLAYWRIGHT_FORCE_TTY` | | Whether to produce output suitable for a live terminal. Supports `true`, `1`, `false`, `0`, `[WIDTH]`, and `[WIDTH]x[HEIGHT]`. `[WIDTH]` and `[WIDTH]x[HEIGHT]` specifies the TTY dimensions. | `true` when terminal is in TTY mode, `false` otherwise.
+| `FORCE_COLOR` | | Whether to produce colored output. | `true` when terminal is in TTY mode, `false` otherwise.
 
-### Line 報告器
+### Line reporter
 
-Line 報告器比 list 報告器更簡潔。它使用單行報告最後完成的測試，並在發生失敗時列印失敗訊息。Line 報告器適用於大型測試套件，可以顯示進度但不會透過列出所有測試來產生過多輸出。
+Line reporter is more concise than the list reporter. It uses a single line to report last finished test, and prints failures when they occur. Line reporter is useful for large test suites where it shows the progress but does not spam the output by listing all the tests.
 
 ```bash
 npx playwright test --reporter=line
@@ -125,7 +125,7 @@ export default defineConfig({
 });
 ```
 
-以下是測試執行過程中的範例輸出。失敗會內嵌報告。
+Here is an example output in the middle of a test run. Failures are reported inline.
 
 ```bash
 npx playwright test --reporter=line
@@ -140,16 +140,16 @@ Running 124 tests using 6 workers
 [23/124] gitignore.spec.ts - should respect nested .gitignore
 ```
 
-Line 報告器支援以下組態選項和環境變數：
+Line report supports the following configuration options and environment variables:
 
-| 環境變數名稱 | 報告器組態選項| 說明 | 預設值
+| Environment Variable Name | Reporter Config Option| Description | Default
 |---|---|---|---|
-| `PLAYWRIGHT_FORCE_TTY` | | 是否產生適合即時終端機的輸出。支援 `true`、`1`、`false`、`0`、`[WIDTH]` 和 `[WIDTH]x[HEIGHT]`。`[WIDTH]` 和 `[WIDTH]x[HEIGHT]` 指定 TTY 尺寸。 | 終端機在 TTY 模式時為 `true`，否則為 `false`。
-| `FORCE_COLOR` | | 是否產生彩色輸出。 | 終端機在 TTY 模式時為 `true`，否則為 `false`。
+| `PLAYWRIGHT_FORCE_TTY` | | Whether to produce output suitable for a live terminal. Supports `true`, `1`, `false`, `0`, `[WIDTH]`, and `[WIDTH]x[HEIGHT]`. `[WIDTH]` and `[WIDTH]x[HEIGHT]` specifies the TTY dimensions. | `true` when terminal is in TTY mode, `false` otherwise.
+| `FORCE_COLOR` | | Whether to produce colored output. | `true` when terminal is in TTY mode, `false` otherwise.
 
-### Dot 報告器
+### Dot reporter
 
-Dot 報告器非常簡潔 - 它只為每次成功的測試執行產生單一字元。它是 CI 上的預設選項，適用於您不希望有大量輸出的情況。
+Dot reporter is very concise - it only produces a single character per successful test run. It is the default on CI and useful where you don't want a lot of output.
 
 ```bash
 npx playwright test --reporter=dot
@@ -163,7 +163,7 @@ export default defineConfig({
 });
 ```
 
-以下是測試執行過程中的範例輸出。失敗將在最後列出。
+Here is an example output in the middle of a test run. Failures will be listed at the end.
 
 ```bash
 npx playwright test --reporter=dot
@@ -171,35 +171,35 @@ Running 124 tests using 6 workers
 ······F·············································
 ```
 
-每個已執行的測試都會顯示一個字元，指示其狀態：
+One character is displayed for each test that has run, indicating its status:
 
-| 字元 | 說明
+| Character | Description
 |---|---|
-| `·` | 通過
-| `F` | 失敗
-| `×` | 失敗或逾時 - 將會重試
-| `±` | 重試後通過（不穩定）
-| `T` | 逾時
-| `°` | 跳過
+| `·` | Passed
+| `F` | Failed
+| `×` | Failed or timed out - and will be retried
+| `±` | Passed on retry (flaky)
+| `T` | Timed out
+| `°` | Skipped
 
-Dot 報告器支援以下組態選項和環境變數：
+Dot report supports the following configuration options and environment variables:
 
-| 環境變數名稱 | 報告器組態選項| 說明 | 預設值
+| Environment Variable Name | Reporter Config Option| Description | Default
 |---|---|---|---|
-| `PLAYWRIGHT_FORCE_TTY` | | 是否產生適合即時終端機的輸出。支援 `true`、`1`、`false`、`0`、`[WIDTH]` 和 `[WIDTH]x[HEIGHT]`。`[WIDTH]` 和 `[WIDTH]x[HEIGHT]` 指定 TTY 尺寸。 | 終端機在 TTY 模式時為 `true`，否則為 `false`。
-| `FORCE_COLOR` | | 是否產生彩色輸出。 | 終端機在 TTY 模式時為 `true`，否則為 `false`。
+| `PLAYWRIGHT_FORCE_TTY` | | Whether to produce output suitable for a live terminal. Supports `true`, `1`, `false`, `0`, `[WIDTH]`, and `[WIDTH]x[HEIGHT]`. `[WIDTH]` and `[WIDTH]x[HEIGHT]` specifies the TTY dimensions. | `true` when terminal is in TTY mode, `false` otherwise.
+| `FORCE_COLOR` | | Whether to produce colored output. | `true` when terminal is in TTY mode, `false` otherwise.
 
-### HTML 報告器
+### HTML reporter
 
-HTML 報告器產生一個自包含資料夾，其中包含可作為網頁提供的測試執行報告。
+HTML reporter produces a self-contained folder that contains report for the test run that can be served as a web page.
 
 ```bash
 npx playwright test --reporter=html
 ```
 
-預設情況下，如果有些測試失敗，HTML 報告會自動開啟。您可以透過 Playwright 組態設定中的 `open` 屬性或 `PLAYWRIGHT_HTML_OPEN` 環境變數來控制此行為。該屬性的可能值為 `always`、`never` 和 `on-failure`（預設）。
+By default, HTML report is opened automatically if some of the tests failed. You can control this behavior via the `open` property in the Playwright config or the `PLAYWRIGHT_HTML_OPEN` environmental variable. The possible values for that property are `always`, `never` and `on-failure` (default).
 
-您也可以設定用於提供 HTML 報告的 `host` 和 `port`。
+You can also configure `host` and `port` that are used to serve the HTML report.
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -209,9 +209,9 @@ export default defineConfig({
 });
 ```
 
-預設情況下，報告會寫入目前工作目錄中的 `playwright-report` 資料夾。可以使用 `PLAYWRIGHT_HTML_OUTPUT_DIR` 環境變數或報告器組態來覆寫該位置。
+By default, report is written into the `playwright-report` folder in the current working directory. One can override that location using the `PLAYWRIGHT_HTML_OUTPUT_DIR` environment variable or a reporter configuration.
 
-在組態設定檔中，直接傳遞選項：
+In configuration file, pass options directly:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -221,7 +221,7 @@ export default defineConfig({
 });
 ```
 
-如果您要將附件從 data 資料夾上傳到其他位置，您可以使用 `attachmentsBaseURL` 選項讓 html 報告知道在哪裡尋找它們。
+If you are uploading attachments from data folder to other location, you can use `attachmentsBaseURL` option to let html report where to look for them.
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -231,39 +231,39 @@ export default defineConfig({
 });
 ```
 
-開啟最後測試執行報告的快速方式是：
+A quick way of opening the last test run report is:
 
 ```bash
 npx playwright show-report
 ```
 
-或者如果有自訂資料夾名稱：
+Or if there is a custom folder name:
 
 ```bash
 npx playwright show-report my-report
 ```
 
-HTML 報告器支援以下組態選項和環境變數：
+HTML report supports the following configuration options and environment variables:
 
-| 環境變數名稱 | 報告器組態選項| 說明 | 預設值
+| Environment Variable Name | Reporter Config Option| Description | Default
 |---|---|---|---|
-| `PLAYWRIGHT_HTML_TITLE` | `title` | 在產生的報告中顯示的標題。 | 預設不顯示標題
-| `PLAYWRIGHT_HTML_OUTPUT_DIR` | `outputFolder` | 儲存報告的目錄。 | `playwright-report`
-| `PLAYWRIGHT_HTML_OPEN` | `open` | 何時在瀏覽器中開啟 html 報告，可選擇 `'always'`、`'never'` 或 `'on-failure'` | `'on-failure'`
-| `PLAYWRIGHT_HTML_HOST` | `host` | 當報告在瀏覽器中開啟時，將綁定到此主機名。 | `localhost`
-| `PLAYWRIGHT_HTML_PORT` | `port` | 當報告在瀏覽器中開啟時，將在此連接埠上提供服務。 | `9323` 或 `9323` 不可用時的任何可用連接埠。
-| `PLAYWRIGHT_HTML_ATTACHMENTS_BASE_URL` | `attachmentsBaseURL` | `data` 子目錄中附件上傳的獨立位置。只有當您將報告和 `data` 分別上傳到不同位置時才需要。 | `data/`
-| `PLAYWRIGHT_HTML_NO_SNIPPETS` | `noSnippets` | 如果為 true，則停用動作記錄中程式碼片段的渲染。如果有頂層錯誤，該報告區段仍會渲染程式碼片段。支援 `true`、`1`、`false` 和 `0`。 | `false`
+| `PLAYWRIGHT_HTML_TITLE` | `title` | A title to display in the generated report. | No title is displayed by default
+| `PLAYWRIGHT_HTML_OUTPUT_DIR` | `outputFolder` | Directory to save the report to. | `playwright-report`
+| `PLAYWRIGHT_HTML_OPEN` | `open` | When to open the html report in the browser, one of `'always'`, `'never'` or `'on-failure'` | `'on-failure'`
+| `PLAYWRIGHT_HTML_HOST` | `host` | When report opens in the browser, it will be served bound to this hostname. | `localhost`
+| `PLAYWRIGHT_HTML_PORT` | `port` | When report opens in the browser, it will be served on this port. | `9323` or any available port when `9323` is not available.
+| `PLAYWRIGHT_HTML_ATTACHMENTS_BASE_URL` | `attachmentsBaseURL` | A separate location where attachments from the `data` subdirectory are uploaded. Only needed when you upload report and `data` separately to different locations. | `data/`
+| `PLAYWRIGHT_HTML_NO_SNIPPETS` | `noSnippets` | If true, disable rendering code snippets in the action log. If there is a top level error, that report section with code snippet will still render. Supports `true`, `1`, `false`, and `0`. | `false`
 
-### Blob 報告器
+### Blob reporter
 
-Blob 報告包含有關測試執行的所有詳細資訊，可用於稍後產生任何其他報告。它們的主要功能是促進來自[分片測試](./test-sharding.mdx)的報告合併。
+Blob reports contain all the details about the test run and can be used later to produce any other report. Their primary function is to facilitate the merging of reports from [sharded tests](./test-sharding.mdx).
 
 ```bash
 npx playwright test --reporter=blob
 ```
 
-預設情況下，報告會寫入 package.json 目錄或目前工作目錄（如果找不到 package.json）中的 `blob-report` 目錄。報告檔案名稱看起來像 `report-<hash>.zip` 或在使用[分片](./test-sharding.mdx)時為 `report-<hash>-<shard_number>.zip`。雜湊值是從作為命令列參數傳遞的 `--grep`、`--grepInverted`、`--project` 和檔案篩選器計算出的可選值。雜湊值保證使用不同命令列選項執行 Playwright 會產生不同但在執行間穩定的報告名稱。輸出檔案名稱可以在組態設定檔中覆寫或作為 `'PLAYWRIGHT_BLOB_OUTPUT_FILE'` 環境變數傳遞。
+By default, the report is written into the `blob-report` directory in the package.json directory or current working directory (if no package.json is found). The report file name looks like `report-<hash>.zip` or `report-<hash>-<shard_number>.zip` when [sharding](./test-sharding.mdx) is used. The hash is an optional value computed from `--grep`, `--grepInverted`, `--project` and file filters passed as command line arguments. The hash guarantees that running Playwright with different command line options will produce different but stable between runs report names. The output file name can be overridden in the configuration file or pass as `'PLAYWRIGHT_BLOB_OUTPUT_FILE'` environment variable.
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -273,19 +273,19 @@ export default defineConfig({
 });
 ```
 
-Blob 報告器支援以下組態選項和環境變數：
+Blob report supports following configuration options and environment variables:
 
-| 環境變數名稱 | 報告器組態選項| 說明 | 預設值
+| Environment Variable Name | Reporter Config Option| Description | Default
 |---|---|---|---|
-| `PLAYWRIGHT_BLOB_OUTPUT_DIR` | `outputDir` | 儲存輸出的目錄。寫入新報告前會刪除現有內容。 | `blob-report`
-| `PLAYWRIGHT_BLOB_OUTPUT_NAME` | `fileName` | 報告檔案名稱。 | `report-<project>-<hash>-<shard_number>.zip`
-| `PLAYWRIGHT_BLOB_OUTPUT_FILE` | `outputFile` | 輸出檔案的完整路徑。如果定義，將忽略 `outputDir` 和 `fileName`。 | `undefined`
+| `PLAYWRIGHT_BLOB_OUTPUT_DIR` | `outputDir` | Directory to save the output. Existing content is deleted before writing the new report. | `blob-report`
+| `PLAYWRIGHT_BLOB_OUTPUT_NAME` | `fileName` | Report file name. | `report-<project>-<hash>-<shard_number>.zip`
+| `PLAYWRIGHT_BLOB_OUTPUT_FILE` | `outputFile` | Full path to the output file. If defined, `outputDir` and `fileName` will be ignored. | `undefined`
 
-### JSON 報告器
+### JSON reporter
 
-JSON 報告器產生一個包含有關測試執行所有資訊的物件。
+JSON reporter produces an object with all information about the test run.
 
-您很可能希望將 JSON 寫入檔案。使用 `--reporter=json` 執行時，使用 `PLAYWRIGHT_JSON_OUTPUT_NAME` 環境變數：
+Most likely you want to write the JSON to a file. When running with `--reporter=json`, use `PLAYWRIGHT_JSON_OUTPUT_NAME` environment variable:
 
 <Tabs
   groupId="bash-flavor"
@@ -321,7 +321,7 @@ npx playwright test --reporter=json
 </TabItem>
 </Tabs>
 
-在組態設定檔中，直接傳遞選項：
+In configuration file, pass options directly:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -331,19 +331,19 @@ export default defineConfig({
 });
 ```
 
-JSON 報告器支援以下組態選項和環境變數：
+JSON report supports following configuration options and environment variables:
 
-| 環境變數名稱 | 報告器組態選項| 說明 | 預設值
+| Environment Variable Name | Reporter Config Option| Description | Default
 |---|---|---|---|
-| `PLAYWRIGHT_JSON_OUTPUT_DIR` | | 儲存輸出檔案的目錄。如果指定輸出檔案則忽略。 | `cwd` 或組態目錄。
-| `PLAYWRIGHT_JSON_OUTPUT_NAME` | `outputFile` | 輸出的基本檔案名稱，相對於輸出目錄。 | JSON 報告列印到 stdout。
-| `PLAYWRIGHT_JSON_OUTPUT_FILE` | `outputFile` | 輸出檔案的完整路徑。如果定義，將忽略 `PLAYWRIGHT_JSON_OUTPUT_DIR` 和 `PLAYWRIGHT_JSON_OUTPUT_NAME`。 | JSON 報告列印到 stdout。
+| `PLAYWRIGHT_JSON_OUTPUT_DIR` | | Directory to save the output file. Ignored if output file is specified. | `cwd` or config directory.
+| `PLAYWRIGHT_JSON_OUTPUT_NAME` | `outputFile` | Base file name for the output, relative to the output dir. | JSON report is printed to the stdout.
+| `PLAYWRIGHT_JSON_OUTPUT_FILE` | `outputFile` | Full path to the output file. If defined, `PLAYWRIGHT_JSON_OUTPUT_DIR` and `PLAYWRIGHT_JSON_OUTPUT_NAME` will be ignored. | JSON report is printed to the stdout.
 
-### JUnit 報告器
+### JUnit reporter
 
-JUnit 報告器產生 JUnit 風格的 xml 報告。
+JUnit reporter produces a JUnit-style xml report.
 
-您很可能希望將報告寫入 xml 檔案。使用 `--reporter=junit` 執行時，使用 `PLAYWRIGHT_JUNIT_OUTPUT_NAME` 環境變數：
+Most likely you want to write the report to an xml file. When running with `--reporter=junit`, use `PLAYWRIGHT_JUNIT_OUTPUT_NAME` environment variable:
 
 <Tabs
   groupId="bash-flavor"
@@ -379,7 +379,7 @@ npx playwright test --reporter=junit
 </TabItem>
 </Tabs>
 
-在組態設定檔中，直接傳遞選項：
+In configuration file, pass options directly:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -389,37 +389,37 @@ export default defineConfig({
 });
 ```
 
-JUnit 報告器支援以下組態選項和環境變數：
+JUnit report supports following configuration options and environment variables:
 
-| 環境變數名稱 | 報告器組態選項| 說明 | 預設值
+| Environment Variable Name | Reporter Config Option| Description | Default
 |---|---|---|---|
-| `PLAYWRIGHT_JUNIT_OUTPUT_DIR` | | 儲存輸出檔案的目錄。如果未指定輸出檔案則忽略。 | `cwd` 或組態目錄。
-| `PLAYWRIGHT_JUNIT_OUTPUT_NAME` | `outputFile` | 輸出的基本檔案名稱，相對於輸出目錄。 | JUnit 報告列印到 stdout。
-| `PLAYWRIGHT_JUNIT_OUTPUT_FILE` | `outputFile` | 輸出檔案的完整路徑。如果定義，將忽略 `PLAYWRIGHT_JUNIT_OUTPUT_DIR` 和 `PLAYWRIGHT_JUNIT_OUTPUT_NAME`。 | JUnit 報告列印到 stdout。
-| `PLAYWRIGHT_JUNIT_STRIP_ANSI` | `stripANSIControlSequences` | 是否在將文字寫入報告之前移除 ANSI 控制序列。 | 預設情況下，輸出文字會原樣添加。
-| `PLAYWRIGHT_JUNIT_INCLUDE_PROJECT_IN_TEST_NAME` | `includeProjectInTestName` | 是否在每個測試案例的名稱前綴中包含 Playwright 專案名稱。 | 預設情況下不包含。
-| `PLAYWRIGHT_JUNIT_SUITE_ID` |  | 根 `<testsuites/>` 報告條目上的 `id` 屬性值。 | 空字串。
-| `PLAYWRIGHT_JUNIT_SUITE_NAME` |  | 根 `<testsuites/>` 報告條目上的 `name` 屬性值。 | 空字串。
+| `PLAYWRIGHT_JUNIT_OUTPUT_DIR` | | Directory to save the output file. Ignored if output file is not specified. | `cwd` or config directory.
+| `PLAYWRIGHT_JUNIT_OUTPUT_NAME` | `outputFile` | Base file name for the output, relative to the output dir. | JUnit report is printed to the stdout.
+| `PLAYWRIGHT_JUNIT_OUTPUT_FILE` | `outputFile` | Full path to the output file. If defined, `PLAYWRIGHT_JUNIT_OUTPUT_DIR` and `PLAYWRIGHT_JUNIT_OUTPUT_NAME` will be ignored. | JUnit report is printed to the stdout.
+| `PLAYWRIGHT_JUNIT_STRIP_ANSI` | `stripANSIControlSequences` | Whether to remove ANSI control sequences from the text before writing it in the report. | By default output text is added as is.
+| `PLAYWRIGHT_JUNIT_INCLUDE_PROJECT_IN_TEST_NAME` | `includeProjectInTestName` | Whether to include Playwright project name in every test case as a name prefix. | By default not included.
+| `PLAYWRIGHT_JUNIT_SUITE_ID` |  | Value of the `id` attribute on the root `<testsuites/>` report entry. | Empty string.
+| `PLAYWRIGHT_JUNIT_SUITE_NAME` |  | Value of the `name` attribute on the root `<testsuites/>` report entry. | Empty string.
 
-### GitHub Actions 註解
+### GitHub Actions annotations
 
-您可以使用內建的 `github` 報告器在 GitHub Actions 中執行時取得自動失敗註解。
+You can use the built in `github` reporter to get automatic failure annotations when running in GitHub actions.
 
-請注意，所有其他報告器在 GitHub Actions 上也都能正常運作，但不提供註解。另外，如果您使用矩陣策略執行測試，則不建議使用此註解類型，因為堆疊追蹤失敗會增加並遮蔽 GitHub 檔案檢視。
+Note that all other reporters work on GitHub Actions as well, but do not provide annotations. Also, it is not recommended to use this annotation type if running your tests with a matrix strategy as the stack trace failures will multiply and obscure the GitHub file view.
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  // GitHub Actions CI 使用 'github' 來產生註解，加上簡潔的 'dot'
-  // 本機執行時預設使用 'list'
+  // 'github' for GitHub Actions CI to generate annotations, plus a concise 'dot'
+  // default 'list' when running locally
   reporter: process.env.CI ? 'github' : 'list',
 });
 ```
 
-## 自訂報告器
+## Custom reporters
 
-您可以透過實作具有某些報告器方法的類別來建立自訂報告器。深入了解 [Reporter] API。
+You can create a custom reporter by implementing a class with some of the reporter methods. Learn more about the [Reporter] API.
 
 ```js title="my-awesome-reporter.ts"
 import type {
@@ -447,7 +447,7 @@ class MyReporter implements Reporter {
 export default MyReporter;
 ```
 
-現在使用此報告器與 [testConfig.reporter](/api/class-testconfig.mdx#test-config-reporter)。
+Now use this reporter with [testConfig.reporter](/api/class-testconfig.mdx#test-config-reporter).
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -457,13 +457,13 @@ export default defineConfig({
 });
 ```
 
-或者只需將報告器檔案路徑作為 `--reporter` 命令列選項傳遞：
+Or just pass the reporter file path as `--reporter` command line option:
 
 ```bash
 npx playwright test --reporter="./myreporter/my-awesome-reporter.ts"
 ```
 
-以下是一些開放原始碼報告器實作的簡短清單，您可以在撰寫自己的報告器時參考：
+Here's a short list of open source reporter implementations that you can take a look at when writing your own reporter:
 * [Allure Reporter](https://github.com/allure-framework/allure-js/tree/main/packages/allure-playwright)
 * [Github Actions Reporter](https://github.com/estruyf/playwright-github-actions-reporter)
 * [Mail Reporter](https://github.com/estruyf/playwright-mail-reporter)

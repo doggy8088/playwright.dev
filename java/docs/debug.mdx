@@ -1,6 +1,6 @@
 ---
 id: debug
-title: "偵錯測試"
+title: "Debugging Tests"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,19 +9,19 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ## Playwright Inspector
 
-Playwright Inspector 是一個 GUI 工具，可以幫助您偵錯 Playwright 測試。它讓您可以逐步執行測試、即時編輯定位器、挑選定位器並查看可操作性記錄。
+The Playwright Inspector is a GUI tool to help you debug your Playwright tests. It allows you to step through your tests, live edit locators, pick locators and see actionability logs.
 
 <img width="864" alt="Playwright Inspector" src="https://user-images.githubusercontent.com/13063165/212924587-4b84e5f6-b147-40e9-8c75-d7b9ab6b7ca1.png" />
 
-### 在偵錯模式中執行
+### Run in debug mode
 
-設定 `PWDEBUG` 環境變數以在偵錯模式下執行您的 Playwright 測試。這會設定 Playwright 進行偵錯並開啟檢查器。當設定 `PWDEBUG=1` 時，會設定額外的實用預設值：
-- 瀏覽器以有頭模式啟動
-- 預設逾時設定為 0（= 無逾時）
+Set the `PWDEBUG` environment variable to run your Playwright tests in debug mode. This configures Playwright for debugging and opens the inspector. Additional useful defaults are configured when `PWDEBUG=1` is set:
+- Browsers launch in headed mode
+- Default timeout is set to 0 (= no timeout)
 
-#### 設定原始碼位置
+#### Configure source location
 
-要告訴 Playwright 在哪裡尋找您正在偵錯的原始碼，請透過 `PLAYWRIGHT_JAVA_SRC` 環境變數傳遞原始碼目錄列表。列表中的路徑在 macOS 和 Linux 上應以 : 分隔，在 Windows 上應以 ; 分隔。
+To tell Playwright where to look for the source code that you are debugging, pass a list of the source directories via `PLAYWRIGHT_JAVA_SRC` environment variable. Paths in the list should be separated by : on macOS and Linux, and by ; on Windows.
 
 <Tabs
   groupId="bash-flavor"
@@ -62,21 +62,21 @@ mvn test
 </TabItem>
 </Tabs>
 
-### 逐步執行您的測試
+### Stepping through your tests
 
-您可以使用檢查器頂部的工具列來播放、暫停或逐步執行測試的每個動作。您可以在測試程式碼中看到當前動作被突出顯示，匹配的元素也會在瀏覽器視窗中被突出顯示。
+You can play, pause or step through each action of your test using the toolbar at the top of the Inspector. You can see the current action highlighted in the test code, and matching elements highlighted in the browser window.
 
 <img width="1340" alt="Playwright Inspector and browser" src="https://user-images.githubusercontent.com/13063165/212936618-84b87acc-bc2e-46ed-994b-32b2ef742e60.png" />
 
-### 從特定斷點執行測試
+### Run a test from a specific breakpoint
 
-為了加速偵錯過程，您可以在測試中加入 [Page.pause()](/api/class-page.mdx#page-pause) 方法。這樣您就不必逐步執行測試的每個動作來到達您想要偵錯的點。
+To speed up the debugging process you can add a [Page.pause()](/api/class-page.mdx#page-pause) method to your test. This way you won't have to step through each action of your test to get to the point where you want to debug.
 
 ```java
 page.pause();
 ```
 
-一旦您新增了 `page.pause()` 呼叫，在偵錯模式下執行您的測試。點選檢查器中的「Resume」按鈕會執行測試，並且只會在 `page.pause()` 處停止。
+Once you add a `page.pause()` call, run your tests in debug mode. Clicking the "Resume" button in the Inspector will run the test and only stop on the `page.pause()`.
 
 <img width="1350" alt="test with page.pause" src="https://user-images.githubusercontent.com/13063165/219473050-122be4c2-31d0-4cbd-aa8b-8588e8b781a6.png" />
 

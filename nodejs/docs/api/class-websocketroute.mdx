@@ -80,7 +80,7 @@ await page.routeWebSocket('/ws', ws => {
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### close {#web-socket-route-close}
 
@@ -88,14 +88,14 @@ await page.routeWebSocket('/ws', ws => {
 
 Closes one side of the WebSocket connection.
 
-**使用方式**
+**Usage**
 
 ```js
 await webSocketRoute.close();
 await webSocketRoute.close(options);
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `code` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-close-option-code"/><a href="#web-socket-route-close-option-code" class="list-anchor">#</a>
     
@@ -104,7 +104,7 @@ await webSocketRoute.close(options);
     
     Optional [close reason](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#reason).
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-close-return"/><a href="#web-socket-route-close-return" class="list-anchor">#</a>
 
 ---
@@ -121,13 +121,13 @@ Once connected to the server:
 
 See examples at the top for more details.
 
-**使用方式**
+**Usage**
 
 ```js
 webSocketRoute.connectToServer();
 ```
 
-**傳回值**
+**Returns**
 - [WebSocketRoute]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-connect-to-server-return"/><a href="#web-socket-route-connect-to-server-return" class="list-anchor">#</a>
 
 ---
@@ -140,13 +140,13 @@ Allows to handle [`WebSocket.close`](https://developer.mozilla.org/en-US/docs/We
 
 By default, closing one side of the connection, either in the page or on the server, will close the other side. However, when [webSocketRoute.onClose()](/api/class-websocketroute.mdx#web-socket-route-on-close) handler is set up, the default forwarding of closure is disabled, and handler should take care of it.
 
-**使用方式**
+**Usage**
 
 ```js
 webSocketRoute.onClose(handler);
 ```
 
-**參數**
+**Arguments**
 - `handler` [function]\([number] | [undefined]\):[Promise]&lt;[Object]&gt; | [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-on-close-option-handler"/><a href="#web-socket-route-on-close-option-handler" class="list-anchor">#</a>
   
   Function that will handle WebSocket closure. Received an optional [close code](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#code) and an optional [close reason](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/close#reason).
@@ -165,13 +165,13 @@ Once this method is called, messages are not automatically forwarded to the serv
 
 Calling this method again will override the handler with a new one.
 
-**使用方式**
+**Usage**
 
 ```js
 webSocketRoute.onMessage(handler);
 ```
 
-**參數**
+**Arguments**
 - `handler` [function]\([string]\):[Promise]&lt;[Object]&gt; | [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-on-message-option-handler"/><a href="#web-socket-route-on-message-option-handler" class="list-anchor">#</a>
   
   Function that will handle messages.
@@ -184,13 +184,13 @@ webSocketRoute.onMessage(handler);
 
 Sends a message to the WebSocket. When called on the original WebSocket, sends the message to the page. When called on the result of [webSocketRoute.connectToServer()](/api/class-websocketroute.mdx#web-socket-route-connect-to-server), sends the message to the server. See examples at the top for more details.
 
-**使用方式**
+**Usage**
 
 ```js
 webSocketRoute.send(message);
 ```
 
-**參數**
+**Arguments**
 - `message` [string] | [Buffer]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-send-option-message"/><a href="#web-socket-route-send-option-message" class="list-anchor">#</a>
   
   Message to send.
@@ -203,13 +203,13 @@ webSocketRoute.send(message);
 
 URL of the WebSocket created in the page.
 
-**使用方式**
+**Usage**
 
 ```js
 webSocketRoute.url();
 ```
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-route-url-return"/><a href="#web-socket-route-url-return" class="list-anchor">#</a>
 
 

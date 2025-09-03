@@ -25,7 +25,7 @@ If request gets a 'redirect' response, the request is successfully finished with
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### allHeaders {#request-all-headers}
 
@@ -33,13 +33,13 @@ If request gets a 'redirect' response, the request is successfully finished with
 
 An object with all the request HTTP headers associated with this request. The header names are lower-cased.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.allHeaders();
 ```
 
-**傳回值**
+**Returns**
 - [Map]&lt;[String], [String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-all-headers-return"/><a href="#request-all-headers-return" class="list-anchor">#</a>
 
 ---
@@ -50,7 +50,7 @@ Request.allHeaders();
 
 The method returns `null` unless this request has failed, as reported by `requestfailed` event.
 
-**使用方式**
+**Usage**
 
 Example of logging of all the failed requests:
 
@@ -60,7 +60,7 @@ page.onRequestFailed(request -> {
 });
 ```
 
-**傳回值**
+**Returns**
 - [null] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-failure-return"/><a href="#request-failure-return" class="list-anchor">#</a>
 
 ---
@@ -71,13 +71,13 @@ page.onRequestFailed(request -> {
 
 Returns the [Frame] that initiated this request.
 
-**使用方式**
+**Usage**
 
 ```java
 String frameUrl = request.frame().url();
 ```
 
-**傳回值**
+**Returns**
 - [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-frame-return"/><a href="#request-frame-return" class="list-anchor">#</a>
 
 **Details**
@@ -96,18 +96,18 @@ Here is an example that handles all the cases:
 
 Returns the value of the header matching the name. The name is case-insensitive.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.headerValue(name);
 ```
 
-**參數**
+**Arguments**
 - `name` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-header-value-option-name"/><a href="#request-header-value-option-name" class="list-anchor">#</a>
   
   Name of the header.
 
-**傳回值**
+**Returns**
 - [null] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-header-value-return"/><a href="#request-header-value-return" class="list-anchor">#</a>
 
 ---
@@ -118,13 +118,13 @@ Request.headerValue(name);
 
 An object with the request HTTP headers. The header names are lower-cased. Note that this method does not return security-related headers, including cookie-related ones. You can use [Request.allHeaders()](/api/class-request.mdx#request-all-headers) for complete list of headers that include `cookie` information.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.headers();
 ```
 
-**傳回值**
+**Returns**
 - [Map]&lt;[String], [String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-headers-return"/><a href="#request-headers-return" class="list-anchor">#</a>
 
 ---
@@ -135,13 +135,13 @@ Request.headers();
 
 An array with all the request HTTP headers associated with this request. Unlike [Request.allHeaders()](/api/class-request.mdx#request-all-headers), header names are NOT lower-cased. Headers with multiple entries, such as `Set-Cookie`, appear in the array multiple times.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.headersArray();
 ```
 
-**傳回值**
+**Returns**
 - [List]&lt;`HttpHeader`&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-headers-array-return"/><a href="#request-headers-array-return" class="list-anchor">#</a>
   - `name` [String]
     
@@ -160,13 +160,13 @@ Whether this request is driving frame's navigation.
 
 Some navigation requests are issued before the corresponding frame is created, and therefore do not have [Request.frame()](/api/class-request.mdx#request-frame) available.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.isNavigationRequest();
 ```
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-is-navigation-request-return"/><a href="#request-is-navigation-request-return" class="list-anchor">#</a>
 
 ---
@@ -177,13 +177,13 @@ Request.isNavigationRequest();
 
 Request's method (GET, POST, etc.)
 
-**使用方式**
+**Usage**
 
 ```java
 Request.method();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-method-return"/><a href="#request-method-return" class="list-anchor">#</a>
 
 ---
@@ -194,13 +194,13 @@ Request.method();
 
 Request's post body, if any.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.postData();
 ```
 
-**傳回值**
+**Returns**
 - [null] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-post-data-return"/><a href="#request-post-data-return" class="list-anchor">#</a>
 
 ---
@@ -211,13 +211,13 @@ Request.postData();
 
 Request's post body in a binary form, if any.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.postDataBuffer();
 ```
 
-**傳回值**
+**Returns**
 - [null] | [byte&#91;&#93;]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-post-data-buffer-return"/><a href="#request-post-data-buffer-return" class="list-anchor">#</a>
 
 ---
@@ -230,7 +230,7 @@ Request that was redirected by the server to this one, if any.
 
 When the server responds with a redirect, Playwright creates a new [Request] object. The two requests are connected by `redirectedFrom()` and `redirectedTo()` methods. When multiple server redirects has happened, it is possible to construct the whole redirect chain by repeatedly calling `redirectedFrom()`.
 
-**使用方式**
+**Usage**
 
 For example, if the website `http://example.com` redirects to `https://example.com`:
 
@@ -246,7 +246,7 @@ Response response = page.navigate("https://google.com");
 System.out.println(response.request().redirectedFrom()); // null
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-redirected-from-return"/><a href="#request-redirected-from-return" class="list-anchor">#</a>
 
 ---
@@ -257,7 +257,7 @@ System.out.println(response.request().redirectedFrom()); // null
 
 New request issued by the browser if the server responded with redirect.
 
-**使用方式**
+**Usage**
 
 This method is the opposite of [Request.redirectedFrom()](/api/class-request.mdx#request-redirected-from):
 
@@ -265,7 +265,7 @@ This method is the opposite of [Request.redirectedFrom()](/api/class-request.mdx
 System.out.println(request.redirectedFrom().redirectedTo() == request); // true
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-redirected-to-return"/><a href="#request-redirected-to-return" class="list-anchor">#</a>
 
 ---
@@ -276,13 +276,13 @@ System.out.println(request.redirectedFrom().redirectedTo() == request); // true
 
 Contains the request's resource type as it was perceived by the rendering engine. ResourceType will be one of the following: `document`, `stylesheet`, `image`, `media`, `font`, `script`, `texttrack`, `xhr`, `fetch`, `eventsource`, `websocket`, `manifest`, `other`.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.resourceType();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-resource-type-return"/><a href="#request-resource-type-return" class="list-anchor">#</a>
 
 ---
@@ -293,13 +293,13 @@ Request.resourceType();
 
 Returns the matching [Response] object, or `null` if the response was not received due to error.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.response();
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Response]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-response-return"/><a href="#request-response-return" class="list-anchor">#</a>
 
 ---
@@ -310,13 +310,13 @@ Request.response();
 
 Returns resource size information for given request.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.sizes();
 ```
 
-**傳回值**
+**Returns**
 - Sizes<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-sizes-return"/><a href="#request-sizes-return" class="list-anchor">#</a>
   - `requestBodySize` [int]
     
@@ -339,7 +339,7 @@ Request.sizes();
 
 Returns resource timing information for given request. Most of the timing values become available upon the response, `responseEnd` becomes available when request finishes. Find more information at [Resource Timing API](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming).
 
-**使用方式**
+**Usage**
 
 ```java
 page.onRequestFinished(request -> {
@@ -349,7 +349,7 @@ page.onRequestFinished(request -> {
 page.navigate("http://example.com");
 ```
 
-**傳回值**
+**Returns**
 - Timing<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-timing-return"/><a href="#request-timing-return" class="list-anchor">#</a>
   - `startTime` [double]
     
@@ -387,13 +387,13 @@ page.navigate("http://example.com");
 
 URL of the request.
 
-**使用方式**
+**Usage**
 
 ```java
 Request.url();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-url-return"/><a href="#request-url-return" class="list-anchor">#</a>
 
 

@@ -30,7 +30,7 @@ public class Example {
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### connect {#browser-type-connect}
 
@@ -43,14 +43,14 @@ This method attaches Playwright to an existing browser instance created via `Bro
 The major and minor version of the Playwright instance that connects needs to match the version of Playwright that launches the browser (1.2.3 → is compatible with 1.2.x).
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 BrowserType.connect(wsEndpoint);
 BrowserType.connect(wsEndpoint, options);
 ```
 
-**參數**
+**Arguments**
 - `wsEndpoint` [String] <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-option-ws-endpoint"/><a href="#browser-type-connect-option-ws-endpoint" class="list-anchor">#</a>
   
   A Playwright browser websocket endpoint to connect to. You obtain this endpoint via `BrowserServer.wsEndpoint`.
@@ -78,7 +78,7 @@ BrowserType.connect(wsEndpoint, options);
     
     Maximum time in milliseconds to wait for the connection to be established. Defaults to `0` (no timeout).
 
-**傳回值**
+**Returns**
 - [Browser]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-return"/><a href="#browser-type-connect-return" class="list-anchor">#</a>
 
 ---
@@ -100,7 +100,7 @@ Connecting over the Chrome DevTools Protocol is only supported for Chromium-base
 This connection is significantly lower fidelity than the Playwright protocol connection via [BrowserType.connect()](/api/class-browsertype.mdx#browser-type-connect). If you are experiencing issues or attempting to use advanced functionality, you probably want to use [BrowserType.connect()](/api/class-browsertype.mdx#browser-type-connect).
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 Browser browser = playwright.chromium().connectOverCDP("http://localhost:9222");
@@ -108,7 +108,7 @@ BrowserContext defaultContext = browser.contexts().get(0);
 Page page = defaultContext.pages().get(0);
 ```
 
-**參數**
+**Arguments**
 - `endpointURL` [String] <font size="2">Added in: v1.11</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-option-endpoint-url"/><a href="#browser-type-connect-over-cdp-option-endpoint-url" class="list-anchor">#</a>
   
   A CDP websocket endpoint or http url to connect to. For example `http://localhost:9222/` or `ws://127.0.0.1:9222/devtools/browser/387adf4c-243f-4051-a181-46798f4a46f4`.
@@ -123,7 +123,7 @@ Page page = defaultContext.pages().get(0);
     
     Maximum time in milliseconds to wait for the connection to be established. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**傳回值**
+**Returns**
 - [Browser]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-connect-over-cdp-return"/><a href="#browser-type-connect-over-cdp-return" class="list-anchor">#</a>
 
 ---
@@ -134,13 +134,13 @@ Page page = defaultContext.pages().get(0);
 
 A path where Playwright expects to find a bundled browser executable.
 
-**使用方式**
+**Usage**
 
 ```java
 BrowserType.executablePath();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-executable-path-return"/><a href="#browser-type-executable-path-return" class="list-anchor">#</a>
 
 ---
@@ -151,7 +151,7 @@ BrowserType.executablePath();
 
 Returns the browser instance.
 
-**使用方式**
+**Usage**
 
 You can use [setIgnoreDefaultArgs](/api/class-browsertype.mdx#browser-type-launch-option-ignore-default-args) to filter out `--mute-audio` from default arguments:
 
@@ -167,7 +167,7 @@ Browser browser = chromium.launch(new BrowserType.LaunchOptions()
 >
 > Stock browsers like Google Chrome and Microsoft Edge are suitable for tests that require proprietary media codecs for video playback. See [this article](https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/) for other differences between Chromium and Chrome. [This article](https://chromium.googlesource.com/chromium/src/+/lkgr/docs/chromium_browser_vs_google_chrome.md) describes some differences for Linux users.
 
-**參數**
+**Arguments**
 - `options` `BrowserType.LaunchOptions` *(optional)*
   - `setArgs` [List]&lt;[String]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-option-args"/><a href="#browser-type-launch-option-args" class="list-anchor">#</a>
     
@@ -252,7 +252,7 @@ Browser browser = chromium.launch(new BrowserType.LaunchOptions()
     
     If specified, traces are saved into this directory.
 
-**傳回值**
+**Returns**
 - [Browser]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-return"/><a href="#browser-type-launch-return" class="list-anchor">#</a>
 
 ---
@@ -265,14 +265,14 @@ Returns the persistent browser context instance.
 
 Launches browser that uses persistent storage located at [userDataDir](/api/class-browsertype.mdx#browser-type-launch-persistent-context-option-user-data-dir) and returns the only context. Closing this context will automatically close the browser.
 
-**使用方式**
+**Usage**
 
 ```java
 BrowserType.launchPersistentContext(userDataDir);
 BrowserType.launchPersistentContext(userDataDir, options);
 ```
 
-**參數**
+**Arguments**
 - `userDataDir` [Path]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-option-user-data-dir"/><a href="#browser-type-launch-persistent-context-option-user-data-dir" class="list-anchor">#</a>
   
   Path to a User Data Directory, which stores browser session data like cookies and local storage. Pass an empty string to create a temporary directory.
@@ -547,7 +547,7 @@ BrowserType.launchPersistentContext(userDataDir, options);
     The `null` value opts out from the default presets, makes viewport depend on the host window size defined by the operating system. It makes the execution of the tests non-deterministic.
     :::
     
-**傳回值**
+**Returns**
 - [BrowserContext]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-launch-persistent-context-return"/><a href="#browser-type-launch-persistent-context-return" class="list-anchor">#</a>
 
 ---
@@ -558,13 +558,13 @@ BrowserType.launchPersistentContext(userDataDir, options);
 
 Returns browser name. For example: `'chromium'`, `'webkit'` or `'firefox'`.
 
-**使用方式**
+**Usage**
 
 ```java
 BrowserType.name();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="browser-type-name-return"/><a href="#browser-type-name-return" class="list-anchor">#</a>
 
 

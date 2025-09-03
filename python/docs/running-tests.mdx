@@ -1,89 +1,89 @@
 ---
 id: running-tests
-title: "執行和偵錯測試"
+title: "Running and debugging tests"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-您可以執行單一測試、一組測試或所有測試。可使用 `--browser` 旗標在一個瀏覽器或多個瀏覽器上執行測試。測試預設以無頭模式執行，意即在執行測試時不會開啟瀏覽器視窗，結果顯示在終端機中。您可以使用 `--headed` CLI 參數在有頭模式下執行測試。
+You can run a single test, a set of tests or all tests. Tests can be run on one browser or multiple browsers by using the `--browser` flag. By default, tests are run in a headless manner, meaning no browser window will be opened while running the tests and results will be seen in the terminal. If you prefer, you can run your tests in headed mode by using the `--headed` CLI argument.
 
-**您將學習**
-- [如何從命令列執行測試](/running-tests.mdx#command-line)
-- [如何偵錯測試](/running-tests.mdx#debugging-tests)
+**You will learn**
+- [How to run tests from the command line](/running-tests.mdx#command-line)
+- [How to debug tests](/running-tests.mdx#debugging-tests)
 
-## 執行測試
+## Running tests
 
-### 命令列
+### Command Line
 
-要執行測試，請使用 `pytest` 指令。這會預設在 Chromium 瀏覽器上執行測試。測試預設以無頭模式執行，意即在執行測試時不會開啟瀏覽器視窗，結果顯示在終端機中。
+To run your tests, use the `pytest` command. This will run your tests on the Chromium browser by default. Tests run in headless mode by default meaning no browser window will be opened while running the tests and results will be seen in the terminal.
 
 ```bash
 pytest
 ```
 
-### 在有頭模式下執行測試
+### Run tests in headed mode
 
-要在有頭模式下執行測試，請使用 `--headed` 旗標。這會在執行測試時開啟瀏覽器視窗，完成後瀏覽器視窗會關閉。
+To run your tests in headed mode, use the `--headed` flag. This will open up a browser window while running your tests and once finished the browser window will close.
 
 ```bash
 pytest --headed
 ```
 
-### 在不同瀏覽器上執行測試
+### Run tests on different browsers
 
-要指定您想要執行測試的瀏覽器，請使用 `--browser` 旗標後接瀏覽器名稱。
+To specify which browser you would like to run your tests on, use the `--browser` flag followed by the name of the browser.
 
 ```bash
 pytest --browser webkit
 ```
 
-要指定多個瀏覽器來執行測試，請多次使用 `--browser` 旗標，每次後接一個瀏覽器名稱。
+To specify multiple browsers to run your tests on, use the `--browser` flag multiple times followed by the name of each browser.
 
 ```bash
 pytest --browser webkit --browser firefox
 ```
 
-### 執行特定測試
+### Run specific tests
 
-要執行單個測試文件，請傳入您想要執行的測試文件名稱。
+To run a single test file, pass in the name of the test file that you want to run.
 
 ```bash
 pytest test_login.py
 ```
 
-要執行一組測試文件，請傳入您想要執行的測試文件名稱。
+To run a set of test files, pass in the names of the test files that you want to run.
 
 ```bash
 pytest tests/test_todo_page.py tests/test_landing_page.py
 ```
 
-要執行特定測試，請傳入您想要執行的測試函式名稱。
+To run a specific test, pass in the function name of the test you want to run.
 
 ```bash
 pytest -k test_add_a_todo_item
 ```
 
-### 平行執行測試
+### Run tests in parallel
 
-要平行執行測試，請使用 `--numprocesses` 旗標後接您想要執行測試的處理程序數量。我們建議使用邏輯 CPU 核心數量的一半。
+To run your tests in parallel, use the `--numprocesses` flag followed by the number of processes you would like to run your tests on. We recommend half of logical CPU cores.
 
 ```bash
 pytest --numprocesses 2
 ```
 
-（這假設已安裝 `pytest-xdist`。更多資訊請參閱[這裡](./test-runners.mdx#parallelism-running-multiple-tests-at-once)。）
+(This assumes `pytest-xdist` is installed. For more information see [here](./test-runners.mdx#parallelism-running-multiple-tests-at-once).)
 
-更多資訊請參閱 [Playwright Pytest 使用方法](./test-runners.mdx)或 Pytest 文件的[一般 CLI 使用方法](https://docs.pytest.org/en/stable/usage.html)。
+For more information, see [Playwright Pytest usage](./test-runners.mdx) or the Pytest documentation for [general CLI usage](https://docs.pytest.org/en/stable/usage.html).
 
-## 偵錯測試
+## Debugging tests
 
-由於 Playwright 在 Python 中執行，您可以使用自己選擇的偵錯器進行偵錯，例如 Visual Studio Code 中的 [Python 擴充功能](https://code.visualstudio.com/docs/python/python-tutorial)。Playwright 附帶 Playwright Inspector，讓您能夠逐步執行 Playwright API 呼叫、查看偵錯記錄檔並探索[定位器](./locators.mdx)。
+Since Playwright runs in Python, you can debug it with your debugger of choice, e.g., with the [Python extension](https://code.visualstudio.com/docs/python/python-tutorial) in Visual Studio Code. Playwright comes with the Playwright Inspector which allows you to step through Playwright API calls, see their debug logs and explore [locators](./locators.mdx).
 
-要偵錯所有測試，請執行以下指令。
+To debug all tests, run the following command.
 
 <Tabs
   groupId="bash-flavor"
@@ -119,7 +119,7 @@ pytest -s
 </TabItem>
 </Tabs>
 
-要偵錯一個測試文件，請在指令後接您想要偵錯的測試文件名稱。
+To debug one test file, run the command followed by the name of the test file that you want to debug.
 
 <Tabs
   groupId="bash-flavor"
@@ -155,7 +155,7 @@ pytest -s test_example.py
 </TabItem>
 </Tabs>
 
-要偵錯特定測試，請加上 `-k` 後接您想要偵錯的測試名稱。
+To debug a specific test, add `-k` followed by the name of the test that you want to debug.
 
 <Tabs
   groupId="bash-flavor"
@@ -191,18 +191,18 @@ pytest -s -k test_get_started_link
 </TabItem>
 </Tabs>
 
-此指令會開啟瀏覽器視窗以及 Playwright Inspector。您可以使用檢查器頂部的逐步執行按鈕來逐步執行測試。或按播放按鈕從頭到尾執行測試。測試完成後，瀏覽器視窗會關閉。
+This command will open up a Browser window as well as the Playwright Inspector. You can use the step over button at the top of the inspector to step through your test. Or press the play button to run your test from start to finish. Once the test has finished, the browser window will close.
 
-在偵錯時，您可以使用選擇定位器按鈕選取頁面上的元素，並查看 Playwright 用來找到該元素的定位器。您也可以編輯定位器並在瀏覽器視窗中看到即時反白顯示。使用複製定位器按鈕將定位器複製到剪貼簿，然後貼上到測試中。
+While debugging you can use the Pick Locator button to select an element on the page and see the locator that Playwright would use to find that element. You can also edit the locator and see it highlighting live on the Browser window. Use the Copy Locator button to copy the locator to your clipboard and then paste it into your test.
 
 ![Playwright Inspector](https://github.com/microsoft/playwright/assets/13063165/c94c89c8-f945-460c-a653-7809c6ca50ee)
 
-查看我們的[偵錯指南](./debug.mdx)以了解更多關於 [Playwright Inspector](./debug.mdx#playwright-inspector) 以及使用[瀏覽器開發者工具](./debug.mdx#browser-developer-tools)進行偵錯的資訊。
+Check out our [debugging guide](./debug.mdx) to learn more about the [Playwright Inspector](./debug.mdx#playwright-inspector) as well as debugging with [Browser Developer tools](./debug.mdx#browser-developer-tools).
 
-## 接下來是什麼
-- [使用程式碼產生器生成測試](./codegen.mdx)
-- [查看測試的追蹤](./trace-viewer-intro.mdx)
-- [在 CI 上使用 GitHub Actions 執行測試](./ci-intro.mdx)
+## What's next
+- [Generate tests with Codegen](./codegen.mdx)
+- [See a trace of your tests](./trace-viewer-intro.mdx)
+- [Run your tests on CI with GitHub Actions](./ci-intro.mdx)
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

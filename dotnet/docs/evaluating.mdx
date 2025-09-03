@@ -1,23 +1,23 @@
 ---
 id: evaluating
-title: "執行 JavaScript 求值"
+title: "Evaluating JavaScript"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 腳本在您的 Playwright 環境中執行。您的頁面腳本在瀏覽器頁面環境中執行。這些環境不會相交，它們在不同的虛擬機器、不同的程序中執行，甚至可能在不同的電腦上執行。
+Playwright scripts run in your Playwright environment. Your page scripts run in the browser page environment. Those environments don't intersect, they are running in different virtual machines in different processes and even potentially on different computers.
 
-[`Page.EvaluateAsync()`](/api/class-page.mdx#page-evaluate) API 可以在網頁的情境中執行 JavaScript 函式，並將結果帶回到 Playwright 環境。瀏覽器全域變數如 `window` 和 `document` 可以在 `evaluate` 中使用。
+The [Page.EvaluateAsync()](/api/class-page.mdx#page-evaluate) API can run a JavaScript function in the context of the web page and bring results back to the Playwright environment. Browser globals like `window` and `document` can be used in `evaluate`.
 
 ```csharp
 var href = await page.EvaluateAsync<string>("document.location.href");
 ```
 
-如果結果是一個 Promise 或函式是非同步的，`evaluate` 會自動等待直到它被解析：
+If the result is a Promise or if the function is asynchronous evaluate will automatically wait until it's resolved:
 
 ```csharp
 int status = await page.EvaluateAsync<int>(@"async () => {
@@ -26,84 +26,84 @@ int status = await page.EvaluateAsync<int>(@"async () => {
 }");
 ```
 
-## 不同環境
+## Different environments
 
-執行求值的腳本在瀏覽器環境中執行，而您的測試在測試環境中執行。這意味著您無法在頁面中使用測試中的變數，反之亦然。相反地，您應該明確地將它們作為參數傳遞。
+Evaluated scripts run in the browser environment, while your test runs in a testing environments. This means you cannot use variables from your test in the page and vice versa. Instead, you should pass them explicitly as an argument.
 
-以下程式碼片段是**錯誤的**，因為它直接使用變數：
+The following snippet is **WRONG** because it uses the variable directly:
 
 ```csharp
 var data = "some data";
 var result = await page.EvaluateAsync(@"() => {
-  // 錯誤：在網頁中沒有 'data'
+  // WRONG: there is no 'data' in the web page.
   window.myApp.use(data);
 }");
 ```
 
-以下程式碼片段是**正確的**，因為它明確地將值作為參數傳遞：
+The following snippet is **CORRECT** because it passes the value explicitly as an argument:
 
 ```csharp
 var data = "some data";
-// 將 |data| 作為參數傳遞
+// Pass |data| as a parameter.
 var result = await page.EvaluateAsync("data => { window.myApp.use(data); }", data);
 ```
 
-## 求值參數
+## Evaluation Argument
 
-Playwright 求值方法如 [`Page.EvaluateAsync()`](/api/class-page.mdx#page-evaluate) 接受一個可選參數。此參數可以是 [Serializable] 值和 [JSHandle] 實例的混合。控制代碼會自動轉換為它們所代表的值。
+Playwright evaluation methods like [Page.EvaluateAsync()](/api/class-page.mdx#page-evaluate) take a single optional argument. This argument can be a mix of [Serializable] values and [JSHandle] instances. Handles are automatically converted to the value they represent.
 
 ```csharp
-// 基本型別值
+// A primitive value.
 await page.EvaluateAsync<int>("num => num", 42);
 
-// 陣列
+// An array.
 await page.EvaluateAsync<int[]>("array => array.length", new[] { 1, 2, 3 });
 
-// 物件
+// An object.
 await page.EvaluateAsync<object>("object => object.foo", new { foo = "bar" });
 
-// 單一控制代碼
+// A single handle.
 var button = await page.EvaluateHandleAsync("window.button");
 await page.EvaluateAsync<IJSHandle>("button => button.textContent", button);
 
-// 使用 JSHandle.EvaluateAsync 的替代寫法
+// Alternative notation using JSHandle.EvaluateAsync.
 await button.EvaluateAsync<string>("(button, from) => button.textContent.substring(from)", 5);
 
-// 具有多個控制代碼的物件
+// Object with multiple handles.
 var button1 = await page.EvaluateHandleAsync("window.button1");
 var button2 = await page.EvaluateHandleAsync("window.button2");
 await page.EvaluateAsync("o => o.button1.textContent + o.button2.textContent", new { button1, button2 });
 
-// 物件解構也可以運作。注意屬性名稱必須在
-// 解構物件和參數之間相符
-// 同時注意必須的括號
+// Object destructuring works. Note that property names must match
+// between the destructured object and the argument.
+// Also note the required parenthesis.
 await page.EvaluateAsync("({ button1, button2 }) => button1.textContent + button2.textContent", new { button1, button2 });
 
-// 陣列也可以運作。可以使用任意名稱進行解構
-// 注意必須的括號
+// Array works as well. Arbitrary names can be used for destructuring.
+// Note the required parenthesis.
 await page.EvaluateAsync("([b1, b2]) => b1.textContent + b2.textContent", new[] { button1, button2 });
 
-// 可序列化值和控制代碼的任何組合都可以運作
+// Any mix of serializables and handles works.
 await page.EvaluateAsync("x => x.button1.textContent + x.list[0].textContent + String(x.foo)", new { button1, list = new[] { button2 }, foo = null as object });
 ```
 
-## 初始化腳本
+## Init scripts
 
-有時在頁面開始載入之前在頁面中求值某些內容很方便。例如，您可能想要設定一些模擬或測試資料。
+Sometimes it is convenient to evaluate something in the page before it starts loading. For example, you might want to setup some mocks or test data.
 
-在這種情況下，使用 [`Page.AddInitScriptAsync()`](/api/class-page.mdx#page-add-init-script) 或 [`BrowserContext.AddInitScriptAsync()`](/api/class-browsercontext.mdx#browser-context-add-init-script)。在下面的範例中，我們將用常數值替換 `Math.random()`。
+In this case, use [Page.AddInitScriptAsync()](/api/class-page.mdx#page-add-init-script) or [BrowserContext.AddInitScriptAsync()](/api/class-browsercontext.mdx#browser-context-add-init-script). In the example below, we will replace `Math.random()` with a constant value.
 
-首先，建立一個包含模擬的 `preload.js` 檔案。
+First, create a `preload.js` file that contains the mock.
 
 ```js
 // preload.js
 Math.random = () => 42;
 ```
 
-接下來，將初始化腳本新增到頁面。
+Next, add init script to the page.
 
 ```csharp
-// 在您的測試中，假設 "preload.js" 檔案在 "mocks" 目錄中
+// In your test, assuming the "preload.js" file is in the "mocks" directory.
 await Page.AddInitScriptAsync(scriptPath: "mocks/preload.js");
 ```
 

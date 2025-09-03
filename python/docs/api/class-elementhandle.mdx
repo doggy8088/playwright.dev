@@ -111,7 +111,7 @@ await locator.click()
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### bounding_box {#element-handle-bounding-box}
 
@@ -125,7 +125,7 @@ Elements from child frames return the bounding box relative to the main frame, u
 
 Assuming the page is static, it is safe to use bounding box coordinates to perform input. For example, the following snippet should click the center of the element.
 
-**使用方式**
+**Usage**
 
 <Tabs
   groupId="python-flavor"
@@ -153,7 +153,7 @@ await page.mouse.click(box["x"] + box["width"] / 2, box["y"] + box["height"] / 2
 </TabItem>
 </Tabs>
 
-**傳回值**
+**Returns**
 - [NoneType] | [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-bounding-box-return"/><a href="#element-handle-bounding-box-return" class="list-anchor">#</a>
   - `x` [float]
     
@@ -176,13 +176,13 @@ await page.mouse.click(box["x"] + box["width"] / 2, box["y"] + box["height"] / 2
 
 Returns the content frame for element handles referencing iframe nodes, or `null` otherwise
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.content_frame()
 ```
 
-**傳回值**
+**Returns**
 - [NoneType] | [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-content-frame-return"/><a href="#element-handle-content-frame-return" class="list-anchor">#</a>
 
 ---
@@ -193,13 +193,13 @@ element_handle.content_frame()
 
 Returns the frame containing the given element.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.owner_frame()
 ```
 
-**傳回值**
+**Returns**
 - [NoneType] | [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-owner-frame-return"/><a href="#element-handle-owner-frame-return" class="list-anchor">#</a>
 
 ---
@@ -220,14 +220,14 @@ Depending on the [state](/api/class-elementhandle.mdx#element-handle-wait-for-el
 
 If the element does not satisfy the condition for the [timeout](/api/class-elementhandle.mdx#element-handle-wait-for-element-state-option-timeout) milliseconds, this method will throw.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.wait_for_element_state(state)
 element_handle.wait_for_element_state(state, **kwargs)
 ```
 
-**參數**
+**Arguments**
 - `state` "visible" | "hidden" | "stable" | "enabled" | "disabled" | "editable"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-element-state-option-state"/><a href="#element-handle-wait-for-element-state-option-state" class="list-anchor">#</a>
   
   A state to wait for, see below for more details.
@@ -235,12 +235,12 @@ element_handle.wait_for_element_state(state, **kwargs)
   
   Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-element-state-return"/><a href="#element-handle-wait-for-element-state-return" class="list-anchor">#</a>
 
 ---
 
-## 已棄用 (Deprecated)
+## Deprecated
 
 ### check {#element-handle-check}
 
@@ -264,14 +264,14 @@ If the element is detached from the DOM at any moment during the action, this me
 
 When all steps combined have not finished during the specified [timeout](/api/class-elementhandle.mdx#element-handle-check-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.check()
 element_handle.check(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `force` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-check-option-force"/><a href="#element-handle-check-option-force" class="list-anchor">#</a>
   
   Whether to bypass the [actionability](../actionability.mdx) checks. Defaults to `false`.
@@ -298,7 +298,7 @@ element_handle.check(**kwargs)
   
   When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-check-return"/><a href="#element-handle-check-return" class="list-anchor">#</a>
 
 ---
@@ -324,14 +324,14 @@ If the element is detached from the DOM at any moment during the action, this me
 
 When all steps combined have not finished during the specified [timeout](/api/class-elementhandle.mdx#element-handle-click-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.click()
 element_handle.click(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `button` "left" | "right" | "middle" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-click-option-button"/><a href="#element-handle-click-option-button" class="list-anchor">#</a>
   
   Defaults to `left`.
@@ -370,7 +370,7 @@ element_handle.click(**kwargs)
   
   When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-click-return"/><a href="#element-handle-click-return" class="list-anchor">#</a>
 
 ---
@@ -400,14 +400,14 @@ When all steps combined have not finished during the specified [timeout](/api/cl
 `elementHandle.dblclick()` dispatches two `click` events and a single `dblclick` event.
 :::
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.dblclick()
 element_handle.dblclick(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `button` "left" | "right" | "middle" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-dblclick-option-button"/><a href="#element-handle-dblclick-option-button" class="list-anchor">#</a>
   
   Defaults to `left`.
@@ -443,7 +443,7 @@ element_handle.dblclick(**kwargs)
   
   When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-dblclick-return"/><a href="#element-handle-dblclick-return" class="list-anchor">#</a>
 
 ---
@@ -461,7 +461,7 @@ Use locator-based [locator.dispatch_event()](/api/class-locator.mdx#locator-disp
 
 The snippet below dispatches the `click` event on the element. Regardless of the visibility state of the element, `click` is dispatched. This is equivalent to calling [element.click()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click).
 
-**使用方式**
+**Usage**
 
 <Tabs
   groupId="python-flavor"
@@ -531,7 +531,7 @@ await element_handle.dispatch_event("#source", "dragstart", {"dataTransfer": dat
 </TabItem>
 </Tabs>
 
-**參數**
+**Arguments**
 - `type` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-dispatch-event-option-type"/><a href="#element-handle-dispatch-event-option-type" class="list-anchor">#</a>
   
   DOM event type: `"click"`, `"dragstart"`, etc.
@@ -539,7 +539,7 @@ await element_handle.dispatch_event("#source", "dragstart", {"dataTransfer": dat
   
   Optional event-specific initialization properties.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-dispatch-event-return"/><a href="#element-handle-dispatch-event-return" class="list-anchor">#</a>
 
 ---
@@ -561,7 +561,7 @@ The method finds an element matching the specified selector in the `ElementHandl
 
 If [expression](/api/class-elementhandle.mdx#element-handle-eval-on-selector-option-expression) returns a [Promise], then [element_handle.eval_on_selector()](/api/class-elementhandle.mdx#element-handle-eval-on-selector) would wait for the promise to resolve and return its value.
 
-**使用方式**
+**Usage**
 
 <Tabs
   groupId="python-flavor"
@@ -591,7 +591,7 @@ assert await tweet_handle.eval_on_selector(".retweets", "node => node.innerText"
 </TabItem>
 </Tabs>
 
-**參數**
+**Arguments**
 - `selector` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-eval-on-selector-option-selector"/><a href="#element-handle-eval-on-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -602,7 +602,7 @@ assert await tweet_handle.eval_on_selector(".retweets", "node => node.innerText"
   
   Optional argument to pass to [expression](/api/class-elementhandle.mdx#element-handle-eval-on-selector-option-expression).
 
-**傳回值**
+**Returns**
 - [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-eval-on-selector-return"/><a href="#element-handle-eval-on-selector-return" class="list-anchor">#</a>
 
 ---
@@ -624,7 +624,7 @@ The method finds all elements matching the specified selector in the `ElementHan
 
 If [expression](/api/class-elementhandle.mdx#element-handle-eval-on-selector-all-option-expression) returns a [Promise], then [element_handle.eval_on_selector_all()](/api/class-elementhandle.mdx#element-handle-eval-on-selector-all) would wait for the promise to resolve and return its value.
 
-**使用方式**
+**Usage**
 
 ```html
 <div class="feed">
@@ -659,7 +659,7 @@ assert await feed_handle.eval_on_selector_all(".tweet", "nodes => nodes.map(n =>
 </TabItem>
 </Tabs>
 
-**參數**
+**Arguments**
 - `selector` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-eval-on-selector-all-option-selector"/><a href="#element-handle-eval-on-selector-all-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -670,7 +670,7 @@ assert await feed_handle.eval_on_selector_all(".tweet", "nodes => nodes.map(n =>
   
   Optional argument to pass to [expression](/api/class-elementhandle.mdx#element-handle-eval-on-selector-all-option-expression).
 
-**傳回值**
+**Returns**
 - [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-eval-on-selector-all-return"/><a href="#element-handle-eval-on-selector-all-return" class="list-anchor">#</a>
 
 ---
@@ -692,14 +692,14 @@ If the target element is not an `<input>`, `<textarea>` or `[contenteditable]` e
 
 To send fine-grained keyboard events, use [locator.press_sequentially()](/api/class-locator.mdx#locator-press-sequentially).
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.fill(value)
 element_handle.fill(value, **kwargs)
 ```
 
-**參數**
+**Arguments**
 - `value` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-fill-option-value"/><a href="#element-handle-fill-option-value" class="list-anchor">#</a>
   
   Value to set for the `<input>`, `<textarea>` or `[contenteditable]` element.
@@ -718,7 +718,7 @@ element_handle.fill(value, **kwargs)
   
   Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-fill-return"/><a href="#element-handle-fill-return" class="list-anchor">#</a>
 
 ---
@@ -736,13 +736,13 @@ Use locator-based [locator.focus()](/api/class-locator.mdx#locator-focus) instea
 
 Calls [focus](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) on the element.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.focus()
 ```
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-focus-return"/><a href="#element-handle-focus-return" class="list-anchor">#</a>
 
 ---
@@ -760,18 +760,18 @@ Use locator-based [locator.get_attribute()](/api/class-locator.mdx#locator-get-a
 
 Returns element attribute value.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.get_attribute(name)
 ```
 
-**參數**
+**Arguments**
 - `name` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-get-attribute-option-name"/><a href="#element-handle-get-attribute-option-name" class="list-anchor">#</a>
   
   Attribute name to get the value for.
 
-**傳回值**
+**Returns**
 - [NoneType] | [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-get-attribute-return"/><a href="#element-handle-get-attribute-return" class="list-anchor">#</a>
 
 ---
@@ -796,14 +796,14 @@ If the element is detached from the DOM at any moment during the action, this me
 
 When all steps combined have not finished during the specified [timeout](/api/class-elementhandle.mdx#element-handle-hover-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.hover()
 element_handle.hover(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `force` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-hover-option-force"/><a href="#element-handle-hover-option-force" class="list-anchor">#</a>
   
   Whether to bypass the [actionability](../actionability.mdx) checks. Defaults to `false`.
@@ -833,7 +833,7 @@ element_handle.hover(**kwargs)
   
   When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-hover-return"/><a href="#element-handle-hover-return" class="list-anchor">#</a>
 
 ---
@@ -851,13 +851,13 @@ Use locator-based [locator.inner_html()](/api/class-locator.mdx#locator-inner-ht
 
 Returns the `element.innerHTML`.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.inner_html()
 ```
 
-**傳回值**
+**Returns**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-inner-html-return"/><a href="#element-handle-inner-html-return" class="list-anchor">#</a>
 
 ---
@@ -875,13 +875,13 @@ Use locator-based [locator.inner_text()](/api/class-locator.mdx#locator-inner-te
 
 Returns the `element.innerText`.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.inner_text()
 ```
 
-**傳回值**
+**Returns**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-inner-text-return"/><a href="#element-handle-inner-text-return" class="list-anchor">#</a>
 
 ---
@@ -901,19 +901,19 @@ Returns `input.value` for the selected `<input>` or `<textarea>` or `<select>` e
 
 Throws for non-input elements. However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), returns the value of the control.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.input_value()
 element_handle.input_value(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-input-value-option-timeout"/><a href="#element-handle-input-value-option-timeout" class="list-anchor">#</a>
   
   Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-input-value-return"/><a href="#element-handle-input-value-return" class="list-anchor">#</a>
 
 ---
@@ -931,13 +931,13 @@ Use locator-based [locator.is_checked()](/api/class-locator.mdx#locator-is-check
 
 Returns whether the element is checked. Throws if the element is not a checkbox or radio input.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.is_checked()
 ```
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-checked-return"/><a href="#element-handle-is-checked-return" class="list-anchor">#</a>
 
 ---
@@ -955,13 +955,13 @@ Use locator-based [locator.is_disabled()](/api/class-locator.mdx#locator-is-disa
 
 Returns whether the element is disabled, the opposite of [enabled](../actionability.mdx#enabled).
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.is_disabled()
 ```
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-disabled-return"/><a href="#element-handle-is-disabled-return" class="list-anchor">#</a>
 
 ---
@@ -979,13 +979,13 @@ Use locator-based [locator.is_editable()](/api/class-locator.mdx#locator-is-edit
 
 Returns whether the element is [editable](../actionability.mdx#editable).
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.is_editable()
 ```
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-editable-return"/><a href="#element-handle-is-editable-return" class="list-anchor">#</a>
 
 ---
@@ -1003,13 +1003,13 @@ Use locator-based [locator.is_enabled()](/api/class-locator.mdx#locator-is-enabl
 
 Returns whether the element is [enabled](../actionability.mdx#enabled).
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.is_enabled()
 ```
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-enabled-return"/><a href="#element-handle-is-enabled-return" class="list-anchor">#</a>
 
 ---
@@ -1027,13 +1027,13 @@ Use locator-based [locator.is_hidden()](/api/class-locator.mdx#locator-is-hidden
 
 Returns whether the element is hidden, the opposite of [visible](../actionability.mdx#visible).
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.is_hidden()
 ```
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-hidden-return"/><a href="#element-handle-is-hidden-return" class="list-anchor">#</a>
 
 ---
@@ -1051,13 +1051,13 @@ Use locator-based [locator.is_visible()](/api/class-locator.mdx#locator-is-visib
 
 Returns whether the element is [visible](../actionability.mdx#visible).
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.is_visible()
 ```
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-is-visible-return"/><a href="#element-handle-is-visible-return" class="list-anchor">#</a>
 
 ---
@@ -1087,14 +1087,14 @@ If [key](/api/class-elementhandle.mdx#element-handle-press-option-key) is a sing
 
 Shortcuts such as `key: "Control+o"`, `key: "Control++` or `key: "Control+Shift+T"` are supported as well. When specified with the modifier, modifier is pressed and being held while the subsequent key is being pressed.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.press(key)
 element_handle.press(key, **kwargs)
 ```
 
-**參數**
+**Arguments**
 - `key` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-press-option-key"/><a href="#element-handle-press-option-key" class="list-anchor">#</a>
   
   Name of the key to press or a character to generate, such as `ArrowLeft` or `a`.
@@ -1113,7 +1113,7 @@ element_handle.press(key, **kwargs)
   
   Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-press-return"/><a href="#element-handle-press-return" class="list-anchor">#</a>
 
 ---
@@ -1131,18 +1131,18 @@ Use locator-based [page.locator()](/api/class-page.mdx#page-locator) instead. Re
 
 The method finds an element matching the specified selector in the `ElementHandle`'s subtree. If no elements match the selector, returns `null`.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.query_selector(selector)
 ```
 
-**參數**
+**Arguments**
 - `selector` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-query-selector-option-selector"/><a href="#element-handle-query-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
 
-**傳回值**
+**Returns**
 - [NoneType] | [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-query-selector-return"/><a href="#element-handle-query-selector-return" class="list-anchor">#</a>
 
 ---
@@ -1160,18 +1160,18 @@ Use locator-based [page.locator()](/api/class-page.mdx#page-locator) instead. Re
 
 The method finds all elements matching the specified selector in the `ElementHandle`s subtree. If no elements match the selector, returns empty array.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.query_selector_all(selector)
 ```
 
-**參數**
+**Arguments**
 - `selector` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-query-selector-all-option-selector"/><a href="#element-handle-query-selector-all-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
 
-**傳回值**
+**Returns**
 - [List]\[[ElementHandle]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-query-selector-all-return"/><a href="#element-handle-query-selector-all-return" class="list-anchor">#</a>
 
 ---
@@ -1193,14 +1193,14 @@ This method waits for the [actionability](../actionability.mdx) checks, then scr
 
 Returns the buffer with the captured screenshot.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.screenshot()
 element_handle.screenshot(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `animations` "disabled" | "allow" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-option-animations"/><a href="#element-handle-screenshot-option-animations" class="list-anchor">#</a>
   
   When set to `"disabled"`, stops CSS animations, CSS transitions and Web Animations. Animations get different treatment depending on their duration:
@@ -1241,7 +1241,7 @@ element_handle.screenshot(**kwargs)
   
   Specify screenshot type, defaults to `png`.
 
-**傳回值**
+**Returns**
 - [bytes]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-screenshot-return"/><a href="#element-handle-screenshot-return" class="list-anchor">#</a>
 
 ---
@@ -1263,19 +1263,19 @@ Throws when `elementHandle` does not point to an element [connected](https://dev
 
 See [scrolling](../input.mdx#scrolling) for alternative ways to scroll.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.scroll_into_view_if_needed()
 element_handle.scroll_into_view_if_needed(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `timeout` [float] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-scroll-into-view-if-needed-option-timeout"/><a href="#element-handle-scroll-into-view-if-needed-option-timeout" class="list-anchor">#</a>
   
   Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-scroll-into-view-if-needed-return"/><a href="#element-handle-scroll-into-view-if-needed-return" class="list-anchor">#</a>
 
 ---
@@ -1299,7 +1299,7 @@ Returns the array of option values that have been successfully selected.
 
 Triggers a `change` and `input` event once all the provided options have been selected.
 
-**使用方式**
+**Usage**
 
 <Tabs
   groupId="python-flavor"
@@ -1335,7 +1335,7 @@ await handle.select_option(value=["red", "green", "blue"])
 </TabItem>
 </Tabs>
 
-**參數**
+**Arguments**
 - `force` [bool] *(optional)* <font size="2">Added in: v1.13</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-option-option-force"/><a href="#element-handle-select-option-option-force" class="list-anchor">#</a>
   
   Whether to bypass the [actionability](../actionability.mdx) checks. Defaults to `false`.
@@ -1363,7 +1363,7 @@ await handle.select_option(value=["red", "green", "blue"])
   
   Options to select by label. If the `<select>` has the `multiple` attribute, all given options are selected, otherwise only the first option matching one of the passed options is selected. Optional.
 
-**傳回值**
+**Returns**
 - [List]\[[str]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-option-return"/><a href="#element-handle-select-option-return" class="list-anchor">#</a>
 
 ---
@@ -1383,14 +1383,14 @@ This method waits for [actionability](../actionability.mdx) checks, then focuses
 
 If the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), focuses and selects text in the control instead.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.select_text()
 element_handle.select_text(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `force` [bool] *(optional)* <font size="2">Added in: v1.13</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-text-option-force"/><a href="#element-handle-select-text-option-force" class="list-anchor">#</a>
   
   Whether to bypass the [actionability](../actionability.mdx) checks. Defaults to `false`.
@@ -1398,7 +1398,7 @@ element_handle.select_text(**kwargs)
   
   Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-select-text-return"/><a href="#element-handle-select-text-return" class="list-anchor">#</a>
 
 ---
@@ -1424,14 +1424,14 @@ This method checks or unchecks an element by performing the following steps:
 
 When all steps combined have not finished during the specified [timeout](/api/class-elementhandle.mdx#element-handle-set-checked-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.set_checked(checked)
 element_handle.set_checked(checked, **kwargs)
 ```
 
-**參數**
+**Arguments**
 - `checked` [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-set-checked-option-checked"/><a href="#element-handle-set-checked-option-checked" class="list-anchor">#</a>
   
   Whether to check or uncheck the checkbox.
@@ -1461,7 +1461,7 @@ element_handle.set_checked(checked, **kwargs)
   
   When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-set-checked-return"/><a href="#element-handle-set-checked-return" class="list-anchor">#</a>
 
 ---
@@ -1481,14 +1481,14 @@ Sets the value of the file input to these file paths or files. If some of the `f
 
 This method expects [ElementHandle] to point to an [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input). However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), targets the control instead.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.set_input_files(files)
 element_handle.set_input_files(files, **kwargs)
 ```
 
-**參數**
+**Arguments**
 - `files` [Union]\[[str], [pathlib.Path]\] | [List]\[[Union]\[[str], [pathlib.Path]\]\] | [Dict] | [List]\[[Dict]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-set-input-files-option-files"/><a href="#element-handle-set-input-files-option-files" class="list-anchor">#</a>
   - `name` [str]
     
@@ -1511,7 +1511,7 @@ element_handle.set_input_files(files, **kwargs)
   
   Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-set-input-files-return"/><a href="#element-handle-set-input-files-return" class="list-anchor">#</a>
 
 ---
@@ -1541,14 +1541,14 @@ When all steps combined have not finished during the specified [timeout](/api/cl
 `elementHandle.tap()` requires that the `hasTouch` option of the browser context be set to true.
 :::
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.tap()
 element_handle.tap(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `force` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-tap-option-force"/><a href="#element-handle-tap-option-force" class="list-anchor">#</a>
   
   Whether to bypass the [actionability](../actionability.mdx) checks. Defaults to `false`.
@@ -1578,7 +1578,7 @@ element_handle.tap(**kwargs)
   
   When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-tap-return"/><a href="#element-handle-tap-return" class="list-anchor">#</a>
 
 ---
@@ -1596,13 +1596,13 @@ Use locator-based [locator.text_content()](/api/class-locator.mdx#locator-text-c
 
 Returns the `node.textContent`.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.text_content()
 ```
 
-**傳回值**
+**Returns**
 - [NoneType] | [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-text-content-return"/><a href="#element-handle-text-content-return" class="list-anchor">#</a>
 
 ---
@@ -1622,9 +1622,9 @@ Focuses the element, and then sends a `keydown`, `keypress`/`input`, and `keyup`
 
 To press a special key, like `Control` or `ArrowDown`, use [element_handle.press()](/api/class-elementhandle.mdx#element-handle-press).
 
-**使用方式**
+**Usage**
 
-**參數**
+**Arguments**
 - `text` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-option-text"/><a href="#element-handle-type-option-text" class="list-anchor">#</a>
   
   A text to type into a focused element.
@@ -1643,7 +1643,7 @@ To press a special key, like `Control` or `ArrowDown`, use [element_handle.press
   
   Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-type-return"/><a href="#element-handle-type-return" class="list-anchor">#</a>
 
 ---
@@ -1670,14 +1670,14 @@ If the element is detached from the DOM at any moment during the action, this me
 
 When all steps combined have not finished during the specified [timeout](/api/class-elementhandle.mdx#element-handle-uncheck-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**使用方式**
+**Usage**
 
 ```python
 element_handle.uncheck()
 element_handle.uncheck(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `force` [bool] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-uncheck-option-force"/><a href="#element-handle-uncheck-option-force" class="list-anchor">#</a>
   
   Whether to bypass the [actionability](../actionability.mdx) checks. Defaults to `false`.
@@ -1704,7 +1704,7 @@ element_handle.uncheck(**kwargs)
   
   When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-uncheck-return"/><a href="#element-handle-uncheck-return" class="list-anchor">#</a>
 
 ---
@@ -1724,7 +1724,7 @@ Returns element specified by selector when it satisfies [state](/api/class-eleme
 
 Wait for the [selector](/api/class-elementhandle.mdx#element-handle-wait-for-selector-option-selector) relative to the element handle to satisfy [state](/api/class-elementhandle.mdx#element-handle-wait-for-selector-option-state) option (either appear/disappear from dom, or become visible/hidden). If at the moment of calling the method [selector](/api/class-elementhandle.mdx#element-handle-wait-for-selector-option-selector) already satisfies the condition, the method will return immediately. If the selector doesn't satisfy the condition for the [timeout](/api/class-elementhandle.mdx#element-handle-wait-for-selector-option-timeout) milliseconds, the function will throw.
 
-**使用方式**
+**Usage**
 
 <Tabs
   groupId="python-flavor"
@@ -1761,7 +1761,7 @@ span = await div.wait_for_selector("span", state="attached")
 This method does not work across navigations, use [page.wait_for_selector()](/api/class-page.mdx#page-wait-for-selector) instead.
 :::
 
-**參數**
+**Arguments**
 - `selector` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-option-selector"/><a href="#element-handle-wait-for-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -1779,7 +1779,7 @@ This method does not work across navigations, use [page.wait_for_selector()](/ap
   
   Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [browser_context.set_default_timeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [page.set_default_timeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [NoneType] | [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="element-handle-wait-for-selector-return"/><a href="#element-handle-wait-for-selector-return" class="list-anchor">#</a>
 
 

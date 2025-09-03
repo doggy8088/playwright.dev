@@ -1,45 +1,45 @@
 ---
 id: canary-releases
-title: "金絲雀發佈"
+title: "Canary releases"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Node.js 版本的 Playwright 具有金絲雀發佈系統。
+Playwright for Node.js has a canary releases system.
 
-它允許您**測試新的未發佈功能**，而無需等待正式發佈。這些版本每日發佈在 Playwright 的 `next` NPM 標籤上。
+It permits you to **test new unreleased features** instead of waiting for a full release. They get released daily on the `next` NPM tag of Playwright.
 
-這是**向維護者提供回饋**的良好方式，確保新實現的功能按預期運作。
+It is a good way to **give feedback to maintainers**, ensuring the newly implemented feature works as intended.
 
 :::note
 
-在正式環境中使用金絲雀發佈可能看起來有風險，但實際上並非如此。
+Using a canary release in production might seem risky, but in practice, it's not.
 
-金絲雀發佈通過所有自動化測試，並且被用來測試例如 HTML 報告、Trace Viewer 或 Playwright Inspector 的端對端測試。
+A canary release passes all automated tests and is used to test e.g. the HTML report, Trace Viewer, or Playwright Inspector with end-to-end tests.
 :::
 
 ## Next npm Dist Tag
 
-對於 `main` 分支上任何與程式碼相關的提交，持續整合將在 `@next` npm dist tag 下發佈每日金絲雀發佈。
+For any code-related commit on `main`, the continuous integration will publish a daily canary release under the `@next` npm dist tag.
 
-您可以在 [npm](https://www.npmjs.com/package/@playwright/test?activeTab=versions) 上查看當前的 dist tag：
-- `latest`：穩定發佈
-- `next`：次版本發佈，每日發佈
-- `beta`：在發佈分支被切出後，通常在穩定發佈前一週，每個提交都會在此標籤下發佈
+You can see on [npm](https://www.npmjs.com/package/@playwright/test?activeTab=versions) the current dist tags:
+- `latest`: stable releases
+- `next`: next releases, published daily
+- `beta`: after a release-branch was cut, usually a week before a stable release each commit gets published under this tag
 
-## 使用金絲雀發佈
+## Using a Canary Release
 
 ```bash
 npm install -D @playwright/test@next
 ```
 
-## 文件
+## Documentation
 
-穩定版和 `next` 文件已發佈在 [playwright.dev](https://playwright.dev)。要查看 `next` 文件，請按鍵盤上的 <kbd>Shift</kbd> 鍵 `5` 次。
+The stable and the `next` documentation is published on [playwright.dev](https://playwright.dev). To see the `next` documentation, press <kbd>Shift</kbd> on the keyboard `5` times.
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

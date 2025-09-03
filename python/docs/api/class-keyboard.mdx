@@ -111,7 +111,7 @@ await page.keyboard.press("ControlOrMeta+A")
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### down {#keyboard-down}
 
@@ -138,18 +138,18 @@ After the key is pressed once, subsequent calls to [keyboard.down()](/api/class-
 Modifier keys DO influence `keyboard.down`. Holding down `Shift` will type the text in upper case.
 :::
 
-**使用方式**
+**Usage**
 
 ```python
 keyboard.down(key)
 ```
 
-**參數**
+**Arguments**
 - `key` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-down-option-key"/><a href="#keyboard-down-option-key" class="list-anchor">#</a>
   
   Name of the key to press or a character to generate, such as `ArrowLeft` or `a`.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-down-return"/><a href="#keyboard-down-return" class="list-anchor">#</a>
 
 ---
@@ -160,7 +160,7 @@ keyboard.down(key)
 
 Dispatches only `input` event, does not emit the `keydown`, `keyup` or `keypress` events.
 
-**使用方式**
+**Usage**
 
 <Tabs
   groupId="python-flavor"
@@ -191,12 +191,12 @@ await page.keyboard.insert_text("嗨")
 Modifier keys DO NOT effect `keyboard.insertText`. Holding down `Shift` will not type the text in upper case.
 :::
 
-**參數**
+**Arguments**
 - `text` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-insert-text-option-text"/><a href="#keyboard-insert-text-option-text" class="list-anchor">#</a>
   
   Sets input to the specified text value.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-insert-text-return"/><a href="#keyboard-insert-text-return" class="list-anchor">#</a>
 
 ---
@@ -222,7 +222,7 @@ If [key](/api/class-keyboard.mdx#keyboard-press-option-key) is a single characte
 
 Shortcuts such as `key: "Control+o"`, `key: "Control++` or `key: "Control+Shift+T"` are supported as well. When specified with the modifier, modifier is pressed and being held while the subsequent key is being pressed.
 
-**使用方式**
+**Usage**
 
 <Tabs
   groupId="python-flavor"
@@ -266,7 +266,7 @@ await browser.close()
 
 Shortcut for [keyboard.down()](/api/class-keyboard.mdx#keyboard-down) and [keyboard.up()](/api/class-keyboard.mdx#keyboard-up).
 
-**參數**
+**Arguments**
 - `key` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-press-option-key"/><a href="#keyboard-press-option-key" class="list-anchor">#</a>
   
   Name of the key to press or a character to generate, such as `ArrowLeft` or `a`.
@@ -274,7 +274,7 @@ Shortcut for [keyboard.down()](/api/class-keyboard.mdx#keyboard-down) and [keybo
   
   Time to wait between `keydown` and `keyup` in milliseconds. Defaults to 0.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-press-return"/><a href="#keyboard-press-return" class="list-anchor">#</a>
 
 ---
@@ -292,7 +292,7 @@ Sends a `keydown`, `keypress`/`input`, and `keyup` event for each character in t
 
 To press a special key, like `Control` or `ArrowDown`, use [keyboard.press()](/api/class-keyboard.mdx#keyboard-press).
 
-**使用方式**
+**Usage**
 
 <Tabs
   groupId="python-flavor"
@@ -329,7 +329,7 @@ Modifier keys DO NOT effect `keyboard.type`. Holding down `Shift` will not type 
 For characters that are not on a US keyboard, only an `input` event will be sent.
 :::
 
-**參數**
+**Arguments**
 - `text` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-type-option-text"/><a href="#keyboard-type-option-text" class="list-anchor">#</a>
   
   A text to type into a focused element.
@@ -337,7 +337,7 @@ For characters that are not on a US keyboard, only an `input` event will be sent
   
   Time to wait between key presses in milliseconds. Defaults to 0.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-type-return"/><a href="#keyboard-type-return" class="list-anchor">#</a>
 
 ---
@@ -348,18 +348,18 @@ For characters that are not on a US keyboard, only an `input` event will be sent
 
 Dispatches a `keyup` event.
 
-**使用方式**
+**Usage**
 
 ```python
 keyboard.up(key)
 ```
 
-**參數**
+**Arguments**
 - `key` [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-up-option-key"/><a href="#keyboard-up-option-key" class="list-anchor">#</a>
   
   Name of the key to press or a character to generate, such as `ArrowLeft` or `a`.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="keyboard-up-return"/><a href="#keyboard-up-return" class="list-anchor">#</a>
 
 

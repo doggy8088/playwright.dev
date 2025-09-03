@@ -1,40 +1,40 @@
 ---
 id: ci
-title: "持續整合"
+title: "Continuous Integration"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 測試可以在 CI 環境中執行。我們已為常見的 CI 提供者建立了範例設定。
+Playwright tests can be executed in CI environments. We have created sample configurations for common CI providers.
 
-在 CI 上執行測試的三個步驟：
-1. **確保 CI 代理可以執行瀏覽器**：在 Linux 代理中使用[我們的 Docker 映像](./docker.mdx)，或使用 [CLI](./browsers#install-system-dependencies) 安裝您的相依性。
-1. **安裝 Playwright**：
+3 steps to get your tests running on CI:
+1. **Ensure CI agent can run browsers**: Use [our Docker image](./docker.mdx) in Linux agents or install your dependencies using the [CLI](./browsers#install-system-dependencies).
+1. **Install Playwright**:
    
    ```bash
    pip install playwright
    playwright install --with-deps
    ```
    
-1. **執行您的測試**：
+1. **Run your tests**:
    
    ```bash
    pytest
    ```
    
-## CI 設定
+## CI configurations
 
-[命令列工具](./browsers#install-system-dependencies)可用於在 CI 中安裝所有作業系統相依性。
+The [Command line tools](./browsers#install-system-dependencies) can be used to install all operating system dependencies in CI.
 
 ### GitHub Actions
 
-#### 在 push/pull_request 時
+#### On push/pull_request
 
-測試將在主要/主分支的推送或 pull request 時執行。[workflow](https://docs.github.com/en/actions/using-workflows/about-workflows) 將安裝所有相依性、安裝 Playwright，然後執行測試。
+Tests will run on push or pull request on branches main/master. The [workflow](https://docs.github.com/en/actions/using-workflows/about-workflows) will install all dependencies, install Playwright and then run the tests.
 
 ```yml title=".github/workflows/playwright.yml"
 name: Playwright Tests
@@ -68,9 +68,9 @@ jobs:
         path: test-results/
 ```
 
-#### 透過容器
+#### Via Containers
 
-GitHub Actions 支援使用 [`jobs.<job_id>.container`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer) 選項[在容器中執行工作](https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container)。這對於不汙染主機環境的相依性以及在不同作業系統上為例如螢幕截圖/視覺回歸測試提供一致的環境非常有用。
+GitHub Actions support [running jobs in a container](https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container) by using the [`jobs.<job_id>.container`](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer) option. This is useful to not pollute the host environment with dependencies and to have a consistent environment for e.g. screenshots/visual regression testing across different operating systems.
 
 ```yml title=".github/workflows/playwright.yml"
 name: Playwright Tests
@@ -101,9 +101,9 @@ jobs:
         run: pytest
 ```
 
-#### 在部署時
+#### On deployment
 
-這將在 [GitHub Deployment](https://developer.github.com/v3/repos/deployments/) 進入 `success` 狀態後開始測試。像 Vercel 這樣的服務使用這種模式，因此您可以在他們部署的環境上執行端對端測試。
+This will start the tests after a [GitHub Deployment](https://developer.github.com/v3/repos/deployments/) went into the `success` state. Services like Vercel use this pattern so you can run your end-to-end tests on their deployed environment.
 
 ```yml title=".github/workflows/playwright.yml"
 name: Playwright Tests
@@ -134,15 +134,15 @@ jobs:
 
 ### Docker
 
-我們有一個[預建的 Docker 映像](./docker.mdx)，可以直接使用或作為更新現有 Docker 定義的參考。請確保遵循[建議的 Docker 設定](./docker.mdx#recommended-docker-configuration)以確保最佳效能。
+We have a [pre-built Docker image](./docker.mdx) which can either be used directly or as a reference to update your existing Docker definitions. Make sure to follow the [Recommended Docker Configuration](./docker.mdx#recommended-docker-configuration) to ensure the best performance.
 
 ### Azure Pipelines
 
-對於 Windows 或 macOS 代理，不需要額外的設定，只需安裝 Playwright 並執行您的測試。
+For Windows or macOS agents, no additional configuration is required, just install Playwright and run your tests.
 
-對於 Linux 代理，您可以使用[我們的 Docker 容器](./docker.mdx)搭配 Azure Pipelines 支援[執行容器化工作](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases?view=azure-devops)。或者，您可以使用[命令列工具](./browsers#install-system-dependencies)來安裝所有必要的相依性。
+For Linux agents, you can use [our Docker container](./docker.mdx) with Azure Pipelines support [running containerized jobs](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases?view=azure-devops). Alternatively, you can use [Command line tools](./browsers#install-system-dependencies) to install all necessary dependencies.
 
-要執行 Playwright 測試，請使用此管線任務：
+For running the Playwright tests use this pipeline task:
 
 ```yml
 trigger:
@@ -166,7 +166,7 @@ steps:
   displayName: 'Run Playwright tests'
 ```
 
-#### Azure Pipelines（容器化）
+#### Azure Pipelines (containerized)
 
 ```yml
 trigger:
@@ -192,7 +192,7 @@ steps:
 
 ### CircleCI
 
-在 CircleCI 上執行 Playwright 與在 GitHub Actions 上執行非常相似。為了指定預建的 Playwright [Docker 映像](./docker.mdx)，只需在您的設定中使用 `docker:` 修改代理定義，如下所示：
+Running Playwright on CircleCI is very similar to running on GitHub Actions. In order to specify the pre-built Playwright [Docker image](./docker.mdx), simply modify the agent definition with `docker:` in your config like so:
 
 ```yml
 executors:
@@ -201,11 +201,11 @@ executors:
       - image: mcr.microsoft.com/playwright/python:v1.55.0-noble
 ```
 
-注意：使用 docker 代理定義時，您將 playwright 執行的資源類別指定為 'medium' 級別[這裡](https://circleci.com/docs/configuration-reference?#docker-execution-environment)。Playwright 的預設行為是將 workers 數量設定為偵測到的核心數（在 medium 級別的情況下為 2）。將 workers 數量覆寫為大於此數量將導致不必要的逾時和失敗。
+Note: When using the docker agent definition, you are specifying the resource class of where playwright runs to the 'medium' tier [here](https://circleci.com/docs/configuration-reference?#docker-execution-environment). The default behavior of Playwright is to set the number of workers to the detected core count (2 in the case of the medium tier). Overriding the number of workers to greater than this number will cause unnecessary timeouts and failures.
 
 ### Jenkins
 
-Jenkins 支援管線的 Docker 代理。使用 [Playwright Docker 映像](./docker.mdx)在 Jenkins 上執行測試。
+Jenkins supports Docker agents for pipelines. Use the [Playwright Docker image](./docker.mdx) to run tests on Jenkins.
 
 ```groovy
 pipeline {

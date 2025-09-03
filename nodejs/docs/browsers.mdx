@@ -1,86 +1,86 @@
 ---
 id: browsers
-title: "瀏覽器"
+title: "Browsers"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-每個版本的 Playwright 都需要特定版本的瀏覽器二進位檔才能運作。您需要使用 Playwright CLI 來安裝這些瀏覽器。
+Each version of Playwright needs specific versions of browser binaries to operate. You will need to use the Playwright CLI to install these browsers.
 
-每次發布時，Playwright 都會更新所支援的瀏覽器版本，因此最新的 Playwright 隨時都能支援最新的瀏覽器。這意味著每次更新 Playwright 時，您可能需要重新執行 `install` CLI 指令。
+With every release, Playwright updates the versions of the browsers it supports, so that the latest Playwright would support the latest browsers at any moment. It means that every time you update Playwright, you might need to re-run the `install` CLI command.
 
-## 安裝瀏覽器
+## Install browsers
 
-Playwright 可以安裝支援的瀏覽器。執行不帶參數的指令將安裝預設瀏覽器。
+Playwright can install supported browsers. Running the command without arguments will install the default browsers.
 
 ```bash
 npx playwright install
 ```
 
-您也可以透過提供參數來安裝特定瀏覽器：
+You can also install specific browsers by providing an argument:
 
 ```bash
 npx playwright install webkit
 ```
 
-查看所有支援的瀏覽器：
+See all supported browsers:
 
 ```bash
 npx playwright install --help
 ```
 
-## 安裝系統相依套件
+## Install system dependencies
 
-系統相依套件可以自動安裝。這對於 CI 環境很有用。
+System dependencies can get installed automatically. This is useful for CI environments.
 
 ```bash
 npx playwright install-deps
 ```
 
-您也可以透過傳遞參數來安裝單個瀏覽器的相依套件：
+You can also install the dependencies for a single browser by passing it as an argument:
 
 ```bash
 npx playwright install-deps chromium
 ```
 
-您也可以將 `install-deps` 與 `install` 結合使用，這樣瀏覽器和作業系統相依套件就能透過單一指令安裝。
+It's also possible to combine `install-deps` with `install` so that the browsers and OS dependencies are installed with a single command.
 
 ```bash
 npx playwright install --with-deps chromium
 ```
 
-請參閱[系統需求](./intro.mdx#system-requirements)了解官方支援的作業系統。
+See [system requirements](./intro.mdx#system-requirements) for officially supported operating systems.
 
-## 定期更新 Playwright
+## Update Playwright regularly
 
-透過保持 Playwright 版本為最新，您將能夠使用新功能並在最新瀏覽器版本上測試您的應用程式，並在最新瀏覽器版本向公眾發布之前捕捉到失敗。
+By keeping your Playwright version up to date you will be able to use new features and test your app on the latest browser versions and catch failures before the latest browser version is released to the public.
 
 ```bash
-# 更新 playwright
+# Update playwright
 npm install -D @playwright/test@latest
 
-# 安裝新瀏覽器
+# Install new browsers
 npx playwright install
 ```
 
-請查看[發布說明](./release-notes.mdx)以了解最新版本以及已發布的變更。
+Check the [release notes](./release-notes.mdx) to see what the latest version is and what changes have been released.
 
 ```bash
-# 透過執行下列指令查看您擁有的 Playwright 版本
+# See what version of Playwright you have by running the following command
 npx playwright --version
 ```
 
-## 設定瀏覽器
+## Configure Browsers
 
-Playwright 可以在 Chromium、WebKit 和 Firefox 瀏覽器上執行測試，也可以在品牌瀏覽器（如 Google Chrome 和 Microsoft Edge）上執行測試。它也可以在模擬的平板電腦和行動裝置上執行。請參閱[裝置參數註冊表](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json)取得所選桌面、平板電腦和行動裝置的完整清單。
+Playwright can run tests on Chromium, WebKit and Firefox browsers as well as branded browsers such as Google Chrome and Microsoft Edge. It can also run on emulated tablet and mobile devices. See the [registry of device parameters](https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json) for a complete list of selected desktop, tablet and mobile devices.
 
-### 在不同瀏覽器上執行測試
+### Run tests on different browsers
 
-Playwright 可以透過在設定中設定**專案**來在多個瀏覽器和配置中執行您的測試。您也可以為每個專案新增[不同的選項](./test-configuration)。
+Playwright can run your tests in multiple browsers and configurations by setting up **projects** in the config. You can also add [different options](./test-configuration) for each project.
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
@@ -122,12 +122,12 @@ export default defineConfig({
 });
 ```
 
-Playwright 預設會執行所有專案。
+Playwright will run all projects by default.
 
 ```bash
 npx playwright test
 
-執行使用 5 個 worker 的 7 個測試
+Running 7 tests using 5 workers
 
   ✓ [chromium] › example.spec.ts:3:1 › basic test (2s)
   ✓ [firefox] › example.spec.ts:3:1 › basic test (2s)
@@ -138,46 +138,46 @@ npx playwright test
   ✓ [Microsoft Edge] › example.spec.ts:3:1 › basic test (2s)
 ```
 
-使用 `--project` 命令列選項來執行單個專案。
+Use the `--project` command line option to run a single project.
 
 ```bash
 npx playwright test --project=firefox
 
-執行使用 1 個 worker 的 1 個測試
+Running 1 test using 1 worker
 
   ✓ [firefox] › example.spec.ts:3:1 › basic test (2s)
 ```
 
-使用 VS Code 擴充套件時，您可以透過勾選 Playwright 側邊欄中瀏覽器名稱旁邊的複選框來在不同的瀏覽器上執行測試。這些名稱在 Playwright 設定檔案的專案區段中定義。安裝 Playwright 時的預設設定提供了 3 個專案：Chromium、Firefox 和 WebKit。預設選擇第一個專案。
+With the VS Code extension you can run your tests on different browsers by checking the checkbox next to the browser name in the Playwright sidebar. These names are defined in your Playwright config file under the projects section. The default config when installing Playwright gives you 3 projects, Chromium, Firefox and WebKit. The first project is selected by default.
 
-<ProgressiveImage image={require("../images/vscode-projects-section.png")} alt="VS Code 擴充套件中的專案區段" />
+<ProgressiveImage image={require("../images/vscode-projects-section.png")} alt="Projects section in VS Code extension" />
 
-要在多個專案（瀏覽器）上執行測試，請透過勾選專案名稱旁邊的複選框來選擇每個專案。
+To run tests on multiple projects(browsers), select each project by checking the checkboxes next to the project name.
 
-![選擇專案來執行測試](https://github.com/microsoft/playwright/assets/13063165/6dc86ef4-6097-481c-9cab-b6e053ec7ea6)
+![Selecting projects to run tests on](https://github.com/microsoft/playwright/assets/13063165/6dc86ef4-6097-481c-9cab-b6e053ec7ea6)
 
 ### Chromium
 
-對於 Google Chrome、Microsoft Edge 和其他基於 Chromium 的瀏覽器，預設情況下，Playwright 使用開源 Chromium 建置版。由於 Chromium 專案領先於品牌瀏覽器，當世界使用 Google Chrome N 時，Playwright 已經支援將在幾週後發布於 Google Chrome 和 Microsoft Edge 的 Chromium N+1。
+For Google Chrome, Microsoft Edge and other Chromium-based browsers, by default, Playwright uses open source Chromium builds. Since the Chromium project is ahead of the branded browsers, when the world is on Google Chrome N, Playwright already supports Chromium N+1 that will be released in Google Chrome and Microsoft Edge a few weeks later.
 
-### Chromium：無頭 shell
+### Chromium: headless shell
 
-Playwright 為有頭操作提供了一個常規的 Chromium 建置版，並為無頭模式提供了一個獨立的 [chromium headless shell](https://developer.chrome.com/blog/chrome-headless-shell)。
+Playwright ships a regular Chromium build for headed operations and a separate [chromium headless shell](https://developer.chrome.com/blog/chrome-headless-shell) for headless mode.
 
-如果您只在無頭 shell 中執行測試（即**未**指定 `channel` 選項），例如在 CI 上，您可以在安裝期間傳遞 `--only-shell` 來避免下載完整的 Chromium 瀏覽器。
+If you are only running tests in headless shell (i.e. the `channel` option is **not** specified), for example on CI, you can avoid downloading the full Chromium browser by passing `--only-shell` during installation.
 
 ```bash
-# 僅在無頭模式下執行測試
+# only running tests headlessly
 npx playwright install --with-deps --only-shell
 ```
 
-### Chromium：新無頭模式
+### Chromium: new headless mode
 
-您可以透過使用 `'chromium'` 通道來選擇新的無頭模式。如[官方 Chrome 文件所述](https://developer.chrome.com/blog/chrome-headless-shell)：
+You can opt into the new headless mode by using `'chromium'` channel. As [official Chrome documentation puts it](https://developer.chrome.com/blog/chrome-headless-shell):
 
-> 另一方面，新無頭模式是真正的 Chrome 瀏覽器，因此更真實、可靠，並提供更多功能。這使得它更適合高精度端到端網頁應用程式測試或瀏覽器擴充套件測試。
+> New Headless on the other hand is the real Chrome browser, and is thus more authentic, reliable, and offers more features. This makes it more suitable for high-accuracy end-to-end web app testing or browser extension testing.
 
-詳情請參閱 [issue #33566](https://github.com/microsoft/playwright/issues/33566)。
+See [issue #33566](https://github.com/microsoft/playwright/issues/33566) for details.
 
 ```js
 import { defineConfig, devices } from '@playwright/test';
@@ -192,26 +192,26 @@ export default defineConfig({
 });
 ```
 
-使用新的無頭模式，您可以在瀏覽器安裝期間使用 `--no-shell` 選項跳過下載無頭 shell：
+With the new headless mode, you can skip downloading the headless shell during browser installation by using the `--no-shell` option:
 
 ```bash
-# 僅在無頭模式下執行測試
+# only running tests headlessly
 npx playwright install --with-deps --no-shell
 ```
 
 ### Google Chrome & Microsoft Edge
 
-雖然 Playwright 可以下載並使用最新的 Chromium 建置版，但它也可以對機器上可用的品牌 Google Chrome 和 Microsoft Edge 瀏覽器進行操作（請注意，Playwright 預設不會安裝它們）。特別是，目前的 Playwright 版本將支援這些瀏覽器的穩定版和測試版通道。
+While Playwright can download and use the recent Chromium build, it can operate against the branded Google Chrome and Microsoft Edge browsers available on the machine (note that Playwright doesn't install them by default). In particular, the current Playwright version will support Stable and Beta channels of these browsers.
 
-可用的通道有 `chrome`、`msedge`、`chrome-beta`、`msedge-beta`、`chrome-dev`、`msedge-dev`、`chrome-canary`、`msedge-canary`。
+Available channels are `chrome`, `msedge`, `chrome-beta`, `msedge-beta`, `chrome-dev`, `msedge-dev`, `chrome-canary`, `msedge-canary`.
 
 :::warning
 
-某些企業瀏覽器政策可能會影響 Playwright 啟動和控制 Google Chrome 和 Microsoft Edge 的能力。在具有瀏覽器政策的環境中執行超出了 Playwright 專案的範圍。
+Certain Enterprise Browser Policies may impact Playwright's ability to launch and control Google Chrome and Microsoft Edge. Running in an environment with browser policies is outside of the Playwright project's scope.
 :::
 
 :::warning
-Google Chrome 和 Microsoft Edge 已切換到[新的無頭模式](https://developer.chrome.com/docs/chromium/headless)實作，該實作更接近常規的有頭模式。這與 Playwright 在執行無頭模式時預設使用的 [chromium headless shell](https://developer.chrome.com/blog/chrome-headless-shell) 不同，因此在某些情況下預期會有不同的行為。詳情請參閱 [issue #33566](https://github.com/microsoft/playwright/issues/33566)。
+Google Chrome and Microsoft Edge have switched to a [new headless mode](https://developer.chrome.com/docs/chromium/headless) implementation that is closer to a regular headed mode. This differs from [chromium headless shell](https://developer.chrome.com/blog/chrome-headless-shell) that is used in Playwright by default when running headless, so expect different behavior in some cases. See [issue #33566](https://github.com/microsoft/playwright/issues/33566) for details.
 :::
 
 ```js
@@ -232,55 +232,55 @@ export default defineConfig({
 });
 ```
 
-#### 安裝 Google Chrome & Microsoft Edge
+#### Installing Google Chrome & Microsoft Edge
 
-如果您的機器上沒有 Google Chrome 或 Microsoft Edge，您可以使用 Playwright 命令列工具來安裝它們：
+If Google Chrome or Microsoft Edge is not available on your machine, you can install them using the Playwright command line tool:
 
 ```bash
 npx playwright install msedge
 ```
 
 :::warning
-Google Chrome 或 Microsoft Edge 安裝將會安裝在您作業系統的預設全域位置，覆蓋您目前的瀏覽器安裝。
+Google Chrome or Microsoft Edge installations will be installed at the default global location of your operating system overriding your current browser installation.
 :::
 
-執行時加上 `--help` 選項以查看可安裝的瀏覽器完整清單。
+Run with the `--help` option to see a full a list of browsers that can be installed.
 
-#### 何時使用 Google Chrome & Microsoft Edge，何時不使用？
+#### When to use Google Chrome & Microsoft Edge and when not to?
 
-##### 預設
+##### Defaults
 
-大部分時候使用最新 Chromium 的預設 Playwright 配置是個好主意。由於 Playwright 領先於瀏覽器的穩定版通道，它讓人安心地知道即將到來的 Google Chrome 或 Microsoft Edge 發布不會破壞您的網站。您可以早期發現問題，並在官方 Chrome 更新之前有大量時間來修復它。
+Using the default Playwright configuration with the latest Chromium is a good idea most of the time. Since Playwright is ahead of Stable channels for the browsers, it gives peace of mind that the upcoming Google Chrome or Microsoft Edge releases won't break your site. You catch breakage early and have a lot of time to fix it before the official Chrome update.
 
-##### 回歸測試
+##### Regression testing
 
-話雖如此，測試政策通常要求對目前公開可用的瀏覽器執行回歸測試。在這種情況下，您可以選擇穩定版通道之一：`"chrome"` 或 `"msedge"`。
+Having said that, testing policies often require regression testing to be performed against the current publicly available browsers. In this case, you can opt into one of the stable channels, `"chrome"` or `"msedge"`.
 
-##### 媒體編解碼器
+##### Media codecs
 
-使用官方二進位檔進行測試的另一個原因是測試與媒體編解碼器相關的功能。由於各種授權考量和協議，Chromium 沒有 Google Chrome 或 Microsoft Edge 打包的所有編解碼器。如果您的網站依賴於這種編解碼器（這種情況很少見），您也會想要使用官方通道。
+Another reason for testing using official binaries is to test functionality related to media codecs. Chromium does not have all the codecs that Google Chrome or Microsoft Edge are bundling due to various licensing considerations and agreements. If your site relies on this kind of codecs (which is rarely the case), you will also want to use the official channel.
 
-##### 企業政策
+##### Enterprise policy
 
-Google Chrome 和 Microsoft Edge 遵守企業政策，這包括對功能的限制、網路代理、妨礙測試的強制擴充套件。因此，如果您是使用此類政策的組織的一部分，最簡單的方法是使用打包的 Chromium 進行本地測試，您仍然可以在通常不受此類限制的機器人上選擇穩定版通道。
+Google Chrome and Microsoft Edge respect enterprise policies, which include limitations to the capabilities, network proxy, mandatory extensions that stand in the way of testing. So if you are part of the organization that uses such policies, it is easiest to use bundled Chromium for your local testing, you can still opt into stable channels on the bots that are typically free of such restrictions.
 
 ### Firefox
 
-Playwright 的 Firefox 版本符合最新的 [Firefox Stable](https://www.mozilla.org/en-US/firefox/new/) 建置版。Playwright 不能與品牌版本的 Firefox 一起使用，因為它依賴修補程式。
+Playwright's Firefox version matches the recent [Firefox Stable](https://www.mozilla.org/en-US/firefox/new/) build. Playwright doesn't work with the branded version of Firefox since it relies on patches.
 
-請注意，某些功能的可用性在很大程度上取決於底層平台，可能會因作業系統而異。例如，可用的媒體編解碼器在 Linux、macOS 和 Windows 之間差異很大。
+Note that availability of certain features, which depend heavily on the underlying platform, may vary between operating systems. For example, available media codecs vary substantially between Linux, macOS and Windows.
 
 ### WebKit
 
-Playwright 的 WebKit 衍生自最新的 WebKit 主分支來源，通常在這些更新被納入 Apple Safari 和其他基於 WebKit 的瀏覽器之前。這提供了大量的提前時間來應對潛在的瀏覽器更新問題。Playwright 不能與品牌版本的 Safari 一起使用，因為它依賴修補程式。相反，您可以使用最新的 WebKit 建置版進行測試。
+Playwright's WebKit is derived from the latest WebKit main branch sources, often before these updates are incorporated into Apple Safari and other WebKit-based browsers. This gives a lot of lead time to react on the potential browser update issues. Playwright doesn't work with the branded version of Safari since it relies on patches. Instead, you can test using the most recent WebKit build.
 
-請注意，某些功能的可用性在很大程度上取決於底層平台，可能會因作業系統而異。例如，可用的媒體編解碼器在 Linux、macOS 和 Windows 之間差異很大。雖然在 Linux CI 上執行 WebKit 通常是最經濟實惠的選擇，但為了獲得最接近 Safari 的體驗，您應該在 mac 上執行 WebKit，例如如果您進行影片播放測試。
+Note that availability of certain features, which depend heavily on the underlying platform, may vary between operating systems. For example, available media codecs vary substantially between Linux, macOS and Windows. While running WebKit on Linux CI is usually the most affordable option, for the closest-to-Safari experience you should run WebKit on mac, for example if you do video playback.
 
-## 在防火牆或代理伺服器後安裝
+## Install behind a firewall or a proxy
 
-預設情況下，Playwright 從 Microsoft 的 CDN 下載瀏覽器。
+By default, Playwright downloads browsers from Microsoft's CDN.
 
-有時公司維護內部代理，阻止直接存取公共資源。在這種情況下，可以設定 Playwright 透過代理伺服器下載瀏覽器。
+Sometimes companies maintain an internal proxy that blocks direct access to the public resources. In this case, Playwright can be configured to download browsers via a proxy server.
 
 <Tabs
   groupId="bash-flavor"
@@ -316,7 +316,7 @@ npx playwright install
 </TabItem>
 </Tabs>
 
-如果代理的請求被自訂不受信任的憑證授權單位 (CA) 攔截，並在下載瀏覽器時產生 `Error: self signed certificate in certificate chain` 錯誤，您必須在安裝瀏覽器之前透過 [`NODE_EXTRA_CA_CERTS`](https://nodejs.org/api/cli.html#node_extra_ca_certsfile) 環境變數設定您的自訂根憑證：
+If the requests of the proxy get intercepted with a custom untrusted certificate authority (CA) and it yields to `Error: self signed certificate in certificate chain` while downloading the browsers, you must set your custom root certificates via the [`NODE_EXTRA_CA_CERTS`](https://nodejs.org/api/cli.html#node_extra_ca_certsfile) environment variable before installing the browsers:
 
 <Tabs
   groupId="bash-flavor"
@@ -350,7 +350,7 @@ set NODE_EXTRA_CA_CERTS="C:\certs\root.crt"
 </TabItem>
 </Tabs>
 
-如果您的網路連線到 Playwright 瀏覽器檔案庫的速度很慢，您可以使用 `PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT` 環境變數以毫秒為單位增加連線逾時：
+If your network is slow to connect to Playwright browser archive, you can increase the connection timeout in milliseconds with `PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT` environment variable:
 
 <Tabs
   groupId="bash-flavor"
@@ -386,17 +386,17 @@ npx playwright install
 </TabItem>
 </Tabs>
 
-如果您正在[安裝相依套件](#install-system-dependencies)並需要在 Linux 上使用代理，請確保以 root 使用者身分執行指令。否則，Playwright 將嘗試成為 root，並且不會將像 `HTTPS_PROXY` 這樣的環境變數傳遞給 Linux 套件管理器。
+If you are [installing dependencies](#install-system-dependencies) and need to use a proxy on Linux, make sure to run the command as a root user. Otherwise, Playwright will attempt to become a root and will not pass environment variables like `HTTPS_PROXY` to the linux package manager.
 
 ```bash
 sudo HTTPS_PROXY=https://192.0.2.1 npx playwright install-deps
 ```
 
-## 從 artifact repository 下載
+## Download from artifact repository
 
-預設情況下，Playwright 從 Microsoft 的 CDN 下載瀏覽器。
+By default, Playwright downloads browsers from Microsoft's CDN.
 
-有時公司維護內部 artifact repository 來託管瀏覽器二進位檔。在這種情況下，可以使用 `PLAYWRIGHT_DOWNLOAD_HOST` 環境變數設定 Playwright 從自訂位置下載。
+Sometimes companies maintain an internal artifact repository to host browser binaries. In this case, Playwright can be configured to download from a custom location using the `PLAYWRIGHT_DOWNLOAD_HOST` env variable.
 
 <Tabs
   groupId="bash-flavor"
@@ -432,7 +432,7 @@ npx playwright install
 </TabItem>
 </Tabs>
 
-也可以使用 `PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST`、`PLAYWRIGHT_FIREFOX_DOWNLOAD_HOST` 和 `PLAYWRIGHT_WEBKIT_DOWNLOAD_HOST` 環境變數來使用個別瀏覽器的下載主機，這些變數優先於 `PLAYWRIGHT_DOWNLOAD_HOST`。
+It is also possible to use a per-browser download hosts using `PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST`, `PLAYWRIGHT_FIREFOX_DOWNLOAD_HOST` and `PLAYWRIGHT_WEBKIT_DOWNLOAD_HOST` env variables that take precedence over `PLAYWRIGHT_DOWNLOAD_HOST`.
 
 <Tabs
   groupId="bash-flavor"
@@ -470,14 +470,14 @@ npx playwright install
 </TabItem>
 </Tabs>
 
-## 管理瀏覽器二進位檔
+## Managing browser binaries
 
-Playwright 將 Chromium、WebKit 和 Firefox 瀏覽器下載到特定作業系統的快取資料夾中：
-- Windows：`%USERPROFILE%\AppData\Local\ms-playwright`
-- macOS：`~/Library/Caches/ms-playwright`
-- Linux：`~/.cache/ms-playwright`
+Playwright downloads Chromium, WebKit and Firefox browsers into the OS-specific cache folders:
+- `%USERPROFILE%\AppData\Local\ms-playwright` on Windows
+- `~/Library/Caches/ms-playwright` on macOS
+- `~/.cache/ms-playwright` on Linux
 
-安裝後，這些瀏覽器將佔用幾百 MB 的磁碟空間：
+These browsers will take a few hundred megabytes of disk space when installed:
 
 ```bash
 du -hs ~/Library/Caches/ms-playwright/*
@@ -486,7 +486,7 @@ du -hs ~/Library/Caches/ms-playwright/*
 180M  webkit-XXXX
 ```
 
-您可以使用環境變數來覆蓋預設行為。安裝 Playwright 時，要求它將瀏覽器下載到特定位置：
+You can override default behavior using environment variables. When installing Playwright, ask it to download browsers into a specific location:
 
 <Tabs
   groupId="bash-flavor"
@@ -522,7 +522,7 @@ npx playwright install
 </TabItem>
 </Tabs>
 
-執行 Playwright 腳本時，要求它在共用位置搜尋瀏覽器。
+When running Playwright scripts, ask it to search for browsers in a shared location.
 
 <Tabs
   groupId="bash-flavor"
@@ -558,16 +558,16 @@ npx playwright test
 </TabItem>
 </Tabs>
 
-Playwright 會跟蹤需要那些瀏覽器的套件，並在您更新 Playwright 到較新版本時進行垃圾回收。
+Playwright keeps track of packages that need those browsers and will garbage collect them as you update Playwright to the newer versions.
 
 :::note
 
-開發者可以透過在 `.bashrc` 中輸出 `PLAYWRIGHT_BROWSERS_PATH=$HOME/pw-browsers` 來選擇此模式。
+Developers can opt-in in this mode via exporting `PLAYWRIGHT_BROWSERS_PATH=$HOME/pw-browsers` in their `.bashrc`.
 :::
 
-### 密封安裝
+### Hermetic install
 
-您可以選擇密封安裝並將二進位檔放在本地資料夾中：
+You can opt into the hermetic install and place binaries in the local folder:
 
 <Tabs
   groupId="bash-flavor"
@@ -608,32 +608,32 @@ npx playwright install
 
 :::note
 
-`PLAYWRIGHT_BROWSERS_PATH` 不會改變 Google Chrome 和 Microsoft Edge 的安裝路徑。
+`PLAYWRIGHT_BROWSERS_PATH` does not change installation path for Google Chrome and Microsoft Edge.
 :::
 
-### 過時瀏覽器移除
+### Stale browser removal
 
-Playwright 會跟蹤使用其瀏覽器的用戶端。當沒有更多用戶端需要特定版本的瀏覽器時，該版本會從系統中刪除。這樣您可以安全地使用不同版本的 Playwright 實例，同時不會浪費不再使用的瀏覽器的磁碟空間。
+Playwright keeps track of the clients that use its browsers. When there are no more clients that require a particular version of the browser, that version is deleted from the system. That way you can safely use Playwright instances of different versions and at the same time, you don't waste disk space for the browsers that are no longer in use.
 
-要選擇退出未使用的瀏覽器移除，您可以設定 `PLAYWRIGHT_SKIP_BROWSER_GC=1` 環境變數。
+To opt-out from the unused browser removal, you can set the `PLAYWRIGHT_SKIP_BROWSER_GC=1` environment variable.
 
-### 列出所有已安裝的瀏覽器：
+### List all installed browsers:
 
-列印機器上所有 playwright 安裝的瀏覽器清單。
+Prints list of browsers from all playwright installations on the machine.
 
 ```bash
 npx playwright install --list
 ```
 
-### 移除瀏覽器
+### Uninstall browsers
 
-這將移除當前 Playwright 安裝的瀏覽器（chromium、firefox、webkit）：
+This will remove the browsers (chromium, firefox, webkit) of the current Playwright installation:
 
 ```bash
 npx playwright uninstall
 ```
 
-要同時移除其他 Playwright 安裝的瀏覽器，請傳遞 `--all` 旗標：
+To remove browsers of other Playwright installations as well, pass `--all` flag:
 
 ```bash
 npx playwright uninstall --all

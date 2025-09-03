@@ -32,7 +32,7 @@ public class ExampleTests : PageTest
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### ToBeAttachedAsync {#locator-assertions-to-be-attached}
 
@@ -40,20 +40,20 @@ public class ExampleTests : PageTest
 
 Ensures that [Locator] points to an element that is [connected](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected) to a Document or a ShadowRoot.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Expect(Page.GetByText("Hidden text")).ToBeAttachedAsync();
 ```
 
-**參數**
+**Arguments**
 - `options` `LocatorAssertionsToBeAttachedOptions?` *(optional)*
   - `Attached` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-attached-option-attached"/><a href="#locator-assertions-to-be-attached-option-attached" class="list-anchor">#</a>
   - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-attached-option-timeout"/><a href="#locator-assertions-to-be-attached-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-attached-return"/><a href="#locator-assertions-to-be-attached-return" class="list-anchor">#</a>
 
 ---
@@ -64,14 +64,14 @@ await Expect(Page.GetByText("Hidden text")).ToBeAttachedAsync();
 
 Ensures the [Locator] points to a checked input.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.GetByLabel("Subscribe to newsletter");
 await Expect(locator).ToBeCheckedAsync();
 ```
 
-**參數**
+**Arguments**
 - `options` `LocatorAssertionsToBeCheckedOptions?` *(optional)*
   - `Checked` [bool]? *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-checked-option-checked"/><a href="#locator-assertions-to-be-checked-option-checked" class="list-anchor">#</a>
     
@@ -83,7 +83,7 @@ await Expect(locator).ToBeCheckedAsync();
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-checked-return"/><a href="#locator-assertions-to-be-checked-return" class="list-anchor">#</a>
 
 ---
@@ -94,20 +94,20 @@ await Expect(locator).ToBeCheckedAsync();
 
 Ensures the [Locator] points to a disabled element. Element is disabled if it has "disabled" attribute or is disabled via ['aria-disabled'](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-disabled). Note that only native control elements such as HTML `button`, `input`, `select`, `textarea`, `option`, `optgroup` can be disabled by setting "disabled" attribute. "disabled" attribute on other elements is ignored by the browser.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.Locator("button.submit");
 await Expect(locator).ToBeDisabledAsync();
 ```
 
-**參數**
+**Arguments**
 - `options` `LocatorAssertionsToBeDisabledOptions?` *(optional)*
   - `Timeout` [float]? *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-disabled-option-timeout"/><a href="#locator-assertions-to-be-disabled-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-disabled-return"/><a href="#locator-assertions-to-be-disabled-return" class="list-anchor">#</a>
 
 ---
@@ -118,21 +118,21 @@ await Expect(locator).ToBeDisabledAsync();
 
 Ensures the [Locator] points to an editable element.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.GetByRole(AriaRole.Textbox);
 await Expect(locator).ToBeEditableAsync();
 ```
 
-**參數**
+**Arguments**
 - `options` `LocatorAssertionsToBeEditableOptions?` *(optional)*
   - `Editable` [bool]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-editable-option-editable"/><a href="#locator-assertions-to-be-editable-option-editable" class="list-anchor">#</a>
   - `Timeout` [float]? *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-editable-option-timeout"/><a href="#locator-assertions-to-be-editable-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-editable-return"/><a href="#locator-assertions-to-be-editable-return" class="list-anchor">#</a>
 
 ---
@@ -143,20 +143,20 @@ await Expect(locator).ToBeEditableAsync();
 
 Ensures the [Locator] points to an empty editable element or to a DOM node that has no text.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.Locator("div.warning");
 await Expect(locator).ToBeEmptyAsync();
 ```
 
-**參數**
+**Arguments**
 - `options` `LocatorAssertionsToBeEmptyOptions?` *(optional)*
   - `Timeout` [float]? *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-empty-option-timeout"/><a href="#locator-assertions-to-be-empty-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-empty-return"/><a href="#locator-assertions-to-be-empty-return" class="list-anchor">#</a>
 
 ---
@@ -167,21 +167,21 @@ await Expect(locator).ToBeEmptyAsync();
 
 Ensures the [Locator] points to an enabled element.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.Locator("button.submit");
 await Expect(locator).ToBeEnabledAsync();
 ```
 
-**參數**
+**Arguments**
 - `options` `LocatorAssertionsToBeEnabledOptions?` *(optional)*
   - `Enabled` [bool]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-enabled-option-enabled"/><a href="#locator-assertions-to-be-enabled-option-enabled" class="list-anchor">#</a>
   - `Timeout` [float]? *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-enabled-option-timeout"/><a href="#locator-assertions-to-be-enabled-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-enabled-return"/><a href="#locator-assertions-to-be-enabled-return" class="list-anchor">#</a>
 
 ---
@@ -192,20 +192,20 @@ await Expect(locator).ToBeEnabledAsync();
 
 Ensures the [Locator] points to a focused DOM node.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.GetByRole(AriaRole.Textbox);
 await Expect(locator).ToBeFocusedAsync();
 ```
 
-**參數**
+**Arguments**
 - `options` `LocatorAssertionsToBeFocusedOptions?` *(optional)*
   - `Timeout` [float]? *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-focused-option-timeout"/><a href="#locator-assertions-to-be-focused-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-focused-return"/><a href="#locator-assertions-to-be-focused-return" class="list-anchor">#</a>
 
 ---
@@ -216,20 +216,20 @@ await Expect(locator).ToBeFocusedAsync();
 
 Ensures that [Locator] either does not resolve to any DOM node, or resolves to a [non-visible](../actionability.mdx#visible) one.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.Locator(".my-element");
 await Expect(locator).ToBeHiddenAsync();
 ```
 
-**參數**
+**Arguments**
 - `options` `LocatorAssertionsToBeHiddenOptions?` *(optional)*
   - `Timeout` [float]? *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-hidden-option-timeout"/><a href="#locator-assertions-to-be-hidden-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-hidden-return"/><a href="#locator-assertions-to-be-hidden-return" class="list-anchor">#</a>
 
 ---
@@ -240,7 +240,7 @@ await Expect(locator).ToBeHiddenAsync();
 
 Ensures the [Locator] points to an element that intersects viewport, according to the [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.GetByRole(AriaRole.Button);
@@ -252,7 +252,7 @@ await Expect(locator).Not.ToBeInViewportAsync();
 await Expect(locator).ToBeInViewportAsync(new() { Ratio = 0.5 });
 ```
 
-**參數**
+**Arguments**
 - `options` `LocatorAssertionsToBeInViewportOptions?` *(optional)*
   - `Ratio` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-in-viewport-option-ratio"/><a href="#locator-assertions-to-be-in-viewport-option-ratio" class="list-anchor">#</a>
     
@@ -261,7 +261,7 @@ await Expect(locator).ToBeInViewportAsync(new() { Ratio = 0.5 });
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-in-viewport-return"/><a href="#locator-assertions-to-be-in-viewport-return" class="list-anchor">#</a>
 
 ---
@@ -274,7 +274,7 @@ Ensures that [Locator] points to an attached and [visible](../actionability.mdx#
 
 To check that at least one element from the list is visible, use [Locator.First](/api/class-locator.mdx#locator-first).
 
-**使用方式**
+**Usage**
 
 ```csharp
 // A specific element is visible.
@@ -291,14 +291,14 @@ await Expect(
 ).ToBeVisibleAsync();
 ```
 
-**參數**
+**Arguments**
 - `options` `LocatorAssertionsToBeVisibleOptions?` *(optional)*
   - `Timeout` [float]? *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-option-timeout"/><a href="#locator-assertions-to-be-visible-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
   - `Visible` [bool]? *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-option-visible"/><a href="#locator-assertions-to-be-visible-option-visible" class="list-anchor">#</a>
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-return"/><a href="#locator-assertions-to-be-visible-return" class="list-anchor">#</a>
 
 ---
@@ -309,7 +309,7 @@ await Expect(
 
 Ensures the [Locator] points to an element with given CSS classes. All classes from the asserted value, separated by spaces, must be present in the [Element.classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) in any order.
 
-**使用方式**
+**Usage**
 
 ```html
 <div class='middle selected row' id='component'></div>
@@ -337,7 +337,7 @@ var locator = Page.Locator(".list > .component");
 await Expect(locator).ToContainClassAsync(new string[]{"inactive", "active", "inactive"});
 ```
 
-**參數**
+**Arguments**
 - `expected` [string] | [IEnumerable]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-class-option-expected"/><a href="#locator-assertions-to-contain-class-option-expected" class="list-anchor">#</a>
   
   A string containing expected class names, separated by spaces, or a list of such strings to assert multiple elements.
@@ -346,7 +346,7 @@ await Expect(locator).ToContainClassAsync(new string[]{"inactive", "active", "in
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-class-return"/><a href="#locator-assertions-to-contain-class-return" class="list-anchor">#</a>
 
 ---
@@ -357,7 +357,7 @@ await Expect(locator).ToContainClassAsync(new string[]{"inactive", "active", "in
 
 Ensures the [Locator] points to an element that contains the given text. All nested elements will be considered when computing the text content of the element. You can use regular expressions for the value as well.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.Locator(".title");
@@ -397,7 +397,7 @@ await Expect(Page.Locator("ul > li")).ToContainTextAsync(new string[] {"Some 33"
 await Expect(Page.Locator("ul")).ToContainTextAsync(new string[] {"Text 3"});
 ```
 
-**參數**
+**Arguments**
 - `expected` [string] | [Regex] | [IEnumerable]&lt;[string]&gt; | [IEnumerable]&lt;[Regex]&gt; <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-text-option-expected"/><a href="#locator-assertions-to-contain-text-option-expected" class="list-anchor">#</a>
   
   Expected substring or RegExp or a list of those.
@@ -412,7 +412,7 @@ await Expect(Page.Locator("ul")).ToContainTextAsync(new string[] {"Text 3"});
     
     Whether to use `element.innerText` instead of `element.textContent` when retrieving DOM node text.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-text-return"/><a href="#locator-assertions-to-contain-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -427,14 +427,14 @@ When `expected` parameter is a string, Playwright will normalize whitespaces and
 
 Ensures the [Locator] points to an element with a given [accessible description](https://w3c.github.io/accname/#dfn-accessible-description).
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.GetByTestId("save-button");
 await Expect(locator).ToHaveAccessibleDescriptionAsync("Save results to disk");
 ```
 
-**參數**
+**Arguments**
 - `description` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-description-option-description"/><a href="#locator-assertions-to-have-accessible-description-option-description" class="list-anchor">#</a>
   
   Expected accessible description.
@@ -446,7 +446,7 @@ await Expect(locator).ToHaveAccessibleDescriptionAsync("Save results to disk");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-description-return"/><a href="#locator-assertions-to-have-accessible-description-return" class="list-anchor">#</a>
 
 ---
@@ -457,14 +457,14 @@ await Expect(locator).ToHaveAccessibleDescriptionAsync("Save results to disk");
 
 Ensures the [Locator] points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.GetByTestId("username-input");
 await Expect(locator).ToHaveAccessibleErrorMessageAsync("Username is required.");
 ```
 
-**參數**
+**Arguments**
 - `errorMessage` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-error-message-option-error-message"/><a href="#locator-assertions-to-have-accessible-error-message-option-error-message" class="list-anchor">#</a>
   
   Expected accessible error message.
@@ -476,7 +476,7 @@ await Expect(locator).ToHaveAccessibleErrorMessageAsync("Username is required.")
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-error-message-return"/><a href="#locator-assertions-to-have-accessible-error-message-return" class="list-anchor">#</a>
 
 ---
@@ -487,14 +487,14 @@ await Expect(locator).ToHaveAccessibleErrorMessageAsync("Username is required.")
 
 Ensures the [Locator] points to an element with a given [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.GetByTestId("save-button");
 await Expect(locator).ToHaveAccessibleNameAsync("Save to disk");
 ```
 
-**參數**
+**Arguments**
 - `name` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-name-option-name"/><a href="#locator-assertions-to-have-accessible-name-option-name" class="list-anchor">#</a>
   
   Expected accessible name.
@@ -506,7 +506,7 @@ await Expect(locator).ToHaveAccessibleNameAsync("Save to disk");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-name-return"/><a href="#locator-assertions-to-have-accessible-name-return" class="list-anchor">#</a>
 
 ---
@@ -517,14 +517,14 @@ await Expect(locator).ToHaveAccessibleNameAsync("Save to disk");
 
 Ensures the [Locator] points to an element with given attribute.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.Locator("input");
 await Expect(locator).ToHaveAttributeAsync("type", "text");
 ```
 
-**參數**
+**Arguments**
 - `name` [string] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-attribute-option-name"/><a href="#locator-assertions-to-have-attribute-option-name" class="list-anchor">#</a>
   
   Attribute name.
@@ -539,7 +539,7 @@ await Expect(locator).ToHaveAttributeAsync("type", "text");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-attribute-return"/><a href="#locator-assertions-to-have-attribute-return" class="list-anchor">#</a>
 
 ---
@@ -550,7 +550,7 @@ await Expect(locator).ToHaveAttributeAsync("type", "text");
 
 Ensures the [Locator] points to an element with given CSS classes. When a string is provided, it must fully match the element's `class` attribute. To match individual classes use [Expect(Locator).ToContainClassAsync()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class).
 
-**使用方式**
+**Usage**
 
 ```html
 <div class='middle selected row' id='component'></div>
@@ -569,7 +569,7 @@ var locator = Page.Locator(".list > .component");
 await Expect(locator).ToHaveClassAsync(new string[]{"component", "component selected", "component"});
 ```
 
-**參數**
+**Arguments**
 - `expected` [string] | [Regex] | [IEnumerable]&lt;[string]&gt; | [IEnumerable]&lt;[Regex]&gt; <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-class-option-expected"/><a href="#locator-assertions-to-have-class-option-expected" class="list-anchor">#</a>
   
   Expected class or RegExp or a list of those.
@@ -578,7 +578,7 @@ await Expect(locator).ToHaveClassAsync(new string[]{"component", "component sele
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-class-return"/><a href="#locator-assertions-to-have-class-return" class="list-anchor">#</a>
 
 ---
@@ -589,14 +589,14 @@ await Expect(locator).ToHaveClassAsync(new string[]{"component", "component sele
 
 Ensures the [Locator] resolves to an exact number of DOM nodes.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.Locator("list > .component");
 await Expect(locator).ToHaveCountAsync(3);
 ```
 
-**參數**
+**Arguments**
 - `count` [int] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-count-option-count"/><a href="#locator-assertions-to-have-count-option-count" class="list-anchor">#</a>
   
   Expected count.
@@ -605,7 +605,7 @@ await Expect(locator).ToHaveCountAsync(3);
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-count-return"/><a href="#locator-assertions-to-have-count-return" class="list-anchor">#</a>
 
 ---
@@ -616,14 +616,14 @@ await Expect(locator).ToHaveCountAsync(3);
 
 Ensures the [Locator] resolves to an element with the given computed CSS style.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.GetByRole(AriaRole.Button);
 await Expect(locator).ToHaveCSSAsync("display", "flex");
 ```
 
-**參數**
+**Arguments**
 - `name` [string] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-css-option-name"/><a href="#locator-assertions-to-have-css-option-name" class="list-anchor">#</a>
   
   CSS property name.
@@ -635,7 +635,7 @@ await Expect(locator).ToHaveCSSAsync("display", "flex");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-css-return"/><a href="#locator-assertions-to-have-css-return" class="list-anchor">#</a>
 
 ---
@@ -646,14 +646,14 @@ await Expect(locator).ToHaveCSSAsync("display", "flex");
 
 Ensures the [Locator] points to an element with the given DOM Node ID.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.GetByRole(AriaRole.Textbox);
 await Expect(locator).ToHaveIdAsync("lastname");
 ```
 
-**參數**
+**Arguments**
 - `id` [string] | [Regex] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-id-option-id"/><a href="#locator-assertions-to-have-id-option-id" class="list-anchor">#</a>
   
   Element id.
@@ -662,7 +662,7 @@ await Expect(locator).ToHaveIdAsync("lastname");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-id-return"/><a href="#locator-assertions-to-have-id-return" class="list-anchor">#</a>
 
 ---
@@ -673,14 +673,14 @@ await Expect(locator).ToHaveIdAsync("lastname");
 
 Ensures the [Locator] points to an element with given JavaScript property. Note that this property can be of a primitive type as well as a plain serializable JavaScript object.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.Locator(".component");
 await Expect(locator).ToHaveJSPropertyAsync("loaded", true);
 ```
 
-**參數**
+**Arguments**
 - `name` [string] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-js-property-option-name"/><a href="#locator-assertions-to-have-js-property-option-name" class="list-anchor">#</a>
   
   Property name.
@@ -692,7 +692,7 @@ await Expect(locator).ToHaveJSPropertyAsync("loaded", true);
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-js-property-return"/><a href="#locator-assertions-to-have-js-property-return" class="list-anchor">#</a>
 
 ---
@@ -705,14 +705,14 @@ Ensures the [Locator] points to an element with a given [ARIA role](https://www.
 
 Note that role is matched as a string, disregarding the ARIA role hierarchy. For example, asserting  a superclass role `"checkbox"` on an element with a subclass role `"switch"` will fail.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.GetByTestId("save-button");
 await Expect(locator).ToHaveRoleAsync(AriaRole.Button);
 ```
 
-**參數**
+**Arguments**
 - `role` `enum AriaRole { Alert, Alertdialog, Application, Article, Banner, Blockquote, Button, Caption, Cell, Checkbox, Code, Columnheader, Combobox, Complementary, Contentinfo, Definition, Deletion, Dialog, Directory, Document, Emphasis, Feed, Figure, Form, Generic, Grid, Gridcell, Group, Heading, Img, Insertion, Link, List, Listbox, Listitem, Log, Main, Marquee, Math, Meter, Menu, Menubar, Menuitem, Menuitemcheckbox, Menuitemradio, Navigation, None, Note, Option, Paragraph, Presentation, Progressbar, Radio, Radiogroup, Region, Row, Rowgroup, Rowheader, Scrollbar, Search, Searchbox, Separator, Slider, Spinbutton, Status, Strong, Subscript, Superscript, Switch, Tab, Table, Tablist, Tabpanel, Term, Textbox, Time, Timer, Toolbar, Tooltip, Tree, Treegrid, Treeitem }`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-role-option-role"/><a href="#locator-assertions-to-have-role-option-role" class="list-anchor">#</a>
   
   Required aria role.
@@ -721,7 +721,7 @@ await Expect(locator).ToHaveRoleAsync(AriaRole.Button);
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-role-return"/><a href="#locator-assertions-to-have-role-return" class="list-anchor">#</a>
 
 ---
@@ -732,7 +732,7 @@ await Expect(locator).ToHaveRoleAsync(AriaRole.Button);
 
 Ensures the [Locator] points to an element with the given text. All nested elements will be considered when computing the text content of the element. You can use regular expressions for the value as well.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.Locator(".title");
@@ -771,7 +771,7 @@ await Expect(Page.Locator("ul > li")).ToHaveTextAsync(new string[] {"Text 1", "T
 await Expect(Page.Locator("ul")).ToHaveTextAsync(new string[] {"Text 1", "Text 2", "Text 3"});
 ```
 
-**參數**
+**Arguments**
 - `expected` [string] | [Regex] | [IEnumerable]&lt;[string]&gt; | [IEnumerable]&lt;[Regex]&gt; <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-text-option-expected"/><a href="#locator-assertions-to-have-text-option-expected" class="list-anchor">#</a>
   
   Expected string or RegExp or a list of those.
@@ -786,7 +786,7 @@ await Expect(Page.Locator("ul")).ToHaveTextAsync(new string[] {"Text 1", "Text 2
     
     Whether to use `element.innerText` instead of `element.textContent` when retrieving DOM node text.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-text-return"/><a href="#locator-assertions-to-have-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -801,14 +801,14 @@ When `expected` parameter is a string, Playwright will normalize whitespaces and
 
 Ensures the [Locator] points to an element with the given input value. You can use regular expressions for the value as well.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var locator = Page.Locator("input[type=number]");
 await Expect(locator).ToHaveValueAsync(new Regex("[0-9]"));
 ```
 
-**參數**
+**Arguments**
 - `value` [string] | [Regex] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-value-option-value"/><a href="#locator-assertions-to-have-value-option-value" class="list-anchor">#</a>
   
   Expected value.
@@ -817,7 +817,7 @@ await Expect(locator).ToHaveValueAsync(new Regex("[0-9]"));
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-value-return"/><a href="#locator-assertions-to-have-value-return" class="list-anchor">#</a>
 
 ---
@@ -828,7 +828,7 @@ await Expect(locator).ToHaveValueAsync(new Regex("[0-9]"));
 
 Ensures the [Locator] points to multi-select/combobox (i.e. a `select` with the `multiple` attribute) and the specified values are selected.
 
-**使用方式**
+**Usage**
 
 For example, given the following element:
 
@@ -846,7 +846,7 @@ await locator.SelectOptionAsync(new string[] { "R", "G" });
 await Expect(locator).ToHaveValuesAsync(new Regex[] { new Regex("R"), new Regex("G") });
 ```
 
-**參數**
+**Arguments**
 - `values` [IEnumerable]&lt;[string]&gt; | [IEnumerable]&lt;[Regex]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-values-option-values"/><a href="#locator-assertions-to-have-values-option-values" class="list-anchor">#</a>
   
   Expected options currently selected.
@@ -855,7 +855,7 @@ await Expect(locator).ToHaveValuesAsync(new Regex[] { new Regex("R"), new Regex(
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-values-return"/><a href="#locator-assertions-to-have-values-return" class="list-anchor">#</a>
 
 ---
@@ -866,7 +866,7 @@ await Expect(locator).ToHaveValuesAsync(new Regex[] { new Regex("R"), new Regex(
 
 Asserts that the target element matches the given [accessibility snapshot](../aria-snapshots.mdx).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.GotoAsync("https://demo.playwright.dev/todomvc/");
@@ -876,19 +876,19 @@ await Expect(page.Locator("body")).ToMatchAriaSnapshotAsync(@"
 ");
 ```
 
-**參數**
+**Arguments**
 - `expected` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-option-expected"/><a href="#locator-assertions-to-match-aria-snapshot-option-expected" class="list-anchor">#</a>
 - `options` `LocatorAssertionsToMatchAriaSnapshotOptions?` *(optional)*
   - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-option-timeout"/><a href="#locator-assertions-to-match-aria-snapshot-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-return"/><a href="#locator-assertions-to-match-aria-snapshot-return" class="list-anchor">#</a>
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### Not {#locator-assertions-not}
 
@@ -900,13 +900,13 @@ Makes the assertion check for the opposite condition. For example, this code tes
 await Expect(locator).Not.ToContainTextAsync("error");
 ```
 
-**使用方式**
+**Usage**
 
 ```csharp
 Expect(Locator).Not
 ```
 
-**型別 (Type)**
+**Type**
 - [LocatorAssertions]
 
 

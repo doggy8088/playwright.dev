@@ -1,17 +1,17 @@
 ---
 id: test-parameterize
-title: "參數化測試"
+title: "Parameterize tests"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-您可以在測試層級或專案層級上參數化測試。
+You can either parameterize tests on a test level or on a project level.
 
-## 參數化測試
+## Parameterized Tests
 
 ```js title="example.spec.ts"
 [
@@ -27,9 +27,9 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 });
 ```
 
-### 前後掛勾
+### Before and after hooks
 
-大部分時候您應該將 `beforeEach`、`beforeAll`、`afterEach` 和 `afterAll` 掛勾放在 `forEach` 外面，這樣掛勾只會執行一次：
+Most of the time you should put `beforeEach`, `beforeAll`, `afterEach` and `afterAll` hooks outside of `forEach`, so that hooks are executed just once:
 
 ```js title="example.spec.ts"
 test.beforeEach(async ({ page }) => {
@@ -52,7 +52,7 @@ test.afterEach(async ({ page }) => {
 });
 ```
 
-如果您想為每個測試設定掛勾，您可以將它們放在 `describe()` 內 - 這樣它們將為每次迭代/每個個別測試執行：
+If you want to have hooks for each test, you can put them inside a `describe()` - so they are executed for each iteration / each individual test:
 
 ```js title="example.spec.ts"
 [
@@ -71,11 +71,11 @@ test.afterEach(async ({ page }) => {
 });
 ```
 
-## 參數化專案
+## Parameterized Projects
 
-Playwright Test 支援同時執行多個測試專案。在以下範例中，我們將使用不同選項執行兩個專案。
+Playwright Test supports running multiple test projects at the same time. In the following example, we'll run two projects with different options.
 
-我們宣告選項 `person` 並在組態設定中設定值。第一個專案使用值 `Alice` 執行，第二個使用值 `Bob` 執行。
+We declare the option `person` and set the value in the config. The first project runs with the value `Alice` and the second with the value `Bob`.
 
 <Tabs
   groupId="js-flavor"
@@ -117,7 +117,7 @@ exports.test = base.test.extend({
 </TabItem>
 </Tabs>
 
-我們可以在測試中使用此選項，類似於[佈置](./test-fixtures.mdx)。
+We can use this option in the test, similarly to [fixtures](./test-fixtures.mdx).
 
 ```js title="example.spec.ts"
 import { test } from './my-test';
@@ -182,7 +182,7 @@ module.exports = defineConfig({
 </TabItem>
 </Tabs>
 
-我們也可以在佈置中使用選項。了解更多關於[佈置](./test-fixtures.mdx)。
+We can also use the option in a fixture. Learn more about [fixtures](./test-fixtures.mdx).
 
 <Tabs
   groupId="js-flavor"
@@ -249,11 +249,11 @@ exports.test = base.test.extend({
 Parameterized projects behavior has changed in version 1.18. [Learn more](./release-notes#breaking-change-custom-config-options).
 :::
 
-## 傳遞環境變數
+## Passing Environment Variables
 
-您可以使用環境變數從命令列組態設定測試。
+You can use environment variables to configure tests from the command line.
 
-例如，考慮以下需要使用者名稱和密碼的測試檔案。通常最好不要將您的機密資料儲存在原始碼中，所以我們需要一種從外部傳遞機密資料的方法。
+For example, consider the following test file that needs a username and a password. It is usually a good idea not to store your secrets in the source code, so we'll need a way to pass secrets from outside.
 
 ```js title="example.spec.ts"
 test(`example test`, async ({ page }) => {
@@ -263,7 +263,7 @@ test(`example test`, async ({ page }) => {
 });
 ```
 
-您可以在命令列中設定您的機密使用者名稱和密碼來執行此測試。
+You can run this test with your secret username and password set in the command line.
 
 <Tabs
   groupId="bash-flavor"
@@ -351,7 +351,7 @@ npx playwright test
 
 ### .env files
 
-為了讓環境變數更容易管理，請考慮使用類似 `.env` 檔案的東西。以下是一個使用 [`dotenv`](https://www.npmjs.com/package/dotenv) 套件在組態設定檔案中直接讀取環境變數的範例。
+To make environment variables easier to manage, consider something like `.env` files. Here is an example that uses [`dotenv`](https://www.npmjs.com/package/dotenv) package to read environment variables directly in the configuration file.
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -386,11 +386,11 @@ Run tests as usual, your environment variables should be picked up.
 npx playwright test
 ```
 
-## 透過 CSV 檔案建立測試
+## Create tests via a CSV file
 
-Playwright 測試執行器在 Node.js 中執行，這意味著您可以直接從檔案系統讀取檔案，並使用您偏好的 CSV 程式庫解析它們。
+The Playwright test-runner runs in Node.js, this means you can directly read files from the file system and parse them with your preferred CSV library.
 
-例如，請見此 CSV 檔案，在我們的範例 `input.csv` 中：
+See for example this CSV file, in our example `input.csv`:
 
 ```txt
 "test_case","some_value","some_other_value"

@@ -23,7 +23,7 @@ test('status becomes submitted', async ({ page }) => {
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### toBeAttached {#locator-assertions-to-be-attached}
 
@@ -31,20 +31,20 @@ test('status becomes submitted', async ({ page }) => {
 
 Ensures that [Locator] points to an element that is [connected](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected) to a Document or a ShadowRoot.
 
-**使用方式**
+**Usage**
 
 ```js
 await expect(page.getByText('Hidden text')).toBeAttached();
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `attached` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-attached-option-attached"/><a href="#locator-assertions-to-be-attached-option-attached" class="list-anchor">#</a>
   - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-attached-option-timeout"/><a href="#locator-assertions-to-be-attached-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-attached-return"/><a href="#locator-assertions-to-be-attached-return" class="list-anchor">#</a>
 
 ---
@@ -55,14 +55,14 @@ await expect(page.getByText('Hidden text')).toBeAttached();
 
 Ensures the [Locator] points to a checked input.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByLabel('Subscribe to newsletter');
 await expect(locator).toBeChecked();
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `checked` [boolean] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-checked-option-checked"/><a href="#locator-assertions-to-be-checked-option-checked" class="list-anchor">#</a>
     
@@ -74,7 +74,7 @@ await expect(locator).toBeChecked();
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-checked-return"/><a href="#locator-assertions-to-be-checked-return" class="list-anchor">#</a>
 
 ---
@@ -85,20 +85,20 @@ await expect(locator).toBeChecked();
 
 Ensures the [Locator] points to a disabled element. Element is disabled if it has "disabled" attribute or is disabled via ['aria-disabled'](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-disabled). Note that only native control elements such as HTML `button`, `input`, `select`, `textarea`, `option`, `optgroup` can be disabled by setting "disabled" attribute. "disabled" attribute on other elements is ignored by the browser.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.locator('button.submit');
 await expect(locator).toBeDisabled();
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-disabled-option-timeout"/><a href="#locator-assertions-to-be-disabled-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-disabled-return"/><a href="#locator-assertions-to-be-disabled-return" class="list-anchor">#</a>
 
 ---
@@ -109,21 +109,21 @@ await expect(locator).toBeDisabled();
 
 Ensures the [Locator] points to an editable element.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByRole('textbox');
 await expect(locator).toBeEditable();
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `editable` [boolean] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-editable-option-editable"/><a href="#locator-assertions-to-be-editable-option-editable" class="list-anchor">#</a>
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-editable-option-timeout"/><a href="#locator-assertions-to-be-editable-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-editable-return"/><a href="#locator-assertions-to-be-editable-return" class="list-anchor">#</a>
 
 ---
@@ -134,20 +134,20 @@ await expect(locator).toBeEditable();
 
 Ensures the [Locator] points to an empty editable element or to a DOM node that has no text.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.locator('div.warning');
 await expect(locator).toBeEmpty();
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-empty-option-timeout"/><a href="#locator-assertions-to-be-empty-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-empty-return"/><a href="#locator-assertions-to-be-empty-return" class="list-anchor">#</a>
 
 ---
@@ -158,21 +158,21 @@ await expect(locator).toBeEmpty();
 
 Ensures the [Locator] points to an enabled element.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.locator('button.submit');
 await expect(locator).toBeEnabled();
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `enabled` [boolean] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-enabled-option-enabled"/><a href="#locator-assertions-to-be-enabled-option-enabled" class="list-anchor">#</a>
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-enabled-option-timeout"/><a href="#locator-assertions-to-be-enabled-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-enabled-return"/><a href="#locator-assertions-to-be-enabled-return" class="list-anchor">#</a>
 
 ---
@@ -183,20 +183,20 @@ await expect(locator).toBeEnabled();
 
 Ensures the [Locator] points to a focused DOM node.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByRole('textbox');
 await expect(locator).toBeFocused();
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-focused-option-timeout"/><a href="#locator-assertions-to-be-focused-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-focused-return"/><a href="#locator-assertions-to-be-focused-return" class="list-anchor">#</a>
 
 ---
@@ -207,20 +207,20 @@ await expect(locator).toBeFocused();
 
 Ensures that [Locator] either does not resolve to any DOM node, or resolves to a [non-visible](../actionability.mdx#visible) one.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.locator('.my-element');
 await expect(locator).toBeHidden();
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-hidden-option-timeout"/><a href="#locator-assertions-to-be-hidden-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-hidden-return"/><a href="#locator-assertions-to-be-hidden-return" class="list-anchor">#</a>
 
 ---
@@ -231,7 +231,7 @@ await expect(locator).toBeHidden();
 
 Ensures the [Locator] points to an element that intersects viewport, according to the [intersection observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByRole('button');
@@ -243,7 +243,7 @@ await expect(locator).not.toBeInViewport();
 await expect(locator).toBeInViewport({ ratio: 0.5 });
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `ratio` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-in-viewport-option-ratio"/><a href="#locator-assertions-to-be-in-viewport-option-ratio" class="list-anchor">#</a>
     
@@ -252,7 +252,7 @@ await expect(locator).toBeInViewport({ ratio: 0.5 });
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-in-viewport-return"/><a href="#locator-assertions-to-be-in-viewport-return" class="list-anchor">#</a>
 
 ---
@@ -265,7 +265,7 @@ Ensures that [Locator] points to an attached and [visible](../actionability.mdx#
 
 To check that at least one element from the list is visible, use [locator.first()](/api/class-locator.mdx#locator-first).
 
-**使用方式**
+**Usage**
 
 ```js
 // A specific element is visible.
@@ -282,14 +282,14 @@ await expect(
 ).toBeVisible();
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `timeout` [number] *(optional)* <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-option-timeout"/><a href="#locator-assertions-to-be-visible-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
   - `visible` [boolean] *(optional)* <font size="2">Added in: v1.26</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-option-visible"/><a href="#locator-assertions-to-be-visible-option-visible" class="list-anchor">#</a>
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-be-visible-return"/><a href="#locator-assertions-to-be-visible-return" class="list-anchor">#</a>
 
 ---
@@ -300,7 +300,7 @@ await expect(
 
 Ensures the [Locator] points to an element with given CSS classes. All classes from the asserted value, separated by spaces, must be present in the [Element.classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) in any order.
 
-**使用方式**
+**Usage**
 
 ```html
 <div class='middle selected row' id='component'></div>
@@ -328,7 +328,7 @@ const locator = page.locator('.list > .component');
 await expect(locator).toContainClass(['inactive', 'active', 'inactive']);
 ```
 
-**參數**
+**Arguments**
 - `expected` [string] | [Array]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-class-option-expected"/><a href="#locator-assertions-to-contain-class-option-expected" class="list-anchor">#</a>
   
   A string containing expected class names, separated by spaces, or a list of such strings to assert multiple elements.
@@ -337,7 +337,7 @@ await expect(locator).toContainClass(['inactive', 'active', 'inactive']);
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-class-return"/><a href="#locator-assertions-to-contain-class-return" class="list-anchor">#</a>
 
 ---
@@ -348,7 +348,7 @@ await expect(locator).toContainClass(['inactive', 'active', 'inactive']);
 
 Ensures the [Locator] points to an element that contains the given text. All nested elements will be considered when computing the text content of the element. You can use regular expressions for the value as well.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.locator('.title');
@@ -388,7 +388,7 @@ await expect(page.locator('ul > li')).toContainText(['Some 33']);
 await expect(page.locator('ul')).toContainText(['Text 3']);
 ```
 
-**參數**
+**Arguments**
 - `expected` [string] | [RegExp] | [Array]&lt;[string] | [RegExp]&gt; <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-text-option-expected"/><a href="#locator-assertions-to-contain-text-option-expected" class="list-anchor">#</a>
   
   Expected substring or RegExp or a list of those.
@@ -403,7 +403,7 @@ await expect(page.locator('ul')).toContainText(['Text 3']);
     
     Whether to use `element.innerText` instead of `element.textContent` when retrieving DOM node text.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-contain-text-return"/><a href="#locator-assertions-to-contain-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -418,14 +418,14 @@ When `expected` parameter is a string, Playwright will normalize whitespaces and
 
 Ensures the [Locator] points to an element with a given [accessible description](https://w3c.github.io/accname/#dfn-accessible-description).
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByTestId('save-button');
 await expect(locator).toHaveAccessibleDescription('Save results to disk');
 ```
 
-**參數**
+**Arguments**
 - `description` [string] | [RegExp]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-description-option-description"/><a href="#locator-assertions-to-have-accessible-description-option-description" class="list-anchor">#</a>
   
   Expected accessible description.
@@ -437,7 +437,7 @@ await expect(locator).toHaveAccessibleDescription('Save results to disk');
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-description-return"/><a href="#locator-assertions-to-have-accessible-description-return" class="list-anchor">#</a>
 
 ---
@@ -448,14 +448,14 @@ await expect(locator).toHaveAccessibleDescription('Save results to disk');
 
 Ensures the [Locator] points to an element with a given [aria errormessage](https://w3c.github.io/aria/#aria-errormessage).
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByTestId('username-input');
 await expect(locator).toHaveAccessibleErrorMessage('Username is required.');
 ```
 
-**參數**
+**Arguments**
 - `errorMessage` [string] | [RegExp]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-error-message-option-error-message"/><a href="#locator-assertions-to-have-accessible-error-message-option-error-message" class="list-anchor">#</a>
   
   Expected accessible error message.
@@ -467,7 +467,7 @@ await expect(locator).toHaveAccessibleErrorMessage('Username is required.');
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-error-message-return"/><a href="#locator-assertions-to-have-accessible-error-message-return" class="list-anchor">#</a>
 
 ---
@@ -478,14 +478,14 @@ await expect(locator).toHaveAccessibleErrorMessage('Username is required.');
 
 Ensures the [Locator] points to an element with a given [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByTestId('save-button');
 await expect(locator).toHaveAccessibleName('Save to disk');
 ```
 
-**參數**
+**Arguments**
 - `name` [string] | [RegExp]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-name-option-name"/><a href="#locator-assertions-to-have-accessible-name-option-name" class="list-anchor">#</a>
   
   Expected accessible name.
@@ -497,7 +497,7 @@ await expect(locator).toHaveAccessibleName('Save to disk');
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-accessible-name-return"/><a href="#locator-assertions-to-have-accessible-name-return" class="list-anchor">#</a>
 
 ---
@@ -508,14 +508,14 @@ await expect(locator).toHaveAccessibleName('Save to disk');
 
 Ensures the [Locator] points to an element with given attribute.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.locator('input');
 await expect(locator).toHaveAttribute('type', 'text');
 ```
 
-**參數**
+**Arguments**
 - `name` [string] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-attribute-option-name"/><a href="#locator-assertions-to-have-attribute-option-name" class="list-anchor">#</a>
   
   Attribute name.
@@ -530,7 +530,7 @@ await expect(locator).toHaveAttribute('type', 'text');
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-attribute-return"/><a href="#locator-assertions-to-have-attribute-return" class="list-anchor">#</a>
 
 ---
@@ -548,14 +548,14 @@ await expect(locator).toHaveAttribute('disabled');
 await expect(locator).not.toHaveAttribute('open');
 ```
 
-**使用方式**
+**Usage**
 
 ```js
 await expect(locator).toHaveAttribute(name);
 await expect(locator).toHaveAttribute(name, options);
 ```
 
-**參數**
+**Arguments**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-attribute-2-option-name"/><a href="#locator-assertions-to-have-attribute-2-option-name" class="list-anchor">#</a>
   
   Attribute name.
@@ -564,7 +564,7 @@ await expect(locator).toHaveAttribute(name, options);
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-attribute-2-return"/><a href="#locator-assertions-to-have-attribute-2-return" class="list-anchor">#</a>
 
 ---
@@ -575,7 +575,7 @@ await expect(locator).toHaveAttribute(name, options);
 
 Ensures the [Locator] points to an element with given CSS classes. When a string is provided, it must fully match the element's `class` attribute. To match individual classes use [expect(locator).toContainClass()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-class).
 
-**使用方式**
+**Usage**
 
 ```html
 <div class='middle selected row' id='component'></div>
@@ -594,7 +594,7 @@ const locator = page.locator('.list > .component');
 await expect(locator).toHaveClass(['component', 'component selected', 'component']);
 ```
 
-**參數**
+**Arguments**
 - `expected` [string] | [RegExp] | [Array]&lt;[string] | [RegExp]&gt; <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-class-option-expected"/><a href="#locator-assertions-to-have-class-option-expected" class="list-anchor">#</a>
   
   Expected class or RegExp or a list of those.
@@ -603,7 +603,7 @@ await expect(locator).toHaveClass(['component', 'component selected', 'component
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-class-return"/><a href="#locator-assertions-to-have-class-return" class="list-anchor">#</a>
 
 ---
@@ -614,14 +614,14 @@ await expect(locator).toHaveClass(['component', 'component selected', 'component
 
 Ensures the [Locator] resolves to an exact number of DOM nodes.
 
-**使用方式**
+**Usage**
 
 ```js
 const list = page.locator('list > .component');
 await expect(list).toHaveCount(3);
 ```
 
-**參數**
+**Arguments**
 - `count` [number] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-count-option-count"/><a href="#locator-assertions-to-have-count-option-count" class="list-anchor">#</a>
   
   Expected count.
@@ -630,7 +630,7 @@ await expect(list).toHaveCount(3);
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-count-return"/><a href="#locator-assertions-to-have-count-return" class="list-anchor">#</a>
 
 ---
@@ -641,14 +641,14 @@ await expect(list).toHaveCount(3);
 
 Ensures the [Locator] resolves to an element with the given computed CSS style.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByRole('button');
 await expect(locator).toHaveCSS('display', 'flex');
 ```
 
-**參數**
+**Arguments**
 - `name` [string] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-css-option-name"/><a href="#locator-assertions-to-have-css-option-name" class="list-anchor">#</a>
   
   CSS property name.
@@ -660,7 +660,7 @@ await expect(locator).toHaveCSS('display', 'flex');
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-css-return"/><a href="#locator-assertions-to-have-css-return" class="list-anchor">#</a>
 
 ---
@@ -671,14 +671,14 @@ await expect(locator).toHaveCSS('display', 'flex');
 
 Ensures the [Locator] points to an element with the given DOM Node ID.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByRole('textbox');
 await expect(locator).toHaveId('lastname');
 ```
 
-**參數**
+**Arguments**
 - `id` [string] | [RegExp] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-id-option-id"/><a href="#locator-assertions-to-have-id-option-id" class="list-anchor">#</a>
   
   Element id.
@@ -687,7 +687,7 @@ await expect(locator).toHaveId('lastname');
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-id-return"/><a href="#locator-assertions-to-have-id-return" class="list-anchor">#</a>
 
 ---
@@ -698,14 +698,14 @@ await expect(locator).toHaveId('lastname');
 
 Ensures the [Locator] points to an element with given JavaScript property. Note that this property can be of a primitive type as well as a plain serializable JavaScript object.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.locator('.component');
 await expect(locator).toHaveJSProperty('loaded', true);
 ```
 
-**參數**
+**Arguments**
 - `name` [string] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-js-property-option-name"/><a href="#locator-assertions-to-have-js-property-option-name" class="list-anchor">#</a>
   
   Property name.
@@ -717,7 +717,7 @@ await expect(locator).toHaveJSProperty('loaded', true);
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-js-property-return"/><a href="#locator-assertions-to-have-js-property-return" class="list-anchor">#</a>
 
 ---
@@ -730,14 +730,14 @@ Ensures the [Locator] points to an element with a given [ARIA role](https://www.
 
 Note that role is matched as a string, disregarding the ARIA role hierarchy. For example, asserting  a superclass role `"checkbox"` on an element with a subclass role `"switch"` will fail.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByTestId('save-button');
 await expect(locator).toHaveRole('button');
 ```
 
-**參數**
+**Arguments**
 - `role` "alert" | "alertdialog" | "application" | "article" | "banner" | "blockquote" | "button" | "caption" | "cell" | "checkbox" | "code" | "columnheader" | "combobox" | "complementary" | "contentinfo" | "definition" | "deletion" | "dialog" | "directory" | "document" | "emphasis" | "feed" | "figure" | "form" | "generic" | "grid" | "gridcell" | "group" | "heading" | "img" | "insertion" | "link" | "list" | "listbox" | "listitem" | "log" | "main" | "marquee" | "math" | "meter" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "navigation" | "none" | "note" | "option" | "paragraph" | "presentation" | "progressbar" | "radio" | "radiogroup" | "region" | "row" | "rowgroup" | "rowheader" | "scrollbar" | "search" | "searchbox" | "separator" | "slider" | "spinbutton" | "status" | "strong" | "subscript" | "superscript" | "switch" | "tab" | "table" | "tablist" | "tabpanel" | "term" | "textbox" | "time" | "timer" | "toolbar" | "tooltip" | "tree" | "treegrid" | "treeitem"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-role-option-role"/><a href="#locator-assertions-to-have-role-option-role" class="list-anchor">#</a>
   
   Required aria role.
@@ -746,7 +746,7 @@ await expect(locator).toHaveRole('button');
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-role-return"/><a href="#locator-assertions-to-have-role-return" class="list-anchor">#</a>
 
 ---
@@ -757,7 +757,7 @@ await expect(locator).toHaveRole('button');
 
 This function will wait until two consecutive locator screenshots yield the same result, and then compare the last screenshot with the expectation.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByRole('button');
@@ -766,7 +766,7 @@ await expect(locator).toHaveScreenshot('image.png');
 
 Note that screenshot assertions only work with Playwright test runner.
 
-**參數**
+**Arguments**
 - `name` [string] | [Array]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-1-option-name"/><a href="#locator-assertions-to-have-screenshot-1-option-name" class="list-anchor">#</a>
   
   Snapshot name.
@@ -811,7 +811,7 @@ Note that screenshot assertions only work with Playwright test runner.
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-1-return"/><a href="#locator-assertions-to-have-screenshot-1-return" class="list-anchor">#</a>
 
 ---
@@ -822,7 +822,7 @@ Note that screenshot assertions only work with Playwright test runner.
 
 This function will wait until two consecutive locator screenshots yield the same result, and then compare the last screenshot with the expectation.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.getByRole('button');
@@ -831,7 +831,7 @@ await expect(locator).toHaveScreenshot();
 
 Note that screenshot assertions only work with Playwright test runner.
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `animations` "disabled" | "allow" *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-2-option-animations"/><a href="#locator-assertions-to-have-screenshot-2-option-animations" class="list-anchor">#</a>
     
@@ -873,7 +873,7 @@ Note that screenshot assertions only work with Playwright test runner.
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-screenshot-2-return"/><a href="#locator-assertions-to-have-screenshot-2-return" class="list-anchor">#</a>
 
 ---
@@ -884,7 +884,7 @@ Note that screenshot assertions only work with Playwright test runner.
 
 Ensures the [Locator] points to an element with the given text. All nested elements will be considered when computing the text content of the element. You can use regular expressions for the value as well.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.locator('.title');
@@ -923,7 +923,7 @@ await expect(page.locator('ul > li')).toHaveText(['Text 1', 'Text 2', 'Text']);
 await expect(page.locator('ul')).toHaveText(['Text 1', 'Text 2', 'Text 3']);
 ```
 
-**參數**
+**Arguments**
 - `expected` [string] | [RegExp] | [Array]&lt;[string] | [RegExp]&gt; <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-text-option-expected"/><a href="#locator-assertions-to-have-text-option-expected" class="list-anchor">#</a>
   
   Expected string or RegExp or a list of those.
@@ -938,7 +938,7 @@ await expect(page.locator('ul')).toHaveText(['Text 1', 'Text 2', 'Text 3']);
     
     Whether to use `element.innerText` instead of `element.textContent` when retrieving DOM node text.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-text-return"/><a href="#locator-assertions-to-have-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -953,14 +953,14 @@ When `expected` parameter is a string, Playwright will normalize whitespaces and
 
 Ensures the [Locator] points to an element with the given input value. You can use regular expressions for the value as well.
 
-**使用方式**
+**Usage**
 
 ```js
 const locator = page.locator('input[type=number]');
 await expect(locator).toHaveValue(/[0-9]/);
 ```
 
-**參數**
+**Arguments**
 - `value` [string] | [RegExp] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-value-option-value"/><a href="#locator-assertions-to-have-value-option-value" class="list-anchor">#</a>
   
   Expected value.
@@ -969,7 +969,7 @@ await expect(locator).toHaveValue(/[0-9]/);
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-value-return"/><a href="#locator-assertions-to-have-value-return" class="list-anchor">#</a>
 
 ---
@@ -980,7 +980,7 @@ await expect(locator).toHaveValue(/[0-9]/);
 
 Ensures the [Locator] points to multi-select/combobox (i.e. a `select` with the `multiple` attribute) and the specified values are selected.
 
-**使用方式**
+**Usage**
 
 For example, given the following element:
 
@@ -998,7 +998,7 @@ await locator.selectOption(['R', 'G']);
 await expect(locator).toHaveValues([/R/, /G/]);
 ```
 
-**參數**
+**Arguments**
 - `values` [Array]&lt;[string] | [RegExp]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-values-option-values"/><a href="#locator-assertions-to-have-values-option-values" class="list-anchor">#</a>
   
   Expected options currently selected.
@@ -1007,7 +1007,7 @@ await expect(locator).toHaveValues([/R/, /G/]);
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-have-values-return"/><a href="#locator-assertions-to-have-values-return" class="list-anchor">#</a>
 
 ---
@@ -1018,7 +1018,7 @@ await expect(locator).toHaveValues([/R/, /G/]);
 
 Asserts that the target element matches the given [accessibility snapshot](../aria-snapshots.mdx).
 
-**使用方式**
+**Usage**
 
 ```js
 await page.goto('https://demo.playwright.dev/todomvc/');
@@ -1028,14 +1028,14 @@ await expect(page.locator('body')).toMatchAriaSnapshot(`
 `);
 ```
 
-**參數**
+**Arguments**
 - `expected` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-option-expected"/><a href="#locator-assertions-to-match-aria-snapshot-option-expected" class="list-anchor">#</a>
 - `options` [Object] *(optional)*
   - `timeout` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-option-timeout"/><a href="#locator-assertions-to-match-aria-snapshot-option-timeout" class="list-anchor">#</a>
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-return"/><a href="#locator-assertions-to-match-aria-snapshot-return" class="list-anchor">#</a>
 
 ---
@@ -1048,14 +1048,14 @@ Asserts that the target element matches the given [accessibility snapshot](../ar
 
 Snapshot is stored in a separate `.aria.yml` file in a location configured by `expect.toMatchAriaSnapshot.pathTemplate` and/or `snapshotPathTemplate` properties in the configuration file.
 
-**使用方式**
+**Usage**
 
 ```js
 await expect(page.locator('body')).toMatchAriaSnapshot();
 await expect(page.locator('body')).toMatchAriaSnapshot({ name: 'body.aria.yml' });
 ```
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `name` [string] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-2-option-name"/><a href="#locator-assertions-to-match-aria-snapshot-2-option-name" class="list-anchor">#</a>
     
@@ -1064,12 +1064,12 @@ await expect(page.locator('body')).toMatchAriaSnapshot({ name: 'body.aria.yml' }
     
     Time to retry the assertion for in milliseconds. Defaults to `timeout` in `TestConfig.expect`.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-assertions-to-match-aria-snapshot-2-return"/><a href="#locator-assertions-to-match-aria-snapshot-2-return" class="list-anchor">#</a>
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### not {#locator-assertions-not}
 
@@ -1081,13 +1081,13 @@ Makes the assertion check for the opposite condition. For example, this code tes
 await expect(locator).not.toContainText('error');
 ```
 
-**使用方式**
+**Usage**
 
 ```js
 expect(locator).not
 ```
 
-**型別 (Type)**
+**Type**
 - [LocatorAssertions]
 
 

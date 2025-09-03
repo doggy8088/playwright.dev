@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### ok {#test-case-ok}
 
@@ -21,13 +21,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 Whether the test is considered running fine. Non-ok tests fail the test run with non-zero exit code.
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.ok();
 ```
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-case-ok-return"/><a href="#test-case-ok-return" class="list-anchor">#</a>
 
 ---
@@ -40,13 +40,13 @@ Testing outcome for this test. Note that outcome is not the same as [testResult.
 * Test that is expected to fail and actually fails is `'expected'`.
 * Test that passes on a second retry is `'flaky'`.
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.outcome();
 ```
 
-**傳回值**
+**Returns**
 - "skipped" | "expected" | "unexpected" | "flaky"<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-case-outcome-return"/><a href="#test-case-outcome-return" class="list-anchor">#</a>
 
 ---
@@ -57,18 +57,18 @@ testCase.outcome();
 
 Returns a list of titles from the root down to this test.
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.titlePath();
 ```
 
-**傳回值**
+**Returns**
 - [Array]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="test-case-title-path-return"/><a href="#test-case-title-path-return" class="list-anchor">#</a>
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### annotations {#test-case-annotations}
 
@@ -76,13 +76,13 @@ testCase.titlePath();
 
 [testResult.annotations](/api/class-testresult.mdx#test-result-annotations) of the last test run.
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.annotations
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[Object]&gt;
   - `type` [string]
     
@@ -107,13 +107,13 @@ Expected test status.
 
 See also [testResult.status](/api/class-testresult.mdx#test-result-status) for the actual status.
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.expectedStatus
 ```
 
-**型別 (Type)**
+**Type**
 - "passed" | "failed" | "timedOut" | "skipped" | "interrupted"
 
 ---
@@ -124,13 +124,13 @@ testCase.expectedStatus
 
 A test ID that is computed based on the test file name, test title and project name. The ID is unique within Playwright session.
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.id
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -141,13 +141,13 @@ testCase.id
 
 Location in the source where the test is defined.
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.location
 ```
 
-**型別 (Type)**
+**Type**
 - [Location]
 
 ---
@@ -158,13 +158,13 @@ testCase.location
 
 Suite this test case belongs to.
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.parent
 ```
 
-**型別 (Type)**
+**Type**
 - [Suite]
 
 ---
@@ -175,13 +175,13 @@ testCase.parent
 
 Contains the repeat index when running in "repeat each" mode. This mode is enabled by passing `--repeat-each` to the [command line](../test-cli.mdx).
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.repeatEachIndex
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -192,13 +192,13 @@ testCase.repeatEachIndex
 
 Results for each run of this test.
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.results
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[TestResult]&gt;
 
 ---
@@ -211,13 +211,13 @@ The maximum number of retries given to this test in the configuration.
 
 Learn more about [test retries](../test-retries.mdx#retries).
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.retries
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -230,13 +230,13 @@ The list of tags defined on the test or suite via [test()](/api/class-test.mdx#t
 
 Learn more about [test tags](../test-annotations.mdx#tag-tests).
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.tags
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[string]&gt;
 
 ---
@@ -247,13 +247,13 @@ testCase.tags
 
 The timeout given to the test. Affected by [testConfig.timeout](/api/class-testconfig.mdx#test-config-timeout), [testProject.timeout](/api/class-testproject.mdx#test-project-timeout), [test.setTimeout()](/api/class-test.mdx#test-set-timeout), [test.slow()](/api/class-test.mdx#test-slow) and [testInfo.setTimeout()](/api/class-testinfo.mdx#test-info-set-timeout).
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.timeout
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -264,13 +264,13 @@ testCase.timeout
 
 Test title as passed to the [test()](/api/class-test.mdx#test-call) call.
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.title
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -281,13 +281,13 @@ testCase.title
 
 Returns "test". Useful for detecting test cases in [suite.entries()](/api/class-suite.mdx#suite-entries).
 
-**使用方式**
+**Usage**
 
 ```js
 testCase.type
 ```
 
-**型別 (Type)**
+**Type**
 - "test"
 
 

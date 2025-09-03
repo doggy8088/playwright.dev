@@ -45,7 +45,7 @@ await page.goto("data:text/html,<script>throw new Error('test')</script>")
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### error {#web-error-error}
 
@@ -53,13 +53,13 @@ await page.goto("data:text/html,<script>throw new Error('test')</script>")
 
 Unhandled error that was thrown.
 
-**使用方式**
+**Usage**
 
 ```python
 web_error.error
 ```
 
-**傳回值**
+**Returns**
 - [Error]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-error-error-return"/><a href="#web-error-error-return" class="list-anchor">#</a>
 
 ---
@@ -70,13 +70,13 @@ web_error.error
 
 The page that produced this unhandled exception, if any.
 
-**使用方式**
+**Usage**
 
 ```python
 web_error.page
 ```
 
-**傳回值**
+**Returns**
 - [NoneType] | [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-error-page-return"/><a href="#web-error-page-return" class="list-anchor">#</a>
 
 

@@ -1,37 +1,37 @@
 ---
 id: library
-title: "入門 - 程式庫"
+title: "Getting started - Library"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 可以與 [MSTest、NUnit、xUnit 或 xUnit v3 基礎類別](./test-runners.mdx)一起使用，或作為 Playwright Library（本指南）使用。如果您正在開發利用 Playwright 功能的應用程式或將 Playwright 與另一個測試執行器一起使用，請繼續閱讀。
+Playwright can either be used with the [MSTest, NUnit, xUnit, or xUnit v3 base classes](./test-runners.mdx) or as a Playwright Library (this guide). If you are working on an application that utilizes Playwright capabilities or you are using Playwright with another test runner, read on.
 
-## 使用方式
+## Usage
 
-建立一個主控台專案並新增 Playwright 相依性。
+Create a console project and add the Playwright dependency.
 
 ```bash
-# 建立專案
+# Create project
 dotnet new console -n PlaywrightDemo
 cd PlaywrightDemo
 
-# 新增專案相依性
+# Add project dependency
 dotnet add package Microsoft.Playwright
-# 建置專案
+# Build the project
 dotnet build
-# 安裝所需的瀏覽器 - 將 netX 替換為實際的輸出資料夾名稱，例如 net8.0。
+# Install required browsers - replace netX with actual output folder name, e.g. net8.0.
 pwsh bin/Debug/netX/playwright.ps1 install
 
-# 如果 pwsh 命令無法工作（拋出 TypeNotFound），請確保使用最新版本的 PowerShell。
+# If the pwsh command does not work (throws TypeNotFound), make sure to use an up-to-date version of PowerShell.
 dotnet tool update --global PowerShell
 ```
 
-建立一個 `Program.cs`，它將導航到 `https://playwright.dev/dotnet` 並在 Chromium 中截取螢幕截圖。
+Create a `Program.cs` that will navigate to `https://playwright.dev/dotnet` and take a screenshot in Chromium.
 
 ```csharp
 using Microsoft.Playwright;
@@ -46,7 +46,7 @@ await page.ScreenshotAsync(new()
 });
 ```
 
-現在執行它。
+Now run it.
 
 ```bash
 dotnet run
@@ -80,9 +80,9 @@ await page.GotoAsync("https://playwright.dev/dotnet");
 await Expect(page.GetByRole(AriaRole.Link, new() { Name = "Get started" })).ToBeVisibleAsync();
 ```
 
-## 為不同平台打包驅動程式
+## Bundle drivers for different platforms
 
-Playwright 預設只為 .NET 發布目標執行階段打包驅動程式。如果您想為其他平台打包，您可以在專案檔中使用 `all`、`none` 或 `linux`、`win`、`osx` 來覆寫此行為。
+Playwright by default does bundle only the driver for the .NET publish target runtime. If you want to bundle for additional platforms, you can override this behavior by using either `all`, `none` or `linux`, `win`, `osx` in your project file.
 
 ```xml
 <PropertyGroup>

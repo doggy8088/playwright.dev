@@ -17,7 +17,7 @@ expect(screenshot).toMatchSnapshot('landing-page.png');
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### toMatchSnapshot(name) {#snapshot-assertions-to-match-snapshot-1}
 
@@ -30,7 +30,7 @@ To compare screenshots, use [expect(page).toHaveScreenshot()](/api/class-pageass
 
 Ensures that passed value, either a [string] or a [Buffer], matches the expected snapshot stored in the test snapshots directory.
 
-**使用方式**
+**Usage**
 
 ```js
 // Basic usage.
@@ -53,7 +53,7 @@ Learn more about [visual comparisons](../test-snapshots.mdx).
 
 Note that matching snapshots only work with Playwright test runner.
 
-**參數**
+**Arguments**
 - `name` [string] | [Array]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="snapshot-assertions-to-match-snapshot-1-option-name"/><a href="#snapshot-assertions-to-match-snapshot-1-option-name" class="list-anchor">#</a>
   
   Snapshot name.
@@ -81,7 +81,7 @@ To compare screenshots, use [expect(page).toHaveScreenshot()](/api/class-pageass
 
 Ensures that passed value, either a [string] or a [Buffer], matches the expected snapshot stored in the test snapshots directory.
 
-**使用方式**
+**Usage**
 
 ```js
 // Basic usage and the file name is derived from the test name.
@@ -103,7 +103,7 @@ Learn more about [visual comparisons](../test-snapshots.mdx).
 
 Note that matching snapshots only work with Playwright test runner.
 
-**參數**
+**Arguments**
 - `options` [Object] *(optional)*
   - `maxDiffPixelRatio` [number] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="snapshot-assertions-to-match-snapshot-2-option-max-diff-pixel-ratio"/><a href="#snapshot-assertions-to-match-snapshot-2-option-max-diff-pixel-ratio" class="list-anchor">#</a>
     

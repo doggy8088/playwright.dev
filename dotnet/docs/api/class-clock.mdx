@@ -15,7 +15,7 @@ Note that clock is installed for the entire [BrowserContext], so the time in all
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### FastForwardAsync {#clock-fast-forward}
 
@@ -23,19 +23,19 @@ Note that clock is installed for the entire [BrowserContext], so the time in all
 
 Advance the clock by jumping forward in time. Only fires due timers at most once. This is equivalent to user closing the laptop lid for a while and reopening it later, after given time.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.Clock.FastForwardAsync(1000);
 await page.Clock.FastForwardAsync("30:00");
 ```
 
-**參數**
+**Arguments**
 - `ticks` [long] | [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-fast-forward-option-ticks"/><a href="#clock-fast-forward-option-ticks" class="list-anchor">#</a>
   
   Time may be the number of milliseconds to advance the clock by or a human-readable string. Valid string formats are "08" for eight seconds, "01:00" for one minute and "02:34:10" for two hours, 34 minutes and ten seconds.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-fast-forward-return"/><a href="#clock-fast-forward-return" class="list-anchor">#</a>
 
 ---
@@ -58,19 +58,19 @@ Install fake implementations for the following time-related functions:
 
 Fake timers are used to manually control the flow of time in tests. They allow you to advance time, fire timers, and control the behavior of time-dependent functions. See [Clock.RunForAsync()](/api/class-clock.mdx#clock-run-for) and [Clock.FastForwardAsync()](/api/class-clock.mdx#clock-fast-forward) for more information.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Clock.InstallAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `ClockInstallOptions?` *(optional)*
   - `Time|TimeDate` [string]? | [Date]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-install-option-time"/><a href="#clock-install-option-time" class="list-anchor">#</a>
     
     Time to initialize with, current system time by default.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-install-return"/><a href="#clock-install-return" class="list-anchor">#</a>
 
 ---
@@ -83,7 +83,7 @@ Advance the clock by jumping forward in time and pause the time. Once this metho
 
 Only fires due timers at most once. This is equivalent to user closing the laptop lid for a while and reopening it at the specified time and pausing.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.Clock.PauseAtAsync(DateTime.Parse("2020-02-02"));
@@ -92,12 +92,12 @@ await page.Clock.PauseAtAsync("2020-02-02");
 
 For best results, install the clock before navigating the page and set it to a time slightly before the intended test time. This ensures that all timers run normally during page loading, preventing the page from getting stuck. Once the page has fully loaded, you can safely use [Clock.PauseAtAsync()](/api/class-clock.mdx#clock-pause-at) to pause the clock.
 
-**參數**
+**Arguments**
 - `time` [Date] | [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-pause-at-option-time"/><a href="#clock-pause-at-option-time" class="list-anchor">#</a>
   
   Time to pause at.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-pause-at-return"/><a href="#clock-pause-at-return" class="list-anchor">#</a>
 
 ---
@@ -108,13 +108,13 @@ For best results, install the clock before navigating the page and set it to a t
 
 Resumes timers. Once this method is called, time resumes flowing, timers are fired as usual.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Clock.ResumeAsync();
 ```
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-resume-return"/><a href="#clock-resume-return" class="list-anchor">#</a>
 
 ---
@@ -125,19 +125,19 @@ await Clock.ResumeAsync();
 
 Advance the clock, firing all the time-related callbacks.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.Clock.RunForAsync(1000);
 await page.Clock.RunForAsync("30:00");
 ```
 
-**參數**
+**Arguments**
 - `ticks` [long] | [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-run-for-option-ticks"/><a href="#clock-run-for-option-ticks" class="list-anchor">#</a>
   
   Time may be the number of milliseconds to advance the clock by or a human-readable string. Valid string formats are "08" for eight seconds, "01:00" for one minute and "02:34:10" for two hours, 34 minutes and ten seconds.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-run-for-return"/><a href="#clock-run-for-return" class="list-anchor">#</a>
 
 ---
@@ -150,7 +150,7 @@ Makes `Date.now` and `new Date()` return fixed fake time at all times, keeps all
 
 Use this method for simple scenarios where you only need to test with a predefined time. For more advanced scenarios, use [Clock.InstallAsync()](/api/class-clock.mdx#clock-install) instead. Read docs on [clock emulation](../clock.mdx) to learn more.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.Clock.SetFixedTimeAsync(DateTime.Now);
@@ -158,12 +158,12 @@ await page.Clock.SetFixedTimeAsync(new DateTime(2020, 2, 2));
 await page.Clock.SetFixedTimeAsync("2020-02-02");
 ```
 
-**參數**
+**Arguments**
 - `time` [string] | [Date]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-fixed-time-option-time"/><a href="#clock-set-fixed-time-option-time" class="list-anchor">#</a>
   
   Time to be set.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-fixed-time-return"/><a href="#clock-set-fixed-time-return" class="list-anchor">#</a>
 
 ---
@@ -174,7 +174,7 @@ await page.Clock.SetFixedTimeAsync("2020-02-02");
 
 Sets system time, but does not trigger any timers. Use this to test how the web page reacts to a time shift, for example switching from summer to winter time, or changing time zones.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.Clock.SetSystemTimeAsync(DateTime.Now);
@@ -182,12 +182,12 @@ await page.Clock.SetSystemTimeAsync(new DateTime(2020, 2, 2));
 await page.Clock.SetSystemTimeAsync("2020-02-02");
 ```
 
-**參數**
+**Arguments**
 - `time` [string] | [Date]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-system-time-option-time"/><a href="#clock-set-system-time-option-time" class="list-anchor">#</a>
   
   Time to be set.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-system-time-return"/><a href="#clock-set-system-time-return" class="list-anchor">#</a>
 
 

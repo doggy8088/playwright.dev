@@ -1,21 +1,21 @@
 ---
 id: events
-title: "事件"
+title: "Events"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 允許監聽網頁上發生的各種類型事件，例如網路請求、子頁面的建立、專用工作者等。有幾種方式可以訂閱此類事件，例如等待事件或添加或移除事件監聽器。
+Playwright allows listening to various types of events happening on the web page, such as network requests, creation of child pages, dedicated workers etc. There are several ways to subscribe to such events, such as waiting for events or adding or removing event listeners.
 
-## 等待事件
+## Waiting for event
 
-大多數時候，腳本需要等待特定事件發生。以下是一些典型的事件等待模式。
+Most of the time, scripts will need to wait for a particular event to happen. Below are some of the typical event awaiting patterns.
 
-使用 [Page.RunAndWaitForRequestAsync()](/api/class-page.mdx#page-wait-for-request) 等待指定 URL 的請求：
+Wait for a request with the specified url using [Page.RunAndWaitForRequestAsync()](/api/class-page.mdx#page-wait-for-request):
 
 ```csharp
 var waitForRequestTask = page.WaitForRequestAsync("**/*logo*.png");
@@ -24,7 +24,7 @@ var request = await waitForRequestTask;
 Console.WriteLine(request.Url);
 ```
 
-等待彈出視窗：
+Wait for popup window:
 
 ```csharp
 var popup = await page.RunAndWaitForPopupAsync(async =>
@@ -34,9 +34,9 @@ var popup = await page.RunAndWaitForPopupAsync(async =>
 await popup.GotoAsync("https://wikipedia.org");
 ```
 
-## 添加/移除事件監聽器
+## Adding/removing event listener
 
-有時，事件會隨機發生，與其等待它們，不如處理它們。Playwright 支援傳統語言機制來訂閱和取消訂閱事件：
+Sometimes, events happen in random time and instead of waiting for them, they need to be handled. Playwright supports traditional language mechanisms for subscribing and unsubscribing from the events:
 
 ```csharp
 page.Request += (_, request) => Console.WriteLine("Request sent: " + request.Url);
@@ -47,7 +47,7 @@ void listener(object sender, IRequest request)
 page.RequestFinished += listener;
 await page.GotoAsync("https://wikipedia.org");
 
-// 移除先前添加的監聽器。
+// Remove previously added listener.
 page.RequestFinished -= listener;
 await page.GotoAsync("https://www.openstreetmap.org/");
 ```

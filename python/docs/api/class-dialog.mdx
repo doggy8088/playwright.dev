@@ -77,7 +77,7 @@ Dialogs are dismissed automatically, unless there is a [page.on("dialog")](/api/
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### accept {#dialog-accept}
 
@@ -85,19 +85,19 @@ Dialogs are dismissed automatically, unless there is a [page.on("dialog")](/api/
 
 Returns when the dialog has been accepted.
 
-**使用方式**
+**Usage**
 
 ```python
 dialog.accept()
 dialog.accept(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `prompt_text` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-accept-option-prompt-text"/><a href="#dialog-accept-option-prompt-text" class="list-anchor">#</a>
   
   A text to enter in prompt. Does not cause any effects if the dialog's `type` is not prompt. Optional.
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-accept-return"/><a href="#dialog-accept-return" class="list-anchor">#</a>
 
 ---
@@ -108,18 +108,18 @@ dialog.accept(**kwargs)
 
 Returns when the dialog has been dismissed.
 
-**使用方式**
+**Usage**
 
 ```python
 dialog.dismiss()
 ```
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-dismiss-return"/><a href="#dialog-dismiss-return" class="list-anchor">#</a>
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### default_value {#dialog-default-value}
 
@@ -127,13 +127,13 @@ dialog.dismiss()
 
 If dialog is prompt, returns default prompt value. Otherwise, returns empty string.
 
-**使用方式**
+**Usage**
 
 ```python
 dialog.default_value
 ```
 
-**傳回值**
+**Returns**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-default-value-return"/><a href="#dialog-default-value-return" class="list-anchor">#</a>
 
 ---
@@ -144,13 +144,13 @@ dialog.default_value
 
 A message displayed in the dialog.
 
-**使用方式**
+**Usage**
 
 ```python
 dialog.message
 ```
 
-**傳回值**
+**Returns**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-message-return"/><a href="#dialog-message-return" class="list-anchor">#</a>
 
 ---
@@ -161,13 +161,13 @@ dialog.message
 
 The page that initiated this dialog, if available.
 
-**使用方式**
+**Usage**
 
 ```python
 dialog.page
 ```
 
-**傳回值**
+**Returns**
 - [NoneType] | [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-page-return"/><a href="#dialog-page-return" class="list-anchor">#</a>
 
 ---
@@ -178,13 +178,13 @@ dialog.page
 
 Returns dialog's type, can be one of `alert`, `beforeunload`, `confirm` or `prompt`.
 
-**使用方式**
+**Usage**
 
 ```python
 dialog.type
 ```
 
-**傳回值**
+**Returns**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-type-return"/><a href="#dialog-type-return" class="list-anchor">#</a>
 
 

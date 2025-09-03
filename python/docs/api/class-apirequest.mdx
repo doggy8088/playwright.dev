@@ -13,7 +13,7 @@ Exposes API that can be used for the Web API testing. This class is used for cre
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### new_context {#api-request-new-context}
 
@@ -21,14 +21,14 @@ Exposes API that can be used for the Web API testing. This class is used for cre
 
 Creates new instances of [APIRequestContext].
 
-**使用方式**
+**Usage**
 
 ```python
 api_request.new_context()
 api_request.new_context(**kwargs)
 ```
 
-**參數**
+**Arguments**
 - `base_url` [str] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-option-base-url"/><a href="#api-request-new-context-option-base-url" class="list-anchor">#</a>
   
   Methods like [api_request_context.get()](/api/class-apirequestcontext.mdx#api-request-context-get) take the base URL into consideration by using the [`URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor for building the corresponding URL. Examples:
@@ -164,7 +164,7 @@ api_request.new_context(**kwargs)
   
   Specific user agent to use in this context.
 
-**傳回值**
+**Returns**
 - [APIRequestContext]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-request-new-context-return"/><a href="#api-request-new-context-return" class="list-anchor">#</a>
 
 

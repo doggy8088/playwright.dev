@@ -1,33 +1,33 @@
 ---
 id: running-tests
-title: "執行和偵錯測試"
+title: "Running and debugging tests"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-您可以執行單一測試、一組測試或所有測試。測試可以在不同瀏覽器上執行。測試預設以無頭模式執行，意即在執行測試時不會開啟瀏覽器視窗，結果顯示在終端機中。您可以使用 `headless` 測試執行參數在有頭模式下執行測試。
+You can run a single test, a set of tests or all tests. Tests can be run on different browsers. By default, tests are run in a headless manner, meaning no browser window will be opened while running the tests and results will be seen in the terminal. If you prefer, you can run your tests in headed mode by using the `headless` test run parameter.
 
-**您將學習**
-- [如何執行測試](#running-tests)
-- [如何偵錯測試](#debugging-tests)
+**You will learn**
+- [How to run tests](#running-tests)
+- [How to debug tests](#debugging-tests)
 
-## 執行測試
+## Running tests
 
-### 執行所有測試
+### Run all tests
 
-使用以下指令執行所有測試。
+Use the following command to run all tests.
 
 ```bash
 dotnet test
 ```
 
-### 在有頭模式下執行測試
+### Run tests in headed mode
 
-使用以下指令在有頭模式下執行測試，為每個測試開啟瀏覽器視窗。
+Use the following command to run your tests in headed mode opening a browser window for each test.
 
 <Tabs
   groupId="bash-flavor"
@@ -63,9 +63,9 @@ dotnet test
 </TabItem>
 </Tabs>
 
-### 在不同瀏覽器上執行測試：瀏覽器環境
+### Run tests on different browsers: Browser env
 
-透過 `BROWSER` 環境變數指定您想要執行測試的瀏覽器。
+Specify which browser you would like to run your tests on via the `BROWSER` environment variable.
 
 <Tabs
   groupId="bash-flavor"
@@ -101,15 +101,15 @@ dotnet test
 </TabItem>
 </Tabs>
 
-### 在不同瀏覽器上執行測試：啟動組態設定
+### Run tests on different browsers: launch configuration
 
-透過調整啟動組態設定選項指定您想要執行測試的瀏覽器：
+Specify which browser you would like to run your tests on by adjusting the launch configuration options:
 
 ```bash
 dotnet test -- Playwright.BrowserName=webkit
 ```
 
-要在多個瀏覽器或組態設定上執行測試，您需要多次呼叫 `dotnet test` 指令。然後您可以指定 `BROWSER` 環境變數或透過 runsettings 檔案設定 `Playwright.BrowserName`：
+To run your test on multiple browsers or configurations, you need to invoke the `dotnet test` command multiple times. There you can then either specify the `BROWSER` environment variable or set the `Playwright.BrowserName` via the runsettings file:
 
 ```bash
 dotnet test --settings:chromium.runsettings
@@ -126,29 +126,29 @@ dotnet test --settings:webkit.runsettings
   </RunSettings>
 ```
 
-更多資訊請參閱 Microsoft 文件中的[選擇性單元測試](https://docs.microsoft.com/en-us/dotnet/core/testing/selective-unit-tests?pivots=mstest)。
+For more information see [selective unit tests](https://docs.microsoft.com/en-us/dotnet/core/testing/selective-unit-tests?pivots=mstest) in the Microsoft docs.
 
-### 執行特定測試
+### Run specific tests
 
-要執行單個測試文件，請使用篩選器旗標後接您想要執行的測試類別名稱。
+To run a single test file, use the filter flag followed by the class name of the test you want to run.
 
 ```bash
 dotnet test --filter "ExampleTest"
 ```
 
-要執行一組測試文件，請使用篩選器旗標後接您想要執行的測試類別名稱。
+To run a set of test files, use the filter flag followed by the class names of the tests you want to run.
 
 ```bash
 dotnet test --filter "ExampleTest1|ExampleTest2"
 ```
 
-要執行具有特定標題的測試，請使用篩選器旗標後接 *Name~* 和測試標題。
+To run a test with a specific title use the filter flag followed by *Name~* and the title of the test.
 
 ```bash
 dotnet test --filter "Name~GetStartedLink"
 ```
 
-### 使用多個工作程序執行測試：
+### Run tests with multiple workers:
 
 <Tabs groupId="test-runners" defaultValue="mstest" values={[ {label: 'MSTest', value: 'mstest'}, {label: 'NUnit', value: 'nunit'}, {label: 'xUnit', value: 'xunit'}, {label: 'xUnit v3', value: 'xunit-v3'}, ] }>
 
@@ -174,11 +174,11 @@ dotnet test -- MSTest.Parallelize.Workers=5
 dotnet test -- xUnit.MaxParallelThreads=5
 ```
 
-更多關於使用 xUnit 平行執行測試的資訊請參閱[此處](https://xunit.net/docs/running-tests-in-parallel.html)。
+See [here](https://xunit.net/docs/running-tests-in-parallel.html) for more information to run tests in parallel with xUnit.
 
 :::note
 
-我們建議使用 xUnit 2.8+ 版本，它預設使用[`conservative` 平行化演算法](https://xunit.net/docs/running-tests-in-parallel.html#algorithms)。
+We recommend xUnit 2.8+ which uses the [`conservative` parallelism algorithm](https://xunit.net/docs/running-tests-in-parallel.html#algorithms) by default.
 :::
 
 </TabItem>
@@ -189,20 +189,20 @@ dotnet test -- xUnit.MaxParallelThreads=5
 dotnet test -- xUnit.MaxParallelThreads=5
 ```
 
-更多關於使用 xUnit v3 平行執行測試的資訊請參閱[此處](https://xunit.net/docs/running-tests-in-parallel.html)。
+See [here](https://xunit.net/docs/running-tests-in-parallel.html) for more information to run tests in parallel with xUnit v3.
 
 :::note
 
-xUnit v3 預設使用[`conservative` 平行化演算法](https://xunit.net/docs/running-tests-in-parallel.html#algorithms)。
+xUnit v3 uses the [`conservative` parallelism algorithm](https://xunit.net/docs/running-tests-in-parallel.html#algorithms) by default.
 :::
 
 </TabItem>
 
 </Tabs>
 
-## 偵錯測試
+## Debugging Tests
 
-由於 Playwright 在 .NET 中執行，您可以使用自己選擇的偵錯器進行偵錯，例如 Visual Studio Code 或 Visual Studio。Playwright 附帶 Playwright Inspector，讓您能夠逐步執行 Playwright API 呼叫、查看偵錯記錄檔並探索[定位器](./locators.mdx)。
+Since Playwright runs in .NET, you can debug it with your debugger of choice in e.g. Visual Studio Code or Visual Studio. Playwright comes with the Playwright Inspector which allows you to step through Playwright API calls, see their debug logs and explore [locators](./locators.mdx).
 
 <Tabs
   groupId="bash-flavor"
@@ -240,13 +240,13 @@ dotnet test
 
 ![debugging tests with playwright inspector](https://github.com/microsoft/playwright/assets/13063165/a1e758d3-d379-414f-be0b-7339f12bb635)
 
-查看我們的[偵錯指南](./debug.mdx)以了解更多關於 [Playwright Inspector](./debug.mdx#playwright-inspector) 以及使用[瀏覽器開發者工具](./debug.mdx#browser-developer-tools)進行偵錯的資訊。
+Check out our [debugging guide](./debug.mdx) to learn more about the [Playwright Inspector](./debug.mdx#playwright-inspector) as well as debugging with [Browser Developer tools](./debug.mdx#browser-developer-tools).
 
-## 接下來是什麼
-- [使用程式碼產生器生成測試](./codegen-intro.mdx)
-- [查看測試的追蹤](./trace-viewer-intro.mdx)
-- [在 CI 上執行測試](./ci-intro.mdx)
-- [了解更多關於 MSTest、NUnit、xUnit 和 xUnit v3 基礎類別](./test-runners.mdx)
+## What's Next
+- [Generate tests with Codegen](./codegen-intro.mdx)
+- [See a trace of your tests](./trace-viewer-intro.mdx)
+- [Run tests on CI](./ci-intro.mdx)
+- [Learn more about the MSTest, NUnit, xUnit and xUnit v3 base classes](./test-runners.mdx)
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

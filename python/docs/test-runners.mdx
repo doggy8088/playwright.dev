@@ -1,25 +1,25 @@
 ---
 id: test-runners
-title: "Pytest 外掛參考"
+title: "Pytest Plugin Reference"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 提供了一個 [Pytest](https://docs.pytest.org/en/stable/) 外掛來撰寫端到端測試。若要開始使用，請參閱[快速入門指南](./intro.mdx)。
+Playwright provides a [Pytest](https://docs.pytest.org/en/stable/) plugin to write end-to-end tests. To get started with it, refer to the [getting started guide](./intro.mdx).
 
-## 使用方法
+## Usage
 
-要執行您的測試，請使用 [Pytest](https://docs.pytest.org/en/stable/) CLI。
+To run your tests, use [Pytest](https://docs.pytest.org/en/stable/) CLI.
 
 ```bash
 pytest --browser webkit --headed
 ```
 
-如果您想要自動新增 CLI 參數而不用手動指定，您可以使用 [pytest.ini](https://docs.pytest.org/en/stable/reference.html#ini-options-ref) 檔案：
+If you want to add the CLI arguments automatically without specifying them, you can use the [pytest.ini](https://docs.pytest.org/en/stable/reference.html#ini-options-ref) file:
 
 ```ini
 # content of pytest.ini
@@ -28,23 +28,23 @@ pytest --browser webkit --headed
 addopts = --headed --browser firefox
 ```
 
-## CLI 參數
+## CLI arguments
 
-請注意，CLI 參數僅適用於預設的 `browser`、`context` 和 `page` 佈置。如果您使用 API 呼叫（如 [browser.new_context()](/api/class-browser.mdx#browser-new-context)）建立瀏覽器、情境或頁面，CLI 參數將不會套用。
-- `--headed`：以有頭模式執行測試（預設：無頭）。
-- `--browser`：在不同瀏覽器 `chromium`、`firefox` 或 `webkit` 中執行測試。可多次指定（預設：`chromium`）。
-- `--browser-channel` 要使用的[瀏覽器通道](./browsers.mdx)。
-- `--slowmo` 以指定的毫秒數減慢 Playwright 操作。對於觀察執行過程很有用（預設：0）。
-- `--device` 要模擬的[裝置](./emulation.mdx)。
-- `--output` 測試產生的工件目錄（預設：`test-results`）。
-- `--tracing` 是否為每個測試記錄[追蹤](./trace-viewer.mdx)。`on`、`off` 或 `retain-on-failure`（預設：`off`）。
-- `--video` 是否為每個測試記錄影片。`on`、`off` 或 `retain-on-failure`（預設：`off`）。
-- `--screenshot` 是否在每個測試後自動擷取螢幕截圖。`on`、`off` 或 `only-on-failure`（預設：`off`）。
-- `--full-page-screenshot` 是否在失敗時擷取完整頁面螢幕截圖。預設情況下，只會擷取檢視區。需要啟用 `--screenshot`（預設：`off`）。
+Note that CLI arguments are only applied to the default `browser`, `context` and `page` fixtures. If you create a browser, a context or a page with the API call like [browser.new_context()](/api/class-browser.mdx#browser-new-context), the CLI arguments are not applied.
+- `--headed`: Run tests in headed mode (default: headless).
+- `--browser`: Run tests in a different browser `chromium`, `firefox`, or `webkit`. It can be specified multiple times (default: `chromium`).
+- `--browser-channel` [Browser channel](./browsers.mdx) to be used.
+- `--slowmo` Slows down Playwright operations by the specified amount of milliseconds. Useful so that you can see what is going on (default: 0).
+- `--device` [Device](./emulation.mdx) to be emulated.
+- `--output` Directory for artifacts produced by tests (default: `test-results`).
+- `--tracing` Whether to record a [trace](./trace-viewer.mdx) for each test. `on`, `off`, or `retain-on-failure` (default: `off`).
+- `--video` Whether to record video for each test. `on`, `off`, or `retain-on-failure` (default: `off`).
+- `--screenshot` Whether to automatically capture a screenshot after each test. `on`, `off`, or `only-on-failure` (default: `off`).
+- `--full-page-screenshot` Whether to take a full page screenshot on failure. By default, only the viewport is captured. Requires `--screenshot` to be enabled (default: `off`).
 
-## 佈置
+## Fixtures
 
-此外掛會設定 Playwright 專用的 [pytest 佈置](https://docs.pytest.org/en/latest/fixture.html)。要使用這些佈置，請在測試函式中使用佈置名稱作為參數。
+This plugin configures Playwright-specific [fixtures for pytest](https://docs.pytest.org/en/latest/fixture.html). To use these fixtures, use the fixture name as an argument to the test function.
 
 ```py
 def test_my_app_is_working(fixture_name):
@@ -53,24 +53,24 @@ def test_my_app_is_working(fixture_name):
     # ...
 ```
 
-**函式範圍**：這些佈置會在測試函式中被請求時建立，並在測試結束時銷毀。
-- `context`：測試的新[瀏覽器情境](./browser-contexts)。
-- `page`：測試的新[瀏覽器頁面](./pages)。
-- `new_context`：允許為測試建立不同的[瀏覽器情境](./browser-contexts)。對多使用者場景很有用。接受與 [browser.new_context()](/api/class-browser.mdx#browser-new-context) 相同的參數。
+**Function scope**: These fixtures are created when requested in a test function and destroyed when the test ends.
+- `context`: New [browser context](./browser-contexts) for a test.
+- `page`: New [browser page](./pages) for a test.
+- `new_context`: Allows creating different [browser contexts](./browser-contexts) for a test. Useful for multi-user scenarios. Accepts the same parameters as [browser.new_context()](/api/class-browser.mdx#browser-new-context).
 
-**工作階段範圍**：這些佈置會在測試函式中被請求時建立，並在所有測試結束時銷毀。
-- `playwright`：[Playwright](./api/class-playwright) 實例。
-- `browser_type`：目前瀏覽器的 [BrowserType](./api/class-browsertype) 實例。
-- `browser`：Playwright 啟動的 [Browser](./api/class-browser) 實例。
-- `browser_name`：瀏覽器名稱字串。
-- `browser_channel`：瀏覽器通道字串。
-- `is_chromium`、`is_webkit`、`is_firefox`：各自瀏覽器類型的布林值。
+**Session scope**: These fixtures are created when requested in a test function and destroyed when all tests end.
+- `playwright`: [Playwright](./api/class-playwright) instance.
+- `browser_type`: [BrowserType](./api/class-browsertype) instance of the current browser.
+- `browser`: [Browser](./api/class-browser) instance launched by Playwright.
+- `browser_name`: Browser name as string.
+- `browser_channel`: Browser channel as string.
+- `is_chromium`, `is_webkit`, `is_firefox`: Booleans for the respective browser types.
 
-**自訂佈置選項**：對於 `browser` 和 `context` 佈置，請使用以下佈置來定義自訂啟動選項。
-- `browser_type_launch_args`：覆寫 [browser_type.launch()](/api/class-browsertype.mdx#browser-type-launch) 的啟動參數。應該回傳一個 Dict。
-- `browser_context_args`：覆寫 [browser.new_context()](/api/class-browser.mdx#browser-new-context) 的選項。應該回傳一個 Dict。
+**Customizing fixture options**: For `browser` and `context` fixtures, use the following fixtures to define custom launch options.
+- `browser_type_launch_args`: Override launch arguments for [browser_type.launch()](/api/class-browsertype.mdx#browser-type-launch). It should return a Dict.
+- `browser_context_args`: Override the options for [browser.new_context()](/api/class-browser.mdx#browser-new-context). It should return a Dict.
 
-您也可以使用 `browser_context_args` 標記來覆寫單一測試的情境選項（[browser.new_context()](/api/class-browser.mdx#browser-new-context)）：
+Its also possible to override the context options ([browser.new_context()](/api/class-browser.mdx#browser-new-context)) for a single test by using the `browser_context_args` marker:
 
 ```python
 import pytest
@@ -81,9 +81,9 @@ def test_browser_context_args(page):
     assert page.evaluate("window.navigator.languages") == ["de-DE"]
 ```
 
-## 平行化：同時執行多個測試
+## Parallelism: Running Multiple Tests at Once
 
-如果您的測試在具有大量 CPU 的機器上執行，您可以使用 [`pytest-xdist`](https://pypi.org/project/pytest-xdist/) 來同時執行多個測試，以加快整體執行時間：
+If your tests are running on a machine with a lot of CPUs, you can speed up the overall execution time of your test suite by using [`pytest-xdist`](https://pypi.org/project/pytest-xdist/) to run multiple tests at once:
 
 ```bash
 # install dependency
@@ -92,13 +92,13 @@ pip install pytest-xdist
 pytest --numprocesses auto
 ```
 
-根據硬體和測試的性質，您可以將 `numprocesses` 設定為從 `2` 到機器上 CPU 數量的任何值。如果設定過高，您可能會注意到意外的行為。
+Depending on the hardware and nature of your tests, you can set `numprocesses` to be anywhere from `2` to the number of CPUs on the machine. If set too high, you may notice unexpected behavior.
 
-請參閱[執行測試](./running-tests.mdx)以取得 `pytest` 選項的一般資訊。
+See [Running Tests](./running-tests.mdx) for general information on `pytest` options.
 
-## 範例
+## Examples
 
-### 設定自動完成的型別
+### Configure typings for auto-completion
 
 ```py title="test_my_application.py"
 from playwright.sync_api import Page
@@ -108,11 +108,11 @@ def test_visit_admin_dashboard(page: Page):
     # ...
 ```
 
-如果您使用 VSCode 搭配 Pylance，啟用 `python.testing.pytestEnabled` 設定可以推斷這些型別，因此您不需要型別註解。
+If you're using VSCode with Pylance, these types can be inferred by enabling the `python.testing.pytestEnabled` setting so you don't need the type annotation.
 
-### 使用多個情境
+### Using multiple contexts
 
-為了模擬多個使用者，您可以建立多個 [`BrowserContext`](./browser-contexts) 實例。
+In order to simulate multiple users, you can create multiple [`BrowserContext`](./browser-contexts) instances.
 
 ```py title="test_my_application.py"
 from playwright.sync_api import Page, BrowserContext
@@ -125,7 +125,7 @@ def test_foo(page: Page, new_context: CreateContextCallback) -> None:
     # page and page2 are in different contexts
 ```
 
-### 依瀏覽器跳過測試
+### Skip test by browser
 
 ```py title="test_my_application.py"
 import pytest
@@ -136,7 +136,7 @@ def test_visit_example(page):
     # ...
 ```
 
-### 在特定瀏覽器上執行
+### Run on a specific browser
 
 ```py title="conftest.py"
 import pytest
@@ -147,7 +147,7 @@ def test_visit_example(page):
     # ...
 ```
 
-### 使用自訂瀏覽器通道，如 Google Chrome 或 Microsoft Edge
+### Run with a custom browser channel like Google Chrome or Microsoft Edge
 
 ```bash
 pytest --browser-channel chrome
@@ -158,9 +158,9 @@ def test_example(page):
     page.goto("https://example.com")
 ```
 
-### 設定 base-url
+### Configure base-url
 
-使用 `base-url` 參數啟動 Pytest。會使用 [`pytest-base-url`](https://github.com/pytest-dev/pytest-base-url) 外掛，讓您可以從組態設定、CLI 參數或作為佈置來設定基底 URL。
+Start Pytest with the `base-url` argument. The [`pytest-base-url`](https://github.com/pytest-dev/pytest-base-url) plugin is used for that which allows you to set the base url from the config, CLI arg or as a fixture.
 
 ```bash
 pytest --base-url http://localhost:8080
@@ -172,7 +172,7 @@ def test_visit_example(page):
     # -> Will result in http://localhost:8080/admin
 ```
 
-### 忽略 HTTPS 錯誤
+### Ignore HTTPS errors
 
 ```py title="conftest.py"
 import pytest
@@ -185,7 +185,7 @@ def browser_context_args(browser_context_args):
     }
 ```
 
-### 使用自訂檢視區大小
+### Use custom viewport size
 
 ```py title="conftest.py"
 import pytest
@@ -201,7 +201,7 @@ def browser_context_args(browser_context_args):
     }
 ```
 
-### 裝置模擬 / BrowserContext 選項覆寫
+### Device emulation / BrowserContext option overrides
 
 ```py title="conftest.py"
 import pytest
@@ -215,11 +215,11 @@ def browser_context_args(browser_context_args, playwright):
     }
 ```
 
-或透過 CLI `--device="iPhone 11 Pro"`
+Or via the CLI `--device="iPhone 11 Pro"`
 
-### 搭配 `unittest.TestCase` 使用
+### Using with `unittest.TestCase`
 
-請參閱以下範例以搭配 `unittest.TestCase` 使用。這有一個限制，即只能指定單一瀏覽器，當指定多個瀏覽器時不會產生多個瀏覽器的矩陣。
+See the following example for using it with `unittest.TestCase`. This has a limitation, that only a single browser can be specified and no matrix of multiple browsers gets generated when specifying multiple.
 
 ```py
 import pytest
@@ -239,11 +239,11 @@ class MyTest(unittest.TestCase):
         assert self.page.evaluate("1 + 1") == 2
 ```
 
-## 偵錯
+## Debugging
 
-### 搭配 pdb 使用
+### Use with pdb
 
-在您的測試程式碼中使用 `breakpoint()` 陳述式來暫停執行並取得 [pdb](https://docs.python.org/3/library/pdb.html) REPL。
+Use the `breakpoint()` statement in your test code to pause execution and get a [pdb](https://docs.python.org/3/library/pdb.html) REPL.
 
 ```py
 def test_bing_is_working(page):
@@ -252,15 +252,15 @@ def test_bing_is_working(page):
     # ...
 ```
 
-## 部署到 CI
+## Deploy to CI
 
-請參閱[CI 提供者指南](./ci.mdx)以部署您的測試到 CI/CD。
+See the [guides for CI providers](./ci.mdx) to deploy your tests to CI/CD.
 
-## 非同步佈置
+## Async Fixtures
 
-要使用非同步佈置，請安裝 [`pytest-playwright-asyncio`](https://pypi.org/project/pytest-playwright-asyncio/)。
+To use async fixtures, install [`pytest-playwright-asyncio`](https://pypi.org/project/pytest-playwright-asyncio/).
 
-確保您使用 `pytest-asyncio>=0.26.0` 並在您的組態設定（`pytest.ini/pyproject.toml/setup.cfg`）中設定 [`asyncio_default_test_loop_scope = session`](https://pytest-asyncio.readthedocs.io/en/v0.26.0/how-to-guides/change_default_test_loop.html)。
+Ensure you are using `pytest-asyncio>=0.26.0` and set [`asyncio_default_test_loop_scope = session`](https://pytest-asyncio.readthedocs.io/en/v0.26.0/how-to-guides/change_default_test_loop.html) in your configuration (`pytest.ini/pyproject.toml/setup.cfg`).
 
 ```python
 import pytest

@@ -1,21 +1,21 @@
 ---
 id: intro
-title: "安裝"
+title: "Installation"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 專為滿足端對端測試需求而建立。Playwright 支援所有現代渲染引擎，包括 Chromium、WebKit 和 Firefox。在 Windows、Linux 和 macOS 上測試，無論是本機或在 CI 上，支援無頭或有頭模式，並提供原生行動裝置模擬。
+Playwright was created specifically to accommodate the needs of end-to-end testing. Playwright supports all modern rendering engines including Chromium, WebKit, and Firefox. Test on Windows, Linux, and macOS, locally or on CI, headless or headed with native mobile emulation.
 
-Playwright 以一組 [Maven](https://maven.apache.org/what-is-maven.html) 模組分發。使用它最簡單的方法是向專案的 `pom.xml` 加入一個相依項目，如下所述。如果您不熟悉 Maven，請參閱其[文件](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
+Playwright is distributed as a set of [Maven](https://maven.apache.org/what-is-maven.html) modules. The easiest way to use it is to add one dependency to your project's `pom.xml` as described below. If you're not familiar with Maven please refer to its [documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 
-## 使用方式
+## Usage
 
-透過安裝 Playwright 並執行範例檔案來開始使用，親自體驗其功能。
+Get started by installing Playwright and running the example file to see it in action.
 
 <Tabs defaultValue="java" values={[ {label: 'App.java', value: 'java'}, {label: 'pom.xml', value: 'pom'} ] }>
 
@@ -83,17 +83,17 @@ public class App {
 
 </Tabs>
 
-使用上面的 Example.java 和 pom.xml，編譯並執行您的新程式：
+With the Example.java and pom.xml above, compile and execute your new program as follows:
 
 ```bash
 mvn compile exec:java -D exec.mainClass="org.example.App"
 ```
 
-執行此指令會下載 Playwright 套件並安裝 Chromium、Firefox 和 WebKit 的瀏覽器二進制檔案。若要修改此行為，請參閱[安裝參數](./browsers.mdx#install-browsers)。
+Running it downloads the Playwright package and installs browser binaries for Chromium, Firefox and WebKit. To modify this behavior see [installation parameters](./browsers.mdx#install-browsers).
 
-## 第一個腳本
+## First script
 
-在我們的第一個腳本中，我們將導航到 `playwright.dev` 並在 WebKit 中截取螢幕截圖。
+In our first script, we will navigate to `playwright.dev` and take a screenshot in WebKit.
 
 ```java
 package org.example;
@@ -113,31 +113,31 @@ public class App {
 }
 ```
 
-預設情況下，Playwright 以無頭模式執行瀏覽器。若要查看瀏覽器 UI，請將 [setHeadless](/api/class-browsertype.mdx#browser-type-launch-option-headless) 選項設為 `false`。您也可以使用 [setSlowMo](/api/class-browsertype.mdx#browser-type-launch-option-slow-mo) 來降低執行速度。在偵錯工具[章節](./debug.mdx)中了解更多。
+By default, Playwright runs the browsers in headless mode. To see the browser UI, [setHeadless](/api/class-browsertype.mdx#browser-type-launch-option-headless) option to `false`. You can also use [setSlowMo](/api/class-browsertype.mdx#browser-type-launch-option-slow-mo) to slow down execution. Learn more in the debugging tools [section](./debug.mdx).
 
 ```java
 playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
 ```
 
-## 執行範例腳本
+## Running the Example script
 
 ```bash
 mvn compile exec:java -D exec.mainClass="org.example.App"
 ```
 
-預設情況下，使用 Playwright 啟動的瀏覽器以無頭模式執行，這意味著執行腳本時不會開啟瀏覽器 UI。若要改變此行為，您可以在啟動瀏覽器時傳遞 `new BrowserType.LaunchOptions().setHeadless(false)`。
+By default browsers launched with Playwright run headless, meaning no browser UI will open up when running the script. To change that you can pass `new BrowserType.LaunchOptions().setHeadless(false)` when launching the browser.
 
-## 系統需求
-- Java 8 或更高版本。
-- Windows 11+、Windows Server 2019+ 或適用於 Linux 的 Windows 子系統（WSL）。
-- macOS 14 Ventura 或更新版本。
-- Debian 12、Debian 13、Ubuntu 22.04、Ubuntu 24.04，在 x86-64 和 arm64 架構上。
+## System requirements
+- Java 8 or higher.
+- Windows 11+, Windows Server 2019+ or Windows Subsystem for Linux (WSL).
+- macOS 14 Ventura, or later.
+- Debian 12, Debian 13, Ubuntu 22.04, Ubuntu 24.04, on x86-64 and arm64 architecture.
 
-## 下一步
-- [使用 Web 優先斷言、頁面佈置和定位器撰寫測試](./writing-tests.mdx)
-- [執行單一測試、多個測試、有頭模式](./running-tests.mdx)
-- [使用 Codegen 產生測試](./codegen.mdx)
-- [查看您測試的追蹤](./trace-viewer-intro.mdx)
+## What's next
+- [Write tests using web first assertions, page fixtures and locators](./writing-tests.mdx)
+- [Run single test, multiple tests, headed mode](./running-tests.mdx)
+- [Generate tests with Codegen](./codegen.mdx)
+- [See a trace of your tests](./trace-viewer-intro.mdx)
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

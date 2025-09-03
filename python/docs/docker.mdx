@@ -7,46 +7,46 @@ import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-[Dockerfile.noble] 可用於在 Docker 環境中執行 Playwright 腳本。此映像檔包含 [Playwright 瀏覽器](./browsers.mdx#install-browsers)與[瀏覽器系統相依性](./browsers.mdx#install-system-dependencies)。Playwright 套件/相依性並未包含在映像檔中，需要另外安裝。
+[Dockerfile.noble] can be used to run Playwright scripts in Docker environment. This image includes the [Playwright browsers](./browsers.mdx#install-browsers) and [browser system dependencies](./browsers.mdx#install-system-dependencies). The Playwright package/dependency is not included in the image and should be installed separately.
 
-## 使用方式
+## Usage
 
-此 Docker 映像檔已發布至 [Microsoft Artifact Registry]。
+This Docker image is published to [Microsoft Artifact Registry].
 
 :::info
 
-此 Docker 映像檔僅供測試與開發用途使用。不建議使用此 Docker 映像檔造訪不受信任的網站。
+This Docker image is intended to be used for testing and development purposes only. It is not recommended to use this Docker image to visit untrusted websites.
 :::
 
-### 拉取映像檔
+### Pull the image
 
 ```bash
 docker pull mcr.microsoft.com/playwright/python:v1.55.0-noble
 ```
 
-### 執行映像檔
+### Run the image
 
-預設情況下，Docker 映像檔會使用 `root` 使用者執行瀏覽器。這會停用 Chromium 沙盒，因為 root 無法使用沙盒。如果您執行受信任的程式碼（例如端對端測試）並想要避免管理不同使用者的麻煩，那麼 root 使用者可能沒問題。對於網頁爬取或抓取，我們建議在 Docker 容器內建立獨立的使用者並使用 seccomp 設定檔。
+By default, the Docker image will use the `root` user to run the browsers. This will disable the Chromium sandbox which is not available with root. If you run trusted code (e.g. End-to-end tests) and want to avoid the hassle of managing separate user then the root user may be fine. For web scraping or crawling, we recommend to create a separate user inside the Docker container and use the seccomp profile.
 
-#### 端對端測試
+#### End-to-end tests
 
-在受信任的網站上，您可以避免建立獨立使用者並使用 root，因為您信任將在瀏覽器上執行的程式碼。
+On trusted websites, you can avoid creating a separate user and use root for it since you trust the code which will run on the browsers.
 
 ```bash
 docker run -it --rm --ipc=host mcr.microsoft.com/playwright/python:v1.55.0-noble /bin/bash
 ```
 
-#### 爬取和抓取
+#### Crawling and scraping
 
-在不受信任的網站上，建議使用獨立使用者搭配 seccomp 設定檔來啟動瀏覽器。在容器內部或如果您使用 Docker 映像檔作為基礎映像檔，您必須使用 `adduser` 來建立使用者。
+On untrusted websites, it's recommended to use a separate user for launching the browsers in combination with the seccomp profile. Inside the container or if you are using the Docker image as a base image you have to use `adduser` for it.
 
 ```bash
 docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json mcr.microsoft.com/playwright/python:v1.55.0-noble /bin/bash
 ```
 
-[`seccomp_profile.json`](https://github.com/microsoft/playwright/blob/main/utils/docker/seccomp_profile.json) 是執行 Chromium 沙盒所需的檔案。這是具有額外使用者命名空間複製權限的[預設 Docker seccomp 設定檔](https://github.com/docker/engine/blob/d0d99b04cf6e00ed3fc27e81fc3d94e7eda70af3/profiles/seccomp/default.json)：
+[`seccomp_profile.json`](https://github.com/microsoft/playwright/blob/main/utils/docker/seccomp_profile.json) is needed to run Chromium with sandbox. This is a [default Docker seccomp profile](https://github.com/docker/engine/blob/d0d99b04cf6e00ed3fc27e81fc3d94e7eda70af3/profiles/seccomp/default.json) with extra user namespace cloning permissions:
 
 ```json
 {
@@ -63,30 +63,30 @@ docker run -it --rm --ipc=host --user pwuser --security-opt seccomp=seccomp_prof
 }
 ```
 
-### 建議的 Docker 配置
+### Recommended Docker Configuration
 
-在 Docker 中執行 Playwright 時，建議以下配置：
-1. **使用 [`--init`](https://docs.docker.com/reference/cli/docker/container/run/#init)** Docker 旗標建議避免對 PID=1 的行程進行特殊處理。這是僵屍行程的常見原因。
-1. **使用 `--ipc=host`** 在使用 Chromium 時建議使用。沒有此選項，Chromium 可能會耗盡記憶體並當機。在 [Docker 文件](https://docs.docker.com/reference/cli/docker/container/run/#ipc)中了解更多關於此選項的資訊。
-1. **如果在啟動 Chromium 時看到奇怪的錯誤**，在本機開發時嘗試使用 `docker run --cap-add=SYS_ADMIN` 執行您的容器。
+When running Playwright in Docker, the following configuration is recommended:
+1. **Using [`--init`](https://docs.docker.com/reference/cli/docker/container/run/#init)** Docker flag is recommended to avoid special treatment for processes with PID=1. This is a common reason for zombie processes.
+1. **Using `--ipc=host`** is recommended when using Chromium. Without it, Chromium can run out of memory and crash. Learn more about this option in [Docker docs](https://docs.docker.com/reference/cli/docker/container/run/#ipc).
+1. **If seeing weird errors when launching Chromium**, try running your container with `docker run --cap-add=SYS_ADMIN` when developing locally.
 
-### 在 CI 上使用
+### Using on CI
 
-請參閱我們的[持續整合指南](./ci.mdx)以獲取範例配置。
+See our [Continuous Integration guides](./ci.mdx) for sample configs.
 
-### 遠端連線
+### Remote Connection
 
-您可以在 Docker 中執行 Playwright Server，同時保持您的測試在主機系統或另一台機器上執行。這對於在不支援的 Linux 發行版或遠端執行場景中執行測試很有用。
+You can run Playwright Server in Docker while keeping your tests running on the host system or another machine. This is useful for running tests on unsupported Linux distributions or remote execution scenarios.
 
-#### 執行 Playwright Server
+#### Running the Playwright Server
 
-在 Docker 中啟動 Playwright Server：
+Start the Playwright Server in Docker:
 
 ```bash
-docker run -p 3000:3000 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.55.0-noble /bin/sh -c "npx -y playwright@1.54.0 run-server --port 3000 --host 0.0.0.0"
+docker run -p 3000:3000 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.55.0-noble /bin/sh -c "npx -y playwright@1.55.0 run-server --port 3000 --host 0.0.0.0"
 ```
 
-#### 連線到 Server
+#### Connecting to the Server
 
 <Tabs
   groupId="python-flavor"
@@ -118,48 +118,48 @@ async with async_playwright() as p:
 </TabItem>
 </Tabs>
 
-#### 網路配置
+#### Network Configuration
 
-如果您需要從 Docker 容器內部存取本機伺服器：
+If you need to access local servers from within the Docker container:
 
 ```bash
-docker run --add-host=hostmachine:host-gateway -p 3000:3000 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.55.0-noble /bin/sh -c "npx -y playwright@1.54.0 run-server --port 3000 --host 0.0.0.0"
+docker run --add-host=hostmachine:host-gateway -p 3000:3000 --rm --init -it --workdir /home/pwuser --user pwuser mcr.microsoft.com/playwright:v1.55.0-noble /bin/sh -c "npx -y playwright@1.55.0 run-server --port 3000 --host 0.0.0.0"
 ```
 
-這使 `hostmachine` 指向主機的 localhost。當存取本機伺服器時，您的測試應該使用 `hostmachine` 而不是 `localhost`。
+This makes `hostmachine` point to the host's localhost. Your tests should use `hostmachine` instead of `localhost` when accessing local servers.
 
 :::note
 
-當遠端執行測試時，請確保您測試中的 Playwright 版本與 Docker 容器中執行的版本相符。
+When running tests remotely, ensure the Playwright version in your tests matches the version running in the Docker container.
 :::
 
-## 映像檔標籤
+## Image tags
 
-請參閱[所有可用的映像檔標籤]。
+See [all available image tags].
 
-我們目前發布具有以下標籤的映像檔：
-- `:v1.55.0` - 基於 Ubuntu 24.04 LTS (Noble Numbat) 的 Playwright v1.55.0 發行版 docker 映像檔。
-- `:v1.55.0-noble` - 基於 Ubuntu 24.04 LTS (Noble Numbat) 的 Playwright v1.55.0 發行版 docker 映像檔。
-- `:v1.55.0-jammy` - 基於 Ubuntu 22.04 LTS (Jammy Jellyfish) 的 Playwright v1.55.0 發行版 docker 映像檔。
+We currently publish images with the following tags:
+- `:v1.55.0` - Playwright v1.55.0 release docker image based on Ubuntu 24.04 LTS (Noble Numbat).
+- `:v1.55.0-noble` - Playwright v1.55.0 release docker image based on Ubuntu 24.04 LTS (Noble Numbat).
+- `:v1.55.0-jammy` - Playwright v1.55.0 release docker image based on Ubuntu 22.04 LTS (Jammy Jellyfish).
 
 :::note
 
-建議盡可能總是將您的 Docker 映像檔固定到特定版本。如果您 Docker 映像檔中的 Playwright 版本與您專案/測試中的版本不符，Playwright 將無法找到瀏覽器執行檔。
+It is recommended to always pin your Docker image to a specific version if possible. If the Playwright version in your Docker image does not match the version in your project/tests, Playwright will be unable to locate browser executables.
 :::
 
-### 基礎映像檔
+### Base images
 
-我們目前基於以下 [Ubuntu](https://hub.docker.com/_/ubuntu) 版本發布映像檔：
-- **Ubuntu 24.04 LTS** (Noble Numbat)，映像檔標籤包含 `noble`
-- **Ubuntu 22.04 LTS** (Jammy Jellyfish)，映像檔標籤包含 `jammy`
+We currently publish images based on the following [Ubuntu](https://hub.docker.com/_/ubuntu) versions:
+- **Ubuntu 24.04 LTS** (Noble Numbat), image tags include `noble`
+- **Ubuntu 22.04 LTS** (Jammy Jellyfish), image tags include `jammy`
 
 #### Alpine
 
-Firefox 與 WebKit 的瀏覽器建置是為 [glibc](https://en.wikipedia.org/wiki/Glibc) 函式庫建置的。不支援 Alpine Linux 和其他基於 [musl](https://en.wikipedia.org/wiki/Musl) 標準函式庫的發行版。
+Browser builds for Firefox and WebKit are built for the [glibc](https://en.wikipedia.org/wiki/Glibc) library. Alpine Linux and other distributions that are based on the [musl](https://en.wikipedia.org/wiki/Musl) standard library are not supported.
 
-## 建立您自己的映像檔
+## Build your own image
 
-要在 Docker 內部執行 Playwright，您需要安裝 Python、[Playwright 瀏覽器](./browsers.mdx#install-browsers)與[瀏覽器系統相依性](./browsers.mdx#install-system-dependencies)。請參閱以下 Dockerfile：
+To run Playwright inside Docker, you need to have Python, [Playwright browsers](./browsers.mdx#install-browsers) and [browser system dependencies](./browsers.mdx#install-system-dependencies) installed. See the following Dockerfile:
 
 ```Dockerfile
 FROM python:3.12-bookworm

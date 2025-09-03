@@ -15,7 +15,7 @@ Learn more about [networking](../network.mdx).
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### abort {#route-abort}
 
@@ -23,14 +23,14 @@ Learn more about [networking](../network.mdx).
 
 Aborts the route's request.
 
-**使用方式**
+**Usage**
 
 ```java
 Route.abort();
 Route.abort(errorCode);
 ```
 
-**參數**
+**Arguments**
 - `errorCode` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-abort-option-error-code"/><a href="#route-abort-option-error-code" class="list-anchor">#</a>
   
   Optional error code. Defaults to `failed`, could be one of the following:
@@ -49,7 +49,7 @@ Route.abort(errorCode);
   * `'timedout'` - An operation timed out.
   * `'failed'` - A generic failure occurred.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-abort-return"/><a href="#route-abort-return" class="list-anchor">#</a>
 
 ---
@@ -60,7 +60,7 @@ Route.abort(errorCode);
 
 Continues route's request with optional overrides. The method is similar to [Route.resume()](/api/class-route.mdx#route-continue) with the difference that other matching handlers will be invoked before sending the request.
 
-**使用方式**
+**Usage**
 
 When several routes match the given pattern, they run in the order opposite to their registration. That way the last registered route can always override all the previous ones. In the example below, request will be handled by the bottom-most handler first, then it'll fall back to the previous one and in the end will be aborted by the first registered route.
 
@@ -119,7 +119,7 @@ page.route("**/*", route -> {
 
 Use [Route.resume()](/api/class-route.mdx#route-continue) to immediately send the request to the network, other matching handlers won't be invoked in that case.
 
-**參數**
+**Arguments**
 - `options` `Route.FallbackOptions` *(optional)*
   - `setHeaders` [Map]&lt;[String], [String]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fallback-option-headers"/><a href="#route-fallback-option-headers" class="list-anchor">#</a>
     
@@ -134,7 +134,7 @@ Use [Route.resume()](/api/class-route.mdx#route-continue) to immediately send th
     
     If set changes the request URL. New URL must have same protocol as original one. Changing the URL won't affect the route matching, all the routes are matched using the original request URL.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fallback-return"/><a href="#route-fallback-return" class="list-anchor">#</a>
 
 ---
@@ -145,7 +145,7 @@ Use [Route.resume()](/api/class-route.mdx#route-continue) to immediately send th
 
 Performs the request and fetches result without fulfilling it, so that the response could be modified and then fulfilled.
 
-**使用方式**
+**Usage**
 
 ```java
 page.route("https://dog.ceo/api/breeds/list/all", route -> {
@@ -159,7 +159,7 @@ page.route("https://dog.ceo/api/breeds/list/all", route -> {
 });
 ```
 
-**參數**
+**Arguments**
 - `options` `Route.FetchOptions` *(optional)*
   - `setHeaders` [Map]&lt;[String], [String]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-option-headers"/><a href="#route-fetch-option-headers" class="list-anchor">#</a>
     
@@ -183,7 +183,7 @@ page.route("https://dog.ceo/api/breeds/list/all", route -> {
     
     If set changes the request URL. New URL must have same protocol as original one.
 
-**傳回值**
+**Returns**
 - [APIResponse]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fetch-return"/><a href="#route-fetch-return" class="list-anchor">#</a>
 
 **Details**
@@ -198,7 +198,7 @@ Note that [setHeaders](/api/class-route.mdx#route-fetch-option-headers) option w
 
 Fulfills route's request with given response.
 
-**使用方式**
+**Usage**
 
 An example of fulfilling all requests with 404 responses:
 
@@ -218,7 +218,7 @@ page.route("**/xhr_endpoint", route -> route.fulfill(
   new Route.FulfillOptions().setPath(Paths.get("mock_data.json"))));
 ```
 
-**參數**
+**Arguments**
 - `options` `Route.FulfillOptions` *(optional)*
   - `setBody` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fulfill-option-body"/><a href="#route-fulfill-option-body" class="list-anchor">#</a>
     
@@ -242,7 +242,7 @@ page.route("**/xhr_endpoint", route -> route.fulfill(
     
     Response status code, defaults to `200`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-fulfill-return"/><a href="#route-fulfill-return" class="list-anchor">#</a>
 
 ---
@@ -253,13 +253,13 @@ page.route("**/xhr_endpoint", route -> route.fulfill(
 
 A request to be routed.
 
-**使用方式**
+**Usage**
 
 ```java
 Route.request();
 ```
 
-**傳回值**
+**Returns**
 - [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-request-return"/><a href="#route-request-return" class="list-anchor">#</a>
 
 ---
@@ -270,7 +270,7 @@ Route.request();
 
 Sends route's request to the network with optional overrides.
 
-**使用方式**
+**Usage**
 
 ```java
 page.route("**/*", route -> {
@@ -282,7 +282,7 @@ page.route("**/*", route -> {
 });
 ```
 
-**參數**
+**Arguments**
 - `options` `Route.ResumeOptions` *(optional)*
   - `setHeaders` [Map]&lt;[String], [String]&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-continue-option-headers"/><a href="#route-continue-option-headers" class="list-anchor">#</a>
     
@@ -297,7 +297,7 @@ page.route("**/*", route -> {
     
     If set changes the request URL. New URL must have same protocol as original one.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="route-continue-return"/><a href="#route-continue-return" class="list-anchor">#</a>
 
 **Details**

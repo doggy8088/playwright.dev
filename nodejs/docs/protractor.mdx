@@ -1,19 +1,19 @@
 ---
 id: protractor
-title: "從 Protractor 遷移"
+title: "Migrating from Protractor"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 遷移原則
-- 不需要 "webdriver-manager" / Selenium。
-- Protractor 的 [ElementFinder] ⇄ [Playwright Test Locator](./api/class-locator)
-- Protractor 的 [`waitForAngular`] ⇄ Playwright Test 的 [auto-waiting](./actionability.mdx)
-- 在 Playwright Test 中不要忘記使用 await
+## Migration Principles
+- No need for "webdriver-manager" / Selenium.
+- Protractor’s [ElementFinder] ⇄ [Playwright Test Locator](./api/class-locator)
+- Protractor’s [`waitForAngular`] ⇄ Playwright Test [auto-waiting](./actionability.mdx)
+- Don’t forget to await in Playwright Test
 
-## 速查表
+## Cheat Sheet
 
 | Protractor                                        | Playwright Test                         |
 |---------------------------------------------------|-----------------------------------------|
@@ -28,9 +28,9 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 | `browser.get(url)`                                | `await page.goto(url)`                  |
 | `browser.getCurrentUrl()`                         | `page.url()`                            |
 
-## 範例
+## Example
 
-Protractor：
+Protractor:
 
 ```js
 describe('angularjs homepage todo list', function() {
@@ -44,7 +44,7 @@ describe('angularjs homepage todo list', function() {
     expect(todoList.count()).toEqual(3);
     expect(todoList.get(2).getText()).toEqual('first test');
 
-    // 你寫了第一個測試，從清單中劃掉它
+    // You wrote your first test, cross it off the list
     todoList.get(2).element(by.css('input')).click();
     const completedAmount = element.all(by.css('.done-true'));
     expect(completedAmount.count()).toEqual(2);
@@ -52,7 +52,7 @@ describe('angularjs homepage todo list', function() {
 });
 ```
 
-逐行遷移到 Playwright Test：
+Line-by-line migration to Playwright Test:
 
 ```js
 const { test, expect } = require('@playwright/test'); // 1
@@ -70,7 +70,7 @@ test.describe('angularjs homepage todo list', () => {
       useInnerText: true,
     });
 
-    // 你寫了第一個測試，從清單中劃掉它
+    // You wrote your first test, cross it off the list
     await todoList.nth(2).getByRole('textbox').click();
     const completedAmount = page.locator('.done-true');
     await expect(completedAmount).toHaveCount(2);
@@ -78,20 +78,20 @@ test.describe('angularjs homepage todo list', () => {
 });
 ```
 
-遷移重點（請參閱 Playwright Test 代碼片段中的內聯註釋）：
-1. 每個 Playwright Test 文件都有對 `test` 和 `expect` 函數的顯式導入
-1. 測試函數標記為 `async`
-1. Playwright Test 將 `page` 作為其參數之一。這是 Playwright Test 中許多有用的 [fixtures](./api/class-fixtures) 之一。
-1. 幾乎所有 Playwright 調用都以 `await` 為前綴
-1. 使用 [page.locator()](/api/class-page.mdx#page-locator) 建立定位器是少數幾個同步方法之一。
+Migration highlights (see inline comments in the Playwright Test code snippet):
+1. Each Playwright Test file has explicit import of the `test` and `expect` functions
+1. Test function is marked with `async`
+1. Playwright Test is given a `page` as one of its parameters. This is one of the many [useful fixtures](./api/class-fixtures) in Playwright Test.
+1. Almost all Playwright calls are prefixed with `await`
+1. Locator creation with [page.locator()](/api/class-page.mdx#page-locator) is one of the few methods that is sync.
 
-## 填充 `waitForAngular`
+## Polyfilling `waitForAngular`
 
-Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得在一般情況下不需要 Protractor 的 [`waitForAngular`]。
+Playwright Test has built-in [auto-waiting](./actionability.mdx) that makes protractor's [`waitForAngular`] unneeded in general case.
 
-然而，在某些邊緣情況下，它可能會派上用場。以下是如何在 Playwright Test 中填充 `waitForAngular` 函數：
-1. 確保您的 package.json 中安裝了 protractor
-1. 補丁函式
+However, it might come handy in some edge cases. Here's how to polyfill `waitForAngular` function in Playwright Test:
+1. Make sure you have protractor installed in your package.json
+1. Polyfill function
    
    ```js
    async function waitForAngular(page) {
@@ -115,7 +115,7 @@ Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得�
    }
    ```
    
-   如果您不想保留 protractor 的版本，您也可以使用這個更簡單的方法（僅適用於 Angular 2+）：
+   If you don't want to keep a version protractor around, you can also use this simpler approach using this function (only works for Angular 2+):
    
    ```js
    async function waitForAngular(page) {
@@ -133,7 +133,7 @@ Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得�
    }
    ```
    
-1. 填充使用
+1. Polyfill usage
    
    ```js
    const page = await context.newPage();
@@ -141,24 +141,24 @@ Playwright Test 具有內建的 [auto-waiting](./actionability.mdx)，這使得�
    await waitForAngular(page);
    ```
    
-## Playwright Test 超能力
+## Playwright Test Super Powers
 
-一旦您使用 Playwright Test，您將獲得很多功能！
-- 完整的零配置 TypeScript 支持
-- 在 **所有網頁引擎**（Chrome、Firefox、Safari）上運行測試，在 **任何流行操作系統**（Windows、macOS、Ubuntu）上
-- 完全支持多個來源、[(i)frames](./api/class-frame)、[tabs 和 contexts](./pages)
-- 在多個瀏覽器中並行運行測試
-- 內建測試 [artifact collection](./test-use-options.mdx#recording-options)
+Once you're on Playwright Test, you get a lot!
+- Full zero-configuration TypeScript support
+- Run tests across **all web engines** (Chrome, Firefox, Safari) on **any popular operating system** (Windows, macOS, Ubuntu)
+- Full support for multiple origins, [(i)frames](./api/class-frame), [tabs and contexts](./pages)
+- Run tests in parallel across multiple browsers
+- Built-in test [artifact collection](./test-use-options.mdx#recording-options)
 
-您還獲得所有這些 ✨ 令人驚嘆的工具 ✨，它們與 Playwright Test 捆綁在一起：
+You also get all these ✨ awesome tools ✨ that come bundled with Playwright Test:
 - [Playwright Inspector](./debug.mdx)
 - [Playwright Test Code generation](./codegen-intro.mdx)
-- [Playwright Tracing](./trace-viewer.mdx) 用於事後調試
+- [Playwright Tracing](./trace-viewer.mdx) for post-mortem debugging
 
-## 進一步閱讀
+## Further Reading
 
-了解更多關於 Playwright Test runner：
-- [入門](./intro)
+Learn more about Playwright Test runner:
+- [Getting Started](./intro)
 - [Fixtures](./test-fixtures)
 - [Locators](./locators)
 - [Assertions](./test-assertions)

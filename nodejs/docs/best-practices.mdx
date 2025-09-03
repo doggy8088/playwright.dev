@@ -1,33 +1,33 @@
 ---
 id: best-practices
-title: "最佳實踐"
+title: "Best Practices"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-這個指南應該能幫助您確保您遵循我們的最佳實踐並撰寫更具彈性的測試。
+This guide should help you to make sure you are following our best practices and writing tests that are more resilient.
 
-## 測試理念
+## Testing philosophy
 
-### 測試使用者可見行為
+### Test user-visible behavior
 
-自動化測試應該驗證應用程式程式碼對終端使用者是否有效，並避免依賴實作細節，例如使用者通常不會使用、看到或甚至了解的東西，如函式名稱、某物是否為陣列，或某元素的 CSS 類別。終端使用者會看到或與頁面上呈現的內容互動，所以您的測試通常應該只看到／與相同的呈現輸出互動。
+Automated tests should verify that the application code works for the end users, and avoid relying on implementation details such as things which users will not typically use, see, or even know about such as the name of a function, whether something is an array, or the CSS class of some element. The end user will see or interact with what is rendered on the page, so your test should typically only see/interact with the same rendered output.
 
-### 讓測試盡可能獨立
+### Make tests as isolated as possible
 
-每個測試應該與其他測試完全隔離，並使用自己的本機儲存、Session 儲存、資料、Cookie 等獨立執行。[測試隔離](./browser-contexts.mdx)可以提高可重現性、讓偵錯更容易，並防止級聯測試失敗。
+Each test should be completely isolated from another test and should run independently with its own local storage, session storage, data, cookies etc. [Test isolation](./browser-contexts.mdx) improves reproducibility, makes debugging easier and prevents cascading test failures.
 
-為了避免測試特定部分的重複，您可以使用[前置與後置掛勾](/api/class-test.mdx)。在您的測試檔案中新增前置掛勾，以在每個測試之前執行測試的一部分，例如前往特定 URL 或登入應用程式的一部分。這可保持您的測試隔離，因為沒有測試依賴於另一個測試。不過，當測試足夠簡單時，特別是如果能讓您的測試更清楚且更容易閱讀和維護，有一點重複也是可以的。
+In order to avoid repetition for a particular part of your test you can use [before and after hooks](/api/class-test.mdx). Within your test file add a before hook to run a part of your test before each test such as going to a particular URL or logging in to a part of your app. This keeps your tests isolated as no test relies on another. However it is also ok to have a little duplication when tests are simple enough especially if it keeps your tests clearer and easier to read and maintain.
 
 ```js
 import { test } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  // 在每個測試之前執行並在每個頁面上登入。
+  // Runs before each test and signs in each page.
   await page.goto('https://github.com/login');
   await page.getByLabel('Username or email address').fill('username');
   await page.getByLabel('Password').fill('password');
@@ -35,21 +35,21 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('first', async ({ page }) => {
-  // 頁面已登入。
+  // page is signed in.
 });
 
 test('second', async ({ page }) => {
-  // 頁面已登入。
+  // page is signed in.
 });
 ```
 
-您也可以在測試中重複使用已登入狀態的[設定專案](./auth.mdx#basic-shared-account-in-all-tests)。這樣您只需要登入一次，然後就可以跳過所有測試的登入步驟。
+You can also reuse the signed-in state in the tests with [setup project](./auth.mdx#basic-shared-account-in-all-tests). That way you can log in only once and then skip the log in step for all of the tests.
 
-### 避免測試第三方相依性
+### Avoid testing third-party dependencies
 
-只測試您控制的內容。不要嘗試測試連結到外部網站或您無法控制的第三方伺服器。這不僅耗時且會減慢您的測試速度，而且您也無法控制您連結到的頁面內容，或是否有 Cookie 橫幅或覆蓋頁面或任何其他可能導致測試失敗的東西。
+Only test what you control. Don't try to test links to external sites or third party servers that you do not control. Not only is it time consuming and can slow down your tests but also you cannot control the content of the page you are linking to, or if there are cookie banners or overlay pages or anything else that might cause your test to fail.
 
-相反地，使用 [Playwright Network API](/network.mdx#handle-requests) 並保證所需的回應。
+Instead, use the [Playwright Network API](/network.mdx#handle-requests) and guarantee the response needed.
 
 ```js
 await page.route('**/api/fetch_data_third_party_dependency', route => route.fulfill({
@@ -59,30 +59,30 @@ await page.route('**/api/fetch_data_third_party_dependency', route => route.fulf
 await page.goto('https://example.com');
 ```
 
-### 使用資料庫測試
+### Testing with a database
 
-如果使用資料庫，請確保您控制資料。針對分級環境進行測試，並確保它不會改變。對於視覺回歸測試，請確保作業系統和瀏覽器版本相同。
+If working with a database then make sure you control the data. Test against a staging environment and make sure it doesn't change. For visual regression tests make sure the operating system and browser versions are the same.
 
-## 最佳實踐
+## Best Practices
 
-### 使用定位器
+### Use locators
 
-為了撰寫端對端測試，我們需要先在網頁上找到元素。我們可以使用 Playwright 內建的[定位器](./locators.mdx)來做到這一點。定位器具有自動等待和重試能力。自動等待意味著 Playwright 會對元素執行一系列可操作性檢查，例如確保元素在執行點擊之前是可見且啟用的。為了讓測試具有彈性，我們建議優先使用面向使用者的屬性和明確的契約。
+In order to write end to end tests we need to first find elements on the webpage. We can do this by using Playwright's built in [locators](./locators.mdx). Locators come with auto waiting and retry-ability. Auto waiting means that Playwright performs a range of actionability checks on the elements, such as ensuring the element is visible and enabled before it performs the click. To make tests resilient, we recommend prioritizing user-facing attributes and explicit contracts.
 
 ```js
 // 👍
 page.getByRole('button', { name: 'submit' });
 ```
 
-#### 使用鏈接和過濾
+#### Use chaining and filtering
 
-定位器可以[鏈接](./locators.mdx#matching-inside-a-locator)以將搜尋範圍縮小到頁面的特定部分。
+Locators can be [chained](./locators.mdx#matching-inside-a-locator) to narrow down the search to a particular part of the page.
 
 ```js
 const product = page.getByRole('listitem').filter({ hasText: 'Product 2' });
 ```
 
-您也可以依文字或其他定位器來[過濾定位器](./locators.mdx#filtering-locators)。
+You can also [filter locators](./locators.mdx#filtering-locators) by text or by another locator.
 
 ```js
 await page
@@ -92,29 +92,29 @@ await page
     .click();
 ```
 
-#### 優先使用面向使用者的屬性而非 XPath 或 CSS 選擇器
+#### Prefer user-facing attributes to XPath or CSS selectors
 
-您的 DOM 可能容易改變，所以讓您的測試依賴於您的 DOM 結構可能導致測試失敗。例如，考慮透過 CSS 類別選擇這個按鈕。如果設計師改變了一些東西，那麼類別可能會改變，因此會破壞您的測試。
+Your DOM can easily change so having your tests depend on your DOM structure can lead to failing tests. For example consider selecting this button by its CSS classes. Should the designer change something then the class might change, thus breaking your test.
 
 ```js
 // 👎
 page.locator('button.buttonIcon.episode-actions-later');
 ```
 
-使用對 DOM 變更具有彈性的定位器。
+Use locators that are resilient to changes in the DOM.
 
 ```js
 // 👍
 page.getByRole('button', { name: 'submit' });
 ```
 
-### 產生定位器
+### Generate locators
 
-Playwright 有一個[測試產生器](./codegen.mdx)，可以為您產生測試並挑選定位器。它會查看您的頁面並找出最佳定位器，優先考慮角色、文字和測試 ID 定位器。如果產生器找到多個符合定位器的元素，它會改進定位器以使其具有彈性並唯一識別目標元素，所以您不必擔心因定位器而導致的測試失敗。
+Playwright has a [test generator](./codegen.mdx) that can generate tests and pick locators for you. It will look at your page and figure out the best locator, prioritizing role, text and test id locators. If the generator finds multiple elements matching the locator, it will improve the locator to make it resilient and uniquely identify the target element, so you don't have to worry about failing tests due to locators.
 
-#### 使用 `codegen` 產生定位器
+#### Use `codegen` to generate locators
 
-要挑選定位器，請執行 `codegen` 指令，後面跟上您想要從中挑選定位器的 URL。
+To pick a locator run the `codegen` command followed by the URL that you would like to pick a locator from.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -144,21 +144,21 @@ pnpm exec playwright codegen playwright.dev
 
 </Tabs>
 
-這會開啟一個新的瀏覽器視窗以及 Playwright 檢查器。要挑選定位器，請先點擊「Record」按鈕以停止錄製。預設情況下，當您執行 `codegen` 指令時，它會開始新的錄製。停止錄製後，「Pick Locator」按鈕將可供點擊。
+This will open a new browser window as well as the Playwright inspector. To pick a locator first click on the 'Record' button to stop the recording. By default when you run the `codegen` command it will start a new recording. Once you stop the recording the 'Pick Locator' button will be available to click.
 
-您接著可以在瀏覽器視窗中懸停在頁面上的任何元素上，並看到定位器在游標下方亮起。點擊元素會將定位器新增到 Playwright 檢查器中。您可以複製定位器並貼到測試檔案中，或繼續透過在 Playwright 檢查器中編輯定位器來探索定位器，例如修改文字，並在瀏覽器視窗中查看結果。
+You can then hover over any element on your page in the browser window and see the locator highlighted below your cursor. Clicking on an element will add the locator into the Playwright inspector. You can either copy the locator and paste into your test file or continue to explore the locator by editing it in the Playwright Inspector, for example by modifying the text, and seeing the results in the browser window.
 
 <img width="1394" alt="generating locators with codegen" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212103268-e7d8ee8b-d307-4cba-be13-831f3fbb1f40.png" />
 
-#### 使用 VS Code 擴充功能產生定位器
+#### Use the VS Code extension to generate locators
 
-您也可以使用 [VS Code 擴充功能](./getting-started-vscode.mdx)來產生定位器以及錄製測試。VS Code 擴充功能在撰寫、執行和偵錯測試時也為您提供絕佳的開發者體驗。
+You can also use the [VS Code Extension](./getting-started-vscode.mdx) to generate locators as well as record a test. The VS Code extension also gives you a great developer experience when writing, running, and debugging tests.
 
 <img width="1394" alt="generating locators in vs code with codegen" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212269873-aca04043-16ce-4627-906f-7351d09740ab.png" />
 
-### 使用 Web 優先斷言
+### Use web first assertions
 
-斷言是驗證預期結果和實際結果是否符合的方法。透過使用 [Web 優先斷言](./test-assertions.mdx)，Playwright 會等待直到滿足預期條件。例如，在測試警告訊息時，測試會點擊一個讓訊息出現的按鈕，並檢查警告訊息是否存在。如果警告訊息需要半秒鐘才出現，像是 `toBeVisible()` 的斷言會等待並在需要時重試。
+Assertions are a way to verify that the expected result and the actual result matched or not. By using [web first assertions](./test-assertions.mdx) Playwright will wait until the expected condition is met. For example, when testing an alert message, a test would click a button that makes a message appear and check that the alert message is there. If the alert message takes half a second to appear, assertions such as `toBeVisible()` will wait and retry if needed.
 
 ```js
 // 👍
@@ -168,35 +168,35 @@ await expect(page.getByText('welcome')).toBeVisible();
 expect(await page.getByText('welcome').isVisible()).toBe(true);
 ```
 
-#### 不要使用手動斷言
+#### Don't use manual assertions
 
-不要使用未等待 expect 的手動斷言。在下面的程式碼中，await 在 expect 內部而不是在它之前。當使用像是 `isVisible()` 的斷言時，測試不會等待一秒鐘，它只會檢查定位器是否存在並立即回傳。
+Don't use manual assertions that are not awaiting the expect. In the code below the await is inside the expect rather than before it. When using assertions such as `isVisible()` the test won't wait a single second, it will just check the locator is there and return immediately.
 
 ```js
 // 👎
 expect(await page.getByText('welcome').isVisible()).toBe(true);
 ```
 
-改為使用像是 `toBeVisible()` 的 Web 優先斷言。
+Use web first assertions such as `toBeVisible()` instead.
 
 ```js
 // 👍
 await expect(page.getByText('welcome')).toBeVisible();
 ```
 
-### 設定偵錯
+### Configure debugging
 
-#### 本機偵錯
+#### Local debugging
 
-對於本機偵錯，我們建議您透過安裝 [VS Code 擴充功能](./getting-started-vscode.mdx)在 VSCode 中[即時偵錯您的測試](./getting-started-vscode.mdx#live-debugging)。您可以透過右鍵點擊您想要執行的測試旁邊的行來以偵錯模式執行測試，這會開啟瀏覽器視窗並在設定中斷點的地方暫停。
+For local debugging we recommend you [debug your tests live in VSCode.](/getting-started-vscode.mdx#live-debugging) by installing the [VS Code extension](./getting-started-vscode.mdx). You can run tests in debug mode by right clicking on the line next to the test you want to run which will open a browser window and pause at where the breakpoint is set.
 
 <img width="1338" alt="debugging tests in vscode" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212274675-5c6e1647-2aab-40fd-9804-8680c1ac2d16.png" />
 
-您可以透過在 VS Code 中點擊或編輯測試中的定位器來即時偵錯您的測試，這會在瀏覽器視窗中亮起此定位器，並顯示在頁面上找到的任何其他符合的定位器。
+You can live debug your test by clicking or editing the locators in your test in VS Code which will highlight this locator in the browser window as well as show you any other matching locators found on the page.
 
 <img width="1394" alt="live debugging locators in vscode" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212273189-da271dc4-0f59-4138-92a8-10e719066cbe.png" />
 
-您也可以透過使用 `--debug` 旗標執行測試來使用 Playwright 檢查器偵錯您的測試。
+You can also debug your tests with the Playwright inspector by running your tests with the `--debug` flag.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -226,11 +226,11 @@ pnpm exec playwright test --debug
 
 </Tabs>
 
-您可以逐步執行您的測試、檢視可操作性記錄，並即時編輯定位器，並在瀏覽器視窗中看到它亮起。這會顯示哪些定位器符合，以及有多少個。
+You can then step through your test, view actionability logs and edit the locator live and see it highlighted in the browser window. This will show you which locators match, how many of them there are.
 
 <img width="1350" alt="debugging with the playwright inspector" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212276296-4f5b18e7-2bd7-4766-9aa5-783517bd4aa2.png" />
 
-要偵錯特定測試，請新增測試檔案名稱和測試的行號，後面跟著 `--debug` 旗標。
+To debug a specific test add the name of the test file and the line number of the test followed by the `--debug` flag.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -260,13 +260,13 @@ pnpm exec playwright test example.spec.ts:9 --debug
 
 </Tabs>
 
-#### 在 CI 上偵錯
+#### Debugging on CI
 
-對於 CI 失敗，使用 Playwright [追蹤檢視器](./trace-viewer.mdx)而不是影片和螢幕截圖。追蹤檢視器為您提供測試的完整追蹤，作為一個可以輕易分享的本機漸進式 Web 應用程式 (PWA)。使用追蹤檢視器，您可以檢視時間軸、使用開發工具檢查每個動作的 DOM 快照、檢視網路請求等等。
+For CI failures, use the Playwright [trace viewer](./trace-viewer.mdx) instead of videos and screenshots. The trace viewer gives you a full trace of your tests as a local Progressive Web App (PWA) that can easily be shared. With the trace viewer you can view the timeline, inspect DOM snapshots for each action using dev tools, view network requests and more.
 
 <img width="1516" alt="playwrights trace viewer" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212277895-c63d94c2-bd06-4881-864e-62790a072ca3.png" />
 
-追蹤在 Playwright 設定檔中設定，並設定為在 CI 上的失敗測試的第一次重試時執行。我們不建議將此設定為 `on`，以便在每個測試上執行追蹤，因為這會非常耗費效能。不過，您可以在開發時使用 `--trace` 旗標在本機執行追蹤。
+Traces are configured in the Playwright config file and are set to run on CI on the first retry of a failed test. We don't recommend setting this to `on` so that traces are run on every test as it's very performance heavy. However you can run a trace locally when developing with the `--trace` flag.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -296,7 +296,7 @@ pnpm exec playwright test --trace on
 
 </Tabs>
 
-一旦您執行此指令，您的追蹤將為每個測試錄製，並可以直接從 HTML 報告中檢視。
+Once you run this command your traces will be recorded for each test and can be viewed directly from the HTML report.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -328,22 +328,22 @@ pnpm exec playwright show-report
 
 <img width="1516" alt="Playwrights HTML report" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212279022-d929d4c0-2271-486a-a75f-166ac231d25f.png" />
 
-可以通過點擊測試檔案名稱旁邊的圖標來打開追蹤，或者打開每個測試報告並向下滾動到追蹤部分。
+Traces can be opened by clicking on the icon next to the test file name or by opening each of the test reports and scrolling down to the traces section.
 
 <img width="1516" alt="Screenshot 2023-01-13 at 09 58 34" loading="lazy" src="https://user-images.githubusercontent.com/13063165/212279699-c9eb134f-4f4e-4f19-805c-37596d3272a6.png" />
 
-### 使用 Playwright 的工具
+### Use Playwright's Tooling
 
-Playwright 提供一系列工具來幫助您撰寫測試。
-- [VS Code 擴充功能](./getting-started-vscode.mdx)讓您在撰寫、執行和偵錯測試時擁有絕佳的開發者體驗。
-- [測試產生器](./codegen.mdx)可以為您產生測試並挑選定位器。
-- [追蹤檢視器](./trace-viewer.mdx)為您提供測試的完整追蹤，作為可以輕易分享的本機 PWA。使用追蹤檢視器，您可以檢視時間軸、檢查每個動作的 DOM 快照、檢視網路請求等等。
-- [UI 模式](./test-ui-mode)讓您以時間旅行的體驗來探索、執行和偵錯測試，並配有觀察模式。所有測試檔案都會載入測試側邊欄，您可以展開每個檔案和描述區塊來單獨執行、查看、觀察和偵錯每個測試。
-- Playwright 中的 [TypeScript](./test-typescript) 開箱即用，並為您提供更好的 IDE 整合。您的 IDE 會顯示您可以做的所有事情，並在您做錯事情時醒目提示。不需要 TypeScript 經驗，您的程式碼也不必是 TypeScript，您只需要使用 `.ts` 副檔名建立測試即可。
+Playwright comes with a range of tooling to help you write tests.
+- The [VS Code extension](./getting-started-vscode.mdx) gives you a great developer experience when writing, running, and debugging tests.
+- The [test generator](./codegen.mdx) can generate tests and pick locators for you.
+- The [trace viewer](./trace-viewer.mdx) gives you a full trace of your tests as a local PWA that can easily be shared. With the trace viewer you can view the timeline, inspect DOM snapshots for each action, view network requests and more.
+- The [UI Mode](./test-ui-mode) lets you explore, run and debug tests with a time travel experience complete with watch mode. All test files are loaded into the testing sidebar where you can expand each file and describe block to individually run, view, watch and debug each test.
+- [TypeScript](./test-typescript) in Playwright works out of the box and gives you better IDE integrations. Your IDE will show you everything you can do and highlight when you do something wrong. No TypeScript experience is needed and it is not necessary for your code to be in TypeScript, all you need to do is create your tests with a `.ts` extension.
 
-### 跨所有瀏覽器測試
+### Test across all browsers
 
-無論您在什麼平台上，Playwright 都能讓您輕鬆跨所有[瀏覽器](./test-projects.mdx#configure-projects-for-multiple-browsers)測試您的網站。跨所有瀏覽器測試可確保您的應用程式適用於所有使用者。在您的設定檔案中，您可以設定專案，新增名稱以及要使用的瀏覽器或裝置。
+Playwright makes it easy to test your site across all [browsers](./test-projects.mdx#configure-projects-for-multiple-browsers) no matter what platform you are on. Testing across all browsers ensures your app works for all users. In your config file you can set up projects adding the name and which browser or device to use.
 
 ```js title="playwright.config.ts"
 import { defineConfig, devices } from '@playwright/test';
@@ -366,9 +366,9 @@ export default defineConfig({
 });
 ```
 
-### 保持您的 Playwright 相依性為最新版本
+### Keep your Playwright dependency up to date
 
-透過保持您的 Playwright 版本為最新，您將能夠在最新的瀏覽器版本上測試您的應用程式，並在最新瀏覽器版本公開發佈之前捕捉失敗。
+By keeping your Playwright version up to date you will be able to test your app on the latest browser versions and catch failures before the latest browser version is released to the public.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -398,9 +398,9 @@ pnpm install --save-dev @playwright/test@latest
 
 </Tabs>
 
-查看[版本發佈紀錄](./release-notes.mdx)以了解最新版本以及已發佈的變更。
+Check the [release notes](./release-notes.mdx) to see what the latest version is and what changes have been released.
 
-您可以透過執行以下指令來查看您擁有的 Playwright 版本。
+You can see what version of Playwright you have by running the following command.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -430,33 +430,33 @@ pnpm exec playwright --version
 
 </Tabs>
 
-### 在 CI 上執行測試
+### Run tests on CI
 
-設定 CI/CD 並經常執行您的測試。您執行測試的頻率越高越好。理想情況下，您應該在每次提交和拉取請求時執行測試。Playwright 配備 [GitHub actions workflow](/ci-intro.mdx)，因此測試會在 CI 上為您執行而無需任何設定。Playwright 也可以在您選擇的 [CI 環境](/ci.mdx)上設定。
+Setup CI/CD and run your tests frequently. The more often you run your tests the better. Ideally you should run your tests on each commit and pull request. Playwright comes with a [GitHub actions workflow](/ci-intro.mdx) so that tests will run on CI for you with no setup required. Playwright can also be setup on the [CI environment](/ci.mdx) of your choice.
 
-在 CI 上執行測試時使用 Linux，因為它比較便宜。開發者在本機執行時可以使用任何環境，但在 CI 上使用 Linux。考慮設定[分片](./test-sharding.mdx)以讓 CI 更快。
+Use Linux when running your tests on CI as it is cheaper. Developers can use whatever environment when running locally but use linux on CI. Consider setting up [Sharding](./test-sharding.mdx) to make CI faster.
 
-#### 在 CI 上最佳化瀏覽器下載
+#### Optimize browser downloads on CI
 
-只安裝您實際需要的瀏覽器，特別是在 CI 上。例如，如果您只使用 Chromium 測試，就只安裝 Chromium。
+Only install the browsers that you actually need, especially on CI. For example, if you're only testing with Chromium, install just Chromium.
 
 ```bash title=".github/workflows/playwright.yml"
-# 不要安裝所有瀏覽器
+# Instead of installing all browsers
 npx playwright install --with-deps
 
-# 只安裝 Chromium
+# Install only Chromium
 npx playwright install chromium --with-deps
 ```
 
-這樣可以節省 CI 機器上的下載時間和磁碟空間。
+This saves both download time and disk space on your CI machines.
 
-### 檢查您的測試
+### Lint your tests
 
-我們建議為您的測試使用 TypeScript 和 ESLint 檢查以提早捕捉錯誤。使用 [`@typescript-eslint/no-floating-promises`](https://typescript-eslint.io/rules/no-floating-promises/) [ESLint](https://eslint.org) 規則以確保在對 Playwright API 的非同步呼叫之前沒有遺漏 await。在您的 CI 上，您可以執行 `tsc --noEmit` 以確保函式以正確的簽章呼叫。
+We recommend TypeScript and linting with ESLint for your tests to catch errors early. Use [`@typescript-eslint/no-floating-promises`](https://typescript-eslint.io/rules/no-floating-promises/) [ESLint](https://eslint.org) rule to make sure there are no missing awaits before the asynchronous calls to the Playwright API. On your CI you can run `tsc --noEmit` to ensure that functions are called with the right signature.
 
-### 使用平行處理和分片
+### Use parallelism and sharding
 
-Playwright 預設會[平行](./test-parallel.mdx)執行測試。單一檔案中的測試會在相同的 Worker 程序中按順序執行。如果您在單一檔案中有許多獨立測試，您可能會想要平行執行它們
+Playwright runs tests in [parallel](./test-parallel.mdx) by default. Tests in a single file are run in order, in the same worker process. If you have many independent tests in a single file, you might want to run them in parallel
 
 ```js
 import { test } from '@playwright/test';
@@ -467,7 +467,7 @@ test('runs in parallel 1', async ({ page }) => { /* ... */ });
 test('runs in parallel 2', async ({ page }) => { /* ... */ });
 ```
 
-Playwright 可以[分片](./test-parallel.mdx#shard-tests-between-multiple-machines)測試套件，以便可以在多台機器上執行。
+Playwright can [shard](./test-parallel.mdx#shard-tests-between-multiple-machines) a test suite, so that it can be executed on multiple machines.
 
 <Tabs groupId="js-package-manager" defaultValue="npm" values={[ {label: 'npm', value: 'npm'}, {label: 'yarn', value: 'yarn'}, {label: 'pnpm', value: 'pnpm'} ] }>
 
@@ -497,17 +497,17 @@ pnpm exec playwright test --shard=1/3
 
 </Tabs>
 
-## 生產力秘訣
+## Productivity tips
 
-### 使用軟性斷言
+### Use Soft assertions
 
-如果您的測試失敗，Playwright 會給您一個錯誤訊息，顯示測試的哪個部分失敗，您可以在 VS Code、終端機、HTML 報告或追蹤檢視器中看到。不過，您也可以使用[軟性斷言](/test-assertions.mdx#soft-assertions)。這些不會立即終止測試執行，而是在測試結束後編譯並顯示失敗斷言的清單。
+If your test fails, Playwright will give you an error message showing what part of the test failed which you can see either in VS Code, the terminal, the HTML report, or the trace viewer. However, you can also use [soft assertions](/test-assertions.mdx#soft-assertions). These do not immediately terminate the test execution, but rather compile and display a list of failed assertions once the test ended.
 
 ```js
-// 進行一些失敗時不會停止測試的檢查...
+// Make a few checks that will not stop the test when failed...
 await expect.soft(page.getByTestId('status')).toHaveText('Success');
 
-// ... 並繼續測試以檢查更多東西。
+// ... and continue the test to check more things.
 await page.getByRole('link', { name: 'next page' }).click();
 ```
 

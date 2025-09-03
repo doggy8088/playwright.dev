@@ -23,7 +23,7 @@ test('navigates to login', async ({ page }) => {
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### toBeOK {#api-response-assertions-to-be-ok}
 
@@ -31,18 +31,18 @@ test('navigates to login', async ({ page }) => {
 
 Ensures the response status code is within `200..299` range.
 
-**使用方式**
+**Usage**
 
 ```js
 await expect(response).toBeOK();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-assertions-to-be-ok-return"/><a href="#api-response-assertions-to-be-ok-return" class="list-anchor">#</a>
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### not {#api-response-assertions-not}
 
@@ -54,13 +54,13 @@ Makes the assertion check for the opposite condition. For example, this code tes
 await expect(response).not.toBeOK();
 ```
 
-**使用方式**
+**Usage**
 
 ```js
 expect(response).not
 ```
 
-**型別 (Type)**
+**Type**
 - [APIResponseAssertions]
 
 

@@ -1,28 +1,28 @@
 ---
 id: writing-tests
-title: "撰寫測試"
+title: "Writing tests"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 測試很簡單：它們**執行動作**並**斷言狀態**符合預期。
+Playwright tests are simple: they **perform actions** and **assert the state** against expectations.
 
-Playwright 會在執行每個動作前自動等待[可動作性](./actionability.mdx)檢查通過。您不需要加入手動等待或處理競爭條件。Playwright 斷言設計用來描述最終會滿足的預期，消除不穩定的逾時和競爭檢查。
+Playwright automatically waits for [actionability](./actionability.mdx) checks to pass before performing each action. You don't need to add manual waits or deal with race conditions. Playwright assertions are designed to describe expectations that will eventually be met, eliminating flaky timeouts and racy checks.
 
-**您將學習**
-- [如何撰寫第一個測試](/writing-tests.mdx#first-test)
-- [如何執行動作](/writing-tests.mdx#actions)
-- [如何使用斷言](/writing-tests.mdx#assertions)
-- [測試如何在隔離環境中執行](/writing-tests.mdx#test-isolation)
-- [如何使用測試掛勾](/writing-tests.mdx#using-test-hooks)
+**You will learn**
+- [How to write the first test](/writing-tests.mdx#first-test)
+- [How to perform actions](/writing-tests.mdx#actions)
+- [How to use assertions](/writing-tests.mdx#assertions)
+- [How tests run in isolation](/writing-tests.mdx#test-isolation)
+- [How to use test hooks](/writing-tests.mdx#using-test-hooks)
 
-## 第一個測試
+## First test
 
-查看以下範例了解如何撰寫測試。
+Take a look at the following example to see how to write a test.
 
 ```js title="tests/example.spec.ts"
 import { test, expect } from '@playwright/test';
@@ -30,146 +30,146 @@ import { test, expect } from '@playwright/test';
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
-  // 期望標題「包含」子字串。
+  // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
 });
 
 test('get started link', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
-  // 點擊開始使用連結。
+  // Click the get started link.
   await page.getByRole('link', { name: 'Get started' }).click();
 
-  // 期望頁面有名為 Installation 的標題。
+  // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
 ```
 
 :::note
-在 VS Code 中使用 JavaScript 時，請在每個測試檔案開頭加入 `// @ts-check` 以獲得自動型別檢查。
+Add `// @ts-check` at the start of each test file when using JavaScript in VS Code to get automatic type checking.
 :::
 
-## 動作 {#actions}
+## Actions
 
-### 導覽
+### Navigation
 
-大多數測試從導航到 URL 開始。之後，測試與頁面元素互動。
+Most tests start by navigating to a URL. After that, the test interacts with page elements.
 
 ```js
 await page.goto('https://playwright.dev/');
 ```
 
-Playwright 會等待頁面達到載入狀態後再繼續。了解更多關於 [page.goto()](/api/class-page.mdx#page-goto) 選項。
+Playwright waits for the page to reach the load state before continuing. Learn more about [page.goto()](/api/class-page.mdx#page-goto) options.
 
-### 互動
+### Interactions
 
-執行動作首先需要定位元素。Playwright 使用[定位器 API](./locators.mdx)來達到這個目的。定位器代表在頁面上任何時刻尋找元素的方法。了解更多關於可用的[不同類型](./locators.mdx)定位器。
+Performing actions starts with locating elements. Playwright uses [Locators API](./locators.mdx) for that. Locators represent a way to find element(s) on the page at any moment. Learn more about the [different types](./locators.mdx) of locators available.
 
-Playwright 會在執行動作前等待元素變成[可動作](./actionability.mdx)，因此您無需等待它變成可用。
+Playwright waits for the element to be [actionable](./actionability.mdx) before performing the action, so you don't need to wait for it to become available.
 
 ```js
-// 建立一個定位器。
+// Create a locator.
 const getStarted = page.getByRole('link', { name: 'Get started' });
 
-// 點擊它。
+// Click it.
 await getStarted.click();
 ```
 
-在大多數情況下，它會寫成一行：
+In most cases, it'll be written in one line:
 
 ```js
 await page.getByRole('link', { name: 'Get started' }).click();
 ```
 
-### 基本動作
+### Basic actions
 
-以下是最受歡迎的 Playwright 動作。完整清單請查看[定位器 API](./api/class-locator.mdx)區段。
+Here are the most popular Playwright actions. For the complete list, check the [Locator API](./api/class-locator.mdx) section.
 
-| 動作 | 描述 |
+| Action | Description |
 | :- | :- |
-| [locator.check()](/api/class-locator.mdx#locator-check) | 選取輸入核取方塊 |
-| [locator.click()](/api/class-locator.mdx#locator-click) | 點擊元素 |
-| [locator.uncheck()](/api/class-locator.mdx#locator-uncheck) | 取消選取輸入核取方塊 |
-| [locator.hover()](/api/class-locator.mdx#locator-hover) | 將滑鼠懸停在元素上 |
-| [locator.fill()](/api/class-locator.mdx#locator-fill) | 填入表單欄位，輸入文字 |
-| [locator.focus()](/api/class-locator.mdx#locator-focus) | 聚焦元素 |
-| [locator.press()](/api/class-locator.mdx#locator-press) | 按下單一按鍵 |
-| [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) | 選擇要上傳的檔案 |
-| [locator.selectOption()](/api/class-locator.mdx#locator-select-option) | 在下拉式選單中選擇選項 |
+| [locator.check()](/api/class-locator.mdx#locator-check) | Check the input checkbox |
+| [locator.click()](/api/class-locator.mdx#locator-click) | Click the element |
+| [locator.uncheck()](/api/class-locator.mdx#locator-uncheck) | Uncheck the input checkbox |
+| [locator.hover()](/api/class-locator.mdx#locator-hover) | Hover mouse over the element |
+| [locator.fill()](/api/class-locator.mdx#locator-fill) | Fill the form field, input text |
+| [locator.focus()](/api/class-locator.mdx#locator-focus) | Focus the element |
+| [locator.press()](/api/class-locator.mdx#locator-press) | Press single key |
+| [locator.setInputFiles()](/api/class-locator.mdx#locator-set-input-files) | Pick files to upload |
+| [locator.selectOption()](/api/class-locator.mdx#locator-select-option) | Select option in the drop down |
 
-## 斷言
+## Assertions
 
-Playwright 以 `expect` 函式的形式包含[測試斷言](./test-assertions.mdx)。要進行斷言，請呼叫 `expect(value)` 並選擇反映預期的比對器。
+Playwright includes [test assertions](./test-assertions.mdx) in the form of `expect` function. To make an assertion, call `expect(value)` and choose a matcher that reflects the expectation.
 
-Playwright 包含非同步比對器，會等待直到預期條件滿足。使用這些比對器讓測試不會不穩定且具有彈性。例如，此程式碼會等待直到頁面取得包含 "Playwright" 的標題：
+Playwright includes async matchers that wait until the expected condition is met. Using these matchers makes tests non-flaky and resilient. For example, this code waits until the page gets the title containing "Playwright":
 
 ```js
 await expect(page).toHaveTitle(/Playwright/);
 ```
 
-以下是最受歡迎的非同步斷言。完整清單請參閱[斷言指南](./test-assertions.mdx)：
+Here are the most popular async assertions. For the complete list, see [assertions guide](./test-assertions.mdx):
 
-| 斷言 | 描述 |
+| Assertion | Description |
 | :- | :- |
-| [expect(locator).toBeChecked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 核取方塊已選取 |
-| [expect(locator).toBeEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 控制項已啟用 |
-| [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
-| [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
-| [expect(locator).toHaveAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有屬性 |
-| [expect(locator).toHaveCount()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 元素清單具有指定長度 |
-| [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素符合文字 |
-| [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入元素具有值 |
-| [expect(page).toHaveTitle()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
-| [expect(page).toHaveURL()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
+| [expect(locator).toBeChecked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox is checked |
+| [expect(locator).toBeEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | Control is enabled |
+| [expect(locator).toBeVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | Element is visible |
+| [expect(locator).toContainText()](/api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | Element contains text |
+| [expect(locator).toHaveAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | Element has attribute |
+| [expect(locator).toHaveCount()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) | List of elements has given length |
+| [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) | Element matches text |
+| [expect(locator).toHaveValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) | Input element has value |
+| [expect(page).toHaveTitle()](/api/class-pageassertions.mdx#page-assertions-to-have-title) | Page has title |
+| [expect(page).toHaveURL()](/api/class-pageassertions.mdx#page-assertions-to-have-url) | Page has URL |
 
-Playwright 也包含通用比對器如 `toEqual`、`toContain`、`toBeTruthy`，可用來斷言任何條件。這些斷言不使用 `await` 關鍵字，因為它們對已有的值執行即時同步檢查。
+Playwright also includes generic matchers like `toEqual`, `toContain`, `toBeTruthy` that can be used to assert any conditions. These assertions do not use the `await` keyword as they perform immediate synchronous checks on already available values.
 
 ```js
 expect(success).toBeTruthy();
 ```
 
-### 測試隔離
+### Test Isolation
 
-Playwright Test 基於[測試固件](./test-fixtures.mdx)的概念，如[內建頁面固件](./test-fixtures#built-in-fixtures)，會傳遞到您的測試中。由於[瀏覽器情境](./browser-contexts)，頁面在測試之間是隔離的，這相當於全新的瀏覽器設定檔。每個測試都會取得新的環境，即使多個測試在單一瀏覽器中執行。
+Playwright Test is based on the concept of [test fixtures](./test-fixtures.mdx) such as the [built in page fixture](./test-fixtures#built-in-fixtures), which is passed into your test. Pages are [isolated between tests due to the Browser Context](./browser-contexts), which is equivalent to a brand new browser profile. Every test gets a fresh environment, even when multiple tests run in a single browser.
 
 ```js title="tests/example.spec.ts"
 import { test } from '@playwright/test';
 
 test('example test', async ({ page }) => {
-  // "page" 屬於一個隔離的 BrowserContext，專為此特定測試建立。
+  // "page" belongs to an isolated BrowserContext, created for this specific test.
 });
 
 test('another test', async ({ page }) => {
-  // 第二個測試中的 "page" 與第一個測試完全隔離。
+  // "page" in this second test is completely isolated from the first test.
 });
 ```
 
-### 使用測試掛勾
+### Using Test Hooks
 
-您可以使用各種[測試掛勾](./api/class-test.mdx)，如 `test.describe` 宣告測試群組，以及 `test.beforeEach` 和 `test.afterEach`，它們在每個測試之前/之後執行。其他掛勾包括 `test.beforeAll` 和 `test.afterAll`，它們在所有測試之前/之後針對每個工作程序執行一次。
+You can use various [test hooks](./api/class-test.mdx) such as `test.describe` to declare a group of tests and `test.beforeEach` and `test.afterEach` which are executed before/after each test. Other hooks include the `test.beforeAll` and `test.afterAll` which are executed once per worker before/after all tests.
 
 ```js title="tests/example.spec.ts"
 import { test, expect } from '@playwright/test';
 
 test.describe('navigation', () => {
   test.beforeEach(async ({ page }) => {
-    // 在每個測試之前前往起始 URL。
+    // Go to the starting url before each test.
     await page.goto('https://playwright.dev/');
   });
 
   test('main navigation', async ({ page }) => {
-    // 斷言使用 expect API。
+    // Assertions use the expect API.
     await expect(page).toHaveURL('https://playwright.dev/');
   });
 });
 ```
 
-## 接下來做什麼
-- [執行單一測試、多個測試、有頭模式](./running-tests.mdx)
-- [使用 Codegen 產生測試](./codegen-intro.mdx)
-- [檢視測試追蹤](./trace-viewer-intro.mdx)
-- [探索 UI 模式](./test-ui-mode.mdx)
-- [在 CI 上使用 GitHub Actions 執行測試](./ci-intro.mdx)
+## What's Next
+- [Run single test, multiple tests, headed mode](./running-tests.mdx)
+- [Generate tests with Codegen](./codegen-intro.mdx)
+- [See a trace of your tests](./trace-viewer-intro.mdx)
+- [Explore UI Mode](./test-ui-mode.mdx)
+- [Run tests on CI with GitHub Actions](./ci-intro.mdx)
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

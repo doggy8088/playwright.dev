@@ -12,9 +12,9 @@ API for collecting and saving Playwright traces. Playwright traces can be opened
 
 :::note
 
-You probably want to [enable tracing in your config file](https://playwright.tw/docs/api/class-testoptions#test-options-trace) instead of using `context.tracing`.
+You probably want to [enable tracing in your config file](https://playwright.dev/docs/api/class-testoptions#test-options-trace) instead of using `context.tracing`.
 
-The `context.tracing` API captures browser operations and network activity, but it doesn't record test assertions (like `expect` calls). We recommend [enabling tracing through Playwright Test configuration](https://playwright.tw/docs/api/class-testoptions#test-options-trace), which includes those assertions and provides a more complete trace for debugging test failures.
+The `context.tracing` API captures browser operations and network activity, but it doesn't record test assertions (like `expect` calls). We recommend [enabling tracing through Playwright Test configuration](https://playwright.dev/docs/api/class-testoptions#test-options-trace), which includes those assertions and provides a more complete trace for debugging test failures.
 :::
 
 Start recording a trace before performing actions. At the end, stop tracing and save it to a file.
@@ -39,7 +39,7 @@ await context.Tracing.StopAsync(new()
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### GroupAsync {#tracing-group}
 
@@ -52,7 +52,7 @@ Use `test.step` instead when available.
 
 Creates a new group within the trace, assigning any subsequent API calls to this group, until [Tracing.GroupEndAsync()](/api/class-tracing.mdx#tracing-group-end) is called. Groups can be nested and will be visible in the trace viewer.
 
-**使用方式**
+**Usage**
 
 ```csharp
 // All actions between GroupAsync and GroupEndAsync
@@ -63,7 +63,7 @@ await Page.GetByRole(AriaRole.Link, new() { Name = "API" }).ClickAsync();
 await Page.Context.Tracing.GroupEndAsync();
 ```
 
-**參數**
+**Arguments**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-option-name"/><a href="#tracing-group-option-name" class="list-anchor">#</a>
   
   Group name shown in the trace viewer.
@@ -80,7 +80,7 @@ await Page.Context.Tracing.GroupEndAsync();
       
     Specifies a custom location for the group to be shown in the trace viewer. Defaults to the location of the [Tracing.GroupAsync()](/api/class-tracing.mdx#tracing-group) call.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-return"/><a href="#tracing-group-return" class="list-anchor">#</a>
 
 ---
@@ -91,13 +91,13 @@ await Page.Context.Tracing.GroupEndAsync();
 
 Closes the last group created by [Tracing.GroupAsync()](/api/class-tracing.mdx#tracing-group).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Tracing.GroupEndAsync();
 ```
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-group-end-return"/><a href="#tracing-group-end-return" class="list-anchor">#</a>
 
 ---
@@ -110,12 +110,12 @@ Start tracing.
 
 :::note
 
-You probably want to [enable tracing in your config file](https://playwright.tw/docs/api/class-testoptions#test-options-trace) instead of using `Tracing.start`.
+You probably want to [enable tracing in your config file](https://playwright.dev/docs/api/class-testoptions#test-options-trace) instead of using `Tracing.start`.
 
-The `context.tracing` API captures browser operations and network activity, but it doesn't record test assertions (like `expect` calls). We recommend [enabling tracing through Playwright Test configuration](https://playwright.tw/docs/api/class-testoptions#test-options-trace), which includes those assertions and provides a more complete trace for debugging test failures.
+The `context.tracing` API captures browser operations and network activity, but it doesn't record test assertions (like `expect` calls). We recommend [enabling tracing through Playwright Test configuration](https://playwright.dev/docs/api/class-testoptions#test-options-trace), which includes those assertions and provides a more complete trace for debugging test failures.
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 using var playwright = await Playwright.CreateAsync();
@@ -134,7 +134,7 @@ await context.Tracing.StopAsync(new()
 });
 ```
 
-**參數**
+**Arguments**
 - `options` `TracingStartOptions?` *(optional)*
   - `Name` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-option-name"/><a href="#tracing-start-option-name" class="list-anchor">#</a>
     
@@ -154,7 +154,7 @@ await context.Tracing.StopAsync(new()
     
     Trace name to be shown in the Trace Viewer.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-return"/><a href="#tracing-start-return" class="list-anchor">#</a>
 
 ---
@@ -165,7 +165,7 @@ await context.Tracing.StopAsync(new()
 
 Start a new trace chunk. If you'd like to record multiple traces on the same [BrowserContext], use [Tracing.StartAsync()](/api/class-tracing.mdx#tracing-start) once, and then create multiple trace chunks with [Tracing.StartChunkAsync()](/api/class-tracing.mdx#tracing-start-chunk) and [Tracing.StopChunkAsync()](/api/class-tracing.mdx#tracing-stop-chunk).
 
-**使用方式**
+**Usage**
 
 ```csharp
 using var playwright = await Playwright.CreateAsync();
@@ -196,7 +196,7 @@ await context.Tracing.StopChunkAsync(new()
 });
 ```
 
-**參數**
+**Arguments**
 - `options` `TracingStartChunkOptions?` *(optional)*
   - `Name` [string]? *(optional)* <font size="2">Added in: v1.32</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-option-name"/><a href="#tracing-start-chunk-option-name" class="list-anchor">#</a>
     
@@ -205,7 +205,7 @@ await context.Tracing.StopChunkAsync(new()
     
     Trace name to be shown in the Trace Viewer.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-start-chunk-return"/><a href="#tracing-start-chunk-return" class="list-anchor">#</a>
 
 ---
@@ -216,19 +216,19 @@ await context.Tracing.StopChunkAsync(new()
 
 Stop tracing.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Tracing.StopAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `TracingStopOptions?` *(optional)*
   - `Path` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-option-path"/><a href="#tracing-stop-option-path" class="list-anchor">#</a>
     
     Export trace into the file with the given path.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-return"/><a href="#tracing-stop-return" class="list-anchor">#</a>
 
 ---
@@ -239,19 +239,19 @@ await Tracing.StopAsync(options);
 
 Stop the trace chunk. See [Tracing.StartChunkAsync()](/api/class-tracing.mdx#tracing-start-chunk) for more details about multiple trace chunks.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Tracing.StopChunkAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `TracingStopChunkOptions?` *(optional)*
   - `Path` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-chunk-option-path"/><a href="#tracing-stop-chunk-option-path" class="list-anchor">#</a>
     
     Export trace collected since the last [Tracing.StartChunkAsync()](/api/class-tracing.mdx#tracing-start-chunk) call into the file with the given path.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="tracing-stop-chunk-return"/><a href="#tracing-stop-chunk-return" class="list-anchor">#</a>
 
 

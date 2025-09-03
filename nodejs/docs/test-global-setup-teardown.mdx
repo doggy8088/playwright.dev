@@ -1,33 +1,33 @@
 ---
 id: test-global-setup-teardown
-title: "全域設定和拆除"
+title: "Global setup and teardown"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-有兩種方式可以配置全域設定和拆除：使用全域設定檔案並在配置中設定 [`globalSetup`](#option-2-configure-globalsetup-and-globalteardown) 或使用[專案相依性](#option-1-project-dependencies)。使用專案相依性時，您可以定義一個在所有其他專案之前執行的專案。這是推薦的方式，因為它與 Playwright 測試執行器整合得更好：您的 HTML 報告將包含全域設定，追蹤將被記錄，並且可以使用佈置。以下表格提供兩種方式的詳細比較。
+There are two ways to configure global setup and teardown: using a global setup file and setting it in the config under [`globalSetup`](#option-2-configure-globalsetup-and-globalteardown) or using [project dependencies](#option-1-project-dependencies). With project dependencies, you define a project that runs before all other projects. This is the recommended approach, as it integrates better with the Playwright test runner: your HTML report will include the global setup, traces will be recorded, and fixtures can be used. For a detailed comparison of the two approaches, see the table below.
 
-| 功能                          | 專案相依性（推薦） | `globalSetup`（配置選項）      |
+| Feature                          | Project Dependencies (recommended) | `globalSetup` (config option)      |
 |----------------------------------|-------------------------------------|-----------------------------------|
-| 在所有測試前執行            | ✅ 是                              | ✅ 是         |
-| HTML 報告可見性           | ✅ 顯示為獨立專案      | ❌ 不顯示                       |
-| 追蹤記錄                  | ✅ 完整追蹤可用             | ❌ 不支援                   |
-| Playwright 佈置              | ✅ 完全支援                  | ❌ 不支援                   |
-| 瀏覽器管理               | ✅ 透過 `browser` 佈置            | ❌ 透過 `browserType.launch()` 完全手動 |
-| 平行性和重試          | ✅ 透過標準配置支援    | ❌ 不適用                  |
-| `headless` 或 `testIdAttribute` 等配置選項  | ✅ 自動套用            | ❌ 忽略                              |
+| Runs before all tests            | ✅ Yes                              | ✅ Yes         |
+| HTML report visibility           | ✅ Shown as a separate project      | ❌ Not shown                       |
+| Trace recording                  | ✅ Full trace available             | ❌ Not supported                   |
+| Playwright fixtures              | ✅ Fully supported                  | ❌ Not supported                   |
+| Browser management               | ✅ Via `browser` fixture            | ❌ Fully manual via `browserType.launch()` |
+| Parallelism and retries          | ✅ Supported via standard config    | ❌ Not applicable                  |
+| Config options like `headless` or `testIdAttribute`  | ✅ Automatically applied            | ❌ Ignored                              |
 
-## 選項 1：專案相依性
+## Option 1: Project Dependencies
 
-[專案相依性](./api/class-testproject#test-project-dependencies)是需要在另一個專案的測試執行之前執行的專案列表。它們對於配置全域設定動作非常有用，以便一個專案依賴於此項目先執行。使用相依性允許全域設定產生追蹤和其他成品。
+[Project dependencies](./api/class-testproject#test-project-dependencies) are a list of projects that need to run before the tests in another project run. They can be useful for configuring the global setup actions so that one project depends on this running first. Using dependencies allows global setup to produce traces and other artifacts.
 
-### 設定
+### Setup
 
-首先我們新增一個名稱為 'setup db' 的新專案。然後我們給它一個 [testProject.testMatch](/api/class-testproject.mdx#test-project-test-match) 屬性，以匹配名為 `global.setup.ts` 的檔案：
+First we add a new project with the name 'setup db'. We then give it a [testProject.testMatch](/api/class-testproject.mdx#test-project-test-match) property in order to match the file called `global.setup.ts`:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -47,7 +47,7 @@ export default defineConfig({
 });
 ```
 
-然後我們將 [testProject.dependencies](/api/class-testproject.mdx#test-project-dependencies) 屬性新增到依賴設定專案的專案中，並將我們在上一步中定義的相依性專案名稱傳入陣列中：
+Then we add the [testProject.dependencies](/api/class-testproject.mdx#test-project-dependencies) property to our projects that depend on the setup project and pass into the array the name of our dependency project, which we defined in the previous step:
 
 ```js title="playwright.config.ts"
 import { defineConfig, devices } from '@playwright/test';
@@ -69,14 +69,14 @@ export default defineConfig({
 });
 ```
 
-在此範例中，'chromium with db' 專案依賴於 'setup db' 專案。然後我們建立一個設定測試，儲存在專案的根層級（請注意，設定和拆除程式碼必須透過呼叫 [test()](./api/class-test#test-call) 函式定義為常規測試）：
+In this example the 'chromium with db' project depends on the 'setup db' project. We then create a setup test, stored at root level of your project (note that setup and teardown code must be defined as regular tests by calling [test()](./api/class-test#test-call) function):
 
 ```js title="tests/global.setup.ts"
 import { test as setup } from '@playwright/test';
 
 setup('create new database', async ({ }) => {
   console.log('creating new database...');
-  // 初始化資料庫
+  // Initialize the database
 });
 ```
 
@@ -84,15 +84,15 @@ setup('create new database', async ({ }) => {
 import { test, expect } from '@playwright/test';
 
 test('menu', async ({ page }) => {
-  // 您依賴資料庫的測試
+  // Your test that depends on the database
 });
 ```
 
-### 拆除
+### Teardown
 
-您可以透過在設定專案中新增 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) 屬性來拆除您的設定。這將在所有相依專案執行完畢後執行。
+You can teardown your setup by adding a [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) property to your setup project. This will run after all dependent projects have run.
 
-首先，我們將 [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) 屬性新增到設定專案中，名稱為 'cleanup db'，這是我們在上一步中給拆除專案的名稱：
+First we add the [testProject.teardown](/api/class-testproject.mdx#test-project-teardown) property to our setup project with the name 'cleanup db' which is the name we gave to our teardown project in the previous step:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -119,39 +119,39 @@ export default defineConfig({
 });
 ```
 
-然後我們在專案的 tests 目錄中建立一個 `global.teardown.ts` 檔案。這將用於在所有測試執行完畢後從資料庫刪除資料。
+Then we create a `global.teardown.ts` file in the tests directory of your project. This will be used to delete the data from the database after all tests have run.
 
 ```js title="tests/global.teardown.ts"
 import { test as teardown } from '@playwright/test';
 
 teardown('delete database', async ({ }) => {
   console.log('deleting test database...');
-  // 刪除資料庫
+  // Delete the database
 });
 ```
 
-### 測試篩選
+### Test filtering
 
-所有測試篩選選項，例如 `--grep`/`--grep-invert`、`--shard`、在命令列中直接按位置篩選，或使用 [`test.only()`](./api/class-test.mdx#test-only)，都會直接選擇要執行的主要測試。如果這些測試屬於具有相依性的專案，來自這些相依性的所有測試也會執行。
+All test filtering options, such as `--grep`/`--grep-invert`, `--shard`, filtering directly by location in the command line, or using [`test.only()`](./api/class-test.mdx#test-only), directly select the primary tests to be run. If those tests belong to a project with dependencies, all tests from those dependencies will also run.
 
-您可以傳遞 `--no-deps` 命令列選項來忽略所有相依性和拆除。只有您直接選擇的專案會執行。
+You can pass `--no-deps` command line option to ignore all dependencies and teardowns. Only your directly selected projects will run.
 
-### 更多範例
+### More examples
 
-更多詳細範例請查看：
-- 我們的[身份驗證](./auth.mdx)指南
-- 我們的部落格文章 [A better global setup in Playwright reusing login with project dependencies](https://dev.to/playwright/a-better-global-setup-in-playwright-reusing-login-with-project-dependencies-14)
-- [v1.31 發布影片](https://youtu.be/PI50YAPTAs4) 觀看示範
+For more detailed examples check out:
+- our [authentication](./auth.mdx) guide
+- our blog post [A better global setup in Playwright reusing login with project dependencies](https://dev.to/playwright/a-better-global-setup-in-playwright-reusing-login-with-project-dependencies-14)
+- [v1.31 release video](https://youtu.be/PI50YAPTAs4) to see the demo
 
-## 選項 2：設定 globalSetup 和 globalTeardown
+## Option 2: Configure globalSetup and globalTeardown
 
-您可以在[配置檔案](./test-configuration.mdx#advanced-configuration)中使用 `globalSetup` 選項來在執行所有測試之前設定某些內容。全域設定檔案必須匯出一個接受 config 物件的單一函式。此函式將在所有測試之前執行一次。
+You can use the `globalSetup` option in the [configuration file](./test-configuration.mdx#advanced-configuration) to set something up once before running all tests. The global setup file must export a single function that takes a config object. This function will be run once before all the tests.
 
-同樣地，使用 `globalTeardown` 在所有測試後執行一次某些操作。或者，讓 `globalSetup` 返回一個函式，該函式將用作全域拆除。您可以使用環境變數將資料（例如埠號、身份驗證令牌等）從全域設定傳遞到您的測試。
+Similarly, use `globalTeardown` to run something once after all the tests. Alternatively, let `globalSetup` return a function that will be used as a global teardown. You can pass data such as port number, authentication tokens, etc. from your global setup to your tests using environment variables.
 
 :::note
 
-請注意，`globalSetup` 和 `globalTeardown` 缺少某些功能——請參閱[簡介](#introduction)部分的詳細比較。考慮使用[專案相依性](#option-1-project-dependencies)來獲得完整的功能支援。
+Beware that `globalSetup` and `globalTeardown` lack some features — see the [intro](#introduction) section for a detailed comparison. Consider using [project dependencies](#option-1-project-dependencies) instead to get full feature support.
 :::
 
 ```js title="playwright.config.ts"
@@ -163,9 +163,9 @@ export default defineConfig({
 });
 ```
 
-### 範例
+### Example
 
-以下是一個全域設定範例，它進行一次身份驗證並在測試中重用身份驗證狀態。它使用配置檔案中的 `baseURL` 和 `storageState` 選項。
+Here is a global setup example that authenticates once and reuses authentication state in tests. It uses the `baseURL` and `storageState` options from the configuration file.
 
 ```js title="global-setup.ts"
 import { chromium, type FullConfig } from '@playwright/test';
@@ -185,7 +185,7 @@ async function globalSetup(config: FullConfig) {
 export default globalSetup;
 ```
 
-在配置檔案中指定 `globalSetup`、`baseURL` 和 `storageState`。
+Specify `globalSetup`, `baseURL` and `storageState` in the configuration file.
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -198,18 +198,18 @@ export default defineConfig({
 });
 ```
 
-測試開始時已經通過身份驗證，因為我們指定了由全域設定填充的 `storageState`。
+Tests start already authenticated because we specify `storageState` that was populated by global setup.
 
 ```js
 import { test } from '@playwright/test';
 
 test('test', async ({ page }) => {
   await page.goto('/');
-  // 您已登入！
+  // You are signed in!
 });
 ```
 
-您可以透過 `process.env` 將其設定為環境變數，從全域設定檔案中讓任意資料在測試中可用。
+You can make arbitrary data available in your tests from your global setup file by setting them as environment variables via `process.env`.
 
 ```js title="global-setup.ts"
 import type { FullConfig } from '@playwright/test';
@@ -223,16 +223,16 @@ async function globalSetup(config: FullConfig) {
 export default globalSetup;
 ```
 
-測試可以存取在全域設定中設定的 `process.env` 屬性。
+Tests have access to the `process.env` properties set in the global setup.
 
 ```js
 import { test } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  // 在 globalSetup 中設定的環境變數只在 test() 內可用。
+  // environment variables which are set in globalSetup are only available inside test().
   const { FOO, BAR } = process.env;
 
-  // FOO 和 BAR 屬性已填充。
+  // FOO and BAR properties are populated.
   expect(FOO).toEqual('some data');
 
   const complexData = JSON.parse(BAR);
@@ -240,9 +240,9 @@ test('test', async ({ page }) => {
 });
 ```
 
-### 擷取全域設定期間失敗的追蹤
+### Capturing trace of failures during global setup
 
-在某些情況下，擷取全域設定期間遇到的失敗追蹤可能很有用。為了做到這一點，您必須在設定中[開始追蹤](./api/class-tracing.mdx#tracing-start)，並且必須確保如果發生錯誤，在拋出該錯誤之前[停止追蹤](./api/class-tracing.mdx#tracing-stop)。這可以透過將設定包裝在 `try...catch` 區塊中來實現。以下是擴展全域設定範例以擷取追蹤的範例。
+In some instances, it may be useful to capture a trace of failures encountered during the global setup. In order to do this, you must [start tracing](./api/class-tracing.mdx#tracing-start) in your setup, and you must ensure that you [stop tracing](./api/class-tracing.mdx#tracing-stop) if an error occurs before that error is thrown. This can be achieved by wrapping your setup in a `try...catch` block.  Here is an example that expands the global setup example to capture a trace.
 
 ```js title="global-setup.ts"
 import { chromium, type FullConfig } from '@playwright/test';

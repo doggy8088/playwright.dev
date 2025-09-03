@@ -1,24 +1,24 @@
 ---
 id: downloads
-title: "下載"
+title: "Downloads"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-每個頁面下載的附件都會觸發 [`Page.onDownload(handler)`](/api/class-page.mdx#page-event-download) 事件。所有這些附件都會下載到一個臨時資料夾中。您可以使用事件中的 [Download] 物件獲取下載的 URL、檔案名稱和有效負載流。
+For every attachment downloaded by the page, [Page.onDownload(handler)](/api/class-page.mdx#page-event-download) event is emitted. All these attachments are downloaded into a temporary folder. You can obtain the download url, file name and payload stream using the [Download] object from the event.
 
-您可以使用 [`setDownloadsPath`](/api/class-browsertype.mdx#browser-type-launch-option-downloads-path) 選項來指定下載檔案的保存位置 [`BrowserType.launch()`](/api/class-browsertype.mdx#browser-type-launch)。
+You can specify where to persist downloaded files using the [setDownloadsPath](/api/class-browsertype.mdx#browser-type-launch-option-downloads-path) option in [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch).
 
 :::note
 
-下載的檔案會在產生它們的瀏覽器情境關閉時被刪除。
+Downloaded files are deleted when the browser context that produced them is closed.
 :::
 
-以下是處理檔案下載的最簡單方法：
+Here is the simplest way to handle the file download:
 
 ```java
 // Wait for the download to start
@@ -31,19 +31,19 @@ Download download = page.waitForDownload(() -> {
 download.saveAs(Paths.get("/path/to/save/at/", download.suggestedFilename()));
 ```
 
-#### 變體
+#### Variations
 
-如果您不知道是什麼啟動了下載，您仍然可以處理這個事件：
+If you have no idea what initiates the download, you can still handle the event:
 
 ```java
 page.onDownload(download -> System.out.println(download.path()));
 ```
 
-請注意，處理事件會分叉控制流程，使腳本更難以跟隨。由於您的主要控制流程不會等待此操作完成，因此在您下載檔案時，您的情境可能會結束。
+Note that handling the event forks the control flow and makes the script harder to follow. Your scenario might end while you are downloading a file since your main control flow is not awaiting for this operation to resolve.
 
 :::note
 
-如需上傳檔案，請參閱[上傳檔案](./input.mdx#upload-files)部分。
+For uploading files, see the [uploading files](./input.mdx#upload-files) section.
 :::
 
 

@@ -13,7 +13,7 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### config {#worker-info-config}
 
@@ -21,13 +21,13 @@ import ProgressiveImage from '@theme/ProgressiveImage';
 
 Processed configuration from the [configuration file](../test-configuration.mdx).
 
-**使用方式**
+**Usage**
 
 ```js
 workerInfo.config
 ```
 
-**型別 (Type)**
+**Type**
 - [FullConfig]
 
 ---
@@ -40,13 +40,13 @@ The index of the worker between `0` and `workers - 1`. It is guaranteed that wor
 
 Also available as `process.env.TEST_PARALLEL_INDEX`. Learn more about [parallelism and sharding](../test-parallel.mdx) with Playwright Test.
 
-**使用方式**
+**Usage**
 
 ```js
 workerInfo.parallelIndex
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -57,13 +57,13 @@ workerInfo.parallelIndex
 
 Processed project configuration from the [configuration file](../test-configuration.mdx).
 
-**使用方式**
+**Usage**
 
 ```js
 workerInfo.project
 ```
 
-**型別 (Type)**
+**Type**
 - [FullProject]
 
 ---
@@ -76,13 +76,13 @@ The unique index of the worker process that is running the test. When a worker i
 
 Also available as `process.env.TEST_WORKER_INDEX`. Learn more about [parallelism and sharding](../test-parallel.mdx) with Playwright Test.
 
-**使用方式**
+**Usage**
 
 ```js
 workerInfo.workerIndex
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 

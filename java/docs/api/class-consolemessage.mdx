@@ -34,7 +34,7 @@ msg.args().get(1).jsonValue(); // 42
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### args {#console-message-args}
 
@@ -42,13 +42,13 @@ msg.args().get(1).jsonValue(); // 42
 
 List of arguments passed to a `console` function call. See also [Page.onConsoleMessage(handler)](/api/class-page.mdx#page-event-console).
 
-**使用方式**
+**Usage**
 
 ```java
 ConsoleMessage.args();
 ```
 
-**傳回值**
+**Returns**
 - [List]&lt;[JSHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-args-return"/><a href="#console-message-args-return" class="list-anchor">#</a>
 
 ---
@@ -59,13 +59,13 @@ ConsoleMessage.args();
 
 URL of the resource followed by 0-based line and column numbers in the resource formatted as `URL:line:column`.
 
-**使用方式**
+**Usage**
 
 ```java
 ConsoleMessage.location();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-location-return"/><a href="#console-message-location-return" class="list-anchor">#</a>
 
 ---
@@ -76,13 +76,13 @@ ConsoleMessage.location();
 
 The page that produced this console message, if any.
 
-**使用方式**
+**Usage**
 
 ```java
 ConsoleMessage.page();
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-page-return"/><a href="#console-message-page-return" class="list-anchor">#</a>
 
 ---
@@ -93,13 +93,13 @@ ConsoleMessage.page();
 
 The text of the console message.
 
-**使用方式**
+**Usage**
 
 ```java
 ConsoleMessage.text();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-text-return"/><a href="#console-message-text-return" class="list-anchor">#</a>
 
 ---
@@ -110,13 +110,13 @@ ConsoleMessage.text();
 
 One of the following values: `'log'`, `'debug'`, `'info'`, `'error'`, `'warning'`, `'dir'`, `'dirxml'`, `'table'`, `'trace'`, `'clear'`, `'startGroup'`, `'startGroupCollapsed'`, `'endGroup'`, `'assert'`, `'profile'`, `'profileEnd'`, `'count'`, `'timeEnd'`.
 
-**使用方式**
+**Usage**
 
 ```java
 ConsoleMessage.type();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="console-message-type-return"/><a href="#console-message-type-return" class="list-anchor">#</a>
 
 

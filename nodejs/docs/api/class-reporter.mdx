@@ -116,7 +116,7 @@ When merging multiple [`blob`](../test-reporters#blob-reporter) reports via [`me
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### onBegin {#reporter-on-begin}
 
@@ -124,13 +124,13 @@ When merging multiple [`blob`](../test-reporters#blob-reporter) reports via [`me
 
 Called once before running tests. All tests have been already discovered and put into a hierarchy of [Suite]s.
 
-**使用方式**
+**Usage**
 
 ```js
 reporter.onBegin(config, suite);
 ```
 
-**參數**
+**Arguments**
 - `config` [FullConfig]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-begin-option-config"/><a href="#reporter-on-begin-option-config" class="list-anchor">#</a>
   
   Resolved configuration.
@@ -146,13 +146,13 @@ reporter.onBegin(config, suite);
 
 Called after all tests have been run, or testing has been interrupted. Note that this method may return a [Promise] and Playwright Test will await it. Reporter is allowed to override the status and hence affect the exit code of the test runner.
 
-**使用方式**
+**Usage**
 
 ```js
 await reporter.onEnd(result);
 ```
 
-**參數**
+**Arguments**
 - `result` [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-end-option-result"/><a href="#reporter-on-end-option-result" class="list-anchor">#</a>
   - `status` "passed" | "failed" | "timedout" | "interrupted"
     
@@ -170,7 +170,7 @@ await reporter.onEnd(result);
   * `'timedout'` - The [testConfig.globalTimeout](/api/class-testconfig.mdx#test-config-global-timeout) has been reached.
   * `'interrupted'` - Interrupted by the user.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-end-return"/><a href="#reporter-on-end-return" class="list-anchor">#</a>
   - `status` "passed" | "failed" | "timedout" | "interrupted" *(optional)*
     
@@ -183,13 +183,13 @@ await reporter.onEnd(result);
 
 Called on some global error, for example unhandled exception in the worker process.
 
-**使用方式**
+**Usage**
 
 ```js
 reporter.onError(error);
 ```
 
-**參數**
+**Arguments**
 - `error` [TestError]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-error-option-error"/><a href="#reporter-on-error-option-error" class="list-anchor">#</a>
   
   The error.
@@ -202,13 +202,13 @@ reporter.onError(error);
 
 Called immediately before test runner exists. At this point all the reporters have received the [reporter.onEnd()](/api/class-reporter.mdx#reporter-on-end) signal, so all the reports should be build. You can run the code that uploads the reports in this hook.
 
-**使用方式**
+**Usage**
 
 ```js
 await reporter.onExit();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-exit-return"/><a href="#reporter-on-exit-return" class="list-anchor">#</a>
 
 ---
@@ -219,13 +219,13 @@ await reporter.onExit();
 
 Called when something has been written to the standard error in the worker process.
 
-**使用方式**
+**Usage**
 
 ```js
 reporter.onStdErr(chunk, test, result);
 ```
 
-**參數**
+**Arguments**
 - `chunk` [string] | [Buffer]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-std-err-option-chunk"/><a href="#reporter-on-std-err-option-chunk" class="list-anchor">#</a>
   
   Output chunk.
@@ -244,13 +244,13 @@ reporter.onStdErr(chunk, test, result);
 
 Called when something has been written to the standard output in the worker process.
 
-**使用方式**
+**Usage**
 
 ```js
 reporter.onStdOut(chunk, test, result);
 ```
 
-**參數**
+**Arguments**
 - `chunk` [string] | [Buffer]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-std-out-option-chunk"/><a href="#reporter-on-std-out-option-chunk" class="list-anchor">#</a>
   
   Output chunk.
@@ -269,13 +269,13 @@ reporter.onStdOut(chunk, test, result);
 
 Called when a test step started in the worker process.
 
-**使用方式**
+**Usage**
 
 ```js
 reporter.onStepBegin(test, result, step);
 ```
 
-**參數**
+**Arguments**
 - `test` [TestCase]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-step-begin-option-test"/><a href="#reporter-on-step-begin-option-test" class="list-anchor">#</a>
   
   Test that the step belongs to.
@@ -294,13 +294,13 @@ reporter.onStepBegin(test, result, step);
 
 Called when a test step finished in the worker process.
 
-**使用方式**
+**Usage**
 
 ```js
 reporter.onStepEnd(test, result, step);
 ```
 
-**參數**
+**Arguments**
 - `test` [TestCase]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-step-end-option-test"/><a href="#reporter-on-step-end-option-test" class="list-anchor">#</a>
   
   Test that the step belongs to.
@@ -319,13 +319,13 @@ reporter.onStepEnd(test, result, step);
 
 Called after a test has been started in the worker process.
 
-**使用方式**
+**Usage**
 
 ```js
 reporter.onTestBegin(test, result);
 ```
 
-**參數**
+**Arguments**
 - `test` [TestCase]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-test-begin-option-test"/><a href="#reporter-on-test-begin-option-test" class="list-anchor">#</a>
   
   Test that has been started.
@@ -341,13 +341,13 @@ reporter.onTestBegin(test, result);
 
 Called after a test has been finished in the worker process.
 
-**使用方式**
+**Usage**
 
 ```js
 reporter.onTestEnd(test, result);
 ```
 
-**參數**
+**Arguments**
 - `test` [TestCase]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-on-test-end-option-test"/><a href="#reporter-on-test-end-option-test" class="list-anchor">#</a>
   
   Test that has been finished.
@@ -363,13 +363,13 @@ reporter.onTestEnd(test, result);
 
 Whether this reporter uses stdio for reporting. When it does not, Playwright Test could add some output to enhance user experience. If your reporter does not print to the terminal, it is strongly recommended to return `false`.
 
-**使用方式**
+**Usage**
 
 ```js
 reporter.printsToStdio();
 ```
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="reporter-prints-to-stdio-return"/><a href="#reporter-prints-to-stdio-return" class="list-anchor">#</a>
 
 

@@ -21,7 +21,7 @@ JSHandle instances can be used as an argument in [Page.EvalOnSelectorAsync()](/a
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### AsElement {#js-handle-as-element}
 
@@ -29,13 +29,13 @@ JSHandle instances can be used as an argument in [Page.EvalOnSelectorAsync()](/a
 
 Returns either `null` or the object handle itself, if the object handle is an instance of [ElementHandle].
 
-**使用方式**
+**Usage**
 
 ```csharp
 JsHandle.AsElement();
 ```
 
-**傳回值**
+**Returns**
 - [ElementHandle]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-as-element-return"/><a href="#js-handle-as-element-return" class="list-anchor">#</a>
 
 ---
@@ -46,13 +46,13 @@ JsHandle.AsElement();
 
 The `jsHandle.dispose` method stops referencing the element handle.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await JsHandle.DisposeAsync();
 ```
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-dispose-return"/><a href="#js-handle-dispose-return" class="list-anchor">#</a>
 
 ---
@@ -67,14 +67,14 @@ This method passes this handle as the first argument to [expression](/api/class-
 
 If [expression](/api/class-jshandle.mdx#js-handle-evaluate-option-expression) returns a [Promise], then `handle.evaluate` would wait for the promise to resolve and return its value.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var tweetHandle = await page.QuerySelectorAsync(".tweet .retweets");
 Assert.AreEqual("10 retweets", await tweetHandle.EvaluateAsync("node => node.innerText"));
 ```
 
-**參數**
+**Arguments**
 - `expression` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-evaluate-option-expression"/><a href="#js-handle-evaluate-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -82,7 +82,7 @@ Assert.AreEqual("10 retweets", await tweetHandle.EvaluateAsync("node => node.inn
   
   Optional argument to pass to [expression](/api/class-jshandle.mdx#js-handle-evaluate-option-expression).
 
-**傳回值**
+**Returns**
 - [object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-evaluate-return"/><a href="#js-handle-evaluate-return" class="list-anchor">#</a>
 
 ---
@@ -101,13 +101,13 @@ If the function passed to the `jsHandle.evaluateHandle` returns a [Promise], the
 
 See [Page.EvaluateHandleAsync()](/api/class-page.mdx#page-evaluate-handle) for more details.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await JsHandle.EvaluateHandleAsync(expression, arg);
 ```
 
-**參數**
+**Arguments**
 - `expression` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-evaluate-handle-option-expression"/><a href="#js-handle-evaluate-handle-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -115,7 +115,7 @@ await JsHandle.EvaluateHandleAsync(expression, arg);
   
   Optional argument to pass to [expression](/api/class-jshandle.mdx#js-handle-evaluate-handle-option-expression).
 
-**傳回值**
+**Returns**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-evaluate-handle-return"/><a href="#js-handle-evaluate-handle-return" class="list-anchor">#</a>
 
 ---
@@ -126,7 +126,7 @@ await JsHandle.EvaluateHandleAsync(expression, arg);
 
 The method returns a map with **own property names** as keys and JSHandle instances for the property values.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var handle = await page.EvaluateHandleAsync("() => ({ window, document }");
@@ -136,7 +136,7 @@ var documentHandle = properties["document"];
 await handle.DisposeAsync();
 ```
 
-**傳回值**
+**Returns**
 - [Map]&lt;[string], [JSHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-get-properties-return"/><a href="#js-handle-get-properties-return" class="list-anchor">#</a>
 
 ---
@@ -147,18 +147,18 @@ await handle.DisposeAsync();
 
 Fetches a single property from the referenced object.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await JsHandle.GetPropertyAsync(propertyName);
 ```
 
-**參數**
+**Arguments**
 - `propertyName` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-get-property-option-property-name"/><a href="#js-handle-get-property-option-property-name" class="list-anchor">#</a>
   
   property to get
 
-**傳回值**
+**Returns**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-get-property-return"/><a href="#js-handle-get-property-return" class="list-anchor">#</a>
 
 ---
@@ -174,13 +174,13 @@ Returns a JSON representation of the object. If the object has a `toJSON` functi
 The method will return an empty JSON object if the referenced object is not stringifiable. It will throw an error if the object has circular references.
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 await JsHandle.JsonValueAsync();
 ```
 
-**傳回值**
+**Returns**
 - [object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="js-handle-json-value-return"/><a href="#js-handle-json-value-return" class="list-anchor">#</a>
 
 

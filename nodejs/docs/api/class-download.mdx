@@ -27,7 +27,7 @@ await download.saveAs('/path/to/save/at/' + download.suggestedFilename());
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### cancel {#download-cancel}
 
@@ -35,13 +35,13 @@ await download.saveAs('/path/to/save/at/' + download.suggestedFilename());
 
 Cancels a download. Will not fail if the download is already finished or canceled. Upon successful cancellations, `download.failure()` would resolve to `'canceled'`.
 
-**使用方式**
+**Usage**
 
 ```js
 await download.cancel();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-cancel-return"/><a href="#download-cancel-return" class="list-anchor">#</a>
 
 ---
@@ -52,13 +52,13 @@ await download.cancel();
 
 Returns a readable stream for a successful download, or throws for a failed/canceled download.
 
-**使用方式**
+**Usage**
 
 ```js
 await download.createReadStream();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[Readable]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-create-read-stream-return"/><a href="#download-create-read-stream-return" class="list-anchor">#</a>
 
 ---
@@ -69,13 +69,13 @@ await download.createReadStream();
 
 Deletes the downloaded file. Will wait for the download to finish if necessary.
 
-**使用方式**
+**Usage**
 
 ```js
 await download.delete();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-delete-return"/><a href="#download-delete-return" class="list-anchor">#</a>
 
 ---
@@ -86,13 +86,13 @@ await download.delete();
 
 Returns download error if any. Will wait for the download to finish if necessary.
 
-**使用方式**
+**Usage**
 
 ```js
 await download.failure();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[null] | [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-failure-return"/><a href="#download-failure-return" class="list-anchor">#</a>
 
 ---
@@ -103,13 +103,13 @@ await download.failure();
 
 Get the page that the download belongs to.
 
-**使用方式**
+**Usage**
 
 ```js
 download.page();
 ```
 
-**傳回值**
+**Returns**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-page-return"/><a href="#download-page-return" class="list-anchor">#</a>
 
 ---
@@ -122,13 +122,13 @@ Returns path to the downloaded file for a successful download, or throws for a f
 
 Note that the download's file name is a random GUID, use [download.suggestedFilename()](/api/class-download.mdx#download-suggested-filename) to get suggested file name.
 
-**使用方式**
+**Usage**
 
 ```js
 await download.path();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-path-return"/><a href="#download-path-return" class="list-anchor">#</a>
 
 ---
@@ -139,18 +139,18 @@ await download.path();
 
 Copy the download to a user-specified path. It is safe to call this method while the download is still in progress. Will wait for the download to finish if necessary.
 
-**使用方式**
+**Usage**
 
 ```js
 await download.saveAs('/path/to/save/at/' + download.suggestedFilename());
 ```
 
-**參數**
+**Arguments**
 - `path` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-save-as-option-path"/><a href="#download-save-as-option-path" class="list-anchor">#</a>
   
   Path where the download should be copied.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-save-as-return"/><a href="#download-save-as-return" class="list-anchor">#</a>
 
 ---
@@ -161,13 +161,13 @@ await download.saveAs('/path/to/save/at/' + download.suggestedFilename());
 
 Returns suggested filename for this download. It is typically computed by the browser from the [`Content-Disposition`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition) response header or the `download` attribute. See the spec on [whatwg](https://html.spec.whatwg.org/#downloading-resources). Different browsers can use different logic for computing it.
 
-**使用方式**
+**Usage**
 
 ```js
 download.suggestedFilename();
 ```
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-suggested-filename-return"/><a href="#download-suggested-filename-return" class="list-anchor">#</a>
 
 ---
@@ -178,13 +178,13 @@ download.suggestedFilename();
 
 Returns downloaded url.
 
-**使用方式**
+**Usage**
 
 ```js
 download.url();
 ```
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="download-url-return"/><a href="#download-url-return" class="list-anchor">#</a>
 
 

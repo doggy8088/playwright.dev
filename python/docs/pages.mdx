@@ -1,15 +1,15 @@
 ---
 id: pages
-title: "頁面"
+title: "Pages"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 頁面
+## Pages
 
-每個 [BrowserContext] 可以有多個頁面。 [Page] 指的是瀏覽器情境中的單個分頁或彈出視窗。它應該用於導航到 URL 並與頁面內容進行互動。
+Each [BrowserContext] can have multiple pages. A [Page] refers to a single tab or a popup window within a browser context. It should be used to navigate to URLs and interact with the page content.
 
 <Tabs
   groupId="python-flavor"
@@ -55,11 +55,11 @@ print(page.url)
 </TabItem>
 </Tabs>
 
-## 多個頁面
+## Multiple pages
 
-每個瀏覽器情境可以承載多個頁面（分頁）。
-* 每個頁面都像一個專注的、活躍的頁面。不需要將頁面帶到前面。
-* 情境內的頁面遵循情境級別的模擬，例如檢視區大小、自訂網路路由或瀏覽器語言環境。
+Each browser context can host multiple pages (tabs).
+* Each page behaves like a focused, active page. Bringing the page to front is not required.
+* Pages inside a context respect context-level emulation, like viewport sizes, custom network routes or browser locale.
 
 <Tabs
   groupId="python-flavor"
@@ -95,9 +95,9 @@ all_pages = context.pages
 </TabItem>
 </Tabs>
 
-## 處理新頁面
+## Handling new pages
 
-瀏覽器情境上的 `page` 事件可以用來獲取在該情境中建立的新頁面。這可以用來處理由 `target="_blank"` 連結打開的新頁面。
+The `page` event on browser contexts can be used to get new pages that are created in the context. This can be used to handle new pages opened by `target="_blank"` links.
 
 <Tabs
   groupId="python-flavor"
@@ -137,7 +137,7 @@ print(await new_page.title())
 </TabItem>
 </Tabs>
 
-如果觸發新頁面的動作未知，可以使用以下模式。
+If the action that triggers the new page is unknown, the following pattern can be used.
 
 <Tabs
   groupId="python-flavor"
@@ -173,11 +173,11 @@ context.on("page", handle_page)
 </TabItem>
 </Tabs>
 
-## 處理彈出視窗
+## Handling popups
 
-如果頁面打開一個彈出視窗（例如由 `target="_blank"` 連結打開的頁面），您可以透過監聽頁面上的 `popup` 事件來獲取對它的參考。
+If the page opens a pop-up (e.g. pages opened by `target="_blank"` links), you can get a reference to it by listening to the `popup` event on the page.
 
-此事件除了 `browserContext.on('page')` 事件之外也會發出，但僅針對與此頁面相關的彈出視窗。
+This event is emitted in addition to the `browserContext.on('page')` event, but only for popups relevant to this page.
 
 <Tabs
   groupId="python-flavor"
@@ -217,7 +217,7 @@ print(await popup.title())
 </TabItem>
 </Tabs>
 
-如果觸發彈出視窗的動作未知，可以使用以下模式。
+If the action that triggers the popup is unknown, the following pattern can be used.
 
 <Tabs
   groupId="python-flavor"

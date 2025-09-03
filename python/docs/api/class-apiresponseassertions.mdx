@@ -47,7 +47,7 @@ async def test_navigates_to_login_page(page: Page) -> None:
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### not_to_be_ok {#api-response-assertions-not-to-be-ok}
 
@@ -55,13 +55,13 @@ async def test_navigates_to_login_page(page: Page) -> None:
 
 The opposite of [expect(response).to_be_ok()](/api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok).
 
-**使用方式**
+**Usage**
 
 ```python
 expect(response).not_to_be_ok()
 ```
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-assertions-not-to-be-ok-return"/><a href="#api-response-assertions-not-to-be-ok-return" class="list-anchor">#</a>
 
 ---
@@ -72,7 +72,7 @@ expect(response).not_to_be_ok()
 
 Ensures the response status code is within `200..299` range.
 
-**使用方式**
+**Usage**
 
 <Tabs
   groupId="python-flavor"
@@ -105,7 +105,7 @@ await expect(response).to_be_ok()
 </TabItem>
 </Tabs>
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-assertions-to-be-ok-return"/><a href="#api-response-assertions-to-be-ok-return" class="list-anchor">#</a>
 
 

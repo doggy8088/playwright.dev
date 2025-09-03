@@ -15,7 +15,7 @@ Locators are the central piece of Playwright's auto-waiting and retry-ability. I
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### all {#locator-all}
 
@@ -32,14 +32,14 @@ When the list of elements changes dynamically, [Locator.all()](/api/class-locato
 When the list of elements is stable, but loaded dynamically, wait for the full list to finish loading before calling [Locator.all()](/api/class-locator.mdx#locator-all).
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 for (Locator li : page.getByRole("listitem").all())
   li.click();
 ```
 
-**傳回值**
+**Returns**
 - [List]&lt;[Locator]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-all-return"/><a href="#locator-all-return" class="list-anchor">#</a>
 
 ---
@@ -55,13 +55,13 @@ Returns an array of `node.innerText` values for all matching nodes.
 If you need to assert text on the page, prefer [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) with [setUseInnerText](/api/class-locatorassertions.mdx#locator-assertions-to-have-text-option-use-inner-text) option to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 String[] texts = page.getByRole(AriaRole.LINK).allInnerTexts();
 ```
 
-**傳回值**
+**Returns**
 - [List]&lt;[String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-all-inner-texts-return"/><a href="#locator-all-inner-texts-return" class="list-anchor">#</a>
 
 ---
@@ -77,13 +77,13 @@ Returns an array of `node.textContent` values for all matching nodes.
 If you need to assert text on the page, prefer [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 String[] texts = page.getByRole(AriaRole.LINK).allTextContents();
 ```
 
-**傳回值**
+**Returns**
 - [List]&lt;[String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-all-text-contents-return"/><a href="#locator-all-text-contents-return" class="list-anchor">#</a>
 
 ---
@@ -94,7 +94,7 @@ String[] texts = page.getByRole(AriaRole.LINK).allTextContents();
 
 Creates a locator that matches both this locator and the argument locator.
 
-**使用方式**
+**Usage**
 
 The following example finds a button with a specific title.
 
@@ -102,12 +102,12 @@ The following example finds a button with a specific title.
 Locator button = page.getByRole(AriaRole.BUTTON).and(page.getByTitle("Subscribe"));
 ```
 
-**參數**
+**Arguments**
 - `locator` [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-and-option-locator"/><a href="#locator-and-option-locator" class="list-anchor">#</a>
   
   Additional locator to match.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-and-return"/><a href="#locator-and-return" class="list-anchor">#</a>
 
 ---
@@ -118,19 +118,19 @@ Locator button = page.getByRole(AriaRole.BUTTON).and(page.getByTitle("Subscribe"
 
 Captures the aria snapshot of the given element. Read more about [aria snapshots](../aria-snapshots.mdx) and [assertThat(locator).matchesAriaSnapshot()](/api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) for the corresponding assertion.
 
-**使用方式**
+**Usage**
 
 ```java
 page.getByRole(AriaRole.LINK).ariaSnapshot();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.AriaSnapshotOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-aria-snapshot-option-timeout"/><a href="#locator-aria-snapshot-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-aria-snapshot-return"/><a href="#locator-aria-snapshot-return" class="list-anchor">#</a>
 
 **Details**
@@ -167,20 +167,20 @@ Below is the HTML markup and the respective ARIA snapshot:
 
 Calls [blur](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/blur) on the element.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.blur();
 Locator.blur(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.BlurOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-blur-option-timeout"/><a href="#locator-blur-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-blur-return"/><a href="#locator-blur-return" class="list-anchor">#</a>
 
 ---
@@ -191,20 +191,20 @@ Locator.blur(options);
 
 This method returns the bounding box of the element matching the locator, or `null` if the element is not visible. The bounding box is calculated relative to the main frame viewport - which is usually the same as the browser window.
 
-**使用方式**
+**Usage**
 
 ```java
 BoundingBox box = page.getByRole(AriaRole.BUTTON).boundingBox();
 page.mouse().click(box.x + box.width / 2, box.y + box.height / 2);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.BoundingBoxOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-bounding-box-option-timeout"/><a href="#locator-bounding-box-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [null] | BoundingBox<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-bounding-box-return"/><a href="#locator-bounding-box-return" class="list-anchor">#</a>
   - `x` [double]
     
@@ -235,13 +235,13 @@ Assuming the page is static, it is safe to use bounding box coordinates to perfo
 
 Ensure that checkbox or radio element is checked.
 
-**使用方式**
+**Usage**
 
 ```java
 page.getByRole(AriaRole.CHECKBOX).check();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.CheckOptions` *(optional)*
   - `setForce` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-check-option-force"/><a href="#locator-check-option-force" class="list-anchor">#</a>
     
@@ -269,7 +269,7 @@ page.getByRole(AriaRole.CHECKBOX).check();
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-check-return"/><a href="#locator-check-return" class="list-anchor">#</a>
 
 **Details**
@@ -293,13 +293,13 @@ When all steps combined have not finished during the specified [setTimeout](/api
 
 Clear the input field.
 
-**使用方式**
+**Usage**
 
 ```java
 page.getByRole(AriaRole.TEXTBOX).clear();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.ClearOptions` *(optional)*
   - `setForce` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-clear-option-force"/><a href="#locator-clear-option-force" class="list-anchor">#</a>
     
@@ -316,7 +316,7 @@ page.getByRole(AriaRole.TEXTBOX).clear();
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-clear-return"/><a href="#locator-clear-return" class="list-anchor">#</a>
 
 **Details**
@@ -333,7 +333,7 @@ If the target element is not an `<input>`, `<textarea>` or `[contenteditable]` e
 
 Click an element.
 
-**使用方式**
+**Usage**
 
 Click a button:
 
@@ -350,7 +350,7 @@ page.locator("canvas").click(new Locator.ClickOptions()
   .setPosition(23, 32));
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.ClickOptions` *(optional)*
   - `setButton` `enum MouseButton { LEFT, RIGHT, MIDDLE }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-click-option-button"/><a href="#locator-click-option-button" class="list-anchor">#</a>
     
@@ -390,7 +390,7 @@ page.locator("canvas").click(new Locator.ClickOptions()
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-click-return"/><a href="#locator-click-return" class="list-anchor">#</a>
 
 **Details**
@@ -417,7 +417,7 @@ Useful when you have a [Locator] object obtained somewhere, and later on would l
 
 For a reverse operation, use [FrameLocator.owner()](/api/class-framelocator.mdx#frame-locator-owner).
 
-**使用方式**
+**Usage**
 
 ```java
 Locator locator = page.locator("iframe[name=\"embedded\"]");
@@ -426,7 +426,7 @@ FrameLocator frameLocator = locator.contentFrame();
 frameLocator.getByRole(AriaRole.BUTTON).click();
 ```
 
-**傳回值**
+**Returns**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-content-frame-return"/><a href="#locator-content-frame-return" class="list-anchor">#</a>
 
 ---
@@ -442,13 +442,13 @@ Returns the number of elements matching the locator.
 If you need to assert the number of elements on the page, prefer [assertThat(locator).hasCount()](/api/class-locatorassertions.mdx#locator-assertions-to-have-count) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 int count = page.getByRole(AriaRole.LISTITEM).count();
 ```
 
-**傳回值**
+**Returns**
 - [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-count-return"/><a href="#locator-count-return" class="list-anchor">#</a>
 
 ---
@@ -459,14 +459,14 @@ int count = page.getByRole(AriaRole.LISTITEM).count();
 
 Double-click an element.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.dblclick();
 Locator.dblclick(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.DblclickOptions` *(optional)*
   - `setButton` `enum MouseButton { LEFT, RIGHT, MIDDLE }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dblclick-option-button"/><a href="#locator-dblclick-option-button" class="list-anchor">#</a>
     
@@ -503,7 +503,7 @@ Locator.dblclick(options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dblclick-return"/><a href="#locator-dblclick-return" class="list-anchor">#</a>
 
 **Details**
@@ -530,19 +530,19 @@ When all steps combined have not finished during the specified [setTimeout](/api
 
 Describes the locator, description is used in the trace viewer and reports. Returns the locator pointing to the same element.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator button = page.getByTestId("btn-sub").describe("Subscribe button");
 button.click();
 ```
 
-**參數**
+**Arguments**
 - `description` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-describe-option-description"/><a href="#locator-describe-option-description" class="list-anchor">#</a>
   
   Locator description.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-describe-return"/><a href="#locator-describe-return" class="list-anchor">#</a>
 
 ---
@@ -553,13 +553,13 @@ button.click();
 
 Programmatically dispatch an event on the matching element.
 
-**使用方式**
+**Usage**
 
 ```java
 locator.dispatchEvent("click");
 ```
 
-**參數**
+**Arguments**
 - `type` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dispatch-event-option-type"/><a href="#locator-dispatch-event-option-type" class="list-anchor">#</a>
   
   DOM event type: `"click"`, `"dragstart"`, etc.
@@ -571,7 +571,7 @@ locator.dispatchEvent("click");
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-dispatch-event-return"/><a href="#locator-dispatch-event-return" class="list-anchor">#</a>
 
 **Details**
@@ -609,7 +609,7 @@ locator.dispatchEvent("dragstart", arg);
 
 Drag the source element towards the target element and drop it.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator source = page.locator("#source");
@@ -621,7 +621,7 @@ source.dragTo(target, new Locator.DragToOptions()
   .setSourcePosition(34, 7).setTargetPosition(10, 20));
 ```
 
-**參數**
+**Arguments**
 - `target` [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-drag-to-option-target"/><a href="#locator-drag-to-option-target" class="list-anchor">#</a>
   
   Locator of the element to drag to.
@@ -660,7 +660,7 @@ source.dragTo(target, new Locator.DragToOptions()
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-drag-to-return"/><a href="#locator-drag-to-return" class="list-anchor">#</a>
 
 **Details**
@@ -675,7 +675,7 @@ This method drags the locator to another target locator or target position. It w
 
 Execute JavaScript code in the page, taking the matching element as an argument.
 
-**使用方式**
+**Usage**
 
 Passing argument to [expression](/api/class-locator.mdx#locator-evaluate-option-expression):
 
@@ -686,7 +686,7 @@ Object result = page.getByTestId("myId").evaluate("(element, [x, y]) => {\n" +
 System.out.println(result); // prints "myId text 56"
 ```
 
-**參數**
+**Arguments**
 - `expression` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-evaluate-option-expression"/><a href="#locator-evaluate-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -698,7 +698,7 @@ System.out.println(result); // prints "myId text 56"
     
     Maximum time in milliseconds to wait for the locator before evaluating. Note that after locator is resolved, evaluation itself is not limited by the timeout. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**傳回值**
+**Returns**
 - [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-evaluate-return"/><a href="#locator-evaluate-return" class="list-anchor">#</a>
 
 **Details**
@@ -717,14 +717,14 @@ If [expression](/api/class-locator.mdx#locator-evaluate-option-expression) throw
 
 Execute JavaScript code in the page, taking all matching elements as an argument.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator locator = page.locator("div");
 boolean moreThanTen = (boolean) locator.evaluateAll("(divs, min) => divs.length > min", 10);
 ```
 
-**參數**
+**Arguments**
 - `expression` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-evaluate-all-option-expression"/><a href="#locator-evaluate-all-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -732,7 +732,7 @@ boolean moreThanTen = (boolean) locator.evaluateAll("(divs, min) => divs.length 
   
   Optional argument to pass to [expression](/api/class-locator.mdx#locator-evaluate-all-option-expression).
 
-**傳回值**
+**Returns**
 - [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-evaluate-all-return"/><a href="#locator-evaluate-all-return" class="list-anchor">#</a>
 
 **Details**
@@ -751,14 +751,14 @@ If [expression](/api/class-locator.mdx#locator-evaluate-all-option-expression) t
 
 Execute JavaScript code in the page, taking the matching element as an argument, and return a [JSHandle] with the result.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.evaluateHandle(expression);
 Locator.evaluateHandle(expression, arg, options);
 ```
 
-**參數**
+**Arguments**
 - `expression` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-evaluate-handle-option-expression"/><a href="#locator-evaluate-handle-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -770,7 +770,7 @@ Locator.evaluateHandle(expression, arg, options);
     
     Maximum time in milliseconds to wait for the locator before evaluating. Note that after locator is resolved, evaluation itself is not limited by the timeout. Defaults to `30000` (30 seconds). Pass `0` to disable timeout.
 
-**傳回值**
+**Returns**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-evaluate-handle-return"/><a href="#locator-evaluate-handle-return" class="list-anchor">#</a>
 
 **Details**
@@ -793,13 +793,13 @@ See [Page.evaluateHandle()](/api/class-page.mdx#page-evaluate-handle) for more d
 
 Set a value to the input field.
 
-**使用方式**
+**Usage**
 
 ```java
 page.getByRole(AriaRole.TEXTBOX).fill("example value");
 ```
 
-**參數**
+**Arguments**
 - `value` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-fill-option-value"/><a href="#locator-fill-option-value" class="list-anchor">#</a>
   
   Value to set for the `<input>`, `<textarea>` or `[contenteditable]` element.
@@ -819,7 +819,7 @@ page.getByRole(AriaRole.TEXTBOX).fill("example value");
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-fill-return"/><a href="#locator-fill-return" class="list-anchor">#</a>
 
 **Details**
@@ -838,7 +838,7 @@ To send fine-grained keyboard events, use [Locator.pressSequentially()](/api/cla
 
 This method narrows existing locator according to the options, for example filters by text. It can be chained to filter multiple times.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator rowLocator = page.locator("tr");
@@ -851,7 +851,7 @@ rowLocator
     .screenshot();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.FilterOptions` *(optional)*
   - `setHas` [Locator] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-filter-option-has"/><a href="#locator-filter-option-has" class="list-anchor">#</a>
     
@@ -875,7 +875,7 @@ rowLocator
     
     Only matches visible or invisible elements.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-filter-return"/><a href="#locator-filter-return" class="list-anchor">#</a>
 
 ---
@@ -886,13 +886,13 @@ rowLocator
 
 Returns locator to the first matching element.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.first();
 ```
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-first-return"/><a href="#locator-first-return" class="list-anchor">#</a>
 
 ---
@@ -903,20 +903,20 @@ Locator.first();
 
 Calls [focus](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) on the matching element.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.focus();
 Locator.focus(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.FocusOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-focus-option-timeout"/><a href="#locator-focus-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-focus-return"/><a href="#locator-focus-return" class="list-anchor">#</a>
 
 ---
@@ -927,19 +927,19 @@ Locator.focus(options);
 
 When working with iframes, you can create a frame locator that will enter the iframe and allow locating elements in that iframe:
 
-**使用方式**
+**Usage**
 
 ```java
 Locator locator = page.frameLocator("iframe").getByText("Submit");
 locator.click();
 ```
 
-**參數**
+**Arguments**
 - `selector` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-frame-locator-option-selector"/><a href="#locator-frame-locator-option-selector" class="list-anchor">#</a>
   
   A selector to use when resolving DOM element.
 
-**傳回值**
+**Returns**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-frame-locator-return"/><a href="#locator-frame-locator-return" class="list-anchor">#</a>
 
 ---
@@ -955,14 +955,14 @@ Returns the matching element's attribute value.
 If you need to assert an element's attribute, prefer [assertThat(locator).hasAttribute()](/api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.getAttribute(name);
 Locator.getAttribute(name, options);
 ```
 
-**參數**
+**Arguments**
 - `name` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-attribute-option-name"/><a href="#locator-get-attribute-option-name" class="list-anchor">#</a>
   
   Attribute name to get the value for.
@@ -971,7 +971,7 @@ Locator.getAttribute(name, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [null] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-attribute-return"/><a href="#locator-get-attribute-return" class="list-anchor">#</a>
 
 ---
@@ -982,7 +982,7 @@ Locator.getAttribute(name, options);
 
 Allows locating elements by their alt text.
 
-**使用方式**
+**Usage**
 
 For example, this method will find the image by alt text "Playwright logo":
 
@@ -994,7 +994,7 @@ For example, this method will find the image by alt text "Playwright logo":
 page.getByAltText("Playwright logo").click();
 ```
 
-**參數**
+**Arguments**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-alt-text-option-text"/><a href="#locator-get-by-alt-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -1003,7 +1003,7 @@ page.getByAltText("Playwright logo").click();
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-alt-text-return"/><a href="#locator-get-by-alt-text-return" class="list-anchor">#</a>
 
 ---
@@ -1014,7 +1014,7 @@ page.getByAltText("Playwright logo").click();
 
 Allows locating input elements by the text of the associated `<label>` or `aria-labelledby` element, or by the `aria-label` attribute.
 
-**使用方式**
+**Usage**
 
 For example, this method will find inputs by label "Username" and "Password" in the following DOM:
 
@@ -1029,7 +1029,7 @@ page.getByLabel("Username").fill("john");
 page.getByLabel("Password").fill("secret");
 ```
 
-**參數**
+**Arguments**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-label-option-text"/><a href="#locator-get-by-label-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -1038,7 +1038,7 @@ page.getByLabel("Password").fill("secret");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-label-return"/><a href="#locator-get-by-label-return" class="list-anchor">#</a>
 
 ---
@@ -1049,7 +1049,7 @@ page.getByLabel("Password").fill("secret");
 
 Allows locating input elements by the placeholder text.
 
-**使用方式**
+**Usage**
 
 For example, consider the following DOM structure.
 
@@ -1063,7 +1063,7 @@ You can fill the input after locating it by the placeholder text:
 page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
 ```
 
-**參數**
+**Arguments**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-placeholder-option-text"/><a href="#locator-get-by-placeholder-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -1072,7 +1072,7 @@ page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-placeholder-return"/><a href="#locator-get-by-placeholder-return" class="list-anchor">#</a>
 
 ---
@@ -1083,7 +1083,7 @@ page.getByPlaceholder("name@example.com").fill("playwright@microsoft.com");
 
 Allows locating elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure.
 
@@ -1114,7 +1114,7 @@ page.getByRole(AriaRole.BUTTON,
     .click();
 ```
 
-**參數**
+**Arguments**
 - `role` `enum AriaRole { ALERT, ALERTDIALOG, APPLICATION, ARTICLE, BANNER, BLOCKQUOTE, BUTTON, CAPTION, CELL, CHECKBOX, CODE, COLUMNHEADER, COMBOBOX, COMPLEMENTARY, CONTENTINFO, DEFINITION, DELETION, DIALOG, DIRECTORY, DOCUMENT, EMPHASIS, FEED, FIGURE, FORM, GENERIC, GRID, GRIDCELL, GROUP, HEADING, IMG, INSERTION, LINK, LIST, LISTBOX, LISTITEM, LOG, MAIN, MARQUEE, MATH, METER, MENU, MENUBAR, MENUITEM, MENUITEMCHECKBOX, MENUITEMRADIO, NAVIGATION, NONE, NOTE, OPTION, PARAGRAPH, PRESENTATION, PROGRESSBAR, RADIO, RADIOGROUP, REGION, ROW, ROWGROUP, ROWHEADER, SCROLLBAR, SEARCH, SEARCHBOX, SEPARATOR, SLIDER, SPINBUTTON, STATUS, STRONG, SUBSCRIPT, SUPERSCRIPT, SWITCH, TAB, TABLE, TABLIST, TABPANEL, TERM, TEXTBOX, TIME, TIMER, TOOLBAR, TOOLTIP, TREE, TREEGRID, TREEITEM }`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-role-option-role"/><a href="#locator-get-by-role-option-role" class="list-anchor">#</a>
   
   Required aria role.
@@ -1167,7 +1167,7 @@ page.getByRole(AriaRole.BUTTON,
     
     Learn more about [`aria-selected`](https://www.w3.org/TR/wai-aria-1.2/#aria-selected).
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-role-return"/><a href="#locator-get-by-role-return" class="list-anchor">#</a>
 
 **Details**
@@ -1184,7 +1184,7 @@ Many html elements have an implicitly [defined role](https://w3c.github.io/html-
 
 Locate element by the test id.
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure.
 
@@ -1198,12 +1198,12 @@ You can locate the element by it's test id:
 page.getByTestId("directions").click();
 ```
 
-**參數**
+**Arguments**
 - `testId` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-test-id-option-test-id"/><a href="#locator-get-by-test-id-option-test-id" class="list-anchor">#</a>
   
   Id to locate the element by.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-test-id-return"/><a href="#locator-get-by-test-id-return" class="list-anchor">#</a>
 
 **Details**
@@ -1220,7 +1220,7 @@ Allows locating elements that contain given text.
 
 See also [Locator.filter()](/api/class-locator.mdx#locator-filter) that allows to match by another criteria, like an accessible role, and then filter by the text content.
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure:
 
@@ -1248,7 +1248,7 @@ page.getByText(Pattern.compile("Hello"));
 page.getByText(Pattern.compile("^hello$", Pattern.CASE_INSENSITIVE));
 ```
 
-**參數**
+**Arguments**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-text-option-text"/><a href="#locator-get-by-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -1257,7 +1257,7 @@ page.getByText(Pattern.compile("^hello$", Pattern.CASE_INSENSITIVE));
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-text-return"/><a href="#locator-get-by-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -1274,7 +1274,7 @@ Input elements of the type `button` and `submit` are matched by their `value` in
 
 Allows locating elements by their title attribute.
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure.
 
@@ -1288,7 +1288,7 @@ You can check the issues count after locating it by the title text:
 assertThat(page.getByTitle("Issues count")).hasText("25 issues");
 ```
 
-**參數**
+**Arguments**
 - `text` [String] | [Pattern]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-title-option-text"/><a href="#locator-get-by-title-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -1297,7 +1297,7 @@ assertThat(page.getByTitle("Issues count")).hasText("25 issues");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-get-by-title-return"/><a href="#locator-get-by-title-return" class="list-anchor">#</a>
 
 ---
@@ -1308,13 +1308,13 @@ assertThat(page.getByTitle("Issues count")).hasText("25 issues");
 
 Highlight the corresponding element(s) on the screen. Useful for debugging, don't commit the code that uses [Locator.highlight()](/api/class-locator.mdx#locator-highlight).
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.highlight();
 ```
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-highlight-return"/><a href="#locator-highlight-return" class="list-anchor">#</a>
 
 ---
@@ -1325,13 +1325,13 @@ Locator.highlight();
 
 Hover over the matching element.
 
-**使用方式**
+**Usage**
 
 ```java
 page.getByRole(AriaRole.LINK).hover();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.HoverOptions` *(optional)*
   - `setForce` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-hover-option-force"/><a href="#locator-hover-option-force" class="list-anchor">#</a>
     
@@ -1362,7 +1362,7 @@ page.getByRole(AriaRole.LINK).hover();
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-hover-return"/><a href="#locator-hover-return" class="list-anchor">#</a>
 
 **Details**
@@ -1384,20 +1384,20 @@ When all steps combined have not finished during the specified [setTimeout](/api
 
 Returns the [`element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML).
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.innerHTML();
 Locator.innerHTML(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.InnerHTMLOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-inner-html-option-timeout"/><a href="#locator-inner-html-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-inner-html-return"/><a href="#locator-inner-html-return" class="list-anchor">#</a>
 
 ---
@@ -1413,20 +1413,20 @@ Returns the [`element.innerText`](https://developer.mozilla.org/en-US/docs/Web/A
 If you need to assert text on the page, prefer [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) with [setUseInnerText](/api/class-locatorassertions.mdx#locator-assertions-to-have-text-option-use-inner-text) option to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.innerText();
 Locator.innerText(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.InnerTextOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-inner-text-option-timeout"/><a href="#locator-inner-text-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-inner-text-return"/><a href="#locator-inner-text-return" class="list-anchor">#</a>
 
 ---
@@ -1442,19 +1442,19 @@ Returns the value for the matching `<input>` or `<textarea>` or `<select>` eleme
 If you need to assert input value, prefer [assertThat(locator).hasValue()](/api/class-locatorassertions.mdx#locator-assertions-to-have-value) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 String value = page.getByRole(AriaRole.TEXTBOX).inputValue();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.InputValueOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-input-value-option-timeout"/><a href="#locator-input-value-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-input-value-return"/><a href="#locator-input-value-return" class="list-anchor">#</a>
 
 **Details**
@@ -1474,19 +1474,19 @@ Returns whether the element is checked. Throws if the element is not a checkbox 
 If you need to assert that checkbox is checked, prefer [assertThat(locator).isChecked()](/api/class-locatorassertions.mdx#locator-assertions-to-be-checked) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 boolean checked = page.getByRole(AriaRole.CHECKBOX).isChecked();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.IsCheckedOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-checked-option-timeout"/><a href="#locator-is-checked-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-checked-return"/><a href="#locator-is-checked-return" class="list-anchor">#</a>
 
 ---
@@ -1502,19 +1502,19 @@ Returns whether the element is disabled, the opposite of [enabled](../actionabil
 If you need to assert that an element is disabled, prefer [assertThat(locator).isDisabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 boolean disabled = page.getByRole(AriaRole.BUTTON).isDisabled();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.IsDisabledOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-disabled-option-timeout"/><a href="#locator-is-disabled-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-disabled-return"/><a href="#locator-is-disabled-return" class="list-anchor">#</a>
 
 ---
@@ -1530,19 +1530,19 @@ Returns whether the element is [editable](../actionability.mdx#editable). If the
 If you need to assert that an element is editable, prefer [assertThat(locator).isEditable()](/api/class-locatorassertions.mdx#locator-assertions-to-be-editable) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 boolean editable = page.getByRole(AriaRole.TEXTBOX).isEditable();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.IsEditableOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-editable-option-timeout"/><a href="#locator-is-editable-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-editable-return"/><a href="#locator-is-editable-return" class="list-anchor">#</a>
 
 ---
@@ -1558,19 +1558,19 @@ Returns whether the element is [enabled](../actionability.mdx#enabled).
 If you need to assert that an element is enabled, prefer [assertThat(locator).isEnabled()](/api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 boolean enabled = page.getByRole(AriaRole.BUTTON).isEnabled();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.IsEnabledOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-enabled-option-timeout"/><a href="#locator-is-enabled-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-enabled-return"/><a href="#locator-is-enabled-return" class="list-anchor">#</a>
 
 ---
@@ -1586,13 +1586,13 @@ Returns whether the element is hidden, the opposite of [visible](../actionabilit
 If you need to assert that element is hidden, prefer [assertThat(locator).isHidden()](/api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 boolean hidden = page.getByRole(AriaRole.BUTTON).isHidden();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.IsHiddenOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-hidden-option-timeout"/><a href="#locator-is-hidden-option-timeout" class="list-anchor">#</a>
     
@@ -1601,7 +1601,7 @@ boolean hidden = page.getByRole(AriaRole.BUTTON).isHidden();
     :::
     
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-hidden-return"/><a href="#locator-is-hidden-return" class="list-anchor">#</a>
 
 ---
@@ -1617,13 +1617,13 @@ Returns whether the element is [visible](../actionability.mdx#visible).
 If you need to assert that element is visible, prefer [assertThat(locator).isVisible()](/api/class-locatorassertions.mdx#locator-assertions-to-be-visible) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 boolean visible = page.getByRole(AriaRole.BUTTON).isVisible();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.IsVisibleOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-visible-option-timeout"/><a href="#locator-is-visible-option-timeout" class="list-anchor">#</a>
     
@@ -1632,7 +1632,7 @@ boolean visible = page.getByRole(AriaRole.BUTTON).isVisible();
     :::
     
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-is-visible-return"/><a href="#locator-is-visible-return" class="list-anchor">#</a>
 
 ---
@@ -1643,13 +1643,13 @@ boolean visible = page.getByRole(AriaRole.BUTTON).isVisible();
 
 Returns locator to the last matching element.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator banana = page.getByRole(AriaRole.LISTITEM).last();
 ```
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-last-return"/><a href="#locator-last-return" class="list-anchor">#</a>
 
 ---
@@ -1662,14 +1662,14 @@ The method finds an element matching the specified selector in the locator's sub
 
 [Learn more about locators](../locators.mdx).
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.locator(selectorOrLocator);
 Locator.locator(selectorOrLocator, options);
 ```
 
-**參數**
+**Arguments**
 - `selectorOrLocator` [String] | [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-locator-option-selector-or-locator"/><a href="#locator-locator-option-selector-or-locator" class="list-anchor">#</a>
   
   A selector or locator to use when resolving DOM element.
@@ -1693,7 +1693,7 @@ Locator.locator(selectorOrLocator, options);
     
     Matches elements containing specified text somewhere inside, possibly in a child or a descendant element. When passed a [string], matching is case-insensitive and searches for a substring. For example, `"Playwright"` matches `<article><div>Playwright</div></article>`.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-locator-return"/><a href="#locator-locator-return" class="list-anchor">#</a>
 
 ---
@@ -1704,16 +1704,16 @@ Locator.locator(selectorOrLocator, options);
 
 Returns locator to the n-th matching element. It's zero based, `nth(0)` selects the first element.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator banana = page.getByRole(AriaRole.LISTITEM).nth(2);
 ```
 
-**參數**
+**Arguments**
 - `index` [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-nth-option-index"/><a href="#locator-nth-option-index" class="list-anchor">#</a>
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-nth-return"/><a href="#locator-nth-return" class="list-anchor">#</a>
 
 ---
@@ -1726,7 +1726,7 @@ Creates a locator matching all elements that match one or both of the two locato
 
 Note that when both locators match something, the resulting locator will have multiple matches, potentially causing a [locator strictness](../locators.mdx#strictness) violation.
 
-**使用方式**
+**Usage**
 
 Consider a scenario where you'd like to click on a "New email" button, but sometimes a security settings dialog shows up instead. In this case, you can wait for either a "New email" button, or a dialog and act accordingly.
 
@@ -1744,12 +1744,12 @@ if (dialog.isVisible())
 newEmail.click();
 ```
 
-**參數**
+**Arguments**
 - `locator` [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-or-option-locator"/><a href="#locator-or-option-locator" class="list-anchor">#</a>
   
   Alternative locator to match.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-or-return"/><a href="#locator-or-return" class="list-anchor">#</a>
 
 ---
@@ -1760,13 +1760,13 @@ newEmail.click();
 
 A page this locator belongs to.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.page();
 ```
 
-**傳回值**
+**Returns**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-page-return"/><a href="#locator-page-return" class="list-anchor">#</a>
 
 ---
@@ -1777,13 +1777,13 @@ Locator.page();
 
 Focuses the matching element and presses a combination of the keys.
 
-**使用方式**
+**Usage**
 
 ```java
 page.getByRole(AriaRole.TEXTBOX).press("Backspace");
 ```
 
-**參數**
+**Arguments**
 - `key` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-option-key"/><a href="#locator-press-option-key" class="list-anchor">#</a>
   
   Name of the key to press or a character to generate, such as `ArrowLeft` or `a`.
@@ -1803,7 +1803,7 @@ page.getByRole(AriaRole.TEXTBOX).press("Backspace");
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-return"/><a href="#locator-press-return" class="list-anchor">#</a>
 
 **Details**
@@ -1837,7 +1837,7 @@ Focuses the element, and then sends a `keydown`, `keypress`/`input`, and `keyup`
 
 To press a special key, like `Control` or `ArrowDown`, use [Locator.press()](/api/class-locator.mdx#locator-press).
 
-**使用方式**
+**Usage**
 
 ```java
 locator.pressSequentially("Hello"); // Types instantly
@@ -1852,7 +1852,7 @@ locator.pressSequentially("my password");
 locator.press("Enter");
 ```
 
-**參數**
+**Arguments**
 - `text` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-sequentially-option-text"/><a href="#locator-press-sequentially-option-text" class="list-anchor">#</a>
   
   String of characters to sequentially press into a focused element.
@@ -1872,7 +1872,7 @@ locator.press("Enter");
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-press-sequentially-return"/><a href="#locator-press-sequentially-return" class="list-anchor">#</a>
 
 ---
@@ -1883,7 +1883,7 @@ locator.press("Enter");
 
 Take a screenshot of the element matching the locator.
 
-**使用方式**
+**Usage**
 
 ```java
 page.getByRole(AriaRole.LINK).screenshot();
@@ -1897,7 +1897,7 @@ page.getByRole(AriaRole.LINK).screenshot(new Locator.ScreenshotOptions()
     .setPath(Paths.get("example.png")));
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.ScreenshotOptions` *(optional)*
   - `setAnimations` `enum ScreenshotAnimations { DISABLED, ALLOW }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-screenshot-option-animations"/><a href="#locator-screenshot-option-animations" class="list-anchor">#</a>
     
@@ -1939,7 +1939,7 @@ page.getByRole(AriaRole.LINK).screenshot(new Locator.ScreenshotOptions()
     
     Specify screenshot type, defaults to `png`.
 
-**傳回值**
+**Returns**
 - [byte&#91;&#93;]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-screenshot-return"/><a href="#locator-screenshot-return" class="list-anchor">#</a>
 
 **Details**
@@ -1960,20 +1960,20 @@ This method waits for [actionability](../actionability.mdx) checks, then tries t
 
 See [scrolling](../input.mdx#scrolling) for alternative ways to scroll.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.scrollIntoViewIfNeeded();
 Locator.scrollIntoViewIfNeeded(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.ScrollIntoViewIfNeededOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-scroll-into-view-if-needed-option-timeout"/><a href="#locator-scroll-into-view-if-needed-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-scroll-into-view-if-needed-return"/><a href="#locator-scroll-into-view-if-needed-return" class="list-anchor">#</a>
 
 ---
@@ -1984,7 +1984,7 @@ Locator.scrollIntoViewIfNeeded(options);
 
 Selects option or options in `<select>`.
 
-**使用方式**
+**Usage**
 
 ```html
 <select multiple>
@@ -2003,7 +2003,7 @@ element.selectOption(new SelectOption().setLabel("Blue"));
 element.selectOption(new String[] {"red", "green", "blue"});
 ```
 
-**參數**
+**Arguments**
 - `values` [null] | [String] | [ElementHandle] | [String]&#91;&#93; | `SelectOption` | [ElementHandle]&#91;&#93; | `SelectOption`&#91;&#93;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-select-option-option-values"/><a href="#locator-select-option-option-values" class="list-anchor">#</a>
   - `setValue` [String] *(optional)*
     
@@ -2032,7 +2032,7 @@ element.selectOption(new String[] {"red", "green", "blue"});
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [List]&lt;[String]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-select-option-return"/><a href="#locator-select-option-return" class="list-anchor">#</a>
 
 **Details**
@@ -2055,14 +2055,14 @@ This method waits for [actionability](../actionability.mdx) checks, then focuses
 
 If the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), focuses and selects text in the control instead.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.selectText();
 Locator.selectText(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.SelectTextOptions` *(optional)*
   - `setForce` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-select-text-option-force"/><a href="#locator-select-text-option-force" class="list-anchor">#</a>
     
@@ -2071,7 +2071,7 @@ Locator.selectText(options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-select-text-return"/><a href="#locator-select-text-return" class="list-anchor">#</a>
 
 ---
@@ -2082,13 +2082,13 @@ Locator.selectText(options);
 
 Set the state of a checkbox or a radio element.
 
-**使用方式**
+**Usage**
 
 ```java
 page.getByRole(AriaRole.CHECKBOX).setChecked(true);
 ```
 
-**參數**
+**Arguments**
 - `checked` [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-set-checked-option-checked"/><a href="#locator-set-checked-option-checked" class="list-anchor">#</a>
   
   Whether to check or uncheck the checkbox.
@@ -2119,7 +2119,7 @@ page.getByRole(AriaRole.CHECKBOX).setChecked(true);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-set-checked-return"/><a href="#locator-set-checked-return" class="list-anchor">#</a>
 
 **Details**
@@ -2142,7 +2142,7 @@ When all steps combined have not finished during the specified [setTimeout](/api
 
 Upload file or multiple files into `<input type=file>`. For inputs with a `[webkitdirectory]` attribute, only a single directory path is supported.
 
-**使用方式**
+**Usage**
 
 ```java
 // Select one file
@@ -2162,7 +2162,7 @@ page.getByLabel("Upload file").setInputFiles(new FilePayload(
   "file.txt", "text/plain", "this is test".getBytes(StandardCharsets.UTF_8)));
 ```
 
-**參數**
+**Arguments**
 - `files` [Path] | [Path]&#91;&#93; | `FilePayload` | `FilePayload`&#91;&#93;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-set-input-files-option-files"/><a href="#locator-set-input-files-option-files" class="list-anchor">#</a>
   - `setName` [String]
     
@@ -2186,7 +2186,7 @@ page.getByLabel("Upload file").setInputFiles(new FilePayload(
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-set-input-files-return"/><a href="#locator-set-input-files-return" class="list-anchor">#</a>
 
 **Details**
@@ -2203,14 +2203,14 @@ This method expects [Locator] to point to an [input element](https://developer.m
 
 Perform a tap gesture on the element matching the locator. For examples of emulating other gestures by manually dispatching touch events, see the [emulating legacy touch events](../touch-events.mdx) page.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.tap();
 Locator.tap(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.TapOptions` *(optional)*
   - `setForce` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-tap-option-force"/><a href="#locator-tap-option-force" class="list-anchor">#</a>
     
@@ -2241,7 +2241,7 @@ Locator.tap(options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-tap-return"/><a href="#locator-tap-return" class="list-anchor">#</a>
 
 **Details**
@@ -2273,20 +2273,20 @@ Returns the [`node.textContent`](https://developer.mozilla.org/en-US/docs/Web/AP
 If you need to assert text on the page, prefer [assertThat(locator).hasText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) to avoid flakiness. See [assertions guide](../test-assertions.mdx) for more details.
 :::
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.textContent();
 Locator.textContent(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.TextContentOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-text-content-option-timeout"/><a href="#locator-text-content-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [null] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-text-content-return"/><a href="#locator-text-content-return" class="list-anchor">#</a>
 
 ---
@@ -2297,13 +2297,13 @@ Locator.textContent(options);
 
 Ensure that checkbox or radio element is unchecked.
 
-**使用方式**
+**Usage**
 
 ```java
 page.getByRole(AriaRole.CHECKBOX).uncheck();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.UncheckOptions` *(optional)*
   - `setForce` [boolean] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-uncheck-option-force"/><a href="#locator-uncheck-option-force" class="list-anchor">#</a>
     
@@ -2331,7 +2331,7 @@ page.getByRole(AriaRole.CHECKBOX).uncheck();
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-uncheck-return"/><a href="#locator-uncheck-return" class="list-anchor">#</a>
 
 **Details**
@@ -2357,14 +2357,14 @@ Returns when element specified by locator satisfies the [setState](/api/class-lo
 
 If target element already satisfies the condition, the method returns immediately. Otherwise, waits for up to [setTimeout](/api/class-locator.mdx#locator-wait-for-option-timeout) milliseconds until the condition is met.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator orderSent = page.locator("#order-sent");
 orderSent.waitFor();
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.WaitForOptions` *(optional)*
   - `setState` `enum WaitForSelectorState { ATTACHED, DETACHED, VISIBLE, HIDDEN }` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-wait-for-option-state"/><a href="#locator-wait-for-option-state" class="list-anchor">#</a>
     
@@ -2377,12 +2377,12 @@ orderSent.waitFor();
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-wait-for-return"/><a href="#locator-wait-for-return" class="list-anchor">#</a>
 
 ---
 
-## 已棄用 (Deprecated)
+## Deprecated
 
 ### elementHandle {#locator-element-handle}
 
@@ -2397,20 +2397,20 @@ Always prefer using [Locator]s and web assertions over [ElementHandle]s because 
 
 Resolves given locator to the first matching DOM element. If there are no matching elements, waits for one. If multiple elements match the locator, throws.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.elementHandle();
 Locator.elementHandle(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Locator.ElementHandleOptions` *(optional)*
   - `setTimeout` [double] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-element-handle-option-timeout"/><a href="#locator-element-handle-option-timeout" class="list-anchor">#</a>
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-element-handle-return"/><a href="#locator-element-handle-return" class="list-anchor">#</a>
 
 ---
@@ -2428,13 +2428,13 @@ Always prefer using [Locator]s and web assertions over [ElementHandle]s because 
 
 Resolves given locator to all matching DOM elements. If there are no matching elements, returns an empty list.
 
-**使用方式**
+**Usage**
 
 ```java
 Locator.elementHandles();
 ```
 
-**傳回值**
+**Returns**
 - [List]&lt;[ElementHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-element-handles-return"/><a href="#locator-element-handles-return" class="list-anchor">#</a>
 
 ---
@@ -2454,9 +2454,9 @@ Focuses the element, and then sends a `keydown`, `keypress`/`input`, and `keyup`
 
 To press a special key, like `Control` or `ArrowDown`, use [Locator.press()](/api/class-locator.mdx#locator-press).
 
-**使用方式**
+**Usage**
 
-**參數**
+**Arguments**
 - `text` [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-type-option-text"/><a href="#locator-type-option-text" class="list-anchor">#</a>
   
   A text to type into a focused element.
@@ -2476,7 +2476,7 @@ To press a special key, like `Control` or `ArrowDown`, use [Locator.press()](/ap
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.setDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.setDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="locator-type-return"/><a href="#locator-type-return" class="list-anchor">#</a>
 
 

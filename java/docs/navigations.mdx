@@ -1,81 +1,81 @@
 ---
 id: navigations
-title: "導航"
+title: "Navigations"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 可以導航到 URL 並處理由頁面互動引起的導航。
+Playwright can navigate to URLs and handle navigations caused by the page interactions.
 
-## 基本導航
+## Basic navigation
 
-導航的最簡單形式是開啟 URL：
+Simplest form of a navigation is opening a URL:
 
 ```java
-// 導航頁面
+// Navigate the page
 page.navigate("https://example.com");
 ```
 
-上面的程式碼載入頁面並等待網頁觸發 [load](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event) 事件。當整個頁面已載入時觸發 load 事件，包括所有相依資源，如樣式表、腳本、iframe 和圖片。
+The code above loads the page and waits for the web page to fire the [load](https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event) event. The load event is fired when the whole page has loaded, including all dependent resources such as stylesheets, scripts, iframes, and images.
 
 :::note
 
-如果頁面在 `load` 之前進行用戶端重新導向，[`Page.navigate()`](/api/class-page.mdx#page-goto) 將等待重新導向的頁面觸發 `load` 事件。
+If the page does a client-side redirect before `load`, [Page.navigate()](/api/class-page.mdx#page-goto) will wait for the redirected page to fire the `load` event.
 :::
 
-## 頁面何時載入？
+## When is the page loaded?
 
-現代頁面在觸發 `load` 事件後會執行許多活動。它們會延遲載入資料、填充 UI、在 `load` 事件觸發後載入昂貴的資源、腳本和樣式。沒有辦法知道頁面已經「載入」，這取決於頁面、框架等。那麼您什麼時候可以開始與它互動呢？
+Modern pages perform numerous activities after the `load` event was fired. They fetch data lazily, populate UI, load expensive resources, scripts and styles after the `load` event was fired. There is no way to tell that the page is `loaded`, it depends on the page, framework, etc. So when can you start interacting with it?
 
-在 Playwright 中，您可以隨時與頁面互動。它會自動等待目標元素變成[可操作狀態](./actionability.mdx)。
+In Playwright you can interact with the page at any moment. It will automatically wait for the target elements to become [actionable](./actionability.mdx).
 
 ```java
-// 導航並點擊元素
-// 點擊會自動等待元素
+// Navigate and click element
+// Click will auto-wait for the element
 page.navigate("https://example.com");
 page.getByText("Example Domain").click();
 ```
 
-對於上述場景，Playwright 會等待文字變為可見，會等待該元素的其餘可操作性檢查通過，然後點擊它。
+For the scenario above, Playwright will wait for the text to become visible, will wait for the rest of the actionability checks to pass for that element, and will click it.
 
-Playwright 的操作就像一個非常快的使用者——它一看到按鈕就會點擊它。一般情況下，您不需要擔心是否所有資源都已載入等問題。
+Playwright operates as a very fast user - the moment it sees the button, it clicks it. In the general case, you don't need to worry about whether all the resources loaded, etc.
 
-## 水合（Hydration）
+## Hydration
 
-在某個時間點，您會遇到 Playwright 執行動作但看似沒有任何反應的使用案例。或者您在輸入欄位中輸入一些文字，但它會消失。這背後最可能的原因是頁面[水合（hydration）](https://en.wikipedia.org/wiki/Hydration_(web_development))效能不佳。
+At some point in time, you'll stumble upon a use case where Playwright performs an action, but nothing seemingly happens. Or you enter some text into the input field and it will disappear. The most probable reason behind that is a poor page [hydration](https://en.wikipedia.org/wiki/Hydration_(web_development)).
 
-當頁面被水合時，首先，頁面的靜態版本會傳送到瀏覽器。然後傳送動態部分，頁面變為「活躍」狀態。作為一個非常快的使用者，Playwright 會在看到頁面的那一刻就開始與頁面互動。如果頁面上的按鈕已啟用，但監聽器尚未新增，Playwright 會執行其工作，但點擊不會有任何效果。
+When page is hydrated, first, a static version of the page is sent to the browser. Then the dynamic part is sent and the page becomes "live". As a very fast user, Playwright will start interacting with the page the moment it sees it. And if the button on a page is enabled, but the listeners have not yet been added, Playwright will do its job, but the click won't have any effect.
 
-驗證您的頁面是否受到水合效能不佳影響的簡單方法是開啟 Chrome DevTools，在網路面板中選擇「Slow 3G」網路模擬並重新載入頁面。一旦您看到感興趣的元素，與其互動。您會看到按鈕點擊會被忽略，輸入的文字會被後續的頁面載入程式碼重設。解決此問題的正確方法是確保所有互動控制項在水合之前都被停用，直到頁面完全功能正常後。
+A simple way to verify if your page suffers from a poor hydration is to open Chrome DevTools, pick "Slow 3G" network emulation in the Network panel and reload the page. Once you see the element of interest, interact with it. You'll see that the button clicks will be ignored and the entered text will be reset by the subsequent page load code. The right fix for this issue is to make sure that all the interactive controls are disabled until after the hydration, when the page is fully functional.
 
-## 等待導航
+## Waiting for navigation
 
-點擊元素可能會觸發多次導航。在這些情況下，建議明確使用 [Page.waitForURL()](/api/class-page.mdx#page-wait-for-url) 等待特定的 URL。
+Clicking an element could trigger multiple navigations. In these cases, it is recommended to explicitly [Page.waitForURL()](/api/class-page.mdx#page-wait-for-url) to a specific url.
 
 ```java
 page.getByText("Click me").click();
 page.waitForURL("**/login");
 ```
 
-## 導航事件
+## Navigation events
 
-Playwright 將在頁面中顯示新文件的過程分為**導航**和**載入**。
+Playwright splits the process of showing a new document in a page into **navigation** and **loading**.
 
-**導航開始**於更改頁面 URL 或與頁面互動（例如，點擊連結）。導航意圖可能會被取消，例如，遇到無法解析的 DNS 位址或轉換為檔案下載。
+**Navigation starts** by changing the page URL or by interacting with the page (e.g., clicking a link). The navigation intent may be canceled, for example, on hitting an unresolved DNS address or transformed into a file download.
 
-**導航提交**於回應標頭已解析且會話歷史記錄已更新時。只有在導航成功（已提交）後，頁面才開始**載入**文件。
+**Navigation is committed** when the response headers have been parsed and session history is updated. Only after the navigation succeeds (is committed), the page starts **loading** the document.
 
-**載入**包括透過網路獲取剩餘的回應主體、解析、執行腳本和觸發載入事件：
-- [Page.url()](/api/class-page.mdx#page-url) 設定為新 URL
-- 文件內容透過網路載入並解析
-- [Page.onDOMContentLoaded(handler)](/api/class-page.mdx#page-event-dom-content-loaded) 事件被觸發
-- 頁面執行一些腳本並載入資源，如樣式表和圖片
-- [Page.onLoad(handler)](/api/class-page.mdx#page-event-load) 事件被觸發
-- 頁面執行動態載入的腳本
+**Loading** covers getting the remaining response body over the network, parsing, executing the scripts and firing load events:
+- [Page.url()](/api/class-page.mdx#page-url) is set to the new url
+- document content is loaded over network and parsed
+- [Page.onDOMContentLoaded(handler)](/api/class-page.mdx#page-event-dom-content-loaded) event is fired
+- page executes some scripts and loads resources like stylesheets and images
+- [Page.onLoad(handler)](/api/class-page.mdx#page-event-load) event is fired
+- page executes dynamically loaded scripts
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

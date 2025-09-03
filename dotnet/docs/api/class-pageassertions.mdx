@@ -32,7 +32,7 @@ public class ExampleTests : PageTest
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### ToHaveTitleAsync {#page-assertions-to-have-title}
 
@@ -40,13 +40,13 @@ public class ExampleTests : PageTest
 
 Ensures the page has the given title.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Expect(Page).ToHaveTitleAsync("Playwright");
 ```
 
-**參數**
+**Arguments**
 - `titleOrRegExp` [string] | [Regex] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-title-option-title-or-reg-exp"/><a href="#page-assertions-to-have-title-option-title-or-reg-exp" class="list-anchor">#</a>
   
   Expected title or RegExp.
@@ -55,7 +55,7 @@ await Expect(Page).ToHaveTitleAsync("Playwright");
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-title-return"/><a href="#page-assertions-to-have-title-return" class="list-anchor">#</a>
 
 ---
@@ -66,13 +66,13 @@ await Expect(Page).ToHaveTitleAsync("Playwright");
 
 Ensures the page is navigated to the given URL.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Expect(Page).ToHaveURLAsync(new Regex(".*checkout"));
 ```
 
-**參數**
+**Arguments**
 - `urlOrRegExp` [string] | [Regex] <font size="2">Added in: v1.18</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-url-option-url-or-reg-exp"/><a href="#page-assertions-to-have-url-option-url-or-reg-exp" class="list-anchor">#</a>
   
   Expected URL string or RegExp.
@@ -84,12 +84,12 @@ await Expect(Page).ToHaveURLAsync(new Regex(".*checkout"));
     
     Time to retry the assertion for in milliseconds. Defaults to `5000`.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-assertions-to-have-url-return"/><a href="#page-assertions-to-have-url-return" class="list-anchor">#</a>
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### Not {#page-assertions-not}
 
@@ -101,13 +101,13 @@ Makes the assertion check for the opposite condition. For example, this code tes
 await Expect(Page).Not.ToHaveURLAsync("error");
 ```
 
-**使用方式**
+**Usage**
 
 ```csharp
 Expect(Page).Not
 ```
 
-**型別 (Type)**
+**Type**
 - [PageAssertions]
 
 

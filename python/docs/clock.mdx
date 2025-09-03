@@ -1,31 +1,32 @@
-﻿---
+---
 id: clock
-title: "時鐘"
+title: "Clock"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
+import ProgressiveImage from '@theme/ProgressiveImage';
 
 import LiteYouTube from '@site/src/components/LiteYouTube';
 
-## 簡介
+## Introduction
 
-準確模擬時間依賴行為對於驗證應用程式的正確性至關重要。利用 [Clock] 功能允許開發人員在測試中操縱和控制時間，從而精確驗證渲染時間、超時、排程任務等功能，而不會有即時執行的延遲和變異性。
+Accurately simulating time-dependent behavior is essential for verifying the correctness of applications. Utilizing [Clock] functionality allows developers to manipulate and control time within tests, enabling the precise validation of features such as rendering time, timeouts, scheduled tasks without the delays and variability of real-time execution.
 
-[Clock] API 提供以下方法來控制時間:
+The [Clock] API provides the following methods to control time:
+- `setFixedTime`: Sets the fixed time for `Date.now()` and `new Date()`.
+- `install`: initializes the clock and allows you to:
+  - `pauseAt`: Pauses the time at a specific time.
+  - `fastForward`: Fast forwards the time.
+  - `runFor`: Runs the time for a specific duration.
+  - `resume`: Resumes the time.
+- `setSystemTime`: Sets the current system time.
 
-- `setFixedTime`: 設定 `Date.now()` 和 `new Date()` 的固定時間。
-- `install`: 初始化時鐘並允許你:
-  - `pauseAt`: 在特定時間暫停時間。
-  - `fastForward`: 快進時間。
-  - `runFor`: 執行特定時間段。
-  - `resume`: 恢復時間。
-- `setSystemTime`: 設定當前系統時間。
-
-建議的方法是使用 `setFixedTime` 將時間設置為特定值。如果這不適用於您的使用案例，您可以使用 `install`，這允許您稍後暫停時間、快進時間、滴答時間等。`setSystemTime` 只建議用於高級使用案例。
+The recommended approach is to use `setFixedTime` to set the time to a specific value. If that doesn't work for your use case, you can use `install` which allows you to pause time later on, fast forward it, tick it, etc. `setSystemTime` is only recommended for advanced use cases.
 
 :::note
-[page.clock](/api/class-page.mdx#page-clock) 覆蓋了與時間相關的原生全域類別和函式，允許手動控制它們:
+
+[page.clock](/api/class-page.mdx#page-clock) overrides native global classes and functions related to time allowing them to be manually controlled:
 - `Date`
 - `setTimeout`
 - `clearTimeout`
@@ -39,9 +40,13 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
 - `Event.timeStamp`
 :::
 
-## 測試預定時間
+:::warning
+If you call `install` at any point in your test, the call _MUST_ occur before any other clock related calls (see note above for list). Calling these methods out of order will result in undefined behavior. For example, you cannot call `setInterval`, followed by `install`, then `clearInterval`, as `install` overrides the native definition of the clock functions.
+:::
 
-通常你只需要偽造 `Date.now` 同時保持計時器運行。這樣時間會自然流動，但 `Date.now` 總是返回一個固定值。
+## Test with predefined time
+
+Often you only need to fake `Date.now` while keeping the timers going. That way the time flows naturally, but `Date.now` always returns a fixed value.
 
 ```html
 <div id="current-time" data-testid="current-time"></div>
@@ -54,9 +59,44 @@ import LiteYouTube from '@site/src/components/LiteYouTube';
 </script>
 ```
 
-## 一致的時間和計時器
+<Tabs
+  groupId="python-flavor"
+  defaultValue="sync"
+  values={[
+    {label: 'Sync', value: 'sync'},
+    {label: 'Async', value: 'async'}
+  ]
+}>
+<TabItem value="sync">
 
-有時候你的計時器依賴 `Date.now`，當 `Date.now` 的值隨時間不變時會感到困惑。在這種情況下，你可以安裝時鐘並快進到測試時感興趣的時間。
+```py
+page.clock.set_fixed_time(datetime.datetime(2024, 2, 2, 10, 0, 0))
+page.goto("http://localhost:3333")
+expect(page.get_by_test_id("current-time")).to_have_text("2/2/2024, 10:00:00 AM")
+page.clock.set_fixed_time(datetime.datetime(2024, 2, 2, 10, 30, 0))
+# We know that the page has a timer that updates the time every second.
+expect(page.get_by_test_id("current-time")).to_have_text("2/2/2024, 10:30:00 AM")
+```
+
+</TabItem>
+<TabItem value="async">
+
+```py
+await page.clock.set_fixed_time(datetime.datetime(2024, 2, 2, 10, 0, 0))
+await page.goto("http://localhost:3333")
+await expect(page.get_by_test_id("current-time")).to_have_text("2/2/2024, 10:00:00 AM")
+
+await page.clock.set_fixed_time(datetime.datetime(2024, 2, 2, 10, 30, 0))
+# We know that the page has a timer that updates the time every second.
+await expect(page.get_by_test_id("current-time")).to_have_text("2/2/2024, 10:30:00 AM")
+```
+
+</TabItem>
+</Tabs>
+
+## Consistent time and timers
+
+Sometimes your timers depend on `Date.now` and are confused when the `Date.now` value does not change over time. In this case, you can install the clock and fast forward to the time of interest when testing.
 
 ```html
 <div id="current-time" data-testid="current-time"></div>
@@ -121,9 +161,9 @@ await expect(page.get_by_test_id("current-time")).to_have_text("2/2/2024, 10:30:
 </TabItem>
 </Tabs>
 
-## 測試非活動監控
+## Test inactivity monitoring
 
-在網頁應用程式中，不活動監控是一個常見的功能，會在一段時間不活動後將使用者登出。測試這個功能可能會很棘手，因為你需要等待很長時間才能看到效果。借助時鐘，你可以加速時間並快速測試這個功能。
+Inactivity monitoring is a common feature in web applications that logs out users after a period of inactivity. Testing this feature can be tricky because you need to wait for a long time to see the effect. With the help of the clock, you can speed up time and test this feature quickly.
 
 ```html
 <div id="remaining-time" data-testid="remaining-time"></div>
@@ -193,9 +233,9 @@ await expect(page.getByText("You have been logged out due to inactivity.")).toBe
 </TabItem>
 </Tabs>
 
-## 手動計時，持續觸發所有計時器
+## Tick through time manually, firing all the timers consistently
 
-在少數情況下，您可能希望手動調整時間，觸發所有計時器和動畫幀，以實現對時間流逝的精細控制。
+In rare cases, you may want to tick through time manually, firing all timers and animation frames in the process to achieve a fine-grained control over the passage of time.
 
 ```html
 <div id="current-time" data-testid="current-time"></div>
@@ -262,11 +302,9 @@ await expect(locator).to_have_text("2/2/2024, 10:00:02 AM")
 </TabItem>
 </Tabs>
 
-## 相關影片
+## Related Videos
 
 <LiteYouTube id="54_aC-rVKHg" title="Playwright 1.45" />
-
-
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"
@@ -305,6 +343,7 @@ await expect(locator).to_have_text("2/2/2024, 10:00:02 AM")
 [Video]: /api/class-video.mdx "Video"
 [WebError]: /api/class-weberror.mdx "WebError"
 [WebSocket]: /api/class-websocket.mdx "WebSocket"
+[WebSocketRoute]: /api/class-websocketroute.mdx "WebSocketRoute"
 [Worker]: /api/class-worker.mdx "Worker"
 [Element]: https://developer.mozilla.org/en-US/docs/Web/API/element "Element"
 [EvaluationArgument]: /evaluating.mdx#evaluation-argument "EvaluationArgument"
@@ -338,4 +377,4 @@ await expect(locator).to_have_text("2/2/2024, 10:00:02 AM")
 
 [all available image tags]: https://mcr.microsoft.com/en-us/product/playwright/python/about "all available image tags"
 [Microsoft Artifact Registry]: https://mcr.microsoft.com/en-us/product/playwright/python/about "Microsoft Artifact Registry"
-[Dockerfile.jammy]: https://github.com/microsoft/playwright-python/blob/main/utils/docker/Dockerfile.jammy "Dockerfile.jammy"
+[Dockerfile.noble]: https://github.com/microsoft/playwright-python/blob/main/utils/docker/Dockerfile.noble "Dockerfile.noble"

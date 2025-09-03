@@ -1,17 +1,17 @@
 ---
 id: junit
-title: "JUnit（實驗性）"
+title: "JUnit (experimental)"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-只需幾行程式碼，您就可以將 Playwright 連結到您喜愛的 Java 測試執行器。
+With a few lines of code, you can hook up Playwright to your favorite Java test runner.
 
-在 [JUnit](https://junit.org/junit5/) 中，您可以使用 Playwright [佈置](./junit.mdx#fixtures)來自動初始化 [Playwright]、[Browser]、[BrowserContext] 或 [Page]。在以下範例中，三個測試方法都使用相同的 [Browser]。每個測試都使用自己的 [BrowserContext] 和 [Page]。
+In [JUnit](https://junit.org/junit5/), you can use Playwright [fixtures](./junit.mdx#fixtures) to automatically initialize [Playwright], [Browser], [BrowserContext] or [Page]. In the example below, all three test methods use the same [Browser]. Each test uses its own [BrowserContext] and [Page].
 
 ```java
 package org.example;
@@ -50,9 +50,9 @@ public class TestExample {
 }
 ```
 
-## 佈置 (Fixtures)
+## Fixtures
 
-只需在您的測試類別中新增 JUnit 註解 `@UsePlaywright` 即可啟用 Playwright 佈置。測試佈置用於為每個測試建立環境，提供測試所需的一切，而非其他。
+Simply add JUnit annotation `@UsePlaywright` to your test classes to enable Playwright fixtures. Test fixtures are used to establish environment for each test, giving the test everything it needs and nothing else.
 
 ```java
 @UsePlaywright
@@ -67,23 +67,23 @@ public class TestExample {
 }
 ```
 
-`Page page` 參數告訴 JUnit 設定 `page` 佈置並將其提供給您的測試方法。
+The `Page page` argument tells JUnit to setup the `page` fixture and provide it to your test method.
 
-以下是預先定義的佈置清單：
+Here is a list of the pre-defined fixtures:
 
-|佈置          |類型               |說明                            |
+|Fixture       |Type               |Description                      |
 |:-------------|:------------------|:--------------------------------|
-|page          |[Page]             |此測試執行的隔離頁面。|
-|browserContext|[BrowserContext]   |此測試執行的隔離情境。`page` 佈置也屬於此情境。|
-|browser       |[Browser]          |瀏覽器在測試間共用以最佳化資源。|
-|playwright    |[Playwright]       |Playwright 實例在同一執行緒上執行的測試間共用。|
-|request       |[APIRequestContext]|此測試執行的隔離 APIRequestContext。了解如何進行 [API 測試](./api-testing)。|
+|page          |[Page]             |Isolated page for this test run.|
+|browserContext|[BrowserContext]   |Isolated context for this test run. The `page` fixture belongs to this context as well.|
+|browser       |[Browser]          |Browsers are shared across tests to optimize resources.|
+|playwright    |[Playwright]       |Playwright instance is shared between tests running on the same thread.|
+|request       |[APIRequestContext]|Isolated APIRequestContext for this test run. Learn how to do [API testing](./api-testing).|
 
-## 自訂選項
+## Customizing options
 
-若要自訂佈置選項，您應該實作 `OptionsFactory` 並在 `@UsePlaywright()` 註解中指定類別。
+To customize fixture options, you should implement an `OptionsFactory` and specify the class in the `@UsePlaywright()` annotation.
 
-您可以輕易覆寫 [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch) 的啟動選項，或 [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 和 [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 的情境選項。請參閱以下範例：
+You can easily override launch options for [BrowserType.launch()](/api/class-browsertype.mdx#browser-type-launch), or context options for [Browser.newContext()](/api/class-browser.mdx#browser-new-context) and [APIRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context). See the following example:
 
 ```java
 import com.microsoft.playwright.junit.Options;
@@ -116,9 +116,9 @@ public class MyTest {
 }
 ```
 
-## 執行測試在平行處理
+## Running Tests in Parallel
 
-預設情況下，JUnit 會在單一執行緒上依序執行所有測試。從 JUnit 5.3 開始，您可以變更此行為以平行執行測試來加速執行（請參閱[此頁面](https://junit.org/junit5/docs/snapshot/user-guide/index.html#writing-tests-parallel-execution)）。由於在沒有額外同步的情況下從多個執行緒使用相同的 Playwright 物件並不安全，我們建議您為每個執行緒建立 Playwright 實例，並專門在該執行緒上使用它。以下是如何平行執行多個測試類別的範例。
+By default JUnit will run all tests sequentially on a single thread. Since JUnit 5.3 you can change this behavior to run tests in parallel to speed up execution (see [this page](https://junit.org/junit5/docs/snapshot/user-guide/index.html#writing-tests-parallel-execution)). Since it is not safe to use same Playwright objects from multiple threads without extra synchronization we recommend you create Playwright instance per thread and use it on that thread exclusively. Here is an example how to run multiple test classes in parallel.
 
 ```java
 @UsePlaywright
@@ -165,7 +165,7 @@ class Test2 {
 }
 ```
 
-設定 JUnit 在每個類別中依序執行測試，並在平行執行緒上執行多個類別（最大執行緒數等於 CPU 核心數的 1/2）：
+Configure JUnit to run tests in each class sequentially and run multiple classes on parallel threads (with max number of thread equal to 1/2 of the number of CPU cores):
 
 ```bash
 junit.jupiter.execution.parallel.enabled = true

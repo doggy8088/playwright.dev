@@ -1,56 +1,56 @@
 ---
 id: api-testing
-title: "API 測試"
+title: "API testing"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 可用於存取您應用程式的 [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API。
+Playwright can be used to get access to the [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API of your application.
 
-有時您可能想要直接從 Node.js 向伺服器發送請求，而不載入頁面並在其中執行 js 程式碼。在以下情況下可能會很有用：
-- 測試您的伺服器 API。
-- 在測試中存取 Web 應用程式之前準備伺服器端狀態。
-- 在瀏覽器中執行某些操作後驗證伺服器端後置條件。
+Sometimes you may want to send requests to the server directly from Node.js without loading a page and running js code in it. A few examples where it may come in handy:
+- Test your server API.
+- Prepare server side state before visiting the web application in a test.
+- Validate server side post-conditions after running some actions in the browser.
 
-所有這些都可以透過 [`APIRequestContext`] 方法來實現。
+All of that could be achieved via [APIRequestContext] methods.
 
-## 撰寫 API 測試
+## Writing API Test
 
-[`APIRequestContext`] 可以透過網路發送各種 HTTP(S) 請求。
+[APIRequestContext] can send all kinds of HTTP(S) requests over network.
 
-以下範例示範如何使用 Playwright 透過 [GitHub API](https://docs.github.com/en/rest) 測試問題的建立。測試套件將執行以下操作：
-- 在執行測試前建立新的儲存庫。
-- 建立幾個問題並驗證伺服器狀態。
-- 在執行測試後刪除儲存庫。
+The following example demonstrates how to use Playwright to test issues creation via [GitHub API](https://docs.github.com/en/rest). The test suite will do the following:
+- Create a new repository before running tests.
+- Create a few issues and validate server state.
+- Delete the repository after running tests.
 
-### 設定
+### Configuration
 
-GitHub API 需要身份驗證，因此我們將為所有測試設定一次令牌。同時，我們也會設定 `baseURL` 來簡化測試。您可以將它們放在設定檔中，或在測試檔案中使用 `test.use()`。
+GitHub API requires authorization, so we'll configure the token once for all tests. While at it, we'll also set the `baseURL` to simplify the tests. You can either put them in the configuration file, or in the test file with `test.use()`.
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
 export default defineConfig({
   use: {
-    // 我們發送的所有請求都會到這個 API 端點。
+    // All requests we send go to this API endpoint.
     baseURL: 'https://api.github.com',
     extraHTTPHeaders: {
-      // 我們根據 GitHub 指南設定這個標頭。
+      // We set this header per GitHub guidelines.
       'Accept': 'application/vnd.github.v3+json',
-      // 為所有請求新增身份驗證令牌。
-      // 假設環境中有可用的個人存取令牌。
+      // Add authorization token to all requests.
+      // Assuming personal access token available in the environment.
       'Authorization': `token ${process.env.API_TOKEN}`,
     },
   }
 });
 ```
 
-**代理伺服器設定**
+**Proxy configuration**
 
-如果您的測試需要在代理伺服器後面執行，您可以在設定中指定這一點，`request` 佈置將自動選取它：
+If your tests need to run behind a proxy, you can specify this in the config and the `request` fixture will pick it up automatically:
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -65,11 +65,11 @@ export default defineConfig({
 });
 ```
 
-### 撰寫測試
+### Writing tests
 
-Playwright Test 附帶內建的 `request` 佈置，它尊重我們指定的設定選項，如 `baseURL` 或 `extraHTTPHeaders`，並準備發送一些請求。
+Playwright Test comes with the built-in `request` fixture that respects configuration options like `baseURL` or `extraHTTPHeaders` we specified and is ready to send some requests.
 
-現在我們可以新增一些測試，這些測試將在儲存庫中建立新問題。
+Now we can add a few tests that will create new issues in the repository.
 
 ```js
 const REPO = 'test-repo-1';
@@ -110,13 +110,13 @@ test('should create a feature request', async ({ request }) => {
 });
 ```
 
-### 設定和清理
+### Setup and teardown
 
-這些測試假設儲存庫存在。您可能希望在執行測試前建立新的儲存庫，並在測試後刪除它。使用 `beforeAll` 和 `afterAll` 掛勾來實現這一點。
+These tests assume that repository exists. You probably want to create a new one before running tests and delete it afterwards. Use `beforeAll` and `afterAll` hooks for that.
 
 ```js
 test.beforeAll(async ({ request }) => {
-  // 建立新的儲存庫
+  // Create a new repository
   const response = await request.post('/user/repos', {
     data: {
       name: REPO
@@ -126,15 +126,15 @@ test.beforeAll(async ({ request }) => {
 });
 
 test.afterAll(async ({ request }) => {
-  // 刪除儲存庫
+  // Delete the repository
   const response = await request.delete(`/repos/${USER}/${REPO}`);
   expect(response.ok()).toBeTruthy();
 });
 ```
 
-## 使用請求上下文
+## Using request context
 
-在幕後，[`request` 佈置](./api/class-fixtures#fixtures-request) 實際上會呼叫 [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context)。如果您想要更多控制，您隨時可以手動執行此操作。以下是一個獨立的腳本，它執行與上面的 `beforeAll` 和 `afterAll` 相同的操作。
+Behind the scenes, [`request` fixture](./api/class-fixtures#fixtures-request) will actually call [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context). You can always do that manually if you'd like more control. Below is a standalone script that does the same as `beforeAll` and `afterAll` from above.
 
 ```js
 import { request } from '@playwright/test';
@@ -142,16 +142,16 @@ const REPO = 'test-repo-1';
 const USER = 'github-username';
 
 (async () => {
-  // 建立一個將發出 http 請求的上下文。
+  // Create a context that will issue http requests.
   const context = await request.newContext({
     baseURL: 'https://api.github.com',
   });
 
-  // 建立儲存庫。
+  // Create a repository.
   await context.post('/user/repos', {
     headers: {
       'Accept': 'application/vnd.github.v3+json',
-      // 新增 GitHub 個人存取令牌。
+      // Add GitHub personal access token.
       'Authorization': `token ${process.env.API_TOKEN}`,
     },
     data: {
@@ -159,24 +159,24 @@ const USER = 'github-username';
     }
   });
 
-  // 刪除儲存庫。
+  // Delete a repository.
   await context.delete(`/repos/${USER}/${REPO}`, {
     headers: {
       'Accept': 'application/vnd.github.v3+json',
-      // 新增 GitHub 個人存取令牌。
+      // Add GitHub personal access token.
       'Authorization': `token ${process.env.API_TOKEN}`,
     }
   });
 })();
 ```
 
-## 從 UI 測試發送 API 請求
+## Sending API requests from UI tests
 
-在瀏覽器中執行測試時，您可能希望呼叫應用程式的 HTTP API。如果您需要在執行測試前準備伺服器狀態，或在瀏覽器中執行某些操作後檢查伺服器上的後置條件，這可能會很有幫助。所有這些都可以透過 [`APIRequestContext`] 方法來實現。
+While running tests inside browsers you may want to make calls to the HTTP API of your application. It may be helpful if you need to prepare server state before running a test or to check some postconditions on the server after performing some actions in the browser. All of that could be achieved via [APIRequestContext] methods.
 
-### 建立前提條件
+### Establishing preconditions
 
-以下測試透過 API 建立新問題，然後導航到專案中所有問題的清單，以檢查它是否出現在清單頂部。
+The following test creates a new issue via API and then navigates to the list of all issues in the project to check that it appears at the top of the list.
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -184,25 +184,25 @@ import { test, expect } from '@playwright/test';
 const REPO = 'test-repo-1';
 const USER = 'github-username';
 
-// 請求上下文被檔案中的所有測試重複使用。
+// Request context is reused by all tests in the file.
 let apiContext;
 
 test.beforeAll(async ({ playwright }) => {
   apiContext = await playwright.request.newContext({
-    // 我們發送的所有請求都會到這個 API 端點。
+    // All requests we send go to this API endpoint.
     baseURL: 'https://api.github.com',
     extraHTTPHeaders: {
-      // 我們根據 GitHub 指南設定這個標頭。
+      // We set this header per GitHub guidelines.
       'Accept': 'application/vnd.github.v3+json',
-      // 為所有請求新增身份驗證令牌。
-      // 假設環境中有可用的個人存取令牌。
+      // Add authorization token to all requests.
+      // Assuming personal access token available in the environment.
       'Authorization': `token ${process.env.API_TOKEN}`,
     },
   });
 });
 
 test.afterAll(async ({ }) => {
-  // 釋放所有回應。
+  // Dispose all responses.
   await apiContext.dispose();
 });
 
@@ -220,9 +220,9 @@ test('last created issue should be first in the list', async ({ page }) => {
 });
 ```
 
-### 驗證後置條件
+### Validating postconditions
 
-以下測試透過瀏覽器中的使用者介面建立新問題，然後使用 API 檢查它是否已建立：
+The following test creates a new issue via user interface in the browser and then uses checks if it was created via API:
 
 ```js
 import { test, expect } from '@playwright/test';
@@ -230,25 +230,25 @@ import { test, expect } from '@playwright/test';
 const REPO = 'test-repo-1';
 const USER = 'github-username';
 
-// 請求上下文被檔案中的所有測試重複使用。
+// Request context is reused by all tests in the file.
 let apiContext;
 
 test.beforeAll(async ({ playwright }) => {
   apiContext = await playwright.request.newContext({
-    // 我們發送的所有請求都會到這個 API 端點。
+    // All requests we send go to this API endpoint.
     baseURL: 'https://api.github.com',
     extraHTTPHeaders: {
-      // 我們根據 GitHub 指南設定這個標頭。
+      // We set this header per GitHub guidelines.
       'Accept': 'application/vnd.github.v3+json',
-      // 為所有請求新增身份驗證令牌。
-      // 假設環境中有可用的個人存取令牌。
+      // Add authorization token to all requests.
+      // Assuming personal access token available in the environment.
       'Authorization': `token ${process.env.API_TOKEN}`,
     },
   });
 });
 
 test.afterAll(async ({ }) => {
-  // 釋放所有回應。
+  // Dispose all responses.
   await apiContext.dispose();
 });
 
@@ -270,11 +270,11 @@ test('last created issue should be on the server', async ({ page }) => {
 });
 ```
 
-## 重複使用認證狀態
+## Reusing authentication state
 
-Web 應用程式使用基於 Cookie 或基於令牌的身份驗證，其中認證狀態儲存為 [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)。Playwright 提供 [apiRequestContext.storageState()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) 方法，可用於從已認證的上下文中擷取儲存狀態，然後使用該狀態建立新的上下文。
+Web apps use cookie-based or token-based authentication, where authenticated state is stored as [cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies). Playwright provides [apiRequestContext.storageState()](/api/class-apirequestcontext.mdx#api-request-context-storage-state) method that can be used to retrieve storage state from an authenticated context and then create new contexts with that state.
 
-儲存狀態在 [`BrowserContext`] 和 [`APIRequestContext`] 之間是可互換的。您可以使用它透過 API 呼叫登入，然後建立一個已包含 cookies 的新上下文。以下程式碼片段從已認證的 [`APIRequestContext`] 中擷取狀態，並使用該狀態建立新的 [`BrowserContext`]。
+Storage state is interchangeable between [BrowserContext] and [APIRequestContext]. You can use it to log in via API calls and then create a new context with cookies already there. The following code snippet retrieves state from an authenticated [APIRequestContext] and creates a new [BrowserContext] with that state.
 
 ```js
 const requestContext = await request.newContext({
@@ -284,20 +284,20 @@ const requestContext = await request.newContext({
   }
 });
 await requestContext.get(`https://api.example.com/login`);
-// 將儲存狀態儲存到檔案中。
+// Save storage state into the file.
 await requestContext.storageState({ path: 'state.json' });
 
-// 使用已儲存的儲存狀態建立新的上下文。
+// Create a new context with the saved storage state.
 const context = await browser.newContext({ storageState: 'state.json' });
 ```
 
-## Context request vs 全域 request
+## Context request vs global request
 
-有兩種類型的 [`APIRequestContext`]：
-* 與 [`BrowserContext`] 關聯的
-* 獨立實例，透過 [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context) 建立
+There are two types of [APIRequestContext]:
+* associated with a [BrowserContext]
+* isolated instance, created via [apiRequest.newContext()](/api/class-apirequest.mdx#api-request-new-context)
 
-主要差異是透過 [browserContext.request](/api/class-browsercontext.mdx#browser-context-request) 和 [page.request](/api/class-page.mdx#page-request) 存取的 [`APIRequestContext`] 將會從瀏覽器上下文填入請求的 `Cookie` 標頭，並且如果 [`APIResponse`] 有 `Set-Cookie` 標頭，將自動更新瀏覽器 cookies：
+The main difference is that [APIRequestContext] accessible via [browserContext.request](/api/class-browsercontext.mdx#browser-context-request) and [page.request](/api/class-page.mdx#page-request) will populate request's `Cookie` header from the browser context and will automatically update browser cookies if [APIResponse] has `Set-Cookie` header:
 
 ```js
 test('context request will share cookie storage with its browser context', async ({
@@ -305,18 +305,18 @@ test('context request will share cookie storage with its browser context', async
   context,
 }) => {
   await context.route('https://www.github.com/', async route => {
-    // 發送與瀏覽器上下文共享 cookie 儲存的 API 請求。
+    // Send an API request that shares cookie storage with the browser context.
     const response = await context.request.fetch(route.request());
     const responseHeaders = response.headers();
 
-    // 回應將有 'Set-Cookie' 標頭。
+    // The response will have 'Set-Cookie' header.
     const responseCookies = new Map(responseHeaders['set-cookie']
         .split('\n')
         .map(c => c.split(';', 2)[0].split('=')));
-    // 回應將在 'Set-Cookie' 標頭中有 3 個 cookies。
+    // The response will have 3 cookies in 'Set-Cookie' header.
     expect(responseCookies.size).toBe(3);
     const contextCookies = await context.cookies();
-    // 瀏覽器上下文將已經包含來自 API 回應的所有 cookies。
+    // The browser context will already contain all the cookies from the API response.
     expect(new Map(contextCookies.map(({ name, value }) =>
       [name, value])
     )).toEqual(responseCookies);
@@ -330,7 +330,7 @@ test('context request will share cookie storage with its browser context', async
 });
 ```
 
-如果您不希望 [`APIRequestContext`] 使用和更新來自瀏覽器上下文的 cookies，您可以手動建立新的 [`APIRequestContext`] 實例，它將有自己的獨立 cookies：
+If you don't want [APIRequestContext] to use and update cookies from the browser context, you can manually create a new instance of [APIRequestContext] which will have its own isolated cookies:
 
 ```js
 test('global context request has isolated cookie storage', async ({
@@ -339,7 +339,7 @@ test('global context request has isolated cookie storage', async ({
   browser,
   playwright
 }) => {
-  // 建立具有獨立 cookie 儲存的新 APIRequestContext 實例。
+  // Create a new instance of APIRequestContext with isolated cookie storage.
   const request = await playwright.request.newContext();
   await context.route('https://www.github.com/', async route => {
     const response = await request.fetch(route.request());
@@ -348,18 +348,18 @@ test('global context request has isolated cookie storage', async ({
     const responseCookies = new Map(responseHeaders['set-cookie']
         .split('\n')
         .map(c => c.split(';', 2)[0].split('=')));
-    // 回應將在 'Set-Cookie' 標頭中有 3 個 cookies。
+    // The response will have 3 cookies in 'Set-Cookie' header.
     expect(responseCookies.size).toBe(3);
     const contextCookies = await context.cookies();
-    // 瀏覽器上下文將不會有來自獨立 API 請求的任何 cookies。
+    // The browser context will not have any cookies from the isolated API request.
     expect(contextCookies.length).toBe(0);
 
-    // 手動匯出 cookie 儲存。
+    // Manually export cookie storage.
     const storageState = await request.storageState();
-    // 建立新的上下文並使用來自全域請求的 cookies 初始化它。
+    // Create a new context and initialize it with the cookies from the global request.
     const browserContext2 = await browser.newContext({ storageState });
     const contextCookies2 = await browserContext2.cookies();
-    // 新的瀏覽器上下文將已經包含來自 API 回應的所有 cookies。
+    // The new browser context will already contain all the cookies from the API response.
     expect(
         new Map(contextCookies2.map(({ name, value }) => [name, value]))
     ).toEqual(responseCookies);

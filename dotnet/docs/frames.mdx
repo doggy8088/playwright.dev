@@ -1,17 +1,17 @@
 ---
 id: frames
-title: "框架 (Frames)"
+title: "Frames"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-一個 [Page] 可以附加一個或多個 [Frame] 物件。每個頁面都有一個主框架，並且假設頁面級互動（如 `click`）在主框架中操作。
+A [Page] can have one or more [Frame] objects attached to it. Each page has a main frame and page-level interactions (like `click`) are assumed to operate in the main frame.
 
-一個頁面可以附加額外的框架，使用 `iframe` HTML 標籤。這些框架可以被訪問以進行框架內的互動。
+A page can have additional frames attached with the `iframe` HTML tag. These frames can be accessed for interactions inside the frame.
 
 ```csharp
 // Locate element inside frame
@@ -19,9 +19,9 @@ var username = await page.FrameLocator(".frame-class").GetByLabel("User Name");
 await username.FillAsync("John");
 ```
 
-## Frame 物件
+## Frame objects
 
-可以使用 [Page.Frame()](/api/class-page.mdx#page-frame) API 訪問框架物件：
+One can access frame objects using the [Page.Frame()](/api/class-page.mdx#page-frame) API:
 
 ```csharp
 // Create a page.

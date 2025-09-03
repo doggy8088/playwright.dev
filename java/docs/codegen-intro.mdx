@@ -1,67 +1,67 @@
 ---
 id: codegen-intro
-title: "生成測試"
+title: "Generating tests"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 內建了生成測試的功能，是快速開始測試的好方法。它會打開兩個視窗，一個是與您希望測試的網站互動的瀏覽器視窗，另一個是 Playwright Inspector 視窗，您可以在其中記錄您的測試、複製測試、清除測試以及更改測試的語言。
+Playwright can generate tests automatically, providing a quick way to get started with testing. Codegen opens a browser window for interaction and the Playwright Inspector for recording, copying, and managing your generated tests.
 
-**您將學到**
-- [如何記錄一個測試](/codegen.mdx#recording-a-test)
-- [如何產生定位器](/codegen.mdx#generating-locators)
+**You will learn**
+- [How to record a test](/codegen.mdx#recording-a-test)
+- [How to generate locators](/codegen.mdx#generating-locators)
 
-## 執行程式碼產生器
+## Running Codegen
 
-使用 `codegen` 命令執行測試產生器，後面跟著您想要產生測試的網站 URL。URL 是可選的，如果省略可以直接在瀏覽器視窗中加入。
+Use the `codegen` command to run the test generator followed by the URL of the website you want to generate tests for. The URL is optional and can be added directly in the browser window if omitted.
 
 ```bash
 mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="codegen demo.playwright.dev/todomvc"
 ```
 
-### 錄製測試
+### Recording a test
 
-執行 `codegen` 並在瀏覽器中執行操作。Playwright 會為使用者互動生成程式碼。`Codegen` 會查看渲染的頁面並找出推薦的定位器，優先考慮角色、文本和測試 ID 定位器。如果生成器識別出多個匹配定位器的元素，它會改進定位器，使其具有彈性並唯一識別目標元素，從而消除和減少由於定位器導致的測試失敗和不穩定。
+Run `codegen` and perform actions in the browser. Playwright generates code for your interactions automatically. Codegen analyzes the rendered page and recommends the best locator, prioritizing role, text, and test id locators. When multiple elements match a locator, the generator improves it to uniquely identify the target element, reducing test failures and flakiness.
 
-使用測試產生器您可以錄製：
-* 像點擊或填寫這樣的操作，只需與頁面互動
-* 透過點擊工具列上的其中一個圖標，然後點擊頁面上的一個元素來進行斷言。您可以選擇：
-  * `'assert visibility'` 來斷言一個元素是可見的
-  * `'assert text'` 來斷言一個元素包含特定的文本
-  * `'assert value'` 來斷言一個元素具有特定的值
-
-###### 
-<ProgressiveImage image={require("../images/getting-started/record-test-java.png")} alt="錄製測試" />
+With the test generator you can record:
+* Actions like click or fill by interacting with the page
+* Assertions by clicking a toolbar icon, then clicking a page element to assert against. You can choose:
+  * `'assert visibility'` to assert that an element is visible
+  * `'assert text'` to assert that an element contains specific text
+  * `'assert value'` to assert that an element has a specific value
 
 ###### 
-當您完成與頁面的互動後，按 `'record'` 按鈕停止錄製，並使用 `'copy'` 按鈕將產生的程式碼複製到您的編輯器。
-
-使用 `'clear'` 按鈕清除程式碼並重新開始錄製。完成後，關閉 Playwright Inspector 視窗或停止終端機指令。
-
-要了解更多關於產生測試的資訊，請查看我們的 [測試產生器](./codegen.mdx) 詳細指南。
-
-### 產生定位器
-
-您可以使用測試產生器產生[定位器](/locators.mdx)。
-* 按 `'Record'` 按鈕停止錄製，`'Pick Locator'` 按鈕將會出現
-* 點擊 `'Pick Locator'` 按鈕並在瀏覽器視窗中懸停在元素上，查看每個元素下方突出顯示的定位器
-* 點擊您想要定位的元素，該定位器的程式碼將出現在 Pick Locator 按鈕旁邊的定位器遊樂場中
-* 在定位器遊樂場中編輯定位器以進行微調，並查看瀏覽器視窗中突出顯示的相符元素
-* 使用複製按鈕複製定位器並貼到您的程式碼中
+<ProgressiveImage image={require("../images/getting-started/record-test-java.png")} alt="recording a test" />
 
 ###### 
-<ProgressiveImage image={require("../images/getting-started/pick-locator-java.png")} alt="選擇定位器" />
+When you finish interacting with the page, press the `'record'` button to stop recording and use the `'copy'` button to copy the generated code to your editor.
 
-### 模擬
+Use the `'clear'` button to clear the code and start recording again. Once finished, close the Playwright Inspector window or stop the terminal command.
 
-您還可以使用模擬來生成測試，以便為特定的視口、設備、配色方案生成測試，並模擬地理位置、語言或時區。測試生成器還可以在保留身份驗證狀態的同時生成測試。查看 [測試產生器](./codegen.mdx#emulation) 指南以了解更多資訊。
+To learn more about generating tests, check out our detailed guide on [Codegen](./codegen.mdx).
 
-## 接下來是什麼
-- [查看你的測試追蹤](./trace-viewer-intro.mdx)
+### Generating locators
+
+You can generate [locators](/locators.mdx) with the test generator.
+* Press the `'Record'` button to stop recording and the `'Pick Locator'` button will appear
+* Click the `'Pick Locator'` button and hover over elements in the browser window to see the locator highlighted underneath each element
+* Click the element you want to locate and the code for that locator will appear in the locator playground next to the Pick Locator button
+* Edit the locator in the locator playground to fine-tune it and see the matching element highlighted in the browser window
+* Use the copy button to copy the locator and paste it into your code
+
+###### 
+<ProgressiveImage image={require("../images/getting-started/pick-locator-java.png")} alt="picking a locator" />
+
+### Emulation
+
+You can generate tests using emulation for specific viewports, devices, color schemes, geolocation, language, or timezone. The test generator can also preserve authenticated state. Check out the [Test Generator](./codegen.mdx#emulation) guide to learn more.
+
+## What's Next
+- [See a trace of your tests](./trace-viewer-intro.mdx)
 
 
 [APIRequest]: /api/class-apirequest.mdx "APIRequest"

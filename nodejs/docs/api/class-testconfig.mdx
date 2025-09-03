@@ -26,7 +26,7 @@ export default defineConfig({
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### build {#test-config-build}
 
@@ -34,7 +34,7 @@ export default defineConfig({
 
 Playwright transpiler configuration.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -46,7 +46,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [Object]
   - `external` [Array]&lt;[string]&gt; *(optional)*
     
@@ -60,7 +60,7 @@ export default defineConfig({
 
 These settings control whether git information is captured and stored in the config [testConfig.metadata](/api/class-testconfig.mdx#test-config-metadata).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -70,7 +70,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [Object]
   - `commit` [boolean] *(optional)*
     
@@ -100,7 +100,7 @@ The structure of the git commit metadata is subject to change.
 
 Configuration for the `expect` assertion library. Learn more about [various timeouts](../test-timeouts.mdx).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -115,7 +115,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [Object]
   - `timeout` [number] *(optional)*
     
@@ -185,7 +185,7 @@ Whether to exit with an error if any tests are marked as flaky. Useful on CI.
 
 Also available in the [command line](../test-cli.mdx) with the `--fail-on-flaky-tests` option.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -195,7 +195,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [boolean]
 
 ---
@@ -206,7 +206,7 @@ export default defineConfig({
 
 Whether to exit with an error if any tests or groups are marked as [test.only()](/api/class-test.mdx#test-only) or [test.describe.only()](/api/class-test.mdx#test-describe-only). Useful on CI.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -216,7 +216,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [boolean]
 
 ---
@@ -229,7 +229,7 @@ Playwright Test runs tests in parallel. In order to achieve that, it runs severa
 
 You can configure entire test run to concurrently execute all tests in all files using this option.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -239,7 +239,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [boolean]
 
 ---
@@ -252,7 +252,7 @@ Path to the global setup file. This file will be required and run before all the
 
 Learn more about [global setup and teardown](../test-global-setup-teardown.mdx).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -262,7 +262,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string] | [Array]&lt;[string]&gt;
 
 ---
@@ -275,7 +275,7 @@ Path to the global teardown file. This file will be required and run after all t
 
 Learn more about [global setup and teardown](../test-global-setup-teardown.mdx).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -285,7 +285,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string] | [Array]&lt;[string]&gt;
 
 ---
@@ -296,7 +296,7 @@ export default defineConfig({
 
 Maximum time in milliseconds the whole test suite can run. Zero timeout (default) disables this behavior. Useful on CI to prevent broken setup from running too long and wasting resources. Learn more about [various timeouts](../test-timeouts.mdx).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -306,7 +306,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -319,7 +319,7 @@ Filter to only run tests with a title matching one of the patterns. For example,
 
 `grep` option is also useful for [tagging tests](../test-annotations.mdx#tag-tests).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -329,7 +329,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [RegExp] | [Array]&lt;[RegExp]&gt;
 
 ---
@@ -342,7 +342,7 @@ Filter to only run tests with a title **not** matching one of the patterns. This
 
 `grepInvert` option is also useful for [tagging tests](../test-annotations.mdx#tag-tests).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -352,7 +352,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [RegExp] | [Array]&lt;[RegExp]&gt;
 
 ---
@@ -363,7 +363,7 @@ export default defineConfig({
 
 Whether to skip snapshot expectations, such as `expect(value).toMatchSnapshot()` and `await expect(page).toHaveScreenshot()`.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -373,7 +373,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [boolean]
 
 ---
@@ -386,7 +386,7 @@ The maximum number of test failures for the whole test suite run. After reaching
 
 Also available in the [command line](../test-cli.mdx) with the `--max-failures` and `-x` options.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -396,7 +396,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -407,7 +407,7 @@ export default defineConfig({
 
 Metadata contains key-value pairs to be included in the report. For example, HTML report will display it as key-value pairs, and JSON report will include metadata serialized as json.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -417,7 +417,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [Metadata]
 
 ---
@@ -428,7 +428,7 @@ export default defineConfig({
 
 Config name is visible in the report and during test execution, unless overridden by [testProject.name](/api/class-testproject.mdx#test-project-name).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -438,7 +438,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -449,7 +449,7 @@ export default defineConfig({
 
 The output directory for files created during test execution. Defaults to `<package.json-directory>/test-results`.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -459,7 +459,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 **Details**
@@ -489,7 +489,7 @@ Whether to preserve test output in the [testConfig.outputDir](/api/class-testcon
 * `'never'` - do not preserve output for any tests;
 * `'failures-only'` - only preserve output for failed tests.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -499,7 +499,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - "always" | "never" | "failures-only"
 
 ---
@@ -510,7 +510,7 @@ export default defineConfig({
 
 Playwright Test supports running multiple test projects at the same time. See [TestProject] for more information.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig, devices } from '@playwright/test';
@@ -522,7 +522,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[TestProject]&gt;
 
 ---
@@ -533,7 +533,7 @@ export default defineConfig({
 
 Whether to suppress stdio and stderr output from the tests.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -543,7 +543,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [boolean]
 
 ---
@@ -554,7 +554,7 @@ export default defineConfig({
 
 The number of times to repeat each test, useful for debugging flaky tests.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -564,7 +564,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -575,7 +575,7 @@ export default defineConfig({
 
 Whether to report slow test files. Pass `null` to disable this feature.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -585,7 +585,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [null] | [Object]
   - `max` [number]
     
@@ -613,7 +613,7 @@ You can pass options to the reporter in a tuple like `['json', { outputFile: './
 
 Learn more in the [reporters guide](../test-reporters.mdx).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -623,7 +623,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string] | [Array]&lt;[Object]&gt; | "list" | "dot" | "line" | "github" | "json" | "junit" | "null" | "html"
   - `0` [string]
     
@@ -640,13 +640,13 @@ export default defineConfig({
 
 Whether to skip entries from `.gitignore` when searching for test files. By default, if neither [testConfig.testDir](/api/class-testconfig.mdx#test-config-test-dir) nor [testProject.testDir](/api/class-testproject.mdx#test-project-test-dir) are explicitly specified, Playwright will ignore any test files matching `.gitignore` entries.
 
-**使用方式**
+**Usage**
 
 ```js
 testConfig.respectGitIgnore
 ```
 
-**型別 (Type)**
+**Type**
 - [boolean]
 
 ---
@@ -657,7 +657,7 @@ testConfig.respectGitIgnore
 
 The maximum number of retry attempts given to failed tests. By default failing tests are not retried. Learn more about [test retries](../test-retries.mdx#retries).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -667,7 +667,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -680,7 +680,7 @@ Shard tests and execute only the selected shard. Specify in the one-based form l
 
 Learn more about [parallelism and sharding](../test-parallel.mdx) with Playwright Test.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -690,7 +690,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [null] | [Object]
   - `current` [number]
     
@@ -709,7 +709,7 @@ This option configures a template controlling location of snapshots generated by
 
 You can configure templates for each assertion separately in [testConfig.expect](/api/class-testconfig.mdx#test-config-expect).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -732,7 +732,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 **Details**
@@ -812,7 +812,7 @@ In this config:
 
 Directory that will be recursively scanned for test files. Defaults to the directory of the configuration file.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -822,7 +822,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -835,7 +835,7 @@ Files matching one of these patterns are not executed as test files. Matching is
 
 For example, `'**/test-assets/**'` will ignore any files in the `test-assets` directory.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -845,7 +845,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string] | [RegExp] | [Array]&lt;[string] | [RegExp]&gt;
 
 ---
@@ -858,7 +858,7 @@ Only the files matching one of these patterns are executed as test files. Matchi
 
 By default, Playwright looks for files matching the following glob pattern: `**/*.@(spec|test).?(c|m)[jt]s?(x)`. This means JavaScript or TypeScript files with `".test"` or `".spec"` suffix, for example `login-screen.wrong-credentials.spec.ts`.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -868,7 +868,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string] | [RegExp] | [Array]&lt;[string] | [RegExp]&gt;
 
 ---
@@ -881,7 +881,7 @@ Timeout for each test in milliseconds. Defaults to 30 seconds.
 
 This is a base timeout for all tests. In addition, each test can configure its own timeout with [test.setTimeout()](/api/class-test.mdx#test-set-timeout). Learn more about [various timeouts](../test-timeouts.mdx).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -891,7 +891,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -902,7 +902,7 @@ export default defineConfig({
 
 Path to a single `tsconfig` applicable to all imported files. By default, `tsconfig` for each imported file is looked up separately. Note that `tsconfig` property has no effect while the configuration file or any of its dependencies are loaded. Ignored when `--tsconfig` command line option is specified.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -912,7 +912,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 ---
@@ -929,7 +929,7 @@ Whether to update expected snapshots with the actual results produced by the tes
 
 Learn more about [snapshots](../test-snapshots.mdx).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -939,7 +939,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - "all" | "changed" | "missing" | "none"
 
 ---
@@ -953,13 +953,13 @@ Defines how to update snapshots in the source code.
 * `'3way'` - Generate merge conflict markers in source code. This allows user to manually pick relevant changes, as if they are resolving a merge conflict in the IDE.
 * `'overwrite'` - Overwrite the source code with the new snapshot values.
 
-**使用方式**
+**Usage**
 
 ```js
 testConfig.updateSourceMethod
 ```
 
-**型別 (Type)**
+**Type**
 - "overwrite" | "3way" | "patch"
 
 ---
@@ -970,7 +970,7 @@ testConfig.updateSourceMethod
 
 Global options for all tests, for example [testOptions.browserName](/api/class-testoptions.mdx#test-options-browser-name). Learn more about [configuration](../test-configuration.mdx) and see [available options][TestOptions].
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -982,7 +982,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [TestOptions]
 
 ---
@@ -993,7 +993,7 @@ export default defineConfig({
 
 Launch a development web server (or multiple) during the tests.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -1048,7 +1048,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [Object] | [Array]&lt;[Object]&gt;
   - `command` [string]
     
@@ -1117,7 +1117,7 @@ Playwright Test uses worker processes to run tests. There is always at least one
 
 Defaults to half of the number of logical CPU cores. Learn more about [parallelism and sharding](../test-parallel.mdx) with Playwright Test.
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -1127,12 +1127,12 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [number] | [string]
 
 ---
 
-## 已棄用 (Deprecated)
+## Deprecated
 
 ### snapshotDir {#test-config-snapshot-dir}
 
@@ -1147,7 +1147,7 @@ Use [testConfig.snapshotPathTemplate](/api/class-testconfig.mdx#test-config-snap
 
 The base directory, relative to the config file, for snapshot files created with `toMatchSnapshot`. Defaults to [testConfig.testDir](/api/class-testconfig.mdx#test-config-test-dir).
 
-**使用方式**
+**Usage**
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -1157,7 +1157,7 @@ export default defineConfig({
 });
 ```
 
-**型別 (Type)**
+**Type**
 - [string]
 
 **Details**

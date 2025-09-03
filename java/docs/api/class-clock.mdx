@@ -15,7 +15,7 @@ Note that clock is installed for the entire [BrowserContext], so the time in all
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### fastForward {#clock-fast-forward}
 
@@ -23,19 +23,19 @@ Note that clock is installed for the entire [BrowserContext], so the time in all
 
 Advance the clock by jumping forward in time. Only fires due timers at most once. This is equivalent to user closing the laptop lid for a while and reopening it later, after given time.
 
-**使用方式**
+**Usage**
 
 ```java
 page.clock().fastForward(1000);
 page.clock().fastForward("30:00");
 ```
 
-**參數**
+**Arguments**
 - `ticks` [long] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-fast-forward-option-ticks"/><a href="#clock-fast-forward-option-ticks" class="list-anchor">#</a>
   
   Time may be the number of milliseconds to advance the clock by or a human-readable string. Valid string formats are "08" for eight seconds, "01:00" for one minute and "02:34:10" for two hours, 34 minutes and ten seconds.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-fast-forward-return"/><a href="#clock-fast-forward-return" class="list-anchor">#</a>
 
 ---
@@ -58,20 +58,20 @@ Install fake implementations for the following time-related functions:
 
 Fake timers are used to manually control the flow of time in tests. They allow you to advance time, fire timers, and control the behavior of time-dependent functions. See [Clock.runFor()](/api/class-clock.mdx#clock-run-for) and [Clock.fastForward()](/api/class-clock.mdx#clock-fast-forward) for more information.
 
-**使用方式**
+**Usage**
 
 ```java
 Clock.install();
 Clock.install(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `Clock.InstallOptions` *(optional)*
   - `setTime` [long] | [String] | [Date] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-install-option-time"/><a href="#clock-install-option-time" class="list-anchor">#</a>
     
     Time to initialize with, current system time by default.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-install-return"/><a href="#clock-install-return" class="list-anchor">#</a>
 
 ---
@@ -84,7 +84,7 @@ Advance the clock by jumping forward in time and pause the time. Once this metho
 
 Only fires due timers at most once. This is equivalent to user closing the laptop lid for a while and reopening it at the specified time and pausing.
 
-**使用方式**
+**Usage**
 
 ```java
 SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd");
@@ -103,12 +103,12 @@ page.navigate("http://localhost:3333");
 page.clock().pauseAt(format.parse("2024-12-10T10:00:00"));
 ```
 
-**參數**
+**Arguments**
 - `time` [long] | [String] | [Date]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-pause-at-option-time"/><a href="#clock-pause-at-option-time" class="list-anchor">#</a>
   
   Time to pause at.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-pause-at-return"/><a href="#clock-pause-at-return" class="list-anchor">#</a>
 
 ---
@@ -119,13 +119,13 @@ page.clock().pauseAt(format.parse("2024-12-10T10:00:00"));
 
 Resumes timers. Once this method is called, time resumes flowing, timers are fired as usual.
 
-**使用方式**
+**Usage**
 
 ```java
 Clock.resume();
 ```
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-resume-return"/><a href="#clock-resume-return" class="list-anchor">#</a>
 
 ---
@@ -136,19 +136,19 @@ Clock.resume();
 
 Advance the clock, firing all the time-related callbacks.
 
-**使用方式**
+**Usage**
 
 ```java
 page.clock().runFor(1000);
 page.clock().runFor("30:00");
 ```
 
-**參數**
+**Arguments**
 - `ticks` [long] | [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-run-for-option-ticks"/><a href="#clock-run-for-option-ticks" class="list-anchor">#</a>
   
   Time may be the number of milliseconds to advance the clock by or a human-readable string. Valid string formats are "08" for eight seconds, "01:00" for one minute and "02:34:10" for two hours, 34 minutes and ten seconds.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-run-for-return"/><a href="#clock-run-for-return" class="list-anchor">#</a>
 
 ---
@@ -161,7 +161,7 @@ Makes `Date.now` and `new Date()` return fixed fake time at all times, keeps all
 
 Use this method for simple scenarios where you only need to test with a predefined time. For more advanced scenarios, use [Clock.install()](/api/class-clock.mdx#clock-install) instead. Read docs on [clock emulation](../clock.mdx) to learn more.
 
-**使用方式**
+**Usage**
 
 ```java
 page.clock().setFixedTime(new Date());
@@ -169,12 +169,12 @@ page.clock().setFixedTime(new SimpleDateFormat("yyy-MM-dd").parse("2020-02-02"))
 page.clock().setFixedTime("2020-02-02");
 ```
 
-**參數**
+**Arguments**
 - `time` [long] | [String] | [Date]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-fixed-time-option-time"/><a href="#clock-set-fixed-time-option-time" class="list-anchor">#</a>
   
   Time to be set in milliseconds.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-fixed-time-return"/><a href="#clock-set-fixed-time-return" class="list-anchor">#</a>
 
 ---
@@ -185,7 +185,7 @@ page.clock().setFixedTime("2020-02-02");
 
 Sets system time, but does not trigger any timers. Use this to test how the web page reacts to a time shift, for example switching from summer to winter time, or changing time zones.
 
-**使用方式**
+**Usage**
 
 ```java
 page.clock().setSystemTime(new Date());
@@ -193,12 +193,12 @@ page.clock().setSystemTime(new SimpleDateFormat("yyy-MM-dd").parse("2020-02-02")
 page.clock().setSystemTime("2020-02-02");
 ```
 
-**參數**
+**Arguments**
 - `time` [long] | [String] | [Date]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-system-time-option-time"/><a href="#clock-set-system-time-option-time" class="list-anchor">#</a>
   
   Time to be set in milliseconds.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="clock-set-system-time-return"/><a href="#clock-set-system-time-return" class="list-anchor">#</a>
 
 

@@ -30,7 +30,7 @@ await client.send('Animation.setPlaybackRate', {
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### detach {#cdp-session-detach}
 
@@ -38,13 +38,13 @@ await client.send('Animation.setPlaybackRate', {
 
 Detaches the CDPSession from the target. Once detached, the CDPSession object won't emit any events and can't be used to send messages.
 
-**使用方式**
+**Usage**
 
 ```js
 await cdpSession.detach();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[void]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="cdp-session-detach-return"/><a href="#cdp-session-detach-return" class="list-anchor">#</a>
 
 ---
@@ -53,14 +53,14 @@ await cdpSession.detach();
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>cdpSession.send</x-search>
 
-**使用方式**
+**Usage**
 
 ```js
 await cdpSession.send(method);
 await cdpSession.send(method, params);
 ```
 
-**參數**
+**Arguments**
 - `method` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="cdp-session-send-option-method"/><a href="#cdp-session-send-option-method" class="list-anchor">#</a>
   
   Protocol method name.
@@ -68,7 +68,7 @@ await cdpSession.send(method, params);
   
   Optional method parameters.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="cdp-session-send-return"/><a href="#cdp-session-send-return" class="list-anchor">#</a>
 
 

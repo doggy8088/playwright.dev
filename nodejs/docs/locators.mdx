@@ -1,26 +1,26 @@
 ---
 id: locators
-title: "定位器"
+title: "Locators"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-[定位器][Locator]是 Playwright 自動等待和重試能力的核心部分。簡而言之，定位器代表在頁面上任何時刻尋找元素的方法。
+[Locator]s are the central piece of Playwright's auto-waiting and retry-ability. In a nutshell, locators represent a way to find element(s) on the page at any moment.
 
-### 快速指南
+### Quick Guide
 
-這些是建議的內建定位器。
-- [page.getByRole()](#locate-by-role) 使用明確和隱含的無障礙屬性定位。
-- [page.getByText()](#locate-by-text) 使用文字內容定位。
-- [page.getByLabel()](#locate-by-label) 使用關聯標籤的文字定位表單控制項。
-- [page.getByPlaceholder()](#locate-by-placeholder) 使用預留位置文字定位輸入欄位。
-- [page.getByAltText()](#locate-by-alt-text) 使用替代文字定位元素，通常是圖片。
-- [page.getByTitle()](#locate-by-title) 使用 title 屬性定位元素。
-- [page.getByTestId()](#locate-by-test-id) 基於 `data-testid` 屬性定位元素（可設定其他屬性）。
+These are the recommended built-in locators.
+- [page.getByRole()](#locate-by-role) to locate by explicit and implicit accessibility attributes.
+- [page.getByText()](#locate-by-text) to locate by text content.
+- [page.getByLabel()](#locate-by-label) to locate a form control by associated label's text.
+- [page.getByPlaceholder()](#locate-by-placeholder) to locate an input by placeholder.
+- [page.getByAltText()](#locate-by-alt-text) to locate an element, usually image, by its text alternative.
+- [page.getByTitle()](#locate-by-title) to locate an element by its title attribute.
+- [page.getByTestId()](#locate-by-test-id) to locate an element based on its `data-testid` attribute (other attributes can be configured).
 
 ```js
 await page.getByLabel('User Name').fill('John');
@@ -32,11 +32,11 @@ await page.getByRole('button', { name: 'Sign in' }).click();
 await expect(page.getByText('Welcome, John!')).toBeVisible();
 ```
 
-## 定位元素
+## Locating elements
 
-Playwright 提供多種內建定位器。為了讓測試更具彈性，我們建議優先使用面向使用者的屬性和明確契約，如 [page.getByRole()](/api/class-page.mdx#page-get-by-role)。
+Playwright comes with multiple built-in locators. To make tests resilient, we recommend prioritizing user-facing attributes and explicit contracts such as [page.getByRole()](/api/class-page.mdx#page-get-by-role).
 
-例如，考慮以下 DOM 結構。
+For example, consider the following DOM structure.
 
 <HTMLCard>
 <div>
@@ -48,17 +48,17 @@ Playwright 提供多種內建定位器。為了讓測試更具彈性，我們建
 ```
 </HTMLCard>
 
-透過名稱為 "Sign in" 的 `button` 角色定位元素。
+Locate the element by its role of `button` with name "Sign in".
 
 ```js
 await page.getByRole('button', { name: 'Sign in' }).click();
 ```
 
 :::note
-使用[程式碼產生器](./codegen.mdx)產生定位器，然後依需要進行編輯。
+Use the [code generator](./codegen.mdx) to generate a locator, and then edit it as you'd like.
 :::
 
-每次使用定位器執行動作時，都會在頁面中定位到最新的 DOM 元素。在下面的程式碼片段中，底層的 DOM 元素會被定位兩次，每個動作之前各一次。這意味著如果 DOM 因為重新渲染而在呼叫之間發生改變，將會使用對應定位器的新元素。
+Every time a locator is used for an action, an up-to-date DOM element is located in the page. In the snippet below, the underlying DOM element will be located twice, once prior to every action. This means that if the DOM changes in between the calls due to re-render, the new element corresponding to the locator will be used.
 
 ```js
 const locator = page.getByRole('button', { name: 'Sign in' });
@@ -67,7 +67,7 @@ await locator.hover();
 await locator.click();
 ```
 
-請注意，所有建立定位器的方法，如 [page.getByLabel()](/api/class-page.mdx#page-get-by-label)，也可在 [Locator] 和 [FrameLocator] 類別上使用，因此您可以鏈接它們並反覆縮小定位器範圍。
+Note that all methods that create a locator, such as [page.getByLabel()](/api/class-page.mdx#page-get-by-label), are also available on the [Locator] and [FrameLocator] classes, so you can chain them and iteratively narrow down your locator.
 
 ```js
 const locator = page
@@ -77,11 +77,11 @@ const locator = page
 await locator.click();
 ```
 
-### 透過角色定位
+### Locate by role
 
-[page.getByRole()](/api/class-page.mdx#page-get-by-role) 定位器反映使用者和輔助技術如何認知頁面，例如某個元素是按鈕還是核取方塊。透過角色定位時，通常也應該傳遞可存取名稱，以便定位器精確指向特定元素。
+The [page.getByRole()](/api/class-page.mdx#page-get-by-role) locator reflects how users and assistive technology perceive the page, for example whether some element is a button or a checkbox. When locating by role, you should usually pass the accessible name as well, so that the locator pinpoints the exact element.
 
-例如，考慮以下 DOM 結構。
+For example, consider the following DOM structure.
 
 <HTMLCard>
 <div>
@@ -103,7 +103,7 @@ await locator.click();
 ```
 </HTMLCard>
 
-您可以透過隱含角色定位每個元素：
+You can locate each element by its implicit role:
 
 ```js
 await expect(page.getByRole('heading', { name: 'Sign up' })).toBeVisible();
@@ -113,20 +113,20 @@ await page.getByRole('checkbox', { name: 'Subscribe' }).check();
 await page.getByRole('button', { name: /submit/i }).click();
 ```
 
-角色定位器包括[按鈕、核取方塊、標題、連結、清單、表格等等](https://www.w3.org/TR/html-aria/#docconformance)，並遵循 [ARIA 角色](https://www.w3.org/TR/wai-aria-1.2/#roles)、[ARIA 屬性](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes)和[可存取名稱](https://w3c.github.io/accname/#dfn-accessible-name)的 W3C 規範。請注意，許多 HTML 元素如 `<button>` 都有[隱含定義的角色](https://w3c.github.io/html-aam/#html-element-role-mappings)，可被角色定位器識別。
+Role locators include [buttons, checkboxes, headings, links, lists, tables, and many more](https://www.w3.org/TR/html-aria/#docconformance) and follow W3C specifications for [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name). Note that many html elements like `<button>` have an [implicitly defined role](https://w3c.github.io/html-aam/#html-element-role-mappings) that is recognized by the role locator.
 
-請注意，角色定位器**不能取代**無障礙稽核和符合性測試，而是提供關於 ARIA 指引的早期回饋。
+Note that role locators **do not replace** accessibility audits and conformance tests, but rather give early feedback about the ARIA guidelines.
 
-:::note[何時使用角色定位器]
+:::note[When to use role locators]
 
-我們建議優先使用角色定位器來定位元素，因為這是最接近使用者和輔助技術感知頁面的方式。
+We recommend prioritizing role locators to locate elements, as it is the closest way to how users and assistive technology perceive the page.
 :::
 
-### 透過標籤定位
+### Locate by label
 
-大多數表單控制項通常都有專用標籤，可以方便地用來與表單互動。在這種情況下，您可以使用 [page.getByLabel()](/api/class-page.mdx#page-get-by-label) 透過其關聯標籤定位控制項。
+Most form controls usually have dedicated labels that could be conveniently used to interact with the form. In this case, you can locate the control by its associated label using [page.getByLabel()](/api/class-page.mdx#page-get-by-label).
 
-例如，考慮以下 DOM 結構。
+For example, consider the following DOM structure.
 
 <HTMLCard>
 <div>
@@ -140,21 +140,21 @@ await page.getByRole('button', { name: /submit/i }).click();
 ```
 </HTMLCard>
 
-您可以透過標籤文字定位輸入欄位後填入：
+You can fill the input after locating it by the label text:
 
 ```js
 await page.getByLabel('Password').fill('secret');
 ```
 
-:::note[何時使用標籤定位器]
-在定位表單欄位時使用此定位器。
+:::note[When to use label locators]
+Use this locator when locating form fields.
 :::
 
-### 透過預留位置定位
+### Locate by placeholder
 
-輸入欄位可能有預留位置屬性來提示使用者應該輸入什麼值。您可以使用 [page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder) 定位這類輸入欄位。
+Inputs may have a placeholder attribute to hint to the user what value should be entered. You can locate such an input using [page.getByPlaceholder()](/api/class-page.mdx#page-get-by-placeholder).
 
-例如，考慮以下 DOM 結構。
+For example, consider the following DOM structure.
 
 <HTMLCard>
 <div>
@@ -166,7 +166,7 @@ await page.getByLabel('Password').fill('secret');
 ```
 </HTMLCard>
 
-您可以透過預留位置文字定位輸入欄位後填入：
+You can fill the input after locating it by the placeholder text:
 
 ```js
 await page
@@ -174,15 +174,15 @@ await page
     .fill('playwright@microsoft.com');
 ```
 
-:::note[何時使用預留位置定位器]
-在定位沒有標籤但有預留位置文字的表單元素時使用此定位器。
+:::note[When to use placeholder locators]
+Use this locator when locating form elements that do not have labels but do have placeholder texts.
 :::
 
-### 透過文字定位
+### Locate by text
 
-透過元素包含的文字尋找元素。使用 [page.getByText()](/api/class-page.mdx#page-get-by-text) 時，您可以透過子字串、完全字串或正規表示式進行配對。
+Find an element by the text it contains. You can match by a substring, exact string, or a regular expression when using [page.getByText()](/api/class-page.mdx#page-get-by-text).
 
-例如，考慮以下 DOM 結構。
+For example, consider the following DOM structure.
 
 <HTMLCard>
 <div>
@@ -194,39 +194,39 @@ await page
 ```
 </HTMLCard>
 
-您可以透過元素包含的文字定位元素：
+You can locate the element by the text it contains:
 
 ```js
 await expect(page.getByText('Welcome, John')).toBeVisible();
 ```
 
-設定完全配對：
+Set an exact match:
 
 ```js
 await expect(page.getByText('Welcome, John', { exact: true })).toBeVisible();
 ```
 
-使用正規表示式配對：
+Match with a regular expression:
 
 ```js
 await expect(page.getByText(/welcome, [A-Za-z]+$/i)).toBeVisible();
 ```
 
 :::note
-透過文字配對始終會正規化空白字元，即使在完全配對的情況下也是如此。例如，它會將多個空格轉換為一個，將換行符轉換為空格，並忽略前導和後置空白字元。
+Matching by text always normalizes whitespace, even with exact match. For example, it turns multiple spaces into one, turns line breaks into spaces and ignores leading and trailing whitespace.
 :::
 
-:::note[何時使用文字定位器]
-我們建議使用文字定位器來尋找非互動元素，如 `div`、`span`、`p` 等。對於互動元素如 `button`、`a`、`input` 等，請使用[角色定位器](#locate-by-role)。
+:::note[When to use text locators]
+We recommend using text locators to find non interactive elements like `div`, `span`, `p`, etc. For interactive elements like `button`, `a`, `input`, etc. use [role locators](#locate-by-role).
 :::
 
-您也可以[透過文字篩選](#filter-by-text)，這在嘗試在清單中尋找特定項目時很有用。
+You can also [filter by text](#filter-by-text) which can be useful when trying to find a particular item in a list.
 
-### 透過替代文字定位
+### Locate by alt text
 
-所有圖片都應該有描述圖片的 `alt` 屬性。您可以使用 [page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text) 根據文字替代內容定位圖片。
+All images should have an `alt` attribute that describes the image. You can locate an image based on the text alternative using [page.getByAltText()](/api/class-page.mdx#page-get-by-alt-text).
 
-例如，考慮以下 DOM 結構。
+For example, consider the following DOM structure.
 
 <HTMLCard>
 <div>
@@ -238,21 +238,21 @@ await expect(page.getByText(/welcome, [A-Za-z]+$/i)).toBeVisible();
 ```
 </HTMLCard>
 
-您可以透過文字替代內容定位圖片後點擊：
+You can click on the image after locating it by the text alternative:
 
 ```js
 await page.getByAltText('playwright logo').click();
 ```
 
-:::note[何時使用替代文字定位器]
-當您的元素支援替代文字（如 `img` 和 `area` 元素）時使用此定位器。
+:::note[When to use alt locators]
+Use this locator when your element supports alt text such as `img` and `area` elements.
 :::
 
-### 透過標題定位
+### Locate by title
 
-使用 [page.getByTitle()](/api/class-page.mdx#page-get-by-title) 定位具有配對標題屬性的元素。
+Locate an element with a matching title attribute using [page.getByTitle()](/api/class-page.mdx#page-get-by-title).
 
-例如，考慮以下 DOM 結構。
+For example, consider the following DOM structure.
 
 <HTMLCard>
 <div>
@@ -264,21 +264,21 @@ await page.getByAltText('playwright logo').click();
 ```
 </HTMLCard>
 
-您可以透過標題文字定位後檢查問題計數：
+You can check the issues count after locating it by the title text:
 
 ```js
 await expect(page.getByTitle('Issues count')).toHaveText('25 issues');
 ```
 
-:::note[何時使用標題定位器]
-當您的元素有 `title` 屬性時使用此定位器。
+:::note[When to use title locators]
+Use this locator when your element has the `title` attribute.
 :::
 
-### 透過測試 ID 定位
+### Locate by test id
 
-透過測試 ID 進行測試是最穩固的測試方式，因為即使文字或屬性的角色改變，測試仍會通過。QA 和開發人員應該定義明確的測試 ID，並使用 [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 查詢它們。然而，透過測試 ID 測試不是面向使用者的。如果角色或文字值對您很重要，那麼考慮使用面向使用者的定位器，如[角色](#locate-by-role)和[文字定位器](#locate-by-text)。
+Testing by test ids is the most resilient way of testing as even if your text or role of the attribute changes, the test will still pass. QA's and developers should define explicit test ids and query them with [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id). However testing by test ids is not user facing. If the role or text value is important to you then consider using user facing locators such as [role](#locate-by-role) and [text locators](#locate-by-text).
 
-例如，考慮以下 DOM 結構。
+For example, consider the following DOM structure.
 
 <HTMLCard>
 <div>
@@ -290,21 +290,21 @@ await expect(page.getByTitle('Issues count')).toHaveText('25 issues');
 ```
 </HTMLCard>
 
-您可以透過測試 ID 定位元素：
+You can locate the element by its test id:
 
 ```js
 await page.getByTestId('directions').click();
 ```
 
-:::note[何時使用測試 ID 定位器]
-當您選擇使用測試 ID 方法論或無法透過[角色](#locate-by-role)或[文字](#locate-by-text)定位時，您也可以使用測試 ID。
+:::note[When to use testid locators]
+You can also use test ids when you choose to use the test id methodology or when you can't locate by [role](#locate-by-role) or [text](#locate-by-text).
 :::
 
-#### 設定自訂測試 ID 屬性
+#### Set a custom test id attribute
 
-預設情況下，[page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 將根據 `data-testid` 屬性定位元素，但您可以在測試組態中設定或透過呼叫 [selectors.setTestIdAttribute()](/api/class-selectors.mdx#selectors-set-test-id-attribute) 進行設定。
+By default, [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) will locate elements based on the `data-testid` attribute, but you can configure it in your test config or by calling [selectors.setTestIdAttribute()](/api/class-selectors.mdx#selectors-set-test-id-attribute).
 
-設定測試 ID 為您的測試使用自訂資料屬性。
+Set the test id to use a custom data attribute for your tests.
 
 ```js title="playwright.config.ts"
 import { defineConfig } from '@playwright/test';
@@ -316,7 +316,7 @@ export default defineConfig({
 });
 ```
 
-在您的 HTML 中，您現在可以使用 `data-pw` 作為測試 ID，而不是預設的 `data-testid`。
+In your html you can now use `data-pw` as your test id instead of the default `data-testid`.
 
 <HTMLCard>
 <div>
@@ -328,15 +328,15 @@ export default defineConfig({
 ```
 </HTMLCard>
 
-然後像正常情況一樣定位元素：
+And then locate the element as you would normally do:
 
 ```js
 await page.getByTestId('directions').click();
 ```
 
-### 使用 CSS 或 XPath 定位
+### Locate by CSS or XPath
 
-如果您絕對必須使用 CSS 或 XPath 定位器，可以使用 [page.locator()](/api/class-page.mdx#page-locator) 建立定位器，該定位器接收選擇器來描述如何在頁面中尋找元素。Playwright 支援 CSS 和 XPath 選擇器，如果您省略 `css=` 或 `xpath=` 前綴，會自動偵測選擇器類型。
+If you absolutely must use CSS or XPath locators, you can use [page.locator()](/api/class-page.mdx#page-locator) to create a locator that takes a selector describing how to find an element in the page. Playwright supports CSS and XPath selectors, and auto-detects them if you omit `css=` or `xpath=` prefix.
 
 ```js
 await page.locator('css=button').click();
@@ -346,7 +346,7 @@ await page.locator('button').click();
 await page.locator('//button').click();
 ```
 
-XPath 和 CSS 選擇器可能與 DOM 結構或實作緊密相關。當 DOM 結構改變時，這些選擇器可能會失效。下面的長 CSS 或 XPath 鏈是導致不穩定測試的**不良實踐**範例：
+XPath and CSS selectors can be tied to the DOM structure or implementation. These selectors can break when the DOM structure changes. Long CSS or XPath chains below are an example of a **bad practice** that leads to unstable tests:
 
 ```js
 await page.locator(
@@ -358,17 +358,17 @@ await page
     .click();
 ```
 
-:::note[何時使用此方法]
-不建議使用 CSS 和 XPath，因為 DOM 經常變更可能導致測試不穩定。相反地，請嘗試想出更接近使用者感知頁面方式的定位器，例如[角色定位器](#locate-by-role)或使用測試 ID [定義明確的測試契約](#locate-by-test-id)。
+:::note[When to use this]
+CSS and XPath are not recommended as the DOM can often change leading to non resilient tests. Instead, try to come up with a locator that is close to how the user perceives the page such as [role locators](#locate-by-role) or [define an explicit testing contract](#locate-by-test-id) using test ids.
 :::
 
-## 在 Shadow DOM 中定位
+## Locate in Shadow DOM
 
-Playwright 中的所有定位器**預設**都能與 Shadow DOM 中的元素一起使用。例外情況如下：
-- 使用 XPath 定位不會穿透 shadow root。
-- 不支援 [Closed-mode shadow roots](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#parameters)。
+All locators in Playwright **by default** work with elements in Shadow DOM. The exceptions are:
+- Locating by XPath does not pierce shadow roots.
+- [Closed-mode shadow roots](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#parameters) are not supported.
 
-考慮以下自訂網頁元件的範例：
+Consider the following example with a custom web component:
 
 ```html
 <x-details role=button aria-expanded=true aria-controls=inner-details>
@@ -378,9 +378,9 @@ Playwright 中的所有定位器**預設**都能與 Shadow DOM 中的元素一�
 </x-details>
 ```
 
-您可以像 shadow root 不存在一樣進行定位。
+You can locate in the same way as if the shadow root was not present at all.
 
-要點擊 `<div>Details</div>`：
+To click `<div>Details</div>`:
 
 ```js
 await page.getByText('Details').click();
@@ -394,7 +394,7 @@ await page.getByText('Details').click();
 </x-details>
 ```
 
-要點擊 `<x-details>`：
+To click `<x-details>`:
 
 ```js
 await page.locator('x-details', { hasText: 'Details' }).click();
@@ -408,15 +408,15 @@ await page.locator('x-details', { hasText: 'Details' }).click();
 </x-details>
 ```
 
-要確保 `<x-details>` 包含文字 "Details"：
+To ensure that `<x-details>` contains the text "Details":
 
 ```js
 await expect(page.locator('x-details')).toContainText('Details');
 ```
 
-## 篩選定位器
+## Filtering Locators
 
-考慮以下 DOM 結構，我們想要點擊第二個產品卡片的購買按鈕。我們有幾個選項來篩選定位器以取得正確的目標。
+Consider the following DOM structure where we want to click on the buy button of the second product card. We have a few options in order to filter the locators to get the right one.
 
 <HTMLCard>
 <div>
@@ -446,9 +446,9 @@ await expect(page.locator('x-details')).toContainText('Details');
 ```
 </HTMLCard>
 
-### 依文字篩選
+### Filter by text
 
-定位器可以使用 [locator.filter()](/api/class-locator.mdx#locator-filter) 方法依文字篩選。它會在元素內某處搜尋特定字串，可能在子元素中，且不區分大小寫。您也可以傳遞正規表示式。
+Locators can be filtered by text with the [locator.filter()](/api/class-locator.mdx#locator-filter) method. It will search for a particular string somewhere inside the element, possibly in a descendant element, case-insensitively. You can also pass a regular expression.
 
 ```js
 await page
@@ -458,7 +458,7 @@ await page
     .click();
 ```
 
-使用正規表示式：
+Use a regular expression:
 
 ```js
 await page
@@ -468,18 +468,18 @@ await page
     .click();
 ```
 
-### 依沒有文字篩選
+### Filter by not having text
 
-或者，依**沒有**文字篩選：
+Alternatively, filter by **not having** text:
 
 ```js
 // 5 in-stock items
 await expect(page.getByRole('listitem').filter({ hasNotText: 'Out of stock' })).toHaveCount(5);
 ```
 
-### 依子項目/後代元素篩選
+### Filter by child/descendant
 
-定位器支援只選擇有或沒有符合另一個定位器的子項目的元素選項。因此您可以依任何其他定位器篩選，例如 [locator.getByRole()](/api/class-locator.mdx#locator-get-by-role)、[locator.getByTestId()](/api/class-locator.mdx#locator-get-by-test-id)、[locator.getByText()](/api/class-locator.mdx#locator-get-by-text) 等。
+Locators support an option to only select elements that have or have not a descendant matching another locator. You can therefore filter by any other locator such as a [locator.getByRole()](/api/class-locator.mdx#locator-get-by-role), [locator.getByTestId()](/api/class-locator.mdx#locator-get-by-test-id), [locator.getByText()](/api/class-locator.mdx#locator-get-by-text) etc.
 
 <HTMLCard>
 <div>
@@ -517,7 +517,7 @@ await page
     .click();
 ```
 
-我們也可以對產品卡片進行斷言，確保只有一個：
+We can also assert the product card to make sure there is only one:
 
 ```js
 await expect(page
@@ -526,7 +526,7 @@ await expect(page
     .toHaveCount(1);
 ```
 
-篩選定位器**必須相對**於原始定位器，並從原始定位器匹配開始查詢，而不是從文件根目錄開始。因此，以下方式不會生效，因為篩選定位器從 `<ul>` 清單元素開始匹配，該元素在原始定位器匹配的 `<li>` 清單項目之外：
+The filtering locator **must be relative** to the original locator and is queried starting with the original locator match, not the document root. Therefore, the following will not work, because the filtering locator starts matching from the `<ul>` list element that is outside of the `<li>` list item matched by the original locator:
 
 ```js
 // ✖ WRONG
@@ -536,9 +536,9 @@ await expect(page
     .toHaveCount(1);
 ```
 
-### 依沒有子項目/後代元素篩選
+### Filter by not having child/descendant
 
-我們也可以依**沒有**內部匹配元素進行篩選。
+We can also filter by **not having** a matching element inside.
 
 ```js
 await expect(page
@@ -547,15 +547,15 @@ await expect(page
     .toHaveCount(1);
 ```
 
-注意內部定位器從外部定位器開始匹配，而不是從文件根目錄開始。
+Note that the inner locator is matched starting from the outer one, not from the document root.
 
-## 定位器運算子
+## Locator operators
 
-### 在定位器內匹配
+### Matching inside a locator
 
-您可以串連建立定位器的方法，例如 [page.getByText()](/api/class-page.mdx#page-get-by-text) 或 [locator.getByRole()](/api/class-locator.mdx#locator-get-by-role)，將搜尋範圍縮小到頁面的特定部分。
+You can chain methods that create a locator, like [page.getByText()](/api/class-page.mdx#page-get-by-text) or [locator.getByRole()](/api/class-locator.mdx#locator-get-by-role), to narrow down the search to a particular part of the page.
 
-在此範例中，我們首先透過定位其 `listitem` 角色建立名為 product 的定位器。然後依文字篩選。我們可以再次使用 product 定位器取得按鈕角色並點擊它，然後使用斷言確保只有一個包含文字「Product 2」的產品。
+In this example we first create a locator called product by locating its role of `listitem`. We then filter by text. We can use the product locator again to get by role of button and click it and then use an assertion to make sure there is only one product with the text "Product 2".
 
 ```js
 const product = page.getByRole('listitem').filter({ hasText: 'Product 2' });
@@ -565,7 +565,7 @@ await product.getByRole('button', { name: 'Add to cart' }).click();
 await expect(product).toHaveCount(1);
 ```
 
-您也可以將兩個定位器串連在一起，例如在特定對話框中尋找「儲存」按鈕：
+You can also chain two locators together, for example to find a "Save" button inside a particular dialog:
 
 ```js
 const saveButton = page.getByRole('button', { name: 'Save' });
@@ -574,23 +574,23 @@ const dialog = page.getByTestId('settings-dialog');
 await dialog.locator(saveButton).click();
 ```
 
-### 同時匹配兩個定位器
+### Matching two locators simultaneously
 
-[locator.and()](/api/class-locator.mdx#locator-and) 方法透過匹配額外的定位器來縮小現有定位器的範圍。例如，您可以結合 [page.getByRole()](/api/class-page.mdx#page-get-by-role) 和 [page.getByTitle()](/api/class-page.mdx#page-get-by-title) 同時依角色和標題匹配。
+Method [locator.and()](/api/class-locator.mdx#locator-and) narrows down an existing locator by matching an additional locator. For example, you can combine [page.getByRole()](/api/class-page.mdx#page-get-by-role) and [page.getByTitle()](/api/class-page.mdx#page-get-by-title) to match by both role and title.
 
 ```js
 const button = page.getByRole('button').and(page.getByTitle('Subscribe'));
 ```
 
-### 匹配兩個替代定位器之一
+### Matching one of the two alternative locators
 
-如果您想要鎖定兩個或更多元素中的一個，且不知道會是哪一個，請使用 [locator.or()](/api/class-locator.mdx#locator-or) 建立符合任一個或兩個替代方案的定位器。
+If you'd like to target one of the two or more elements, and you don't know which one it will be, use [locator.or()](/api/class-locator.mdx#locator-or) to create a locator that matches any one or both of the alternatives.
 
-例如，考慮一個想要點擊「新電子郵件」按鈕的情境，但有時會出現安全性設定對話框。在這種情況下，您可以等待「新電子郵件」按鈕或對話框並相應地採取行動。
+For example, consider a scenario where you'd like to click on a "New email" button, but sometimes a security settings dialog shows up instead. In this case, you can wait for either a "New email" button, or a dialog and act accordingly.
 
 :::note
 
-如果「新電子郵件」按鈕和安全性對話框都出現在螢幕上，「or」定位器會匹配兩者，可能拋出[「嚴格模式違規」錯誤](#strictness)。在這種情況下，您可以使用 [locator.first()](/api/class-locator.mdx#locator-first) 只匹配其中一個。
+If both "New email" button and security dialog appear on screen, the "or" locator will match both of them, possibly throwing the ["strict mode violation" error](#strictness). In this case, you can use [locator.first()](/api/class-locator.mdx#locator-first) to only match one of them.
 :::
 
 ```js
@@ -602,39 +602,39 @@ if (await dialog.isVisible())
 await newEmail.click();
 ```
 
-### 只匹配可見元素
+### Matching only visible elements
 
 :::note
 
-通常最好找到[更可靠的方式](./locators.mdx#quick-guide)來唯一識別元素，而不是檢查可見性。
+It's usually better to find a [more reliable way](./locators.mdx#quick-guide) to uniquely identify the element instead of checking the visibility.
 :::
 
-考慮一個包含兩個按鈕的頁面，第一個不可見，第二個[可見](./actionability.mdx#visible)。
+Consider a page with two buttons, the first invisible and the second [visible](./actionability.mdx#visible).
 
 ```html
 <button style='display: none'>Invisible</button>
 <button>Visible</button>
 ```
 
-* 這會找到兩個按鈕並拋出[嚴格性](./locators.mdx#strictness)違規錯誤：
+* This will find both buttons and throw a [strictness](./locators.mdx#strictness) violation error:
   
   ```js
   await page.locator('button').click();
   ```
   
-* 這只會找到第二個按鈕，因為它是可見的，然後點擊它。
+* This will only find a second button, because it is visible, and then click it.
   
   ```js
   await page.locator('button').filter({ visible: true }).click();
   ```
   
-## 清單（Lists）
+## Lists
 
-### 計算清單中的項目數
+### Count items in a list
 
-您可以對定位器進行斷言來計算清單中的項目數量。
+You can assert locators in order to count the items in a list.
 
-例如，請考慮以下 DOM 結構：
+For example, consider the following DOM structure:
 
 <HTMLCard>
 <div>
@@ -654,17 +654,17 @@ await newEmail.click();
 ```
 </HTMLCard>
 
-使用計數斷言確保清單有 3 個項目。
+Use the count assertion to ensure that the list has 3 items.
 
 ```js
 await expect(page.getByRole('listitem')).toHaveCount(3);
 ```
 
-### 斷言清單中所有文字
+### Assert all text in a list
 
-您可以對定位器進行斷言來尋找清單中的所有文字。
+You can assert locators in order to find all the text in a list.
 
-例如，請考慮以下 DOM 結構：
+For example, consider the following DOM structure:
 
 <HTMLCard>
 <div>
@@ -684,7 +684,7 @@ await expect(page.getByRole('listitem')).toHaveCount(3);
 ```
 </HTMLCard>
 
-使用 [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) 確保清單包含文字「apple」、「banana」和「orange」。
+Use [expect(locator).toHaveText()](/api/class-locatorassertions.mdx#locator-assertions-to-have-text) to ensure that the list has the text "apple", "banana" and "orange".
 
 ```js
 await expect(page
@@ -692,15 +692,15 @@ await expect(page
     .toHaveText(['apple', 'banana', 'orange']);
 ```
 
-### 取得特定項目
+### Get a specific item
 
-有許多方式可以取得清單中的特定項目。
+There are many ways to get a specific item in a list.
 
-#### 透過文字取得
+#### Get by text
 
-使用 [page.getByText()](/api/class-page.mdx#page-get-by-text) 方法透過文字內容在清單中定位元素，然後點擊它。
+Use the [page.getByText()](/api/class-page.mdx#page-get-by-text) method to locate an element in a list by its text content and then click on it.
 
-例如，請考慮以下 DOM 結構：
+For example, consider the following DOM structure:
 
 <HTMLCard>
 <div>
@@ -720,17 +720,17 @@ await expect(page
 ```
 </HTMLCard>
 
-透過文字內容定位項目並點擊它。
+Locate an item by its text content and click it.
 
 ```js
 await page.getByText('orange').click();
 ```
 
-#### 依文字篩選
+#### Filter by text
 
-使用 [locator.filter()](/api/class-locator.mdx#locator-filter) 定位清單中的特定項目。
+Use the [locator.filter()](/api/class-locator.mdx#locator-filter) to locate a specific item in a list.
 
-例如，請考慮以下 DOM 結構：
+For example, consider the following DOM structure:
 
 <HTMLCard>
 <div>
@@ -750,7 +750,7 @@ await page.getByText('orange').click();
 ```
 </HTMLCard>
 
-透過 "listitem" 角色定位項目，然後依 "orange" 文字篩選並點擊。
+Locate an item by the role of "listitem" and then filter by the text of "orange" and then click it.
 
 ```js
 await page
@@ -759,11 +759,11 @@ await page
     .click();
 ```
 
-#### 透過測試 ID 取得
+#### Get by test id
 
-使用 [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) 方法定位清單中的元素。如果您還沒有測試 ID，可能需要修改 HTML 並加入測試 ID。
+Use the [page.getByTestId()](/api/class-page.mdx#page-get-by-test-id) method to locate an element in a list. You may need to modify the html and add a test id if you don't already have a test id.
 
-例如，請考慮以下 DOM 結構：
+For example, consider the following DOM structure:
 
 <HTMLCard>
 <div>
@@ -783,27 +783,27 @@ await page
 ```
 </HTMLCard>
 
-透過測試 ID "orange" 定位項目並點擊。
+Locate an item by its test id of "orange" and then click it.
 
 ```js
 await page.getByTestId('orange').click();
 ```
 
-#### 透過序號取得第 N 個
+#### Get by nth item
 
-如果您有一個相同元素的清單，而唯一能區別它們的方式是順序，您可以使用 [locator.first()](/api/class-locator.mdx#locator-first)、[locator.last()](/api/class-locator.mdx#locator-last) 或 [locator.nth()](/api/class-locator.mdx#locator-nth) 從清單中選擇特定元素。
+If you have a list of identical elements, and the only way to distinguish between them is the order, you can choose a specific element from a list with [locator.first()](/api/class-locator.mdx#locator-first), [locator.last()](/api/class-locator.mdx#locator-last) or [locator.nth()](/api/class-locator.mdx#locator-nth).
 
 ```js
 const banana = await page.getByRole('listitem').nth(1);
 ```
 
-然而，使用此方法時要小心。通常頁面可能會變更，定位器會指向與您預期完全不同的元素。相反地，嘗試想出通過[嚴格性條件](#strictness)的唯一定位器。
+However, use this method with caution. Often times, the page might change, and the locator will point to a completely different element from the one you expected. Instead, try to come up with a unique locator that will pass the [strictness criteria](#strictness).
 
-### 串接多重篩選
+### Chaining filters
 
-當您有具有各種相似性的元素時，可以使用 [locator.filter()](/api/class-locator.mdx#locator-filter) 方法選擇正確的元素。您也可以鏈接多個篩選器以縮小選擇範圍。
+When you have elements with various similarities, you can use the [locator.filter()](/api/class-locator.mdx#locator-filter) method to select the right one. You can also chain multiple filters to narrow down the selection.
 
-例如，請考慮以下 DOM 結構：
+For example, consider the following DOM structure:
 
 <HTMLCard>
 <div>
@@ -849,7 +849,7 @@ const banana = await page.getByRole('listitem').nth(1);
 ```
 </HTMLCard>
 
-要截取含有 "Mary" 和 "Say goodbye" 的列的螢幕截圖：
+To take a screenshot of the row with "Mary" and "Say goodbye":
 
 ```js
 const rowLocator = page.getByRole('listitem');
@@ -860,20 +860,20 @@ await rowLocator
     .screenshot({ path: 'screenshot.png' });
 ```
 
-現在您的專案根目錄中應該有一個 "screenshot.png" 檔案。
+You should now have a "screenshot.png" file in your project's root directory.
 
-### 罕見使用案例
+### Rare use cases
 
-#### 對清單中的每個元素執行某個操作
+#### Do something with each element in the list
 
-迭代元素：
+Iterate elements:
 
 ```js
 for (const row of await page.getByRole('listitem').all())
   console.log(await row.textContent());
 ```
 
-使用一般 for 迴圈迭代：
+Iterate using regular for loop:
 
 ```js
 const rows = page.getByRole('listitem');
@@ -882,9 +882,9 @@ for (let i = 0; i < count; ++i)
   console.log(await rows.nth(i).textContent());
 ```
 
-#### 在頁面中執行評估
+#### Evaluate in the page
 
-[locator.evaluateAll()](/api/class-locator.mdx#locator-evaluate-all) 內的程式碼在頁面中執行，您可以在那裡呼叫任何 DOM API。
+The code inside [locator.evaluateAll()](/api/class-locator.mdx#locator-evaluate-all) runs in the page, you can call any DOM apis there.
 
 ```js
 const rows = page.getByRole('listitem');
@@ -892,29 +892,29 @@ const texts = await rows.evaluateAll(
     list => list.map(element => element.textContent));
 ```
 
-## 嚴格性
+## Strictness
 
-定位器是嚴格的。這意味著對定位器執行的所有暗示某個目標 DOM 元素的操作，如果有多個元素匹配，會拋出例外。例如，如果 DOM 中有多個按鈕，以下呼叫會拋出例外：
+Locators are strict. This means that all operations on locators that imply some target DOM element will throw an exception if more than one element matches. For example, the following call throws if there are several buttons in the DOM:
 
-#### 如果有多個會拋出錯誤
+#### Throws an error if more than one
 
 ```js
 await page.getByRole('button').click();
 ```
 
-另一方面，Playwright 會理解您何時執行多元素操作，所以當定位器解析為多個元素時，以下呼叫運作完全正常。
+On the other hand, Playwright understands when you perform a multiple-element operation, so the following call works perfectly fine when the locator resolves to multiple elements.
 
-#### 對多個元素運作正常
+#### Works fine with multiple elements
 
 ```js
 await page.getByRole('button').count();
 ```
 
-您可以透過 [locator.first()](/api/class-locator.mdx#locator-first)、[locator.last()](/api/class-locator.mdx#locator-last) 和 [locator.nth()](/api/class-locator.mdx#locator-nth) 告訴 Playwright 當多個元素匹配時要使用哪個元素，明確選擇退出嚴格性檢查。這些方法**不建議使用**，因為當您的頁面變更時，Playwright 可能會點擊您無意的元素。相反地，請遵循上述最佳實踐建立唯一識別目標元素的定位器。
+You can explicitly opt-out from strictness check by telling Playwright which element to use when multiple elements match, through [locator.first()](/api/class-locator.mdx#locator-first), [locator.last()](/api/class-locator.mdx#locator-last), and [locator.nth()](/api/class-locator.mdx#locator-nth). These methods are **not recommended** because when your page changes, Playwright may click on an element you did not intend. Instead, follow best practices above to create a locator that uniquely identifies the target element.
 
-## 更多定位器
+## More Locators
 
-對於較少使用的定位器，請查看[其他定位器](./other-locators.mdx)指南。
+For less commonly used locators, look at the [other locators](./other-locators.mdx) guide.
 
 
 [Accessibility]: /api/class-accessibility.mdx "Accessibility"

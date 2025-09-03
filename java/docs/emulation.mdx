@@ -1,27 +1,27 @@
 ---
 id: emulation
-title: "模擬"
+title: "Emulation"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-透過 Playwright，您可以在任何瀏覽器上測試您的應用程式，並模擬真實裝置（如手機或平板電腦）。只需簡單設定您想要模擬的裝置，Playwright 就會模擬瀏覽器行為，例如 `"userAgent"`、`"screenSize"`、`"viewport"` 以及是否啟用 `"hasTouch"`。您也可以針對所有測試或特定測試模擬 `"geolocation"`、`"locale"` 和 `"timezone"`，以及設定 `"permissions"` 來顯示通知或變更 `"colorScheme"`。
+With Playwright you can test your app on any browser as well as emulate a real device such as a mobile phone or tablet. Simply configure the devices you would like to emulate and Playwright will simulate the browser behavior such as `"userAgent"`, `"screenSize"`, `"viewport"` and if it `"hasTouch"` enabled. You can also emulate the `"geolocation"`, `"locale"` and `"timezone"` for all tests or for a specific test as well as set the `"permissions"` to show notifications or change the `"colorScheme"`.
 
-## 裝置
+## Devices
 
-Playwright 可以透過在使用 [Browser.newContext()](/api/class-browser.mdx#browser-new-context) 建立情境時指定 `setDeviceScaleFactor`、`setHasTouch`、`setIsMobile`、`setScreenSize`、`setUserAgent` 和 `setViewportSize` 選項來模擬各種裝置。
+Playwright can emulate various devices by specifying `setDeviceScaleFactor`, `setHasTouch`, `setIsMobile`, `setScreenSize`, `setUserAgent` and `setViewportSize` options when creating a context with [Browser.newContext()](/api/class-browser.mdx#browser-new-context).
 
-## 檢視區
+## Viewport
 
-檢視區包含在裝置中，但您可以使用 [Page.setViewportSize()](/api/class-page.mdx#page-set-viewport-size) 為某些測試覆寫它。
+The viewport is included in the device but you can override it for some tests with [Page.setViewportSize()](/api/class-page.mdx#page-set-viewport-size).
 
-測試檔案：
+Test file:
 
-同樣的方式也適用於測試檔案中。
+The same works inside a test file.
 
 ```java
 // Create context with given viewport
@@ -39,16 +39,16 @@ BrowserContext context = browser.newContext(new Browser.NewContextOptions()
 
 ## isMobile
 
-是否考慮 meta viewport 標籤並啟用觸控事件。
+Whether the meta viewport tag is taken into account and touch events are enabled.
 
 ```java
 BrowserContext context = browser.newContext(new Browser.NewContextOptions()
   .isMobile(false));
 ```
 
-## 語言環境與時區
+## Locale & Timezone
 
-模擬瀏覽器的語言環境與時區，可以在設定檔中為所有測試全域設定，然後針對特定測試覆寫。
+Emulate the browser Locale and Timezone which can be set globally for all tests in the config and then overridden for particular tests.
 
 ```java
 BrowserContext context = browser.newContext(new Browser.NewContextOptions()
@@ -58,31 +58,31 @@ BrowserContext context = browser.newContext(new Browser.NewContextOptions()
 
 <img width="1394" alt="Bing in german lang and timezone" src="https://user-images.githubusercontent.com/13063165/220416571-ccc96ab1-44bb-4579-8430-64502fc24a15.png" />
 
-## 權限
+## Permissions
 
-允許應用程式顯示系統通知。
+Allow app to show system notifications.
 
 ```java
 BrowserContext context = browser.newContext(new Browser.NewContextOptions()
   .setPermissions(Arrays.asList("notifications")));
 ```
 
-允許特定網域的通知。
+Allow notifications for a specific domain.
 
 ```java
 context.grantPermissions(Arrays.asList("notifications"),
   new BrowserContext.GrantPermissionsOptions().setOrigin("https://skype.com"));
 ```
 
-使用 [BrowserContext.clearPermissions()](/api/class-browsercontext.mdx#browser-context-clear-permissions) 撤銷所有權限。
+Revoke all permissions with [BrowserContext.clearPermissions()](/api/class-browsercontext.mdx#browser-context-clear-permissions).
 
 ```java
 context.clearPermissions();
 ```
 
-## 地理位置
+## Geolocation
 
-授予 `"geolocation"` 權限並將地理位置設定為特定區域。
+Grant `"geolocation"` permissions and set geolocation to a specific area.
 
 ```java
 BrowserContext context = browser.newContext(new Browser.NewContextOptions()
@@ -92,17 +92,17 @@ BrowserContext context = browser.newContext(new Browser.NewContextOptions()
 
 <img width="1394" alt="geolocation for italy on bing maps" src="https://user-images.githubusercontent.com/13063165/220417670-bb22d815-f5cd-47c4-8562-0b88165eac27.png" />
 
-稍後變更位置：
+Change the location later:
 
 ```java
 context.setGeolocation(new Geolocation(48.858455, 2.294474));
 ```
 
-**注意：** 您只能變更情境中所有頁面的地理位置。
+**Note** you can only change geolocation for all pages in the context.
 
-## 色彩方案與媒體
+## Color Scheme and Media
 
-模擬使用者的 `"colorScheme"`。支援的值為 'light' 和 'dark'。您也可以使用 [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media) 模擬媒體類型。
+Emulate the users `"colorScheme"`. Supported values are 'light' and 'dark'. You can also emulate the media type with [Page.emulateMedia()](/api/class-page.mdx#page-emulate-media).
 
 ```java
 // Create context with dark mode
@@ -124,25 +124,25 @@ page.emulateMedia(new Page.EmulateMediaOptions().setMedia(Media.PRINT));
 
 ## User Agent
 
-`User Agent` 包含在裝置中，因此您很少需要變更它，但如果您需要測試不同的使用者代理，可以使用 `userAgent` 屬性覆寫它。
+The User Agent is included in the device and therefore you  will rarely need to change it however if you do need to test a different user agent you can override it with the `userAgent` property.
 
 ```java
 BrowserContext context = browser.newContext(new Browser.NewContextOptions()
   .setUserAgent("My user agent"));
 ```
 
-## 離線
+## Offline
 
-模擬網路離線。
+Emulate the network being offline.
 
 ```java
 BrowserContext context = browser.newContext(new Browser.NewContextOptions()
   .setOffline(true));
 ```
 
-## JavaScript 啟用
+## JavaScript Enabled
 
-模擬停用 JavaScript 的使用者情境。
+Emulate a user scenario where JavaScript is disabled.
 
 ```java
 BrowserContext context = browser.newContext(new Browser.NewContextOptions()

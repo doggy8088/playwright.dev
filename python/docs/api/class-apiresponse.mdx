@@ -64,7 +64,7 @@ asyncio.run(main())
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### body {#api-response-body}
 
@@ -72,13 +72,13 @@ asyncio.run(main())
 
 Returns the buffer with response body.
 
-**使用方式**
+**Usage**
 
 ```python
 api_response.body()
 ```
 
-**傳回值**
+**Returns**
 - [bytes]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-body-return"/><a href="#api-response-body-return" class="list-anchor">#</a>
 
 ---
@@ -89,13 +89,13 @@ api_response.body()
 
 Disposes the body of this response. If not called then the body will stay in memory until the context closes.
 
-**使用方式**
+**Usage**
 
 ```python
 api_response.dispose()
 ```
 
-**傳回值**
+**Returns**
 - [NoneType]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-dispose-return"/><a href="#api-response-dispose-return" class="list-anchor">#</a>
 
 ---
@@ -108,13 +108,13 @@ Returns the JSON representation of response body.
 
 This method will throw if the response body is not parsable via `JSON.parse`.
 
-**使用方式**
+**Usage**
 
 ```python
 api_response.json()
 ```
 
-**傳回值**
+**Returns**
 - [Dict]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-json-return"/><a href="#api-response-json-return" class="list-anchor">#</a>
 
 ---
@@ -125,18 +125,18 @@ api_response.json()
 
 Returns the text representation of response body.
 
-**使用方式**
+**Usage**
 
 ```python
 api_response.text()
 ```
 
-**傳回值**
+**Returns**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-text-return"/><a href="#api-response-text-return" class="list-anchor">#</a>
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### headers {#api-response-headers}
 
@@ -144,13 +144,13 @@ api_response.text()
 
 An object with all the response HTTP headers associated with this response.
 
-**使用方式**
+**Usage**
 
 ```python
 api_response.headers
 ```
 
-**傳回值**
+**Returns**
 - [Dict]\[[str], [str]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-headers-return"/><a href="#api-response-headers-return" class="list-anchor">#</a>
 
 ---
@@ -161,13 +161,13 @@ api_response.headers
 
 An array with all the response HTTP headers associated with this response. Header names are not lower-cased. Headers with multiple entries, such as `Set-Cookie`, appear in the array multiple times.
 
-**使用方式**
+**Usage**
 
 ```python
 api_response.headers_array
 ```
 
-**傳回值**
+**Returns**
 - [List]\[[Dict]\]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-headers-array-return"/><a href="#api-response-headers-array-return" class="list-anchor">#</a>
   - `name` [str]
     
@@ -184,13 +184,13 @@ api_response.headers_array
 
 Contains a boolean stating whether the response was successful (status in the range 200-299) or not.
 
-**使用方式**
+**Usage**
 
 ```python
 api_response.ok
 ```
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-ok-return"/><a href="#api-response-ok-return" class="list-anchor">#</a>
 
 ---
@@ -201,13 +201,13 @@ api_response.ok
 
 Contains the status code of the response (e.g., 200 for a success).
 
-**使用方式**
+**Usage**
 
 ```python
 api_response.status
 ```
 
-**傳回值**
+**Returns**
 - [int]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-status-return"/><a href="#api-response-status-return" class="list-anchor">#</a>
 
 ---
@@ -218,13 +218,13 @@ api_response.status
 
 Contains the status text of the response (e.g. usually an "OK" for a success).
 
-**使用方式**
+**Usage**
 
 ```python
 api_response.status_text
 ```
 
-**傳回值**
+**Returns**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-status-text-return"/><a href="#api-response-status-text-return" class="list-anchor">#</a>
 
 ---
@@ -235,13 +235,13 @@ api_response.status_text
 
 Contains the URL of the response.
 
-**使用方式**
+**Usage**
 
 ```python
 api_response.url
 ```
 
-**傳回值**
+**Returns**
 - [str]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="api-response-url-return"/><a href="#api-response-url-return" class="list-anchor">#</a>
 
 

@@ -1,159 +1,159 @@
 ---
 id: test-assertions
-title: "斷言"
+title: "Assertions"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HTMLCard from '@site/src/components/HTMLCard';
 import ProgressiveImage from '@theme/ProgressiveImage';
 
-## 簡介
+## Introduction
 
-Playwright 以 `expect` 函式的形式包含測試斷言。要進行斷言，請呼叫 `expect(value)` 並選擇反映預期的比對器。有許多[通用比對器](./api/class-genericassertions.mdx)如 `toEqual`、`toContain`、`toBeTruthy` 可用來斷言任何條件。
+Playwright includes test assertions in the form of `expect` function. To make an assertion, call `expect(value)` and choose a matcher that reflects the expectation. There are many [generic matchers](./api/class-genericassertions.mdx) like `toEqual`, `toContain`, `toBeTruthy` that can be used to assert any conditions.
 
 ```js
 expect(success).toBeTruthy();
 ```
 
-Playwright 也包含網頁特定的[非同步比對器](./api/class-locatorassertions.mdx)，會等待直到預期條件滿足。考慮以下範例：
+Playwright also includes web-specific [async matchers](./api/class-locatorassertions.mdx) that will wait until the expected condition is met. Consider the following example:
 
 ```js
 await expect(page.getByTestId('status')).toHaveText('Submitted');
 ```
 
-Playwright 會重新測試具有 `status` 測試 ID 的元素，直到獲取的元素具有 `"Submitted"` 文字。它會重新獲取元素並一遍又一遍地檢查，直到滿足條件或達到逾時。您可以傳遞此逾時，或透過測試組態中的 [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) 值一次性設定。
+Playwright will be re-testing the element with the test id of `status` until the fetched element has the `"Submitted"` text. It will re-fetch the element and check it over and over, until the condition is met or until the timeout is reached. You can either pass this timeout or configure it once via the [testConfig.expect](/api/class-testconfig.mdx#test-config-expect) value in the test config.
 
-預設情況下，斷言的逾時設定為 5 秒。了解更多[各種逾時](./test-timeouts.mdx)。
+By default, the timeout for assertions is set to 5 seconds. Learn more about [various timeouts](./test-timeouts.mdx).
 
-## 自動重試斷言
+## Auto-retrying assertions
 
-以下斷言會重試直到斷言通過，或達到斷言逾時。請注意重試斷言是非同步的，所以您必須 `await` 它們。
+The following assertions will retry until the assertion passes, or the assertion timeout is reached. Note that retrying assertions are async, so you must `await` them.
 
-| 斷言 | 描述 |
+| Assertion | Description |
 | :- | :- |
-| [await expect(locator).toBeAttached()](./api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | 元素已附加 |
-| [await expect(locator).toBeChecked()](./api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | 核取方塊已選取 |
-| [await expect(locator).toBeDisabled()](./api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | 元素已停用 |
-| [await expect(locator).toBeEditable()](./api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | 元素可編輯 |
-| [await expect(locator).toBeEmpty()](./api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | 容器為空 |
-| [await expect(locator).toBeEnabled()](./api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | 元素已啟用 |
-| [await expect(locator).toBeFocused()](./api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | 元素已聚焦 |
-| [await expect(locator).toBeHidden()](./api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | 元素不可見 |
-| [await expect(locator).toBeInViewport()](./api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | 元素與檢視區相交 |
-| [await expect(locator).toBeVisible()](./api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | 元素可見 |
-| [await expect(locator).toContainText()](./api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | 元素包含文字 |
-| [await expect(locator).toContainClass()](./api/class-locatorassertions.mdx#locator-assertions-to-contain-class) | 元素具有指定的 CSS 類別 |
-| [await expect(locator).toHaveAccessibleDescription()](./api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) | 元素具有相符的[無障礙描述](https://w3c.github.io/accname/#dfn-accessible-description) |
-| [await expect(locator).toHaveAccessibleName()](./api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) | 元素具有相符的[無障礙名稱](https://w3c.github.io/accname/#dfn-accessible-name) |
-| [await expect(locator).toHaveAttribute()](./api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | 元素具有 DOM 屬性 |
-| [await expect(locator).toHaveClass()](./api/class-locatorassertions.mdx#locator-assertions-to-have-class) | 元素具有指定的 CSS 類別屬性 |
-| [await expect(locator).toHaveCount()](./api/class-locatorassertions.mdx#locator-assertions-to-have-count) | 清單具有確切的子項目數量 |
-| [await expect(locator).toHaveCSS()](./api/class-locatorassertions.mdx#locator-assertions-to-have-css) | 元素具有 CSS 屬性 |
-| [await expect(locator).toHaveId()](./api/class-locatorassertions.mdx#locator-assertions-to-have-id) | 元素具有 ID |
-| [await expect(locator).toHaveJSProperty()](./api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | 元素具有 JavaScript 屬性 |
-| [await expect(locator).toHaveRole()](./api/class-locatorassertions.mdx#locator-assertions-to-have-role) | 元素具有特定的 [ARIA 角色](https://www.w3.org/TR/wai-aria-1.2/#roles) |
-| [await expect(locator).toHaveScreenshot()](./api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) | 元素具有螢幕截圖 |
-| [await expect(locator).toHaveText()](./api/class-locatorassertions.mdx#locator-assertions-to-have-text) | 元素符合文字 |
-| [await expect(locator).toHaveValue()](./api/class-locatorassertions.mdx#locator-assertions-to-have-value) | 輸入具有值 |
-| [await expect(locator).toHaveValues()](./api/class-locatorassertions.mdx#locator-assertions-to-have-values) | 選擇具有選取的選項 |
-| [await expect(locator).toMatchAriaSnapshot()](./api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) | 元素符合 Aria 快照 |
-| [await expect(page).toHaveScreenshot()](./api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) | 頁面具有螢幕截圖 |
-| [await expect(page).toHaveTitle()](./api/class-pageassertions.mdx#page-assertions-to-have-title) | 頁面具有標題 |
-| [await expect(page).toHaveURL()](./api/class-pageassertions.mdx#page-assertions-to-have-url) | 頁面具有 URL |
-| [await expect(response).toBeOK()](./api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | 回應具有 OK 狀態 |
+| [await expect(locator).toBeAttached()](./api/class-locatorassertions.mdx#locator-assertions-to-be-attached) | Element is attached |
+| [await expect(locator).toBeChecked()](./api/class-locatorassertions.mdx#locator-assertions-to-be-checked) | Checkbox is checked |
+| [await expect(locator).toBeDisabled()](./api/class-locatorassertions.mdx#locator-assertions-to-be-disabled) | Element is disabled |
+| [await expect(locator).toBeEditable()](./api/class-locatorassertions.mdx#locator-assertions-to-be-editable) | Element is editable |
+| [await expect(locator).toBeEmpty()](./api/class-locatorassertions.mdx#locator-assertions-to-be-empty) | Container is empty |
+| [await expect(locator).toBeEnabled()](./api/class-locatorassertions.mdx#locator-assertions-to-be-enabled) | Element is enabled |
+| [await expect(locator).toBeFocused()](./api/class-locatorassertions.mdx#locator-assertions-to-be-focused) | Element is focused |
+| [await expect(locator).toBeHidden()](./api/class-locatorassertions.mdx#locator-assertions-to-be-hidden) | Element is not visible |
+| [await expect(locator).toBeInViewport()](./api/class-locatorassertions.mdx#locator-assertions-to-be-in-viewport) | Element intersects viewport |
+| [await expect(locator).toBeVisible()](./api/class-locatorassertions.mdx#locator-assertions-to-be-visible) | Element is visible |
+| [await expect(locator).toContainText()](./api/class-locatorassertions.mdx#locator-assertions-to-contain-text) | Element contains text |
+| [await expect(locator).toContainClass()](./api/class-locatorassertions.mdx#locator-assertions-to-contain-class) | Element has specified CSS classes |
+| [await expect(locator).toHaveAccessibleDescription()](./api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-description) | Element has a matching [accessible description](https://w3c.github.io/accname/#dfn-accessible-description) |
+| [await expect(locator).toHaveAccessibleName()](./api/class-locatorassertions.mdx#locator-assertions-to-have-accessible-name) | Element has a matching [accessible name](https://w3c.github.io/accname/#dfn-accessible-name) |
+| [await expect(locator).toHaveAttribute()](./api/class-locatorassertions.mdx#locator-assertions-to-have-attribute) | Element has a DOM attribute |
+| [await expect(locator).toHaveClass()](./api/class-locatorassertions.mdx#locator-assertions-to-have-class) | Element has specified CSS class property |
+| [await expect(locator).toHaveCount()](./api/class-locatorassertions.mdx#locator-assertions-to-have-count) | List has exact number of children |
+| [await expect(locator).toHaveCSS()](./api/class-locatorassertions.mdx#locator-assertions-to-have-css) | Element has CSS property |
+| [await expect(locator).toHaveId()](./api/class-locatorassertions.mdx#locator-assertions-to-have-id) | Element has an ID |
+| [await expect(locator).toHaveJSProperty()](./api/class-locatorassertions.mdx#locator-assertions-to-have-js-property) | Element has a JavaScript property |
+| [await expect(locator).toHaveRole()](./api/class-locatorassertions.mdx#locator-assertions-to-have-role) | Element has a specific [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles) |
+| [await expect(locator).toHaveScreenshot()](./api/class-locatorassertions.mdx#locator-assertions-to-have-screenshot-1) | Element has a screenshot |
+| [await expect(locator).toHaveText()](./api/class-locatorassertions.mdx#locator-assertions-to-have-text) | Element matches text |
+| [await expect(locator).toHaveValue()](./api/class-locatorassertions.mdx#locator-assertions-to-have-value) | Input has a value |
+| [await expect(locator).toHaveValues()](./api/class-locatorassertions.mdx#locator-assertions-to-have-values) | Select has options selected |
+| [await expect(locator).toMatchAriaSnapshot()](./api/class-locatorassertions.mdx#locator-assertions-to-match-aria-snapshot) | Element matches the Aria snapshot |
+| [await expect(page).toHaveScreenshot()](./api/class-pageassertions.mdx#page-assertions-to-have-screenshot-1) | Page has a screenshot |
+| [await expect(page).toHaveTitle()](./api/class-pageassertions.mdx#page-assertions-to-have-title) | Page has a title |
+| [await expect(page).toHaveURL()](./api/class-pageassertions.mdx#page-assertions-to-have-url) | Page has a URL |
+| [await expect(response).toBeOK()](./api/class-apiresponseassertions.mdx#api-response-assertions-to-be-ok) | Response has an OK status |
 
-## 非重試斷言
+## Non-retrying assertions
 
-這些斷言允許測試任何條件，但不會自動重試。大多數時候，網頁會非同步顯示資訊，使用非重試斷言可能導致不穩定的測試。
+These assertions allow to test any conditions, but do not auto-retry. Most of the time, web pages show information asynchronously, and using non-retrying assertions can lead to a flaky test.
 
-盡可能優先使用[自動重試](#auto-retrying-assertions)斷言。對於需要重試的更複雜斷言，使用 [`expect.poll`](#expectpoll) 或 [`expect.toPass`](#expecttopass)。
+Prefer [auto-retrying](#auto-retrying-assertions) assertions whenever possible. For more complex assertions that need to be retried, use [`expect.poll`](#expectpoll) or [`expect.toPass`](#expecttopass).
 
-| 斷言 | 描述 |
+| Assertion | Description |
 | :- | :- |
-| [expect(value).toBe()](/api/class-genericassertions.mdx#generic-assertions-to-be) | 值相同 |
-| [expect(value).toBeCloseTo()](/api/class-genericassertions.mdx#generic-assertions-to-be-close-to) | 數字大約相等 |
-| [expect(value).toBeDefined()](/api/class-genericassertions.mdx#generic-assertions-to-be-defined) | 值不是 `undefined` |
-| [expect(value).toBeFalsy()](/api/class-genericassertions.mdx#generic-assertions-to-be-falsy) | 值為假值，例如 `false`、`0`、`null` 等 |
-| [expect(value).toBeGreaterThan()](/api/class-genericassertions.mdx#generic-assertions-to-be-greater-than) | 數字大於 |
-| [expect(value).toBeGreaterThanOrEqual()](/api/class-genericassertions.mdx#generic-assertions-to-be-greater-than-or-equal) | 數字大於或等於 |
-| [expect(value).toBeInstanceOf()](/api/class-genericassertions.mdx#generic-assertions-to-be-instance-of) | 物件是類別的執行個體 |
-| [expect(value).toBeLessThan()](/api/class-genericassertions.mdx#generic-assertions-to-be-less-than) | 數字小於 |
-| [expect(value).toBeLessThanOrEqual()](/api/class-genericassertions.mdx#generic-assertions-to-be-less-than-or-equal) | 數字小於或等於 |
-| [expect(value).toBeNaN()](/api/class-genericassertions.mdx#generic-assertions-to-be-na-n) | 值是 `NaN` |
-| [expect(value).toBeNull()](/api/class-genericassertions.mdx#generic-assertions-to-be-null) | 值是 `null` |
-| [expect(value).toBeTruthy()](/api/class-genericassertions.mdx#generic-assertions-to-be-truthy) | 值為真值，即不是 `false`、`0`、`null` 等 |
-| [expect(value).toBeUndefined()](/api/class-genericassertions.mdx#generic-assertions-to-be-undefined) | 值是 `undefined` |
-| [expect(value).toContain()](/api/class-genericassertions.mdx#generic-assertions-to-contain-1) | 字串包含子字串 |
-| [expect(value).toContain()](/api/class-genericassertions.mdx#generic-assertions-to-contain-2) | 陣列或集合包含元素 |
-| [expect(value).toContainEqual()](/api/class-genericassertions.mdx#generic-assertions-to-contain-equal) | 陣列或集合包含相似元素 |
-| [expect(value).toEqual()](/api/class-genericassertions.mdx#generic-assertions-to-equal) | 值相似 - 深度相等和模式比對 |
-| [expect(value).toHaveLength()](/api/class-genericassertions.mdx#generic-assertions-to-have-length) | 陣列或字串具有長度 |
-| [expect(value).toHaveProperty()](/api/class-genericassertions.mdx#generic-assertions-to-have-property) | 物件具有屬性 |
-| [expect(value).toMatch()](/api/class-genericassertions.mdx#generic-assertions-to-match) | 字串符合正規表示式 |
-| [expect(value).toMatchObject()](/api/class-genericassertions.mdx#generic-assertions-to-match-object) | 物件包含指定屬性 |
-| [expect(value).toStrictEqual()](/api/class-genericassertions.mdx#generic-assertions-to-strict-equal) | 值相似，包括屬性類型 |
-| [expect(value).toThrow()](/api/class-genericassertions.mdx#generic-assertions-to-throw) | 函式拋出錯誤 |
-| [expect(value).any()](/api/class-genericassertions.mdx#generic-assertions-any) | 符合類別/基本型別的任何執行個體 |
-| [expect(value).anything()](/api/class-genericassertions.mdx#generic-assertions-anything) | 符合任何東西 |
-| [expect(value).arrayContaining()](/api/class-genericassertions.mdx#generic-assertions-array-containing) | 陣列包含特定元素 |
-| [expect(value).closeTo()](/api/class-genericassertions.mdx#generic-assertions-close-to) | 數字大約相等 |
-| [expect(value).objectContaining()](/api/class-genericassertions.mdx#generic-assertions-object-containing) | 物件包含特定屬性 |
-| [expect(value).stringContaining()](/api/class-genericassertions.mdx#generic-assertions-string-containing) | 字串包含子字串 |
-| [expect(value).stringMatching()](/api/class-genericassertions.mdx#generic-assertions-string-matching) | 字串符合正規表示式 |
+| [expect(value).toBe()](/api/class-genericassertions.mdx#generic-assertions-to-be) | Value is the same |
+| [expect(value).toBeCloseTo()](/api/class-genericassertions.mdx#generic-assertions-to-be-close-to) | Number is approximately equal |
+| [expect(value).toBeDefined()](/api/class-genericassertions.mdx#generic-assertions-to-be-defined) | Value is not `undefined` |
+| [expect(value).toBeFalsy()](/api/class-genericassertions.mdx#generic-assertions-to-be-falsy) | Value is falsy, e.g. `false`, `0`, `null`, etc. |
+| [expect(value).toBeGreaterThan()](/api/class-genericassertions.mdx#generic-assertions-to-be-greater-than) | Number is more than |
+| [expect(value).toBeGreaterThanOrEqual()](/api/class-genericassertions.mdx#generic-assertions-to-be-greater-than-or-equal) | Number is more than or equal |
+| [expect(value).toBeInstanceOf()](/api/class-genericassertions.mdx#generic-assertions-to-be-instance-of) | Object is an instance of a class |
+| [expect(value).toBeLessThan()](/api/class-genericassertions.mdx#generic-assertions-to-be-less-than) | Number is less than |
+| [expect(value).toBeLessThanOrEqual()](/api/class-genericassertions.mdx#generic-assertions-to-be-less-than-or-equal) | Number is less than or equal |
+| [expect(value).toBeNaN()](/api/class-genericassertions.mdx#generic-assertions-to-be-na-n) | Value is `NaN` |
+| [expect(value).toBeNull()](/api/class-genericassertions.mdx#generic-assertions-to-be-null) | Value is `null` |
+| [expect(value).toBeTruthy()](/api/class-genericassertions.mdx#generic-assertions-to-be-truthy) | Value is truthy, i.e. not `false`, `0`, `null`, etc. |
+| [expect(value).toBeUndefined()](/api/class-genericassertions.mdx#generic-assertions-to-be-undefined) | Value is `undefined` |
+| [expect(value).toContain()](/api/class-genericassertions.mdx#generic-assertions-to-contain-1) | String contains a substring |
+| [expect(value).toContain()](/api/class-genericassertions.mdx#generic-assertions-to-contain-2) | Array or set contains an element |
+| [expect(value).toContainEqual()](/api/class-genericassertions.mdx#generic-assertions-to-contain-equal) | Array or set contains a similar element |
+| [expect(value).toEqual()](/api/class-genericassertions.mdx#generic-assertions-to-equal) | Value is similar - deep equality and pattern matching |
+| [expect(value).toHaveLength()](/api/class-genericassertions.mdx#generic-assertions-to-have-length) | Array or string has length |
+| [expect(value).toHaveProperty()](/api/class-genericassertions.mdx#generic-assertions-to-have-property) | Object has a property |
+| [expect(value).toMatch()](/api/class-genericassertions.mdx#generic-assertions-to-match) | String matches a regular expression |
+| [expect(value).toMatchObject()](/api/class-genericassertions.mdx#generic-assertions-to-match-object) | Object contains specified properties |
+| [expect(value).toStrictEqual()](/api/class-genericassertions.mdx#generic-assertions-to-strict-equal) | Value is similar, including property types |
+| [expect(value).toThrow()](/api/class-genericassertions.mdx#generic-assertions-to-throw) | Function throws an error |
+| [expect(value).any()](/api/class-genericassertions.mdx#generic-assertions-any) | Matches any instance of a class/primitive |
+| [expect(value).anything()](/api/class-genericassertions.mdx#generic-assertions-anything) | Matches anything |
+| [expect(value).arrayContaining()](/api/class-genericassertions.mdx#generic-assertions-array-containing) | Array contains specific elements |
+| [expect(value).closeTo()](/api/class-genericassertions.mdx#generic-assertions-close-to) | Number is approximately equal |
+| [expect(value).objectContaining()](/api/class-genericassertions.mdx#generic-assertions-object-containing) | Object contains specific properties |
+| [expect(value).stringContaining()](/api/class-genericassertions.mdx#generic-assertions-string-containing) | String contains a substring |
+| [expect(value).stringMatching()](/api/class-genericassertions.mdx#generic-assertions-string-matching) | String matches a regular expression |
 
-## 否定比對器
+## Negating matchers
 
-一般來說，我們可以在比對器前面加上 `.not` 來預期相反的結果為真：
+In general, we can expect the opposite to be true by adding a `.not` to the front of the matchers:
 
 ```js
 expect(value).not.toEqual(0);
 await expect(locator).not.toContainText('some text');
 ```
 
-## 軟斷言
+## Soft assertions
 
-預設情況下，失敗的斷言會終止測試執行。Playwright 也支援*軟斷言*：失敗的軟斷言**不會**終止測試執行，但會將測試標記為失敗。
+By default, failed assertion will terminate test execution. Playwright also supports *soft assertions*: failed soft assertions **do not** terminate test execution, but mark the test as failed.
 
 ```js
-// 進行一些檢查，失敗時不會停止測試...
+// Make a few checks that will not stop the test when failed...
 await expect.soft(page.getByTestId('status')).toHaveText('Success');
 await expect.soft(page.getByTestId('eta')).toHaveText('1 day');
 
-// ...並繼續測試以檢查更多內容。
+// ... and continue the test to check more things.
 await page.getByRole('link', { name: 'next page' }).click();
 await expect.soft(page.getByRole('heading', { name: 'Make another order' })).toBeVisible();
 ```
 
-在測試執行期間的任何時候，您可以檢查是否有任何軟斷言失敗：
+At any point during test execution, you can check whether there were any soft assertion failures:
 
 ```js
-// 進行一些檢查，失敗時不會停止測試...
+// Make a few checks that will not stop the test when failed...
 await expect.soft(page.getByTestId('status')).toHaveText('Success');
 await expect.soft(page.getByTestId('eta')).toHaveText('1 day');
 
-// 如果有軟斷言失敗，避免繼續執行。
+// Avoid running further if there were soft assertion failures.
 expect(test.info().errors).toHaveLength(0);
 ```
 
-請注意，軟斷言只在 Playwright 測試執行器中有效。
+Note that soft assertions only work with Playwright test runner.
 
-## 自訂預期訊息
+## Custom expect message
 
-您可以指定自訂預期訊息作為 `expect` 函式的第二個參數，例如：
+You can specify a custom expect message as a second argument to the `expect` function, for example:
 
 ```js
 await expect(page.getByText('Name'), 'should be logged in').toBeVisible();
 ```
 
-此訊息會在報告器中顯示，無論預期通過或失敗，都會提供關於斷言的更多背景資訊。
+This message will be shown in reporters, both for passing and failing expects, providing more context about the assertion.
 
-當預期通過時，您可能會看到這樣的成功步驟：
+When expect passes, you might see a successful step like this:
 
 ```txt
 ✅ should be logged in    @example.spec.ts:18
 ```
 
-當預期失敗時，錯誤會看起來像這樣：
+When expect fails, the error would look like this:
 
 ```bash
     Error: should be logged in
@@ -171,7 +171,7 @@ await expect(page.getByText('Name'), 'should be logged in').toBeVisible();
       6 |
 ```
 
-軟斷言也支援自訂訊息：
+Soft assertions also support custom message:
 
 ```js
 expect.soft(value, 'my soft assertion').toBe(56);
@@ -179,22 +179,22 @@ expect.soft(value, 'my soft assertion').toBe(56);
 
 ## expect.configure
 
-您可以建立自己的預設組態 `expect` 執行個體，擁有自己的預設值，如 `timeout` 和 `soft`。
+You can create your own pre-configured `expect` instance to have its own defaults such as `timeout` and `soft`.
 
 ```js
 const slowExpect = expect.configure({ timeout: 10000 });
-await slowExpected(locator).toHaveText('Submit');
+await slowExpect(locator).toHaveText('Submit');
 
-// 始終使用軟斷言。
+// Always do soft assertions.
 const softExpect = expect.configure({ soft: true });
 await softExpect(locator).toHaveText('Submit');
 ```
 
 ## expect.poll
 
-您可以使用 `expect.poll` 將任何同步 `expect` 轉換為非同步輪詢。
+You can convert any synchronous `expect` to an asynchronous polling one using `expect.poll`.
 
-以下方法會輪詢指定函式，直到它回傳 HTTP 狀態 200：
+The following method will poll given function until it returns HTTP status 200:
 
 ```js
 await expect.poll(async () => {
@@ -203,12 +203,12 @@ await expect.poll(async () => {
 }, {
   // Custom expect message for reporting, optional.
   message: 'make sure API eventually succeeds',
-  // 輪詢 10 秒；預設為 5 秒。傳遞 0 以停用逾時。
+  // Poll for 10 seconds; defaults to 5 seconds. Pass 0 to disable timeout.
   timeout: 10000,
 }).toBe(200);
 ```
 
-您也可以指定自訂輪詢間隔：
+You can also specify custom polling intervals:
 
 ```js
 await expect.poll(async () => {
@@ -222,7 +222,7 @@ await expect.poll(async () => {
 }).toBe(200);
 ```
 
-您可以將 `expect.configure({ soft: true })` 與 expect.poll 結合，在輪詢邏輯中執行軟斷言。
+You can combine `expect.configure({ soft: true })` with expect.poll to perform soft assertions in polling logic.
 
 ```js
 const softExpect = expect.configure({ soft: true });
@@ -232,11 +232,11 @@ await softExpect.poll(async () => {
 }, {}).toBe(200);
 ```
 
-這讓測試即使在輪詢內的斷言失敗時也能繼續進行。
+This allows the test to continue even if the assertion inside poll fails.
 
 ## expect.toPass
 
-您可以重試程式碼區塊直到它們成功通過。
+You can retry blocks of code until they are passing successfully.
 
 ```js
 await expect(async () => {
@@ -245,7 +245,7 @@ await expect(async () => {
 }).toPass();
 ```
 
-您也可以指定自訂逾時和重試間隔：
+You can also specify custom timeout and retry intervals:
 
 ```js
 await expect(async () => {
@@ -259,13 +259,13 @@ await expect(async () => {
 });
 ```
 
-注意，預設情況下 `toPass` 的逾時為 0，且不會遵循自訂的 [expect 逾時](./test-timeouts.mdx#expect-timeout)。
+Note that by default `toPass` has timeout 0 and does not respect custom [expect timeout](./test-timeouts.mdx#expect-timeout).
 
 ## Add custom matchers using expect.extend
 
-您可以透過提供自訂比對器來擴充 Playwright 斷言。這些比對器將在 `expect` 物件上可用。
+You can extend Playwright assertions by providing custom matchers. These matchers will be available on the `expect` object.
 
-在此範例中，我們新增自訂的 `toHaveAmount` 函式。自訂比對器應傳回 `pass` 旗標，指示斷言是否通過，以及在斷言失敗時使用的 `message` 回呼。
+In this example we add a custom `toHaveAmount` function. Custom matcher should return a `pass` flag indicating whether the assertion passed, and a `message` callback that's used when the assertion fails.
 
 ```js title="fixtures.ts"
 import { expect as baseExpect } from '@playwright/test';
@@ -314,7 +314,7 @@ export const expect = baseExpect.extend({
 });
 ```
 
-現在我們可以在測試中使用 `toHaveAmount`。
+Now we can use `toHaveAmount` in the test.
 
 ```js title="example.spec.ts"
 import { test, expect } from './fixtures';
@@ -324,16 +324,16 @@ test('amount', async () => {
 });
 ```
 
-### 與 expect 函式庫的相容性
+### Compatibility with expect library
 
 :::note
 
-請勿將 Playwright 的 `expect` 與 [`expect` 函式庫](https://jestjs.io/docs/expect)混淆。後者沒有與 Playwright 測試執行器完全整合，因此請確保使用 Playwright 自己的 `expect`。
+Do not confuse Playwright's `expect` with the [`expect` library](https://jestjs.io/docs/expect). The latter is not fully integrated with Playwright test runner, so make sure to use Playwright's own `expect`.
 :::
 
-### 結合來自多個模組的自訂比對器
+### Combine custom matchers from multiple modules
 
-您可以結合來自多個檔案或模組的自訂比對器。
+You can combine custom matchers from multiple files or modules.
 
 ```js title="fixtures.ts"
 import { mergeTests, mergeExpects } from '@playwright/test';

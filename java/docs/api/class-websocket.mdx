@@ -15,7 +15,7 @@ If you want to intercept or modify WebSocket frames, consider using [WebSocketRo
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### isClosed {#web-socket-is-closed}
 
@@ -23,13 +23,13 @@ If you want to intercept or modify WebSocket frames, consider using [WebSocketRo
 
 Indicates that the web socket has been closed.
 
-**使用方式**
+**Usage**
 
 ```java
 WebSocket.isClosed();
 ```
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-is-closed-return"/><a href="#web-socket-is-closed-return" class="list-anchor">#</a>
 
 ---
@@ -40,13 +40,13 @@ WebSocket.isClosed();
 
 Contains the URL of the WebSocket.
 
-**使用方式**
+**Usage**
 
 ```java
 WebSocket.url();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-url-return"/><a href="#web-socket-url-return" class="list-anchor">#</a>
 
 ---
@@ -57,14 +57,14 @@ WebSocket.url();
 
 Performs action and waits for a frame to be sent. If predicate is provided, it passes [WebSocketFrame] value into the `predicate` function and waits for `predicate(webSocketFrame)` to return a truthy value. Will throw an error if the WebSocket or Page is closed before the frame is received.
 
-**使用方式**
+**Usage**
 
 ```java
 WebSocket.waitForFrameReceived(callback);
 WebSocket.waitForFrameReceived(callback, options);
 ```
 
-**參數**
+**Arguments**
 - `options` `WebSocket.WaitForFrameReceivedOptions` *(optional)*
   - `setPredicate` [Predicate]&lt;[WebSocketFrame]&gt; *(optional)* <font size="2">Added in: v1.9</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-frame-received-option-predicate"/><a href="#web-socket-wait-for-frame-received-option-predicate" class="list-anchor">#</a>
     
@@ -76,7 +76,7 @@ WebSocket.waitForFrameReceived(callback, options);
   
   Callback that performs the action triggering the event.
 
-**傳回值**
+**Returns**
 - [WebSocketFrame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-frame-received-return"/><a href="#web-socket-wait-for-frame-received-return" class="list-anchor">#</a>
 
 ---
@@ -87,14 +87,14 @@ WebSocket.waitForFrameReceived(callback, options);
 
 Performs action and waits for a frame to be sent. If predicate is provided, it passes [WebSocketFrame] value into the `predicate` function and waits for `predicate(webSocketFrame)` to return a truthy value. Will throw an error if the WebSocket or Page is closed before the frame is sent.
 
-**使用方式**
+**Usage**
 
 ```java
 WebSocket.waitForFrameSent(callback);
 WebSocket.waitForFrameSent(callback, options);
 ```
 
-**參數**
+**Arguments**
 - `options` `WebSocket.WaitForFrameSentOptions` *(optional)*
   - `setPredicate` [Predicate]&lt;[WebSocketFrame]&gt; *(optional)* <font size="2">Added in: v1.9</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-frame-sent-option-predicate"/><a href="#web-socket-wait-for-frame-sent-option-predicate" class="list-anchor">#</a>
     
@@ -106,12 +106,12 @@ WebSocket.waitForFrameSent(callback, options);
   
   Callback that performs the action triggering the event.
 
-**傳回值**
+**Returns**
 - [WebSocketFrame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="web-socket-wait-for-frame-sent-return"/><a href="#web-socket-wait-for-frame-sent-return" class="list-anchor">#</a>
 
 ---
 
-## 事件 (Events)
+## Events
 
 ### onClose(handler) {#web-socket-event-close}
 
@@ -119,13 +119,13 @@ WebSocket.waitForFrameSent(callback, options);
 
 Fired when the websocket closes.
 
-**使用方式**
+**Usage**
 
 ```java
 WebSocket.onClose(handler)
 ```
 
-**事件資料**
+**Event data**
 - [WebSocket]
 
 ---
@@ -136,13 +136,13 @@ WebSocket.onClose(handler)
 
 Fired when the websocket receives a frame.
 
-**使用方式**
+**Usage**
 
 ```java
 WebSocket.onFrameReceived(handler)
 ```
 
-**事件資料**
+**Event data**
 - [WebSocketFrame]
 
 ---
@@ -153,13 +153,13 @@ WebSocket.onFrameReceived(handler)
 
 Fired when the websocket sends a frame.
 
-**使用方式**
+**Usage**
 
 ```java
 WebSocket.onFrameSent(handler)
 ```
 
-**事件資料**
+**Event data**
 - [WebSocketFrame]
 
 ---
@@ -170,13 +170,13 @@ WebSocket.onFrameSent(handler)
 
 Fired when the websocket has an error.
 
-**使用方式**
+**Usage**
 
 ```java
 WebSocket.onSocketError(handler)
 ```
 
-**事件資料**
+**Event data**
 - [String]
 
 

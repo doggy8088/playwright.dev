@@ -52,7 +52,7 @@ page.Load -= PageLoadHandler;
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### AddInitScriptAsync {#page-add-init-script}
 
@@ -64,7 +64,7 @@ Adds a script which would be evaluated in one of the following scenarios:
 
 The script is evaluated after the document was created but before any of its scripts were run. This is useful to amend the JavaScript environment, e.g. to seed `Math.random`.
 
-**使用方式**
+**Usage**
 
 An example of overriding `Math.random` before the page loads:
 
@@ -81,12 +81,12 @@ await Page.AddInitScriptAsync(scriptPath: "./preload.js");
 The order of evaluation of multiple scripts installed via [BrowserContext.AddInitScriptAsync()](/api/class-browsercontext.mdx#browser-context-add-init-script) and [Page.AddInitScriptAsync()](/api/class-page.mdx#page-add-init-script) is not defined.
 :::
 
-**參數**
+**Arguments**
 - `script` [string] | [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-init-script-option-script"/><a href="#page-add-init-script-option-script" class="list-anchor">#</a>
   
   Script to be evaluated in all pages in the browser context.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-init-script-return"/><a href="#page-add-init-script-return" class="list-anchor">#</a>
 
 ---
@@ -115,7 +115,7 @@ For example, consider a test that calls [Locator.FocusAsync()](/api/class-locato
 Another example is a series of mouse actions, where [Mouse.MoveAsync()](/api/class-mouse.mdx#mouse-move) is followed by [Mouse.DownAsync()](/api/class-mouse.mdx#mouse-down). Again, when the handler runs between these two actions, the mouse position will be wrong during the mouse down. Prefer self-contained actions like [Locator.ClickAsync()](/api/class-locator.mdx#locator-click) that do not rely on the state being unchanged by a handler.
 :::
 
-**使用方式**
+**Usage**
 
 An example that closes a "Sign up to the newsletter" dialog when it appears:
 
@@ -164,7 +164,7 @@ await page.AddLocatorHandlerAsync(page.GetByText("Sign up to the newsletter"), a
 }, new() { Times = 1 });
 ```
 
-**參數**
+**Arguments**
 - `locator` [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-locator-handler-option-locator"/><a href="#page-add-locator-handler-option-locator" class="list-anchor">#</a>
   
   Locator that triggers the handler.
@@ -179,7 +179,7 @@ await page.AddLocatorHandlerAsync(page.GetByText("Sign up to the newsletter"), a
     
     Specifies the maximum number of times this handler should be called. Unlimited by default.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-locator-handler-return"/><a href="#page-add-locator-handler-return" class="list-anchor">#</a>
 
 ---
@@ -190,13 +190,13 @@ await page.AddLocatorHandlerAsync(page.GetByText("Sign up to the newsletter"), a
 
 Adds a `<script>` tag into the page with the desired url or content. Returns the added tag when the script's onload fires or when the script content was injected into frame.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.AddScriptTagAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageAddScriptTagOptions?` *(optional)*
   - `Content` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-script-tag-option-content"/><a href="#page-add-script-tag-option-content" class="list-anchor">#</a>
     
@@ -211,7 +211,7 @@ await Page.AddScriptTagAsync(options);
     
     URL of a script to be added.
 
-**傳回值**
+**Returns**
 - [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-script-tag-return"/><a href="#page-add-script-tag-return" class="list-anchor">#</a>
 
 ---
@@ -222,13 +222,13 @@ await Page.AddScriptTagAsync(options);
 
 Adds a `<link rel="stylesheet">` tag into the page with the desired url or a `<style type="text/css">` tag with the content. Returns the added tag when the stylesheet's onload fires or when the CSS content was injected into frame.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.AddStyleTagAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageAddStyleTagOptions?` *(optional)*
   - `Content` [string]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-style-tag-option-content"/><a href="#page-add-style-tag-option-content" class="list-anchor">#</a>
     
@@ -240,7 +240,7 @@ await Page.AddStyleTagAsync(options);
     
     URL of the `<link>` tag.
 
-**傳回值**
+**Returns**
 - [ElementHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-add-style-tag-return"/><a href="#page-add-style-tag-return" class="list-anchor">#</a>
 
 ---
@@ -251,13 +251,13 @@ await Page.AddStyleTagAsync(options);
 
 Brings page to front (activates tab).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.BringToFrontAsync();
 ```
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-bring-to-front-return"/><a href="#page-bring-to-front-return" class="list-anchor">#</a>
 
 ---
@@ -275,13 +275,13 @@ By default, `page.close()` **does not** run `beforeunload` handlers.
 if [RunBeforeUnload](/api/class-page.mdx#page-close-option-run-before-unload) is passed as true, a `beforeunload` dialog might be summoned and should be handled manually via [Page.Dialog](/api/class-page.mdx#page-event-dialog) event.
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.CloseAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageCloseOptions?` *(optional)*
   - `Reason` [string]? *(optional)* <font size="2">Added in: v1.40</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-close-option-reason"/><a href="#page-close-option-reason" class="list-anchor">#</a>
     
@@ -290,7 +290,7 @@ await Page.CloseAsync(options);
     
     Defaults to `false`. Whether to run the [before unload](https://developer.mozilla.org/en-US/docs/Web/Events/beforeunload) page handlers.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-close-return"/><a href="#page-close-return" class="list-anchor">#</a>
 
 ---
@@ -301,13 +301,13 @@ await Page.CloseAsync(options);
 
 Gets the full HTML contents of the page, including the doctype.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.ContentAsync();
 ```
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-content-return"/><a href="#page-content-return" class="list-anchor">#</a>
 
 ---
@@ -318,13 +318,13 @@ await Page.ContentAsync();
 
 Get the browser context that the page belongs to.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Context
 ```
 
-**傳回值**
+**Returns**
 - [BrowserContext]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-context-return"/><a href="#page-context-return" class="list-anchor">#</a>
 
 ---
@@ -335,7 +335,7 @@ Page.Context
 
 This method drags the source element to the target element. It will first move to the source element, perform a `mousedown`, then move to the target element and perform a `mouseup`.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.DragAndDropAsync("#source", "#target");
@@ -347,7 +347,7 @@ await Page.DragAndDropAsync("#source", "#target", new()
 });
 ```
 
-**參數**
+**Arguments**
 - `source` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-option-source"/><a href="#page-drag-and-drop-option-source" class="list-anchor">#</a>
   
   A selector to search for an element to drag. If there are multiple elements satisfying the selector, the first will be used.
@@ -392,7 +392,7 @@ await Page.DragAndDropAsync("#source", "#target", new()
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-drag-and-drop-return"/><a href="#page-drag-and-drop-return" class="list-anchor">#</a>
 
 ---
@@ -403,7 +403,7 @@ await Page.DragAndDropAsync("#source", "#target", new()
 
 This method changes the `CSS media type` through the `media` argument, and/or the `'prefers-colors-scheme'` media feature, using the `colorScheme` argument.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.EvaluateAsync("() => matchMedia('screen').matches");
@@ -432,7 +432,7 @@ await page.EvaluateAsync("matchMedia('(prefers-color-scheme: light)').matches");
 // → false
 ```
 
-**參數**
+**Arguments**
 - `options` `PageEmulateMediaOptions?` *(optional)*
   - `ColorScheme` `enum ColorScheme { Light, Dark, NoPreference, Null }?` *(optional)* <font size="2">Added in: v1.9</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-emulate-media-option-color-scheme"/><a href="#page-emulate-media-option-color-scheme" class="list-anchor">#</a>
     
@@ -446,7 +446,7 @@ await page.EvaluateAsync("matchMedia('(prefers-color-scheme: light)').matches");
     
     Emulates `'prefers-reduced-motion'` media feature, supported values are `'reduce'`, `'no-preference'`. Passing `null` disables reduced motion emulation.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-emulate-media-return"/><a href="#page-emulate-media-return" class="list-anchor">#</a>
 
 ---
@@ -461,7 +461,7 @@ If the function passed to the [Page.EvaluateAsync()](/api/class-page.mdx#page-ev
 
 If the function passed to the [Page.EvaluateAsync()](/api/class-page.mdx#page-evaluate) returns a non-[Serializable] value, then [Page.EvaluateAsync()](/api/class-page.mdx#page-evaluate) resolves to `undefined`. Playwright also supports transferring some additional values that are not serializable by `JSON`: `-0`, `NaN`, `Infinity`, `-Infinity`.
 
-**使用方式**
+**Usage**
 
 Passing argument to [expression](/api/class-page.mdx#page-evaluate-option-expression):
 
@@ -484,7 +484,7 @@ var html = await page.EvaluateAsync<string>("([body, suffix]) => body.innerHTML 
 await bodyHandle.DisposeAsync();
 ```
 
-**參數**
+**Arguments**
 - `expression` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-evaluate-option-expression"/><a href="#page-evaluate-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -492,7 +492,7 @@ await bodyHandle.DisposeAsync();
   
   Optional argument to pass to [expression](/api/class-page.mdx#page-evaluate-option-expression).
 
-**傳回值**
+**Returns**
 - [object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-evaluate-return"/><a href="#page-evaluate-return" class="list-anchor">#</a>
 
 ---
@@ -507,7 +507,7 @@ The only difference between [Page.EvaluateAsync()](/api/class-page.mdx#page-eval
 
 If the function passed to the [Page.EvaluateHandleAsync()](/api/class-page.mdx#page-evaluate-handle) returns a [Promise], then [Page.EvaluateHandleAsync()](/api/class-page.mdx#page-evaluate-handle) would wait for the promise to resolve and return its value.
 
-**使用方式**
+**Usage**
 
 ```csharp
 // Handle for the window object.
@@ -529,7 +529,7 @@ Console.WriteLine(await resultHandle.JsonValueAsync<string>());
 await resultHandle.DisposeAsync();
 ```
 
-**參數**
+**Arguments**
 - `expression` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-evaluate-handle-option-expression"/><a href="#page-evaluate-handle-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -537,7 +537,7 @@ await resultHandle.DisposeAsync();
   
   Optional argument to pass to [expression](/api/class-page.mdx#page-evaluate-handle-option-expression).
 
-**傳回值**
+**Returns**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-evaluate-handle-return"/><a href="#page-evaluate-handle-return" class="list-anchor">#</a>
 
 ---
@@ -557,7 +557,7 @@ See [BrowserContext.ExposeBindingAsync()](/api/class-browsercontext.mdx#browser-
 Functions installed via [Page.ExposeBindingAsync()](/api/class-page.mdx#page-expose-binding) survive navigations.
 :::
 
-**使用方式**
+**Usage**
 
 An example of exposing page URL to all frames in a page:
 
@@ -590,7 +590,7 @@ class PageExamples
 }
 ```
 
-**參數**
+**Arguments**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-expose-binding-option-name"/><a href="#page-expose-binding-option-name" class="list-anchor">#</a>
   
   Name of the function on the window object.
@@ -607,7 +607,7 @@ class PageExamples
     
     Whether to pass the argument as a handle, instead of passing by value. When passing a handle, only one argument is supported. When passing by value, multiple arguments are supported.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-expose-binding-return"/><a href="#page-expose-binding-return" class="list-anchor">#</a>
 
 ---
@@ -627,7 +627,7 @@ See [BrowserContext.ExposeFunctionAsync()](/api/class-browsercontext.mdx#browser
 Functions installed via [Page.ExposeFunctionAsync()](/api/class-page.mdx#page-expose-function) survive navigations.
 :::
 
-**使用方式**
+**Usage**
 
 An example of adding a `sha256` function to the page:
 
@@ -668,7 +668,7 @@ class PageExamples
 }
 ```
 
-**參數**
+**Arguments**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-expose-function-option-name"/><a href="#page-expose-function-option-name" class="list-anchor">#</a>
   
   Name of the function on the window object
@@ -676,7 +676,7 @@ class PageExamples
   
   Callback function which will be called in Playwright's context.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-expose-function-return"/><a href="#page-expose-function-return" class="list-anchor">#</a>
 
 ---
@@ -687,7 +687,7 @@ class PageExamples
 
 Returns frame matching the specified criteria. Either `name` or `url` must be specified.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var frame = page.Frame("frame-name");
@@ -697,12 +697,12 @@ var frame = page.Frame("frame-name");
 var frame = page.FrameByUrl(".*domain.*");
 ```
 
-**參數**
+**Arguments**
 - `name` [string] <font size="2">Added in: v1.9</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-frame-option-name"/><a href="#page-frame-option-name" class="list-anchor">#</a>
   
   Frame name specified in the `iframe`'s `name` attribute.
 
-**傳回值**
+**Returns**
 - [Frame]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-frame-return"/><a href="#page-frame-return" class="list-anchor">#</a>
 
 ---
@@ -713,18 +713,18 @@ var frame = page.FrameByUrl(".*domain.*");
 
 Returns frame with matching URL.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.FrameByUrl(url);
 ```
 
-**參數**
+**Arguments**
 - `url` [string] | [Regex] | [Func]&lt;[string], bool&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-frame-by-url-option-url"/><a href="#page-frame-by-url-option-url" class="list-anchor">#</a>
   
   A glob pattern, regex pattern or predicate receiving frame's `url` as a [URL] object.
 
-**傳回值**
+**Returns**
 - [Frame]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-frame-by-url-return"/><a href="#page-frame-by-url-return" class="list-anchor">#</a>
 
 ---
@@ -735,7 +735,7 @@ Page.FrameByUrl(url);
 
 When working with iframes, you can create a frame locator that will enter the iframe and allow selecting elements in that iframe.
 
-**使用方式**
+**Usage**
 
 Following snippet locates element with text "Submit" in the iframe with id `my-frame`, like `<iframe id="my-frame">`:
 
@@ -744,12 +744,12 @@ var locator = page.FrameLocator("#my-iframe").GetByText("Submit");
 await locator.ClickAsync();
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-frame-locator-option-selector"/><a href="#page-frame-locator-option-selector" class="list-anchor">#</a>
   
   A selector to use when resolving DOM element.
 
-**傳回值**
+**Returns**
 - [FrameLocator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-frame-locator-return"/><a href="#page-frame-locator-return" class="list-anchor">#</a>
 
 ---
@@ -760,13 +760,13 @@ await locator.ClickAsync();
 
 An array of all frames attached to the page.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Frames
 ```
 
-**傳回值**
+**Returns**
 - [IReadOnlyList]&lt;[Frame]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-frames-return"/><a href="#page-frames-return" class="list-anchor">#</a>
 
 ---
@@ -777,7 +777,7 @@ Page.Frames
 
 Allows locating elements by their alt text.
 
-**使用方式**
+**Usage**
 
 For example, this method will find the image by alt text "Playwright logo":
 
@@ -789,7 +789,7 @@ For example, this method will find the image by alt text "Playwright logo":
 await page.GetByAltText("Playwright logo").ClickAsync();
 ```
 
-**參數**
+**Arguments**
 - `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-alt-text-option-text"/><a href="#page-get-by-alt-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -798,7 +798,7 @@ await page.GetByAltText("Playwright logo").ClickAsync();
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-alt-text-return"/><a href="#page-get-by-alt-text-return" class="list-anchor">#</a>
 
 ---
@@ -809,7 +809,7 @@ await page.GetByAltText("Playwright logo").ClickAsync();
 
 Allows locating input elements by the text of the associated `<label>` or `aria-labelledby` element, or by the `aria-label` attribute.
 
-**使用方式**
+**Usage**
 
 For example, this method will find inputs by label "Username" and "Password" in the following DOM:
 
@@ -824,7 +824,7 @@ await page.GetByLabel("Username").FillAsync("john");
 await page.GetByLabel("Password").FillAsync("secret");
 ```
 
-**參數**
+**Arguments**
 - `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-label-option-text"/><a href="#page-get-by-label-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -833,7 +833,7 @@ await page.GetByLabel("Password").FillAsync("secret");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-label-return"/><a href="#page-get-by-label-return" class="list-anchor">#</a>
 
 ---
@@ -844,7 +844,7 @@ await page.GetByLabel("Password").FillAsync("secret");
 
 Allows locating input elements by the placeholder text.
 
-**使用方式**
+**Usage**
 
 For example, consider the following DOM structure.
 
@@ -860,7 +860,7 @@ await page
     .FillAsync("playwright@microsoft.com");
 ```
 
-**參數**
+**Arguments**
 - `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-placeholder-option-text"/><a href="#page-get-by-placeholder-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -869,7 +869,7 @@ await page
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-placeholder-return"/><a href="#page-get-by-placeholder-return" class="list-anchor">#</a>
 
 ---
@@ -880,7 +880,7 @@ await page
 
 Allows locating elements by their [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles), [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes) and [accessible name](https://w3c.github.io/accname/#dfn-accessible-name).
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure.
 
@@ -911,7 +911,7 @@ await page
     .ClickAsync();
 ```
 
-**參數**
+**Arguments**
 - `role` `enum AriaRole { Alert, Alertdialog, Application, Article, Banner, Blockquote, Button, Caption, Cell, Checkbox, Code, Columnheader, Combobox, Complementary, Contentinfo, Definition, Deletion, Dialog, Directory, Document, Emphasis, Feed, Figure, Form, Generic, Grid, Gridcell, Group, Heading, Img, Insertion, Link, List, Listbox, Listitem, Log, Main, Marquee, Math, Meter, Menu, Menubar, Menuitem, Menuitemcheckbox, Menuitemradio, Navigation, None, Note, Option, Paragraph, Presentation, Progressbar, Radio, Radiogroup, Region, Row, Rowgroup, Rowheader, Scrollbar, Search, Searchbox, Separator, Slider, Spinbutton, Status, Strong, Subscript, Superscript, Switch, Tab, Table, Tablist, Tabpanel, Term, Textbox, Time, Timer, Toolbar, Tooltip, Tree, Treegrid, Treeitem }`<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-option-role"/><a href="#page-get-by-role-option-role" class="list-anchor">#</a>
   
   Required aria role.
@@ -964,7 +964,7 @@ await page
     
     Learn more about [`aria-selected`](https://www.w3.org/TR/wai-aria-1.2/#aria-selected).
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-role-return"/><a href="#page-get-by-role-return" class="list-anchor">#</a>
 
 **Details**
@@ -981,7 +981,7 @@ Many html elements have an implicitly [defined role](https://w3c.github.io/html-
 
 Locate element by the test id.
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure.
 
@@ -995,12 +995,12 @@ You can locate the element by it's test id:
 await page.GetByTestId("directions").ClickAsync();
 ```
 
-**參數**
+**Arguments**
 - `testId` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-test-id-option-test-id"/><a href="#page-get-by-test-id-option-test-id" class="list-anchor">#</a>
   
   Id to locate the element by.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-test-id-return"/><a href="#page-get-by-test-id-return" class="list-anchor">#</a>
 
 **Details**
@@ -1017,7 +1017,7 @@ Allows locating elements that contain given text.
 
 See also [Locator.Filter()](/api/class-locator.mdx#locator-filter) that allows to match by another criteria, like an accessible role, and then filter by the text content.
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure:
 
@@ -1045,7 +1045,7 @@ page.GetByText(new Regex("Hello"));
 page.GetByText(new Regex("^hello$", RegexOptions.IgnoreCase));
 ```
 
-**參數**
+**Arguments**
 - `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-text-option-text"/><a href="#page-get-by-text-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -1054,7 +1054,7 @@ page.GetByText(new Regex("^hello$", RegexOptions.IgnoreCase));
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-text-return"/><a href="#page-get-by-text-return" class="list-anchor">#</a>
 
 **Details**
@@ -1071,7 +1071,7 @@ Input elements of the type `button` and `submit` are matched by their `value` in
 
 Allows locating elements by their title attribute.
 
-**使用方式**
+**Usage**
 
 Consider the following DOM structure.
 
@@ -1085,7 +1085,7 @@ You can check the issues count after locating it by the title text:
 await Expect(Page.GetByTitle("Issues count")).toHaveText("25 issues");
 ```
 
-**參數**
+**Arguments**
 - `text` [string] | [Regex]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-title-option-text"/><a href="#page-get-by-title-option-text" class="list-anchor">#</a>
   
   Text to locate the element for.
@@ -1094,7 +1094,7 @@ await Expect(Page.GetByTitle("Issues count")).toHaveText("25 issues");
     
     Whether to find an exact match: case-sensitive and whole-string. Default to false. Ignored when locating by a regular expression. Note that exact match still trims whitespace.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-by-title-return"/><a href="#page-get-by-title-return" class="list-anchor">#</a>
 
 ---
@@ -1107,13 +1107,13 @@ Returns the main resource response. In case of multiple redirects, the navigatio
 
 Navigate to the previous page in history.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.GoBackAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageGoBackOptions?` *(optional)*
   - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-go-back-option-timeout"/><a href="#page-go-back-option-timeout" class="list-anchor">#</a>
     
@@ -1126,7 +1126,7 @@ await Page.GoBackAsync(options);
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**傳回值**
+**Returns**
 - [Response]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-go-back-return"/><a href="#page-go-back-return" class="list-anchor">#</a>
 
 ---
@@ -1139,13 +1139,13 @@ Returns the main resource response. In case of multiple redirects, the navigatio
 
 Navigate to the next page in history.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.GoForwardAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageGoForwardOptions?` *(optional)*
   - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-go-forward-option-timeout"/><a href="#page-go-forward-option-timeout" class="list-anchor">#</a>
     
@@ -1158,7 +1158,7 @@ await Page.GoForwardAsync(options);
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**傳回值**
+**Returns**
 - [Response]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-go-forward-return"/><a href="#page-go-forward-return" class="list-anchor">#</a>
 
 ---
@@ -1187,13 +1187,13 @@ The method either throws an error or returns a main resource response. The only 
 Headless mode doesn't support navigation to a PDF document. See the [upstream issue](https://bugs.chromium.org/p/chromium/issues/detail?id=761295).
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.GotoAsync(url, options);
 ```
 
-**參數**
+**Arguments**
 - `url` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-goto-option-url"/><a href="#page-goto-option-url" class="list-anchor">#</a>
   
   URL to navigate page to. The url should include scheme, e.g. `https://`. When a [BaseURL](/api/class-browser.mdx#browser-new-context-option-base-url) via the context options was provided and the passed URL is a path, it gets merged via the [`new URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor.
@@ -1212,7 +1212,7 @@ await Page.GotoAsync(url, options);
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**傳回值**
+**Returns**
 - [Response]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-goto-return"/><a href="#page-goto-return" class="list-anchor">#</a>
 
 ---
@@ -1223,13 +1223,13 @@ await Page.GotoAsync(url, options);
 
 Indicates that the page has been closed.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.IsClosed
 ```
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-closed-return"/><a href="#page-is-closed-return" class="list-anchor">#</a>
 
 ---
@@ -1242,13 +1242,13 @@ The method returns an element locator that can be used to perform actions on thi
 
 [Learn more about locators](../locators.mdx).
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Locator(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-locator-option-selector"/><a href="#page-locator-option-selector" class="list-anchor">#</a>
   
   A selector to use when resolving DOM element.
@@ -1272,7 +1272,7 @@ Page.Locator(selector, options);
     
     Matches elements containing specified text somewhere inside, possibly in a child or a descendant element. When passed a [string], matching is case-insensitive and searches for a substring. For example, `"Playwright"` matches `<article><div>Playwright</div></article>`.
 
-**傳回值**
+**Returns**
 - [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-locator-return"/><a href="#page-locator-return" class="list-anchor">#</a>
 
 ---
@@ -1283,13 +1283,13 @@ Page.Locator(selector, options);
 
 The page's main frame. Page is guaranteed to have a main frame which persists during navigations.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.MainFrame
 ```
 
-**傳回值**
+**Returns**
 - [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-main-frame-return"/><a href="#page-main-frame-return" class="list-anchor">#</a>
 
 ---
@@ -1300,13 +1300,13 @@ Page.MainFrame
 
 Returns the opener for popup pages and `null` for others. If the opener has been closed already the returns `null`.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.OpenerAsync();
 ```
 
-**傳回值**
+**Returns**
 - [Page]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-opener-return"/><a href="#page-opener-return" class="list-anchor">#</a>
 
 ---
@@ -1324,13 +1324,13 @@ User can inspect selectors or perform manual steps while paused. Resume will con
 This method requires Playwright to be started in a headed mode, with a falsy [Headless](/api/class-browsertype.mdx#browser-type-launch-option-headless) option.
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.PauseAsync();
 ```
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pause-return"/><a href="#page-pause-return" class="list-anchor">#</a>
 
 ---
@@ -1348,7 +1348,7 @@ Returns the PDF buffer.
 By default, `page.pdf()` generates a pdf with modified colors for printing. Use the [`-webkit-print-color-adjust`](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-print-color-adjust) property to force rendering of exact colors.
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 // Generates a PDF with 'screen' media type
@@ -1387,7 +1387,7 @@ The [Format](/api/class-page.mdx#page-pdf-option-format) options are:
 [HeaderTemplate](/api/class-page.mdx#page-pdf-option-header-template) and [FooterTemplate](/api/class-page.mdx#page-pdf-option-footer-template) markup have the following limitations: > 1. Script tags inside templates are not evaluated. > 2. Page styles are not visible inside templates.
 :::
 
-**參數**
+**Arguments**
 - `options` `PagePdfOptions?` *(optional)*
   - `DisplayHeaderFooter` [bool]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-option-display-header-footer"/><a href="#page-pdf-option-display-header-footer" class="list-anchor">#</a>
     
@@ -1452,7 +1452,7 @@ The [Format](/api/class-page.mdx#page-pdf-option-format) options are:
     
     Paper width, accepts values labeled with units.
 
-**傳回值**
+**Returns**
 - [byte]&#91;&#93;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-pdf-return"/><a href="#page-pdf-return" class="list-anchor">#</a>
 
 ---
@@ -1463,13 +1463,13 @@ The [Format](/api/class-page.mdx#page-pdf-option-format) options are:
 
 This method reloads the current page, in the same way as if the user had triggered a browser refresh. Returns the main resource response. In case of multiple redirects, the navigation will resolve with the response of the last redirect.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.ReloadAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageReloadOptions?` *(optional)*
   - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-reload-option-timeout"/><a href="#page-reload-option-timeout" class="list-anchor">#</a>
     
@@ -1482,7 +1482,7 @@ await Page.ReloadAsync(options);
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**傳回值**
+**Returns**
 - [Response]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-reload-return"/><a href="#page-reload-return" class="list-anchor">#</a>
 
 ---
@@ -1493,18 +1493,18 @@ await Page.ReloadAsync(options);
 
 Removes all locator handlers added by [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler) for a specific locator.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.RemoveLocatorHandlerAsync(locator);
 ```
 
-**參數**
+**Arguments**
 - `locator` [Locator]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-remove-locator-handler-option-locator"/><a href="#page-remove-locator-handler-option-locator" class="list-anchor">#</a>
   
   Locator passed to [Page.AddLocatorHandlerAsync()](/api/class-page.mdx#page-add-locator-handler).
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-remove-locator-handler-return"/><a href="#page-remove-locator-handler-return" class="list-anchor">#</a>
 
 ---
@@ -1526,13 +1526,13 @@ await Page.RequestGCAsync();
 Assert.True(await Page.EvaluateAsync("!globalThis.suspectWeakRef.deref()"));
 ```
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.RequestGCAsync();
 ```
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-request-gc-return"/><a href="#page-request-gc-return" class="list-anchor">#</a>
 
 ---
@@ -1558,7 +1558,7 @@ The handler will only be called for the first url if the response is a redirect.
 [Page.RouteAsync()](/api/class-page.mdx#page-route) will not intercept the first request of a popup page. Use [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route) instead.
 :::
 
-**使用方式**
+**Usage**
 
 An example of a naive handler that aborts all image requests:
 
@@ -1597,7 +1597,7 @@ To remove a route with its handler you can use [Page.UnrouteAsync()](/api/class-
 Enabling routing disables http cache.
 :::
 
-**參數**
+**Arguments**
 - `url` [string] | [Regex] | [Func]&lt;[string], bool&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-route-option-url"/><a href="#page-route-option-url" class="list-anchor">#</a>
   
   A glob pattern, regex pattern, or predicate that receives a [URL] to match during routing. If [BaseURL](/api/class-browser.mdx#browser-new-context-option-base-url) is set in the context options and the provided URL is a string that does not start with `*`, it is resolved using the [`new URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor.
@@ -1609,7 +1609,7 @@ Enabling routing disables http cache.
     
     How often a route should be used. By default it will be used every time.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-route-return"/><a href="#page-route-return" class="list-anchor">#</a>
 
 ---
@@ -1622,13 +1622,13 @@ If specified the network requests that are made in the page will be served from 
 
 Playwright will not serve requests intercepted by Service Worker from the HAR file. See [this](https://github.com/microsoft/playwright/issues/1090) issue. We recommend disabling Service Workers when using request interception by setting [ServiceWorkers](/api/class-browser.mdx#browser-new-context-option-service-workers) to `'block'`.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.RouteFromHARAsync(har, options);
 ```
 
-**參數**
+**Arguments**
 - `har` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-route-from-har-option-har"/><a href="#page-route-from-har-option-har" class="list-anchor">#</a>
   
   Path to a [HAR](http://www.softwareishard.com/blog/har-12-spec) file with prerecorded network data. If `path` is a relative path, then it is resolved relative to the current working directory.
@@ -1651,7 +1651,7 @@ await Page.RouteFromHARAsync(har, options);
     
     A glob pattern, regular expression or predicate to match the request URL. Only requests with URL matching the pattern will be served from the HAR file. If not specified, all requests are served from the HAR file.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-route-from-har-return"/><a href="#page-route-from-har-return" class="list-anchor">#</a>
 
 ---
@@ -1664,7 +1664,7 @@ This method allows to modify websocket connections that are made by the page.
 
 Note that only `WebSocket`s created after this method was called will be routed. It is recommended to call this method before navigating the page.
 
-**使用方式**
+**Usage**
 
 Below is an example of a simple mock that responds to a single message. See [WebSocketRoute] for more details and examples.
 
@@ -1677,7 +1677,7 @@ await page.RouteWebSocketAsync("/ws", ws => {
 });
 ```
 
-**參數**
+**Arguments**
 - `url` [string] | [Regex] | [Func]&lt;[string], bool&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-route-web-socket-option-url"/><a href="#page-route-web-socket-option-url" class="list-anchor">#</a>
   
   Only WebSockets with the url matching this pattern will be routed. A string pattern can be relative to the [BaseURL](/api/class-browser.mdx#browser-new-context-option-base-url) context option.
@@ -1685,7 +1685,7 @@ await page.RouteWebSocketAsync("/ws", ws => {
   
   Handler function to route the WebSocket.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-route-web-socket-return"/><a href="#page-route-web-socket-return" class="list-anchor">#</a>
 
 ---
@@ -1696,13 +1696,13 @@ await page.RouteWebSocketAsync("/ws", ws => {
 
 Performs action and waits for a [ConsoleMessage] to be logged by in the page. If predicate is provided, it passes [ConsoleMessage] value into the `predicate` function and waits for `predicate(message)` to return a truthy value. Will throw an error if the page is closed before the [Page.Console](/api/class-page.mdx#page-event-console) event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.RunAndWaitForConsoleMessageAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `action` [Func]&lt;[Task]&gt; <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-console-message-option-action"/><a href="#page-wait-for-console-message-option-action" class="list-anchor">#</a>
   
   Action that triggers the event.
@@ -1714,7 +1714,7 @@ await Page.RunAndWaitForConsoleMessageAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [ConsoleMessage]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-console-message-return"/><a href="#page-wait-for-console-message-return" class="list-anchor">#</a>
 
 ---
@@ -1725,13 +1725,13 @@ await Page.RunAndWaitForConsoleMessageAsync(action, options);
 
 Performs action and waits for a [ConsoleMessage] to be logged by in the page. If predicate is provided, it passes [ConsoleMessage] value into the `predicate` function and waits for `predicate(message)` to return a truthy value. Will throw an error if the page is closed before the [Page.Console](/api/class-page.mdx#page-event-console) event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.WaitForConsoleMessageAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageRunAndWaitForConsoleMessageOptions?` *(optional)*
   - `Predicate` [Func]&lt;[ConsoleMessage]?, bool&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-console-message-option-predicate"/><a href="#page-wait-for-console-message-option-predicate" class="list-anchor">#</a>
     
@@ -1740,7 +1740,7 @@ await Page.WaitForConsoleMessageAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [ConsoleMessage]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-console-message-return"/><a href="#page-wait-for-console-message-return" class="list-anchor">#</a>
 
 ---
@@ -1751,13 +1751,13 @@ await Page.WaitForConsoleMessageAsync(action, options);
 
 Performs action and waits for a new [Download]. If predicate is provided, it passes [Download] value into the `predicate` function and waits for `predicate(download)` to return a truthy value. Will throw an error if the page is closed before the download event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.RunAndWaitForDownloadAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `action` [Func]&lt;[Task]&gt; <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-download-option-action"/><a href="#page-wait-for-download-option-action" class="list-anchor">#</a>
   
   Action that triggers the event.
@@ -1769,7 +1769,7 @@ await Page.RunAndWaitForDownloadAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [Download]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-download-return"/><a href="#page-wait-for-download-return" class="list-anchor">#</a>
 
 ---
@@ -1780,13 +1780,13 @@ await Page.RunAndWaitForDownloadAsync(action, options);
 
 Performs action and waits for a new [Download]. If predicate is provided, it passes [Download] value into the `predicate` function and waits for `predicate(download)` to return a truthy value. Will throw an error if the page is closed before the download event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.WaitForDownloadAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageRunAndWaitForDownloadOptions?` *(optional)*
   - `Predicate` [Func]&lt;[Download]?, bool&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-download-option-predicate"/><a href="#page-wait-for-download-option-predicate" class="list-anchor">#</a>
     
@@ -1795,7 +1795,7 @@ await Page.WaitForDownloadAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [Download]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-download-return"/><a href="#page-wait-for-download-return" class="list-anchor">#</a>
 
 ---
@@ -1806,13 +1806,13 @@ await Page.WaitForDownloadAsync(action, options);
 
 Performs action and waits for a new [FileChooser] to be created. If predicate is provided, it passes [FileChooser] value into the `predicate` function and waits for `predicate(fileChooser)` to return a truthy value. Will throw an error if the page is closed before the file chooser is opened.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.RunAndWaitForFileChooserAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `action` [Func]&lt;[Task]&gt; <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-file-chooser-option-action"/><a href="#page-wait-for-file-chooser-option-action" class="list-anchor">#</a>
   
   Action that triggers the event.
@@ -1824,7 +1824,7 @@ await Page.RunAndWaitForFileChooserAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [FileChooser]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-file-chooser-return"/><a href="#page-wait-for-file-chooser-return" class="list-anchor">#</a>
 
 ---
@@ -1835,13 +1835,13 @@ await Page.RunAndWaitForFileChooserAsync(action, options);
 
 Performs action and waits for a new [FileChooser] to be created. If predicate is provided, it passes [FileChooser] value into the `predicate` function and waits for `predicate(fileChooser)` to return a truthy value. Will throw an error if the page is closed before the file chooser is opened.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.WaitForFileChooserAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageRunAndWaitForFileChooserOptions?` *(optional)*
   - `Predicate` [Func]&lt;[FileChooser]?, bool&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-file-chooser-option-predicate"/><a href="#page-wait-for-file-chooser-option-predicate" class="list-anchor">#</a>
     
@@ -1850,7 +1850,7 @@ await Page.WaitForFileChooserAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [FileChooser]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-file-chooser-return"/><a href="#page-wait-for-file-chooser-return" class="list-anchor">#</a>
 
 ---
@@ -1861,13 +1861,13 @@ await Page.WaitForFileChooserAsync(action, options);
 
 Performs action and waits for a popup [Page]. If predicate is provided, it passes [Popup] value into the `predicate` function and waits for `predicate(page)` to return a truthy value. Will throw an error if the page is closed before the popup event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.RunAndWaitForPopupAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `action` [Func]&lt;[Task]&gt; <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-popup-option-action"/><a href="#page-wait-for-popup-option-action" class="list-anchor">#</a>
   
   Action that triggers the event.
@@ -1879,7 +1879,7 @@ await Page.RunAndWaitForPopupAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-popup-return"/><a href="#page-wait-for-popup-return" class="list-anchor">#</a>
 
 ---
@@ -1890,13 +1890,13 @@ await Page.RunAndWaitForPopupAsync(action, options);
 
 Performs action and waits for a popup [Page]. If predicate is provided, it passes [Popup] value into the `predicate` function and waits for `predicate(page)` to return a truthy value. Will throw an error if the page is closed before the popup event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.WaitForPopupAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageRunAndWaitForPopupOptions?` *(optional)*
   - `Predicate` [Func]&lt;[Page]?, bool&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-popup-option-predicate"/><a href="#page-wait-for-popup-option-predicate" class="list-anchor">#</a>
     
@@ -1905,7 +1905,7 @@ await Page.WaitForPopupAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-popup-return"/><a href="#page-wait-for-popup-return" class="list-anchor">#</a>
 
 ---
@@ -1916,7 +1916,7 @@ await Page.WaitForPopupAsync(action, options);
 
 Waits for the matching request and returns it. See [waiting for event](../events.mdx#waiting-for-event) for more details about events.
 
-**使用方式**
+**Usage**
 
 ```csharp
 // Waits for the next request with the specified url.
@@ -1932,7 +1932,7 @@ await page.RunAndWaitForRequestAsync(async () =>
 }, request => request.Url == "https://example.com" && request.Method == "GET");
 ```
 
-**參數**
+**Arguments**
 - `action` [Func]&lt;[Task]&gt; <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-request-option-action"/><a href="#page-wait-for-request-option-action" class="list-anchor">#</a>
   
   Action that triggers the event.
@@ -1944,7 +1944,7 @@ await page.RunAndWaitForRequestAsync(async () =>
     
     Maximum wait time in milliseconds, defaults to 30 seconds, pass `0` to disable the timeout. The default value can be changed by using the [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) method.
 
-**傳回值**
+**Returns**
 - [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-request-return"/><a href="#page-wait-for-request-return" class="list-anchor">#</a>
 
 ---
@@ -1955,7 +1955,7 @@ await page.RunAndWaitForRequestAsync(async () =>
 
 Waits for the matching request and returns it. See [waiting for event](../events.mdx#waiting-for-event) for more details about events.
 
-**使用方式**
+**Usage**
 
 ```csharp
 // Waits for the next request with the specified url.
@@ -1971,7 +1971,7 @@ await page.RunAndWaitForRequestAsync(async () =>
 }, request => request.Url == "https://example.com" && request.Method == "GET");
 ```
 
-**參數**
+**Arguments**
 - `urlOrPredicate` [string] | [Regex] | [Func]&lt;[Request], bool&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-request-option-url-or-predicate"/><a href="#page-wait-for-request-option-url-or-predicate" class="list-anchor">#</a>
   
   Request URL string, regex or predicate receiving [Request] object. When a [BaseURL](/api/class-browser.mdx#browser-new-context-option-base-url) via the context options was provided and the passed URL is a path, it gets merged via the [`new URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor.
@@ -1980,7 +1980,7 @@ await page.RunAndWaitForRequestAsync(async () =>
     
     Maximum wait time in milliseconds, defaults to 30 seconds, pass `0` to disable the timeout. The default value can be changed by using the [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) method.
 
-**傳回值**
+**Returns**
 - [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-request-return"/><a href="#page-wait-for-request-return" class="list-anchor">#</a>
 
 ---
@@ -1991,13 +1991,13 @@ await page.RunAndWaitForRequestAsync(async () =>
 
 Performs action and waits for a [Request] to finish loading. If predicate is provided, it passes [Request] value into the `predicate` function and waits for `predicate(request)` to return a truthy value. Will throw an error if the page is closed before the [Page.RequestFinished](/api/class-page.mdx#page-event-request-finished) event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.RunAndWaitForRequestFinishedAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `action` [Func]&lt;[Task]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-request-finished-option-action"/><a href="#page-wait-for-request-finished-option-action" class="list-anchor">#</a>
   
   Action that triggers the event.
@@ -2009,7 +2009,7 @@ await Page.RunAndWaitForRequestFinishedAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-request-finished-return"/><a href="#page-wait-for-request-finished-return" class="list-anchor">#</a>
 
 ---
@@ -2020,13 +2020,13 @@ await Page.RunAndWaitForRequestFinishedAsync(action, options);
 
 Performs action and waits for a [Request] to finish loading. If predicate is provided, it passes [Request] value into the `predicate` function and waits for `predicate(request)` to return a truthy value. Will throw an error if the page is closed before the [Page.RequestFinished](/api/class-page.mdx#page-event-request-finished) event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.WaitForRequestFinishedAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageRunAndWaitForRequestFinishedOptions?` *(optional)*
   - `Predicate` [Func]&lt;[Request]?, bool&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-request-finished-option-predicate"/><a href="#page-wait-for-request-finished-option-predicate" class="list-anchor">#</a>
     
@@ -2035,7 +2035,7 @@ await Page.WaitForRequestFinishedAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-request-finished-return"/><a href="#page-wait-for-request-finished-return" class="list-anchor">#</a>
 
 ---
@@ -2046,7 +2046,7 @@ await Page.WaitForRequestFinishedAsync(action, options);
 
 Returns the matched response. See [waiting for event](../events.mdx#waiting-for-event) for more details about events.
 
-**使用方式**
+**Usage**
 
 ```csharp
 // Waits for the next response with the specified url.
@@ -2062,7 +2062,7 @@ await page.RunAndWaitForResponseAsync(async () =>
 }, response => response.Url == "https://example.com" && response.Status == 200 && response.Request.Method == "GET");
 ```
 
-**參數**
+**Arguments**
 - `action` [Func]&lt;[Task]&gt; <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-response-option-action"/><a href="#page-wait-for-response-option-action" class="list-anchor">#</a>
   
   Action that triggers the event.
@@ -2074,7 +2074,7 @@ await page.RunAndWaitForResponseAsync(async () =>
     
     Maximum wait time in milliseconds, defaults to 30 seconds, pass `0` to disable the timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [Response]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-response-return"/><a href="#page-wait-for-response-return" class="list-anchor">#</a>
 
 ---
@@ -2085,7 +2085,7 @@ await page.RunAndWaitForResponseAsync(async () =>
 
 Returns the matched response. See [waiting for event](../events.mdx#waiting-for-event) for more details about events.
 
-**使用方式**
+**Usage**
 
 ```csharp
 // Waits for the next response with the specified url.
@@ -2101,7 +2101,7 @@ await page.RunAndWaitForResponseAsync(async () =>
 }, response => response.Url == "https://example.com" && response.Status == 200 && response.Request.Method == "GET");
 ```
 
-**參數**
+**Arguments**
 - `urlOrPredicate` [string] | [Regex] | [Func]&lt;[Response], bool&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-response-option-url-or-predicate"/><a href="#page-wait-for-response-option-url-or-predicate" class="list-anchor">#</a>
   
   Request URL string, regex or predicate receiving [Response] object. When a [BaseURL](/api/class-browser.mdx#browser-new-context-option-base-url) via the context options was provided and the passed URL is a path, it gets merged via the [`new URL()`](https://developer.mozilla.org/en-US/docs/Web/API/URL/URL) constructor.
@@ -2110,7 +2110,7 @@ await page.RunAndWaitForResponseAsync(async () =>
     
     Maximum wait time in milliseconds, defaults to 30 seconds, pass `0` to disable the timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [Response]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-response-return"/><a href="#page-wait-for-response-return" class="list-anchor">#</a>
 
 ---
@@ -2121,13 +2121,13 @@ await page.RunAndWaitForResponseAsync(async () =>
 
 Performs action and waits for a new [WebSocket]. If predicate is provided, it passes [WebSocket] value into the `predicate` function and waits for `predicate(webSocket)` to return a truthy value. Will throw an error if the page is closed before the WebSocket event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.RunAndWaitForWebSocketAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `action` [Func]&lt;[Task]&gt; <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-web-socket-option-action"/><a href="#page-wait-for-web-socket-option-action" class="list-anchor">#</a>
   
   Action that triggers the event.
@@ -2139,7 +2139,7 @@ await Page.RunAndWaitForWebSocketAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [WebSocket]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-web-socket-return"/><a href="#page-wait-for-web-socket-return" class="list-anchor">#</a>
 
 ---
@@ -2150,13 +2150,13 @@ await Page.RunAndWaitForWebSocketAsync(action, options);
 
 Performs action and waits for a new [WebSocket]. If predicate is provided, it passes [WebSocket] value into the `predicate` function and waits for `predicate(webSocket)` to return a truthy value. Will throw an error if the page is closed before the WebSocket event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.WaitForWebSocketAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageRunAndWaitForWebSocketOptions?` *(optional)*
   - `Predicate` [Func]&lt;[WebSocket]?, bool&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-web-socket-option-predicate"/><a href="#page-wait-for-web-socket-option-predicate" class="list-anchor">#</a>
     
@@ -2165,7 +2165,7 @@ await Page.WaitForWebSocketAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [WebSocket]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-web-socket-return"/><a href="#page-wait-for-web-socket-return" class="list-anchor">#</a>
 
 ---
@@ -2176,13 +2176,13 @@ await Page.WaitForWebSocketAsync(action, options);
 
 Performs action and waits for a new [Worker]. If predicate is provided, it passes [Worker] value into the `predicate` function and waits for `predicate(worker)` to return a truthy value. Will throw an error if the page is closed before the worker event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.RunAndWaitForWorkerAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `action` [Func]&lt;[Task]&gt; <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-worker-option-action"/><a href="#page-wait-for-worker-option-action" class="list-anchor">#</a>
   
   Action that triggers the event.
@@ -2194,7 +2194,7 @@ await Page.RunAndWaitForWorkerAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [Worker]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-worker-return"/><a href="#page-wait-for-worker-return" class="list-anchor">#</a>
 
 ---
@@ -2205,13 +2205,13 @@ await Page.RunAndWaitForWorkerAsync(action, options);
 
 Performs action and waits for a new [Worker]. If predicate is provided, it passes [Worker] value into the `predicate` function and waits for `predicate(worker)` to return a truthy value. Will throw an error if the page is closed before the worker event is fired.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.WaitForWorkerAsync(action, options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageRunAndWaitForWorkerOptions?` *(optional)*
   - `Predicate` [Func]&lt;[Worker]?, bool&gt; *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-worker-option-predicate"/><a href="#page-wait-for-worker-option-predicate" class="list-anchor">#</a>
     
@@ -2220,7 +2220,7 @@ await Page.WaitForWorkerAsync(action, options);
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout).
 
-**傳回值**
+**Returns**
 - [Worker]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-worker-return"/><a href="#page-wait-for-worker-return" class="list-anchor">#</a>
 
 ---
@@ -2231,13 +2231,13 @@ await Page.WaitForWorkerAsync(action, options);
 
 Returns the buffer with the captured screenshot.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.ScreenshotAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageScreenshotOptions?` *(optional)*
   - `Animations` `enum ScreenshotAnimations { Disabled, Allow }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-option-animations"/><a href="#page-screenshot-option-animations" class="list-anchor">#</a>
     
@@ -2297,7 +2297,7 @@ await Page.ScreenshotAsync(options);
     
     Specify screenshot type, defaults to `png`.
 
-**傳回值**
+**Returns**
 - [byte]&#91;&#93;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-screenshot-return"/><a href="#page-screenshot-return" class="list-anchor">#</a>
 
 ---
@@ -2308,13 +2308,13 @@ await Page.ScreenshotAsync(options);
 
 This method internally calls [document.write()](https://developer.mozilla.org/en-US/docs/Web/API/Document/write), inheriting all its specific characteristics and behaviors.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.SetContentAsync(html, options);
 ```
 
-**參數**
+**Arguments**
 - `html` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-content-option-html"/><a href="#page-set-content-option-html" class="list-anchor">#</a>
   
   HTML markup to assign to the page.
@@ -2330,7 +2330,7 @@ await Page.SetContentAsync(html, options);
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-content-return"/><a href="#page-set-content-return" class="list-anchor">#</a>
 
 ---
@@ -2353,13 +2353,13 @@ This setting will change the default maximum navigation time for the following m
 [Page.SetDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout) takes priority over [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout), [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) and [BrowserContext.SetDefaultNavigationTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout).
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.SetDefaultNavigationTimeout(timeout);
 ```
 
-**參數**
+**Arguments**
 - `timeout` [float]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-default-navigation-timeout-option-timeout"/><a href="#page-set-default-navigation-timeout-option-timeout" class="list-anchor">#</a>
   
   Maximum navigation time in milliseconds
@@ -2377,13 +2377,13 @@ This setting will change the default maximum time for all the methods accepting 
 [Page.SetDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout) takes priority over [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout).
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.SetDefaultTimeout(timeout);
 ```
 
-**參數**
+**Arguments**
 - `timeout` [float]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-default-timeout-option-timeout"/><a href="#page-set-default-timeout-option-timeout" class="list-anchor">#</a>
   
   Maximum time in milliseconds. Pass `0` to disable timeout.
@@ -2401,18 +2401,18 @@ The extra HTTP headers will be sent with every request the page initiates.
 [Page.SetExtraHTTPHeadersAsync()](/api/class-page.mdx#page-set-extra-http-headers) does not guarantee the order of headers in the outgoing requests.
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.SetExtraHTTPHeadersAsync(headers);
 ```
 
-**參數**
+**Arguments**
 - `headers` [IDictionary]&lt;[string], [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-extra-http-headers-option-headers"/><a href="#page-set-extra-http-headers-option-headers" class="list-anchor">#</a>
   
   An object containing additional HTTP headers to be sent with every request. All header values must be strings.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-extra-http-headers-return"/><a href="#page-set-extra-http-headers-return" class="list-anchor">#</a>
 
 ---
@@ -2425,7 +2425,7 @@ In the case of multiple pages in a single browser, each page can have its own vi
 
 [Page.SetViewportSizeAsync()](/api/class-page.mdx#page-set-viewport-size) will resize the page. A lot of websites don't expect phones to change size, so you should set the viewport size before navigating to the page. [Page.SetViewportSizeAsync()](/api/class-page.mdx#page-set-viewport-size) will also reset `screen` size, use [Browser.NewContextAsync()](/api/class-browser.mdx#browser-new-context) with `screen` and `viewport` parameters if you need better control of these properties.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var page = await browser.NewPageAsync();
@@ -2433,7 +2433,7 @@ await page.SetViewportSizeAsync(640, 480);
 await page.GotoAsync("https://www.microsoft.com");
 ```
 
-**參數**
+**Arguments**
 - `width` [int] <font size="2">Added in: v1.10</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-viewport-size-option-width"/><a href="#page-set-viewport-size-option-width" class="list-anchor">#</a>
   
   Page width in pixels.
@@ -2441,7 +2441,7 @@ await page.GotoAsync("https://www.microsoft.com");
   
   Page height in pixels.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-viewport-size-return"/><a href="#page-set-viewport-size-return" class="list-anchor">#</a>
 
 ---
@@ -2452,13 +2452,13 @@ await page.GotoAsync("https://www.microsoft.com");
 
 Returns the page's title.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.TitleAsync();
 ```
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-title-return"/><a href="#page-title-return" class="list-anchor">#</a>
 
 ---
@@ -2469,13 +2469,13 @@ await Page.TitleAsync();
 
 Removes a route created with [Page.RouteAsync()](/api/class-page.mdx#page-route). When [handler](/api/class-page.mdx#page-unroute-option-handler) is not specified, removes all routes for the [url](/api/class-page.mdx#page-unroute-option-url).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.UnrouteAsync(url, handler);
 ```
 
-**參數**
+**Arguments**
 - `url` [string] | [Regex] | [Func]&lt;[string], bool&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-unroute-option-url"/><a href="#page-unroute-option-url" class="list-anchor">#</a>
   
   A glob pattern, regex pattern or predicate receiving [URL] to match while routing.
@@ -2483,7 +2483,7 @@ await Page.UnrouteAsync(url, handler);
   
   Optional handler function to route the request.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-unroute-return"/><a href="#page-unroute-return" class="list-anchor">#</a>
 
 ---
@@ -2494,13 +2494,13 @@ await Page.UnrouteAsync(url, handler);
 
 Removes all routes created with [Page.RouteAsync()](/api/class-page.mdx#page-route) and [Page.RouteFromHARAsync()](/api/class-page.mdx#page-route-from-har).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.UnrouteAllAsync(options);
 ```
 
-**參數**
+**Arguments**
 - `options` `PageUnrouteAllOptions?` *(optional)*
   - `Behavior` `enum UnrouteBehavior { Wait, IgnoreErrors, Default }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-unroute-all-option-behavior"/><a href="#page-unroute-all-option-behavior" class="list-anchor">#</a>
     
@@ -2509,7 +2509,7 @@ await Page.UnrouteAllAsync(options);
     * `'wait'` - wait for current handler calls (if any) to finish
     * `'ignoreErrors'` - do not wait for current handler calls (if any) to finish, all errors thrown by the handlers after unrouting are silently caught
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-unroute-all-return"/><a href="#page-unroute-all-return" class="list-anchor">#</a>
 
 ---
@@ -2518,13 +2518,13 @@ await Page.UnrouteAllAsync(options);
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>page.Url</x-search>
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Url
 ```
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-url-return"/><a href="#page-url-return" class="list-anchor">#</a>
 
 ---
@@ -2535,13 +2535,13 @@ Page.Url
 
 Video object associated with this page.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Video
 ```
 
-**傳回值**
+**Returns**
 - [Video]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-video-return"/><a href="#page-video-return" class="list-anchor">#</a>
 
 ---
@@ -2550,13 +2550,13 @@ Page.Video
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>page.ViewportSize</x-search>
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.ViewportSize
 ```
 
-**傳回值**
+**Returns**
 - ViewportSize?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-viewport-size-return"/><a href="#page-viewport-size-return" class="list-anchor">#</a>
   - `width` [int]
     
@@ -2573,7 +2573,7 @@ Page.ViewportSize
 
 Returns when the [expression](/api/class-page.mdx#page-wait-for-function-option-expression) returns a truthy value. It resolves to a JSHandle of the truthy value.
 
-**使用方式**
+**Usage**
 
 The [Page.WaitForFunctionAsync()](/api/class-page.mdx#page-wait-for-function) can be used to observe viewport size change:
 
@@ -2601,7 +2601,7 @@ var selector = ".foo";
 await page.WaitForFunctionAsync("selector => !!document.querySelector(selector)", selector);
 ```
 
-**參數**
+**Arguments**
 - `expression` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-function-option-expression"/><a href="#page-wait-for-function-option-expression" class="list-anchor">#</a>
   
   JavaScript expression to be evaluated in the browser context. If the expression evaluates to a function, the function is automatically invoked.
@@ -2616,7 +2616,7 @@ await page.WaitForFunctionAsync("selector => !!document.querySelector(selector)"
     
     Maximum time to wait for in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [JSHandle]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-function-return"/><a href="#page-wait-for-function-return" class="list-anchor">#</a>
 
 ---
@@ -2634,7 +2634,7 @@ This resolves when the page reaches a required load state, `load` by default. Th
 Most of the time, this method is not needed because Playwright [auto-waits before every action](../actionability.mdx).
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.GetByRole(AriaRole.Button).ClickAsync(); // Click triggers navigation.
@@ -2651,7 +2651,7 @@ await popup.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
 Console.WriteLine(await popup.TitleAsync()); // popup is ready to use.
 ```
 
-**參數**
+**Arguments**
 - `state` `enum LoadState { Load, DOMContentLoaded, NetworkIdle }?` *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-load-state-option-state"/><a href="#page-wait-for-load-state-option-state" class="list-anchor">#</a>
   
   Optional load state to wait for, defaults to `load`. If the state has been already reached while loading current document, the method resolves immediately. Can be one of:
@@ -2663,7 +2663,7 @@ Console.WriteLine(await popup.TitleAsync()); // popup is ready to use.
     
     Maximum operation time in milliseconds, defaults to 30 seconds, pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultNavigationTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-navigation-timeout), [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout), [Page.SetDefaultNavigationTimeout()](/api/class-page.mdx#page-set-default-navigation-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-load-state-return"/><a href="#page-wait-for-load-state-return" class="list-anchor">#</a>
 
 ---
@@ -2674,14 +2674,14 @@ Console.WriteLine(await popup.TitleAsync()); // popup is ready to use.
 
 Waits for the main frame to navigate to the given URL.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.ClickAsync("a.delayed-navigation"); // clicking the link will indirectly cause a navigation
 await page.WaitForURLAsync("**/target.html");
 ```
 
-**參數**
+**Arguments**
 - `url` [string] | [Regex] | [Func]&lt;[string], bool&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-url-option-url"/><a href="#page-wait-for-url-option-url" class="list-anchor">#</a>
   
   A glob pattern, regex pattern or predicate receiving [URL] to match while waiting for the navigation. Note that if the parameter is a string without wildcard characters, the method will wait for navigation to URL that is exactly equal to the string.
@@ -2697,7 +2697,7 @@ await page.WaitForURLAsync("**/target.html");
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-url-return"/><a href="#page-wait-for-url-return" class="list-anchor">#</a>
 
 ---
@@ -2713,18 +2713,18 @@ This method returns all of the dedicated [WebWorkers](https://developer.mozilla.
 This does not contain ServiceWorkers
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Workers
 ```
 
-**傳回值**
+**Returns**
 - [IReadOnlyList]&lt;[Worker]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-workers-return"/><a href="#page-workers-return" class="list-anchor">#</a>
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### APIRequest {#page-request}
 
@@ -2732,13 +2732,13 @@ Page.Workers
 
 API testing helper associated with this page. This method returns the same instance as [BrowserContext.APIRequest](/api/class-browsercontext.mdx#browser-context-request) on the page's context. See [BrowserContext.APIRequest](/api/class-browsercontext.mdx#browser-context-request) for more details.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.APIRequest
 ```
 
-**型別 (Type)**
+**Type**
 - [APIRequestContext]
 
 ---
@@ -2749,13 +2749,13 @@ Page.APIRequest
 
 Playwright has ability to mock clock and passage of time.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Clock
 ```
 
-**型別 (Type)**
+**Type**
 - [Clock]
 
 ---
@@ -2764,13 +2764,13 @@ Page.Clock
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>page.Keyboard</x-search>
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Keyboard
 ```
 
-**型別 (Type)**
+**Type**
 - [Keyboard]
 
 ---
@@ -2779,13 +2779,13 @@ Page.Keyboard
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>page.Mouse</x-search>
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Mouse
 ```
 
-**型別 (Type)**
+**Type**
 - [Mouse]
 
 ---
@@ -2794,18 +2794,18 @@ Page.Mouse
 
 <font size="2" style={{position: "relative", top: "-20px"}}>Added before v1.9</font><x-search>page.Touchscreen</x-search>
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Touchscreen
 ```
 
-**型別 (Type)**
+**Type**
 - [Touchscreen]
 
 ---
 
-## 事件 (Events)
+## Events
 
 ### event Close {#page-event-close}
 
@@ -2813,13 +2813,13 @@ Page.Touchscreen
 
 Emitted when the page closes.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Close += async (_, page) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Page]
 
 ---
@@ -2832,7 +2832,7 @@ Emitted when JavaScript within the page calls one of console API methods, e.g. `
 
 The arguments passed into `console.log` are available on the [ConsoleMessage] event handler argument.
 
-**使用方式**
+**Usage**
 
 ```csharp
 page.Console += async (_, msg) =>
@@ -2844,7 +2844,7 @@ page.Console += async (_, msg) =>
 await page.EvaluateAsync("console.log('hello', 5, { foo: 'bar' })");
 ```
 
-**事件資料**
+**Event data**
 - [ConsoleMessage]
 
 ---
@@ -2868,13 +2868,13 @@ try {
 }
 ```
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Crash += async (_, page) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Page]
 
 ---
@@ -2885,7 +2885,7 @@ Page.Crash += async (_, page) => {};
 
 Emitted when a JavaScript dialog appears, such as `alert`, `prompt`, `confirm` or `beforeunload`. Listener **must** either [Dialog.AcceptAsync()](/api/class-dialog.mdx#dialog-accept) or [Dialog.DismissAsync()](/api/class-dialog.mdx#dialog-dismiss) the dialog - otherwise the page will [freeze](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#never_blocking) waiting for the dialog, and actions like click will never finish.
 
-**使用方式**
+**Usage**
 
 ```csharp
 page.RequestFailed += (_, request) =>
@@ -2898,7 +2898,7 @@ page.RequestFailed += (_, request) =>
 When no [Page.Dialog](/api/class-page.mdx#page-event-dialog) or [BrowserContext.Dialog](/api/class-browsercontext.mdx#browser-context-event-dialog) listeners are present, all dialogs are automatically dismissed.
 :::
 
-**事件資料**
+**Event data**
 - [Dialog]
 
 ---
@@ -2909,13 +2909,13 @@ When no [Page.Dialog](/api/class-page.mdx#page-event-dialog) or [BrowserContext.
 
 Emitted when the JavaScript [`DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded) event is dispatched.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.DOMContentLoaded += async (_, page) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Page]
 
 ---
@@ -2926,13 +2926,13 @@ Page.DOMContentLoaded += async (_, page) => {};
 
 Emitted when attachment download started. User can access basic file operations on downloaded content via the passed [Download] instance.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Download += async (_, download) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Download]
 
 ---
@@ -2950,13 +2950,13 @@ page.FileChooser += (_, fileChooser) =>
 };
 ```
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.FileChooser += async (_, fileChooser) => {};
 ```
 
-**事件資料**
+**Event data**
 - [FileChooser]
 
 ---
@@ -2967,13 +2967,13 @@ Page.FileChooser += async (_, fileChooser) => {};
 
 Emitted when a frame is attached.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.FrameAttached += async (_, frame) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Frame]
 
 ---
@@ -2984,13 +2984,13 @@ Page.FrameAttached += async (_, frame) => {};
 
 Emitted when a frame is detached.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.FrameDetached += async (_, frame) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Frame]
 
 ---
@@ -3001,13 +3001,13 @@ Page.FrameDetached += async (_, frame) => {};
 
 Emitted when a frame is navigated to a new url.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.FrameNavigated += async (_, frame) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Frame]
 
 ---
@@ -3018,13 +3018,13 @@ Page.FrameNavigated += async (_, frame) => {};
 
 Emitted when the JavaScript [`load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) event is dispatched.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Load += async (_, page) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Page]
 
 ---
@@ -3043,13 +3043,13 @@ page.PageError += (_, exception) =>
 };
 ```
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.PageError += async (_, value) => {};
 ```
 
-**事件資料**
+**Event data**
 - [string]
 
 ---
@@ -3074,13 +3074,13 @@ Console.WriteLine(await popup.EvaluateAsync<string>("location.href"));
 Use [Page.WaitForLoadStateAsync()](/api/class-page.mdx#page-wait-for-load-state) to wait until the page gets to a particular state (you should not need it in most cases).
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Popup += async (_, page) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Page]
 
 ---
@@ -3091,13 +3091,13 @@ Page.Popup += async (_, page) => {};
 
 Emitted when a page issues a request. The [request] object is read-only. In order to intercept and mutate requests, see [Page.RouteAsync()](/api/class-page.mdx#page-route) or [BrowserContext.RouteAsync()](/api/class-browsercontext.mdx#browser-context-route).
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Request += async (_, request) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Request]
 
 ---
@@ -3113,13 +3113,13 @@ Emitted when a request fails, for example by timing out.
 HTTP Error responses, such as 404 or 503, are still successful responses from HTTP standpoint, so request will complete with [Page.RequestFinished](/api/class-page.mdx#page-event-request-finished) event and not with [Page.RequestFailed](/api/class-page.mdx#page-event-request-failed). A request will only be considered failed when the client cannot get an HTTP response from the server, e.g. due to network error net::ERR_FAILED.
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.RequestFailed += async (_, request) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Request]
 
 ---
@@ -3130,13 +3130,13 @@ Page.RequestFailed += async (_, request) => {};
 
 Emitted when a request finishes successfully after downloading the response body. For a successful response, the sequence of events is `request`, `response` and `requestfinished`.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.RequestFinished += async (_, request) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Request]
 
 ---
@@ -3147,13 +3147,13 @@ Page.RequestFinished += async (_, request) => {};
 
 Emitted when [response] status and headers are received for a request. For a successful response, the sequence of events is `request`, `response` and `requestfinished`.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Response += async (_, response) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Response]
 
 ---
@@ -3164,13 +3164,13 @@ Page.Response += async (_, response) => {};
 
 Emitted when [WebSocket] request is sent.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.WebSocket += async (_, webSocket) => {};
 ```
 
-**事件資料**
+**Event data**
 - [WebSocket]
 
 ---
@@ -3181,18 +3181,18 @@ Page.WebSocket += async (_, webSocket) => {};
 
 Emitted when a dedicated [WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) is spawned by the page.
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Worker += async (_, worker) => {};
 ```
 
-**事件資料**
+**Event data**
 - [Worker]
 
 ---
 
-## 已棄用 (Deprecated)
+## Deprecated
 
 ### Accessibility {#page-accessibility}
 
@@ -3200,18 +3200,18 @@ Page.Worker += async (_, worker) => {};
 
 :::warning Deprecated
 
-This property is discouraged. Please use other libraries such as [Axe](https://www.deque.com/axe/) if you need to test page accessibility. See our Node.js [guide](https://playwright.tw/docs/accessibility-testing) for integration with Axe.
+This property is discouraged. Please use other libraries such as [Axe](https://www.deque.com/axe/) if you need to test page accessibility. See our Node.js [guide](https://playwright.dev/docs/accessibility-testing) for integration with Axe.
 
 :::
 
 
-**使用方式**
+**Usage**
 
 ```csharp
 Page.Accessibility
 ```
 
-**型別 (Type)**
+**Type**
 - [Accessibility]
 
 ---
@@ -3237,13 +3237,13 @@ This method checks an element matching [selector](/api/class-page.mdx#page-check
 
 When all steps combined have not finished during the specified [Timeout](/api/class-page.mdx#page-check-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.CheckAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-check-option-selector"/><a href="#page-check-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3277,7 +3277,7 @@ await Page.CheckAsync(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-check-return"/><a href="#page-check-return" class="list-anchor">#</a>
 
 ---
@@ -3302,13 +3302,13 @@ This method clicks an element matching [selector](/api/class-page.mdx#page-click
 
 When all steps combined have not finished during the specified [Timeout](/api/class-page.mdx#page-click-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.ClickAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-option-selector"/><a href="#page-click-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3354,7 +3354,7 @@ await Page.ClickAsync(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-click-return"/><a href="#page-click-return" class="list-anchor">#</a>
 
 ---
@@ -3383,13 +3383,13 @@ When all steps combined have not finished during the specified [Timeout](/api/cl
 `page.dblclick()` dispatches two `click` events and a single `dblclick` event.
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.DblClickAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-dblclick-option-selector"/><a href="#page-dblclick-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3432,7 +3432,7 @@ await Page.DblClickAsync(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-dblclick-return"/><a href="#page-dblclick-return" class="list-anchor">#</a>
 
 ---
@@ -3450,7 +3450,7 @@ Use locator-based [Locator.DispatchEventAsync()](/api/class-locator.mdx#locator-
 
 The snippet below dispatches the `click` event on the element. Regardless of the visibility state of the element, `click` is dispatched. This is equivalent to calling [element.click()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await page.DispatchEventAsync("button#submit", "click");
@@ -3477,7 +3477,7 @@ var dataTransfer = await page.EvaluateHandleAsync("() => new DataTransfer()");
 await page.DispatchEventAsync("#source", "dragstart", new { dataTransfer });
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-dispatch-event-option-selector"/><a href="#page-dispatch-event-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3495,7 +3495,7 @@ await page.DispatchEventAsync("#source", "dragstart", new { dataTransfer });
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-dispatch-event-return"/><a href="#page-dispatch-event-return" class="list-anchor">#</a>
 
 ---
@@ -3515,7 +3515,7 @@ The method finds an element matching the specified selector within the page and 
 
 If [expression](/api/class-page.mdx#page-eval-on-selector-option-expression) returns a [Promise], then [Page.EvalOnSelectorAsync()](/api/class-page.mdx#page-eval-on-selector) would wait for the promise to resolve and return its value.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var searchValue = await page.EvalOnSelectorAsync<string>("#search", "el => el.value");
@@ -3523,7 +3523,7 @@ var preloadHref = await page.EvalOnSelectorAsync<string>("link[rel=preload]", "e
 var html = await page.EvalOnSelectorAsync(".main-container", "(e, suffix) => e.outerHTML + suffix", "hello");
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-eval-on-selector-option-selector"/><a href="#page-eval-on-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -3538,7 +3538,7 @@ var html = await page.EvalOnSelectorAsync(".main-container", "(e, suffix) => e.o
     
     When true, the call requires selector to resolve to a single element. If given selector resolves to more than one element, the call throws an exception.
 
-**傳回值**
+**Returns**
 - [object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-eval-on-selector-return"/><a href="#page-eval-on-selector-return" class="list-anchor">#</a>
 
 ---
@@ -3558,13 +3558,13 @@ The method finds all elements matching the specified selector within the page an
 
 If [expression](/api/class-page.mdx#page-eval-on-selector-all-option-expression) returns a [Promise], then [Page.EvalOnSelectorAllAsync()](/api/class-page.mdx#page-eval-on-selector-all) would wait for the promise to resolve and return its value.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var divsCount = await page.EvalOnSelectorAllAsync<bool>("div", "(divs, min) => divs.length >= min", 10);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-eval-on-selector-all-option-selector"/><a href="#page-eval-on-selector-all-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -3575,7 +3575,7 @@ var divsCount = await page.EvalOnSelectorAllAsync<bool>("div", "(divs, min) => d
   
   Optional argument to pass to [expression](/api/class-page.mdx#page-eval-on-selector-all-option-expression).
 
-**傳回值**
+**Returns**
 - [object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-eval-on-selector-all-return"/><a href="#page-eval-on-selector-all-return" class="list-anchor">#</a>
 
 ---
@@ -3597,13 +3597,13 @@ If the target element is not an `<input>`, `<textarea>` or `[contenteditable]` e
 
 To send fine-grained keyboard events, use [Locator.PressSequentiallyAsync()](/api/class-locator.mdx#locator-press-sequentially).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.FillAsync(selector, value, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-fill-option-selector"/><a href="#page-fill-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3629,7 +3629,7 @@ await Page.FillAsync(selector, value, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-fill-return"/><a href="#page-fill-return" class="list-anchor">#</a>
 
 ---
@@ -3647,13 +3647,13 @@ Use locator-based [Locator.FocusAsync()](/api/class-locator.mdx#locator-focus) i
 
 This method fetches an element with [selector](/api/class-page.mdx#page-focus-option-selector) and focuses it. If there's no element matching [selector](/api/class-page.mdx#page-focus-option-selector), the method waits until a matching element appears in the DOM.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.FocusAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-focus-option-selector"/><a href="#page-focus-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3665,7 +3665,7 @@ await Page.FocusAsync(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-focus-return"/><a href="#page-focus-return" class="list-anchor">#</a>
 
 ---
@@ -3683,13 +3683,13 @@ Use locator-based [Locator.GetAttributeAsync()](/api/class-locator.mdx#locator-g
 
 Returns element attribute value.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.GetAttributeAsync(selector, name, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-attribute-option-selector"/><a href="#page-get-attribute-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3704,7 +3704,7 @@ await Page.GetAttributeAsync(selector, name, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [string]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-get-attribute-return"/><a href="#page-get-attribute-return" class="list-anchor">#</a>
 
 ---
@@ -3728,13 +3728,13 @@ This method hovers over an element matching [selector](/api/class-page.mdx#page-
 
 When all steps combined have not finished during the specified [Timeout](/api/class-page.mdx#page-hover-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.HoverAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-hover-option-selector"/><a href="#page-hover-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3771,7 +3771,7 @@ await Page.HoverAsync(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-hover-return"/><a href="#page-hover-return" class="list-anchor">#</a>
 
 ---
@@ -3789,13 +3789,13 @@ Use locator-based [Locator.InnerHTMLAsync()](/api/class-locator.mdx#locator-inne
 
 Returns `element.innerHTML`.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.InnerHTMLAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-inner-html-option-selector"/><a href="#page-inner-html-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3807,7 +3807,7 @@ await Page.InnerHTMLAsync(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-inner-html-return"/><a href="#page-inner-html-return" class="list-anchor">#</a>
 
 ---
@@ -3825,13 +3825,13 @@ Use locator-based [Locator.InnerTextAsync()](/api/class-locator.mdx#locator-inne
 
 Returns `element.innerText`.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.InnerTextAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-inner-text-option-selector"/><a href="#page-inner-text-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3843,7 +3843,7 @@ await Page.InnerTextAsync(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-inner-text-return"/><a href="#page-inner-text-return" class="list-anchor">#</a>
 
 ---
@@ -3863,13 +3863,13 @@ Returns `input.value` for the selected `<input>` or `<textarea>` or `<select>` e
 
 Throws for non-input elements. However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), returns the value of the control.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.InputValueAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-input-value-option-selector"/><a href="#page-input-value-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3881,7 +3881,7 @@ await Page.InputValueAsync(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-input-value-return"/><a href="#page-input-value-return" class="list-anchor">#</a>
 
 ---
@@ -3899,13 +3899,13 @@ Use locator-based [Locator.IsCheckedAsync()](/api/class-locator.mdx#locator-is-c
 
 Returns whether the element is checked. Throws if the element is not a checkbox or radio input.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.IsCheckedAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-checked-option-selector"/><a href="#page-is-checked-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3917,7 +3917,7 @@ await Page.IsCheckedAsync(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-checked-return"/><a href="#page-is-checked-return" class="list-anchor">#</a>
 
 ---
@@ -3935,13 +3935,13 @@ Use locator-based [Locator.IsDisabledAsync()](/api/class-locator.mdx#locator-is-
 
 Returns whether the element is disabled, the opposite of [enabled](../actionability.mdx#enabled).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.IsDisabledAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-disabled-option-selector"/><a href="#page-is-disabled-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3953,7 +3953,7 @@ await Page.IsDisabledAsync(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-disabled-return"/><a href="#page-is-disabled-return" class="list-anchor">#</a>
 
 ---
@@ -3971,13 +3971,13 @@ Use locator-based [Locator.IsEditableAsync()](/api/class-locator.mdx#locator-is-
 
 Returns whether the element is [editable](../actionability.mdx#editable).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.IsEditableAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-editable-option-selector"/><a href="#page-is-editable-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -3989,7 +3989,7 @@ await Page.IsEditableAsync(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-editable-return"/><a href="#page-is-editable-return" class="list-anchor">#</a>
 
 ---
@@ -4007,13 +4007,13 @@ Use locator-based [Locator.IsEnabledAsync()](/api/class-locator.mdx#locator-is-e
 
 Returns whether the element is [enabled](../actionability.mdx#enabled).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.IsEnabledAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-enabled-option-selector"/><a href="#page-is-enabled-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4025,7 +4025,7 @@ await Page.IsEnabledAsync(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-enabled-return"/><a href="#page-is-enabled-return" class="list-anchor">#</a>
 
 ---
@@ -4043,13 +4043,13 @@ Use locator-based [Locator.IsHiddenAsync()](/api/class-locator.mdx#locator-is-hi
 
 Returns whether the element is hidden, the opposite of [visible](../actionability.mdx#visible).  [selector](/api/class-page.mdx#page-is-hidden-option-selector) that does not match any elements is considered hidden.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.IsHiddenAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-hidden-option-selector"/><a href="#page-is-hidden-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4064,7 +4064,7 @@ await Page.IsHiddenAsync(selector, options);
     :::
     
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-hidden-return"/><a href="#page-is-hidden-return" class="list-anchor">#</a>
 
 ---
@@ -4082,13 +4082,13 @@ Use locator-based [Locator.IsVisibleAsync()](/api/class-locator.mdx#locator-is-v
 
 Returns whether the element is [visible](../actionability.mdx#visible). [selector](/api/class-page.mdx#page-is-visible-option-selector) that does not match any elements is considered not visible.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.IsVisibleAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-visible-option-selector"/><a href="#page-is-visible-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4103,7 +4103,7 @@ await Page.IsVisibleAsync(selector, options);
     :::
     
 
-**傳回值**
+**Returns**
 - [bool]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-is-visible-return"/><a href="#page-is-visible-return" class="list-anchor">#</a>
 
 ---
@@ -4133,7 +4133,7 @@ If [key](/api/class-page.mdx#page-press-option-key) is a single character, it is
 
 Shortcuts such as `key: "Control+o"`, `key: "Control++` or `key: "Control+Shift+T"` are supported as well. When specified with the modifier, modifier is pressed and being held while the subsequent key is being pressed.
 
-**使用方式**
+**Usage**
 
 ```csharp
 var page = await browser.NewPageAsync();
@@ -4146,7 +4146,7 @@ await page.PressAsync("body", "Shift+O");
 await page.ScreenshotAsync(new() { Path = "O.png" });
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-press-option-selector"/><a href="#page-press-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4172,7 +4172,7 @@ await page.ScreenshotAsync(new() { Path = "O.png" });
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-press-return"/><a href="#page-press-return" class="list-anchor">#</a>
 
 ---
@@ -4190,13 +4190,13 @@ Use locator-based [Page.Locator()](/api/class-page.mdx#page-locator) instead. Re
 
 The method finds an element matching the specified selector within the page. If no elements match the selector, the return value resolves to `null`. To wait for an element on the page, use [Locator.WaitForAsync()](/api/class-locator.mdx#locator-wait-for).
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.QuerySelectorAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-query-selector-option-selector"/><a href="#page-query-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -4205,7 +4205,7 @@ await Page.QuerySelectorAsync(selector, options);
     
     When true, the call requires selector to resolve to a single element. If given selector resolves to more than one element, the call throws an exception.
 
-**傳回值**
+**Returns**
 - [ElementHandle]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-query-selector-return"/><a href="#page-query-selector-return" class="list-anchor">#</a>
 
 ---
@@ -4223,18 +4223,18 @@ Use locator-based [Page.Locator()](/api/class-page.mdx#page-locator) instead. Re
 
 The method finds all elements matching the specified selector within the page. If no elements match the selector, the return value resolves to `[]`.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.QuerySelectorAllAsync(selector);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-query-selector-all-option-selector"/><a href="#page-query-selector-all-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
 
-**傳回值**
+**Returns**
 - [IReadOnlyList]&lt;[ElementHandle]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-query-selector-all-return"/><a href="#page-query-selector-all-return" class="list-anchor">#</a>
 
 ---
@@ -4252,7 +4252,7 @@ This method is inherently racy, please use [Page.WaitForURLAsync()](/api/class-p
 
 Waits for the main frame navigation and returns the main resource response. In case of multiple redirects, the navigation will resolve with the response of the last redirect. In case of navigation to a different anchor or navigation due to History API usage, the navigation will resolve with `null`.
 
-**使用方式**
+**Usage**
 
 This resolves when the page navigates to a new URL or reloads. It is useful for when you run code which will indirectly cause the page to navigate. e.g. The click target has an `onclick` handler that triggers navigation from a `setTimeout`. Consider this example:
 
@@ -4270,7 +4270,7 @@ await page.RunAndWaitForNavigationAsync(async () =>
 Usage of the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) to change the URL is considered a navigation.
 :::
 
-**參數**
+**Arguments**
 - `action` [Func]&lt;[Task]&gt; <font size="2">Added in: v1.12</font><a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-navigation-option-action"/><a href="#page-wait-for-navigation-option-action" class="list-anchor">#</a>
   
   Action that triggers the event.
@@ -4289,7 +4289,7 @@ Usage of the [History API](https://developer.mozilla.org/en-US/docs/Web/API/Hist
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**傳回值**
+**Returns**
 - [Response]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-navigation-return"/><a href="#page-wait-for-navigation-return" class="list-anchor">#</a>
 
 ---
@@ -4307,7 +4307,7 @@ This method is inherently racy, please use [Page.WaitForURLAsync()](/api/class-p
 
 Waits for the main frame navigation and returns the main resource response. In case of multiple redirects, the navigation will resolve with the response of the last redirect. In case of navigation to a different anchor or navigation due to History API usage, the navigation will resolve with `null`.
 
-**使用方式**
+**Usage**
 
 This resolves when the page navigates to a new URL or reloads. It is useful for when you run code which will indirectly cause the page to navigate. e.g. The click target has an `onclick` handler that triggers navigation from a `setTimeout`. Consider this example:
 
@@ -4325,7 +4325,7 @@ await page.RunAndWaitForNavigationAsync(async () =>
 Usage of the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) to change the URL is considered a navigation.
 :::
 
-**參數**
+**Arguments**
 - `options` `PageRunAndWaitForNavigationOptions?` *(optional)*
   - `Timeout` [float]? *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-navigation-option-timeout"/><a href="#page-wait-for-navigation-option-timeout" class="list-anchor">#</a>
     
@@ -4341,7 +4341,7 @@ Usage of the [History API](https://developer.mozilla.org/en-US/docs/Web/API/Hist
     * `'networkidle'` - **DISCOURAGED** consider operation to be finished when there are no network connections for at least `500` ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
     * `'commit'` - consider operation to be finished when network response is received and the document started loading.
 
-**傳回值**
+**Returns**
 - [Response]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-navigation-return"/><a href="#page-wait-for-navigation-return" class="list-anchor">#</a>
 
 ---
@@ -4365,7 +4365,7 @@ Returns the array of option values that have been successfully selected.
 
 Triggers a `change` and `input` event once all the provided options have been selected.
 
-**使用方式**
+**Usage**
 
 ```csharp
 // Single selection matching the value or label
@@ -4376,7 +4376,7 @@ await page.SelectOptionAsync("select#colors", new[] { new SelectOptionValue() { 
 await page.SelectOptionAsync("select#colors", new[] { "red", "green", "blue" });
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-select-option-option-selector"/><a href="#page-select-option-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4411,7 +4411,7 @@ await page.SelectOptionAsync("select#colors", new[] { "red", "green", "blue" });
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [IReadOnlyList]&lt;[string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-select-option-return"/><a href="#page-select-option-return" class="list-anchor">#</a>
 
 ---
@@ -4438,13 +4438,13 @@ This method checks or unchecks an element matching [selector](/api/class-page.md
 
 When all steps combined have not finished during the specified [Timeout](/api/class-page.mdx#page-set-checked-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.SetCheckedAsync(selector, checked, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-checked-option-selector"/><a href="#page-set-checked-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4481,7 +4481,7 @@ await Page.SetCheckedAsync(selector, checked, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-checked-return"/><a href="#page-set-checked-return" class="list-anchor">#</a>
 
 ---
@@ -4501,13 +4501,13 @@ Sets the value of the file input to these file paths or files. If some of the `f
 
 This method expects [selector](/api/class-page.mdx#page-set-input-files-option-selector) to point to an [input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input). However, if the element is inside the `<label>` element that has an associated [control](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/control), targets the control instead.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.SetInputFilesAsync(selector, files, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-input-files-option-selector"/><a href="#page-set-input-files-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4537,7 +4537,7 @@ await Page.SetInputFilesAsync(selector, files, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-set-input-files-return"/><a href="#page-set-input-files-return" class="list-anchor">#</a>
 
 ---
@@ -4566,13 +4566,13 @@ When all steps combined have not finished during the specified [Timeout](/api/cl
 [Page.TapAsync()](/api/class-page.mdx#page-tap) the method will throw if [HasTouch](/api/class-browser.mdx#browser-new-context-option-has-touch) option of the browser context is false.
 :::
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.TapAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-tap-option-selector"/><a href="#page-tap-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4609,7 +4609,7 @@ await Page.TapAsync(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it. Note that keyboard `modifiers` will be pressed regardless of `trial` to allow testing elements which are only visible when those keys are pressed.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-tap-return"/><a href="#page-tap-return" class="list-anchor">#</a>
 
 ---
@@ -4627,13 +4627,13 @@ Use locator-based [Locator.TextContentAsync()](/api/class-locator.mdx#locator-te
 
 Returns `element.textContent`.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.TextContentAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-text-content-option-selector"/><a href="#page-text-content-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4645,7 +4645,7 @@ await Page.TextContentAsync(selector, options);
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [string]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-text-content-return"/><a href="#page-text-content-return" class="list-anchor">#</a>
 
 ---
@@ -4665,9 +4665,9 @@ Sends a `keydown`, `keypress`/`input`, and `keyup` event for each character in t
 
 To press a special key, like `Control` or `ArrowDown`, use [Keyboard.PressAsync()](/api/class-keyboard.mdx#keyboard-press).
 
-**使用方式**
+**Usage**
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-type-option-selector"/><a href="#page-type-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4693,7 +4693,7 @@ To press a special key, like `Control` or `ArrowDown`, use [Keyboard.PressAsync(
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-type-return"/><a href="#page-type-return" class="list-anchor">#</a>
 
 ---
@@ -4719,13 +4719,13 @@ This method unchecks an element matching [selector](/api/class-page.mdx#page-unc
 
 When all steps combined have not finished during the specified [Timeout](/api/class-page.mdx#page-uncheck-option-timeout), this method throws a [TimeoutError]. Passing zero timeout disables this.
 
-**使用方式**
+**Usage**
 
 ```csharp
 await Page.UncheckAsync(selector, options);
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-uncheck-option-selector"/><a href="#page-uncheck-option-selector" class="list-anchor">#</a>
   
   A selector to search for an element. If there are multiple elements satisfying the selector, the first will be used.
@@ -4759,7 +4759,7 @@ await Page.UncheckAsync(selector, options);
     
     When set, this method only performs the [actionability](../actionability.mdx) checks and skips the action. Defaults to `false`. Useful to wait until the element is ready for the action without performing it.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-uncheck-return"/><a href="#page-uncheck-return" class="list-anchor">#</a>
 
 ---
@@ -4784,7 +4784,7 @@ Playwright automatically waits for element to be ready before performing an acti
 
 Wait for the [selector](/api/class-page.mdx#page-wait-for-selector-option-selector) to satisfy [State](/api/class-page.mdx#page-wait-for-selector-option-state) option (either appear/disappear from dom, or become visible/hidden). If at the moment of calling the method [selector](/api/class-page.mdx#page-wait-for-selector-option-selector) already satisfies the condition, the method will return immediately. If the selector doesn't satisfy the condition for the [Timeout](/api/class-page.mdx#page-wait-for-selector-option-timeout) milliseconds, the function will throw.
 
-**使用方式**
+**Usage**
 
 This method works across navigations:
 
@@ -4813,7 +4813,7 @@ class FrameExamples
 }
 ```
 
-**參數**
+**Arguments**
 - `selector` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-selector-option-selector"/><a href="#page-wait-for-selector-option-selector" class="list-anchor">#</a>
   
   A selector to query for.
@@ -4832,7 +4832,7 @@ class FrameExamples
     
     Maximum time in milliseconds. Defaults to `30000` (30 seconds). Pass `0` to disable timeout. The default value can be changed by using the [BrowserContext.SetDefaultTimeout()](/api/class-browsercontext.mdx#browser-context-set-default-timeout) or [Page.SetDefaultTimeout()](/api/class-page.mdx#page-set-default-timeout) methods.
 
-**傳回值**
+**Returns**
 - [ElementHandle]?<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-selector-return"/><a href="#page-wait-for-selector-return" class="list-anchor">#</a>
 
 ---
@@ -4852,19 +4852,19 @@ Waits for the given [timeout](/api/class-page.mdx#page-wait-for-timeout-option-t
 
 Note that `page.waitForTimeout()` should only be used for debugging. Tests using the timer in production are going to be flaky. Use signals such as network events, selectors becoming visible and others instead.
 
-**使用方式**
+**Usage**
 
 ```csharp
 // Wait for 1 second
 await page.WaitForTimeoutAsync(1000);
 ```
 
-**參數**
+**Arguments**
 - `timeout` [float]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-timeout-option-timeout"/><a href="#page-wait-for-timeout-option-timeout" class="list-anchor">#</a>
   
   A timeout to wait for
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="page-wait-for-timeout-return"/><a href="#page-wait-for-timeout-return" class="list-anchor">#</a>
 
 

@@ -13,7 +13,7 @@ A result of a single [TestCase] run.
 
 ---
 
-## 屬性 (Properties)
+## Properties
 
 ### annotations {#test-result-annotations}
 
@@ -28,13 +28,13 @@ Annotations are available during test execution through [testInfo.annotations](/
 
 Learn more about [test annotations](../test-annotations.mdx).
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.annotations
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[Object]&gt;
   - `type` [string]
     
@@ -54,13 +54,13 @@ testResult.annotations
 
 The list of files or buffers attached during the test execution through [testInfo.attachments](/api/class-testinfo.mdx#test-info-attachments).
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.attachments
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[Object]&gt;
   - `name` [string]
     
@@ -83,13 +83,13 @@ testResult.attachments
 
 Running time in milliseconds.
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.duration
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -100,13 +100,13 @@ testResult.duration
 
 First error thrown during test execution, if any. This is equal to the first element in [testResult.errors](/api/class-testresult.mdx#test-result-errors).
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.error
 ```
 
-**型別 (Type)**
+**Type**
 - [TestError]
 
 ---
@@ -117,13 +117,13 @@ testResult.error
 
 Errors thrown during the test execution.
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.errors
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[TestError]&gt;
 
 ---
@@ -134,13 +134,13 @@ testResult.errors
 
 The index of the worker between `0` and `workers - 1`. It is guaranteed that workers running at the same time have a different `parallelIndex`.
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.parallelIndex
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -153,13 +153,13 @@ When test is retried multiple times, each retry attempt is given a sequential nu
 
 Learn more about [test retries](../test-retries.mdx#retries).
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.retry
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 ---
@@ -170,13 +170,13 @@ testResult.retry
 
 Start time of this particular test run.
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.startTime
 ```
 
-**型別 (Type)**
+**Type**
 - [Date]
 
 ---
@@ -187,13 +187,13 @@ testResult.startTime
 
 The status of this test result. See also [testCase.expectedStatus](/api/class-testcase.mdx#test-case-expected-status).
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.status
 ```
 
-**型別 (Type)**
+**Type**
 - "passed" | "failed" | "timedOut" | "skipped" | "interrupted"
 
 ---
@@ -204,13 +204,13 @@ testResult.status
 
 Anything written to the standard error during the test run.
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.stderr
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[string] | [Buffer]&gt;
 
 ---
@@ -221,13 +221,13 @@ testResult.stderr
 
 Anything written to the standard output during the test run.
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.stdout
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[string] | [Buffer]&gt;
 
 ---
@@ -238,13 +238,13 @@ testResult.stdout
 
 List of steps inside this test run.
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.steps
 ```
 
-**型別 (Type)**
+**Type**
 - [Array]&lt;[TestStep]&gt;
 
 ---
@@ -257,13 +257,13 @@ Index of the worker where the test was run. If the test was not run a single tim
 
 Learn more about [parallelism and sharding](../test-parallel.mdx) with Playwright Test.
 
-**使用方式**
+**Usage**
 
 ```js
 testResult.workerIndex
 ```
 
-**型別 (Type)**
+**Type**
 - [number]
 
 

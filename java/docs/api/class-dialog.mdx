@@ -39,7 +39,7 @@ Dialogs are dismissed automatically, unless there is a [Page.onDialog(handler)](
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### accept {#dialog-accept}
 
@@ -47,19 +47,19 @@ Dialogs are dismissed automatically, unless there is a [Page.onDialog(handler)](
 
 Returns when the dialog has been accepted.
 
-**使用方式**
+**Usage**
 
 ```java
 Dialog.accept();
 Dialog.accept(promptText);
 ```
 
-**參數**
+**Arguments**
 - `promptText` [String] *(optional)*<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-accept-option-prompt-text"/><a href="#dialog-accept-option-prompt-text" class="list-anchor">#</a>
   
   A text to enter in prompt. Does not cause any effects if the dialog's `type` is not prompt. Optional.
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-accept-return"/><a href="#dialog-accept-return" class="list-anchor">#</a>
 
 ---
@@ -70,13 +70,13 @@ Dialog.accept(promptText);
 
 If dialog is prompt, returns default prompt value. Otherwise, returns empty string.
 
-**使用方式**
+**Usage**
 
 ```java
 Dialog.defaultValue();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-default-value-return"/><a href="#dialog-default-value-return" class="list-anchor">#</a>
 
 ---
@@ -87,13 +87,13 @@ Dialog.defaultValue();
 
 Returns when the dialog has been dismissed.
 
-**使用方式**
+**Usage**
 
 ```java
 Dialog.dismiss();
 ```
 
-**傳回值**
+**Returns**
 - [void]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-dismiss-return"/><a href="#dialog-dismiss-return" class="list-anchor">#</a>
 
 ---
@@ -104,13 +104,13 @@ Dialog.dismiss();
 
 A message displayed in the dialog.
 
-**使用方式**
+**Usage**
 
 ```java
 Dialog.message();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-message-return"/><a href="#dialog-message-return" class="list-anchor">#</a>
 
 ---
@@ -121,13 +121,13 @@ Dialog.message();
 
 The page that initiated this dialog, if available.
 
-**使用方式**
+**Usage**
 
 ```java
 Dialog.page();
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Page]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-page-return"/><a href="#dialog-page-return" class="list-anchor">#</a>
 
 ---
@@ -138,13 +138,13 @@ Dialog.page();
 
 Returns dialog's type, can be one of `alert`, `beforeunload`, `confirm` or `prompt`.
 
-**使用方式**
+**Usage**
 
 ```java
 Dialog.type();
 ```
 
-**傳回值**
+**Returns**
 - [String]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="dialog-type-return"/><a href="#dialog-type-return" class="list-anchor">#</a>
 
 

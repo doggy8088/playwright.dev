@@ -25,7 +25,7 @@ If request gets a 'redirect' response, the request is successfully finished with
 
 ---
 
-## 方法 (Methods)
+## Methods
 
 ### allHeaders {#request-all-headers}
 
@@ -33,13 +33,13 @@ If request gets a 'redirect' response, the request is successfully finished with
 
 An object with all the request HTTP headers associated with this request. The header names are lower-cased.
 
-**使用方式**
+**Usage**
 
 ```js
 await request.allHeaders();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[Object]&lt;[string], [string]&gt;&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-all-headers-return"/><a href="#request-all-headers-return" class="list-anchor">#</a>
 
 ---
@@ -50,7 +50,7 @@ await request.allHeaders();
 
 The method returns `null` unless this request has failed, as reported by `requestfailed` event.
 
-**使用方式**
+**Usage**
 
 Example of logging of all the failed requests:
 
@@ -60,7 +60,7 @@ page.on('requestfailed', request => {
 });
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-failure-return"/><a href="#request-failure-return" class="list-anchor">#</a>
   - `errorText` [string]
     
@@ -74,13 +74,13 @@ page.on('requestfailed', request => {
 
 Returns the [Frame] that initiated this request.
 
-**使用方式**
+**Usage**
 
 ```js
 const frameUrl = request.frame().url();
 ```
 
-**傳回值**
+**Returns**
 - [Frame]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-frame-return"/><a href="#request-frame-return" class="list-anchor">#</a>
 
 **Details**
@@ -108,18 +108,18 @@ else
 
 Returns the value of the header matching the name. The name is case-insensitive.
 
-**使用方式**
+**Usage**
 
 ```js
 await request.headerValue(name);
 ```
 
-**參數**
+**Arguments**
 - `name` [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-header-value-option-name"/><a href="#request-header-value-option-name" class="list-anchor">#</a>
   
   Name of the header.
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[null] | [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-header-value-return"/><a href="#request-header-value-return" class="list-anchor">#</a>
 
 ---
@@ -130,13 +130,13 @@ await request.headerValue(name);
 
 An object with the request HTTP headers. The header names are lower-cased. Note that this method does not return security-related headers, including cookie-related ones. You can use [request.allHeaders()](/api/class-request.mdx#request-all-headers) for complete list of headers that include `cookie` information.
 
-**使用方式**
+**Usage**
 
 ```js
 request.headers();
 ```
 
-**傳回值**
+**Returns**
 - [Object]&lt;[string], [string]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-headers-return"/><a href="#request-headers-return" class="list-anchor">#</a>
 
 ---
@@ -147,13 +147,13 @@ request.headers();
 
 An array with all the request HTTP headers associated with this request. Unlike [request.allHeaders()](/api/class-request.mdx#request-all-headers), header names are NOT lower-cased. Headers with multiple entries, such as `Set-Cookie`, appear in the array multiple times.
 
-**使用方式**
+**Usage**
 
 ```js
 await request.headersArray();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[Array]&lt;[Object]&gt;&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-headers-array-return"/><a href="#request-headers-array-return" class="list-anchor">#</a>
   - `name` [string]
     
@@ -172,13 +172,13 @@ Whether this request is driving frame's navigation.
 
 Some navigation requests are issued before the corresponding frame is created, and therefore do not have [request.frame()](/api/class-request.mdx#request-frame) available.
 
-**使用方式**
+**Usage**
 
 ```js
 request.isNavigationRequest();
 ```
 
-**傳回值**
+**Returns**
 - [boolean]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-is-navigation-request-return"/><a href="#request-is-navigation-request-return" class="list-anchor">#</a>
 
 ---
@@ -189,13 +189,13 @@ request.isNavigationRequest();
 
 Request's method (GET, POST, etc.)
 
-**使用方式**
+**Usage**
 
 ```js
 request.method();
 ```
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-method-return"/><a href="#request-method-return" class="list-anchor">#</a>
 
 ---
@@ -206,13 +206,13 @@ request.method();
 
 Request's post body, if any.
 
-**使用方式**
+**Usage**
 
 ```js
 request.postData();
 ```
 
-**傳回值**
+**Returns**
 - [null] | [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-post-data-return"/><a href="#request-post-data-return" class="list-anchor">#</a>
 
 ---
@@ -223,13 +223,13 @@ request.postData();
 
 Request's post body in a binary form, if any.
 
-**使用方式**
+**Usage**
 
 ```js
 request.postDataBuffer();
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Buffer]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-post-data-buffer-return"/><a href="#request-post-data-buffer-return" class="list-anchor">#</a>
 
 ---
@@ -242,13 +242,13 @@ Returns parsed request's body for `form-urlencoded` and JSON as a fallback if an
 
 When the response is `application/x-www-form-urlencoded` then a key/value object of the values will be returned. Otherwise it will be parsed as JSON.
 
-**使用方式**
+**Usage**
 
 ```js
 request.postDataJSON();
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Serializable]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-post-data-json-return"/><a href="#request-post-data-json-return" class="list-anchor">#</a>
 
 ---
@@ -261,7 +261,7 @@ Request that was redirected by the server to this one, if any.
 
 When the server responds with a redirect, Playwright creates a new [Request] object. The two requests are connected by `redirectedFrom()` and `redirectedTo()` methods. When multiple server redirects has happened, it is possible to construct the whole redirect chain by repeatedly calling `redirectedFrom()`.
 
-**使用方式**
+**Usage**
 
 For example, if the website `http://example.com` redirects to `https://example.com`:
 
@@ -277,7 +277,7 @@ const response = await page.goto('https://google.com');
 console.log(response.request().redirectedFrom()); // null
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-redirected-from-return"/><a href="#request-redirected-from-return" class="list-anchor">#</a>
 
 ---
@@ -288,7 +288,7 @@ console.log(response.request().redirectedFrom()); // null
 
 New request issued by the browser if the server responded with redirect.
 
-**使用方式**
+**Usage**
 
 This method is the opposite of [request.redirectedFrom()](/api/class-request.mdx#request-redirected-from):
 
@@ -296,7 +296,7 @@ This method is the opposite of [request.redirectedFrom()](/api/class-request.mdx
 console.log(request.redirectedFrom().redirectedTo() === request); // true
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Request]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-redirected-to-return"/><a href="#request-redirected-to-return" class="list-anchor">#</a>
 
 ---
@@ -307,13 +307,13 @@ console.log(request.redirectedFrom().redirectedTo() === request); // true
 
 Contains the request's resource type as it was perceived by the rendering engine. ResourceType will be one of the following: `document`, `stylesheet`, `image`, `media`, `font`, `script`, `texttrack`, `xhr`, `fetch`, `eventsource`, `websocket`, `manifest`, `other`.
 
-**使用方式**
+**Usage**
 
 ```js
 request.resourceType();
 ```
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-resource-type-return"/><a href="#request-resource-type-return" class="list-anchor">#</a>
 
 ---
@@ -324,13 +324,13 @@ request.resourceType();
 
 Returns the matching [Response] object, or `null` if the response was not received due to error.
 
-**使用方式**
+**Usage**
 
 ```js
 await request.response();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[null] | [Response]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-response-return"/><a href="#request-response-return" class="list-anchor">#</a>
 
 ---
@@ -341,13 +341,13 @@ await request.response();
 
 The Service [Worker] that is performing the request.
 
-**使用方式**
+**Usage**
 
 ```js
 request.serviceWorker();
 ```
 
-**傳回值**
+**Returns**
 - [null] | [Worker]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-service-worker-return"/><a href="#request-service-worker-return" class="list-anchor">#</a>
 
 **Details**
@@ -364,13 +364,13 @@ Requests originated in a Service Worker do not have a [request.frame()](/api/cla
 
 Returns resource size information for given request.
 
-**使用方式**
+**Usage**
 
 ```js
 await request.sizes();
 ```
 
-**傳回值**
+**Returns**
 - [Promise]&lt;[Object]&gt;<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-sizes-return"/><a href="#request-sizes-return" class="list-anchor">#</a>
   - `requestBodySize` [number]
     
@@ -393,7 +393,7 @@ await request.sizes();
 
 Returns resource timing information for given request. Most of the timing values become available upon the response, `responseEnd` becomes available when request finishes. Find more information at [Resource Timing API](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming).
 
-**使用方式**
+**Usage**
 
 ```js
 const requestFinishedPromise = page.waitForEvent('requestfinished');
@@ -402,7 +402,7 @@ const request = await requestFinishedPromise;
 console.log(request.timing());
 ```
 
-**傳回值**
+**Returns**
 - [Object]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-timing-return"/><a href="#request-timing-return" class="list-anchor">#</a>
   - `startTime` [number]
     
@@ -440,13 +440,13 @@ console.log(request.timing());
 
 URL of the request.
 
-**使用方式**
+**Usage**
 
 ```js
 request.url();
 ```
 
-**傳回值**
+**Returns**
 - [string]<a aria-hidden="true" tabIndex="-1" class="list-anchor-link" id="request-url-return"/><a href="#request-url-return" class="list-anchor">#</a>
 
 
